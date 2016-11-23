@@ -1,0 +1,424 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+//using System.Threading.Tasks;
+using System.Threading;
+using System.Windows.Forms;
+
+namespace WindowsManipulations
+{
+    public partial class MainForm : Form
+    {
+        #region Fields
+
+        List<DesktopWindow> m_ListedWindows = new List<DesktopWindow>();
+        List<DesktopWindow> m_HiddenByUserWindows = new List<DesktopWindow>();
+        string m_HiddenPrefix = "[hidden]";
+        LocationAndSizeForm m_LocationForm = new LocationAndSizeForm();
+
+        #endregion
+
+
+        #region Constructors
+
+        public MainForm()
+        {
+            InitializeComponent();
+        }
+
+        #endregion
+
+
+        #region Controls Events Handlers
+
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            this.RefreshWindowsList();
+        }
+
+        private void btnRefreshWindowsList_Click(object sender, EventArgs e)
+        {
+            this.RefreshWindowsList();
+
+            ArrangeMenu();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.DoExit();
+        }
+
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.DoExit();
+        }
+
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            this.DoRestoreFormWindow();
+        }
+
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.DoRestoreFormWindow();
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+            }
+            else if (this.WindowState == FormWindowState.Normal)
+            {
+                this.RefreshWindowsList();
+            }
+        }
+
+        private void setILDASMFontsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetILDASMFonts();
+        }
+
+        private void notifyIcon1_Click(object sender, EventArgs e)
+        {
+            MethodInfo mi = typeof(NotifyIcon).GetMethod("ShowContextMenu", BindingFlags.Instance | BindingFlags.NonPublic);
+            mi.Invoke(notifyIcon1, null);
+        }
+
+        private void lstWindowsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ArrangeMenu();
+        }
+
+        private void moveWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MoveWindow();
+        }
+
+        private void clearSystemClipboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.Clear();
+        }
+
+        private void textInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new TextInfoForm().Show();
+        }
+
+        private void clipboardCmd1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText("prompt -$G$S");
+        }
+
+        private void clipboardCmd2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText("doskey pwd=echo ^%cd^%");
+        }
+
+        private void btnHideWindow_Click(object sender, EventArgs e)
+        {
+            if (lstWindowsList.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            var selIndex = lstWindowsList.SelectedIndex;
+
+            if (selIndex >= m_ListedWindows.Count)
+            {
+                MessageBox.Show("The selected window is already hidden.");
+                return;
+            }
+
+            var selectedWindow = m_ListedWindows.ElementAt(selIndex);
+
+            m_ListedWindows.RemoveAt(selIndex);
+            lstWindowsList.Items.RemoveAt(selIndex);
+
+            m_HiddenByUserWindows.Add(selectedWindow);
+
+            selectedWindow.Title = m_HiddenPrefix + selectedWindow.Title;
+            lstWindowsList.Items.Add(String.Format("{0,10} : {1}", selectedWindow.Handle, selectedWindow.Title));
+
+            User32Helper.ShowWindow(selectedWindow.Handle, User32Helper.SW_HIDE);
+        }
+
+        private void btnShowHidden_Click(object sender, EventArgs e)
+        {
+            if (lstWindowsList.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            var selIndex = lstWindowsList.SelectedIndex;
+
+            if (selIndex < m_ListedWindows.Count)
+            {
+                MessageBox.Show("The selected window is not hidden.");
+                return;
+            }
+
+            var selectedWindow = m_HiddenByUserWindows.ElementAt(selIndex - m_ListedWindows.Count);
+
+            m_HiddenByUserWindows.RemoveAt(selIndex - m_ListedWindows.Count);
+            lstWindowsList.Items.RemoveAt(selIndex);
+
+            selectedWindow.Title = selectedWindow.Title.Substring(m_HiddenPrefix.Length);
+            m_ListedWindows.Add(selectedWindow);
+
+            lstWindowsList.Items.Insert(m_ListedWindows.Count - 1, String.Format("{0,10} : {1}", selectedWindow.Handle, selectedWindow.Title));
+
+            User32Helper.ShowWindow(selectedWindow.Handle, User32Helper.SW_SHOW);
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (m_HiddenByUserWindows.Count > 0)
+            {
+                var result = MessageBox.Show("There are hidden windows.\nAre you sure to exit program?", "Windows Manipulations",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        private void moveWindowToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MoveWindow();
+        }
+
+        #endregion
+
+
+        #region Helper functions
+
+        private bool m_RefreshStarted = false;
+
+        private void RefreshWindowsList()
+        {
+            if (m_RefreshStarted)
+            {
+                return;
+            }
+
+            m_RefreshStarted = true;
+
+            var runningWindows = GetWindowList(this.chkVisibleOnly.Checked);
+
+            bool match = true;
+
+            if ((m_ListedWindows.Count + m_HiddenByUserWindows.Count) == runningWindows.Count)
+            {
+                foreach (var w in m_ListedWindows)
+                {
+                    if (!runningWindows.Contains(w))
+                    {
+                        match = false;
+                        break;
+                    }
+                }
+
+                if (match)
+                {
+                    foreach (var w in m_HiddenByUserWindows)
+                    {
+                        w.Title = w.Title.Substring(m_HiddenPrefix.Length);
+                        if (!runningWindows.Contains(w))
+                        {
+                            match = false;
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                match = false;
+            }
+
+            if (!match)
+            {
+                foreach (var window in runningWindows)
+                {
+                    if (m_ListedWindows.Contains(window))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        bool titleChanged = false;
+
+                        if (window.Title.StartsWith(m_HiddenPrefix))
+                        {
+                            window.Title = window.Title.Substring(m_HiddenPrefix.Length);
+                            titleChanged = true;
+                        }
+
+                        if (m_HiddenByUserWindows.Contains(window))
+                        {
+                            continue;
+                        }
+                        else if (titleChanged)
+                        {
+                            window.Title = m_HiddenPrefix + window.Title;
+                        }
+                    }
+
+                    m_ListedWindows.Add(window);
+                    lstWindowsList.Items.Insert(m_ListedWindows.Count - 1, String.Format("{0,10} : {1}", window.Handle, window.Title));
+                }
+
+                for (int i = 0; i < m_ListedWindows.Count; i++)
+                {
+                    var window = m_ListedWindows[i];
+                    if (!runningWindows.Contains(window))
+                    {
+                        m_ListedWindows.RemoveAt(i);
+                        lstWindowsList.Items.RemoveAt(i);
+                    }
+                }
+
+                // ** Need to improve - hidden by user windows are not listed in runningWindows
+                //
+                //for (int i = 0; i < m_HiddenByUserWindows.Count; i++)
+                //{
+                //    var window = m_ListedWindows[i];
+                //    window.Title = window.Title.Substring(m_HiddenPrefix.Length);
+
+                //    if (!runningWindows.Contains(window))
+                //    {
+                //        window.Title = m_HiddenPrefix + window.Title;
+                //        m_HiddenByUserWindows.RemoveAt(i);
+                //        lstWindowsList.Items.RemoveAt(m_ListedWindows.Count + i);
+                //    }
+                //}
+            }
+
+            m_RefreshStarted = false;
+        }
+
+        private List<DesktopWindow> GetWindowList(bool visibleOnly)
+        {
+            var result = new List<DesktopWindow>();
+
+            List<DesktopWindow> RunningWindows = User32Helper.GetDesktopWindows();
+
+            foreach (var window in RunningWindows)
+            {
+                if ((!visibleOnly) || (visibleOnly && window.IsVisible))
+                {
+                    result.Add(window);
+                }
+            }
+
+            return result;
+        }
+
+        private void DoExit()
+        {
+            this.Close();
+        }
+
+        private void DoRestoreFormWindow()
+        {
+            this.Show();
+            User32Helper.ShowWindow((IntPtr)this.Handle, User32Helper.SW_RESTORE);
+            User32Helper.SetForegroundWindow((IntPtr)this.Handle);
+        }
+
+        private void SetILDASMFonts()
+        {
+            int selected = this.lstWindowsList.SelectedIndex;
+
+            if ((selected == -1) || (!m_ListedWindows[selected].Title.Contains("IL DASM")))
+            {
+                MessageBox.Show("No IL DASM window selected.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (!User32Helper.SetForegroundWindow(m_ListedWindows[selected].Handle))
+            {
+                MessageBox.Show("IL DASM window not found. Try to refresh list.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            Thread.Sleep(100);
+
+            SendKeys.Send("%V"); // View
+            SendKeys.Send("F");  // Fonts
+            SendKeys.Send("T");  // Tree view
+            SendKeys.Send("Consolas");
+            SendKeys.Send("{TAB}");
+            SendKeys.Send("{TAB}");
+            SendKeys.Send("10"); // Font size
+            SendKeys.Send("{ENTER}");
+
+
+            SendKeys.Send("%V"); // View
+            SendKeys.Send("F");  // Fonts
+            SendKeys.Send("D");  // Disassembly
+            SendKeys.Send("Consolas");
+            SendKeys.Send("{TAB}");
+            SendKeys.Send("{TAB}");
+            SendKeys.Send("11"); // Font size
+            SendKeys.Send("{ENTER}");
+        }
+
+        private void ArrangeMenu()
+        {
+            int selected = this.lstWindowsList.SelectedIndex;
+
+            if (selected == -1)
+            {
+                setILDASMFontsToolStripMenuItem.Enabled = false;
+                return;
+            }
+
+            if (selected < m_ListedWindows.Count)
+            {
+                setILDASMFontsToolStripMenuItem.Enabled = m_ListedWindows[selected].Title.Contains("IL DASM");
+            }
+        }
+
+        private void MoveWindow()
+        {
+            int selected = this.lstWindowsList.SelectedIndex;
+            if (selected == -1)
+            {
+                return;
+            }
+
+            if (m_LocationForm == null || m_LocationForm.IsDisposed)
+            {
+                m_LocationForm = new LocationAndSizeForm();
+            }
+
+            m_LocationForm.SelectWindow(m_ListedWindows[selected].Handle);
+
+            if (!m_LocationForm.IsShown)
+            {
+                m_LocationForm.Show();
+            }
+            else
+            {
+                IntPtr locationFormHandle = m_LocationForm.Handle;
+                User32Helper.ShowWindow(locationFormHandle, User32Helper.SW_HIDE);
+                User32Helper.ShowWindow(locationFormHandle, User32Helper.SW_SHOW);
+                User32Helper.ShowWindow(locationFormHandle, User32Helper.SW_RESTORE);
+            }
+
+            this.RefreshWindowsList();
+        }
+
+        #endregion
+    }
+}
