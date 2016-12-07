@@ -424,7 +424,7 @@ namespace WindowsManipulations
 
         private void removeSpacesFromTextToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Form1().ShowDialog();
+            new RemoveSpacesForm().ShowDialog();
         }
     }
 }
