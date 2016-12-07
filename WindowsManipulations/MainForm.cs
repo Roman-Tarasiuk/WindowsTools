@@ -214,6 +214,18 @@ namespace WindowsManipulations
 
             var runningWindows = GetWindowList(this.chkVisibleOnly.Checked);
 
+            bool match = WindowsMatch(runningWindows);
+
+            if (!match)
+            {
+                UpdateWindowsLists(runningWindows);
+            }
+
+            m_RefreshStarted = false;
+        }
+
+        private bool WindowsMatch(List<DesktopWindow> runningWindows)
+        {
             bool match = true;
 
             if ((m_ListedWindows.Count + m_HiddenByUserWindows.Count) == runningWindows.Count)
@@ -245,66 +257,70 @@ namespace WindowsManipulations
                 match = false;
             }
 
-            if (!match)
+            return match;
+        }
+
+        private void UpdateWindowsLists(List<DesktopWindow> runningWindows)
+        {
+            lstWindowsList.BeginUpdate();
+
+            foreach (var window in runningWindows)
             {
-                foreach (var window in runningWindows)
+                if (m_ListedWindows.Contains(window))
                 {
-                    if (m_ListedWindows.Contains(window))
+                    continue;
+                }
+                else
+                {
+                    bool titleChanged = false;
+
+                    if (window.Title.StartsWith(m_HiddenPrefix))
+                    {
+                        window.Title = window.Title.Substring(m_HiddenPrefix.Length);
+                        titleChanged = true;
+                    }
+
+                    if (m_HiddenByUserWindows.Contains(window))
                     {
                         continue;
                     }
-                    else
+                    else if (titleChanged)
                     {
-                        bool titleChanged = false;
-
-                        if (window.Title.StartsWith(m_HiddenPrefix))
-                        {
-                            window.Title = window.Title.Substring(m_HiddenPrefix.Length);
-                            titleChanged = true;
-                        }
-
-                        if (m_HiddenByUserWindows.Contains(window))
-                        {
-                            continue;
-                        }
-                        else if (titleChanged)
-                        {
-                            window.Title = m_HiddenPrefix + window.Title;
-                        }
-                    }
-
-                    m_ListedWindows.Add(window);
-                    lstWindowsList.Items.Insert(m_ListedWindows.Count - 1, String.Format("{0,10} : {1}", window.Handle, window.Title));
-                }
-
-                for (int i = 0; i < m_ListedWindows.Count; i++)
-                {
-                    var window = m_ListedWindows[i];
-                    if (!runningWindows.Contains(window))
-                    {
-                        m_ListedWindows.RemoveAt(i);
-                        lstWindowsList.Items.RemoveAt(i);
-                        i--;
+                        window.Title = m_HiddenPrefix + window.Title;
                     }
                 }
 
-                // ** Need to improve - hidden by user windows are not listed in runningWindows
-                //
-                //for (int i = 0; i < m_HiddenByUserWindows.Count; i++)
-                //{
-                //    var window = m_ListedWindows[i];
-                //    window.Title = window.Title.Substring(m_HiddenPrefix.Length);
-
-                //    if (!runningWindows.Contains(window))
-                //    {
-                //        window.Title = m_HiddenPrefix + window.Title;
-                //        m_HiddenByUserWindows.RemoveAt(i);
-                //        lstWindowsList.Items.RemoveAt(m_ListedWindows.Count + i);
-                //    }
-                //}
+                m_ListedWindows.Add(window);
+                lstWindowsList.Items.Insert(m_ListedWindows.Count - 1, String.Format("{0,10} : {1}", window.Handle, window.Title));
             }
 
-            m_RefreshStarted = false;
+            for (int i = 0; i < m_ListedWindows.Count; i++)
+            {
+                var window = m_ListedWindows[i];
+                if (!runningWindows.Contains(window))
+                {
+                    m_ListedWindows.RemoveAt(i);
+                    lstWindowsList.Items.RemoveAt(i);
+                    i--;
+                }
+            }
+
+            lstWindowsList.EndUpdate();
+
+            // ** Need to improve - hidden by user windows are not listed in runningWindows
+            //
+            //for (int i = 0; i < m_HiddenByUserWindows.Count; i++)
+            //{
+            //    var window = m_ListedWindows[i];
+            //    window.Title = window.Title.Substring(m_HiddenPrefix.Length);
+
+            //    if (!runningWindows.Contains(window))
+            //    {
+            //        window.Title = m_HiddenPrefix + window.Title;
+            //        m_HiddenByUserWindows.RemoveAt(i);
+            //        lstWindowsList.Items.RemoveAt(m_ListedWindows.Count + i);
+            //    }
+            //}
         }
 
         private List<DesktopWindow> GetWindowList(bool visibleOnly)
