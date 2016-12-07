@@ -27,8 +27,10 @@ namespace WindowsManipulations
                 return false;
             }
 
-            return (other.Handle == this.Handle)
+            var result = (other.Handle == this.Handle)
                 && (other.Title == this.Title);
+
+            return result;
         }
     }
 

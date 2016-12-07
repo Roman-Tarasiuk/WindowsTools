@@ -39,6 +39,8 @@
             this.textInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lstWindowsList = new System.Windows.Forms.ListBox();
+            this.contextMenuStripWindowsList = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.moveWindowToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRefreshWindowsList = new System.Windows.Forms.Button();
             this.chkVisibleOnly = new System.Windows.Forms.CheckBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
@@ -54,11 +56,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnHideWindow = new System.Windows.Forms.Button();
             this.btnShowHidden = new System.Windows.Forms.Button();
-            this.contextMenuStripWindowsList = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.moveWindowToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeSpacesFromTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
-            this.contextMenuStripSysTray.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
+            this.contextMenuStripSysTray.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -95,6 +96,7 @@
             this.moveWindowToolStripMenuItem,
             this.setILDASMFontsToolStripMenuItem,
             this.textInfoToolStripMenuItem,
+            this.removeSpacesFromTextToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.ShowShortcutKeys = false;
@@ -104,7 +106,7 @@
             // moveWindowToolStripMenuItem
             // 
             this.moveWindowToolStripMenuItem.Name = "moveWindowToolStripMenuItem";
-            this.moveWindowToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.moveWindowToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.moveWindowToolStripMenuItem.Text = "Move window...";
             this.moveWindowToolStripMenuItem.Click += new System.EventHandler(this.moveWindowToolStripMenuItem_Click);
             // 
@@ -113,14 +115,14 @@
             this.setILDASMFontsToolStripMenuItem.Enabled = false;
             this.setILDASMFontsToolStripMenuItem.Name = "setILDASMFontsToolStripMenuItem";
             this.setILDASMFontsToolStripMenuItem.ShowShortcutKeys = false;
-            this.setILDASMFontsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.setILDASMFontsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.setILDASMFontsToolStripMenuItem.Text = "Set IL&DASM Fonts";
             this.setILDASMFontsToolStripMenuItem.Click += new System.EventHandler(this.setILDASMFontsToolStripMenuItem_Click);
             // 
             // textInfoToolStripMenuItem
             // 
             this.textInfoToolStripMenuItem.Name = "textInfoToolStripMenuItem";
-            this.textInfoToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.textInfoToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.textInfoToolStripMenuItem.Text = "Text info...";
             this.textInfoToolStripMenuItem.Click += new System.EventHandler(this.textInfoToolStripMenuItem_Click);
             // 
@@ -129,7 +131,7 @@
             this.optionsToolStripMenuItem.Enabled = false;
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.ShowShortcutKeys = false;
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.optionsToolStripMenuItem.Text = "&Options...";
             // 
             // lstWindowsList
@@ -148,6 +150,20 @@
             this.lstWindowsList.Size = new System.Drawing.Size(443, 235);
             this.lstWindowsList.TabIndex = 1;
             this.lstWindowsList.SelectedIndexChanged += new System.EventHandler(this.lstWindowsList_SelectedIndexChanged);
+            // 
+            // contextMenuStripWindowsList
+            // 
+            this.contextMenuStripWindowsList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.moveWindowToolStripMenuItem1});
+            this.contextMenuStripWindowsList.Name = "contextMenuStripWindowsList";
+            this.contextMenuStripWindowsList.Size = new System.Drawing.Size(159, 26);
+            // 
+            // moveWindowToolStripMenuItem1
+            // 
+            this.moveWindowToolStripMenuItem1.Name = "moveWindowToolStripMenuItem1";
+            this.moveWindowToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
+            this.moveWindowToolStripMenuItem1.Text = "Move window...";
+            this.moveWindowToolStripMenuItem1.Click += new System.EventHandler(this.moveWindowToolStripMenuItem1_Click);
             // 
             // btnRefreshWindowsList
             // 
@@ -278,19 +294,12 @@
             this.btnShowHidden.UseVisualStyleBackColor = true;
             this.btnShowHidden.Click += new System.EventHandler(this.btnShowHidden_Click);
             // 
-            // contextMenuStripWindowsList
+            // removeSpacesFromTextToolStripMenuItem
             // 
-            this.contextMenuStripWindowsList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.moveWindowToolStripMenuItem1});
-            this.contextMenuStripWindowsList.Name = "contextMenuStripWindowsList";
-            this.contextMenuStripWindowsList.Size = new System.Drawing.Size(159, 48);
-            // 
-            // moveWindowToolStripMenuItem1
-            // 
-            this.moveWindowToolStripMenuItem1.Name = "moveWindowToolStripMenuItem1";
-            this.moveWindowToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
-            this.moveWindowToolStripMenuItem1.Text = "Move window...";
-            this.moveWindowToolStripMenuItem1.Click += new System.EventHandler(this.moveWindowToolStripMenuItem1_Click);
+            this.removeSpacesFromTextToolStripMenuItem.Name = "removeSpacesFromTextToolStripMenuItem";
+            this.removeSpacesFromTextToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.removeSpacesFromTextToolStripMenuItem.Text = "Remove spaces from text...";
+            this.removeSpacesFromTextToolStripMenuItem.Click += new System.EventHandler(this.removeSpacesFromTextToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -313,8 +322,8 @@
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.contextMenuStripSysTray.ResumeLayout(false);
             this.contextMenuStripWindowsList.ResumeLayout(false);
+            this.contextMenuStripSysTray.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,5 +357,6 @@
         private System.Windows.Forms.Button btnShowHidden;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripWindowsList;
         private System.Windows.Forms.ToolStripMenuItem moveWindowToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem removeSpacesFromTextToolStripMenuItem;
     }
 }

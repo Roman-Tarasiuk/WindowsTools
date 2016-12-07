@@ -284,6 +284,7 @@ namespace WindowsManipulations
                     {
                         m_ListedWindows.RemoveAt(i);
                         lstWindowsList.Items.RemoveAt(i);
+                        i--;
                     }
                 }
 
@@ -420,5 +421,10 @@ namespace WindowsManipulations
         }
 
         #endregion
+
+        private void removeSpacesFromTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Form1().ShowDialog();
+        }
     }
 }
