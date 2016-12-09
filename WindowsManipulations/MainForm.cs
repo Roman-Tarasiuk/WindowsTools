@@ -190,6 +190,16 @@ namespace WindowsManipulations
                     e.Cancel = true;
                 }
             }
+
+            if (m_PasswordForm != null && !m_PasswordForm.IsDisposed)
+            {
+                m_PasswordForm.Close();
+
+                if (!m_PasswordForm.IsDisposed)
+                {
+                    e.Cancel = true;
+                }
+            }
         }
 
         private void moveWindowToolStripMenuItem1_Click(object sender, EventArgs e)
