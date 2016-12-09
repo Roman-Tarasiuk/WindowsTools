@@ -39,6 +39,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.chkShowPassword = new System.Windows.Forms.CheckBox();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,7 +126,7 @@
             // chkShowPassword
             // 
             this.chkShowPassword.AutoSize = true;
-            this.chkShowPassword.Location = new System.Drawing.Point(107, 265);
+            this.chkShowPassword.Location = new System.Drawing.Point(251, 265);
             this.chkShowPassword.Name = "chkShowPassword";
             this.chkShowPassword.Size = new System.Drawing.Size(101, 17);
             this.chkShowPassword.TabIndex = 6;
@@ -133,11 +134,23 @@
             this.chkShowPassword.UseVisualStyleBackColor = true;
             this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
             // 
+            // btnRemove
+            // 
+            this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRemove.Location = new System.Drawing.Point(96, 261);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.TabIndex = 7;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
             // PasswordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 296);
+            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.chkShowPassword);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label2);
@@ -167,5 +180,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.CheckBox chkShowPassword;
+        private System.Windows.Forms.Button btnRemove;
     }
 }

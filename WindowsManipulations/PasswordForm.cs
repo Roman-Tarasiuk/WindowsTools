@@ -155,5 +155,16 @@ namespace WindowsManipulations
         {
             CopyPasswordToClipboard();
         }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex == -1)
+            {
+                return;
+            }
+
+            m_Passwords.RemoveAt(listBox1.SelectedIndex);
+            listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+        }
     }
 }
