@@ -24,5 +24,20 @@ namespace WindowsManipulations
         {
             Password = txtPassword.Text;
         }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Password = txtPassword.Text;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
+            }
+        }
     }
 }

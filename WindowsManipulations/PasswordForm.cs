@@ -56,8 +56,8 @@ namespace WindowsManipulations
                 m_Pin = pinForm.Password;
             }
 
-            listBox1.Items.Add(txtDescription.Text + " : *******");
-            m_Passwords.Add(new PasswordInfo { Description = txtDescription.Text, Password = txtPassword.Text });
+            listBox1.Items.Add(txtDescription.Text + (chkShowPassword.Checked ? " : " + txtPassword.Text : " : *******"));
+            m_Passwords.Add(new PasswordInfo { Description = txtDescription.Text, Password = txtPassword.Text, Public = chkShowPassword.Checked });
 
             txtDescription.Clear();
             txtPassword.Clear();
@@ -74,6 +74,12 @@ namespace WindowsManipulations
         {
             if (listBox1.SelectedIndex == -1)
             {
+                return;
+            }
+
+            if (m_Passwords[listBox1.SelectedIndex].Public)
+            {
+                Clipboard.SetText(m_Passwords[listBox1.SelectedIndex].Password);
                 return;
             }
 
