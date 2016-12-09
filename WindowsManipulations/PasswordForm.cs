@@ -37,6 +37,8 @@ namespace WindowsManipulations
             if (m_Pin == "")
             {
                 PinForPasswordsForm pinForm = new PinForPasswordsForm();
+                pinForm.StartPosition = FormStartPosition.Manual;
+                pinForm.DesktopLocation = this.DesktopLocation;
 
                 DialogResult result = pinForm.ShowDialog();
 
@@ -84,6 +86,8 @@ namespace WindowsManipulations
             }
 
             PinForPasswordsForm pinForm = new PinForPasswordsForm();
+            pinForm.StartPosition = FormStartPosition.Manual;
+            pinForm.DesktopLocation = this.DesktopLocation;
 
             DialogResult result = pinForm.ShowDialog();
 
