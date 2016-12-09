@@ -37,6 +37,7 @@
             this.moveWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setILDASMFontsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeSpacesFromTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lstWindowsList = new System.Windows.Forms.ListBox();
             this.contextMenuStripWindowsList = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -56,7 +57,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnHideWindow = new System.Windows.Forms.Button();
             this.btnShowHidden = new System.Windows.Forms.Button();
-            this.removeSpacesFromTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.passwordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.passwordsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -97,6 +100,7 @@
             this.setILDASMFontsToolStripMenuItem,
             this.textInfoToolStripMenuItem,
             this.removeSpacesFromTextToolStripMenuItem,
+            this.passwordsToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.ShowShortcutKeys = false;
@@ -125,6 +129,13 @@
             this.textInfoToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.textInfoToolStripMenuItem.Text = "Text info...";
             this.textInfoToolStripMenuItem.Click += new System.EventHandler(this.textInfoToolStripMenuItem_Click);
+            // 
+            // removeSpacesFromTextToolStripMenuItem
+            // 
+            this.removeSpacesFromTextToolStripMenuItem.Name = "removeSpacesFromTextToolStripMenuItem";
+            this.removeSpacesFromTextToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.removeSpacesFromTextToolStripMenuItem.Text = "Remove spaces from text...";
+            this.removeSpacesFromTextToolStripMenuItem.Click += new System.EventHandler(this.removeSpacesFromTextToolStripMenuItem_Click);
             // 
             // optionsToolStripMenuItem
             // 
@@ -208,9 +219,11 @@
             this.clipboardCmd1ToolStripMenuItem,
             this.clipboardCmd2ToolStripMenuItem,
             this.toolStripSeparator3,
+            this.passwordsToolStripMenuItem1,
+            this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray.Size = new System.Drawing.Size(224, 132);
+            this.contextMenuStripSysTray.Size = new System.Drawing.Size(224, 182);
             // 
             // showToolStripMenuItem
             // 
@@ -294,12 +307,24 @@
             this.btnShowHidden.UseVisualStyleBackColor = true;
             this.btnShowHidden.Click += new System.EventHandler(this.btnShowHidden_Click);
             // 
-            // removeSpacesFromTextToolStripMenuItem
+            // passwordsToolStripMenuItem
             // 
-            this.removeSpacesFromTextToolStripMenuItem.Name = "removeSpacesFromTextToolStripMenuItem";
-            this.removeSpacesFromTextToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.removeSpacesFromTextToolStripMenuItem.Text = "Remove spaces from text...";
-            this.removeSpacesFromTextToolStripMenuItem.Click += new System.EventHandler(this.removeSpacesFromTextToolStripMenuItem_Click);
+            this.passwordsToolStripMenuItem.Name = "passwordsToolStripMenuItem";
+            this.passwordsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.passwordsToolStripMenuItem.Text = "Passwords...";
+            this.passwordsToolStripMenuItem.Click += new System.EventHandler(this.passwordsToolStripMenuItem_Click);
+            // 
+            // passwordsToolStripMenuItem1
+            // 
+            this.passwordsToolStripMenuItem1.Name = "passwordsToolStripMenuItem1";
+            this.passwordsToolStripMenuItem1.Size = new System.Drawing.Size(223, 22);
+            this.passwordsToolStripMenuItem1.Text = "Passwords...";
+            this.passwordsToolStripMenuItem1.Click += new System.EventHandler(this.passwordsToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(220, 6);
             // 
             // MainForm
             // 
@@ -358,5 +383,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStripWindowsList;
         private System.Windows.Forms.ToolStripMenuItem moveWindowToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem removeSpacesFromTextToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem passwordsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem passwordsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }

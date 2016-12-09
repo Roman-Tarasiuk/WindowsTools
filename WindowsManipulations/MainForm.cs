@@ -20,6 +20,7 @@ namespace WindowsManipulations
         List<DesktopWindow> m_HiddenByUserWindows = new List<DesktopWindow>();
         string m_HiddenPrefix = "[hidden]";
         LocationAndSizeForm m_LocationForm = new LocationAndSizeForm();
+        PasswordForm m_PasswordForm = new PasswordForm();
 
         #endregion
 
@@ -421,19 +422,24 @@ namespace WindowsManipulations
 
             m_LocationForm.SelectWindow(m_ListedWindows[selected].Handle);
 
-            if (!m_LocationForm.IsShown)
+            ShowForm(m_LocationForm);
+
+            this.RefreshWindowsList();
+        }
+
+        private void ShowForm(IShowForm form)
+        {
+            if (!form.IsShown)
             {
-                m_LocationForm.Show();
+                ((Form)form).Show();
             }
             else
             {
-                IntPtr locationFormHandle = m_LocationForm.Handle;
+                IntPtr locationFormHandle = ((Form)form).Handle;
                 User32Helper.ShowWindow(locationFormHandle, User32Helper.SW_HIDE);
                 User32Helper.ShowWindow(locationFormHandle, User32Helper.SW_SHOW);
                 User32Helper.ShowWindow(locationFormHandle, User32Helper.SW_RESTORE);
             }
-
-            this.RefreshWindowsList();
         }
 
         #endregion
@@ -441,6 +447,26 @@ namespace WindowsManipulations
         private void removeSpacesFromTextToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new RemoveSpacesForm().ShowDialog();
+        }
+
+        private void passwordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Passwords();
+        }
+
+        private void passwordsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Passwords();
+        }
+
+        private void Passwords()
+        {
+            if (m_PasswordForm == null || m_PasswordForm.IsDisposed)
+            {
+                m_PasswordForm = new PasswordForm();
+            }
+
+            ShowForm(m_PasswordForm);
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace WindowsManipulations
 {
-    public partial class LocationAndSizeForm : Form
+    public partial class LocationAndSizeForm : Form, IShowForm
     {
         #region Fields
 
