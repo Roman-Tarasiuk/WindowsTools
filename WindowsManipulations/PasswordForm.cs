@@ -65,6 +65,11 @@ namespace WindowsManipulations
 
         private void copyToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CopyPasswordToClipboard();
+        }
+
+        private void CopyPasswordToClipboard()
+        {
             if (listBox1.SelectedIndex == -1)
             {
                 return;
@@ -140,6 +145,11 @@ namespace WindowsManipulations
             {
                 txtPassword.PasswordChar = '*';
             }
+        }
+
+        private void listBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            CopyPasswordToClipboard();
         }
     }
 }
