@@ -13,7 +13,7 @@ namespace WindowsManipulations
     {
         private List<PasswordInfo> m_Passwords = new List<PasswordInfo>();
         private string m_Pin = "";
-        private int m_PinTimeSpan = 5; // Seconds
+        private TimeSpan m_PinTimeSpan = new TimeSpan(0, 0, 0, 0, 5000);
         private bool m_EnablePasswordCopy = true;
         private DateTime m_BlockStartTime;
 
@@ -72,8 +72,8 @@ namespace WindowsManipulations
 
             if (!m_EnablePasswordCopy)
             {
-                MessageBox.Show("...You have inputted wrong pin.\n"
-                    + "Wait " + (m_PinTimeSpan - (DateTime.Now - m_BlockStartTime).Seconds).ToString() + " seconds and try again.");
+                MessageBox.Show("You have inputted wrong pin.\n"
+                    + "Wait " + ((int)((m_PinTimeSpan.TotalMilliseconds - (DateTime.Now - m_BlockStartTime).TotalMilliseconds) / 1000)).ToString() + " seconds and try again...");
 
                 return;
             }
@@ -89,15 +89,15 @@ namespace WindowsManipulations
 
             if (pinForm.Password != m_Pin)
             {
-                m_PinTimeSpan *= 2;
-                timer1.Interval = m_PinTimeSpan * 1000;
+                m_PinTimeSpan += m_PinTimeSpan;
+                timer1.Interval = (int)m_PinTimeSpan.TotalMilliseconds;
                 m_EnablePasswordCopy = false;
                 m_BlockStartTime = DateTime.Now;
 
                 timer1.Start();
 
                 MessageBox.Show("You have inputted wrong pin.\n"
-                    + "Wait " + (m_PinTimeSpan).ToString() + " seconds and try again.");
+                    + "Wait " + (m_PinTimeSpan.TotalMilliseconds / 1000).ToString() + " seconds and try again.");
 
                 return;
             }
