@@ -35,10 +35,18 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moveWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.setILDASMFontsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setCmdTitleFullPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setCmdTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setCmdPromptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendCustomCommandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.textInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeSpacesFromTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.passwordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lstWindowsList = new System.Windows.Forms.ListBox();
             this.contextMenuStripWindowsList = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -57,14 +65,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnHideWindow = new System.Windows.Forms.Button();
             this.btnShowHidden = new System.Windows.Forms.Button();
-            this.setCmdTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setCmdPromptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setCmdTitleFullPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.sendCustomCommandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -117,7 +117,7 @@
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.ShowShortcutKeys = false;
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
             // moveWindowToolStripMenuItem
@@ -127,6 +127,11 @@
             this.moveWindowToolStripMenuItem.Text = "Move window...";
             this.moveWindowToolStripMenuItem.Click += new System.EventHandler(this.moveWindowToolStripMenuItem_Click);
             // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(212, 6);
+            // 
             // setILDASMFontsToolStripMenuItem
             // 
             this.setILDASMFontsToolStripMenuItem.Enabled = false;
@@ -135,6 +140,41 @@
             this.setILDASMFontsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.setILDASMFontsToolStripMenuItem.Text = "Set IL&DASM Fonts";
             this.setILDASMFontsToolStripMenuItem.Click += new System.EventHandler(this.setILDASMFontsToolStripMenuItem_Click);
+            // 
+            // setCmdTitleFullPathToolStripMenuItem
+            // 
+            this.setCmdTitleFullPathToolStripMenuItem.Name = "setCmdTitleFullPathToolStripMenuItem";
+            this.setCmdTitleFullPathToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.setCmdTitleFullPathToolStripMenuItem.Text = "Set cmd title full path";
+            this.setCmdTitleFullPathToolStripMenuItem.Click += new System.EventHandler(this.setCmdTitleFullPathToolStripMenuItem_Click);
+            // 
+            // setCmdTitleToolStripMenuItem
+            // 
+            this.setCmdTitleToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.setCmdTitleToolStripMenuItem.Name = "setCmdTitleToolStripMenuItem";
+            this.setCmdTitleToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.setCmdTitleToolStripMenuItem.Text = "Set cmd title current dir";
+            this.setCmdTitleToolStripMenuItem.Click += new System.EventHandler(this.setCmdTitleToolStripMenuItem_Click);
+            // 
+            // setCmdPromptToolStripMenuItem
+            // 
+            this.setCmdPromptToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.setCmdPromptToolStripMenuItem.Name = "setCmdPromptToolStripMenuItem";
+            this.setCmdPromptToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.setCmdPromptToolStripMenuItem.Text = "Set cmd prompt";
+            this.setCmdPromptToolStripMenuItem.Click += new System.EventHandler(this.setCmdPromptToolStripMenuItem_Click);
+            // 
+            // sendCustomCommandsToolStripMenuItem
+            // 
+            this.sendCustomCommandsToolStripMenuItem.Name = "sendCustomCommandsToolStripMenuItem";
+            this.sendCustomCommandsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.sendCustomCommandsToolStripMenuItem.Text = "Send custom commands...";
+            this.sendCustomCommandsToolStripMenuItem.Click += new System.EventHandler(this.sendCustomCommandsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(212, 6);
             // 
             // textInfoToolStripMenuItem
             // 
@@ -150,12 +190,22 @@
             this.removeSpacesFromTextToolStripMenuItem.Text = "Remove spaces from text...";
             this.removeSpacesFromTextToolStripMenuItem.Click += new System.EventHandler(this.removeSpacesFromTextToolStripMenuItem_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(212, 6);
+            // 
             // passwordsToolStripMenuItem
             // 
             this.passwordsToolStripMenuItem.Name = "passwordsToolStripMenuItem";
             this.passwordsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.passwordsToolStripMenuItem.Text = "Password Manager...";
             this.passwordsToolStripMenuItem.Click += new System.EventHandler(this.passwordsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(212, 6);
             // 
             // optionsToolStripMenuItem
             // 
@@ -316,54 +366,6 @@
             this.btnShowHidden.Text = "Show hidden";
             this.btnShowHidden.UseVisualStyleBackColor = true;
             this.btnShowHidden.Click += new System.EventHandler(this.btnShowHidden_Click);
-            // 
-            // setCmdTitleToolStripMenuItem
-            // 
-            this.setCmdTitleToolStripMenuItem.Name = "setCmdTitleToolStripMenuItem";
-            this.setCmdTitleToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.setCmdTitleToolStripMenuItem.Text = "Set cmd title current dir";
-            this.setCmdTitleToolStripMenuItem.Click += new System.EventHandler(this.setCmdTitleToolStripMenuItem_Click);
-            // 
-            // setCmdPromptToolStripMenuItem
-            // 
-            this.setCmdPromptToolStripMenuItem.Name = "setCmdPromptToolStripMenuItem";
-            this.setCmdPromptToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.setCmdPromptToolStripMenuItem.Text = "Set cmd prompt";
-            this.setCmdPromptToolStripMenuItem.Click += new System.EventHandler(this.setCmdPromptToolStripMenuItem_Click);
-            // 
-            // setCmdTitleFullPathToolStripMenuItem
-            // 
-            this.setCmdTitleFullPathToolStripMenuItem.Name = "setCmdTitleFullPathToolStripMenuItem";
-            this.setCmdTitleFullPathToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.setCmdTitleFullPathToolStripMenuItem.Text = "Set cmd title full path";
-            this.setCmdTitleFullPathToolStripMenuItem.Click += new System.EventHandler(this.setCmdTitleFullPathToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(212, 6);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(212, 6);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(212, 6);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(212, 6);
-            // 
-            // sendCustomCommandsToolStripMenuItem
-            // 
-            this.sendCustomCommandsToolStripMenuItem.Name = "sendCustomCommandsToolStripMenuItem";
-            this.sendCustomCommandsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.sendCustomCommandsToolStripMenuItem.Text = "Send custom commands...";
-            this.sendCustomCommandsToolStripMenuItem.Click += new System.EventHandler(this.sendCustomCommandsToolStripMenuItem_Click);
             // 
             // MainForm
             // 
