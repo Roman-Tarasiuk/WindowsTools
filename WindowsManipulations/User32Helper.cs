@@ -49,6 +49,9 @@ namespace WindowsManipulations
         public static extern bool EnumDesktopWindows(IntPtr hDesktop, EnumDelegate lpEnumCallbackFunction,
             IntPtr lParam);
 
+        [DllImport("User32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int uMsg, int wParam, string lParam);
+
         [DllImport("user32.dll")]
         public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
@@ -63,6 +66,9 @@ namespace WindowsManipulations
 
         [DllImport("user32.dll")]
         public static extern bool GetWindowRect(IntPtr hWnd, out Rectangle lpRect);
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr SetFocus(IntPtr hWnd);
 
         public const int HWND_BOTTOM = 1;
         public const int HWND_NOTOPMOST = -2;
@@ -88,6 +94,8 @@ namespace WindowsManipulations
         public const int SW_HIDE = 0;
         public const int SW_SHOW = 5;
         public const int SW_RESTORE = 9;
+
+        public const int WM_SETTEXT = 0x000c;
 
         public static List<DesktopWindow> GetDesktopWindows()
         {

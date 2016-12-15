@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WindowsManipulations</RootNamespace>
     <AssemblyName>WindowsManipulations</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -83,6 +83,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SendCommandsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendCommandsForm.Designer.cs">
+      <DependentUpon>SendCommandsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TextInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SendCommandsForm.resx">
+      <DependentUpon>SendCommandsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TextInfoForm.resx">
       <DependentUpon>TextInfoForm.cs</DependentUpon>
     </EmbeddedResource>

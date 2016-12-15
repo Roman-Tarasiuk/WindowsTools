@@ -136,7 +136,6 @@ namespace WindowsManipulations
             if (e.KeyCode == Keys.Enter)
             {
                 SetLocation();
-                e.SuppressKeyPress = true;
             }
             else if (e.KeyCode == Keys.Escape)
             {

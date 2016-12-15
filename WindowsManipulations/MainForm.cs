@@ -112,16 +112,6 @@ namespace WindowsManipulations
             new TextInfoForm().Show();
         }
 
-        private void clipboardCmd1ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText("prompt -$G$S");
-        }
-
-        private void clipboardCmd2ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText("doskey pwd=echo ^%cd^%");
-        }
-
         private void btnHideWindow_Click(object sender, EventArgs e)
         {
             if (lstWindowsList.SelectedIndex < 0)
@@ -381,24 +371,25 @@ namespace WindowsManipulations
 
             Thread.Sleep(100);
 
-            SendKeys.Send("%V"); // View
-            SendKeys.Send("F");  // Fonts
-            SendKeys.Send("T");  // Tree view
-            SendKeys.Send("Consolas");
-            SendKeys.Send("{TAB}");
-            SendKeys.Send("{TAB}");
-            SendKeys.Send("10"); // Font size
-            SendKeys.Send("{ENTER}");
+            SendCommands(new string[] {
+                "%V",       // View
+                "F",        // Fonts
+                "T",        // Tree view
+                "Consolas",
+                "{TAB}",
+                "{TAB}",
+                "10",       // Font size
+                "{ENTER}",
 
-
-            SendKeys.Send("%V"); // View
-            SendKeys.Send("F");  // Fonts
-            SendKeys.Send("D");  // Disassembly
-            SendKeys.Send("Consolas");
-            SendKeys.Send("{TAB}");
-            SendKeys.Send("{TAB}");
-            SendKeys.Send("11"); // Font size
-            SendKeys.Send("{ENTER}");
+                "%V",       // View
+                "F",        // Fonts
+                "D",        // Disassembly
+                "Consolas",
+                "{TAB}",
+                "{TAB}",
+                "11",       // Font size
+                "{ENTER}"
+            });
         }
 
         private void ArrangeMenu()
@@ -477,6 +468,69 @@ namespace WindowsManipulations
             }
 
             ShowForm(m_PasswordForm);
+        }
+
+        private void setCmdTitleFullPathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SendCommands(new string[] {
+                "%title {%}cd{%}%",
+                "{ENTER}"
+            });
+        }
+
+        private void setCmdTitleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SendCommands(new string[] {
+                "%for {%}* in {(}.{)} do echo {%}{~}nx* > tmp.tmp & set /P var1=<tmp.tmp%",
+                "{ENTER}",
+                "%title {%}var1{%} & del tmp.tmp & set \"var1=\"%",
+                "{ENTER}"});
+        }
+
+        private void setCmdPromptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SendCommands(new string[] {
+                "%prompt -$G$S%",
+                "{ENTER}",
+                "%doskey pwd=echo {^}{%}cd{^}{%}%",
+                "{ENTER}" });
+        }
+
+        private void SendCommands(string[] commands)
+        {
+            int selected = this.lstWindowsList.SelectedIndex;
+
+            if (selected == -1)
+            {
+                return;
+            }
+
+            if (!User32Helper.SetForegroundWindow(m_ListedWindows[selected].Handle))
+            {
+                MessageBox.Show("Window not found. Try to refresh list.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            //User32Helper.SetFocus(m_ListedWindows[selected].Handle);
+
+            Thread.Sleep(200);
+
+            for (int i = 0; i < commands.Length; i++)
+            {
+                SendKeys.Send(commands[i]);
+            }
+        }
+
+        private void sendCustomCommandsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int selected = this.lstWindowsList.SelectedIndex;
+
+            if (selected == -1)
+            {
+                return;
+            }
+
+            new SendCommandsForm(m_ListedWindows[selected].Handle).ShowDialog();
         }
     }
 }
