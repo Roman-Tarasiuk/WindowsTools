@@ -530,7 +530,7 @@ namespace WindowsManipulations
                 return;
             }
 
-            new SendCommandsForm(m_ListedWindows[selected].Handle).ShowDialog();
+            new SendCommandsForm(m_ListedWindows[selected].Handle).Show();
         }
     }
 }

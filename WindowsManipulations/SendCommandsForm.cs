@@ -17,12 +17,19 @@ namespace WindowsManipulations
         protected SendCommandsForm()
         {
             InitializeComponent();
+
+            this.TopMost = true;
         }
 
         public SendCommandsForm(IntPtr hwnd)
             : this()
         {
             m_Hwnd = hwnd;
+
+            StringBuilder title = new StringBuilder(255);
+            User32Helper.GetWindowText(m_Hwnd, title, title.Capacity + 1);
+
+            txtTitle.Text = title.ToString();
         }
 
         private void SendCommandsForm_Shown(object sender, EventArgs e)
@@ -48,6 +55,11 @@ namespace WindowsManipulations
             {
                 SendKeys.SendWait(commands[i]);
             }
+        }
+
+        private void chkTopmost_CheckedChanged(object sender, EventArgs e)
+        {
+            this.TopMost = chkTopmost.Checked;
         }
     }
 }
