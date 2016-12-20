@@ -16,6 +16,7 @@ namespace WindowsManipulations
         private TimeSpan m_PinTimeSpan = new TimeSpan(0, 0, 0, 0, 5000);
         private bool m_EnablePasswordCopy = true;
         private DateTime m_BlockStartTime;
+        private Color m_BackColor;
 
         public PasswordForm()
         {
@@ -80,6 +81,7 @@ namespace WindowsManipulations
             if (m_Passwords[listBox1.SelectedIndex].Public)
             {
                 Clipboard.SetText(m_Passwords[listBox1.SelectedIndex].Password);
+                FlashWindow();
                 return;
             }
 
@@ -118,6 +120,14 @@ namespace WindowsManipulations
             }
 
             Clipboard.SetText(m_Passwords[listBox1.SelectedIndex].Password);
+        }
+
+        private void FlashWindow()
+        {
+            m_BackColor = this.BackColor;
+            this.BackColor = Color.DarkGray;
+            timerFlash.Enabled = true;
+            timerFlash.Start();
         }
 
         private void PasswordForm_Shown(object sender, EventArgs e)
@@ -171,6 +181,13 @@ namespace WindowsManipulations
 
             m_Passwords.RemoveAt(listBox1.SelectedIndex);
             listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+        }
+
+        private void timerFlash_Tick(object sender, EventArgs e)
+        {
+            timerFlash.Stop();
+            timerFlash.Enabled = false;
+            this.BackColor = m_BackColor;
         }
     }
 }

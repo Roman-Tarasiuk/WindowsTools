@@ -41,6 +41,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.chkShowPassword = new System.Windows.Forms.CheckBox();
             this.btnRemove = new System.Windows.Forms.Button();
+            this.timerFlash = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,6 +151,11 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
+            // timerFlash
+            // 
+            this.timerFlash.Interval = 150;
+            this.timerFlash.Tick += new System.EventHandler(this.timerFlash_Tick);
+            // 
             // PasswordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,5 +193,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.CheckBox chkShowPassword;
         private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Timer timerFlash;
     }
 }
