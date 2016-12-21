@@ -174,6 +174,7 @@
             this.Text = "Passwords";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PasswordForm_FormClosing);
             this.Shown += new System.EventHandler(this.PasswordForm_Shown);
+            this.Resize += new System.EventHandler(this.PasswordForm_Resize);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
