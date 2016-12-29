@@ -47,7 +47,7 @@
             this.txtHwnd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtHwnd.Name = "txtHwnd";
             this.txtHwnd.Size = new System.Drawing.Size(168, 23);
-            this.txtHwnd.TabIndex = 0;
+            this.txtHwnd.TabIndex = 1;
             // 
             // label1
             // 
@@ -56,7 +56,7 @@
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 15);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Window handle:";
             // 
             // txtCommands
@@ -72,7 +72,7 @@
             this.txtCommands.Name = "txtCommands";
             this.txtCommands.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtCommands.Size = new System.Drawing.Size(186, 56);
-            this.txtCommands.TabIndex = 2;
+            this.txtCommands.TabIndex = 5;
             // 
             // label2
             // 
@@ -81,7 +81,7 @@
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 15);
-            this.label2.TabIndex = 3;
+            this.label2.TabIndex = 4;
             this.label2.Text = "Commands:";
             // 
             // btnSendCommands
@@ -92,7 +92,7 @@
             this.btnSendCommands.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSendCommands.Name = "btnSendCommands";
             this.btnSendCommands.Size = new System.Drawing.Size(119, 27);
-            this.btnSendCommands.TabIndex = 4;
+            this.btnSendCommands.TabIndex = 6;
             this.btnSendCommands.Text = "Send command(s)";
             this.btnSendCommands.UseVisualStyleBackColor = false;
             this.btnSendCommands.Click += new System.EventHandler(this.btnSendCommands_Click);
@@ -107,7 +107,7 @@
             this.chkTopmost.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkTopmost.Name = "chkTopmost";
             this.chkTopmost.Size = new System.Drawing.Size(75, 19);
-            this.chkTopmost.TabIndex = 5;
+            this.chkTopmost.TabIndex = 7;
             this.chkTopmost.Text = "Topmost";
             this.chkTopmost.UseVisualStyleBackColor = true;
             this.chkTopmost.CheckedChanged += new System.EventHandler(this.chkTopmost_CheckedChanged);
@@ -119,7 +119,7 @@
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 15);
-            this.label3.TabIndex = 7;
+            this.label3.TabIndex = 2;
             this.label3.Text = "Window title:";
             // 
             // txtTitle
@@ -132,7 +132,7 @@
             this.txtTitle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(186, 23);
-            this.txtTitle.TabIndex = 6;
+            this.txtTitle.TabIndex = 3;
             // 
             // SendCommandsForm
             // 

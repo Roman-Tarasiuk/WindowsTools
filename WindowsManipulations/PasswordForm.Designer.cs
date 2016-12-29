@@ -81,7 +81,7 @@
             this.txtDescription.Location = new System.Drawing.Point(81, 207);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(271, 20);
-            this.txtDescription.TabIndex = 1;
+            this.txtDescription.TabIndex = 2;
             // 
             // label1
             // 
@@ -90,7 +90,7 @@
             this.label1.Location = new System.Drawing.Point(12, 210);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 2;
+            this.label1.TabIndex = 1;
             this.label1.Text = "Description:";
             // 
             // label2
@@ -100,7 +100,7 @@
             this.label2.Location = new System.Drawing.Point(12, 236);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 4;
+            this.label2.TabIndex = 3;
             this.label2.Text = "Password:";
             // 
             // txtPassword
@@ -111,7 +111,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(271, 20);
-            this.txtPassword.TabIndex = 3;
+            this.txtPassword.TabIndex = 4;
             // 
             // btnAdd
             // 
@@ -135,7 +135,7 @@
             this.chkShowPassword.Location = new System.Drawing.Point(251, 265);
             this.chkShowPassword.Name = "chkShowPassword";
             this.chkShowPassword.Size = new System.Drawing.Size(101, 17);
-            this.chkShowPassword.TabIndex = 6;
+            this.chkShowPassword.TabIndex = 7;
             this.chkShowPassword.Text = "Show password";
             this.chkShowPassword.UseVisualStyleBackColor = true;
             this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
@@ -146,7 +146,7 @@
             this.btnRemove.Location = new System.Drawing.Point(96, 261);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
-            this.btnRemove.TabIndex = 7;
+            this.btnRemove.TabIndex = 6;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);

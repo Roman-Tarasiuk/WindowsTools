@@ -117,7 +117,7 @@
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.ShowShortcutKeys = false;
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
             // moveWindowToolStripMenuItem
@@ -266,7 +266,7 @@
             this.chkVisibleOnly.Location = new System.Drawing.Point(12, 284);
             this.chkVisibleOnly.Name = "chkVisibleOnly";
             this.chkVisibleOnly.Size = new System.Drawing.Size(78, 17);
-            this.chkVisibleOnly.TabIndex = 3;
+            this.chkVisibleOnly.TabIndex = 5;
             this.chkVisibleOnly.Text = "Visible only";
             this.chkVisibleOnly.UseVisualStyleBackColor = true;
             // 
@@ -342,7 +342,7 @@
             this.label1.Location = new System.Drawing.Point(9, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 13);
-            this.label1.TabIndex = 5;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Running windows:";
             // 
             // btnHideWindow
@@ -351,7 +351,7 @@
             this.btnHideWindow.Location = new System.Drawing.Point(461, 72);
             this.btnHideWindow.Name = "btnHideWindow";
             this.btnHideWindow.Size = new System.Drawing.Size(88, 23);
-            this.btnHideWindow.TabIndex = 6;
+            this.btnHideWindow.TabIndex = 3;
             this.btnHideWindow.Text = "Hide selected";
             this.btnHideWindow.UseVisualStyleBackColor = true;
             this.btnHideWindow.Click += new System.EventHandler(this.btnHideWindow_Click);
@@ -362,7 +362,7 @@
             this.btnShowHidden.Location = new System.Drawing.Point(461, 101);
             this.btnShowHidden.Name = "btnShowHidden";
             this.btnShowHidden.Size = new System.Drawing.Size(88, 23);
-            this.btnShowHidden.TabIndex = 7;
+            this.btnShowHidden.TabIndex = 4;
             this.btnShowHidden.Text = "Show hidden";
             this.btnShowHidden.UseVisualStyleBackColor = true;
             this.btnShowHidden.Click += new System.EventHandler(this.btnShowHidden_Click);
