@@ -65,6 +65,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnHideWindow = new System.Windows.Forms.Button();
             this.btnShowHidden = new System.Windows.Forms.Button();
+            this.copyWindowNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -235,14 +236,15 @@
             // contextMenuStripWindowsList
             // 
             this.contextMenuStripWindowsList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.moveWindowToolStripMenuItem1});
+            this.moveWindowToolStripMenuItem1,
+            this.copyWindowNameToolStripMenuItem});
             this.contextMenuStripWindowsList.Name = "contextMenuStripWindowsList";
-            this.contextMenuStripWindowsList.Size = new System.Drawing.Size(159, 26);
+            this.contextMenuStripWindowsList.Size = new System.Drawing.Size(181, 70);
             // 
             // moveWindowToolStripMenuItem1
             // 
             this.moveWindowToolStripMenuItem1.Name = "moveWindowToolStripMenuItem1";
-            this.moveWindowToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
+            this.moveWindowToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.moveWindowToolStripMenuItem1.Text = "Move window...";
             this.moveWindowToolStripMenuItem1.Click += new System.EventHandler(this.moveWindowToolStripMenuItem1_Click);
             // 
@@ -367,6 +369,13 @@
             this.btnShowHidden.UseVisualStyleBackColor = true;
             this.btnShowHidden.Click += new System.EventHandler(this.btnShowHidden_Click);
             // 
+            // copyWindowNameToolStripMenuItem
+            // 
+            this.copyWindowNameToolStripMenuItem.Name = "copyWindowNameToolStripMenuItem";
+            this.copyWindowNameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyWindowNameToolStripMenuItem.Text = "Copy window name";
+            this.copyWindowNameToolStripMenuItem.Click += new System.EventHandler(this.copyWindowNameToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -432,5 +441,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem sendCustomCommandsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyWindowNameToolStripMenuItem;
     }
 }

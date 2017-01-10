@@ -532,5 +532,16 @@ namespace WindowsManipulations
 
             new SendCommandsForm(m_ListedWindows[selected].Handle).Show();
         }
+
+        private void copyWindowNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int selected = this.lstWindowsList.SelectedIndex;
+            if (selected == -1)
+            {
+                return;
+            }
+
+            Clipboard.SetText(m_ListedWindows[selected].Title);
+        }
     }
 }
