@@ -533,12 +533,49 @@ namespace WindowsManipulations
         private void copyWindowNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int selected = this.lstWindowsList.SelectedIndex;
+
             if (selected == -1)
             {
                 return;
             }
 
             Clipboard.SetText(m_ListedWindows[selected].Title);
+        }
+
+        private void btnCloseWindow_Click(object sender, EventArgs e)
+        {
+            int selected = this.lstWindowsList.SelectedIndex;
+
+            if (selected == -1)
+            {
+                return;
+            }
+
+            User32Windows.SendMessage(m_ListedWindows[selected].Handle, User32Windows.WM_CLOSE, 0, null);
+
+            this.RefreshWindowsList();
+        }
+
+        private void btnKillWindow_Click(object sender, EventArgs e)
+        {
+            int selected = this.lstWindowsList.SelectedIndex;
+
+            if (selected == -1)
+            {
+                return;
+            }
+
+            int hwnd;
+            User32Windows.GetWindowThreadProcessId(m_ListedWindows[selected].Handle, out hwnd);
+
+            System.Diagnostics.Process installProcess = new System.Diagnostics.Process();
+            installProcess.StartInfo.FileName = "taskkill";
+            installProcess.StartInfo.Arguments = @"/f /pid " + hwnd.ToString();
+
+            installProcess.Start();
+            installProcess.WaitForExit();
+
+            this.RefreshWindowsList();
         }
     }
 }

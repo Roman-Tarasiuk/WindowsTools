@@ -51,6 +51,7 @@
             this.lstWindowsList = new System.Windows.Forms.ListBox();
             this.contextMenuStripWindowsList = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.moveWindowToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyWindowNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRefreshWindowsList = new System.Windows.Forms.Button();
             this.chkVisibleOnly = new System.Windows.Forms.CheckBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
@@ -65,7 +66,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnHideWindow = new System.Windows.Forms.Button();
             this.btnShowHidden = new System.Windows.Forms.Button();
-            this.copyWindowNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnKillWindow = new System.Windows.Forms.Button();
+            this.btnCloseWindow = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -239,7 +241,7 @@
             this.moveWindowToolStripMenuItem1,
             this.copyWindowNameToolStripMenuItem});
             this.contextMenuStripWindowsList.Name = "contextMenuStripWindowsList";
-            this.contextMenuStripWindowsList.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStripWindowsList.Size = new System.Drawing.Size(181, 48);
             // 
             // moveWindowToolStripMenuItem1
             // 
@@ -247,6 +249,13 @@
             this.moveWindowToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.moveWindowToolStripMenuItem1.Text = "Move window...";
             this.moveWindowToolStripMenuItem1.Click += new System.EventHandler(this.moveWindowToolStripMenuItem1_Click);
+            // 
+            // copyWindowNameToolStripMenuItem
+            // 
+            this.copyWindowNameToolStripMenuItem.Name = "copyWindowNameToolStripMenuItem";
+            this.copyWindowNameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyWindowNameToolStripMenuItem.Text = "Copy window name";
+            this.copyWindowNameToolStripMenuItem.Click += new System.EventHandler(this.copyWindowNameToolStripMenuItem_Click);
             // 
             // btnRefreshWindowsList
             // 
@@ -369,18 +378,35 @@
             this.btnShowHidden.UseVisualStyleBackColor = true;
             this.btnShowHidden.Click += new System.EventHandler(this.btnShowHidden_Click);
             // 
-            // copyWindowNameToolStripMenuItem
+            // btnKillWindow
             // 
-            this.copyWindowNameToolStripMenuItem.Name = "copyWindowNameToolStripMenuItem";
-            this.copyWindowNameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.copyWindowNameToolStripMenuItem.Text = "Copy window name";
-            this.copyWindowNameToolStripMenuItem.Click += new System.EventHandler(this.copyWindowNameToolStripMenuItem_Click);
+            this.btnKillWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnKillWindow.Location = new System.Drawing.Point(461, 183);
+            this.btnKillWindow.Name = "btnKillWindow";
+            this.btnKillWindow.Size = new System.Drawing.Size(88, 23);
+            this.btnKillWindow.TabIndex = 6;
+            this.btnKillWindow.Text = "Kill selected";
+            this.btnKillWindow.UseVisualStyleBackColor = true;
+            this.btnKillWindow.Click += new System.EventHandler(this.btnKillWindow_Click);
+            // 
+            // btnCloseWindow
+            // 
+            this.btnCloseWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCloseWindow.Location = new System.Drawing.Point(461, 154);
+            this.btnCloseWindow.Name = "btnCloseWindow";
+            this.btnCloseWindow.Size = new System.Drawing.Size(88, 23);
+            this.btnCloseWindow.TabIndex = 7;
+            this.btnCloseWindow.Text = "Close selected";
+            this.btnCloseWindow.UseVisualStyleBackColor = true;
+            this.btnCloseWindow.Click += new System.EventHandler(this.btnCloseWindow_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 313);
+            this.Controls.Add(this.btnCloseWindow);
+            this.Controls.Add(this.btnKillWindow);
             this.Controls.Add(this.btnShowHidden);
             this.Controls.Add(this.btnHideWindow);
             this.Controls.Add(this.label1);
@@ -442,5 +468,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem sendCustomCommandsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copyWindowNameToolStripMenuItem;
+        private System.Windows.Forms.Button btnKillWindow;
+        private System.Windows.Forms.Button btnCloseWindow;
     }
 }
