@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-//using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
+
+using User32Helper;
 
 namespace WindowsManipulations
 {
@@ -137,7 +134,7 @@ namespace WindowsManipulations
             selectedWindow.Title = m_HiddenPrefix + selectedWindow.Title;
             lstWindowsList.Items.Add(String.Format("{0,10} : {1}", selectedWindow.Handle, selectedWindow.Title));
 
-            User32Helper.ShowWindow(selectedWindow.Handle, User32Helper.SW_HIDE);
+            User32Windows.ShowWindow(selectedWindow.Handle, User32Windows.SW_HIDE);
         }
 
         private void btnShowHidden_Click(object sender, EventArgs e)
@@ -165,7 +162,7 @@ namespace WindowsManipulations
 
             lstWindowsList.Items.Insert(m_ListedWindows.Count - 1, String.Format("{0,10} : {1}", selectedWindow.Handle, selectedWindow.Title));
 
-            User32Helper.ShowWindow(selectedWindow.Handle, User32Helper.SW_SHOW);
+            User32Windows.ShowWindow(selectedWindow.Handle, User32Windows.SW_SHOW);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -328,7 +325,7 @@ namespace WindowsManipulations
         {
             var result = new List<DesktopWindow>();
 
-            List<DesktopWindow> RunningWindows = User32Helper.GetDesktopWindows();
+            List<DesktopWindow> RunningWindows = User32Windows.GetDesktopWindows();
 
             foreach (var window in RunningWindows)
             {
@@ -349,8 +346,8 @@ namespace WindowsManipulations
         private void DoRestoreFormWindow()
         {
             this.Show();
-            User32Helper.ShowWindow((IntPtr)this.Handle, User32Helper.SW_RESTORE);
-            User32Helper.SetForegroundWindow((IntPtr)this.Handle);
+            User32Windows.ShowWindow((IntPtr)this.Handle, User32Windows.SW_RESTORE);
+            User32Windows.SetForegroundWindow((IntPtr)this.Handle);
         }
 
         private void SetILDASMFonts()
@@ -363,7 +360,7 @@ namespace WindowsManipulations
                 return;
             }
 
-            if (!User32Helper.SetForegroundWindow(m_ListedWindows[selected].Handle))
+            if (!User32Windows.SetForegroundWindow(m_ListedWindows[selected].Handle))
             {
                 MessageBox.Show("IL DASM window not found. Try to refresh list.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -437,9 +434,9 @@ namespace WindowsManipulations
             else
             {
                 IntPtr locationFormHandle = ((Form)form).Handle;
-                User32Helper.ShowWindow(locationFormHandle, User32Helper.SW_HIDE);
-                User32Helper.ShowWindow(locationFormHandle, User32Helper.SW_SHOW);
-                User32Helper.ShowWindow(locationFormHandle, User32Helper.SW_RESTORE);
+                User32Windows.ShowWindow(locationFormHandle, User32Windows.SW_HIDE);
+                User32Windows.ShowWindow(locationFormHandle, User32Windows.SW_SHOW);
+                User32Windows.ShowWindow(locationFormHandle, User32Windows.SW_RESTORE);
             }
         }
 
@@ -505,13 +502,13 @@ namespace WindowsManipulations
                 return;
             }
 
-            if (!User32Helper.SetForegroundWindow(m_ListedWindows[selected].Handle))
+            if (!User32Windows.SetForegroundWindow(m_ListedWindows[selected].Handle))
             {
                 MessageBox.Show("Window not found. Try to refresh list.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            //User32Helper.SetFocus(m_ListedWindows[selected].Handle);
+            //User32Windows.SetFocus(m_ListedWindows[selected].Handle);
 
             Thread.Sleep(200);
 

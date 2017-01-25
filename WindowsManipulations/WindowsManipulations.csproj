@@ -47,6 +47,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="User32Helper">
+      <HintPath>..\..\User32Helper\bin\Release\User32Helper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IShowForm.cs" />
@@ -95,7 +99,6 @@
     <Compile Include="TextInfoForm.Designer.cs">
       <DependentUpon>TextInfoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="User32Helper.cs" />
     <EmbeddedResource Include="LocationAndSizeForm.resx">
       <DependentUpon>LocationAndSizeForm.cs</DependentUpon>
     </EmbeddedResource>

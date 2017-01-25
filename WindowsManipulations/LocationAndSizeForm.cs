@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+
+using User32Helper;
 
 namespace WindowsManipulations
 {
@@ -104,7 +101,7 @@ namespace WindowsManipulations
 
         private void GetCharacteristics()
         {
-            User32Helper.GetWindowRect(m_Hwnd, out m_WindowRect);
+            User32Windows.GetWindowRect(m_Hwnd, out m_WindowRect);
 
             txtCurrentLeft.Text = m_WindowRect.Left.ToString();
             txtCurrentTop.Text = m_WindowRect.Top.ToString();
@@ -127,7 +124,7 @@ namespace WindowsManipulations
             int width = txtNewWidth.Text != "" ? int.Parse(txtNewWidth.Text) : m_WindowRect.Width - m_WindowRect.Left;
             int height = txtNewHeight.Text != "" ? int.Parse(txtNewHeight.Text) : m_WindowRect.Height - m_WindowRect.Top;
 
-            User32Helper.SetWindowPos(m_Hwnd, User32Helper.HWND_TOP, left, top, width, height, User32Helper.SWP_NOZORDER);
+            User32Windows.SetWindowPos(m_Hwnd, User32Windows.HWND_TOP, left, top, width, height, User32Windows.SWP_NOZORDER);
             GetCharacteristics();
         }
 

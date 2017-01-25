@@ -86,6 +86,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PinForPasswordsForm";
+            this.ShowInTaskbar = false;
             this.Text = "Pin for passwords";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+
+using User32Helper;
 
 namespace WindowsManipulations
 {
@@ -27,7 +24,7 @@ namespace WindowsManipulations
             m_Hwnd = hwnd;
 
             StringBuilder title = new StringBuilder(255);
-            User32Helper.GetWindowText(m_Hwnd, title, title.Capacity + 1);
+            User32Windows.GetWindowText(m_Hwnd, title, title.Capacity + 1);
 
             txtTitle.Text = title.ToString();
         }
@@ -41,7 +38,7 @@ namespace WindowsManipulations
         {
             IntPtr hwnd = (IntPtr)int.Parse(txtHwnd.Text);
 
-            if (!User32Helper.SetForegroundWindow(hwnd))
+            if (!User32Windows.SetForegroundWindow(hwnd))
             {
                 MessageBox.Show("Window not found. Try to refresh list.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
