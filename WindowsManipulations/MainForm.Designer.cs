@@ -234,6 +234,7 @@
             this.lstWindowsList.Size = new System.Drawing.Size(443, 235);
             this.lstWindowsList.TabIndex = 1;
             this.lstWindowsList.SelectedIndexChanged += new System.EventHandler(this.lstWindowsList_SelectedIndexChanged);
+            this.lstWindowsList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstWindowsList_MouseDown);
             // 
             // contextMenuStripWindowsList
             // 

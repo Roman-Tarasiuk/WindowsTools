@@ -577,5 +577,12 @@ namespace WindowsManipulations
 
             this.RefreshWindowsList();
         }
+
+        // http://stackoverflow.com/questions/9220501/right-click-to-select-items-in-a-listbox
+
+        private void lstWindowsList_MouseDown(object sender, MouseEventArgs e)
+        {
+            lstWindowsList.SelectedIndex = lstWindowsList.IndexFromPoint(e.X, e.Y);
+        }
     }
 }
