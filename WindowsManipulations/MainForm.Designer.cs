@@ -393,6 +393,7 @@
             // btnCloseWindow
             // 
             this.btnCloseWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCloseWindow.Enabled = false;
             this.btnCloseWindow.Location = new System.Drawing.Point(461, 154);
             this.btnCloseWindow.Name = "btnCloseWindow";
             this.btnCloseWindow.Size = new System.Drawing.Size(88, 23);
