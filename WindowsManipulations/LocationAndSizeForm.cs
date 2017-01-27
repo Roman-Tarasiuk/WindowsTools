@@ -18,7 +18,7 @@ namespace WindowsManipulations
         #endregion
 
 
-        #region Properties
+        #region Implemented interfaces
 
         public bool IsShown { get; protected set; }
 

@@ -54,6 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IShowForm.cs" />
+    <Compile Include="MouseTrackingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MouseTrackingForm.Designer.cs">
+      <DependentUpon>MouseTrackingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MouseTrackingForm.resx">
+      <DependentUpon>MouseTrackingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PasswordForm.resx">
       <DependentUpon>PasswordForm.cs</DependentUpon>

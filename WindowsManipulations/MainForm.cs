@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -13,11 +14,14 @@ namespace WindowsManipulations
     {
         #region Fields
 
-        List<DesktopWindow> m_ListedWindows = new List<DesktopWindow>();
-        List<DesktopWindow> m_HiddenByUserWindows = new List<DesktopWindow>();
-        string m_HiddenPrefix = "[hidden]";
-        LocationAndSizeForm m_LocationForm = new LocationAndSizeForm();
-        PasswordForm m_PasswordForm = new PasswordForm();
+        private List<DesktopWindow> m_ListedWindows = new List<DesktopWindow>();
+        private List<DesktopWindow> m_HiddenByUserWindows = new List<DesktopWindow>();
+        private string m_HiddenPrefix = "[hidden]";
+        private LocationAndSizeForm m_LocationForm = new LocationAndSizeForm();
+        private PasswordForm m_PasswordForm = new PasswordForm();
+        private MouseTrackingForm m_TrackingForm = new MouseTrackingForm();
+        private bool m_MouseTrackingStarted = false;
+        private bool m_RefreshStarted = false;
 
         #endregion
 
@@ -194,12 +198,194 @@ namespace WindowsManipulations
             MoveWindow();
         }
 
+        private void removeSpacesFromTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new RemoveSpacesForm().ShowDialog();
+        }
+
+        private void passwordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Passwords();
+        }
+
+        private void passwordsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Passwords();
+        }
+
+        private void setCmdTitleFullPathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SendCommands(new string[] {
+                "%title {%}cd{%}%",
+                "{ENTER}"
+            });
+        }
+
+        private void setCmdTitleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SendCommands(new string[] {
+                "%for {%}* in {(}.{)} do echo {%}{~}nx* > tmp.tmp & set /P var1=<tmp.tmp%",
+                "{ENTER}",
+                "%title {%}var1{%} & del tmp.tmp & set \"var1=\"%",
+                "{ENTER}"});
+        }
+
+        private void setCmdPromptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SendCommands(new string[] {
+                "%prompt -$G$S%",
+                "{ENTER}",
+                "%doskey pwd=echo {^}{%}cd{^}{%}%",
+                "{ENTER}" });
+        }
+
+        private void sendCustomCommandsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int selected = this.lstWindowsList.SelectedIndex;
+
+            if (selected == -1)
+            {
+                return;
+            }
+
+            new SendCommandsForm(m_ListedWindows[selected].Handle).Show();
+        }
+
+        private void copyWindowNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int selected = this.lstWindowsList.SelectedIndex;
+
+            if (selected == -1)
+            {
+                return;
+            }
+
+            Clipboard.SetText(m_ListedWindows[selected].Title);
+        }
+
+        private void copyWindowHwndToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int selected = this.lstWindowsList.SelectedIndex;
+
+            if (selected == -1)
+            {
+                return;
+            }
+
+            Clipboard.SetText(m_ListedWindows[selected].Handle.ToString());
+        }
+
+        private void btnCloseWindow_Click(object sender, EventArgs e)
+        {
+            int selected = this.lstWindowsList.SelectedIndex;
+
+            if (selected == -1)
+            {
+                return;
+            }
+
+            User32Windows.SendMessage(m_ListedWindows[selected].Handle, User32Windows.WM_CLOSE, 0, null);
+
+            this.RefreshWindowsList();
+        }
+
+        private void btnKillWindow_Click(object sender, EventArgs e)
+        {
+            int selected = this.lstWindowsList.SelectedIndex;
+
+            if (selected == -1)
+            {
+                return;
+            }
+
+            int hwnd;
+            User32Windows.GetWindowThreadProcessId(m_ListedWindows[selected].Handle, out hwnd);
+
+            System.Diagnostics.Process installProcess = new System.Diagnostics.Process();
+            installProcess.StartInfo.FileName = "taskkill";
+            installProcess.StartInfo.Arguments = @"/f /pid " + hwnd.ToString();
+
+            installProcess.Start();
+            installProcess.WaitForExit();
+
+            this.RefreshWindowsList();
+        }
+
+        // http://stackoverflow.com/questions/9220501/right-click-to-select-items-in-a-listbox
+
+        private void lstWindowsList_MouseDown(object sender, MouseEventArgs e)
+        {
+            lstWindowsList.SelectedIndex = lstWindowsList.IndexFromPoint(e.X, e.Y);
+        }
+
+        private void mouseTrackingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckTrackingForm();
+
+            ShowForm(m_TrackingForm);
+        }
+
+        private void contextMenuStripSysTray_Opened(object sender, EventArgs e)
+        {
+            CheckTrackingForm();
+
+            if (m_MouseTrackingStarted)
+            {
+                m_TrackingForm.StopTracking();
+            }
+        }
+
+        private void contextMenuStripSysTray_MouseHover(object sender, EventArgs e)
+        {
+            if (m_MouseTrackingStarted)
+            {
+                m_TrackingForm.StopTracking();
+            }
+        }
+
+        private void contextMenuStripSysTray_MouseLeave(object sender, EventArgs e)
+        {
+            if (m_MouseTrackingStarted)
+            {
+                m_TrackingForm.StartTracking();
+            }
+        }
+
+        private void mouseTrackingToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //CheckTrackingForm();
+
+            if (mouseTrackingToolStripMenuItem1.Text == "Start mouse tracking")
+            {
+                m_TrackingForm.StartTracking();
+                mouseTrackingToolStripMenuItem1.Text = "Stop mouse tracking";
+                m_MouseTrackingStarted = true;
+            }
+            else
+            {
+                m_TrackingForm.StopTracking();
+                mouseTrackingToolStripMenuItem1.Text = "Start mouse tracking";
+                m_MouseTrackingStarted = false;
+            }
+        }
+
+        private void addToTrackingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int selected = this.lstWindowsList.SelectedIndex;
+
+            if (selected == -1)
+            {
+                return;
+            }
+
+            CheckTrackingForm();
+            m_TrackingForm.AddToTracking(m_ListedWindows[selected].Handle);
+        }
+
         #endregion
 
 
         #region Helper functions
-
-        private bool m_RefreshStarted = false;
 
         private void RefreshWindowsList()
         {
@@ -440,23 +626,6 @@ namespace WindowsManipulations
             }
         }
 
-        #endregion
-
-        private void removeSpacesFromTextToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new RemoveSpacesForm().ShowDialog();
-        }
-
-        private void passwordsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Passwords();
-        }
-
-        private void passwordsToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Passwords();
-        }
-
         private void Passwords()
         {
             if (m_PasswordForm == null || m_PasswordForm.IsDisposed)
@@ -465,32 +634,6 @@ namespace WindowsManipulations
             }
 
             ShowForm(m_PasswordForm);
-        }
-
-        private void setCmdTitleFullPathToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SendCommands(new string[] {
-                "%title {%}cd{%}%",
-                "{ENTER}"
-            });
-        }
-
-        private void setCmdTitleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SendCommands(new string[] {
-                "%for {%}* in {(}.{)} do echo {%}{~}nx* > tmp.tmp & set /P var1=<tmp.tmp%",
-                "{ENTER}",
-                "%title {%}var1{%} & del tmp.tmp & set \"var1=\"%",
-                "{ENTER}"});
-        }
-
-        private void setCmdPromptToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SendCommands(new string[] {
-                "%prompt -$G$S%",
-                "{ENTER}",
-                "%doskey pwd=echo {^}{%}cd{^}{%}%",
-                "{ENTER}" });
         }
 
         private void SendCommands(string[] commands)
@@ -518,71 +661,27 @@ namespace WindowsManipulations
             }
         }
 
-        private void sendCustomCommandsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CheckTrackingForm()
         {
-            int selected = this.lstWindowsList.SelectedIndex;
-
-            if (selected == -1)
+            if (m_TrackingForm == null || m_TrackingForm.IsDisposed)
             {
-                return;
+                m_TrackingForm = new MouseTrackingForm();
+                mouseTrackingToolStripMenuItem1.Text = "Start mouse tracking";
+                m_MouseTrackingStarted = false;
             }
 
-            new SendCommandsForm(m_ListedWindows[selected].Handle).Show();
-        }
-
-        private void copyWindowNameToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            int selected = this.lstWindowsList.SelectedIndex;
-
-            if (selected == -1)
+            if (m_TrackingForm.IsTracking)
             {
-                return;
+                mouseTrackingToolStripMenuItem1.Text = "Stop mouse tracking";
+                m_MouseTrackingStarted = true;
             }
-
-            Clipboard.SetText(m_ListedWindows[selected].Title);
-        }
-
-        private void btnCloseWindow_Click(object sender, EventArgs e)
-        {
-            int selected = this.lstWindowsList.SelectedIndex;
-
-            if (selected == -1)
+            else
             {
-                return;
+                mouseTrackingToolStripMenuItem1.Text = "Start mouse tracking";
+                m_MouseTrackingStarted = false;
             }
-
-            User32Windows.SendMessage(m_ListedWindows[selected].Handle, User32Windows.WM_CLOSE, 0, null);
-
-            this.RefreshWindowsList();
         }
 
-        private void btnKillWindow_Click(object sender, EventArgs e)
-        {
-            int selected = this.lstWindowsList.SelectedIndex;
-
-            if (selected == -1)
-            {
-                return;
-            }
-
-            int hwnd;
-            User32Windows.GetWindowThreadProcessId(m_ListedWindows[selected].Handle, out hwnd);
-
-            System.Diagnostics.Process installProcess = new System.Diagnostics.Process();
-            installProcess.StartInfo.FileName = "taskkill";
-            installProcess.StartInfo.Arguments = @"/f /pid " + hwnd.ToString();
-
-            installProcess.Start();
-            installProcess.WaitForExit();
-
-            this.RefreshWindowsList();
-        }
-
-        // http://stackoverflow.com/questions/9220501/right-click-to-select-items-in-a-listbox
-
-        private void lstWindowsList_MouseDown(object sender, MouseEventArgs e)
-        {
-            lstWindowsList.SelectedIndex = lstWindowsList.IndexFromPoint(e.X, e.Y);
-        }
+        #endregion
     }
 }

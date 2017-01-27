@@ -195,6 +195,7 @@ namespace WindowsManipulations
             if (this.WindowState == FormWindowState.Minimized)
             {
                 this.Hide();
+                IsShown = false;
             }
         }
     }
