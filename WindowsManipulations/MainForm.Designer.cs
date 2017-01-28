@@ -72,6 +72,7 @@
             this.btnShowHidden = new System.Windows.Forms.Button();
             this.btnKillWindow = new System.Windows.Forms.Button();
             this.btnCloseWindow = new System.Windows.Forms.Button();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -125,7 +126,7 @@
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.ShowShortcutKeys = false;
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
             // moveWindowToolStripMenuItem
@@ -253,10 +254,11 @@
             this.contextMenuStripWindowsList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.moveWindowToolStripMenuItem1,
             this.addToTrackingToolStripMenuItem,
-            this.copyWindowNameToolStripMenuItem,
-            this.copyWindowHwndToolStripMenuItem});
+            this.toolStripSeparator8,
+            this.copyWindowHwndToolStripMenuItem,
+            this.copyWindowNameToolStripMenuItem});
             this.contextMenuStripWindowsList.Name = "contextMenuStripWindowsList";
-            this.contextMenuStripWindowsList.Size = new System.Drawing.Size(181, 92);
+            this.contextMenuStripWindowsList.Size = new System.Drawing.Size(181, 120);
             // 
             // moveWindowToolStripMenuItem1
             // 
@@ -331,7 +333,7 @@
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray.Size = new System.Drawing.Size(206, 154);
+            this.contextMenuStripSysTray.Size = new System.Drawing.Size(206, 132);
             this.contextMenuStripSysTray.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
             this.contextMenuStripSysTray.MouseHover += new System.EventHandler(this.contextMenuStripSysTray_MouseHover);
@@ -441,6 +443,11 @@
             this.btnCloseWindow.UseVisualStyleBackColor = true;
             this.btnCloseWindow.Click += new System.EventHandler(this.btnCloseWindow_Click);
             // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -515,5 +522,6 @@
         private System.Windows.Forms.ToolStripMenuItem mouseTrackingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mouseTrackingToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addToTrackingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
     }
 }
