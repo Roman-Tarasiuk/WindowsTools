@@ -620,8 +620,6 @@ namespace WindowsManipulations
             else
             {
                 IntPtr locationFormHandle = ((Form)form).Handle;
-                User32Windows.ShowWindow(locationFormHandle, User32Windows.SW_HIDE);
-                User32Windows.ShowWindow(locationFormHandle, User32Windows.SW_SHOW);
                 User32Windows.ShowWindow(locationFormHandle, User32Windows.SW_RESTORE);
             }
         }

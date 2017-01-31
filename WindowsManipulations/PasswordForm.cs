@@ -135,6 +135,14 @@ namespace WindowsManipulations
             IsShown = true;
         }
 
+        private void PasswordForm_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+            }
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
@@ -188,15 +196,6 @@ namespace WindowsManipulations
             timerFlash.Stop();
             timerFlash.Enabled = false;
             this.BackColor = m_BackColor;
-        }
-
-        private void PasswordForm_Resize(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Minimized)
-            {
-                this.Hide();
-                IsShown = false;
-            }
         }
     }
 }
