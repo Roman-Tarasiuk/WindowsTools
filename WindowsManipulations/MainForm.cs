@@ -619,8 +619,9 @@ namespace WindowsManipulations
             }
             else
             {
-                IntPtr locationFormHandle = ((Form)form).Handle;
-                User32Windows.ShowWindow(locationFormHandle, User32Windows.SW_RESTORE);
+                IntPtr handle = ((Form)form).Handle;
+                User32Windows.ShowWindow(handle, User32Windows.SW_RESTORE);
+                User32Windows.SetForegroundWindow(handle);
             }
         }
 
