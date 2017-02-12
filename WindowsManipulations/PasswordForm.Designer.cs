@@ -171,7 +171,7 @@
             this.Controls.Add(this.listBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PasswordForm";
-            this.Text = "Passwords";
+            this.Text = "Password Manager";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PasswordForm_FormClosing);
             this.Shown += new System.EventHandler(this.PasswordForm_Shown);
             this.Resize += new System.EventHandler(this.PasswordForm_Resize);
