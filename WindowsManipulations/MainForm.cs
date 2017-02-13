@@ -19,7 +19,7 @@ namespace WindowsManipulations
         private string m_HiddenPrefix = "[hidden]";
         private LocationAndSizeForm m_LocationForm = new LocationAndSizeForm();
         private PasswordForm m_PasswordForm = new PasswordForm();
-        private MouseTrackingForm m_TrackingForm = new MouseTrackingForm();
+        private WindowsTrackingForm m_TrackingForm = new WindowsTrackingForm();
         private bool m_MouseTrackingStarted = false;
         private bool m_RefreshStarted = false;
 
@@ -664,7 +664,7 @@ namespace WindowsManipulations
         {
             if (m_TrackingForm == null || m_TrackingForm.IsDisposed)
             {
-                m_TrackingForm = new MouseTrackingForm();
+                m_TrackingForm = new WindowsTrackingForm();
                 mouseTrackingToolStripMenuItem1.Text = "Start mouse tracking";
                 m_MouseTrackingStarted = false;
             }

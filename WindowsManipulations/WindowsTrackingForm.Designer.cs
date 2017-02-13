@@ -1,6 +1,6 @@
 ﻿namespace WindowsManipulations
 {
-    partial class MouseTrackingForm
+    partial class WindowsTrackingForm
     {
         /// <summary>
         /// Required designer variable.
@@ -73,7 +73,7 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // MouseTrackingForm
+            // WindowsTrackingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -81,9 +81,9 @@
             this.Controls.Add(this.btnStartTracking);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtHwndList);
-            this.Name = "MouseTrackingForm";
+            this.Name = "WindowsTrackingForm";
             this.ShowInTaskbar = false;
-            this.Text = "Mouse tracking";
+            this.Text = "Windows tracking";
             this.Shown += new System.EventHandler(this.MouseTrackingForm_Shown);
             this.Resize += new System.EventHandler(this.MouseTrackingForm_Resize);
             this.ResumeLayout(false);

@@ -47,18 +47,14 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="User32Helper">
-      <HintPath>..\..\User32Helper\bin\Release\User32Helper.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IShowForm.cs" />
-    <Compile Include="MouseTrackingForm.cs">
+    <Compile Include="WindowsTrackingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MouseTrackingForm.Designer.cs">
-      <DependentUpon>MouseTrackingForm.cs</DependentUpon>
+    <Compile Include="WindowsTrackingForm.Designer.cs">
+      <DependentUpon>WindowsTrackingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PasswordForm.cs">
       <SubType>Form</SubType>
@@ -111,8 +107,8 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MouseTrackingForm.resx">
-      <DependentUpon>MouseTrackingForm.cs</DependentUpon>
+    <EmbeddedResource Include="WindowsTrackingForm.resx">
+      <DependentUpon>WindowsTrackingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PasswordForm.resx">
       <DependentUpon>PasswordForm.cs</DependentUpon>
@@ -149,6 +145,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="taskmgr_icon.png.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\User32Helper\User32Helper.csproj">
+      <Project>{f76dfe47-a3cc-4257-9772-83c60d8292d8}</Project>
+      <Name>User32Helper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

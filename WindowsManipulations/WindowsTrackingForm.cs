@@ -12,7 +12,7 @@ using User32Helper;
 
 namespace WindowsManipulations
 {
-    public partial class MouseTrackingForm : Form, IShowForm
+    public partial class WindowsTrackingForm : Form, IShowForm
     {
         #region ** Fields
 
@@ -23,7 +23,7 @@ namespace WindowsManipulations
 
         #region ** Constructors
 
-        public MouseTrackingForm()
+        public WindowsTrackingForm()
         {
             InitializeComponent();
 
