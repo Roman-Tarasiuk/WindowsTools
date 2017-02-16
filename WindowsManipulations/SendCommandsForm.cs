@@ -14,6 +14,8 @@ namespace WindowsManipulations
         private string m_HelpMessage =
             "Separate commands using new line.\n\n"
 
+            + "In keyboard shortcuts use small letters.\n\n"
+
             + "SHIFT :  +\n"
             + "CTRL :  ^\n"
             + "ALT :  %\n\n"
