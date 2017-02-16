@@ -87,6 +87,10 @@ namespace WindowsManipulations
                 return;
             }
 
+            StringBuilder title = new StringBuilder(255);
+            User32Windows.GetWindowText(hwnd, title, title.Capacity + 1);
+            txtTitle.Text = title.ToString();
+
             Thread.Sleep(200);
 
             var commands = txtCommands.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
@@ -107,6 +111,20 @@ namespace WindowsManipulations
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show(m_HelpMessage, "Send custom commands – help");
+        }
+
+        private void txtHwnd_TextChanged(object sender, EventArgs e)
+        {
+            IntPtr hwnd = (IntPtr)int.Parse(txtHwnd.Text);
+
+            StringBuilder title = new StringBuilder(255);
+
+            if (User32Windows.IsWindow(hwnd))
+            {
+                User32Windows.GetWindowText(hwnd, title, title.Capacity + 1);
+            }
+
+            txtTitle.Text = title.ToString();
         }
     }
 }

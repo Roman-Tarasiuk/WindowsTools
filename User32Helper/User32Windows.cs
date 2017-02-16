@@ -76,6 +76,9 @@ namespace User32Helper
         [DllImport("user32.dll")]
         public static extern IntPtr GetForegroundWindow();
 
+        [DllImport("user32.dll")]
+        public static extern bool IsWindow(IntPtr hWnd);
+
         public const int HWND_BOTTOM = 1;
         public const int HWND_NOTOPMOST = -2;
         public const int HWND_TOP = 0;
