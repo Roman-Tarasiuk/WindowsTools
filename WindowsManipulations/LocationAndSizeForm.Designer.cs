@@ -50,6 +50,7 @@
             this.btnSet = new System.Windows.Forms.Button();
             this.lblResolution = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -223,7 +224,7 @@
             // 
             // btnSet
             // 
-            this.btnSet.Location = new System.Drawing.Point(295, 151);
+            this.btnSet.Location = new System.Drawing.Point(294, 156);
             this.btnSet.Name = "btnSet";
             this.btnSet.Size = new System.Drawing.Size(75, 23);
             this.btnSet.TabIndex = 2;
@@ -241,11 +242,24 @@
             this.lblResolution.Text = "Resolution:";
             this.lblResolution.Click += new System.EventHandler(this.lblResolution_Click);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(259, 161);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(29, 13);
+            this.linkLabel1.TabIndex = 5;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Help";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // LocationAndSizeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 187);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.lblResolution);
             this.Controls.Add(this.btnSet);
             this.Controls.Add(this.groupBox2);
@@ -286,5 +300,6 @@
         private System.Windows.Forms.Button btnSet;
         private System.Windows.Forms.Label lblResolution;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

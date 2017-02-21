@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -114,7 +115,8 @@ namespace WindowsManipulations
         private void ShowScreenResolution(Screen screen)
         {
             Rectangle rect = screen.WorkingArea;
-            lblResolution.Text = "Screen resolution: " + rect.Width + "x" + rect.Height;
+            lblResolution.Text = "Screen resolution: " + rect.Width + "x" + rect.Height
+                + " (" + screen.DeviceName + ")*";
         }
 
         private void SetLocation()
@@ -152,5 +154,10 @@ namespace WindowsManipulations
         }
 
         #endregion
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(@"screen.png");
+        }
     }
 }
