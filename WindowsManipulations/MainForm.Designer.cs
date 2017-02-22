@@ -44,7 +44,7 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.textInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeSpacesFromTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mouseTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.windowsTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.passwordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -61,7 +61,7 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStripSysTray = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mouseTrackingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.windowsTrackingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.clearSystemClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -119,14 +119,14 @@
             this.toolStripSeparator3,
             this.textInfoToolStripMenuItem,
             this.removeSpacesFromTextToolStripMenuItem,
-            this.mouseTrackingToolStripMenuItem,
+            this.windowsTrackingToolStripMenuItem,
             this.toolStripSeparator5,
             this.passwordsToolStripMenuItem,
             this.toolStripSeparator7,
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.ShowShortcutKeys = false;
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
             // moveWindowToolStripMenuItem
@@ -199,12 +199,12 @@
             this.removeSpacesFromTextToolStripMenuItem.Text = "Remove spaces from text...";
             this.removeSpacesFromTextToolStripMenuItem.Click += new System.EventHandler(this.removeSpacesFromTextToolStripMenuItem_Click);
             // 
-            // mouseTrackingToolStripMenuItem
+            // windowsTrackingToolStripMenuItem
             // 
-            this.mouseTrackingToolStripMenuItem.Name = "mouseTrackingToolStripMenuItem";
-            this.mouseTrackingToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.mouseTrackingToolStripMenuItem.Text = "Mouse tracking...";
-            this.mouseTrackingToolStripMenuItem.Click += new System.EventHandler(this.mouseTrackingToolStripMenuItem_Click);
+            this.windowsTrackingToolStripMenuItem.Name = "windowsTrackingToolStripMenuItem";
+            this.windowsTrackingToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.windowsTrackingToolStripMenuItem.Text = "Windows tracking...";
+            this.windowsTrackingToolStripMenuItem.Click += new System.EventHandler(this.windowsTrackingToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -330,7 +330,7 @@
             // 
             this.contextMenuStripSysTray.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showToolStripMenuItem,
-            this.mouseTrackingToolStripMenuItem1,
+            this.windowsTrackingToolStripMenuItem1,
             this.toolStripSeparator2,
             this.clearSystemClipboardToolStripMenuItem,
             this.toolStripSeparator1,
@@ -351,12 +351,12 @@
             this.showToolStripMenuItem.Text = "Windows Manipulations";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
-            // mouseTrackingToolStripMenuItem1
+            // windowsTrackingToolStripMenuItem1
             // 
-            this.mouseTrackingToolStripMenuItem1.Name = "mouseTrackingToolStripMenuItem1";
-            this.mouseTrackingToolStripMenuItem1.Size = new System.Drawing.Size(205, 22);
-            this.mouseTrackingToolStripMenuItem1.Text = "Start mouse tracking";
-            this.mouseTrackingToolStripMenuItem1.Click += new System.EventHandler(this.mouseTrackingToolStripMenuItem1_Click);
+            this.windowsTrackingToolStripMenuItem1.Name = "windowsTrackingToolStripMenuItem1";
+            this.windowsTrackingToolStripMenuItem1.Size = new System.Drawing.Size(205, 22);
+            this.windowsTrackingToolStripMenuItem1.Text = "Start windows tracking";
+            this.windowsTrackingToolStripMenuItem1.Click += new System.EventHandler(this.windowsTrackingToolStripMenuItem1_Click);
             // 
             // toolStripSeparator2
             // 
@@ -519,8 +519,8 @@
         private System.Windows.Forms.Button btnKillWindow;
         private System.Windows.Forms.Button btnCloseWindow;
         private System.Windows.Forms.ToolStripMenuItem copyWindowHwndToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mouseTrackingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mouseTrackingToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem windowsTrackingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem windowsTrackingToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addToTrackingToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
     }

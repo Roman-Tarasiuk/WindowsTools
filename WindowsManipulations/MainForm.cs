@@ -320,7 +320,7 @@ namespace WindowsManipulations
             lstWindowsList.SelectedIndex = lstWindowsList.IndexFromPoint(e.X, e.Y);
         }
 
-        private void mouseTrackingToolStripMenuItem_Click(object sender, EventArgs e)
+        private void windowsTrackingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CheckTrackingForm();
 
@@ -353,20 +353,18 @@ namespace WindowsManipulations
             }
         }
 
-        private void mouseTrackingToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void windowsTrackingToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //CheckTrackingForm();
-
-            if (mouseTrackingToolStripMenuItem1.Text == "Start mouse tracking")
+            if (windowsTrackingToolStripMenuItem1.Text == "Start windows tracking")
             {
                 m_TrackingForm.StartTracking();
-                mouseTrackingToolStripMenuItem1.Text = "Stop mouse tracking";
+                windowsTrackingToolStripMenuItem1.Text = "Stop windows tracking";
                 m_MouseTrackingStarted = true;
             }
             else
             {
                 m_TrackingForm.StopTracking();
-                mouseTrackingToolStripMenuItem1.Text = "Start mouse tracking";
+                windowsTrackingToolStripMenuItem1.Text = "Start windows tracking";
                 m_MouseTrackingStarted = false;
             }
         }
@@ -593,28 +591,21 @@ namespace WindowsManipulations
             }
         }
 
-        private void MoveWindow()
+        private Form CheckFormExists(Form f)
         {
-            int selected = this.lstWindowsList.SelectedIndex;
-            if (selected == -1)
+            if (f == null || f.IsDisposed)
             {
-                return;
+                Type t = f.GetType();
+                f = (Form)Activator.CreateInstance(t);
             }
 
-            if (m_LocationForm == null || m_LocationForm.IsDisposed)
-            {
-                m_LocationForm = new LocationAndSizeForm();
-            }
-
-            m_LocationForm.SelectWindow(m_ListedWindows[selected].Handle);
-
-            ShowForm(m_LocationForm);
-
-            this.RefreshWindowsList();
+            return f;
         }
 
         private void ShowForm(Form form)
         {
+            Console.WriteLine(form.GetType().Name);
+
             if (!form.Visible)
             {
                 form.Show();
@@ -623,12 +614,26 @@ namespace WindowsManipulations
             }
         }
 
+        private void MoveWindow()
+        {
+            int selected = this.lstWindowsList.SelectedIndex;
+            if (selected == -1)
+            {
+                return;
+            }
+
+            m_LocationForm = (LocationAndSizeForm)CheckFormExists(m_LocationForm);
+
+            m_LocationForm.SelectWindow(m_ListedWindows[selected].Handle);
+
+            ShowForm(m_LocationForm);
+
+            this.RefreshWindowsList();
+        }
+
         private void Passwords()
         {
-            if (m_PasswordForm == null || m_PasswordForm.IsDisposed)
-            {
-                m_PasswordForm = new PasswordForm();
-            }
+            m_PasswordForm = (PasswordForm)CheckFormExists(m_PasswordForm);
 
             ShowForm(m_PasswordForm);
         }
@@ -648,8 +653,6 @@ namespace WindowsManipulations
                 return;
             }
 
-            //User32Windows.SetFocus(m_ListedWindows[selected].Handle);
-
             Thread.Sleep(200);
 
             for (int i = 0; i < commands.Length; i++)
@@ -660,21 +663,26 @@ namespace WindowsManipulations
 
         private void CheckTrackingForm()
         {
-            if (m_TrackingForm == null || m_TrackingForm.IsDisposed)
+            Form tmp = m_TrackingForm;
+
+            m_TrackingForm = (WindowsTrackingForm)CheckFormExists(m_TrackingForm);
+
+            if (m_TrackingForm != tmp)
             {
-                m_TrackingForm = new WindowsTrackingForm();
-                mouseTrackingToolStripMenuItem1.Text = "Start mouse tracking";
+                windowsTrackingToolStripMenuItem1.Text = "Start windows tracking";
                 m_MouseTrackingStarted = false;
+
+                return;
             }
 
             if (m_TrackingForm.IsTracking)
             {
-                mouseTrackingToolStripMenuItem1.Text = "Stop mouse tracking";
+                windowsTrackingToolStripMenuItem1.Text = "Stop windows tracking";
                 m_MouseTrackingStarted = true;
             }
             else
             {
-                mouseTrackingToolStripMenuItem1.Text = "Start mouse tracking";
+                windowsTrackingToolStripMenuItem1.Text = "Start windows tracking";
                 m_MouseTrackingStarted = false;
             }
         }

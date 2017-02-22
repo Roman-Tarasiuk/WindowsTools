@@ -49,7 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IShowForm.cs" />
     <Compile Include="WindowsTrackingForm.cs">
       <SubType>Form</SubType>
     </Compile>

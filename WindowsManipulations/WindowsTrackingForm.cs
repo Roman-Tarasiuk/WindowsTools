@@ -52,7 +52,7 @@ namespace WindowsManipulations
             }
         }
 
-        private void MouseTrackingForm_Resize(object sender, EventArgs e)
+        private void WindowsTrackingForm_Resize(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized)
             {

@@ -43,6 +43,9 @@ namespace WindowsManipulations
         private void LocationAndSizeForm_Shown(object sender, EventArgs e)
         {
             GetCharacteristics();
+
+            ShowScreenResolution(Screen.PrimaryScreen);
+            m_CurrentScreen++;
         }
 
         private void btnSet_Click(object sender, EventArgs e)
@@ -100,8 +103,6 @@ namespace WindowsManipulations
             txtCurrentTop.Text = m_WindowRect.Top.ToString();
             txtCurrentWidth.Text = (m_WindowRect.Width - m_WindowRect.Left).ToString();
             txtCurrentHeight.Text = (m_WindowRect.Height - m_WindowRect.Top).ToString();
-
-            ShowScreenResolution(Screen.PrimaryScreen);
         }
 
         private void ShowScreenResolution(Screen screen)

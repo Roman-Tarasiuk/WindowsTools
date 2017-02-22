@@ -84,7 +84,7 @@
             this.Name = "WindowsTrackingForm";
             this.ShowInTaskbar = false;
             this.Text = "Windows tracking";
-            this.Resize += new System.EventHandler(this.MouseTrackingForm_Resize);
+            this.Resize += new System.EventHandler(this.WindowsTrackingForm_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -240,6 +240,7 @@
             this.lblResolution.Size = new System.Drawing.Size(60, 13);
             this.lblResolution.TabIndex = 4;
             this.lblResolution.Text = "Resolution:";
+            this.toolTip1.SetToolTip(this.lblResolution, "Click to see other screens\' resolutions");
             this.lblResolution.Click += new System.EventHandler(this.lblResolution_Click);
             // 
             // linkLabel1
