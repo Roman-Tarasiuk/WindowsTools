@@ -22,5 +22,17 @@ namespace WindowsManipulations.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
+        public global::System.Drawing.Point MoveWindowFormLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["MoveWindowFormLocation"]));
+            }
+            set {
+                this["MoveWindowFormLocation"] = value;
+            }
+        }
     }
 }

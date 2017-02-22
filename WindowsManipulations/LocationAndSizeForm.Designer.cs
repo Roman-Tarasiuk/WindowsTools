@@ -266,6 +266,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "LocationAndSizeForm";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Location And Size - Windows Manipulations";
             this.Shown += new System.EventHandler(this.LocationAndSizeForm_Shown);
             this.groupBox1.ResumeLayout(false);

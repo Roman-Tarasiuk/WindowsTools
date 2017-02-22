@@ -17,9 +17,11 @@ namespace WindowsManipulations
         private List<DesktopWindow> m_ListedWindows = new List<DesktopWindow>();
         private List<DesktopWindow> m_HiddenByUserWindows = new List<DesktopWindow>();
         private string m_HiddenPrefix = "[hidden]";
+
         private LocationAndSizeForm m_LocationForm = new LocationAndSizeForm();
         private PasswordForm m_PasswordForm = new PasswordForm();
         private WindowsTrackingForm m_TrackingForm = new WindowsTrackingForm();
+
         private bool m_MouseTrackingStarted = false;
         private bool m_RefreshStarted = false;
 
@@ -611,17 +613,13 @@ namespace WindowsManipulations
             this.RefreshWindowsList();
         }
 
-        private void ShowForm(IShowForm form)
+        private void ShowForm(Form form)
         {
-            if (!form.IsShown)
+            if (!form.Visible)
             {
-                ((Form)form).Show();
-            }
-            else
-            {
-                IntPtr handle = ((Form)form).Handle;
-                User32Windows.ShowWindow(handle, User32Windows.SW_RESTORE);
-                User32Windows.SetForegroundWindow(handle);
+                form.Show();
+                User32Windows.ShowWindow(form.Handle, User32Windows.SW_RESTORE);
+                User32Windows.SetForegroundWindow(form.Handle);
             }
         }
 

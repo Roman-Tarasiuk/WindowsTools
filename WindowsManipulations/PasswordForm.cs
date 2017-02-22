@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace WindowsManipulations
 {
-    public partial class PasswordForm : Form, IShowForm
+    public partial class PasswordForm : Form
     {
         private List<PasswordInfo> m_Passwords = new List<PasswordInfo>();
         private string m_Pin = "";
@@ -21,11 +21,7 @@ namespace WindowsManipulations
         public PasswordForm()
         {
             InitializeComponent();
-
-            IsShown = false;
         }
-
-        public bool IsShown { get; protected set; }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -128,11 +124,6 @@ namespace WindowsManipulations
             this.BackColor = Color.DarkGray;
             timerFlash.Enabled = true;
             timerFlash.Start();
-        }
-
-        private void PasswordForm_Shown(object sender, EventArgs e)
-        {
-            IsShown = true;
         }
 
         private void PasswordForm_Resize(object sender, EventArgs e)

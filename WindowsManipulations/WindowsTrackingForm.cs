@@ -12,7 +12,7 @@ using User32Helper;
 
 namespace WindowsManipulations
 {
-    public partial class WindowsTrackingForm : Form, IShowForm
+    public partial class WindowsTrackingForm : Form
     {
         #region ** Fields
 
@@ -28,15 +28,7 @@ namespace WindowsManipulations
             InitializeComponent();
 
             IsTracking = false;
-            IsShown = false;
         }
-
-        #endregion
-
-
-        #region ** Implemented interfaces
-
-        public bool IsShown { get; protected set; }
 
         #endregion
 
@@ -58,11 +50,6 @@ namespace WindowsManipulations
             {
                 StopTracking();
             }
-        }
-
-        private void MouseTrackingForm_Shown(object sender, EventArgs e)
-        {
-            IsShown = true;
         }
 
         private void MouseTrackingForm_Resize(object sender, EventArgs e)

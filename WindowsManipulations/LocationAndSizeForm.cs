@@ -7,7 +7,7 @@ using User32Helper;
 
 namespace WindowsManipulations
 {
-    public partial class LocationAndSizeForm : Form, IShowForm
+    public partial class LocationAndSizeForm : Form
     {
         #region Fields
 
@@ -19,20 +19,14 @@ namespace WindowsManipulations
         #endregion
 
 
-        #region Implemented interfaces
-
-        public bool IsShown { get; protected set; }
-
-        #endregion
-
-
         #region Constructors
 
         public LocationAndSizeForm()
         {
             InitializeComponent();
 
-            IsShown = false;
+            this.Location = Properties.Settings.Default.MoveWindowFormLocation;
+            //this.DesktopLocation = Properties.Settings.Default.MoveWindowFormLocation;
         }
 
         public LocationAndSizeForm(IntPtr hwnd)
@@ -54,13 +48,6 @@ namespace WindowsManipulations
         private void btnSet_Click(object sender, EventArgs e)
         {
             SetLocation();
-        }
-
-        protected override void OnShown(EventArgs e)
-        {
-            base.OnShown(e);
-
-            IsShown = true;
         }
 
         private void lblResolution_Click(object sender, EventArgs e)
@@ -93,6 +80,11 @@ namespace WindowsManipulations
         private void txtNewHeight_KeyDown(object sender, KeyEventArgs e)
         {
             HandleKeydown(e);
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(@"screen.png");
         }
 
         #endregion
@@ -155,9 +147,11 @@ namespace WindowsManipulations
 
         #endregion
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LocationAndSizeForm_LocationChanged(object sender, EventArgs e)
         {
-            Process.Start(@"screen.png");
+            //this.Text = String.Format("{0}, {1}", this.Location.X, this.Location.Y);
+            Properties.Settings.Default.MoveWindowFormLocation = this.Location;
+            Properties.Settings.Default.Save();
         }
     }
 }
