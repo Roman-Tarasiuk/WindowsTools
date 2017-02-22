@@ -11,9 +11,11 @@ namespace WindowsManipulations
 {
     public partial class PasswordForm : Form
     {
+        static readonly TimeSpan defaultWrongPassDelay = new TimeSpan(0, 0, 0, 0, 5000);
+
         private List<PasswordInfo> m_Passwords = new List<PasswordInfo>();
         private string m_Pin = "";
-        private TimeSpan m_PinTimeSpan = new TimeSpan(0, 0, 0, 0, 5000);
+        private TimeSpan m_PinTimeSpan = PasswordForm.defaultWrongPassDelay;
         private bool m_EnablePasswordCopy = true;
         private DateTime m_BlockStartTime;
         private Color m_BackColor;
@@ -113,6 +115,10 @@ namespace WindowsManipulations
                     + "Wait " + (m_PinTimeSpan.TotalMilliseconds / 1000).ToString() + " seconds and try again.");
 
                 return;
+            }
+            else
+            {
+                m_PinTimeSpan = PasswordForm.defaultWrongPassDelay;
             }
 
             Clipboard.SetText(m_Passwords[listBox1.SelectedIndex].Password);
