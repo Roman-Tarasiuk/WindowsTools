@@ -269,7 +269,9 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Location And Size - Windows Manipulations";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LocationAndSizeForm_FormClosing);
             this.Shown += new System.EventHandler(this.LocationAndSizeForm_Shown);
+            this.LocationChanged += new System.EventHandler(this.LocationAndSizeForm_LocationChanged);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

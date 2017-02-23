@@ -11,19 +11,35 @@ namespace WindowsManipulations
 {
     public partial class PasswordForm : Form
     {
+        #region Fields
+
         static readonly TimeSpan defaultWrongPassDelay = new TimeSpan(0, 0, 0, 0, 5000);
 
         private List<PasswordInfo> m_Passwords = new List<PasswordInfo>();
         private string m_Pin = "";
+
         private TimeSpan m_PinTimeSpan = PasswordForm.defaultWrongPassDelay;
-        private bool m_EnablePasswordCopy = true;
         private DateTime m_BlockStartTime;
+        private bool m_EnablePasswordCopy = true;
+
         private Color m_BackColor;
+
+        #endregion
+
+
+        #region Constructors
 
         public PasswordForm()
         {
             InitializeComponent();
+
+            this.Location = Properties.Settings.Default.PasswordsFormLocation;
         }
+
+        #endregion
+
+
+        #region Controls' event handlers
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -62,11 +78,92 @@ namespace WindowsManipulations
             txtPassword.Clear();
         }
 
-
-
         private void copyToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CopyPasswordToClipboard();
+        }
+
+        private void PasswordForm_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            m_EnablePasswordCopy = true;
+        }
+
+        private void PasswordForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (m_Passwords.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("You have saved passwords. Are you sure to exit?",
+                    "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+
+            Properties.Settings.Default.Save();
+        }
+
+        private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkShowPassword.Checked)
+            {
+                txtPassword.PasswordChar = (char)0;
+            }
+            else
+            {
+                txtPassword.PasswordChar = '*';
+            }
+        }
+
+        private void listBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            CopyPasswordToClipboard();
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex == -1)
+            {
+                return;
+            }
+
+            m_Passwords.RemoveAt(listBox1.SelectedIndex);
+            listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+        }
+
+        private void timerFlash_Tick(object sender, EventArgs e)
+        {
+            timerFlash.Stop();
+            timerFlash.Enabled = false;
+            this.BackColor = m_BackColor;
+        }
+
+        private void PasswordForm_LocationChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.PasswordsFormLocation = this.Location;
+        }
+
+        #endregion
+
+
+        #region Helper methods
+
+        private void FlashWindow()
+        {
+            m_BackColor = this.BackColor;
+            this.BackColor = Color.DarkGray;
+            timerFlash.Enabled = true;
+            timerFlash.Start();
         }
 
         private void CopyPasswordToClipboard()
@@ -124,75 +221,6 @@ namespace WindowsManipulations
             Clipboard.SetText(m_Passwords[listBox1.SelectedIndex].Password);
         }
 
-        private void FlashWindow()
-        {
-            m_BackColor = this.BackColor;
-            this.BackColor = Color.DarkGray;
-            timerFlash.Enabled = true;
-            timerFlash.Start();
-        }
-
-        private void PasswordForm_Resize(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Minimized)
-            {
-                this.Hide();
-            }
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            timer1.Stop();
-            m_EnablePasswordCopy = true;
-        }
-
-        private void PasswordForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (m_Passwords.Count > 0)
-            {
-                DialogResult result = MessageBox.Show("You have saved passwords. Are you sure to exit?",
-                    "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-
-                if (result == DialogResult.No)
-                {
-                    e.Cancel = true;
-                }
-            }
-        }
-
-        private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkShowPassword.Checked)
-            {
-                txtPassword.PasswordChar = (char)0;
-            }
-            else
-            {
-                txtPassword.PasswordChar = '*';
-            }
-        }
-
-        private void listBox1_MouseClick(object sender, MouseEventArgs e)
-        {
-            CopyPasswordToClipboard();
-        }
-
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
-            if (listBox1.SelectedIndex == -1)
-            {
-                return;
-            }
-
-            m_Passwords.RemoveAt(listBox1.SelectedIndex);
-            listBox1.Items.RemoveAt(listBox1.SelectedIndex);
-        }
-
-        private void timerFlash_Tick(object sender, EventArgs e)
-        {
-            timerFlash.Stop();
-            timerFlash.Enabled = false;
-            this.BackColor = m_BackColor;
-        }
+        #endregion
     }
 }

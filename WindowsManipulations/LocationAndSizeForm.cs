@@ -25,8 +25,7 @@ namespace WindowsManipulations
         {
             InitializeComponent();
 
-            this.Location = Properties.Settings.Default.MoveWindowFormLocation;
-            //this.DesktopLocation = Properties.Settings.Default.MoveWindowFormLocation;
+            this.Location = Properties.Settings.Default.LocationAndSizeFormLocation;
         }
 
         public LocationAndSizeForm(IntPtr hwnd)
@@ -90,6 +89,16 @@ namespace WindowsManipulations
             Process.Start(@"screen.png");
         }
 
+        private void LocationAndSizeForm_LocationChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.LocationAndSizeFormLocation = this.Location;
+        }
+
+        private void LocationAndSizeForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.Save();
+        }
+
         #endregion
 
 
@@ -147,12 +156,5 @@ namespace WindowsManipulations
         }
 
         #endregion
-
-        private void LocationAndSizeForm_LocationChanged(object sender, EventArgs e)
-        {
-            //this.Text = String.Format("{0}, {1}", this.Location.X, this.Location.Y);
-            Properties.Settings.Default.MoveWindowFormLocation = this.Location;
-            Properties.Settings.Default.Save();
-        }
     }
 }

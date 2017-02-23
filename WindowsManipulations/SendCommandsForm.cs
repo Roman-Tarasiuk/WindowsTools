@@ -9,6 +9,8 @@ namespace WindowsManipulations
 {
     public partial class SendCommandsForm : Form
     {
+        #region Fields
+
         private IntPtr m_Hwnd;
 
         private string m_HelpMessage =
@@ -52,11 +54,17 @@ namespace WindowsManipulations
 
             + "For more details see SendKeys class on MSDN.";
 
+        #endregion
+
+
+        #region Constructors
+
         protected SendCommandsForm()
         {
             InitializeComponent();
 
             this.TopMost = true;
+            this.Location = Properties.Settings.Default.SendCommandsFormLocation;
         }
 
         public SendCommandsForm(IntPtr hwnd)
@@ -69,6 +77,11 @@ namespace WindowsManipulations
 
             txtTitle.Text = title.ToString();
         }
+
+        #endregion
+
+
+        #region Controls' event handlers
 
         private void SendCommandsForm_Shown(object sender, EventArgs e)
         {
@@ -126,5 +139,17 @@ namespace WindowsManipulations
 
             txtTitle.Text = title.ToString();
         }
+
+        private void SendCommandsForm_LocationChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.SendCommandsFormLocation = this.Location;
+        }
+
+        private void SendCommandsForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.Save();
+        }
+
+        #endregion
     }
 }

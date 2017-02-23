@@ -169,8 +169,11 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "SendCommandsForm";
             this.Opacity = 0.85D;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Send Commands";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SendCommandsForm_FormClosing);
             this.Shown += new System.EventHandler(this.SendCommandsForm_Shown);
+            this.LocationChanged += new System.EventHandler(this.SendCommandsForm_LocationChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

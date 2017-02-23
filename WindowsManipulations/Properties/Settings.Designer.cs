@@ -26,12 +26,36 @@ namespace WindowsManipulations.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
-        public global::System.Drawing.Point MoveWindowFormLocation {
+        public global::System.Drawing.Point LocationAndSizeFormLocation {
             get {
-                return ((global::System.Drawing.Point)(this["MoveWindowFormLocation"]));
+                return ((global::System.Drawing.Point)(this["LocationAndSizeFormLocation"]));
             }
             set {
-                this["MoveWindowFormLocation"] = value;
+                this["LocationAndSizeFormLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
+        public global::System.Drawing.Point PasswordsFormLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["PasswordsFormLocation"]));
+            }
+            set {
+                this["PasswordsFormLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
+        public global::System.Drawing.Point SendCommandsFormLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["SendCommandsFormLocation"]));
+            }
+            set {
+                this["SendCommandsFormLocation"] = value;
             }
         }
     }
