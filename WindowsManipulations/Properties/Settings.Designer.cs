@@ -58,5 +58,17 @@ namespace WindowsManipulations.Properties {
                 this["SendCommandsFormLocation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
+        public global::System.Drawing.Point WindowsTrackingFormLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["WindowsTrackingFormLocation"]));
+            }
+            set {
+                this["WindowsTrackingFormLocation"] = value;
+            }
+        }
     }
 }

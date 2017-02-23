@@ -83,7 +83,10 @@
             this.Controls.Add(this.txtHwndList);
             this.Name = "WindowsTrackingForm";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Windows tracking";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WindowsTrackingForm_FormClosing);
+            this.LocationChanged += new System.EventHandler(this.WindowsTrackingForm_LocationChanged);
             this.Resize += new System.EventHandler(this.WindowsTrackingForm_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();

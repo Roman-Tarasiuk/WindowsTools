@@ -604,14 +604,9 @@ namespace WindowsManipulations
 
         private void ShowForm(Form form)
         {
-            Console.WriteLine(form.GetType().Name);
-
-            if (!form.Visible)
-            {
-                form.Show();
-                User32Windows.ShowWindow(form.Handle, User32Windows.SW_RESTORE);
-                User32Windows.SetForegroundWindow(form.Handle);
-            }
+            form.Show();
+            User32Windows.ShowWindow(form.Handle, User32Windows.SW_RESTORE);
+            User32Windows.SetForegroundWindow(form.Handle);
         }
 
         private void MoveWindow()

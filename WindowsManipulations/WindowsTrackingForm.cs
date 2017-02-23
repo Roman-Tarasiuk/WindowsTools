@@ -28,6 +28,7 @@ namespace WindowsManipulations
             InitializeComponent();
 
             IsTracking = false;
+            this.Location = Properties.Settings.Default.WindowsTrackingFormLocation;
         }
 
         #endregion
@@ -60,10 +61,20 @@ namespace WindowsManipulations
             }
         }
 
+        private void WindowsTrackingForm_LocationChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.WindowsTrackingFormLocation = this.Location;
+        }
+
+        private void WindowsTrackingForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.Save();
+        }
+
         #endregion
 
 
-        #region ** Methods
+        #region ** Helper methods
 
         private void InitTracking()
         {
