@@ -52,9 +52,9 @@
             this.btnShowUnique.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnShowUnique.Location = new System.Drawing.Point(12, 149);
             this.btnShowUnique.Name = "btnShowUnique";
-            this.btnShowUnique.Size = new System.Drawing.Size(104, 23);
+            this.btnShowUnique.Size = new System.Drawing.Size(131, 23);
             this.btnShowUnique.TabIndex = 1;
-            this.btnShowUnique.Text = "Show unique";
+            this.btnShowUnique.Text = "Show unique characters";
             this.btnShowUnique.UseVisualStyleBackColor = true;
             this.btnShowUnique.Click += new System.EventHandler(this.btnShowUnique_Click);
             // 
