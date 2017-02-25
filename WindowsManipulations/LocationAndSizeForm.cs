@@ -3,6 +3,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
+using System.Data;
+
 using User32Helper;
 
 namespace WindowsManipulations
@@ -26,6 +28,10 @@ namespace WindowsManipulations
             InitializeComponent();
 
             this.Location = Properties.Settings.Default.LocationAndSizeFormLocation;
+            this.toolTip1.SetToolTip(this.groupBox2,
+                "It is possible to use calculation expressions."
+                + Environment.NewLine
+                + "If skip values, it will be used current");
         }
 
         public LocationAndSizeForm(IntPtr hwnd)
@@ -123,10 +129,12 @@ namespace WindowsManipulations
 
         private void SetLocation()
         {
-            int left = txtNewLeft.Text != "" ? int.Parse(txtNewLeft.Text) : m_WindowRect.Left;
-            int top = txtNewTop.Text != "" ? int.Parse(txtNewTop.Text) : m_WindowRect.Top;
-            int width = txtNewWidth.Text != "" ? int.Parse(txtNewWidth.Text) : m_WindowRect.Width - m_WindowRect.Left;
-            int height = txtNewHeight.Text != "" ? int.Parse(txtNewHeight.Text) : m_WindowRect.Height - m_WindowRect.Top;
+            DataTable dt = new DataTable();
+
+            int left = txtNewLeft.Text != "" ? (int)dt.Compute(txtNewLeft.Text, "") : m_WindowRect.Left;
+            int top = txtNewTop.Text != "" ? (int)dt.Compute(txtNewTop.Text, "") : m_WindowRect.Top;
+            int width = txtNewWidth.Text != "" ? (int)dt.Compute(txtNewWidth.Text, "") : m_WindowRect.Width - m_WindowRect.Left;
+            int height = txtNewHeight.Text != "" ? (int)dt.Compute(txtNewHeight.Text, "") : m_WindowRect.Height - m_WindowRect.Top;
 
             User32Windows.SetWindowPos(m_Hwnd, User32Windows.HWND_TOP, left, top, width, height, User32Windows.SWP_NOZORDER);
             GetCharacteristics();

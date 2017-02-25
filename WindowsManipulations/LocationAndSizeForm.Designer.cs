@@ -152,7 +152,6 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "New *";
-            this.toolTip1.SetToolTip(this.groupBox2, "If you skip values, they will be left current");
             // 
             // txtNewHeight
             // 
