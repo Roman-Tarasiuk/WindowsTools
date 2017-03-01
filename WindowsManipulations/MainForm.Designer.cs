@@ -45,6 +45,7 @@
             this.textInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeSpacesFromTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customTitleColorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.passwordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -120,6 +121,7 @@
             this.textInfoToolStripMenuItem,
             this.removeSpacesFromTextToolStripMenuItem,
             this.windowsTrackingToolStripMenuItem,
+            this.customTitleColorsToolStripMenuItem,
             this.toolStripSeparator5,
             this.passwordsToolStripMenuItem,
             this.toolStripSeparator7,
@@ -205,6 +207,13 @@
             this.windowsTrackingToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.windowsTrackingToolStripMenuItem.Text = "Windows tracking...";
             this.windowsTrackingToolStripMenuItem.Click += new System.EventHandler(this.windowsTrackingToolStripMenuItem_Click);
+            // 
+            // customTitleColorsToolStripMenuItem
+            // 
+            this.customTitleColorsToolStripMenuItem.Name = "customTitleColorsToolStripMenuItem";
+            this.customTitleColorsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.customTitleColorsToolStripMenuItem.Text = "Custom title colors...";
+            this.customTitleColorsToolStripMenuItem.Click += new System.EventHandler(this.customTitleColorsToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -338,7 +347,7 @@
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray.Size = new System.Drawing.Size(206, 154);
+            this.contextMenuStripSysTray.Size = new System.Drawing.Size(206, 132);
             this.contextMenuStripSysTray.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
             this.contextMenuStripSysTray.MouseHover += new System.EventHandler(this.contextMenuStripSysTray_MouseHover);
@@ -523,5 +532,6 @@
         private System.Windows.Forms.ToolStripMenuItem windowsTrackingToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addToTrackingToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripMenuItem customTitleColorsToolStripMenuItem;
     }
 }

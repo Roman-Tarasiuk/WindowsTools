@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnStartTracking = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // txtHwndList
@@ -45,8 +46,9 @@
             this.txtHwndList.Multiline = true;
             this.txtHwndList.Name = "txtHwndList";
             this.txtHwndList.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtHwndList.Size = new System.Drawing.Size(160, 100);
+            this.txtHwndList.Size = new System.Drawing.Size(246, 82);
             this.txtHwndList.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.txtHwndList, "Use space, new line and tab characters to split hwnds");
             this.txtHwndList.WordWrap = false;
             // 
             // label1
@@ -54,14 +56,15 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Window hwnds:";
+            this.label1.Text = "Window hwnds*:";
+            this.toolTip1.SetToolTip(this.label1, "Use space, new line and tab characters to split hwnds");
             // 
             // btnStartTracking
             // 
-            this.btnStartTracking.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStartTracking.Location = new System.Drawing.Point(178, 25);
+            this.btnStartTracking.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStartTracking.Location = new System.Drawing.Point(178, 113);
             this.btnStartTracking.Name = "btnStartTracking";
             this.btnStartTracking.Size = new System.Drawing.Size(80, 23);
             this.btnStartTracking.TabIndex = 2;
@@ -99,5 +102,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnStartTracking;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -683,5 +683,28 @@ namespace WindowsManipulations
         }
 
         #endregion
+
+        private void customTitleColorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //int selected = this.lstWindowsList.SelectedIndex;
+            //if (selected == -1)
+            //{
+            //    return;
+            //}
+
+            //IntPtr hwnd = m_ListedWindows[selected].Handle;
+
+            //IntPtr hdc = User32Windows.GetWindowDC(hwnd);
+
+            //if ((int)hdc != 0)
+            //{
+            //    Graphics g = Graphics.FromHdc(hdc);
+            //    g.FillRectangle(Brushes.Green, new Rectangle(100, 2, 4800, 23));
+            //    g.Flush();
+            //    User32Windows.ReleaseDC(hwnd, hdc);
+            //}
+
+            new TitleColoringForm().Show();
+        }
     }
 }

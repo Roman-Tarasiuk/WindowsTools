@@ -76,6 +76,7 @@ namespace WindowsManipulations
 
             txtDescription.Clear();
             txtPassword.Clear();
+            chkShowPassword.Checked = false;
         }
 
         private void copyToClipboardToolStripMenuItem_Click(object sender, EventArgs e)

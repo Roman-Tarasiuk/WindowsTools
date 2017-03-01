@@ -79,6 +79,12 @@ namespace User32Helper
         [DllImport("user32.dll")]
         public static extern bool IsWindow(IntPtr hWnd);
 
+        [DllImport("user32.dll")]
+        public static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetWindowDC(IntPtr hWnd);
+
         public const int HWND_BOTTOM = 1;
         public const int HWND_NOTOPMOST = -2;
         public const int HWND_TOP = 0;
@@ -106,6 +112,7 @@ namespace User32Helper
 
         public const int WM_SETTEXT = 0x000c;
         public const int WM_CLOSE = 0x0010;
+        public const int WM_NCPAINT = 0x85;
 
         public static List<DesktopWindow> GetDesktopWindows()
         {
