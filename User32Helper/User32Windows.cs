@@ -32,6 +32,36 @@ namespace User32Helper
         }
     }
 
+    [StructLayout(LayoutKind.Explicit, Size = 4)]
+    public struct COLORREF
+    {
+        public COLORREF(byte r, byte g, byte b)
+        {
+            this.Value = 0;
+            this.R = r;
+            this.G = g;
+            this.B = b;
+        }
+
+        public COLORREF(uint value)
+        {
+            this.R = 0;
+            this.G = 0;
+            this.B = 0;
+            this.Value = value & 0x00FFFFFF;
+        }
+
+        [FieldOffset(0)]
+        public byte R;
+        [FieldOffset(1)]
+        public byte G;
+        [FieldOffset(2)]
+        public byte B;
+
+        [FieldOffset(0)]
+        public uint Value;
+    }
+
     public class User32Windows
     {
         public delegate bool EnumDelegate(IntPtr hWnd, int lParam);
@@ -84,6 +114,12 @@ namespace User32Helper
 
         [DllImport("user32.dll")]
         public static extern IntPtr GetWindowDC(IntPtr hWnd);
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr SetWindowText(IntPtr hWnd, string title);
+
+        [DllImport("Gdi32.dll")]
+        public static extern IntPtr SetTextColor(IntPtr hdc, COLORREF c);
 
         public const int HWND_BOTTOM = 1;
         public const int HWND_NOTOPMOST = -2;

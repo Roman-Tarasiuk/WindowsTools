@@ -212,7 +212,8 @@
             // 
             this.customTitleColorsToolStripMenuItem.Name = "customTitleColorsToolStripMenuItem";
             this.customTitleColorsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.customTitleColorsToolStripMenuItem.Text = "Custom title colors...";
+            this.customTitleColorsToolStripMenuItem.Text = "Custom title colors*";
+            this.customTitleColorsToolStripMenuItem.ToolTipText = "@@@@@@@...";
             this.customTitleColorsToolStripMenuItem.Click += new System.EventHandler(this.customTitleColorsToolStripMenuItem_Click);
             // 
             // toolStripSeparator5

@@ -7,6 +7,7 @@ using System.Threading;
 using System.Windows.Forms;
 
 using User32Helper;
+using System.Text;
 
 namespace WindowsManipulations
 {
@@ -704,7 +705,31 @@ namespace WindowsManipulations
             //    User32Windows.ReleaseDC(hwnd, hdc);
             //}
 
-            new TitleColoringForm().Show();
+
+            //new TitleColoringForm().Show();
+
+
+            int selected = this.lstWindowsList.SelectedIndex;
+            if (selected == -1)
+            {
+                return;
+            }
+
+            IntPtr hwnd = m_ListedWindows[selected].Handle;
+            StringBuilder title = new StringBuilder(256);
+            User32Windows.GetWindowText(hwnd, title, title.Capacity + 1);
+            string titleStr = title.ToString();
+
+            User32Windows.SetWindowText(hwnd,
+                  "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+                + (titleStr.StartsWith("@") ? "" : " ") + titleStr + " "
+                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         }
     }
 }
