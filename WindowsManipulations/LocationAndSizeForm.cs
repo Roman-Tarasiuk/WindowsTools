@@ -102,7 +102,10 @@ namespace WindowsManipulations
 
         private void LocationAndSizeForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Properties.Settings.Default.Save();
+            if (WindowState != FormWindowState.Minimized)
+            {
+                Properties.Settings.Default.Save();
+            }
         }
 
         #endregion

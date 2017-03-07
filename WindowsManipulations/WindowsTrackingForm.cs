@@ -68,7 +68,10 @@ namespace WindowsManipulations
 
         private void WindowsTrackingForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Properties.Settings.Default.Save();
+            if (WindowState != FormWindowState.Minimized)
+            {
+                Properties.Settings.Default.Save();
+            }
         }
 
         #endregion

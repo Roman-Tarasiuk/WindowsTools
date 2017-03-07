@@ -11,25 +11,38 @@ namespace WindowsManipulations
 {
     public partial class PinForPasswordsForm : Form
     {
-        public string Password { get; private set; }
+        private string m_Pin;
+        public string Pin
+        {
+            get { return m_Pin; }
+            set { m_Pin = value; txtPin.Text = m_Pin; }
+        }
+
 
         public PinForPasswordsForm()
         {
             InitializeComponent();
 
-            Password = "";
+            Pin = "";
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+        private void btnOK_Click(object sender, EventArgs e)
         {
-            Password = txtPassword.Text;
+            Pin = txtPin.Text;
         }
 
-        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void txtPin_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                Password = txtPassword.Text;
+                Pin = txtPin.Text;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

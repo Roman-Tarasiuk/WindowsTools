@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using User32Helper;
+
 namespace WindowsManipulations
 {
     public partial class PasswordForm : Form
@@ -23,6 +25,8 @@ namespace WindowsManipulations
         private bool m_EnablePasswordCopy = true;
 
         private Color m_BackColor;
+
+        private PinForPasswordsForm m_PinForm = new PinForPasswordsForm();
 
         #endregion
 
@@ -51,24 +55,23 @@ namespace WindowsManipulations
 
             if (m_Pin == "")
             {
-                PinForPasswordsForm pinForm = new PinForPasswordsForm();
-                pinForm.StartPosition = FormStartPosition.Manual;
-                pinForm.DesktopLocation = this.DesktopLocation;
+                string pin1 = GetPin();
 
-                DialogResult result = pinForm.ShowDialog();
-
-                if (result != DialogResult.OK)
-                {
-                    return;
-                }
-
-                if (pinForm.Password == "")
+                if (pin1 == "")
                 {
                     MessageBox.Show("You did'n specified pin. Password was not saved.");
                     return;
                 }
 
-                m_Pin = pinForm.Password;
+                string pin2 = GetPin();
+
+                if (pin1 != pin2)
+                {
+                    MessageBox.Show("Pin and its confirmation do not match.\nPlease try again.");
+                    return;
+                }
+
+                m_Pin = pin1;
             }
 
             listBox1.Items.Add(txtDescription.Text + (chkShowPassword.Checked ? " : " + txtPassword.Text : " : *******"));
@@ -111,7 +114,10 @@ namespace WindowsManipulations
                 }
             }
 
-            Properties.Settings.Default.Save();
+            if (WindowState != FormWindowState.Minimized)
+            {
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
@@ -189,20 +195,16 @@ namespace WindowsManipulations
                 return;
             }
 
-            PinForPasswordsForm pinForm = new PinForPasswordsForm();
-            pinForm.StartPosition = FormStartPosition.Manual;
-            pinForm.DesktopLocation = this.DesktopLocation;
+            string pin = GetPin();
 
-            DialogResult result = pinForm.ShowDialog();
-
-            if (result != DialogResult.OK)
+            if (pin == String.Empty)
             {
                 return;
             }
 
-            if (pinForm.Password != m_Pin)
+            if (pin != m_Pin)
             {
-                m_PinTimeSpan += m_PinTimeSpan;
+                m_PinTimeSpan += PasswordForm.defaultWrongPassDelay;
                 timer1.Interval = (int)m_PinTimeSpan.TotalMilliseconds;
                 m_EnablePasswordCopy = false;
                 m_BlockStartTime = DateTime.Now;
@@ -223,5 +225,22 @@ namespace WindowsManipulations
         }
 
         #endregion
+
+        private string GetPin()
+        {
+            m_PinForm = (PinForPasswordsForm)User32Windows.CheckFormDisposed(m_PinForm);
+            m_PinForm.StartPosition = FormStartPosition.Manual;
+            m_PinForm.DesktopLocation = this.DesktopLocation;
+            m_PinForm.Pin = "";
+
+            DialogResult result = m_PinForm.ShowDialog();
+
+            if (result != DialogResult.OK)
+            {
+                return "";
+            }
+
+            return m_PinForm.Pin;
+        }
     }
 }

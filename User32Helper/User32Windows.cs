@@ -4,6 +4,7 @@ using System.Text;
 
 using System.Runtime.InteropServices;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace User32Helper
 {
@@ -168,6 +169,30 @@ namespace User32Helper
 
             EnumDesktopWindows(IntPtr.Zero, filter, IntPtr.Zero);
             return collection;
+        }
+
+        public static void ShowForm(Form form)
+        {
+            form.Show();
+            User32Windows.ShowWindow(form.Handle, User32Windows.SW_RESTORE);
+            User32Windows.SetForegroundWindow(form.Handle);
+        }
+
+        public static Form CheckFormDisposed(Form f)
+        {
+            if (f.IsDisposed)
+            {
+                // Type t = GetType(f);
+                Type t = f.GetType();
+                f = (Form)Activator.CreateInstance(t);
+            }
+
+            return f;
+        }
+
+        public static Type GetType<T>(T obj)
+        {
+            return typeof(T);
         }
     }
 }

@@ -177,7 +177,7 @@ namespace WindowsManipulations
             if (m_HiddenByUserWindows.Count > 0)
             {
                 var result = MessageBox.Show("There are hidden windows.\nAre you sure to exit program?", "Windows Manipulations",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 
                 if (result == DialogResult.No)
                 {
@@ -325,7 +325,7 @@ namespace WindowsManipulations
         {
             CheckTrackingForm();
 
-            ShowForm(m_TrackingForm);
+            User32Windows.ShowForm(m_TrackingForm);
         }
 
         private void contextMenuStripSysTray_Opened(object sender, EventArgs e)
@@ -592,24 +592,6 @@ namespace WindowsManipulations
             }
         }
 
-        private Form CheckFormExists(Form f)
-        {
-            if (f == null || f.IsDisposed)
-            {
-                Type t = f.GetType();
-                f = (Form)Activator.CreateInstance(t);
-            }
-
-            return f;
-        }
-
-        private void ShowForm(Form form)
-        {
-            form.Show();
-            User32Windows.ShowWindow(form.Handle, User32Windows.SW_RESTORE);
-            User32Windows.SetForegroundWindow(form.Handle);
-        }
-
         private void MoveWindow()
         {
             int selected = this.lstWindowsList.SelectedIndex;
@@ -618,20 +600,20 @@ namespace WindowsManipulations
                 return;
             }
 
-            m_LocationForm = (LocationAndSizeForm)CheckFormExists(m_LocationForm);
+            m_LocationForm = (LocationAndSizeForm)User32Windows.CheckFormDisposed(m_LocationForm);
 
             m_LocationForm.SelectWindow(m_ListedWindows[selected].Handle);
 
-            ShowForm(m_LocationForm);
+            User32Windows.ShowForm(m_LocationForm);
 
             this.RefreshWindowsList();
         }
 
         private void Passwords()
         {
-            m_PasswordForm = (PasswordForm)CheckFormExists(m_PasswordForm);
+            m_PasswordForm = (PasswordForm)User32Windows.CheckFormDisposed(m_PasswordForm);
 
-            ShowForm(m_PasswordForm);
+            User32Windows.ShowForm(m_PasswordForm);
         }
 
         private void SendCommands(string[] commands)
@@ -661,7 +643,7 @@ namespace WindowsManipulations
         {
             Form tmp = m_TrackingForm;
 
-            m_TrackingForm = (WindowsTrackingForm)CheckFormExists(m_TrackingForm);
+            m_TrackingForm = (WindowsTrackingForm)User32Windows.CheckFormDisposed(m_TrackingForm);
 
             if (m_TrackingForm != tmp)
             {
@@ -721,7 +703,7 @@ namespace WindowsManipulations
             string titleStr = title.ToString();
 
             User32Windows.SetWindowText(hwnd,
-                  "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+                  "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
                 + (titleStr.StartsWith("@") ? "" : " ") + titleStr + " "
                 + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
                 + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
