@@ -26,7 +26,7 @@ namespace WindowsManipulations
 
         private Color m_BackColor;
 
-        private PinForPasswordsForm m_PinForm = new PinForPasswordsForm();
+        private PinForPasswordsForm m_PinForm;
 
         #endregion
 
@@ -228,7 +228,7 @@ namespace WindowsManipulations
 
         private string GetPin()
         {
-            m_PinForm = (PinForPasswordsForm)User32Windows.CheckFormDisposed(m_PinForm);
+            m_PinForm = (PinForPasswordsForm)User32Windows.GetForm(m_PinForm, typeof(PinForPasswordsForm));
             m_PinForm.StartPosition = FormStartPosition.Manual;
             m_PinForm.DesktopLocation = this.DesktopLocation;
             m_PinForm.Pin = "";

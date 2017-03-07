@@ -19,9 +19,9 @@ namespace WindowsManipulations
         private List<DesktopWindow> m_HiddenByUserWindows = new List<DesktopWindow>();
         private string m_HiddenPrefix = "[hidden]";
 
-        private LocationAndSizeForm m_LocationForm = new LocationAndSizeForm();
-        private PasswordForm m_PasswordForm = new PasswordForm();
-        private WindowsTrackingForm m_TrackingForm = new WindowsTrackingForm();
+        private LocationAndSizeForm m_LocationForm;
+        private PasswordForm m_PasswordForm;
+        private WindowsTrackingForm m_TrackingForm;
 
         private bool m_MouseTrackingStarted = false;
         private bool m_RefreshStarted = false;
@@ -600,7 +600,7 @@ namespace WindowsManipulations
                 return;
             }
 
-            m_LocationForm = (LocationAndSizeForm)User32Windows.CheckFormDisposed(m_LocationForm);
+            m_LocationForm = (LocationAndSizeForm)User32Windows.GetForm(m_LocationForm, typeof(LocationAndSizeForm));
 
             m_LocationForm.SelectWindow(m_ListedWindows[selected].Handle);
 
@@ -611,7 +611,7 @@ namespace WindowsManipulations
 
         private void Passwords()
         {
-            m_PasswordForm = (PasswordForm)User32Windows.CheckFormDisposed(m_PasswordForm);
+            m_PasswordForm = (PasswordForm)User32Windows.GetForm(m_PasswordForm, typeof(PasswordForm));
 
             User32Windows.ShowForm(m_PasswordForm);
         }
@@ -643,7 +643,7 @@ namespace WindowsManipulations
         {
             Form tmp = m_TrackingForm;
 
-            m_TrackingForm = (WindowsTrackingForm)User32Windows.CheckFormDisposed(m_TrackingForm);
+            m_TrackingForm = (WindowsTrackingForm)User32Windows.GetForm(m_TrackingForm, typeof(WindowsTrackingForm));
 
             if (m_TrackingForm != tmp)
             {

@@ -178,21 +178,14 @@ namespace User32Helper
             User32Windows.SetForegroundWindow(form.Handle);
         }
 
-        public static Form CheckFormDisposed(Form f)
+        public static Form GetForm(Form f, Type t)
         {
-            if (f.IsDisposed)
+            if (f == null || f.IsDisposed)
             {
-                // Type t = GetType(f);
-                Type t = f.GetType();
                 f = (Form)Activator.CreateInstance(t);
             }
 
             return f;
-        }
-
-        public static Type GetType<T>(T obj)
-        {
-            return typeof(T);
         }
     }
 }
