@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RunningAppsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RunningAppsForm.Designer.cs">
+      <DependentUpon>RunningAppsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TitleColoringForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RunningAppsForm.resx">
+      <DependentUpon>RunningAppsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TitleColoringForm.resx">
       <DependentUpon>TitleColoringForm.cs</DependentUpon>

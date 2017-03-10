@@ -13,6 +13,7 @@ namespace User32Helper
         public IntPtr Handle { get; set; }
         public string Title { get; set; }
         public bool IsVisible { get; set; }
+        public Icon Icon { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -151,9 +152,10 @@ namespace User32Helper
         public const int WM_CLOSE = 0x0010;
         public const int WM_NCPAINT = 0x85;
 
-        public static List<DesktopWindow> GetDesktopWindows()
+        public static List<DesktopWindow> GetDesktopWindows(bool visibleOnly = true)
         {
             var collection = new List<DesktopWindow>();
+
             EnumDelegate filter = delegate (IntPtr hWnd, int lParam)
             {
                 var result = new StringBuilder(255);
@@ -162,7 +164,24 @@ namespace User32Helper
 
                 var isVisible = !string.IsNullOrEmpty(title) && IsWindowVisible(hWnd);
 
-                collection.Add(new DesktopWindow { Handle = hWnd, Title = title, IsVisible = isVisible });
+                if (visibleOnly && (!isVisible))
+                {
+                    return true;
+                }
+
+                Icon icon = null;
+                try
+                {
+                    var path = NativeMethods.GetProcessPath(hWnd);
+                    icon = Icon.ExtractAssociatedIcon(path);
+                }
+                catch { }
+
+                collection.Add(new DesktopWindow {
+                    Handle = hWnd,
+                    Title = title,
+                    IsVisible = isVisible,
+                    Icon = icon });
 
                 return true;
             };

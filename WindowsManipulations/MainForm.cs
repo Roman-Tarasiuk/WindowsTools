@@ -25,6 +25,7 @@ namespace WindowsManipulations
 
         private bool m_MouseTrackingStarted = false;
         private bool m_RefreshStarted = false;
+        private bool m_NeedRefresh = false;
 
         #endregion
 
@@ -78,10 +79,12 @@ namespace WindowsManipulations
             if (this.WindowState == FormWindowState.Minimized)
             {
                 this.Hide();
+                m_NeedRefresh = true;
             }
-            else if (this.WindowState == FormWindowState.Normal)
+            else if (this.WindowState == FormWindowState.Normal && m_NeedRefresh)
             {
                 this.RefreshWindowsList();
+                m_NeedRefresh = false;
             }
         }
 
@@ -383,6 +386,58 @@ namespace WindowsManipulations
             m_TrackingForm.AddToTracking(m_ListedWindows[selected].Handle);
         }
 
+        private void customTitleColorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //int selected = this.lstWindowsList.SelectedIndex;
+            //if (selected == -1)
+            //{
+            //    return;
+            //}
+
+            //IntPtr hwnd = m_ListedWindows[selected].Handle;
+
+            //IntPtr hdc = User32Windows.GetWindowDC(hwnd);
+
+            //if ((int)hdc != 0)
+            //{
+            //    Graphics g = Graphics.FromHdc(hdc);
+            //    g.FillRectangle(Brushes.Green, new Rectangle(100, 2, 4800, 23));
+            //    g.Flush();
+            //    User32Windows.ReleaseDC(hwnd, hdc);
+            //}
+
+
+            //new TitleColoringForm().Show();
+
+
+            int selected = this.lstWindowsList.SelectedIndex;
+            if (selected == -1)
+            {
+                return;
+            }
+
+            IntPtr hwnd = m_ListedWindows[selected].Handle;
+            StringBuilder title = new StringBuilder(256);
+            User32Windows.GetWindowText(hwnd, title, title.Capacity + 1);
+            string titleStr = title.ToString();
+
+            User32Windows.SetWindowText(hwnd,
+                  "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+                + (titleStr.StartsWith("@") ? "" : " ") + titleStr + " "
+                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        }
+
+        private void taskListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new RunningAppsForm().Show();
+        }
+
         #endregion
 
 
@@ -512,7 +567,7 @@ namespace WindowsManipulations
         {
             var result = new List<DesktopWindow>();
 
-            List<DesktopWindow> RunningWindows = User32Windows.GetDesktopWindows();
+            List<DesktopWindow> RunningWindows = User32Windows.GetDesktopWindows(visibleOnly);
 
             foreach (var window in RunningWindows)
             {
@@ -666,52 +721,5 @@ namespace WindowsManipulations
         }
 
         #endregion
-
-        private void customTitleColorsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //int selected = this.lstWindowsList.SelectedIndex;
-            //if (selected == -1)
-            //{
-            //    return;
-            //}
-
-            //IntPtr hwnd = m_ListedWindows[selected].Handle;
-
-            //IntPtr hdc = User32Windows.GetWindowDC(hwnd);
-
-            //if ((int)hdc != 0)
-            //{
-            //    Graphics g = Graphics.FromHdc(hdc);
-            //    g.FillRectangle(Brushes.Green, new Rectangle(100, 2, 4800, 23));
-            //    g.Flush();
-            //    User32Windows.ReleaseDC(hwnd, hdc);
-            //}
-
-
-            //new TitleColoringForm().Show();
-
-
-            int selected = this.lstWindowsList.SelectedIndex;
-            if (selected == -1)
-            {
-                return;
-            }
-
-            IntPtr hwnd = m_ListedWindows[selected].Handle;
-            StringBuilder title = new StringBuilder(256);
-            User32Windows.GetWindowText(hwnd, title, title.Capacity + 1);
-            string titleStr = title.ToString();
-
-            User32Windows.SetWindowText(hwnd,
-                  "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-                + (titleStr.StartsWith("@") ? "" : " ") + titleStr + " "
-                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-        }
     }
 }

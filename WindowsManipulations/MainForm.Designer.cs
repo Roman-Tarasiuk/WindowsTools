@@ -74,6 +74,8 @@
             this.btnShowHidden = new System.Windows.Forms.Button();
             this.btnKillWindow = new System.Windows.Forms.Button();
             this.btnCloseWindow = new System.Windows.Forms.Button();
+            this.taskListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -110,6 +112,8 @@
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.taskListToolStripMenuItem,
+            this.toolStripSeparator9,
             this.moveWindowToolStripMenuItem,
             this.toolStripSeparator6,
             this.setILDASMFontsToolStripMenuItem,
@@ -458,6 +462,18 @@
             this.btnCloseWindow.UseVisualStyleBackColor = true;
             this.btnCloseWindow.Click += new System.EventHandler(this.btnCloseWindow_Click);
             // 
+            // taskListToolStripMenuItem
+            // 
+            this.taskListToolStripMenuItem.Name = "taskListToolStripMenuItem";
+            this.taskListToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.taskListToolStripMenuItem.Text = "Task list...";
+            this.taskListToolStripMenuItem.Click += new System.EventHandler(this.taskListToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(212, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -534,5 +550,7 @@
         private System.Windows.Forms.ToolStripMenuItem addToTrackingToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem customTitleColorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem taskListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
     }
 }
