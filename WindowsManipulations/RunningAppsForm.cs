@@ -68,7 +68,17 @@ namespace WindowsManipulations
             {
                 if (m_RunningWindows[i].IsVisible)
                 {
-                    runningAppsContextMenuStrip.Items.Add(m_RunningWindows[i].Title, m_RunningWindows[i].Icon != null
+                    var title = m_RunningWindows[i].Title;
+                    if (title == "Пуск"
+                        || title == "Program Manager"
+                        || title == "Windows Shell Experience Host")
+                    {
+                        m_RunningWindows.RemoveAt(i);
+                        i--;
+                        continue;
+                    }
+
+                    runningAppsContextMenuStrip.Items.Add(title, m_RunningWindows[i].Icon != null
                         ? m_RunningWindows[i].Icon.ToBitmap() : null);
                     var countMenu = count;
                     runningAppsContextMenuStrip.Items[count].Click += (senderMenu, eMenu) =>
