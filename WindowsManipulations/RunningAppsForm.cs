@@ -67,6 +67,7 @@ namespace WindowsManipulations
                 }
             }
 
+            runningAppsContextMenuStrip.Items.Add(new ToolStripSeparator());
             runningAppsContextMenuStrip.Items.Add(exitItem);
         }
     }

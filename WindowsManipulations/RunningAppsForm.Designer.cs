@@ -31,32 +31,47 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RunningAppsForm));
             this.runningAppsContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.qToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.program1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.program2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runningAppsContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // runningAppsContextMenuStrip
             // 
             this.runningAppsContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.qToolStripMenuItem,
+            this.program1ToolStripMenuItem,
+            this.program2ToolStripMenuItem,
+            this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.runningAppsContextMenuStrip.Name = "runningAppsContextMenuStrip";
-            this.runningAppsContextMenuStrip.Size = new System.Drawing.Size(93, 48);
+            this.runningAppsContextMenuStrip.Size = new System.Drawing.Size(153, 98);
             this.runningAppsContextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.runningAppsContextMenuStrip_Opening);
             // 
-            // qToolStripMenuItem
+            // program1ToolStripMenuItem
             // 
-            this.qToolStripMenuItem.Name = "qToolStripMenuItem";
-            this.qToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
-            this.qToolStripMenuItem.Text = "Q";
+            this.program1ToolStripMenuItem.Name = "program1ToolStripMenuItem";
+            this.program1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.program1ToolStripMenuItem.Text = "Program 1";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            // 
+            // program2ToolStripMenuItem
+            // 
+            this.program2ToolStripMenuItem.Name = "program2ToolStripMenuItem";
+            this.program2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.program2ToolStripMenuItem.Text = "Program 2";
             // 
             // RunningAppsForm
             // 
@@ -84,7 +99,9 @@
         #endregion
 
         private System.Windows.Forms.ContextMenuStrip runningAppsContextMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem qToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem program1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem program2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
