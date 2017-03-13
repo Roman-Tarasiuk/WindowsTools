@@ -14,6 +14,7 @@ namespace WindowsManipulations
 {
     public partial class RunningAppsForm : Form
     {
+        List<DesktopWindow> m_RunningWindows;
         private bool m_MouseIsDown = false;
         private int m_DX;
         private int m_DY;
@@ -52,23 +53,38 @@ namespace WindowsManipulations
 
         private void runningAppsContextMenuStrip_Opening(object sender, CancelEventArgs e)
         {
-            var windows = User32Windows.GetDesktopWindows();
+            m_RunningWindows = User32Windows.GetDesktopWindows();
 
             var menuItemsCount = runningAppsContextMenuStrip.Items.Count;
             var exitItem = runningAppsContextMenuStrip.Items[menuItemsCount - 1];
 
             runningAppsContextMenuStrip.Items.Clear();
+            var count = 0;
 
-            for(int i = 0; i < windows.Count; i++)
+            for(int i = 0; i < m_RunningWindows.Count; i++)
             {
-                if (windows[i].IsVisible)
+                if (m_RunningWindows[i].IsVisible)
                 {
-                    runningAppsContextMenuStrip.Items.Add(windows[i].Title, windows[i].Icon != null ? windows[i].Icon.ToBitmap() : null);
+                    runningAppsContextMenuStrip.Items.Add(m_RunningWindows[i].Title, m_RunningWindows[i].Icon != null
+                        ? m_RunningWindows[i].Icon.ToBitmap() : null);
+                    var countMenu = count;
+                    runningAppsContextMenuStrip.Items[count].Click += (senderMenu, eMenu) =>
+                        {
+                            User32Windows.SetForegroundWindow(m_RunningWindows[countMenu].Handle);
+                            User32Windows.ShowWindow(m_RunningWindows[countMenu].Handle, User32Windows.SW_RESTORE);
+                        };
+
+                    count++;
                 }
             }
 
             runningAppsContextMenuStrip.Items.Add(new ToolStripSeparator());
             runningAppsContextMenuStrip.Items.Add(exitItem);
+        }
+
+        private void RunningAppsForm_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

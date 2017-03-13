@@ -32,9 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RunningAppsForm));
             this.runningAppsContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.program1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.program2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runningAppsContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,33 +45,34 @@
             this.program2ToolStripMenuItem,
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
+            this.runningAppsContextMenuStrip.MaximumSize = new System.Drawing.Size(380, 0);
             this.runningAppsContextMenuStrip.Name = "runningAppsContextMenuStrip";
-            this.runningAppsContextMenuStrip.Size = new System.Drawing.Size(153, 98);
+            this.runningAppsContextMenuStrip.Size = new System.Drawing.Size(130, 76);
             this.runningAppsContextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.runningAppsContextMenuStrip_Opening);
             // 
             // program1ToolStripMenuItem
             // 
             this.program1ToolStripMenuItem.Name = "program1ToolStripMenuItem";
-            this.program1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.program1ToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.program1ToolStripMenuItem.Text = "Program 1";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // program2ToolStripMenuItem
             // 
             this.program2ToolStripMenuItem.Name = "program2ToolStripMenuItem";
-            this.program2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.program2ToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.program2ToolStripMenuItem.Text = "Program 2";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(126, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // RunningAppsForm
             // 
