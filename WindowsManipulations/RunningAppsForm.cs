@@ -14,15 +14,28 @@ namespace WindowsManipulations
 {
     public partial class RunningAppsForm : Form
     {
+        #region Fields
+
         List<DesktopWindow> m_RunningWindows = new List<DesktopWindow>();
         private bool m_MouseIsDown = false;
         private int m_DX;
         private int m_DY;
+        private bool m_RefreshFull = false;
+
+        #endregion
+
+
+        #region Constructors
 
         public RunningAppsForm()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+
+        #region Constrols' event handlers
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -54,17 +67,14 @@ namespace WindowsManipulations
         private void runningAppsContextMenuStrip_Opening(object sender, CancelEventArgs e)
         {
             var runningWindows = User32Windows.GetDesktopWindows();
-            UpdateWindowsLists(runningWindows);
+            RefreshWindowsLists(runningWindows);
 
-            var menuItemsCount = runningAppsContextMenuStrip.Items.Count;
-            var separatorItem = runningAppsContextMenuStrip.Items[menuItemsCount - 3];
-            var refreshItem = runningAppsContextMenuStrip.Items[menuItemsCount - 2];
-            var exitItem = runningAppsContextMenuStrip.Items[menuItemsCount - 1];
+            var backupMenuItems = BackupMenuItems();
 
             runningAppsContextMenuStrip.Items.Clear();
             var count = 0;
 
-            for(int i = 0; i < m_RunningWindows.Count; i++)
+            for (int i = 0; i < m_RunningWindows.Count; i++)
             {
                 if (m_RunningWindows[i].IsVisible)
                 {
@@ -91,9 +101,7 @@ namespace WindowsManipulations
                 }
             }
 
-            runningAppsContextMenuStrip.Items.Add(separatorItem);
-            runningAppsContextMenuStrip.Items.Add(refreshItem);
-            runningAppsContextMenuStrip.Items.Add(exitItem);
+            RestoreMenuItems(backupMenuItems);
         }
 
         private void RunningAppsForm_Click(object sender, EventArgs e)
@@ -101,13 +109,59 @@ namespace WindowsManipulations
             throw new NotImplementedException();
         }
 
-        private void UpdateWindowsLists(List<DesktopWindow> runningWindows)
+        private void refreshFullToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ResetContextMenu();
+
+            refreshFullToolStripMenuItem.Checked = true;
+            refreshToolStripMenuItem.Checked = false;
+
+            m_RefreshFull = true;
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ResetContextMenu();
+
+            refreshFullToolStripMenuItem.Checked = false;
+            refreshToolStripMenuItem.Checked = true;
+
+            m_RefreshFull = false;
+        }
+
+        #endregion
+
+
+        #region Helper methods
+
+        private void RefreshWindowsLists(List<DesktopWindow> runningWindows)
+        {
+            List<IntPtr> hwnds = null;
+            List<IntPtr> hwndsParam = null;
+
+            if (!m_RefreshFull)
+            {
+                hwnds = (from w in m_RunningWindows
+                         select w.Handle).ToList();
+                hwndsParam = (from w in runningWindows
+                              select w.Handle).ToList();
+            }
+
             foreach (var window in runningWindows)
             {
-                if (m_RunningWindows.Contains(window))
+                if (m_RefreshFull)
                 {
-                    continue;
+                    if (m_RunningWindows.Contains(window))
+                    {
+                        continue;
+                    }
+                }
+                else
+                {
+                    if (hwnds.Contains(window.Handle))
+                    {
+                        continue;
+                    }
                 }
 
                 m_RunningWindows.Add(window);
@@ -116,27 +170,57 @@ namespace WindowsManipulations
             for (int i = 0; i < m_RunningWindows.Count; i++)
             {
                 var window = m_RunningWindows[i];
-                if (!runningWindows.Contains(window))
+                if (m_RefreshFull)
                 {
-                    m_RunningWindows.RemoveAt(i);
-                    i--;
+                    if (!runningWindows.Contains(window))
+                    {
+                        m_RunningWindows.RemoveAt(i);
+                        i--;
+                    }
+                }
+                else
+                {
+                    if (!hwndsParam.Contains(window.Handle))
+                    {
+                        m_RunningWindows.RemoveAt(i);
+                        i--;
+                    }
                 }
             }
         }
 
-        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ResetContextMenu()
         {
-            var menuItemsCount = runningAppsContextMenuStrip.Items.Count;
-            var separatorItem = runningAppsContextMenuStrip.Items[menuItemsCount - 3];
-            var refreshItem = runningAppsContextMenuStrip.Items[menuItemsCount - 2];
-            var exitItem = runningAppsContextMenuStrip.Items[menuItemsCount - 1];
+            var backupMenuItems = BackupMenuItems();
 
             m_RunningWindows.Clear();
             runningAppsContextMenuStrip.Items.Clear();
 
-            runningAppsContextMenuStrip.Items.Add(separatorItem);
-            runningAppsContextMenuStrip.Items.Add(refreshItem);
-            runningAppsContextMenuStrip.Items.Add(exitItem);
+            RestoreMenuItems(backupMenuItems);
         }
+
+        private List<ToolStripItem> BackupMenuItems()
+        {
+            List<ToolStripItem> backup = new List<ToolStripItem>();
+
+            var menuItemsCount = runningAppsContextMenuStrip.Items.Count;
+
+            backup.Add(runningAppsContextMenuStrip.Items[menuItemsCount - 4]);
+            backup.Add(runningAppsContextMenuStrip.Items[menuItemsCount - 3]);
+            backup.Add(runningAppsContextMenuStrip.Items[menuItemsCount - 2]);
+            backup.Add(runningAppsContextMenuStrip.Items[menuItemsCount - 1]);
+
+            return backup;
+        }
+
+        private void RestoreMenuItems(List<ToolStripItem> items)
+        {
+            foreach (var i in items)
+            {
+                runningAppsContextMenuStrip.Items.Add(i);
+            }
+        }
+
+        #endregion
     }
 }
