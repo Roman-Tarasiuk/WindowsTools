@@ -14,7 +14,7 @@ namespace WindowsManipulations
 {
     public partial class RunningAppsForm : Form
     {
-        List<DesktopWindow> m_RunningWindows;
+        List<DesktopWindow> m_RunningWindows = new List<DesktopWindow>();
         private bool m_MouseIsDown = false;
         private int m_DX;
         private int m_DY;
@@ -53,9 +53,12 @@ namespace WindowsManipulations
 
         private void runningAppsContextMenuStrip_Opening(object sender, CancelEventArgs e)
         {
-            m_RunningWindows = User32Windows.GetDesktopWindows();
+            var runningWindows = User32Windows.GetDesktopWindows();
+            UpdateWindowsLists(runningWindows);
 
             var menuItemsCount = runningAppsContextMenuStrip.Items.Count;
+            var separatorItem = runningAppsContextMenuStrip.Items[menuItemsCount - 3];
+            var refreshItem = runningAppsContextMenuStrip.Items[menuItemsCount - 2];
             var exitItem = runningAppsContextMenuStrip.Items[menuItemsCount - 1];
 
             runningAppsContextMenuStrip.Items.Clear();
@@ -78,13 +81,52 @@ namespace WindowsManipulations
                 }
             }
 
-            runningAppsContextMenuStrip.Items.Add(new ToolStripSeparator());
+            runningAppsContextMenuStrip.Items.Add(separatorItem);
+            runningAppsContextMenuStrip.Items.Add(refreshItem);
             runningAppsContextMenuStrip.Items.Add(exitItem);
         }
 
         private void RunningAppsForm_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        private void UpdateWindowsLists(List<DesktopWindow> runningWindows)
+        {
+            foreach (var window in runningWindows)
+            {
+                if (m_RunningWindows.Contains(window))
+                {
+                    continue;
+                }
+
+                m_RunningWindows.Add(window);
+            }
+
+            for (int i = 0; i < m_RunningWindows.Count; i++)
+            {
+                var window = m_RunningWindows[i];
+                if (!runningWindows.Contains(window))
+                {
+                    m_RunningWindows.RemoveAt(i);
+                    i--;
+                }
+            }
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var menuItemsCount = runningAppsContextMenuStrip.Items.Count;
+            var separatorItem = runningAppsContextMenuStrip.Items[menuItemsCount - 3];
+            var refreshItem = runningAppsContextMenuStrip.Items[menuItemsCount - 2];
+            var exitItem = runningAppsContextMenuStrip.Items[menuItemsCount - 1];
+
+            m_RunningWindows.Clear();
+            runningAppsContextMenuStrip.Items.Clear();
+
+            runningAppsContextMenuStrip.Items.Add(separatorItem);
+            runningAppsContextMenuStrip.Items.Add(refreshItem);
+            runningAppsContextMenuStrip.Items.Add(exitItem);
         }
     }
 }
