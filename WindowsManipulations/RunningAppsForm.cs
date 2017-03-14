@@ -158,8 +158,12 @@ namespace WindowsManipulations
                 }
                 else
                 {
-                    if (hwnds.Contains(window.Handle))
+                    var index = hwnds.IndexOf(window.Handle);
+                    if (index >= 0)
                     {
+                        StringBuilder title = new StringBuilder(255);
+                        User32Windows.GetWindowText(window.Handle, title, title.Capacity + 1);
+                        m_RunningWindows[index].Title = title.ToString();
                         continue;
                     }
                 }
