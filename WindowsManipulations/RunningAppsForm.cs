@@ -93,8 +93,13 @@ namespace WindowsManipulations
                     var countMenu = count;
                     runningAppsContextMenuStrip.Items[count].Click += (senderMenu, eMenu) =>
                         {
-                            User32Windows.SetForegroundWindow(m_RunningWindows[countMenu].Handle);
-                            User32Windows.ShowWindow(m_RunningWindows[countMenu].Handle, User32Windows.SW_RESTORE);
+                            IntPtr h = m_RunningWindows[countMenu].Handle;
+
+                            User32Windows.SetForegroundWindow(h);
+                            if (User32Windows.IsIconic(h))
+                            {
+                                User32Windows.ShowWindow(m_RunningWindows[countMenu].Handle, User32Windows.SW_RESTORE);
+                            }
                         };
 
                     count++;

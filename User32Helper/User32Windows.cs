@@ -123,6 +123,9 @@ namespace User32Helper
         [DllImport("Gdi32.dll")]
         public static extern IntPtr SetTextColor(IntPtr hdc, COLORREF c);
 
+        [DllImport("User32.dll")]
+        public static extern bool IsIconic(IntPtr hWnd);
+
         public const int HWND_BOTTOM = 1;
         public const int HWND_NOTOPMOST = -2;
         public const int HWND_TOP = 0;
@@ -146,6 +149,7 @@ namespace User32Helper
 
         public const int SW_HIDE = 0;
         public const int SW_SHOW = 5;
+        public const int SW_MINIMIZE = 6;
         public const int SW_RESTORE = 9;
 
         public const int WM_SETTEXT = 0x000c;
