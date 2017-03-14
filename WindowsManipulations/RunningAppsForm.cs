@@ -106,7 +106,7 @@ namespace WindowsManipulations
 
         private void RunningAppsForm_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            runningAppsContextMenuStrip.Show(Cursor.Position);
         }
 
         private void refreshFullToolStripMenuItem_Click(object sender, EventArgs e)

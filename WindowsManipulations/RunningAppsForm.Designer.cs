@@ -109,6 +109,7 @@
             this.Name = "RunningAppsForm";
             this.ShowInTaskbar = false;
             this.TopMost = true;
+            this.Click += new System.EventHandler(this.RunningAppsForm_Click);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RunningAppsForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RunningAppsForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RunningAppsForm_MouseUp);
