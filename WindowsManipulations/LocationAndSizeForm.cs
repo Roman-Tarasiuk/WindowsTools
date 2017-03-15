@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Data;
 
 using User32Helper;
+using System.Text.RegularExpressions;
 
 namespace WindowsManipulations
 {
@@ -18,6 +19,14 @@ namespace WindowsManipulations
 
         private int m_CurrentScreen = 0;
 
+        enum FieldSet
+        {
+            Old,
+            New
+        }
+
+        private FieldSet m_CurrentFieldSet;
+
         #endregion
 
 
@@ -28,6 +37,12 @@ namespace WindowsManipulations
             InitializeComponent();
 
             this.Location = Properties.Settings.Default.LocationAndSizeFormLocation;
+
+            this.toolTip1.SetToolTip(this.groupBox1,
+                "It is possible to copy and paste sets of values:"
+                + Environment.NewLine
+                + "left; top; width; height");
+
             this.toolTip1.SetToolTip(this.groupBox2,
                 "It is possible to use calculation expressions."
                 + Environment.NewLine
@@ -43,7 +58,7 @@ namespace WindowsManipulations
         #endregion
 
 
-        #region Controls Events Handlers
+        #region Controls' Events Handlers
 
         private void LocationAndSizeForm_Shown(object sender, EventArgs e)
         {
@@ -108,6 +123,42 @@ namespace WindowsManipulations
             }
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+            m_CurrentFieldSet = FieldSet.Old;
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+            m_CurrentFieldSet = FieldSet.New;
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            switch (m_CurrentFieldSet)
+            {
+                case FieldSet.Old:
+                    FieldsCopyToClipboard(txtCurrentLeft, txtCurrentTop, txtCurrentWidth, txtCurrentHeight);
+                    break;
+                case FieldSet.New:
+                    FieldsCopyToClipboard(txtNewLeft, txtNewTop, txtNewWidth, txtNewHeight);
+                    break;
+            }
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            switch (m_CurrentFieldSet)
+            {
+                case FieldSet.Old:
+                    FieldsPasteFromClipboard(txtCurrentLeft, txtCurrentTop, txtCurrentWidth, txtCurrentHeight);
+                    break;
+                case FieldSet.New:
+                    FieldsPasteFromClipboard(txtNewLeft, txtNewTop, txtNewWidth, txtNewHeight);
+                    break;
+            }
+        }
+
         #endregion
 
 
@@ -155,10 +206,36 @@ namespace WindowsManipulations
             }
         }
 
+        private void FieldsCopyToClipboard(TextBox tL, TextBox tT, TextBox tW, TextBox tH)
+        {
+            Clipboard.SetText(String.Format("{0}; {1}; {2}; {3}", tL.Text, tT.Text, tW.Text, tH.Text));
+        }
+
+        private void FieldsPasteFromClipboard(TextBox tL, TextBox tT, TextBox tW, TextBox tH)
+        {
+            string clipboard = Clipboard.GetText();
+
+            Regex re = new Regex(@"(\d+)(?:(?:; )*)");
+            var matches = re.Matches(clipboard);
+
+            if (matches.Count != 4)
+            {
+                MessageBox.Show("Your data must be in format:\n"
+                    + "left; top; width; height",
+                    "Location And Size", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            tL.Text = matches[0].Groups[1].Value;
+            tT.Text = matches[1].Groups[1].Value;
+            tW.Text = matches[2].Groups[1].Value;
+            tH.Text = matches[3].Groups[1].Value;
+        }
+
         #endregion
 
 
-        #region Methods
+        #region Public methods
 
         public void SelectWindow(IntPtr hwnd)
         {
