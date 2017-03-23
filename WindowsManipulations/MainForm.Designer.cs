@@ -34,6 +34,8 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.taskListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.moveWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.setILDASMFontsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,8 +76,8 @@
             this.btnShowHidden = new System.Windows.Forms.Button();
             this.btnKillWindow = new System.Windows.Forms.Button();
             this.btnCloseWindow = new System.Windows.Forms.Button();
-            this.taskListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.chkPin = new System.Windows.Forms.CheckBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -134,6 +136,18 @@
             this.toolsToolStripMenuItem.ShowShortcutKeys = false;
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
+            // 
+            // taskListToolStripMenuItem
+            // 
+            this.taskListToolStripMenuItem.Name = "taskListToolStripMenuItem";
+            this.taskListToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.taskListToolStripMenuItem.Text = "Task list...";
+            this.taskListToolStripMenuItem.Click += new System.EventHandler(this.taskListToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(212, 6);
             // 
             // moveWindowToolStripMenuItem
             // 
@@ -462,23 +476,28 @@
             this.btnCloseWindow.UseVisualStyleBackColor = true;
             this.btnCloseWindow.Click += new System.EventHandler(this.btnCloseWindow_Click);
             // 
-            // taskListToolStripMenuItem
+            // chkPin
             // 
-            this.taskListToolStripMenuItem.Name = "taskListToolStripMenuItem";
-            this.taskListToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.taskListToolStripMenuItem.Text = "Task list...";
-            this.taskListToolStripMenuItem.Click += new System.EventHandler(this.taskListToolStripMenuItem_Click);
+            this.chkPin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkPin.AutoSize = true;
+            this.chkPin.Location = new System.Drawing.Point(458, 284);
+            this.chkPin.Name = "chkPin";
+            this.chkPin.Size = new System.Drawing.Size(91, 17);
+            this.chkPin.TabIndex = 8;
+            this.chkPin.Text = "Protect by pin";
+            this.chkPin.UseVisualStyleBackColor = true;
+            this.chkPin.CheckedChanged += new System.EventHandler(this.chkPin_CheckedChanged);
             // 
-            // toolStripSeparator9
+            // timer1
             // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(212, 6);
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 313);
+            this.Controls.Add(this.chkPin);
             this.Controls.Add(this.btnCloseWindow);
             this.Controls.Add(this.btnKillWindow);
             this.Controls.Add(this.btnShowHidden);
@@ -552,5 +571,7 @@
         private System.Windows.Forms.ToolStripMenuItem customTitleColorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem taskListToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.CheckBox chkPin;
+        private System.Windows.Forms.Timer timer1;
     }
 }

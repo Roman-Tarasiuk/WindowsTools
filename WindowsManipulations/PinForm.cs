@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace WindowsManipulations
 {
-    public partial class PinForPasswordsForm : Form
+    public partial class PinForm : Form
     {
         private string m_Pin;
         public string Pin
@@ -18,8 +18,31 @@ namespace WindowsManipulations
             set { m_Pin = value; txtPin.Text = m_Pin; }
         }
 
+        public string WindowTitle
+        {
+            get
+            {
+                return this.Text;
+            }
+            set {
+                this.Text = value;
+            }
+        }
 
-        public PinForPasswordsForm()
+        public string Prompt
+        {
+            get
+            {
+                return lblPrompt.Text;
+            }
+            set
+            {
+                lblPrompt.Text = value + ":";
+            }
+        }
+
+
+        public PinForm()
         {
             InitializeComponent();
 

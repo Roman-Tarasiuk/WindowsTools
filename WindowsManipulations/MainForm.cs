@@ -18,14 +18,21 @@ namespace WindowsManipulations
         private List<DesktopWindow> m_ListedWindows = new List<DesktopWindow>();
         private List<DesktopWindow> m_HiddenByUserWindows = new List<DesktopWindow>();
         private string m_HiddenPrefix = "[hidden]";
+        private string m_Pin = String.Empty;
 
         private LocationAndSizeForm m_LocationForm;
         private PasswordForm m_PasswordForm;
         private WindowsTrackingForm m_TrackingForm;
+        private PinForm m_PinForm;
 
         private bool m_MouseTrackingStarted = false;
         private bool m_RefreshStarted = false;
         private bool m_NeedRefresh = false;
+        private bool m_EnableRestore = true;
+
+        static readonly TimeSpan defaultWrongPassDelay = new TimeSpan(0, 0, 0, 0, 5000);
+        private TimeSpan m_PinTimeSpan = MainForm.defaultWrongPassDelay;
+        private DateTime m_BlockStartTime;
 
         #endregion
 
@@ -177,6 +184,7 @@ namespace WindowsManipulations
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // There are hidden windows.
             if (m_HiddenByUserWindows.Count > 0)
             {
                 var result = MessageBox.Show("There are hidden windows.\nAre you sure to exit program?", "Windows Manipulations",
@@ -185,11 +193,15 @@ namespace WindowsManipulations
                 if (result == DialogResult.No)
                 {
                     e.Cancel = true;
+                    return;
                 }
             }
 
+            // There are saved passwords.
             if (m_PasswordForm != null && !m_PasswordForm.IsDisposed)
             {
+                User32Windows.ShowForm(m_PasswordForm);
+
                 m_PasswordForm.Close();
 
                 if (!m_PasswordForm.IsDisposed)
@@ -438,6 +450,24 @@ namespace WindowsManipulations
             new RunningAppsForm().Show();
         }
 
+        private void chkPin_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkPin.Checked)
+            {
+                SetPin();
+            }
+            else
+            {
+                m_Pin = String.Empty;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            m_EnableRestore = true;
+        }
+
         #endregion
 
 
@@ -587,6 +617,52 @@ namespace WindowsManipulations
 
         private void DoRestoreFormWindow()
         {
+            if (m_Pin != String.Empty)
+            {
+                if (!m_EnableRestore)
+                {
+                    MessageBox.Show("You have inputted wrong pin.\n"
+                        + "Wait "
+                            + ((int)((m_PinTimeSpan.TotalMilliseconds - (DateTime.Now - m_BlockStartTime).TotalMilliseconds) / 1000)).ToString()
+                            + " seconds and try again...",
+                        "Incorrect pin",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    this.Hide();
+                    return;
+                }
+
+                string pin = GetPin("Unlock Windows Manipulations", "Enter pin");
+
+                if (pin == String.Empty)
+                {
+                    this.Hide();
+                    return;
+                }
+
+                if (pin != m_Pin)
+                {
+                    m_PinTimeSpan += MainForm.defaultWrongPassDelay;
+                    timer1.Interval = (int)m_PinTimeSpan.TotalMilliseconds;
+                    m_EnableRestore = false;
+                    m_BlockStartTime = DateTime.Now;
+
+                    timer1.Start();
+
+                    MessageBox.Show("You have inputted wrong pin.\n"
+                        + "Wait " + (m_PinTimeSpan.TotalMilliseconds / 1000).ToString() + " seconds and try again.",
+                        "Incorrect pin",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    this.Hide();
+                    return;
+                }
+                else
+                {
+                    m_PinTimeSpan = MainForm.defaultWrongPassDelay;
+                }
+            }
+
             this.Show();
             User32Windows.ShowWindow((IntPtr)this.Handle, User32Windows.SW_RESTORE);
             User32Windows.SetForegroundWindow((IntPtr)this.Handle);
@@ -718,6 +794,45 @@ namespace WindowsManipulations
                 windowsTrackingToolStripMenuItem1.Text = "Start windows tracking";
                 m_MouseTrackingStarted = false;
             }
+        }
+
+        private void SetPin()
+        {
+            string pin1 = GetPin("Windows Manipulations", "Enter pin");
+
+            if (pin1 == "")
+            {
+                chkPin.Checked = false;
+                MessageBox.Show("You did'n specified pin. Password was not saved.");
+                return;
+            }
+
+            string pin2 = GetPin("Windows Manipulations", "Confirm pin");
+
+            if (pin1 != pin2)
+            {
+                chkPin.Checked = false;
+                MessageBox.Show("Pin and its confirmation do not match.\nPlease try again.");
+                return;
+            }
+
+            m_Pin = pin1;
+        }
+
+        private string GetPin(string pinCaption, string pinPrompt)
+        {
+            m_PinForm = new PinForm();
+            m_PinForm.Text = pinCaption;
+            m_PinForm.Prompt = pinPrompt;
+
+            DialogResult result = m_PinForm.ShowDialog();
+
+            if (result != DialogResult.OK)
+            {
+                return "";
+            }
+
+            return m_PinForm.Pin;
         }
 
         #endregion

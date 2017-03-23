@@ -18,7 +18,7 @@ namespace WindowsManipulations
         static readonly TimeSpan defaultWrongPassDelay = new TimeSpan(0, 0, 0, 0, 5000);
 
         private List<PasswordInfo> m_Passwords = new List<PasswordInfo>();
-        private string m_Pin = "";
+        private string m_Pin = String.Empty;
 
         private TimeSpan m_PinTimeSpan = PasswordForm.defaultWrongPassDelay;
         private DateTime m_BlockStartTime;
@@ -26,7 +26,7 @@ namespace WindowsManipulations
 
         private Color m_BackColor;
 
-        private PinForPasswordsForm m_PinForm;
+        private PinForm m_PinForm;
 
         #endregion
 
@@ -53,9 +53,9 @@ namespace WindowsManipulations
                 return;
             }
 
-            if (m_Pin == "")
+            if (m_Pin == String.Empty)
             {
-                string pin1 = GetPin();
+                string pin1 = GetPin("Pin for password", "Enter pin");
 
                 if (pin1 == "")
                 {
@@ -63,7 +63,7 @@ namespace WindowsManipulations
                     return;
                 }
 
-                string pin2 = GetPin();
+                string pin2 = GetPin("Pin for password", "Confirm pin");
 
                 if (pin1 != pin2)
                 {
@@ -190,12 +190,17 @@ namespace WindowsManipulations
             if (!m_EnablePasswordCopy)
             {
                 MessageBox.Show("You have inputted wrong pin.\n"
-                    + "Wait " + ((int)((m_PinTimeSpan.TotalMilliseconds - (DateTime.Now - m_BlockStartTime).TotalMilliseconds) / 1000)).ToString() + " seconds and try again...");
+                    + "Wait "
+                        + ((int)((m_PinTimeSpan.TotalMilliseconds - (DateTime.Now - m_BlockStartTime).TotalMilliseconds) / 1000)).ToString()
+                        + " seconds and try again...",
+                    "Incorrect pin",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
 
                 return;
             }
 
-            string pin = GetPin();
+            string pin = GetPin("Pin for password", "Enter pin");
 
             if (pin == String.Empty)
             {
@@ -212,7 +217,10 @@ namespace WindowsManipulations
                 timer1.Start();
 
                 MessageBox.Show("You have inputted wrong pin.\n"
-                    + "Wait " + (m_PinTimeSpan.TotalMilliseconds / 1000).ToString() + " seconds and try again.");
+                    + "Wait " + (m_PinTimeSpan.TotalMilliseconds / 1000).ToString() + " seconds and try again.",
+                    "Incorrect pin",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
 
                 return;
             }
@@ -224,13 +232,13 @@ namespace WindowsManipulations
             Clipboard.SetText(m_Passwords[listBox1.SelectedIndex].Password);
         }
 
-        #endregion
-
-        private string GetPin()
+        private string GetPin(string pinCaption, string pinPrompt)
         {
-            m_PinForm = (PinForPasswordsForm)User32Windows.GetForm(m_PinForm, typeof(PinForPasswordsForm));
+            m_PinForm = (PinForm)User32Windows.GetForm(m_PinForm, typeof(PinForm));
             m_PinForm.StartPosition = FormStartPosition.Manual;
             m_PinForm.DesktopLocation = this.DesktopLocation;
+            m_PinForm.Text = pinCaption;
+            m_PinForm.Prompt = pinPrompt;
             m_PinForm.Pin = "";
 
             DialogResult result = m_PinForm.ShowDialog();
@@ -242,5 +250,7 @@ namespace WindowsManipulations
 
             return m_PinForm.Pin;
         }
+
+        #endregion
     }
 }
