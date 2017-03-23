@@ -55,6 +55,12 @@
     <Compile Include="RunningAppsForm.Designer.cs">
       <DependentUpon>RunningAppsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SendCommandToolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendCommandToolForm.Designer.cs">
+      <DependentUpon>SendCommandToolForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TitleColoringForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     <EmbeddedResource Include="RunningAppsForm.resx">
       <DependentUpon>RunningAppsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SendCommandToolForm.resx">
+      <DependentUpon>SendCommandToolForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TitleColoringForm.resx">
       <DependentUpon>TitleColoringForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +170,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\wrench-flat.png" />
     <Content Include="taskmgr_icon.png.ico" />
   </ItemGroup>
   <ItemGroup>

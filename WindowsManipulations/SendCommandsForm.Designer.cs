@@ -38,11 +38,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.btnToolItem = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtHwnd
             // 
-            this.txtHwnd.BackColor = System.Drawing.Color.Gray;
+            this.txtHwnd.BackColor = System.Drawing.Color.DimGray;
             this.txtHwnd.ForeColor = System.Drawing.Color.White;
             this.txtHwnd.Location = new System.Drawing.Point(107, 1);
             this.txtHwnd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -54,6 +55,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.DimGray;
             this.label1.Location = new System.Drawing.Point(2, 4);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -66,7 +68,7 @@
             this.txtCommands.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCommands.BackColor = System.Drawing.Color.Gray;
+            this.txtCommands.BackColor = System.Drawing.Color.DimGray;
             this.txtCommands.ForeColor = System.Drawing.Color.White;
             this.txtCommands.Location = new System.Drawing.Point(107, 47);
             this.txtCommands.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -79,6 +81,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.DimGray;
             this.label2.Location = new System.Drawing.Point(-1, 50);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
@@ -89,13 +92,13 @@
             // btnSendCommands
             // 
             this.btnSendCommands.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSendCommands.BackColor = System.Drawing.Color.Gray;
-            this.btnSendCommands.Location = new System.Drawing.Point(174, 106);
+            this.btnSendCommands.BackColor = System.Drawing.Color.DimGray;
+            this.btnSendCommands.Location = new System.Drawing.Point(205, 106);
             this.btnSendCommands.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSendCommands.Name = "btnSendCommands";
-            this.btnSendCommands.Size = new System.Drawing.Size(119, 27);
+            this.btnSendCommands.Size = new System.Drawing.Size(88, 27);
             this.btnSendCommands.TabIndex = 6;
-            this.btnSendCommands.Text = "Send command(s)";
+            this.btnSendCommands.Text = "Send";
             this.btnSendCommands.UseVisualStyleBackColor = false;
             this.btnSendCommands.Click += new System.EventHandler(this.btnSendCommands_Click);
             // 
@@ -103,6 +106,7 @@
             // 
             this.chkTopmost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkTopmost.AutoSize = true;
+            this.chkTopmost.BackColor = System.Drawing.Color.DimGray;
             this.chkTopmost.Checked = true;
             this.chkTopmost.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkTopmost.Location = new System.Drawing.Point(2, 111);
@@ -111,12 +115,13 @@
             this.chkTopmost.Size = new System.Drawing.Size(75, 19);
             this.chkTopmost.TabIndex = 7;
             this.chkTopmost.Text = "Topmost";
-            this.chkTopmost.UseVisualStyleBackColor = true;
+            this.chkTopmost.UseVisualStyleBackColor = false;
             this.chkTopmost.CheckedChanged += new System.EventHandler(this.chkTopmost_CheckedChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.DimGray;
             this.label3.Location = new System.Drawing.Point(2, 27);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -128,7 +133,7 @@
             // 
             this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTitle.BackColor = System.Drawing.Color.Gray;
+            this.txtTitle.BackColor = System.Drawing.Color.DimGray;
             this.txtTitle.ForeColor = System.Drawing.Color.White;
             this.txtTitle.Location = new System.Drawing.Point(107, 24);
             this.txtTitle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -140,7 +145,8 @@
             // 
             this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(104, 112);
+            this.linkLabel1.BackColor = System.Drawing.Color.DimGray;
+            this.linkLabel1.Location = new System.Drawing.Point(2, 82);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(35, 15);
             this.linkLabel1.TabIndex = 8;
@@ -148,12 +154,26 @@
             this.linkLabel1.Text = "Help";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // btnToolItem
+            // 
+            this.btnToolItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnToolItem.BackColor = System.Drawing.Color.DimGray;
+            this.btnToolItem.Location = new System.Drawing.Point(107, 106);
+            this.btnToolItem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnToolItem.Name = "btnToolItem";
+            this.btnToolItem.Size = new System.Drawing.Size(88, 27);
+            this.btnToolItem.TabIndex = 9;
+            this.btnToolItem.Text = "Tool";
+            this.btnToolItem.UseVisualStyleBackColor = false;
+            this.btnToolItem.Click += new System.EventHandler(this.btnToolItem_Click);
+            // 
             // SendCommandsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(293, 134);
+            this.Controls.Add(this.btnToolItem);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtTitle);
@@ -168,7 +188,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "SendCommandsForm";
-            this.Opacity = 0.85D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Send Commands";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SendCommandsForm_FormClosing);
@@ -190,5 +209,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button btnToolItem;
     }
 }

@@ -18,17 +18,6 @@ namespace WindowsManipulations
             set { m_Pin = value; txtPin.Text = m_Pin; }
         }
 
-        public string WindowTitle
-        {
-            get
-            {
-                return this.Text;
-            }
-            set {
-                this.Text = value;
-            }
-        }
-
         public string Prompt
         {
             get

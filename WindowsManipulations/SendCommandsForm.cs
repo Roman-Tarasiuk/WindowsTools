@@ -100,10 +100,6 @@ namespace WindowsManipulations
                 return;
             }
 
-            StringBuilder title = new StringBuilder(255);
-            User32Windows.GetWindowText(hwnd, title, title.Capacity + 1);
-            txtTitle.Text = title.ToString();
-
             Thread.Sleep(200);
 
             var commands = txtCommands.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
@@ -128,13 +124,13 @@ namespace WindowsManipulations
 
         private void txtHwnd_TextChanged(object sender, EventArgs e)
         {
-            IntPtr hwnd = (IntPtr)int.Parse(txtHwnd.Text);
+            m_Hwnd = (IntPtr)int.Parse(txtHwnd.Text);
 
             StringBuilder title = new StringBuilder(255);
 
-            if (User32Windows.IsWindow(hwnd))
+            if (User32Windows.IsWindow(m_Hwnd))
             {
-                User32Windows.GetWindowText(hwnd, title, title.Capacity + 1);
+                User32Windows.GetWindowText(m_Hwnd, title, title.Capacity + 1);
             }
 
             txtTitle.Text = title.ToString();
@@ -151,5 +147,10 @@ namespace WindowsManipulations
         }
 
         #endregion
+
+        private void btnToolItem_Click(object sender, EventArgs e)
+        {
+            new SendCommandToolForm(m_Hwnd, txtCommands.Text).Show();
+        }
     }
 }
