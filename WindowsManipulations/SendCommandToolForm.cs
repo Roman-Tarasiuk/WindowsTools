@@ -15,12 +15,14 @@ namespace WindowsManipulations
 {
     public partial class SendCommandToolForm : Form
     {
+        #region Fields
+
         private IntPtr m_Hwnd;
         private string m_Commands;
 
         private bool m_MouseIsDown = false;
         private bool m_MouseIsHover = false;
-        private bool m_SendCommandEnabled = true;
+        private bool m_SendCommandEnabled = false;
 
         private Pen m_PenNormal = new Pen(Color.White);
         private Pen m_PenHover = new Pen(Color.Lime);
@@ -28,6 +30,11 @@ namespace WindowsManipulations
 
         private int m_DX;
         private int m_DY;
+
+        #endregion
+
+
+        #region Constructors
 
         public SendCommandToolForm(IntPtr hwnd, string commands)
         {
@@ -47,6 +54,11 @@ namespace WindowsManipulations
 
             toolTip1.SetToolTip(this, Text);
         }
+
+        #endregion
+
+
+        #region Controls' event handlers
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -82,11 +94,13 @@ namespace WindowsManipulations
         {
             if (m_SendCommandEnabled)
             {
+                timer1.Stop();
                 m_SendCommandEnabled = false;
                 disableSendingToolStripMenuItem.Text = "Enabled sending";
             }
             else
             {
+                timer1.Start();
                 m_SendCommandEnabled = true;
                 disableSendingToolStripMenuItem.Text = "Move tool";
             }
@@ -150,5 +164,23 @@ namespace WindowsManipulations
             m_MouseIsHover = false;
             Invalidate();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            IntPtr foreWindow = User32Windows.GetForegroundWindow();
+
+            if (((foreWindow == m_Hwnd)
+                    || (foreWindow == this.Handle))
+                    && (!User32Windows.IsIconic(m_Hwnd)))
+            {
+                this.Show();
+            }
+            else
+            {
+                this.Hide();
+            }
+        }
+
+        #endregion
     }
 }
