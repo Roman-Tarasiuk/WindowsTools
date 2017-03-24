@@ -167,6 +167,11 @@ namespace WindowsManipulations
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (!m_SendCommandEnabled)
+            {
+                return;
+            }
+
             IntPtr foreWindow = User32Windows.GetForegroundWindow();
 
             if (((foreWindow == m_Hwnd)
