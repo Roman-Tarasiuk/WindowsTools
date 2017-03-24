@@ -173,11 +173,17 @@ namespace WindowsManipulations
                     || (foreWindow == this.Handle))
                     && (!User32Windows.IsIconic(m_Hwnd)))
             {
-                this.Show();
+                if (!this.Visible)
+                {
+                    this.Show();
+                }
             }
             else
             {
-                this.Hide();
+                if (this.Visible)
+                {
+                    this.Hide();
+                }
             }
         }
 
