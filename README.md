@@ -1,6 +1,6 @@
 # WindowsManipulations
 
-Windows desktop application for moving, size changing, hidding windows.<br>
+Windows desktop application for moving, changing size, hidding windows.<br>
 Customizing 'cmd' window.<br>
 Send custom keypresses to any window.<br>
 Simple password manager (for running session only).<br>
