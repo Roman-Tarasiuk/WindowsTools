@@ -824,6 +824,7 @@ namespace WindowsManipulations
             m_PinForm = new PinForm();
             m_PinForm.Text = pinCaption;
             m_PinForm.Prompt = pinPrompt;
+            m_PinForm.TopMost = true;
 
             DialogResult result = m_PinForm.ShowDialog();
 
