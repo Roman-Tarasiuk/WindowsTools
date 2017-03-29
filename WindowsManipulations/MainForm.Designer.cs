@@ -78,6 +78,7 @@
             this.btnCloseWindow = new System.Windows.Forms.Button();
             this.chkPin = new System.Windows.Forms.CheckBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.sendCustomCommandsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -362,11 +363,12 @@
             this.toolStripSeparator2,
             this.clearSystemClipboardToolStripMenuItem,
             this.toolStripSeparator1,
+            this.sendCustomCommandsToolStripMenuItem1,
             this.passwordsToolStripMenuItem1,
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray.Size = new System.Drawing.Size(206, 132);
+            this.contextMenuStripSysTray.Size = new System.Drawing.Size(216, 176);
             this.contextMenuStripSysTray.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
             this.contextMenuStripSysTray.MouseHover += new System.EventHandler(this.contextMenuStripSysTray_MouseHover);
@@ -375,50 +377,50 @@
             // 
             this.showToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.showToolStripMenuItem.Text = "Windows Manipulations";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
             // windowsTrackingToolStripMenuItem1
             // 
             this.windowsTrackingToolStripMenuItem1.Name = "windowsTrackingToolStripMenuItem1";
-            this.windowsTrackingToolStripMenuItem1.Size = new System.Drawing.Size(205, 22);
+            this.windowsTrackingToolStripMenuItem1.Size = new System.Drawing.Size(215, 22);
             this.windowsTrackingToolStripMenuItem1.Text = "Start windows tracking";
             this.windowsTrackingToolStripMenuItem1.Click += new System.EventHandler(this.windowsTrackingToolStripMenuItem1_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(202, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(212, 6);
             // 
             // clearSystemClipboardToolStripMenuItem
             // 
             this.clearSystemClipboardToolStripMenuItem.Name = "clearSystemClipboardToolStripMenuItem";
-            this.clearSystemClipboardToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.clearSystemClipboardToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.clearSystemClipboardToolStripMenuItem.Text = "Clear system clipboard";
             this.clearSystemClipboardToolStripMenuItem.Click += new System.EventHandler(this.clearSystemClipboardToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(202, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(212, 6);
             // 
             // passwordsToolStripMenuItem1
             // 
             this.passwordsToolStripMenuItem1.Name = "passwordsToolStripMenuItem1";
-            this.passwordsToolStripMenuItem1.Size = new System.Drawing.Size(205, 22);
+            this.passwordsToolStripMenuItem1.Size = new System.Drawing.Size(215, 22);
             this.passwordsToolStripMenuItem1.Text = "Password Manager...";
             this.passwordsToolStripMenuItem1.Click += new System.EventHandler(this.passwordsToolStripMenuItem1_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(202, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(212, 6);
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(205, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(215, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
@@ -491,6 +493,13 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // sendCustomCommandsToolStripMenuItem1
+            // 
+            this.sendCustomCommandsToolStripMenuItem1.Name = "sendCustomCommandsToolStripMenuItem1";
+            this.sendCustomCommandsToolStripMenuItem1.Size = new System.Drawing.Size(215, 22);
+            this.sendCustomCommandsToolStripMenuItem1.Text = "Send custom commands...";
+            this.sendCustomCommandsToolStripMenuItem1.Click += new System.EventHandler(this.sendCustomCommandsToolStripMenuItem1_Click);
             // 
             // MainForm
             // 
@@ -573,5 +582,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.CheckBox chkPin;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem sendCustomCommandsToolStripMenuItem1;
     }
 }

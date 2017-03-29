@@ -13,16 +13,24 @@ using User32Helper;
 
 namespace WindowsManipulations
 {
+    public enum Switch
+    {
+        On,
+        Off,
+        Toggle
+    }
+
     public partial class SendCommandToolForm : Form
     {
         #region Fields
 
-        private IntPtr m_Hwnd;
+        private IntPtr m_HostWindowHwnd;
         private string m_Commands;
 
         private bool m_MouseIsDown = false;
         private bool m_MouseIsHover = false;
         private bool m_SendCommandEnabled = false;
+        private bool m_AutoHide = true;
 
         private Pen m_PenNormal = new Pen(Color.White);
         private Pen m_PenHover = new Pen(Color.Lime);
@@ -40,19 +48,68 @@ namespace WindowsManipulations
         {
             InitializeComponent();
 
-            m_Hwnd = hwnd;
+            m_HostWindowHwnd = hwnd;
             m_Commands = commands;
 
             StringBuilder title = new StringBuilder(255);
             try
             {
-                User32Windows.GetWindowText(m_Hwnd, title, title.Capacity + 1);
+                User32Windows.GetWindowText(m_HostWindowHwnd, title, title.Capacity + 1);
             }
             catch { }
 
             Text = "Send Command - " + title.ToString();
 
             toolTip1.SetToolTip(this, Text);
+        }
+
+        #endregion
+
+
+        #region Properties
+
+        public bool AutoHide
+        {
+            get
+            {
+                return m_AutoHide;
+            }
+
+            set
+            {
+                m_AutoHide = value;
+                autoHideToolStripMenuItem.Checked = m_AutoHide;
+            }
+        }
+
+        #endregion
+
+
+        #region Public methods
+
+        public void ToggleSending(Switch sw = Switch.Toggle)
+        {
+            if (sw == Switch.On)
+            {
+                m_SendCommandEnabled = false;
+            }
+            else if (sw == Switch.Off)
+            {
+                m_SendCommandEnabled = true;
+            }
+
+            if (m_SendCommandEnabled)
+            {
+                timer1.Stop();
+                m_SendCommandEnabled = false;
+                disableSendingToolStripMenuItem.Text = "Enabled sending";
+            }
+            else
+            {
+                timer1.Start();
+                m_SendCommandEnabled = true;
+                disableSendingToolStripMenuItem.Text = "Stop tool / move";
+            }
         }
 
         #endregion
@@ -90,20 +147,9 @@ namespace WindowsManipulations
             }
         }
 
-        private void disableSendingToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toggleSendingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (m_SendCommandEnabled)
-            {
-                timer1.Stop();
-                m_SendCommandEnabled = false;
-                disableSendingToolStripMenuItem.Text = "Enabled sending";
-            }
-            else
-            {
-                timer1.Start();
-                m_SendCommandEnabled = true;
-                disableSendingToolStripMenuItem.Text = "Move tool";
-            }
+            ToggleSending();
         }
 
         private void SendCommandToolForm_MouseClick(object sender, MouseEventArgs e)
@@ -113,7 +159,7 @@ namespace WindowsManipulations
                 return;
             }
 
-            if (!User32Windows.SetForegroundWindow(m_Hwnd))
+            if (!User32Windows.SetForegroundWindow(m_HostWindowHwnd))
             {
                 MessageBox.Show("Window not found. Try to refresh list.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -174,9 +220,9 @@ namespace WindowsManipulations
 
             IntPtr foreWindow = User32Windows.GetForegroundWindow();
 
-            if (((foreWindow == m_Hwnd)
+            if (((foreWindow == m_HostWindowHwnd)
                     || (foreWindow == this.Handle))
-                    && (!User32Windows.IsIconic(m_Hwnd)))
+                    && (!User32Windows.IsIconic(m_HostWindowHwnd)))
             {
                 if (!this.Visible)
                 {
@@ -185,11 +231,17 @@ namespace WindowsManipulations
             }
             else
             {
-                if (this.Visible)
+                if (this.Visible && m_AutoHide)
                 {
                     this.Hide();
                 }
             }
+        }
+
+        private void autoHideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            m_AutoHide = !m_AutoHide;
+            autoHideToolStripMenuItem.Checked = m_AutoHide;
         }
 
         #endregion

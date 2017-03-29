@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SendCommandsForm));
             this.txtHwnd = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,6 +40,16 @@
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.btnToolItem = new System.Windows.Forms.Button();
+            this.btnMenu = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.hideAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.minimizeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restoreAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.setAutohideToAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeAutohideFromAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtHwnd
@@ -93,10 +104,10 @@
             // 
             this.btnSendCommands.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSendCommands.BackColor = System.Drawing.Color.DimGray;
-            this.btnSendCommands.Location = new System.Drawing.Point(205, 106);
+            this.btnSendCommands.Location = new System.Drawing.Point(152, 106);
             this.btnSendCommands.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSendCommands.Name = "btnSendCommands";
-            this.btnSendCommands.Size = new System.Drawing.Size(88, 27);
+            this.btnSendCommands.Size = new System.Drawing.Size(46, 27);
             this.btnSendCommands.TabIndex = 6;
             this.btnSendCommands.Text = "Send";
             this.btnSendCommands.UseVisualStyleBackColor = false;
@@ -161,11 +172,83 @@
             this.btnToolItem.Location = new System.Drawing.Point(107, 106);
             this.btnToolItem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnToolItem.Name = "btnToolItem";
-            this.btnToolItem.Size = new System.Drawing.Size(88, 27);
+            this.btnToolItem.Size = new System.Drawing.Size(46, 27);
             this.btnToolItem.TabIndex = 9;
             this.btnToolItem.Text = "Tool";
             this.btnToolItem.UseVisualStyleBackColor = false;
             this.btnToolItem.Click += new System.EventHandler(this.btnToolItem_Click);
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMenu.BackColor = System.Drawing.Color.DimGray;
+            this.btnMenu.Location = new System.Drawing.Point(208, 106);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(85, 27);
+            this.btnMenu.TabIndex = 10;
+            this.btnMenu.Text = "Operations";
+            this.btnMenu.UseVisualStyleBackColor = false;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.startAllToolStripMenuItem,
+            this.hideAllToolStripMenuItem,
+            this.minimizeAllToolStripMenuItem,
+            this.restoreAllToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.setAutohideToAllToolStripMenuItem,
+            this.removeAutohideFromAllToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(212, 164);
+            // 
+            // hideAllToolStripMenuItem
+            // 
+            this.hideAllToolStripMenuItem.Name = "hideAllToolStripMenuItem";
+            this.hideAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.hideAllToolStripMenuItem.Text = "Hide all";
+            this.hideAllToolStripMenuItem.Click += new System.EventHandler(this.hideAllToolStripMenuItem_Click);
+            // 
+            // minimizeAllToolStripMenuItem
+            // 
+            this.minimizeAllToolStripMenuItem.Name = "minimizeAllToolStripMenuItem";
+            this.minimizeAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.minimizeAllToolStripMenuItem.Text = "Minimize all";
+            this.minimizeAllToolStripMenuItem.Click += new System.EventHandler(this.minimizeAllToolStripMenuItem_Click);
+            // 
+            // restoreAllToolStripMenuItem
+            // 
+            this.restoreAllToolStripMenuItem.Name = "restoreAllToolStripMenuItem";
+            this.restoreAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.restoreAllToolStripMenuItem.Text = "Restore all";
+            this.restoreAllToolStripMenuItem.Click += new System.EventHandler(this.restoreAllToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(208, 6);
+            // 
+            // setAutohideToAllToolStripMenuItem
+            // 
+            this.setAutohideToAllToolStripMenuItem.Name = "setAutohideToAllToolStripMenuItem";
+            this.setAutohideToAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.setAutohideToAllToolStripMenuItem.Text = "Set autohide for all";
+            this.setAutohideToAllToolStripMenuItem.Click += new System.EventHandler(this.setAutohideToAllToolStripMenuItem_Click);
+            // 
+            // removeAutohideFromAllToolStripMenuItem
+            // 
+            this.removeAutohideFromAllToolStripMenuItem.Name = "removeAutohideFromAllToolStripMenuItem";
+            this.removeAutohideFromAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.removeAutohideFromAllToolStripMenuItem.Text = "Remove autohide from all";
+            this.removeAutohideFromAllToolStripMenuItem.Click += new System.EventHandler(this.removeAutohideFromAllToolStripMenuItem_Click);
+            // 
+            // startAllToolStripMenuItem
+            // 
+            this.startAllToolStripMenuItem.Name = "startAllToolStripMenuItem";
+            this.startAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.startAllToolStripMenuItem.Text = "Start all";
+            this.startAllToolStripMenuItem.Click += new System.EventHandler(this.startAllToolStripMenuItem_Click);
             // 
             // SendCommandsForm
             // 
@@ -173,6 +256,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(293, 134);
+            this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.btnToolItem);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label3);
@@ -193,6 +277,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SendCommandsForm_FormClosing);
             this.Shown += new System.EventHandler(this.SendCommandsForm_Shown);
             this.LocationChanged += new System.EventHandler(this.SendCommandsForm_LocationChanged);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,5 +295,14 @@
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button btnToolItem;
+        private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem minimizeAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restoreAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setAutohideToAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeAutohideFromAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hideAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem startAllToolStripMenuItem;
     }
 }

@@ -24,6 +24,7 @@ namespace WindowsManipulations
         private PasswordForm m_PasswordForm;
         private WindowsTrackingForm m_TrackingForm;
         private PinForm m_PinForm;
+        private SendCommandsForm m_SendCommandForm;
 
         private bool m_MouseTrackingStarted = false;
         private bool m_RefreshStarted = false;
@@ -259,14 +260,7 @@ namespace WindowsManipulations
 
         private void sendCustomCommandsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int selected = this.lstWindowsList.SelectedIndex;
-
-            if (selected == -1)
-            {
-                return;
-            }
-
-            new SendCommandsForm(m_ListedWindows[selected].Handle).Show();
+            SendCustomCommands();
         }
 
         private void copyWindowNameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -468,10 +462,15 @@ namespace WindowsManipulations
             m_EnableRestore = true;
         }
 
+        private void sendCustomCommandsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            SendCustomCommands();
+        }
+
         #endregion
 
 
-        #region Helper functions
+        #region Helper methods
 
         private void RefreshWindowsList()
         {
@@ -834,6 +833,20 @@ namespace WindowsManipulations
             }
 
             return m_PinForm.Pin;
+        }
+
+        private void SendCustomCommands()
+        {
+            m_SendCommandForm = (SendCommandsForm)User32Windows.GetForm(m_SendCommandForm, typeof(SendCommandsForm));
+
+            int selected = this.lstWindowsList.SelectedIndex;
+
+            if (selected != -1)
+            {
+                m_SendCommandForm.HostedWindowHwnd = m_ListedWindows[selected].Handle;
+            }
+
+            User32Windows.ShowForm(m_SendCommandForm);
         }
 
         #endregion

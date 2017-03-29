@@ -2,8 +2,10 @@
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 using User32Helper;
+using System.Drawing;
 
 namespace WindowsManipulations
 {
@@ -11,7 +13,8 @@ namespace WindowsManipulations
     {
         #region Fields
 
-        private IntPtr m_Hwnd;
+        private IntPtr m_HostedWindowHwnd;
+        private List<SendCommandToolForm> m_Tools;
 
         private string m_HelpMessage =
             "Separate commands using new line.\n\n"
@@ -57,9 +60,29 @@ namespace WindowsManipulations
         #endregion
 
 
+        #region Properties
+
+        public IntPtr HostedWindowHwnd
+        {
+            get
+            {
+                return m_HostedWindowHwnd;
+            }
+
+            set
+            {
+                m_HostedWindowHwnd = value;
+                txtHwnd.Text = m_HostedWindowHwnd.ToString();
+                GetWindowInfo();
+            }
+        }
+
+        #endregion
+
+
         #region Constructors
 
-        protected SendCommandsForm()
+        public SendCommandsForm()
         {
             InitializeComponent();
 
@@ -70,10 +93,10 @@ namespace WindowsManipulations
         public SendCommandsForm(IntPtr hwnd)
             : this()
         {
-            m_Hwnd = hwnd;
+            m_HostedWindowHwnd = hwnd;
 
             StringBuilder title = new StringBuilder(255);
-            User32Windows.GetWindowText(m_Hwnd, title, title.Capacity + 1);
+            User32Windows.GetWindowText(m_HostedWindowHwnd, title, title.Capacity + 1);
 
             txtTitle.Text = title.ToString();
         }
@@ -85,7 +108,7 @@ namespace WindowsManipulations
 
         private void SendCommandsForm_Shown(object sender, EventArgs e)
         {
-            txtHwnd.Text = m_Hwnd.ToString();
+            txtHwnd.Text = m_HostedWindowHwnd.ToString();
         }
 
         private void btnSendCommands_Click(object sender, EventArgs e)
@@ -124,16 +147,7 @@ namespace WindowsManipulations
 
         private void txtHwnd_TextChanged(object sender, EventArgs e)
         {
-            m_Hwnd = (IntPtr)int.Parse(txtHwnd.Text);
-
-            StringBuilder title = new StringBuilder(255);
-
-            if (User32Windows.IsWindow(m_Hwnd))
-            {
-                User32Windows.GetWindowText(m_Hwnd, title, title.Capacity + 1);
-            }
-
-            txtTitle.Text = title.ToString();
+            GetWindowInfo();
         }
 
         private void SendCommandsForm_LocationChanged(object sender, EventArgs e)
@@ -144,13 +158,111 @@ namespace WindowsManipulations
         private void SendCommandsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Properties.Settings.Default.Save();
+            e.Cancel = true;
+            this.Hide();
+        }
+
+        private void btnToolItem_Click(object sender, EventArgs e)
+        {
+            var tool = new SendCommandToolForm(m_HostedWindowHwnd, txtCommands.Text);
+
+            if (m_Tools == null)
+            {
+                m_Tools = new List<SendCommandToolForm>();
+            }
+
+            m_Tools.Add(tool);
+
+            tool.Show();
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            contextMenuStrip1.Show(btnMenu, new Point(0, btnMenu.Height));
+        }
+
+        private void hideAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var t in m_Tools)
+            {
+                t.Hide();
+            }
+        }
+
+        private void minimizeAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var t in m_Tools)
+            {
+                t.WindowState = FormWindowState.Minimized;
+            }
+        }
+
+        private void restoreAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var t in m_Tools)
+            {
+                t.Show();
+                t.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void setAutohideToAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var t in m_Tools)
+            {
+                t.AutoHide = true;
+            }
+        }
+
+        private void removeAutohideFromAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var t in m_Tools)
+            {
+                t.AutoHide = false;
+            }
         }
 
         #endregion
 
-        private void btnToolItem_Click(object sender, EventArgs e)
+
+        #region Helper methods
+
+        private void GetWindowInfo()
         {
-            new SendCommandToolForm(m_Hwnd, txtCommands.Text).Show();
+            m_HostedWindowHwnd = (IntPtr)int.Parse(txtHwnd.Text);
+
+            StringBuilder title = new StringBuilder(255);
+
+            if (User32Windows.IsWindow(m_HostedWindowHwnd))
+            {
+                User32Windows.GetWindowText(m_HostedWindowHwnd, title, title.Capacity + 1);
+            }
+
+            txtTitle.Text = title.ToString();
+        }
+
+        #endregion
+
+        private void startAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (startAllToolStripMenuItem.Text == "Start all")
+            {
+                foreach (var t in m_Tools)
+                {
+                    t.ToggleSending(Switch.On);
+                }
+
+                startAllToolStripMenuItem.Text = "Stop all";
+            }
+            else
+            {
+                foreach (var t in m_Tools)
+                {
+                    t.ToggleSending(Switch.Off);
+                }
+
+                startAllToolStripMenuItem.Text = "Start all";
+            }
         }
     }
 }
