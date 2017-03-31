@@ -53,13 +53,12 @@ namespace WindowsManipulations
                 return;
             }
 
-            if (m_Pin == String.Empty)
+            if (m_Pin == String.Empty && !chkShowPassword.Checked)
             {
                 string pin1 = GetPin("Pin for password", "Enter pin");
 
                 if (pin1 == "")
                 {
-                    MessageBox.Show("You did'n specified pin. Password was not saved.");
                     return;
                 }
 
@@ -67,7 +66,8 @@ namespace WindowsManipulations
 
                 if (pin1 != pin2)
                 {
-                    MessageBox.Show("Pin and its confirmation do not match.\nPlease try again.");
+                    MessageBox.Show("Pin and its confirmation do not match.\nPlease try again.", "",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 

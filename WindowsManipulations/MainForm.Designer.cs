@@ -68,6 +68,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.clearSystemClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.sendCustomCommandsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,7 +79,6 @@
             this.btnCloseWindow = new System.Windows.Forms.Button();
             this.chkPin = new System.Windows.Forms.CheckBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.sendCustomCommandsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -368,7 +368,7 @@
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray.Size = new System.Drawing.Size(216, 176);
+            this.contextMenuStripSysTray.Size = new System.Drawing.Size(216, 154);
             this.contextMenuStripSysTray.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
             this.contextMenuStripSysTray.MouseHover += new System.EventHandler(this.contextMenuStripSysTray_MouseHover);
@@ -404,6 +404,13 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(212, 6);
+            // 
+            // sendCustomCommandsToolStripMenuItem1
+            // 
+            this.sendCustomCommandsToolStripMenuItem1.Name = "sendCustomCommandsToolStripMenuItem1";
+            this.sendCustomCommandsToolStripMenuItem1.Size = new System.Drawing.Size(215, 22);
+            this.sendCustomCommandsToolStripMenuItem1.Text = "Send custom commands...";
+            this.sendCustomCommandsToolStripMenuItem1.Click += new System.EventHandler(this.sendCustomCommandsToolStripMenuItem1_Click);
             // 
             // passwordsToolStripMenuItem1
             // 
@@ -493,13 +500,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // sendCustomCommandsToolStripMenuItem1
-            // 
-            this.sendCustomCommandsToolStripMenuItem1.Name = "sendCustomCommandsToolStripMenuItem1";
-            this.sendCustomCommandsToolStripMenuItem1.Size = new System.Drawing.Size(215, 22);
-            this.sendCustomCommandsToolStripMenuItem1.Text = "Send custom commands...";
-            this.sendCustomCommandsToolStripMenuItem1.Click += new System.EventHandler(this.sendCustomCommandsToolStripMenuItem1_Click);
             // 
             // MainForm
             // 

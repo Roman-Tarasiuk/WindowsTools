@@ -44,12 +44,6 @@ namespace WindowsManipulations
             Pin = txtPin.Text;
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
         private void txtPin_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -63,6 +57,11 @@ namespace WindowsManipulations
                 this.DialogResult = DialogResult.Cancel;
                 this.Close();
             }
+        }
+
+        private void PinForm_Activated(object sender, EventArgs e)
+        {
+            this.txtPin.Focus();
         }
     }
 }

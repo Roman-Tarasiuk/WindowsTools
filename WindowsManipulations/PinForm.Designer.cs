@@ -63,7 +63,6 @@
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOK
             // 
@@ -89,6 +88,7 @@
             this.Name = "PinForm";
             this.ShowInTaskbar = false;
             this.Text = "Pin for password";
+            this.Activated += new System.EventHandler(this.PinForm_Activated);
             this.ResumeLayout(false);
             this.PerformLayout();
 
