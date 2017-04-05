@@ -25,6 +25,8 @@ namespace WindowsManipulations
         #region Fields
 
         private IntPtr m_HostWindowHwnd;
+        private int m_HostWindowOffsetX;
+        private int m_HostWindowOffsetY;
         private string m_Commands;
 
         private bool m_MouseIsDown = false;
@@ -108,6 +110,10 @@ namespace WindowsManipulations
             {
                 timer1.Start();
                 m_SendCommandEnabled = true;
+                Rectangle r;
+                User32Windows.GetWindowRect(m_HostWindowHwnd, out r);
+                m_HostWindowOffsetX = this.Location.X - r.Left;
+                m_HostWindowOffsetY = this.Location.Y - r.Top;
                 disableSendingToolStripMenuItem.Text = "Stop tool / move";
             }
         }
@@ -228,6 +234,9 @@ namespace WindowsManipulations
                 {
                     this.Show();
                 }
+                Rectangle r;
+                User32Windows.GetWindowRect(m_HostWindowHwnd, out r);
+                this.Location = new Point(r.Left + m_HostWindowOffsetX, r.Top + m_HostWindowOffsetY);
             }
             else
             {
