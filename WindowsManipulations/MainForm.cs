@@ -467,6 +467,54 @@ namespace WindowsManipulations
             SendCustomCommands();
         }
 
+        private void startAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (m_SendCommandForm != null)
+            {
+                m_SendCommandForm.StartAllTools(startAllToolStripMenuItem);
+            }
+        }
+
+        private void hideAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (m_SendCommandForm != null)
+            {
+                m_SendCommandForm.HideAllTools();
+            }
+        }
+
+        private void minimizeAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (m_SendCommandForm != null)
+            {
+                m_SendCommandForm.MinimizeAllTools();
+            }
+        }
+
+        private void restoreAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (m_SendCommandForm != null)
+            {
+                m_SendCommandForm.RestoreAllTools();
+            }
+        }
+
+        private void setAutohideForAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (m_SendCommandForm != null)
+            {
+                m_SendCommandForm.SetAutohideForAllTools();
+            }
+        }
+
+        private void removeAutohideFromAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (m_SendCommandForm != null)
+            {
+                m_SendCommandForm.RemoveAutohideFromAllTools();
+            }
+        }
+
         #endregion
 
 

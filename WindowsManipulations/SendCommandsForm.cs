@@ -183,43 +183,32 @@ namespace WindowsManipulations
 
         private void hideAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (var t in m_Tools)
-            {
-                t.Hide();
-            }
+            HideAllTools();
         }
 
         private void minimizeAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (var t in m_Tools)
-            {
-                t.WindowState = FormWindowState.Minimized;
-            }
+            MinimizeAllTools();
         }
 
         private void restoreAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (var t in m_Tools)
-            {
-                t.Show();
-                t.WindowState = FormWindowState.Normal;
-            }
+            RestoreAllTools();
         }
 
         private void setAutohideToAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (var t in m_Tools)
-            {
-                t.AutoHide = true;
-            }
+            SetAutohideForAllTools();
         }
 
         private void removeAutohideFromAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (var t in m_Tools)
-            {
-                t.AutoHide = false;
-            }
+            RemoveAutohideFromAllTools();
+        }
+
+        private void startAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StartAllTools(startAllToolStripMenuItem);
         }
 
         #endregion
@@ -243,16 +232,19 @@ namespace WindowsManipulations
 
         #endregion
 
-        private void startAllToolStripMenuItem_Click(object sender, EventArgs e)
+
+        #region Public Methods
+
+        public void StartAllTools(ToolStripMenuItem item)
         {
-            if (startAllToolStripMenuItem.Text == "Start all")
+            if (item.Text == "Start all")
             {
                 foreach (var t in m_Tools)
                 {
                     t.ToggleSending(Switch.On);
                 }
 
-                startAllToolStripMenuItem.Text = "Stop all";
+                item.Text = "Stop all";
             }
             else
             {
@@ -261,8 +253,51 @@ namespace WindowsManipulations
                     t.ToggleSending(Switch.Off);
                 }
 
-                startAllToolStripMenuItem.Text = "Start all";
+                item.Text = "Start all";
             }
         }
+
+        public void HideAllTools()
+        {
+            foreach (var t in m_Tools)
+            {
+                t.Hide();
+            }
+        }
+
+        public void MinimizeAllTools()
+        {
+            foreach (var t in m_Tools)
+            {
+                t.WindowState = FormWindowState.Minimized;
+            }
+        }
+
+        public void RestoreAllTools()
+        {
+            foreach (var t in m_Tools)
+            {
+                t.Show();
+                t.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        public void SetAutohideForAllTools()
+        {
+            foreach (var t in m_Tools)
+            {
+                t.AutoHide = true;
+            }
+        }
+
+        public void RemoveAutohideFromAllTools()
+        {
+            foreach (var t in m_Tools)
+            {
+                t.AutoHide = false;
+            }
+        }
+
+        #endregion
     }
 }
