@@ -47,40 +47,7 @@ namespace WindowsManipulations
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtDescription.Text == "" || txtPassword.Text == "")
-            {
-                MessageBox.Show("You must specify description and password.");
-                return;
-            }
-
-            if (m_Pin == String.Empty && !chkShowPassword.Checked)
-            {
-                string pin1 = GetPin("Pin for password", "Enter pin");
-
-                if (pin1 == "")
-                {
-                    return;
-                }
-
-                string pin2 = GetPin("Pin for password", "Confirm pin");
-
-                if (pin1 != pin2)
-                {
-                    MessageBox.Show("Pin and its confirmation do not match.\nPlease try again.", "",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
-
-                m_Pin = pin1;
-            }
-
-            listBox1.Items.Add(txtDescription.Text + (chkShowPassword.Checked ? " : " + txtPassword.Text : " : *******"));
-            m_Passwords.Add(new PasswordInfo { Description = txtDescription.Text, Password = txtPassword.Text, Public = chkShowPassword.Checked });
-
-            txtDescription.Clear();
-            txtPassword.Clear();
-            chkShowPassword.Checked = false;
-            txtDescription.Focus();
+            AddPasswordEntry();
         }
 
         private void copyToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -179,6 +146,21 @@ namespace WindowsManipulations
         private void copyDescriptionToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CopyDescriptionToClipboard();
+        }
+
+        private void PasswordForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (this.ActiveControl == listBox1)
+                {
+                    CopyPasswordToClipboard();
+                }
+                else
+                {
+                    AddPasswordEntry();
+                }
+            }
         }
 
         #endregion
@@ -281,6 +263,44 @@ namespace WindowsManipulations
             }
 
             return m_PinForm.Pin;
+        }
+
+        private void AddPasswordEntry()
+        {
+            if (txtDescription.Text == "" || txtPassword.Text == "")
+            {
+                MessageBox.Show("You must specify description and password.");
+                return;
+            }
+
+            if (m_Pin == String.Empty && !chkShowPassword.Checked)
+            {
+                string pin1 = GetPin("Pin for password", "Enter pin");
+
+                if (pin1 == "")
+                {
+                    return;
+                }
+
+                string pin2 = GetPin("Pin for password", "Confirm pin");
+
+                if (pin1 != pin2)
+                {
+                    MessageBox.Show("Pin and its confirmation do not match.\nPlease try again.", "",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                m_Pin = pin1;
+            }
+
+            listBox1.Items.Add(txtDescription.Text + (chkShowPassword.Checked ? " : " + txtPassword.Text : " : *******"));
+            m_Passwords.Add(new PasswordInfo { Description = txtDescription.Text, Password = txtPassword.Text, Public = chkShowPassword.Checked });
+
+            txtDescription.Clear();
+            txtPassword.Clear();
+            chkShowPassword.Checked = false;
+            txtDescription.Focus();
         }
 
         #endregion

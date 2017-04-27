@@ -33,6 +33,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyDescriptionToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@
             this.chkShowPassword = new System.Windows.Forms.CheckBox();
             this.btnRemove = new System.Windows.Forms.Button();
             this.timerFlash = new System.Windows.Forms.Timer(this.components);
-            this.copyDescriptionToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +68,7 @@
             this.copyToClipboardToolStripMenuItem,
             this.copyDescriptionToClipboardToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(232, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(232, 48);
             // 
             // copyToClipboardToolStripMenuItem
             // 
@@ -76,6 +76,13 @@
             this.copyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.copyToClipboardToolStripMenuItem.Text = "Copy password to clipboard";
             this.copyToClipboardToolStripMenuItem.Click += new System.EventHandler(this.copyToClipboardToolStripMenuItem_Click);
+            // 
+            // copyDescriptionToClipboardToolStripMenuItem
+            // 
+            this.copyDescriptionToClipboardToolStripMenuItem.Name = "copyDescriptionToClipboardToolStripMenuItem";
+            this.copyDescriptionToClipboardToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.copyDescriptionToClipboardToolStripMenuItem.Text = "Copy description to clipboard";
+            this.copyDescriptionToClipboardToolStripMenuItem.Click += new System.EventHandler(this.copyDescriptionToClipboardToolStripMenuItem_Click);
             // 
             // txtDescription
             // 
@@ -159,16 +166,8 @@
             this.timerFlash.Interval = 150;
             this.timerFlash.Tick += new System.EventHandler(this.timerFlash_Tick);
             // 
-            // copyDescriptionToClipboardToolStripMenuItem
-            // 
-            this.copyDescriptionToClipboardToolStripMenuItem.Name = "copyDescriptionToClipboardToolStripMenuItem";
-            this.copyDescriptionToClipboardToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.copyDescriptionToClipboardToolStripMenuItem.Text = "Copy description to clipboard";
-            this.copyDescriptionToClipboardToolStripMenuItem.Click += new System.EventHandler(this.copyDescriptionToClipboardToolStripMenuItem_Click);
-            // 
             // PasswordForm
             // 
-            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 296);
@@ -181,12 +180,14 @@
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.listBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "PasswordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Password Manager";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PasswordForm_FormClosing);
             this.Shown += new System.EventHandler(this.PasswordForm_Shown);
             this.LocationChanged += new System.EventHandler(this.PasswordForm_LocationChanged);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PasswordForm_KeyDown);
             this.Resize += new System.EventHandler(this.PasswordForm_Resize);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
