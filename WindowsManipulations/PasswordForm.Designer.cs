@@ -42,6 +42,7 @@
             this.chkShowPassword = new System.Windows.Forms.CheckBox();
             this.btnRemove = new System.Windows.Forms.Button();
             this.timerFlash = new System.Windows.Forms.Timer(this.components);
+            this.copyDescriptionToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,19 +60,21 @@
             this.listBox1.Size = new System.Drawing.Size(340, 189);
             this.listBox1.TabIndex = 0;
             this.listBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseClick);
+            this.listBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox1_KeyDown);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyToClipboardToolStripMenuItem});
+            this.copyToClipboardToolStripMenuItem,
+            this.copyDescriptionToClipboardToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(179, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(232, 70);
             // 
             // copyToClipboardToolStripMenuItem
             // 
             this.copyToClipboardToolStripMenuItem.Name = "copyToClipboardToolStripMenuItem";
-            this.copyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.copyToClipboardToolStripMenuItem.Text = "Copy to clipboard...";
+            this.copyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.copyToClipboardToolStripMenuItem.Text = "Copy password to clipboard";
             this.copyToClipboardToolStripMenuItem.Click += new System.EventHandler(this.copyToClipboardToolStripMenuItem_Click);
             // 
             // txtDescription
@@ -156,8 +159,16 @@
             this.timerFlash.Interval = 150;
             this.timerFlash.Tick += new System.EventHandler(this.timerFlash_Tick);
             // 
+            // copyDescriptionToClipboardToolStripMenuItem
+            // 
+            this.copyDescriptionToClipboardToolStripMenuItem.Name = "copyDescriptionToClipboardToolStripMenuItem";
+            this.copyDescriptionToClipboardToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.copyDescriptionToClipboardToolStripMenuItem.Text = "Copy description to clipboard";
+            this.copyDescriptionToClipboardToolStripMenuItem.Click += new System.EventHandler(this.copyDescriptionToClipboardToolStripMenuItem_Click);
+            // 
             // PasswordForm
             // 
+            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 296);
@@ -174,6 +185,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Password Manager";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PasswordForm_FormClosing);
+            this.Shown += new System.EventHandler(this.PasswordForm_Shown);
             this.LocationChanged += new System.EventHandler(this.PasswordForm_LocationChanged);
             this.Resize += new System.EventHandler(this.PasswordForm_Resize);
             this.contextMenuStrip1.ResumeLayout(false);
@@ -196,5 +208,6 @@
         private System.Windows.Forms.CheckBox chkShowPassword;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Timer timerFlash;
+        private System.Windows.Forms.ToolStripMenuItem copyDescriptionToClipboardToolStripMenuItem;
     }
 }

@@ -80,6 +80,7 @@ namespace WindowsManipulations
             txtDescription.Clear();
             txtPassword.Clear();
             chkShowPassword.Checked = false;
+            txtDescription.Focus();
         }
 
         private void copyToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -130,6 +131,8 @@ namespace WindowsManipulations
             {
                 txtPassword.PasswordChar = '*';
             }
+
+            txtPassword.Focus();
         }
 
         private void listBox1_MouseClick(object sender, MouseEventArgs e)
@@ -158,6 +161,24 @@ namespace WindowsManipulations
         private void PasswordForm_LocationChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.PasswordsFormLocation = this.Location;
+        }
+
+        private void PasswordForm_Shown(object sender, EventArgs e)
+        {
+            txtDescription.Focus();
+        }
+
+        private void listBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                CopyPasswordToClipboard();
+            }
+        }
+
+        private void copyDescriptionToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CopyDescriptionToClipboard();
         }
 
         #endregion
@@ -230,6 +251,17 @@ namespace WindowsManipulations
             }
 
             Clipboard.SetText(m_Passwords[listBox1.SelectedIndex].Password);
+        }
+
+        private void CopyDescriptionToClipboard()
+        {
+            if (listBox1.SelectedIndex == -1)
+            {
+                return;
+            }
+
+            Clipboard.SetText(m_Passwords[listBox1.SelectedIndex].Description);
+            FlashWindow();
         }
 
         private string GetPin(string pinCaption, string pinPrompt)
