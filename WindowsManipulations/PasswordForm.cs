@@ -50,11 +50,6 @@ namespace WindowsManipulations
             AddPasswordEntry();
         }
 
-        private void copyToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CopyPasswordToClipboard();
-        }
-
         private void PasswordForm_Resize(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized)
