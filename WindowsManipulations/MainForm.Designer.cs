@@ -68,7 +68,15 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.clearSystemClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.screenSaverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendCustomCommandsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.startAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hideAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.minimizeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restoreAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.setAutohideForAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeAutohideFromAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,14 +86,8 @@
             this.btnKillWindow = new System.Windows.Forms.Button();
             this.btnCloseWindow = new System.Windows.Forms.Button();
             this.chkPin = new System.Windows.Forms.CheckBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.startAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hideAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.minimizeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.restoreAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.setAutohideForAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeAutohideFromAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerWrongPin = new System.Windows.Forms.Timer(this.components);
+            this.timerScreenSaver = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -101,6 +103,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(561, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.MenuActivate += new System.EventHandler(this.menuStrip1_MenuActivate);
             // 
             // fileToolStripMenuItem
             // 
@@ -282,7 +285,6 @@
             this.lstWindowsList.Name = "lstWindowsList";
             this.lstWindowsList.Size = new System.Drawing.Size(443, 235);
             this.lstWindowsList.TabIndex = 1;
-            this.lstWindowsList.SelectedIndexChanged += new System.EventHandler(this.lstWindowsList_SelectedIndexChanged);
             this.lstWindowsList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstWindowsList_MouseDown);
             // 
             // contextMenuStripWindowsList
@@ -370,6 +372,7 @@
             this.toolStripSeparator2,
             this.clearSystemClipboardToolStripMenuItem,
             this.toolStripSeparator1,
+            this.screenSaverToolStripMenuItem,
             this.sendCustomCommandsToolStripMenuItem1,
             this.passwordsToolStripMenuItem1,
             this.toolStripSeparator4,
@@ -412,6 +415,13 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(212, 6);
             // 
+            // screenSaverToolStripMenuItem
+            // 
+            this.screenSaverToolStripMenuItem.Name = "screenSaverToolStripMenuItem";
+            this.screenSaverToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.screenSaverToolStripMenuItem.Text = "Screen saver";
+            this.screenSaverToolStripMenuItem.Click += new System.EventHandler(this.screenSaverToolStripMenuItem_Click);
+            // 
             // sendCustomCommandsToolStripMenuItem1
             // 
             this.sendCustomCommandsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -426,6 +436,53 @@
             this.sendCustomCommandsToolStripMenuItem1.Size = new System.Drawing.Size(215, 22);
             this.sendCustomCommandsToolStripMenuItem1.Text = "Send custom commands...";
             this.sendCustomCommandsToolStripMenuItem1.Click += new System.EventHandler(this.sendCustomCommandsToolStripMenuItem1_Click);
+            // 
+            // startAllToolStripMenuItem
+            // 
+            this.startAllToolStripMenuItem.Name = "startAllToolStripMenuItem";
+            this.startAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.startAllToolStripMenuItem.Text = "Start all";
+            this.startAllToolStripMenuItem.Click += new System.EventHandler(this.startAllToolStripMenuItem_Click);
+            // 
+            // hideAllToolStripMenuItem
+            // 
+            this.hideAllToolStripMenuItem.Name = "hideAllToolStripMenuItem";
+            this.hideAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.hideAllToolStripMenuItem.Text = "Hide all";
+            this.hideAllToolStripMenuItem.Click += new System.EventHandler(this.hideAllToolStripMenuItem_Click);
+            // 
+            // minimizeAllToolStripMenuItem
+            // 
+            this.minimizeAllToolStripMenuItem.Name = "minimizeAllToolStripMenuItem";
+            this.minimizeAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.minimizeAllToolStripMenuItem.Text = "Minimize all";
+            this.minimizeAllToolStripMenuItem.Click += new System.EventHandler(this.minimizeAllToolStripMenuItem_Click);
+            // 
+            // restoreAllToolStripMenuItem
+            // 
+            this.restoreAllToolStripMenuItem.Name = "restoreAllToolStripMenuItem";
+            this.restoreAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.restoreAllToolStripMenuItem.Text = "Restore all";
+            this.restoreAllToolStripMenuItem.Click += new System.EventHandler(this.restoreAllToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(208, 6);
+            // 
+            // setAutohideForAllToolStripMenuItem
+            // 
+            this.setAutohideForAllToolStripMenuItem.Name = "setAutohideForAllToolStripMenuItem";
+            this.setAutohideForAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.setAutohideForAllToolStripMenuItem.Text = "Set autohide for all";
+            this.setAutohideForAllToolStripMenuItem.Click += new System.EventHandler(this.setAutohideForAllToolStripMenuItem_Click);
+            // 
+            // removeAutohideFromAllToolStripMenuItem
+            // 
+            this.removeAutohideFromAllToolStripMenuItem.Name = "removeAutohideFromAllToolStripMenuItem";
+            this.removeAutohideFromAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.removeAutohideFromAllToolStripMenuItem.Text = "Remove autohide from all";
+            this.removeAutohideFromAllToolStripMenuItem.Click += new System.EventHandler(this.removeAutohideFromAllToolStripMenuItem_Click);
             // 
             // passwordsToolStripMenuItem1
             // 
@@ -512,56 +569,13 @@
             this.chkPin.UseVisualStyleBackColor = true;
             this.chkPin.CheckedChanged += new System.EventHandler(this.chkPin_CheckedChanged);
             // 
-            // timer1
+            // timerWrongPin
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerWrongPin.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // startAllToolStripMenuItem
+            // timerScreenSaver
             // 
-            this.startAllToolStripMenuItem.Name = "startAllToolStripMenuItem";
-            this.startAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.startAllToolStripMenuItem.Text = "Start all";
-            this.startAllToolStripMenuItem.Click += new System.EventHandler(this.startAllToolStripMenuItem_Click);
-            // 
-            // hideAllToolStripMenuItem
-            // 
-            this.hideAllToolStripMenuItem.Name = "hideAllToolStripMenuItem";
-            this.hideAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.hideAllToolStripMenuItem.Text = "Hide all";
-            this.hideAllToolStripMenuItem.Click += new System.EventHandler(this.hideAllToolStripMenuItem_Click);
-            // 
-            // minimizeAllToolStripMenuItem
-            // 
-            this.minimizeAllToolStripMenuItem.Name = "minimizeAllToolStripMenuItem";
-            this.minimizeAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.minimizeAllToolStripMenuItem.Text = "Minimize all";
-            this.minimizeAllToolStripMenuItem.Click += new System.EventHandler(this.minimizeAllToolStripMenuItem_Click);
-            // 
-            // restoreAllToolStripMenuItem
-            // 
-            this.restoreAllToolStripMenuItem.Name = "restoreAllToolStripMenuItem";
-            this.restoreAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.restoreAllToolStripMenuItem.Text = "Restore all";
-            this.restoreAllToolStripMenuItem.Click += new System.EventHandler(this.restoreAllToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator10
-            // 
-            this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(208, 6);
-            // 
-            // setAutohideForAllToolStripMenuItem
-            // 
-            this.setAutohideForAllToolStripMenuItem.Name = "setAutohideForAllToolStripMenuItem";
-            this.setAutohideForAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.setAutohideForAllToolStripMenuItem.Text = "Set autohide for all";
-            this.setAutohideForAllToolStripMenuItem.Click += new System.EventHandler(this.setAutohideForAllToolStripMenuItem_Click);
-            // 
-            // removeAutohideFromAllToolStripMenuItem
-            // 
-            this.removeAutohideFromAllToolStripMenuItem.Name = "removeAutohideFromAllToolStripMenuItem";
-            this.removeAutohideFromAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.removeAutohideFromAllToolStripMenuItem.Text = "Remove autohide from all";
-            this.removeAutohideFromAllToolStripMenuItem.Click += new System.EventHandler(this.removeAutohideFromAllToolStripMenuItem_Click);
+            this.timerScreenSaver.Tick += new System.EventHandler(this.timerScreenSaver_Tick);
             // 
             // MainForm
             // 
@@ -643,7 +657,7 @@
         private System.Windows.Forms.ToolStripMenuItem taskListToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.CheckBox chkPin;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerWrongPin;
         private System.Windows.Forms.ToolStripMenuItem sendCustomCommandsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem startAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hideAllToolStripMenuItem;
@@ -652,5 +666,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripMenuItem setAutohideForAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeAutohideFromAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem screenSaverToolStripMenuItem;
+        private System.Windows.Forms.Timer timerScreenSaver;
     }
 }

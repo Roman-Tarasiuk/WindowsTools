@@ -14,5 +14,8 @@
     <Setting Name="WindowsTrackingFormLocation" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">100, 100</Value>
     </Setting>
+    <Setting Name="ScreenSaverPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">%SystemRoot%\System32\ssText3d.scr</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -8,11 +8,18 @@ using System.Windows.Forms;
 
 using User32Helper;
 using System.Text;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.IO;
 
 namespace WindowsManipulations
 {
     public partial class MainForm : Form
     {
+        [DllImport("user32")]
+        private static extern void LockWorkStation();
+
+
         #region Fields
 
         private List<DesktopWindow> m_ListedWindows = new List<DesktopWindow>();
@@ -35,6 +42,17 @@ namespace WindowsManipulations
         private TimeSpan m_PinTimeSpan = MainForm.defaultWrongPassDelay;
         private DateTime m_BlockStartTime;
 
+        private Point m_ScreenSaverRunCursorPosition;
+
+        MyScreenSaverHooker m_Hook;
+
+        #endregion
+
+
+        #region Properties
+
+        public bool ScreenSaverHooking { get; set; }
+
         #endregion
 
 
@@ -43,6 +61,10 @@ namespace WindowsManipulations
         public MainForm()
         {
             InitializeComponent();
+
+            this.ScreenSaverHooking = false;
+
+            m_Hook = new MyScreenSaverHooker(this);
         }
 
         #endregion
@@ -58,8 +80,6 @@ namespace WindowsManipulations
         private void btnRefreshWindowsList_Click(object sender, EventArgs e)
         {
             this.RefreshWindowsList();
-
-            ArrangeMenu();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -105,11 +125,6 @@ namespace WindowsManipulations
         {
             MethodInfo mi = typeof(NotifyIcon).GetMethod("ShowContextMenu", BindingFlags.Instance | BindingFlags.NonPublic);
             mi.Invoke(notifyIcon1, null);
-        }
-
-        private void lstWindowsList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ArrangeMenu();
         }
 
         private void moveWindowToolStripMenuItem_Click(object sender, EventArgs e)
@@ -345,6 +360,11 @@ namespace WindowsManipulations
             {
                 m_TrackingForm.StopTracking();
             }
+
+            if (ScreenSaverHooking)
+            {
+                StopLocking();
+            }
         }
 
         private void contextMenuStripSysTray_MouseHover(object sender, EventArgs e)
@@ -458,7 +478,7 @@ namespace WindowsManipulations
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            timer1.Stop();
+            timerWrongPin.Stop();
             m_EnableRestore = true;
         }
 
@@ -513,6 +533,21 @@ namespace WindowsManipulations
             {
                 m_SendCommandForm.RemoveAutohideFromAllTools();
             }
+        }
+
+        private void screenSaverToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RunScreenSaver();
+        }
+
+        private void timerScreenSaver_Tick(object sender, EventArgs e)
+        {
+            TrackMouseOnRunningScreenSaver();
+        }
+
+        private void menuStrip1_MenuActivate(object sender, EventArgs e)
+        {
+            ArrangeMenu();
         }
 
         #endregion
@@ -690,11 +725,11 @@ namespace WindowsManipulations
                 if (pin != m_Pin)
                 {
                     m_PinTimeSpan += MainForm.defaultWrongPassDelay;
-                    timer1.Interval = (int)m_PinTimeSpan.TotalMilliseconds;
+                    timerWrongPin.Interval = (int)m_PinTimeSpan.TotalMilliseconds;
                     m_EnableRestore = false;
                     m_BlockStartTime = DateTime.Now;
 
-                    timer1.Start();
+                    timerWrongPin.Start();
 
                     MessageBox.Show("You have inputted wrong pin.\n"
                         + "Wait " + (m_PinTimeSpan.TotalMilliseconds / 1000).ToString() + " seconds and try again.",
@@ -757,16 +792,16 @@ namespace WindowsManipulations
         private void ArrangeMenu()
         {
             int selected = this.lstWindowsList.SelectedIndex;
-
             if (selected == -1)
             {
                 setILDASMFontsToolStripMenuItem.Enabled = false;
-                return;
             }
-
-            if (selected < m_ListedWindows.Count)
+            else
             {
-                setILDASMFontsToolStripMenuItem.Enabled = m_ListedWindows[selected].Title.Contains("IL DASM");
+                if (selected < m_ListedWindows.Count)
+                {
+                    setILDASMFontsToolStripMenuItem.Enabled = m_ListedWindows[selected].Title.Contains("IL DASM");
+                }
             }
         }
 
@@ -895,6 +930,45 @@ namespace WindowsManipulations
             }
 
             User32Windows.ShowForm(m_SendCommandForm);
+        }
+
+        private void RunScreenSaver()
+        {
+            if (!this.ScreenSaverHooking)
+            {
+                m_ScreenSaverRunCursorPosition = Cursor.Position;
+                timerScreenSaver.Start();
+
+                this.ScreenSaverHooking = true;
+                screenSaverToolStripMenuItem.Text = "Stop locking";
+                User32Windows.ShowForm(this);
+
+                var ssSettingsPath = Properties.Settings.Default.ScreenSaverPath;
+                var path = Path.GetFullPath(Environment.ExpandEnvironmentVariables(ssSettingsPath));
+                Process.Start(path);
+            }
+            else
+            {
+                StopLocking();
+            }
+        }
+
+        private void StopLocking()
+        {
+            screenSaverToolStripMenuItem.Text = "Screen saver";
+            this.ScreenSaverHooking = false;
+        }
+
+        private void TrackMouseOnRunningScreenSaver()
+        {
+            var CursorPosition = Cursor.Position;
+
+            if (CursorPosition.X != m_ScreenSaverRunCursorPosition.X
+                || CursorPosition.Y != m_ScreenSaverRunCursorPosition.Y)
+            {
+                timerScreenSaver.Stop();
+                LockWorkStation();
+            }
         }
 
         #endregion

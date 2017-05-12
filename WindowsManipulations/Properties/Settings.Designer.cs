@@ -70,5 +70,17 @@ namespace WindowsManipulations.Properties {
                 this["WindowsTrackingFormLocation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("%SystemRoot%\\System32\\ssText3d.scr")]
+        public string ScreenSaverPath {
+            get {
+                return ((string)(this["ScreenSaverPath"]));
+            }
+            set {
+                this["ScreenSaverPath"] = value;
+            }
+        }
     }
 }
