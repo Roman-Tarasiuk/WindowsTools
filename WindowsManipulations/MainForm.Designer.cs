@@ -45,7 +45,6 @@
             this.sendCustomCommandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.textInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeSpacesFromTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customTitleColorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -88,6 +87,7 @@
             this.chkPin = new System.Windows.Forms.CheckBox();
             this.timerWrongPin = new System.Windows.Forms.Timer(this.components);
             this.timerScreenSaver = new System.Windows.Forms.Timer(this.components);
+            this.screensaverToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -136,10 +136,10 @@
             this.sendCustomCommandsToolStripMenuItem,
             this.toolStripSeparator3,
             this.textInfoToolStripMenuItem,
-            this.removeSpacesFromTextToolStripMenuItem,
             this.windowsTrackingToolStripMenuItem,
             this.customTitleColorsToolStripMenuItem,
             this.toolStripSeparator5,
+            this.screensaverToolStripMenuItem1,
             this.passwordsToolStripMenuItem,
             this.toolStripSeparator7,
             this.optionsToolStripMenuItem});
@@ -184,24 +184,24 @@
             // setCmdTitleFullPathToolStripMenuItem
             // 
             this.setCmdTitleFullPathToolStripMenuItem.Name = "setCmdTitleFullPathToolStripMenuItem";
-            this.setCmdTitleFullPathToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.setCmdTitleFullPathToolStripMenuItem.Text = "Set cmd title full path";
+            this.setCmdTitleFullPathToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.setCmdTitleFullPathToolStripMenuItem.Text = "Set cmd title as full path";
             this.setCmdTitleFullPathToolStripMenuItem.Click += new System.EventHandler(this.setCmdTitleFullPathToolStripMenuItem_Click);
             // 
             // setCmdTitleToolStripMenuItem
             // 
             this.setCmdTitleToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.setCmdTitleToolStripMenuItem.Name = "setCmdTitleToolStripMenuItem";
-            this.setCmdTitleToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.setCmdTitleToolStripMenuItem.Text = "Set cmd title current dir";
+            this.setCmdTitleToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.setCmdTitleToolStripMenuItem.Text = "Set cmd title as current dir";
             this.setCmdTitleToolStripMenuItem.Click += new System.EventHandler(this.setCmdTitleToolStripMenuItem_Click);
             // 
             // setCmdPromptToolStripMenuItem
             // 
             this.setCmdPromptToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.setCmdPromptToolStripMenuItem.Name = "setCmdPromptToolStripMenuItem";
-            this.setCmdPromptToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.setCmdPromptToolStripMenuItem.Text = "Set cmd prompt";
+            this.setCmdPromptToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.setCmdPromptToolStripMenuItem.Text = "Set cmd prompt and pwd";
             this.setCmdPromptToolStripMenuItem.Click += new System.EventHandler(this.setCmdPromptToolStripMenuItem_Click);
             // 
             // sendCustomCommandsToolStripMenuItem
@@ -222,13 +222,6 @@
             this.textInfoToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.textInfoToolStripMenuItem.Text = "Text info...";
             this.textInfoToolStripMenuItem.Click += new System.EventHandler(this.textInfoToolStripMenuItem_Click);
-            // 
-            // removeSpacesFromTextToolStripMenuItem
-            // 
-            this.removeSpacesFromTextToolStripMenuItem.Name = "removeSpacesFromTextToolStripMenuItem";
-            this.removeSpacesFromTextToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.removeSpacesFromTextToolStripMenuItem.Text = "Remove spaces from text...";
-            this.removeSpacesFromTextToolStripMenuItem.Click += new System.EventHandler(this.removeSpacesFromTextToolStripMenuItem_Click);
             // 
             // windowsTrackingToolStripMenuItem
             // 
@@ -577,6 +570,13 @@
             // 
             this.timerScreenSaver.Tick += new System.EventHandler(this.timerScreenSaver_Tick);
             // 
+            // screensaverToolStripMenuItem1
+            // 
+            this.screensaverToolStripMenuItem1.Name = "screensaverToolStripMenuItem1";
+            this.screensaverToolStripMenuItem1.Size = new System.Drawing.Size(223, 22);
+            this.screensaverToolStripMenuItem1.Text = "Screen saver";
+            this.screensaverToolStripMenuItem1.Click += new System.EventHandler(this.screensaverToolStripMenuItem1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -633,7 +633,6 @@
         private System.Windows.Forms.Button btnShowHidden;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripWindowsList;
         private System.Windows.Forms.ToolStripMenuItem moveWindowToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem removeSpacesFromTextToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem passwordsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem passwordsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
@@ -668,5 +667,6 @@
         private System.Windows.Forms.ToolStripMenuItem removeAutohideFromAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem screenSaverToolStripMenuItem;
         private System.Windows.Forms.Timer timerScreenSaver;
+        private System.Windows.Forms.ToolStripMenuItem screensaverToolStripMenuItem1;
     }
 }

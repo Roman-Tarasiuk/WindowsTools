@@ -90,12 +90,6 @@
     <Compile Include="PinForm.Designer.cs">
       <DependentUpon>PinForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="RemoveSpacesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RemoveSpacesForm.Designer.cs">
-      <DependentUpon>RemoveSpacesForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="LocationAndSizeForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -232,11 +232,6 @@ namespace WindowsManipulations
             MoveWindow();
         }
 
-        private void removeSpacesFromTextToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new RemoveSpacesForm().ShowDialog();
-        }
-
         private void passwordsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Passwords();
@@ -548,6 +543,11 @@ namespace WindowsManipulations
         private void menuStrip1_MenuActivate(object sender, EventArgs e)
         {
             ArrangeMenu();
+        }
+
+        private void screensaverToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            RunScreenSaver();
         }
 
         #endregion
