@@ -38,12 +38,12 @@ namespace WindowsManipulations
 
             this.Location = Properties.Settings.Default.LocationAndSizeFormLocation;
 
-            this.toolTip1.SetToolTip(this.groupBox1,
+            this.toolTip1.SetToolTip(this.groupBoxCurrent,
                 "It is possible to copy and paste sets of values:"
                 + Environment.NewLine
                 + "left; top; width; height");
 
-            this.toolTip1.SetToolTip(this.groupBox2,
+            this.toolTip1.SetToolTip(this.groupBoxNew,
                 "It is possible to use calculation expressions."
                 + Environment.NewLine
                 + "If skip values, it will be used current");
@@ -123,14 +123,24 @@ namespace WindowsManipulations
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void groupBoxCurrent_Enter(object sender, EventArgs e)
         {
-            m_CurrentFieldSet = FieldSet.Old;
+            SetCurrentFieldSetCurrent();
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
+        private void groupBoxNew_Enter(object sender, EventArgs e)
         {
-            m_CurrentFieldSet = FieldSet.New;
+            SetCurrentFieldSetNew();
+        }
+
+        private void groupBoxCurrent_MouseHover(object sender, EventArgs e)
+        {
+            SetCurrentFieldSetCurrent();
+        }
+
+        private void groupBoxNew_MouseHover(object sender, EventArgs e)
+        {
+            SetCurrentFieldSetNew();
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -230,6 +240,28 @@ namespace WindowsManipulations
             tT.Text = matches[1].Groups[1].Value;
             tW.Text = matches[2].Groups[1].Value;
             tH.Text = matches[3].Groups[1].Value;
+        }
+
+        private void SetCurrentFieldSetCurrent()
+        {
+            m_CurrentFieldSet = FieldSet.Old;
+
+            ((myGroupBox)groupBoxCurrent).BorderColor = Color.DarkGreen;
+            ((myGroupBox)groupBoxNew).BorderColor = SystemColors.ActiveBorder;
+
+            groupBoxCurrent.Invalidate();
+            groupBoxNew.Invalidate();
+        }
+
+        private void SetCurrentFieldSetNew()
+        {
+            m_CurrentFieldSet = FieldSet.New;
+
+            ((myGroupBox)groupBoxNew).BorderColor = Color.DarkGreen;
+            ((myGroupBox)groupBoxCurrent).BorderColor = SystemColors.ActiveBorder;
+
+            groupBoxNew.Invalidate();
+            groupBoxCurrent.Invalidate();
         }
 
         #endregion

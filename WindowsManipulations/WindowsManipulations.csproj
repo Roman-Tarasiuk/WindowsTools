@@ -52,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="myGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MyScreenSaverHooker.cs" />
     <Compile Include="RunningAppsForm.cs">
       <SubType>Form</SubType>

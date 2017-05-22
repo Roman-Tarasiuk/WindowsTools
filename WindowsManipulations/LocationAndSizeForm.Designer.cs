@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxCurrent = new WindowsManipulations.myGroupBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtCurrentHeight = new System.Windows.Forms.TextBox();
             this.txtCurrentWidth = new System.Windows.Forms.TextBox();
             this.txtCurrentTop = new System.Windows.Forms.TextBox();
@@ -38,7 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxNew = new WindowsManipulations.myGroupBox();
             this.txtNewHeight = new System.Windows.Forms.TextBox();
             this.txtNewWidth = new System.Windows.Forms.TextBox();
             this.txtNewTop = new System.Windows.Forms.TextBox();
@@ -51,32 +54,53 @@
             this.lblResolution = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBoxCurrent.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.groupBoxNew.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // groupBoxCurrent
             // 
-            this.groupBox1.ContextMenuStrip = this.contextMenuStrip1;
-            this.groupBox1.Controls.Add(this.txtCurrentHeight);
-            this.groupBox1.Controls.Add(this.txtCurrentWidth);
-            this.groupBox1.Controls.Add(this.txtCurrentTop);
-            this.groupBox1.Controls.Add(this.txtCurrentLeft);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(11, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(175, 133);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Current*";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.groupBoxCurrent.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBoxCurrent.ContextMenuStrip = this.contextMenuStrip1;
+            this.groupBoxCurrent.Controls.Add(this.txtCurrentHeight);
+            this.groupBoxCurrent.Controls.Add(this.txtCurrentWidth);
+            this.groupBoxCurrent.Controls.Add(this.txtCurrentTop);
+            this.groupBoxCurrent.Controls.Add(this.txtCurrentLeft);
+            this.groupBoxCurrent.Controls.Add(this.label4);
+            this.groupBoxCurrent.Controls.Add(this.label3);
+            this.groupBoxCurrent.Controls.Add(this.label2);
+            this.groupBoxCurrent.Controls.Add(this.label1);
+            this.groupBoxCurrent.Location = new System.Drawing.Point(11, 12);
+            this.groupBoxCurrent.Name = "groupBoxCurrent";
+            this.groupBoxCurrent.Size = new System.Drawing.Size(175, 133);
+            this.groupBoxCurrent.TabIndex = 0;
+            this.groupBoxCurrent.TabStop = false;
+            this.groupBoxCurrent.Text = "Current*";
+            this.groupBoxCurrent.Enter += new System.EventHandler(this.groupBoxCurrent_Enter);
+            this.groupBoxCurrent.MouseHover += new System.EventHandler(this.groupBoxCurrent_MouseHover);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyToolStripMenuItem,
+            this.pasteToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(103, 48);
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // pasteToolStripMenuItem
+            // 
+            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.pasteToolStripMenuItem.Text = "Paste";
+            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
             // txtCurrentHeight
             // 
@@ -142,24 +166,26 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Left:";
             // 
-            // groupBox2
+            // groupBoxNew
             // 
-            this.groupBox2.ContextMenuStrip = this.contextMenuStrip1;
-            this.groupBox2.Controls.Add(this.txtNewHeight);
-            this.groupBox2.Controls.Add(this.txtNewWidth);
-            this.groupBox2.Controls.Add(this.txtNewTop);
-            this.groupBox2.Controls.Add(this.txtNewLeft);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Location = new System.Drawing.Point(194, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(175, 133);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "New *";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            this.groupBoxNew.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBoxNew.ContextMenuStrip = this.contextMenuStrip1;
+            this.groupBoxNew.Controls.Add(this.txtNewHeight);
+            this.groupBoxNew.Controls.Add(this.txtNewWidth);
+            this.groupBoxNew.Controls.Add(this.txtNewTop);
+            this.groupBoxNew.Controls.Add(this.txtNewLeft);
+            this.groupBoxNew.Controls.Add(this.label5);
+            this.groupBoxNew.Controls.Add(this.label6);
+            this.groupBoxNew.Controls.Add(this.label7);
+            this.groupBoxNew.Controls.Add(this.label8);
+            this.groupBoxNew.Location = new System.Drawing.Point(194, 12);
+            this.groupBoxNew.Name = "groupBoxNew";
+            this.groupBoxNew.Size = new System.Drawing.Size(175, 133);
+            this.groupBoxNew.TabIndex = 1;
+            this.groupBoxNew.TabStop = false;
+            this.groupBoxNew.Text = "New *";
+            this.groupBoxNew.Enter += new System.EventHandler(this.groupBoxNew_Enter);
+            this.groupBoxNew.MouseHover += new System.EventHandler(this.groupBoxNew_MouseHover);
             // 
             // txtNewHeight
             // 
@@ -262,28 +288,6 @@
             this.linkLabel1.Text = "Help";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyToolStripMenuItem,
-            this.pasteToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(103, 48);
-            // 
-            // copyToolStripMenuItem
-            // 
-            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.copyToolStripMenuItem.Text = "Copy";
-            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
-            // 
-            // pasteToolStripMenuItem
-            // 
-            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.pasteToolStripMenuItem.Text = "Paste";
-            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
-            // 
             // LocationAndSizeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -292,8 +296,8 @@
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.lblResolution);
             this.Controls.Add(this.btnSet);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxNew);
+            this.Controls.Add(this.groupBoxCurrent);
             this.Name = "LocationAndSizeForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -301,19 +305,17 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LocationAndSizeForm_FormClosing);
             this.Shown += new System.EventHandler(this.LocationAndSizeForm_Shown);
             this.LocationChanged += new System.EventHandler(this.LocationAndSizeForm_LocationChanged);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBoxCurrent.ResumeLayout(false);
+            this.groupBoxCurrent.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.groupBoxNew.ResumeLayout(false);
+            this.groupBoxNew.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtCurrentHeight;
         private System.Windows.Forms.TextBox txtCurrentWidth;
         private System.Windows.Forms.TextBox txtCurrentTop;
@@ -322,7 +324,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtNewHeight;
         private System.Windows.Forms.TextBox txtNewWidth;
         private System.Windows.Forms.TextBox txtNewTop;
@@ -338,5 +339,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
+        private myGroupBox groupBoxCurrent;
+        private myGroupBox groupBoxNew;
     }
 }
