@@ -550,6 +550,48 @@ namespace WindowsManipulations
             RunScreenSaver();
         }
 
+        // Miscellaneous System tray context menu
+        private void decodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DecodePercentageClipboard();
+        }
+
+        private void encodeToToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EncodeDataPercentageClipboard();
+        }
+
+        private void encodeUriToToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EncodeUriPercentageClipboard();
+        }
+
+        private void encodeUriToExceptSpaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EncodeUriPercentageExceptSpaceClipboard();
+        }
+
+        // Miscellaneous Main menu
+        private void decodeClipboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DecodePercentageClipboard();
+        }
+
+        private void encodeToToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            EncodeDataPercentageClipboard();
+        }
+
+        private void encodeUriToToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            EncodeUriPercentageClipboard();
+        }
+
+        private void encodeUriToExceptSpaceToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            EncodeUriPercentageExceptSpaceClipboard();
+        }
+
         #endregion
 
 
@@ -969,6 +1011,34 @@ namespace WindowsManipulations
                 timerScreenSaver.Stop();
                 LockWorkStation();
             }
+        }
+
+        private static void DecodePercentageClipboard()
+        {
+            var clipboardText = Clipboard.GetText();
+            var decodedText = System.Uri.UnescapeDataString(clipboardText);
+            Clipboard.SetText(decodedText);
+        }
+
+        private void EncodeDataPercentageClipboard()
+        {
+            var clipboardText = Clipboard.GetText();
+            var encodedText = System.Uri.EscapeDataString(clipboardText);
+            Clipboard.SetText(encodedText);
+        }
+
+        private void EncodeUriPercentageClipboard()
+        {
+            var clipboardText = Clipboard.GetText();
+            var encodedText = System.Uri.EscapeUriString(clipboardText);
+            Clipboard.SetText(encodedText);
+        }
+
+        private void EncodeUriPercentageExceptSpaceClipboard()
+        {
+            var clipboardText = Clipboard.GetText();
+            var encodedText = System.Uri.EscapeUriString(clipboardText);
+            Clipboard.SetText(encodedText.Replace("%20", " "));
         }
 
         #endregion

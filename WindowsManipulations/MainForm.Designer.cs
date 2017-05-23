@@ -48,6 +48,7 @@
             this.windowsTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customTitleColorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.screensaverToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,7 +88,16 @@
             this.chkPin = new System.Windows.Forms.CheckBox();
             this.timerWrongPin = new System.Windows.Forms.Timer(this.components);
             this.timerScreenSaver = new System.Windows.Forms.Timer(this.components);
-            this.screensaverToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.miscellaneousToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.decodeClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.miscellaneousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.decodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeUriToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeUriToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeUriToExceptSpaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeUriToExceptSpaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -141,6 +151,7 @@
             this.toolStripSeparator5,
             this.screensaverToolStripMenuItem1,
             this.passwordsToolStripMenuItem,
+            this.miscellaneousToolStripMenuItem1,
             this.toolStripSeparator7,
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
@@ -151,33 +162,33 @@
             // taskListToolStripMenuItem
             // 
             this.taskListToolStripMenuItem.Name = "taskListToolStripMenuItem";
-            this.taskListToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.taskListToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.taskListToolStripMenuItem.Text = "Task list...";
             this.taskListToolStripMenuItem.Click += new System.EventHandler(this.taskListToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(212, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(220, 6);
             // 
             // moveWindowToolStripMenuItem
             // 
             this.moveWindowToolStripMenuItem.Name = "moveWindowToolStripMenuItem";
-            this.moveWindowToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.moveWindowToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.moveWindowToolStripMenuItem.Text = "Move window...";
             this.moveWindowToolStripMenuItem.Click += new System.EventHandler(this.moveWindowToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(212, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(220, 6);
             // 
             // setILDASMFontsToolStripMenuItem
             // 
             this.setILDASMFontsToolStripMenuItem.Enabled = false;
             this.setILDASMFontsToolStripMenuItem.Name = "setILDASMFontsToolStripMenuItem";
             this.setILDASMFontsToolStripMenuItem.ShowShortcutKeys = false;
-            this.setILDASMFontsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.setILDASMFontsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.setILDASMFontsToolStripMenuItem.Text = "Set IL&DASM Fonts";
             this.setILDASMFontsToolStripMenuItem.Click += new System.EventHandler(this.setILDASMFontsToolStripMenuItem_Click);
             // 
@@ -207,33 +218,33 @@
             // sendCustomCommandsToolStripMenuItem
             // 
             this.sendCustomCommandsToolStripMenuItem.Name = "sendCustomCommandsToolStripMenuItem";
-            this.sendCustomCommandsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.sendCustomCommandsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.sendCustomCommandsToolStripMenuItem.Text = "Send custom commands...";
             this.sendCustomCommandsToolStripMenuItem.Click += new System.EventHandler(this.sendCustomCommandsToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(212, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(220, 6);
             // 
             // textInfoToolStripMenuItem
             // 
             this.textInfoToolStripMenuItem.Name = "textInfoToolStripMenuItem";
-            this.textInfoToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.textInfoToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.textInfoToolStripMenuItem.Text = "Text info...";
             this.textInfoToolStripMenuItem.Click += new System.EventHandler(this.textInfoToolStripMenuItem_Click);
             // 
             // windowsTrackingToolStripMenuItem
             // 
             this.windowsTrackingToolStripMenuItem.Name = "windowsTrackingToolStripMenuItem";
-            this.windowsTrackingToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.windowsTrackingToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.windowsTrackingToolStripMenuItem.Text = "Windows tracking...";
             this.windowsTrackingToolStripMenuItem.Click += new System.EventHandler(this.windowsTrackingToolStripMenuItem_Click);
             // 
             // customTitleColorsToolStripMenuItem
             // 
             this.customTitleColorsToolStripMenuItem.Name = "customTitleColorsToolStripMenuItem";
-            this.customTitleColorsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.customTitleColorsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.customTitleColorsToolStripMenuItem.Text = "Custom title colors*";
             this.customTitleColorsToolStripMenuItem.ToolTipText = "@@@@@@@...";
             this.customTitleColorsToolStripMenuItem.Click += new System.EventHandler(this.customTitleColorsToolStripMenuItem_Click);
@@ -241,26 +252,33 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(212, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(220, 6);
+            // 
+            // screensaverToolStripMenuItem1
+            // 
+            this.screensaverToolStripMenuItem1.Name = "screensaverToolStripMenuItem1";
+            this.screensaverToolStripMenuItem1.Size = new System.Drawing.Size(223, 22);
+            this.screensaverToolStripMenuItem1.Text = "Screen saver";
+            this.screensaverToolStripMenuItem1.Click += new System.EventHandler(this.screensaverToolStripMenuItem1_Click);
             // 
             // passwordsToolStripMenuItem
             // 
             this.passwordsToolStripMenuItem.Name = "passwordsToolStripMenuItem";
-            this.passwordsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.passwordsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.passwordsToolStripMenuItem.Text = "Password Manager...";
             this.passwordsToolStripMenuItem.Click += new System.EventHandler(this.passwordsToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(212, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(220, 6);
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Enabled = false;
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.ShowShortcutKeys = false;
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.optionsToolStripMenuItem.Text = "&Options...";
             // 
             // lstWindowsList
@@ -368,10 +386,11 @@
             this.screenSaverToolStripMenuItem,
             this.sendCustomCommandsToolStripMenuItem1,
             this.passwordsToolStripMenuItem1,
+            this.miscellaneousToolStripMenuItem,
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray.Size = new System.Drawing.Size(216, 176);
+            this.contextMenuStripSysTray.Size = new System.Drawing.Size(216, 198);
             this.contextMenuStripSysTray.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
             this.contextMenuStripSysTray.MouseHover += new System.EventHandler(this.contextMenuStripSysTray_MouseHover);
@@ -570,12 +589,84 @@
             // 
             this.timerScreenSaver.Tick += new System.EventHandler(this.timerScreenSaver_Tick);
             // 
-            // screensaverToolStripMenuItem1
+            // miscellaneousToolStripMenuItem1
             // 
-            this.screensaverToolStripMenuItem1.Name = "screensaverToolStripMenuItem1";
-            this.screensaverToolStripMenuItem1.Size = new System.Drawing.Size(223, 22);
-            this.screensaverToolStripMenuItem1.Text = "Screen saver";
-            this.screensaverToolStripMenuItem1.Click += new System.EventHandler(this.screensaverToolStripMenuItem1_Click);
+            this.miscellaneousToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.decodeClipboardToolStripMenuItem,
+            this.encodeToToolStripMenuItem1,
+            this.encodeUriToToolStripMenuItem1,
+            this.encodeUriToExceptSpaceToolStripMenuItem1});
+            this.miscellaneousToolStripMenuItem1.Name = "miscellaneousToolStripMenuItem1";
+            this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(223, 22);
+            this.miscellaneousToolStripMenuItem1.Text = "Miscellaneous";
+            // 
+            // decodeClipboardToolStripMenuItem
+            // 
+            this.decodeClipboardToolStripMenuItem.Name = "decodeClipboardToolStripMenuItem";
+            this.decodeClipboardToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.decodeClipboardToolStripMenuItem.Text = "Decode % clipboard";
+            this.decodeClipboardToolStripMenuItem.Click += new System.EventHandler(this.decodeClipboardToolStripMenuItem_Click);
+            // 
+            // encodeToToolStripMenuItem1
+            // 
+            this.encodeToToolStripMenuItem1.Name = "encodeToToolStripMenuItem1";
+            this.encodeToToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.encodeToToolStripMenuItem1.Text = "Encode data to %";
+            this.encodeToToolStripMenuItem1.Click += new System.EventHandler(this.encodeToToolStripMenuItem1_Click);
+            // 
+            // miscellaneousToolStripMenuItem
+            // 
+            this.miscellaneousToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.decodeToolStripMenuItem,
+            this.encodeToToolStripMenuItem,
+            this.encodeUriToToolStripMenuItem,
+            this.encodeUriToExceptSpaceToolStripMenuItem});
+            this.miscellaneousToolStripMenuItem.Image = global::WindowsManipulations.Properties.Resources.miscellaneous_icon1;
+            this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
+            this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.miscellaneousToolStripMenuItem.Text = "Miscellaneous";
+            // 
+            // decodeToolStripMenuItem
+            // 
+            this.decodeToolStripMenuItem.Name = "decodeToolStripMenuItem";
+            this.decodeToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.decodeToolStripMenuItem.Text = "Decode % clipboard";
+            this.decodeToolStripMenuItem.Click += new System.EventHandler(this.decodeToolStripMenuItem_Click);
+            // 
+            // encodeToToolStripMenuItem
+            // 
+            this.encodeToToolStripMenuItem.Name = "encodeToToolStripMenuItem";
+            this.encodeToToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.encodeToToolStripMenuItem.Text = "Encode data to %";
+            this.encodeToToolStripMenuItem.Click += new System.EventHandler(this.encodeToToolStripMenuItem_Click);
+            // 
+            // encodeUriToToolStripMenuItem
+            // 
+            this.encodeUriToToolStripMenuItem.Name = "encodeUriToToolStripMenuItem";
+            this.encodeUriToToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.encodeUriToToolStripMenuItem.Text = "Encode Uri to %";
+            this.encodeUriToToolStripMenuItem.Click += new System.EventHandler(this.encodeUriToToolStripMenuItem_Click);
+            // 
+            // encodeUriToToolStripMenuItem1
+            // 
+            this.encodeUriToToolStripMenuItem1.Name = "encodeUriToToolStripMenuItem1";
+            this.encodeUriToToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.encodeUriToToolStripMenuItem1.Text = "Encode Uri to %";
+            this.encodeUriToToolStripMenuItem1.Click += new System.EventHandler(this.encodeUriToToolStripMenuItem1_Click);
+            // 
+            // encodeUriToExceptSpaceToolStripMenuItem
+            // 
+            this.encodeUriToExceptSpaceToolStripMenuItem.Name = "encodeUriToExceptSpaceToolStripMenuItem";
+            this.encodeUriToExceptSpaceToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.encodeUriToExceptSpaceToolStripMenuItem.Text = "Encode Uri to % except spaces";
+            this.encodeUriToExceptSpaceToolStripMenuItem.Click += new System.EventHandler(this.encodeUriToExceptSpaceToolStripMenuItem_Click);
+            // 
+            // encodeUriToExceptSpaceToolStripMenuItem1
+            // 
+            this.encodeUriToExceptSpaceToolStripMenuItem1.Name = "encodeUriToExceptSpaceToolStripMenuItem1";
+            this.encodeUriToExceptSpaceToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.encodeUriToExceptSpaceToolStripMenuItem1.Text = "Encode Uri to % except spaces";
+            this.encodeUriToExceptSpaceToolStripMenuItem1.Click += new System.EventHandler(this.encodeUriToExceptSpaceToolStripMenuItem1_Click);
             // 
             // MainForm
             // 
@@ -668,5 +759,15 @@
         private System.Windows.Forms.ToolStripMenuItem screenSaverToolStripMenuItem;
         private System.Windows.Forms.Timer timerScreenSaver;
         private System.Windows.Forms.ToolStripMenuItem screensaverToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem miscellaneousToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem decodeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem encodeToToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem miscellaneousToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem decodeClipboardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem encodeToToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem encodeUriToToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem encodeUriToToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem encodeUriToExceptSpaceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem encodeUriToExceptSpaceToolStripMenuItem1;
     }
 }

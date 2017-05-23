@@ -172,6 +172,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\wrench-flat.png" />
+    <None Include="Resources\miscellaneous-icon.png" />
+    <None Include="Resources\miscellaneous-icon1.png" />
     <Content Include="taskmgr_icon.png.ico" />
   </ItemGroup>
   <ItemGroup>
