@@ -56,6 +56,18 @@ namespace WindowsManipulations
         #endregion
 
 
+        #region Public Methods
+
+        public void Lock()
+        {
+            LockWorkStation();
+            timerScreenSaver.Stop();
+            StopLocking();
+        }
+
+        #endregion
+
+
         #region Constructors
 
         public MainForm()
@@ -1008,8 +1020,7 @@ namespace WindowsManipulations
             if (CursorPosition.X != m_ScreenSaverRunCursorPosition.X
                 || CursorPosition.Y != m_ScreenSaverRunCursorPosition.Y)
             {
-                timerScreenSaver.Stop();
-                LockWorkStation();
+                Lock();
             }
         }
 

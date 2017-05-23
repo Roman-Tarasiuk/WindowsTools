@@ -64,8 +64,7 @@ namespace WindowsManipulations
             Keys keyPressed = (Keys)wParam.ToInt32();
             if (m_Form.ScreenSaverHooking)
             {
-                //Console.WriteLine(keyPressed);
-                LockWorkStation();
+                m_Form.Lock();
             }
             //return the value returned by CallNextHookEx
             return CallNextHookEx(IntPtr.Zero, code, wParam, lParam);
