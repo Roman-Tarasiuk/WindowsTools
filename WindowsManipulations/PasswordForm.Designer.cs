@@ -42,6 +42,8 @@
             this.chkShowPassword = new System.Windows.Forms.CheckBox();
             this.btnRemove = new System.Windows.Forms.Button();
             this.timerFlash = new System.Windows.Forms.Timer(this.components);
+            this.btnMoveUp = new System.Windows.Forms.Button();
+            this.btnMoveDown = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,11 +159,35 @@
             this.timerFlash.Interval = 150;
             this.timerFlash.Tick += new System.EventHandler(this.timerFlash_Tick);
             // 
+            // btnMoveUp
+            // 
+            this.btnMoveUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMoveUp.Location = new System.Drawing.Point(125, 261);
+            this.btnMoveUp.Name = "btnMoveUp";
+            this.btnMoveUp.Size = new System.Drawing.Size(28, 23);
+            this.btnMoveUp.TabIndex = 8;
+            this.btnMoveUp.Text = "▲";
+            this.btnMoveUp.UseVisualStyleBackColor = true;
+            this.btnMoveUp.Click += new System.EventHandler(this.btnMoveUp_Click);
+            // 
+            // btnMoveDown
+            // 
+            this.btnMoveDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMoveDown.Location = new System.Drawing.Point(156, 261);
+            this.btnMoveDown.Name = "btnMoveDown";
+            this.btnMoveDown.Size = new System.Drawing.Size(28, 23);
+            this.btnMoveDown.TabIndex = 9;
+            this.btnMoveDown.Text = "▼";
+            this.btnMoveDown.UseVisualStyleBackColor = true;
+            this.btnMoveDown.Click += new System.EventHandler(this.btnMoveDown_Click);
+            // 
             // PasswordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 296);
+            this.Controls.Add(this.btnMoveDown);
+            this.Controls.Add(this.btnMoveUp);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.chkShowPassword);
             this.Controls.Add(this.btnAdd);
@@ -200,5 +226,7 @@
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Timer timerFlash;
         private System.Windows.Forms.ToolStripMenuItem copyDescriptionToClipboardToolStripMenuItem;
+        private System.Windows.Forms.Button btnMoveUp;
+        private System.Windows.Forms.Button btnMoveDown;
     }
 }

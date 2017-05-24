@@ -299,5 +299,57 @@ namespace WindowsManipulations
         }
 
         #endregion
+
+        private void btnMoveUp_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            MoveUp(listBox1.SelectedIndex);
+        }
+
+        private void btnMoveDown_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            MoveDown(listBox1.SelectedIndex);
+        }
+
+        private void MoveUp(int selectedIndex)
+        {
+            if (selectedIndex == 0)
+            {
+                return;
+            }
+
+            var tmp = m_Passwords[selectedIndex];
+            m_Passwords.RemoveAt(selectedIndex);
+            m_Passwords.Insert(selectedIndex - 1, tmp);
+
+            listBox1.Items.RemoveAt(selectedIndex);
+            listBox1.Items.Insert(selectedIndex - 1, tmp.Description + (tmp.Public ? " : " + tmp.Password : " : *******"));
+            listBox1.SelectedIndex = selectedIndex - 1;
+        }
+
+        private void MoveDown(int selectedIndex)
+        {
+            if (selectedIndex == (m_Passwords.Count - 1))
+            {
+                return;
+            }
+
+            var tmp = m_Passwords[selectedIndex];
+            m_Passwords.RemoveAt(selectedIndex);
+            m_Passwords.Insert(selectedIndex + 1, tmp);
+
+            listBox1.Items.RemoveAt(selectedIndex);
+            listBox1.Items.Insert(selectedIndex + 1, tmp.Description + (tmp.Public ? " : " + tmp.Password : " : *******"));
+            listBox1.SelectedIndex = selectedIndex + 1;
+        }
     }
 }
