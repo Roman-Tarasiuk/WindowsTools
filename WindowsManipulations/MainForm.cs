@@ -162,7 +162,7 @@ namespace WindowsManipulations
 
         private void btnHideWindow_Click(object sender, EventArgs e)
         {
-            if (lstWindowsList.SelectedIndices[0] < 0)
+            if (lstWindowsList.SelectedIndices.Count < 0)
             {
                 return;
             }
@@ -190,7 +190,7 @@ namespace WindowsManipulations
 
         private void btnShowHidden_Click(object sender, EventArgs e)
         {
-            if (lstWindowsList.SelectedIndices[0] < 0)
+            if (lstWindowsList.SelectedIndices.Count < 0)
             {
                 return;
             }
@@ -712,7 +712,7 @@ namespace WindowsManipulations
                 {
                     m_ListedWindows.RemoveAt(i);
                     lstWindowsList.Items.RemoveAt(i);
-                    lstWindowsList.SmallImageList.Images.RemoveAt(i);
+                    //lstWindowsList.SmallImageList.Images.RemoveByKey(window.Handle.ToString());
                     i--;
                 }
             }
