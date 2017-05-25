@@ -42,13 +42,13 @@
             this.btnToolItem = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.startAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimizeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restoreAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.setAutohideToAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeAutohideFromAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.startAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -186,7 +186,7 @@
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(85, 27);
             this.btnMenu.TabIndex = 10;
-            this.btnMenu.Text = "Operations";
+            this.btnMenu.Text = "Tools";
             this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
@@ -201,7 +201,14 @@
             this.setAutohideToAllToolStripMenuItem,
             this.removeAutohideFromAllToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(212, 164);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(212, 142);
+            // 
+            // startAllToolStripMenuItem
+            // 
+            this.startAllToolStripMenuItem.Name = "startAllToolStripMenuItem";
+            this.startAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.startAllToolStripMenuItem.Text = "Start all";
+            this.startAllToolStripMenuItem.Click += new System.EventHandler(this.startAllToolStripMenuItem_Click);
             // 
             // hideAllToolStripMenuItem
             // 
@@ -242,13 +249,6 @@
             this.removeAutohideFromAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.removeAutohideFromAllToolStripMenuItem.Text = "Remove autohide from all";
             this.removeAutohideFromAllToolStripMenuItem.Click += new System.EventHandler(this.removeAutohideFromAllToolStripMenuItem_Click);
-            // 
-            // startAllToolStripMenuItem
-            // 
-            this.startAllToolStripMenuItem.Name = "startAllToolStripMenuItem";
-            this.startAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.startAllToolStripMenuItem.Text = "Start all";
-            this.startAllToolStripMenuItem.Click += new System.EventHandler(this.startAllToolStripMenuItem_Click);
             // 
             // SendCommandsForm
             // 

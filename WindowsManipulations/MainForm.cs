@@ -22,6 +22,8 @@ namespace WindowsManipulations
 
         #region Fields
 
+        const int ListColumnWidthDelta = 138;
+
         private List<DesktopWindow> m_ListedWindows = new List<DesktopWindow>();
         private List<DesktopWindow> m_HiddenByUserWindows = new List<DesktopWindow>();
         private string m_HiddenPrefix = "[hidden]";
@@ -77,6 +79,8 @@ namespace WindowsManipulations
             this.ScreenSaverHooking = false;
 
             m_Hook = new MyScreenSaverHooker(this);
+
+            lstWindowsList.Columns[0].Width = this.Width - ListColumnWidthDelta;
         }
 
         #endregion
@@ -126,6 +130,8 @@ namespace WindowsManipulations
                 this.RefreshWindowsList();
                 m_NeedRefresh = false;
             }
+
+            lstWindowsList.Columns[0].Width = this.Width - ListColumnWidthDelta;
         }
 
         private void setILDASMFontsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -156,12 +162,12 @@ namespace WindowsManipulations
 
         private void btnHideWindow_Click(object sender, EventArgs e)
         {
-            if (lstWindowsList.SelectedIndex < 0)
+            if (lstWindowsList.SelectedIndices[0] < 0)
             {
                 return;
             }
 
-            var selIndex = lstWindowsList.SelectedIndex;
+            var selIndex = lstWindowsList.SelectedIndices[0];
 
             if (selIndex >= m_ListedWindows.Count)
             {
@@ -177,19 +183,19 @@ namespace WindowsManipulations
             m_HiddenByUserWindows.Add(selectedWindow);
 
             selectedWindow.Title = m_HiddenPrefix + selectedWindow.Title;
-            lstWindowsList.Items.Add(String.Format("{0,10} : {1}", selectedWindow.Handle, selectedWindow.Title));
+            lstWindowsList.Items.Add(String.Format("{0,10} : {1}", selectedWindow.Handle, selectedWindow.Title), selectedWindow.Handle.ToString());
 
             User32Windows.ShowWindow(selectedWindow.Handle, User32Windows.SW_HIDE);
         }
 
         private void btnShowHidden_Click(object sender, EventArgs e)
         {
-            if (lstWindowsList.SelectedIndex < 0)
+            if (lstWindowsList.SelectedIndices[0] < 0)
             {
                 return;
             }
 
-            var selIndex = lstWindowsList.SelectedIndex;
+            var selIndex = lstWindowsList.SelectedIndices[0];
 
             if (selIndex < m_ListedWindows.Count)
             {
@@ -205,7 +211,7 @@ namespace WindowsManipulations
             selectedWindow.Title = selectedWindow.Title.Substring(m_HiddenPrefix.Length);
             m_ListedWindows.Add(selectedWindow);
 
-            lstWindowsList.Items.Insert(m_ListedWindows.Count - 1, String.Format("{0,10} : {1}", selectedWindow.Handle, selectedWindow.Title));
+            lstWindowsList.Items.Insert(m_ListedWindows.Count - 1, String.Format("{0,10} : {1}", selectedWindow.Handle, selectedWindow.Title), selectedWindow.Handle.ToString());
 
             User32Windows.ShowWindow(selectedWindow.Handle, User32Windows.SW_SHOW);
         }
@@ -287,7 +293,7 @@ namespace WindowsManipulations
 
         private void copyWindowNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int selected = this.lstWindowsList.SelectedIndex;
+            int selected = this.lstWindowsList.SelectedIndices[0];
 
             if (selected == -1)
             {
@@ -299,7 +305,7 @@ namespace WindowsManipulations
 
         private void copyWindowHwndToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int selected = this.lstWindowsList.SelectedIndex;
+            int selected = this.lstWindowsList.SelectedIndices[0];
 
             if (selected == -1)
             {
@@ -311,7 +317,7 @@ namespace WindowsManipulations
 
         private void btnCloseWindow_Click(object sender, EventArgs e)
         {
-            int selected = this.lstWindowsList.SelectedIndex;
+            int selected = this.lstWindowsList.SelectedIndices[0];
 
             if (selected == -1)
             {
@@ -325,7 +331,7 @@ namespace WindowsManipulations
 
         private void btnKillWindow_Click(object sender, EventArgs e)
         {
-            int selected = this.lstWindowsList.SelectedIndex;
+            int selected = this.lstWindowsList.SelectedIndices[0];
 
             if (selected == -1)
             {
@@ -343,13 +349,6 @@ namespace WindowsManipulations
             installProcess.WaitForExit();
 
             this.RefreshWindowsList();
-        }
-
-        // http://stackoverflow.com/questions/9220501/right-click-to-select-items-in-a-listbox
-
-        private void lstWindowsList_MouseDown(object sender, MouseEventArgs e)
-        {
-            lstWindowsList.SelectedIndex = lstWindowsList.IndexFromPoint(e.X, e.Y);
         }
 
         private void windowsTrackingToolStripMenuItem_Click(object sender, EventArgs e)
@@ -408,7 +407,7 @@ namespace WindowsManipulations
 
         private void addToTrackingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int selected = this.lstWindowsList.SelectedIndex;
+            int selected = this.lstWindowsList.SelectedIndices[0];
 
             if (selected == -1)
             {
@@ -443,7 +442,7 @@ namespace WindowsManipulations
             //new TitleColoringForm().Show();
 
 
-            int selected = this.lstWindowsList.SelectedIndex;
+            int selected = this.lstWindowsList.SelectedIndices[0];
             if (selected == -1)
             {
                 return;
@@ -697,7 +696,13 @@ namespace WindowsManipulations
                 }
 
                 m_ListedWindows.Add(window);
-                lstWindowsList.Items.Insert(m_ListedWindows.Count - 1, String.Format("{0,10} : {1}", window.Handle, window.Title));
+                //var index = 
+                if (lstWindowsList.SmallImageList == null)
+                {
+                    lstWindowsList.SmallImageList = new ImageList();
+                }
+                lstWindowsList.SmallImageList.Images.Add(window.Handle.ToString(), window.Icon);
+                lstWindowsList.Items.Insert(m_ListedWindows.Count - 1, String.Format("{0,10} : {1}", window.Handle, window.Title), window.Handle.ToString());
             }
 
             for (int i = 0; i < m_ListedWindows.Count; i++)
@@ -707,6 +712,7 @@ namespace WindowsManipulations
                 {
                     m_ListedWindows.RemoveAt(i);
                     lstWindowsList.Items.RemoveAt(i);
+                    lstWindowsList.SmallImageList.Images.RemoveAt(i);
                     i--;
                 }
             }
@@ -806,7 +812,7 @@ namespace WindowsManipulations
 
         private void SetILDASMFonts()
         {
-            int selected = this.lstWindowsList.SelectedIndex;
+            int selected = this.lstWindowsList.SelectedIndices[0];
 
             if ((selected == -1) || (!m_ListedWindows[selected].Title.Contains("IL DASM")))
             {
@@ -845,7 +851,7 @@ namespace WindowsManipulations
 
         private void ArrangeMenu()
         {
-            int selected = this.lstWindowsList.SelectedIndex;
+            int selected = this.lstWindowsList.SelectedIndices[0];
             if (selected == -1)
             {
                 setILDASMFontsToolStripMenuItem.Enabled = false;
@@ -861,7 +867,7 @@ namespace WindowsManipulations
 
         private void MoveWindow()
         {
-            int selected = this.lstWindowsList.SelectedIndex;
+            int selected = this.lstWindowsList.SelectedIndices[0];
             if (selected == -1)
             {
                 return;
@@ -885,7 +891,7 @@ namespace WindowsManipulations
 
         private void SendCommands(string[] commands)
         {
-            int selected = this.lstWindowsList.SelectedIndex;
+            int selected = this.lstWindowsList.SelectedIndices[0];
 
             if (selected == -1)
             {
@@ -976,7 +982,7 @@ namespace WindowsManipulations
         {
             m_SendCommandForm = (SendCommandsForm)User32Windows.GetForm(m_SendCommandForm, typeof(SendCommandsForm));
 
-            int selected = this.lstWindowsList.SelectedIndex;
+            int selected = this.lstWindowsList.SelectedIndices[0];
 
             if (selected != -1)
             {

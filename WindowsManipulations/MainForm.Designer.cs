@@ -50,9 +50,13 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.screensaverToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miscellaneousToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.decodeClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeUriToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeUriToExceptSpaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lstWindowsList = new System.Windows.Forms.ListBox();
             this.contextMenuStripWindowsList = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.moveWindowToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addToTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,6 +82,11 @@
             this.setAutohideForAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeAutohideFromAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.miscellaneousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.decodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeUriToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeUriToExceptSpaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
@@ -88,16 +97,8 @@
             this.chkPin = new System.Windows.Forms.CheckBox();
             this.timerWrongPin = new System.Windows.Forms.Timer(this.components);
             this.timerScreenSaver = new System.Windows.Forms.Timer(this.components);
-            this.miscellaneousToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.decodeClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.encodeToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.miscellaneousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.decodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.encodeToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.encodeUriToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.encodeUriToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.encodeUriToExceptSpaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.encodeUriToExceptSpaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.lstWindowsList = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -268,6 +269,45 @@
             this.passwordsToolStripMenuItem.Text = "Password Manager...";
             this.passwordsToolStripMenuItem.Click += new System.EventHandler(this.passwordsToolStripMenuItem_Click);
             // 
+            // miscellaneousToolStripMenuItem1
+            // 
+            this.miscellaneousToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.decodeClipboardToolStripMenuItem,
+            this.encodeToToolStripMenuItem1,
+            this.encodeUriToToolStripMenuItem1,
+            this.encodeUriToExceptSpaceToolStripMenuItem1});
+            this.miscellaneousToolStripMenuItem1.Name = "miscellaneousToolStripMenuItem1";
+            this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(223, 22);
+            this.miscellaneousToolStripMenuItem1.Text = "Miscellaneous";
+            // 
+            // decodeClipboardToolStripMenuItem
+            // 
+            this.decodeClipboardToolStripMenuItem.Name = "decodeClipboardToolStripMenuItem";
+            this.decodeClipboardToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.decodeClipboardToolStripMenuItem.Text = "Decode % clipboard";
+            this.decodeClipboardToolStripMenuItem.Click += new System.EventHandler(this.decodeClipboardToolStripMenuItem_Click);
+            // 
+            // encodeToToolStripMenuItem1
+            // 
+            this.encodeToToolStripMenuItem1.Name = "encodeToToolStripMenuItem1";
+            this.encodeToToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.encodeToToolStripMenuItem1.Text = "Encode data to %";
+            this.encodeToToolStripMenuItem1.Click += new System.EventHandler(this.encodeToToolStripMenuItem1_Click);
+            // 
+            // encodeUriToToolStripMenuItem1
+            // 
+            this.encodeUriToToolStripMenuItem1.Name = "encodeUriToToolStripMenuItem1";
+            this.encodeUriToToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.encodeUriToToolStripMenuItem1.Text = "Encode Uri to %";
+            this.encodeUriToToolStripMenuItem1.Click += new System.EventHandler(this.encodeUriToToolStripMenuItem1_Click);
+            // 
+            // encodeUriToExceptSpaceToolStripMenuItem1
+            // 
+            this.encodeUriToExceptSpaceToolStripMenuItem1.Name = "encodeUriToExceptSpaceToolStripMenuItem1";
+            this.encodeUriToExceptSpaceToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.encodeUriToExceptSpaceToolStripMenuItem1.Text = "Encode Uri to % except spaces";
+            this.encodeUriToExceptSpaceToolStripMenuItem1.Click += new System.EventHandler(this.encodeUriToExceptSpaceToolStripMenuItem1_Click);
+            // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
@@ -280,23 +320,6 @@
             this.optionsToolStripMenuItem.ShowShortcutKeys = false;
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.optionsToolStripMenuItem.Text = "&Options...";
-            // 
-            // lstWindowsList
-            // 
-            this.lstWindowsList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstWindowsList.ContextMenuStrip = this.contextMenuStripWindowsList;
-            this.lstWindowsList.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lstWindowsList.FormattingEnabled = true;
-            this.lstWindowsList.HorizontalScrollbar = true;
-            this.lstWindowsList.IntegralHeight = false;
-            this.lstWindowsList.ItemHeight = 15;
-            this.lstWindowsList.Location = new System.Drawing.Point(12, 43);
-            this.lstWindowsList.Name = "lstWindowsList";
-            this.lstWindowsList.Size = new System.Drawing.Size(443, 235);
-            this.lstWindowsList.TabIndex = 1;
-            this.lstWindowsList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstWindowsList_MouseDown);
             // 
             // contextMenuStripWindowsList
             // 
@@ -503,6 +526,46 @@
             this.passwordsToolStripMenuItem1.Text = "Password Manager...";
             this.passwordsToolStripMenuItem1.Click += new System.EventHandler(this.passwordsToolStripMenuItem1_Click);
             // 
+            // miscellaneousToolStripMenuItem
+            // 
+            this.miscellaneousToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.decodeToolStripMenuItem,
+            this.encodeToToolStripMenuItem,
+            this.encodeUriToToolStripMenuItem,
+            this.encodeUriToExceptSpaceToolStripMenuItem});
+            this.miscellaneousToolStripMenuItem.Image = global::WindowsManipulations.Properties.Resources.miscellaneous_icon1;
+            this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
+            this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.miscellaneousToolStripMenuItem.Text = "Miscellaneous";
+            // 
+            // decodeToolStripMenuItem
+            // 
+            this.decodeToolStripMenuItem.Name = "decodeToolStripMenuItem";
+            this.decodeToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.decodeToolStripMenuItem.Text = "Decode % clipboard";
+            this.decodeToolStripMenuItem.Click += new System.EventHandler(this.decodeToolStripMenuItem_Click);
+            // 
+            // encodeToToolStripMenuItem
+            // 
+            this.encodeToToolStripMenuItem.Name = "encodeToToolStripMenuItem";
+            this.encodeToToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.encodeToToolStripMenuItem.Text = "Encode data to %";
+            this.encodeToToolStripMenuItem.Click += new System.EventHandler(this.encodeToToolStripMenuItem_Click);
+            // 
+            // encodeUriToToolStripMenuItem
+            // 
+            this.encodeUriToToolStripMenuItem.Name = "encodeUriToToolStripMenuItem";
+            this.encodeUriToToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.encodeUriToToolStripMenuItem.Text = "Encode Uri to %";
+            this.encodeUriToToolStripMenuItem.Click += new System.EventHandler(this.encodeUriToToolStripMenuItem_Click);
+            // 
+            // encodeUriToExceptSpaceToolStripMenuItem
+            // 
+            this.encodeUriToExceptSpaceToolStripMenuItem.Name = "encodeUriToExceptSpaceToolStripMenuItem";
+            this.encodeUriToExceptSpaceToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.encodeUriToExceptSpaceToolStripMenuItem.Text = "Encode Uri to % except spaces";
+            this.encodeUriToExceptSpaceToolStripMenuItem.Click += new System.EventHandler(this.encodeUriToExceptSpaceToolStripMenuItem_Click);
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
@@ -589,90 +652,36 @@
             // 
             this.timerScreenSaver.Tick += new System.EventHandler(this.timerScreenSaver_Tick);
             // 
-            // miscellaneousToolStripMenuItem1
+            // lstWindowsList
             // 
-            this.miscellaneousToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.decodeClipboardToolStripMenuItem,
-            this.encodeToToolStripMenuItem1,
-            this.encodeUriToToolStripMenuItem1,
-            this.encodeUriToExceptSpaceToolStripMenuItem1});
-            this.miscellaneousToolStripMenuItem1.Name = "miscellaneousToolStripMenuItem1";
-            this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(223, 22);
-            this.miscellaneousToolStripMenuItem1.Text = "Miscellaneous";
+            this.lstWindowsList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstWindowsList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.lstWindowsList.ContextMenuStrip = this.contextMenuStripWindowsList;
+            this.lstWindowsList.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lstWindowsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.lstWindowsList.HideSelection = false;
+            this.lstWindowsList.Location = new System.Drawing.Point(12, 43);
+            this.lstWindowsList.MultiSelect = false;
+            this.lstWindowsList.Name = "lstWindowsList";
+            this.lstWindowsList.Size = new System.Drawing.Size(443, 235);
+            this.lstWindowsList.TabIndex = 9;
+            this.lstWindowsList.UseCompatibleStateImageBehavior = false;
+            this.lstWindowsList.View = System.Windows.Forms.View.Details;
             // 
-            // decodeClipboardToolStripMenuItem
+            // columnHeader1
             // 
-            this.decodeClipboardToolStripMenuItem.Name = "decodeClipboardToolStripMenuItem";
-            this.decodeClipboardToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.decodeClipboardToolStripMenuItem.Text = "Decode % clipboard";
-            this.decodeClipboardToolStripMenuItem.Click += new System.EventHandler(this.decodeClipboardToolStripMenuItem_Click);
-            // 
-            // encodeToToolStripMenuItem1
-            // 
-            this.encodeToToolStripMenuItem1.Name = "encodeToToolStripMenuItem1";
-            this.encodeToToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.encodeToToolStripMenuItem1.Text = "Encode data to %";
-            this.encodeToToolStripMenuItem1.Click += new System.EventHandler(this.encodeToToolStripMenuItem1_Click);
-            // 
-            // miscellaneousToolStripMenuItem
-            // 
-            this.miscellaneousToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.decodeToolStripMenuItem,
-            this.encodeToToolStripMenuItem,
-            this.encodeUriToToolStripMenuItem,
-            this.encodeUriToExceptSpaceToolStripMenuItem});
-            this.miscellaneousToolStripMenuItem.Image = global::WindowsManipulations.Properties.Resources.miscellaneous_icon1;
-            this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
-            this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.miscellaneousToolStripMenuItem.Text = "Miscellaneous";
-            // 
-            // decodeToolStripMenuItem
-            // 
-            this.decodeToolStripMenuItem.Name = "decodeToolStripMenuItem";
-            this.decodeToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.decodeToolStripMenuItem.Text = "Decode % clipboard";
-            this.decodeToolStripMenuItem.Click += new System.EventHandler(this.decodeToolStripMenuItem_Click);
-            // 
-            // encodeToToolStripMenuItem
-            // 
-            this.encodeToToolStripMenuItem.Name = "encodeToToolStripMenuItem";
-            this.encodeToToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.encodeToToolStripMenuItem.Text = "Encode data to %";
-            this.encodeToToolStripMenuItem.Click += new System.EventHandler(this.encodeToToolStripMenuItem_Click);
-            // 
-            // encodeUriToToolStripMenuItem
-            // 
-            this.encodeUriToToolStripMenuItem.Name = "encodeUriToToolStripMenuItem";
-            this.encodeUriToToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.encodeUriToToolStripMenuItem.Text = "Encode Uri to %";
-            this.encodeUriToToolStripMenuItem.Click += new System.EventHandler(this.encodeUriToToolStripMenuItem_Click);
-            // 
-            // encodeUriToToolStripMenuItem1
-            // 
-            this.encodeUriToToolStripMenuItem1.Name = "encodeUriToToolStripMenuItem1";
-            this.encodeUriToToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.encodeUriToToolStripMenuItem1.Text = "Encode Uri to %";
-            this.encodeUriToToolStripMenuItem1.Click += new System.EventHandler(this.encodeUriToToolStripMenuItem1_Click);
-            // 
-            // encodeUriToExceptSpaceToolStripMenuItem
-            // 
-            this.encodeUriToExceptSpaceToolStripMenuItem.Name = "encodeUriToExceptSpaceToolStripMenuItem";
-            this.encodeUriToExceptSpaceToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.encodeUriToExceptSpaceToolStripMenuItem.Text = "Encode Uri to % except spaces";
-            this.encodeUriToExceptSpaceToolStripMenuItem.Click += new System.EventHandler(this.encodeUriToExceptSpaceToolStripMenuItem_Click);
-            // 
-            // encodeUriToExceptSpaceToolStripMenuItem1
-            // 
-            this.encodeUriToExceptSpaceToolStripMenuItem1.Name = "encodeUriToExceptSpaceToolStripMenuItem1";
-            this.encodeUriToExceptSpaceToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.encodeUriToExceptSpaceToolStripMenuItem1.Text = "Encode Uri to % except spaces";
-            this.encodeUriToExceptSpaceToolStripMenuItem1.Click += new System.EventHandler(this.encodeUriToExceptSpaceToolStripMenuItem1_Click);
+            this.columnHeader1.Text = "";
+            this.columnHeader1.Width = 600;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 313);
+            this.Controls.Add(this.lstWindowsList);
             this.Controls.Add(this.chkPin);
             this.Controls.Add(this.btnCloseWindow);
             this.Controls.Add(this.btnKillWindow);
@@ -681,7 +690,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chkVisibleOnly);
             this.Controls.Add(this.btnRefreshWindowsList);
-            this.Controls.Add(this.lstWindowsList);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -707,7 +715,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setILDASMFontsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
-        private System.Windows.Forms.ListBox lstWindowsList;
         private System.Windows.Forms.Button btnRefreshWindowsList;
         private System.Windows.Forms.CheckBox chkVisibleOnly;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
@@ -769,5 +776,7 @@
         private System.Windows.Forms.ToolStripMenuItem encodeUriToToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem encodeUriToExceptSpaceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem encodeUriToExceptSpaceToolStripMenuItem1;
+        private System.Windows.Forms.ListView lstWindowsList;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }
