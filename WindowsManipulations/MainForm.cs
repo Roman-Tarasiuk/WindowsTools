@@ -851,7 +851,12 @@ namespace WindowsManipulations
 
         private void ArrangeMenu()
         {
-            int selected = this.lstWindowsList.SelectedIndices[0];
+            int selected = -1;
+            if (this.lstWindowsList.SelectedIndices.Count > 0)
+            {
+                selected = this.lstWindowsList.SelectedIndices[0];
+            }
+
             if (selected == -1)
             {
                 setILDASMFontsToolStripMenuItem.Enabled = false;
