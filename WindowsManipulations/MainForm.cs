@@ -603,6 +603,16 @@ namespace WindowsManipulations
             EncodeUriPercentageExceptSpaceClipboard();
         }
 
+        private void viewSystemClipboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ViewClipboardForm().Show();
+        }
+
+        private void viewSystemClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new ViewClipboardForm().Show();
+        }
+
         #endregion
 
 

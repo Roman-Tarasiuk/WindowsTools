@@ -74,6 +74,12 @@
     <Compile Include="TitleColoringForm.Designer.cs">
       <DependentUpon>TitleColoringForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewClipboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewClipboardForm.Designer.cs">
+      <DependentUpon>ViewClipboardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WindowsTrackingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TitleColoringForm.resx">
       <DependentUpon>TitleColoringForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewClipboardForm.resx">
+      <DependentUpon>ViewClipboardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WindowsTrackingForm.resx">
       <DependentUpon>WindowsTrackingForm.cs</DependentUpon>
