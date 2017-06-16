@@ -28,6 +28,111 @@ namespace WindowsManipulations
 
         private PinForm m_PinForm;
 
+        private List<String> m_PasswordRepresentation = new List<string>();
+
+        #endregion
+
+
+        #region Public Properties and Methods
+
+        public List<String> PasswordsRepresentation {
+            get
+            {
+                bool refresh = false;
+
+                for (var i = 0; i < m_Passwords.Count; i++)
+                {
+                    if (i >= m_PasswordRepresentation.Count
+                        || !m_PasswordRepresentation[i].StartsWith(m_Passwords[i].Description))
+                    {
+                        refresh = true;
+                        break;
+                    }
+                }
+
+                if (refresh)
+                {
+                    m_PasswordRepresentation.Clear();
+
+                    foreach(var p in m_Passwords)
+                    {
+                        m_PasswordRepresentation.Add(p.Description + (p.Public ? " : " + p.Password : " : *******"));
+                    }
+                }
+
+                return m_PasswordRepresentation;
+            }
+        }
+
+        public void CopyPasswordToClipboard(int index = -1)
+        {
+            if (listBox1.SelectedIndex == -1 && index == -1)
+            {
+                return;
+            }
+
+            if (index == -1)
+            {
+                index = listBox1.SelectedIndex;
+            }
+            else if (index < 0 || index >= listBox1.Items.Count)
+            {
+                return;
+            }
+
+
+            if (m_Passwords[index].Public)
+            {
+                Clipboard.SetText(m_Passwords[index].Password);
+                FlashWindow();
+                return;
+            }
+
+            if (!m_EnablePasswordCopy)
+            {
+                MessageBox.Show("You have inputted wrong pin.\n"
+                    + "Wait "
+                        + ((int)((m_PinTimeSpan.TotalMilliseconds - (DateTime.Now - m_BlockStartTime).TotalMilliseconds) / 1000)).ToString()
+                        + " seconds and try again...",
+                    "Incorrect pin",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                return;
+            }
+
+            string pin = GetPin("Pin for password", "Enter pin");
+
+            if (pin == String.Empty)
+            {
+                return;
+            }
+
+            if (pin != m_Pin)
+            {
+                m_PinTimeSpan += PasswordForm.defaultWrongPassDelay;
+                timer1.Interval = (int)m_PinTimeSpan.TotalMilliseconds;
+                m_EnablePasswordCopy = false;
+                m_BlockStartTime = DateTime.Now;
+
+                timer1.Start();
+
+                MessageBox.Show("You have inputted wrong pin.\n"
+                    + "Wait " + (m_PinTimeSpan.TotalMilliseconds / 1000).ToString() + " seconds and try again.",
+                    "Incorrect pin",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                return;
+            }
+            else
+            {
+                m_PinTimeSpan = PasswordForm.defaultWrongPassDelay;
+            }
+
+            Clipboard.SetText(m_Passwords[index].Password);
+        }
+
         #endregion
 
 
@@ -104,13 +209,16 @@ namespace WindowsManipulations
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex == -1)
+            var selIndex = listBox1.SelectedIndex;
+
+            if (selIndex == -1)
             {
                 return;
             }
 
-            m_Passwords.RemoveAt(listBox1.SelectedIndex);
-            listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+            m_Passwords.RemoveAt(selIndex);
+            listBox1.Items.RemoveAt(selIndex);
+            m_PasswordRepresentation.RemoveAt(selIndex);
         }
 
         private void timerFlash_Tick(object sender, EventArgs e)
@@ -158,6 +266,26 @@ namespace WindowsManipulations
             }
         }
 
+        private void btnMoveUp_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            MoveUp(listBox1.SelectedIndex);
+        }
+
+        private void btnMoveDown_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            MoveDown(listBox1.SelectedIndex);
+        }
+
         #endregion
 
 
@@ -169,65 +297,6 @@ namespace WindowsManipulations
             this.BackColor = Color.DarkGray;
             timerFlash.Enabled = true;
             timerFlash.Start();
-        }
-
-        private void CopyPasswordToClipboard()
-        {
-            if (listBox1.SelectedIndex == -1)
-            {
-                return;
-            }
-
-            if (m_Passwords[listBox1.SelectedIndex].Public)
-            {
-                Clipboard.SetText(m_Passwords[listBox1.SelectedIndex].Password);
-                FlashWindow();
-                return;
-            }
-
-            if (!m_EnablePasswordCopy)
-            {
-                MessageBox.Show("You have inputted wrong pin.\n"
-                    + "Wait "
-                        + ((int)((m_PinTimeSpan.TotalMilliseconds - (DateTime.Now - m_BlockStartTime).TotalMilliseconds) / 1000)).ToString()
-                        + " seconds and try again...",
-                    "Incorrect pin",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-
-                return;
-            }
-
-            string pin = GetPin("Pin for password", "Enter pin");
-
-            if (pin == String.Empty)
-            {
-                return;
-            }
-
-            if (pin != m_Pin)
-            {
-                m_PinTimeSpan += PasswordForm.defaultWrongPassDelay;
-                timer1.Interval = (int)m_PinTimeSpan.TotalMilliseconds;
-                m_EnablePasswordCopy = false;
-                m_BlockStartTime = DateTime.Now;
-
-                timer1.Start();
-
-                MessageBox.Show("You have inputted wrong pin.\n"
-                    + "Wait " + (m_PinTimeSpan.TotalMilliseconds / 1000).ToString() + " seconds and try again.",
-                    "Incorrect pin",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-
-                return;
-            }
-            else
-            {
-                m_PinTimeSpan = PasswordForm.defaultWrongPassDelay;
-            }
-
-            Clipboard.SetText(m_Passwords[listBox1.SelectedIndex].Password);
         }
 
         private void CopyDescriptionToClipboard()
@@ -245,7 +314,10 @@ namespace WindowsManipulations
         {
             m_PinForm = (PinForm)User32Windows.GetForm(m_PinForm, typeof(PinForm));
             m_PinForm.StartPosition = FormStartPosition.Manual;
-            m_PinForm.DesktopLocation = this.DesktopLocation;
+            if (this.Visible)
+            {
+                m_PinForm.DesktopLocation = this.DesktopLocation;
+            }
             m_PinForm.Text = pinCaption;
             m_PinForm.Prompt = pinPrompt;
             m_PinForm.Pin = "";
@@ -298,28 +370,6 @@ namespace WindowsManipulations
             txtDescription.Focus();
         }
 
-        #endregion
-
-        private void btnMoveUp_Click(object sender, EventArgs e)
-        {
-            if (listBox1.SelectedIndex < 0)
-            {
-                return;
-            }
-
-            MoveUp(listBox1.SelectedIndex);
-        }
-
-        private void btnMoveDown_Click(object sender, EventArgs e)
-        {
-            if (listBox1.SelectedIndex < 0)
-            {
-                return;
-            }
-
-            MoveDown(listBox1.SelectedIndex);
-        }
-
         private void MoveUp(int selectedIndex)
         {
             if (selectedIndex == 0)
@@ -352,4 +402,6 @@ namespace WindowsManipulations
             listBox1.SelectedIndex = selectedIndex + 1;
         }
     }
+
+    #endregion
 }

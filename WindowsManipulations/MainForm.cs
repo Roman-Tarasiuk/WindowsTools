@@ -613,6 +613,11 @@ namespace WindowsManipulations
             new ViewClipboardForm().Show();
         }
 
+        private void contextMenuStripSysTray_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            BuildPasswordsList();
+        }
+
         #endregion
 
 
@@ -1071,6 +1076,41 @@ namespace WindowsManipulations
             var clipboardText = Clipboard.GetText();
             var encodedText = System.Uri.EscapeUriString(clipboardText);
             Clipboard.SetText(encodedText.Replace("%20", " "));
+        }
+
+        private void BuildPasswordsList()
+        {
+            var passMenu = passwordsToolStripMenuItem1.DropDownItems;
+            passMenu.Clear();
+
+            if (m_PasswordForm == null || m_PasswordForm.IsDisposed)
+            {
+                return;
+            }
+
+            var passwordList = m_PasswordForm.PasswordsRepresentation;
+
+            if (passwordList.Count == 0)
+            {
+                return;
+            }
+
+            var count = 0;
+
+            foreach (var p in passwordList)
+            {
+                var index = count++;
+                passMenu.Add(p);
+                passMenu[index].Click += (sender, e) =>
+                    {
+                        m_PasswordForm.CopyPasswordToClipboard(index);
+                    };
+            }
+        }
+
+        private void MainForm_Click(object sender, EventArgs e)
+        {
+            //var item = (ToolStripMenuItem)sender;
         }
 
         #endregion

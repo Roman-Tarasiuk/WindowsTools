@@ -55,6 +55,7 @@
             this.encodeToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.encodeUriToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.encodeUriToExceptSpaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewSystemClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripWindowsList = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -82,6 +83,12 @@
             this.setAutohideForAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeAutohideFromAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.miscellaneousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.decodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeUriToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeUriToExceptSpaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewSystemClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
@@ -94,13 +101,6 @@
             this.timerScreenSaver = new System.Windows.Forms.Timer(this.components);
             this.lstWindowsList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.miscellaneousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.decodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.encodeToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.encodeUriToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.encodeUriToExceptSpaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewSystemClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewSystemClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -311,6 +311,13 @@
             this.encodeUriToExceptSpaceToolStripMenuItem1.Text = "Encode Uri to % except spaces";
             this.encodeUriToExceptSpaceToolStripMenuItem1.Click += new System.EventHandler(this.encodeUriToExceptSpaceToolStripMenuItem1_Click);
             // 
+            // viewSystemClipboardToolStripMenuItem1
+            // 
+            this.viewSystemClipboardToolStripMenuItem1.Name = "viewSystemClipboardToolStripMenuItem1";
+            this.viewSystemClipboardToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.viewSystemClipboardToolStripMenuItem1.Text = "View system clipboard...";
+            this.viewSystemClipboardToolStripMenuItem1.Click += new System.EventHandler(this.viewSystemClipboardToolStripMenuItem1_Click);
+            // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
@@ -416,7 +423,8 @@
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray.Size = new System.Drawing.Size(216, 198);
+            this.contextMenuStripSysTray.Size = new System.Drawing.Size(216, 220);
+            this.contextMenuStripSysTray.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray_Opening);
             this.contextMenuStripSysTray.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
             this.contextMenuStripSysTray.MouseHover += new System.EventHandler(this.contextMenuStripSysTray_MouseHover);
@@ -529,6 +537,54 @@
             this.passwordsToolStripMenuItem1.Text = "Password Manager...";
             this.passwordsToolStripMenuItem1.Click += new System.EventHandler(this.passwordsToolStripMenuItem1_Click);
             // 
+            // miscellaneousToolStripMenuItem
+            // 
+            this.miscellaneousToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.decodeToolStripMenuItem,
+            this.encodeToToolStripMenuItem,
+            this.encodeUriToToolStripMenuItem,
+            this.encodeUriToExceptSpaceToolStripMenuItem,
+            this.viewSystemClipboardToolStripMenuItem});
+            this.miscellaneousToolStripMenuItem.Image = global::WindowsManipulations.Properties.Resources.miscellaneous_icon1;
+            this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
+            this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.miscellaneousToolStripMenuItem.Text = "Miscellaneous";
+            // 
+            // decodeToolStripMenuItem
+            // 
+            this.decodeToolStripMenuItem.Name = "decodeToolStripMenuItem";
+            this.decodeToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.decodeToolStripMenuItem.Text = "Decode % clipboard";
+            this.decodeToolStripMenuItem.Click += new System.EventHandler(this.decodeToolStripMenuItem_Click);
+            // 
+            // encodeToToolStripMenuItem
+            // 
+            this.encodeToToolStripMenuItem.Name = "encodeToToolStripMenuItem";
+            this.encodeToToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.encodeToToolStripMenuItem.Text = "Encode data to %";
+            this.encodeToToolStripMenuItem.Click += new System.EventHandler(this.encodeToToolStripMenuItem_Click);
+            // 
+            // encodeUriToToolStripMenuItem
+            // 
+            this.encodeUriToToolStripMenuItem.Name = "encodeUriToToolStripMenuItem";
+            this.encodeUriToToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.encodeUriToToolStripMenuItem.Text = "Encode Uri to %";
+            this.encodeUriToToolStripMenuItem.Click += new System.EventHandler(this.encodeUriToToolStripMenuItem_Click);
+            // 
+            // encodeUriToExceptSpaceToolStripMenuItem
+            // 
+            this.encodeUriToExceptSpaceToolStripMenuItem.Name = "encodeUriToExceptSpaceToolStripMenuItem";
+            this.encodeUriToExceptSpaceToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.encodeUriToExceptSpaceToolStripMenuItem.Text = "Encode Uri to % except spaces";
+            this.encodeUriToExceptSpaceToolStripMenuItem.Click += new System.EventHandler(this.encodeUriToExceptSpaceToolStripMenuItem_Click);
+            // 
+            // viewSystemClipboardToolStripMenuItem
+            // 
+            this.viewSystemClipboardToolStripMenuItem.Name = "viewSystemClipboardToolStripMenuItem";
+            this.viewSystemClipboardToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.viewSystemClipboardToolStripMenuItem.Text = "View system clipboard...";
+            this.viewSystemClipboardToolStripMenuItem.Click += new System.EventHandler(this.viewSystemClipboardToolStripMenuItem_Click);
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
@@ -638,61 +694,6 @@
             // 
             this.columnHeader1.Text = "";
             this.columnHeader1.Width = 600;
-            // 
-            // miscellaneousToolStripMenuItem
-            // 
-            this.miscellaneousToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.decodeToolStripMenuItem,
-            this.encodeToToolStripMenuItem,
-            this.encodeUriToToolStripMenuItem,
-            this.encodeUriToExceptSpaceToolStripMenuItem,
-            this.viewSystemClipboardToolStripMenuItem});
-            this.miscellaneousToolStripMenuItem.Image = global::WindowsManipulations.Properties.Resources.miscellaneous_icon1;
-            this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
-            this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.miscellaneousToolStripMenuItem.Text = "Miscellaneous";
-            // 
-            // decodeToolStripMenuItem
-            // 
-            this.decodeToolStripMenuItem.Name = "decodeToolStripMenuItem";
-            this.decodeToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.decodeToolStripMenuItem.Text = "Decode % clipboard";
-            this.decodeToolStripMenuItem.Click += new System.EventHandler(this.decodeToolStripMenuItem_Click);
-            // 
-            // encodeToToolStripMenuItem
-            // 
-            this.encodeToToolStripMenuItem.Name = "encodeToToolStripMenuItem";
-            this.encodeToToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.encodeToToolStripMenuItem.Text = "Encode data to %";
-            this.encodeToToolStripMenuItem.Click += new System.EventHandler(this.encodeToToolStripMenuItem_Click);
-            // 
-            // encodeUriToToolStripMenuItem
-            // 
-            this.encodeUriToToolStripMenuItem.Name = "encodeUriToToolStripMenuItem";
-            this.encodeUriToToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.encodeUriToToolStripMenuItem.Text = "Encode Uri to %";
-            this.encodeUriToToolStripMenuItem.Click += new System.EventHandler(this.encodeUriToToolStripMenuItem_Click);
-            // 
-            // encodeUriToExceptSpaceToolStripMenuItem
-            // 
-            this.encodeUriToExceptSpaceToolStripMenuItem.Name = "encodeUriToExceptSpaceToolStripMenuItem";
-            this.encodeUriToExceptSpaceToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.encodeUriToExceptSpaceToolStripMenuItem.Text = "Encode Uri to % except spaces";
-            this.encodeUriToExceptSpaceToolStripMenuItem.Click += new System.EventHandler(this.encodeUriToExceptSpaceToolStripMenuItem_Click);
-            // 
-            // viewSystemClipboardToolStripMenuItem
-            // 
-            this.viewSystemClipboardToolStripMenuItem.Name = "viewSystemClipboardToolStripMenuItem";
-            this.viewSystemClipboardToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.viewSystemClipboardToolStripMenuItem.Text = "View system clipboard...";
-            this.viewSystemClipboardToolStripMenuItem.Click += new System.EventHandler(this.viewSystemClipboardToolStripMenuItem_Click);
-            // 
-            // viewSystemClipboardToolStripMenuItem1
-            // 
-            this.viewSystemClipboardToolStripMenuItem1.Name = "viewSystemClipboardToolStripMenuItem1";
-            this.viewSystemClipboardToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.viewSystemClipboardToolStripMenuItem1.Text = "View system clipboard...";
-            this.viewSystemClipboardToolStripMenuItem1.Click += new System.EventHandler(this.viewSystemClipboardToolStripMenuItem1_Click);
             // 
             // MainForm
             // 
