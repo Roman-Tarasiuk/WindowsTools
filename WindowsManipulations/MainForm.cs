@@ -26,7 +26,7 @@ namespace WindowsManipulations
 
         private List<DesktopWindow> m_ListedWindows = new List<DesktopWindow>();
         private List<DesktopWindow> m_HiddenByUserWindows = new List<DesktopWindow>();
-        private string m_HiddenPrefix = "[hidden]";
+        private string m_PrefixHidden = "[hidden]";
         private string m_Pin = String.Empty;
 
         private LocationAndSizeForm m_LocationForm;
@@ -182,7 +182,7 @@ namespace WindowsManipulations
 
             m_HiddenByUserWindows.Add(selectedWindow);
 
-            selectedWindow.Title = m_HiddenPrefix + selectedWindow.Title;
+            selectedWindow.Title = m_PrefixHidden + selectedWindow.Title;
             lstWindowsList.Items.Add(String.Format("{0,10} : {1}", selectedWindow.Handle, selectedWindow.Title), selectedWindow.Handle.ToString());
 
             User32Windows.ShowWindow(selectedWindow.Handle, User32Windows.SW_HIDE);
@@ -208,7 +208,7 @@ namespace WindowsManipulations
             m_HiddenByUserWindows.RemoveAt(selIndex - m_ListedWindows.Count);
             lstWindowsList.Items.RemoveAt(selIndex);
 
-            selectedWindow.Title = selectedWindow.Title.Substring(m_HiddenPrefix.Length);
+            selectedWindow.Title = selectedWindow.Title.Substring(m_PrefixHidden.Length);
             m_ListedWindows.Add(selectedWindow);
 
             lstWindowsList.Items.Insert(m_ListedWindows.Count - 1, String.Format("{0,10} : {1}", selectedWindow.Handle, selectedWindow.Title), selectedWindow.Handle.ToString());
@@ -673,7 +673,7 @@ namespace WindowsManipulations
                 {
                     foreach (var w in m_HiddenByUserWindows)
                     {
-                        w.Title = w.Title.Substring(m_HiddenPrefix.Length);
+                        w.Title = w.Title.Substring(m_PrefixHidden.Length);
                         if (!runningWindows.Contains(w))
                         {
                             match = false;
@@ -704,9 +704,9 @@ namespace WindowsManipulations
                 {
                     bool titleChanged = false;
 
-                    if (window.Title.StartsWith(m_HiddenPrefix))
+                    if (window.Title.StartsWith(m_PrefixHidden))
                     {
-                        window.Title = window.Title.Substring(m_HiddenPrefix.Length);
+                        window.Title = window.Title.Substring(m_PrefixHidden.Length);
                         titleChanged = true;
                     }
 
@@ -716,7 +716,7 @@ namespace WindowsManipulations
                     }
                     else if (titleChanged)
                     {
-                        window.Title = m_HiddenPrefix + window.Title;
+                        window.Title = m_PrefixHidden + window.Title;
                     }
                 }
 

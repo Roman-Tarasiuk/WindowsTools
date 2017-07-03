@@ -83,54 +83,57 @@ namespace WindowsManipulations
 
             if (m_Passwords[index].Public)
             {
-                Clipboard.SetText(m_Passwords[index].Password);
                 FlashWindow();
-                return;
-            }
-
-            if (!m_EnablePasswordCopy)
-            {
-                MessageBox.Show("You have inputted wrong pin.\n"
-                    + "Wait "
-                        + ((int)((m_PinTimeSpan.TotalMilliseconds - (DateTime.Now - m_BlockStartTime).TotalMilliseconds) / 1000)).ToString()
-                        + " seconds and try again...",
-                    "Incorrect pin",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-
-                return;
-            }
-
-            string pin = GetPin("Pin for password", "Enter pin");
-
-            if (pin == String.Empty)
-            {
-                return;
-            }
-
-            if (pin != m_Pin)
-            {
-                m_PinTimeSpan += PasswordForm.defaultWrongPassDelay;
-                timer1.Interval = (int)m_PinTimeSpan.TotalMilliseconds;
-                m_EnablePasswordCopy = false;
-                m_BlockStartTime = DateTime.Now;
-
-                timer1.Start();
-
-                MessageBox.Show("You have inputted wrong pin.\n"
-                    + "Wait " + (m_PinTimeSpan.TotalMilliseconds / 1000).ToString() + " seconds and try again.",
-                    "Incorrect pin",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-
-                return;
             }
             else
             {
-                m_PinTimeSpan = PasswordForm.defaultWrongPassDelay;
+
+                if (!m_EnablePasswordCopy)
+                {
+                    MessageBox.Show("You have inputted wrong pin.\n"
+                        + "Wait "
+                            + ((int)((m_PinTimeSpan.TotalMilliseconds - (DateTime.Now - m_BlockStartTime).TotalMilliseconds) / 1000)).ToString()
+                            + " seconds and try again...",
+                        "Incorrect pin",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
+                    return;
+                }
+
+                string pin = GetPin("Pin for password", "Enter pin");
+
+                if (pin == String.Empty)
+                {
+                    return;
+                }
+
+                if (pin != m_Pin)
+                {
+                    m_PinTimeSpan += PasswordForm.defaultWrongPassDelay;
+                    timer1.Interval = (int)m_PinTimeSpan.TotalMilliseconds;
+                    m_EnablePasswordCopy = false;
+                    m_BlockStartTime = DateTime.Now;
+
+                    timer1.Start();
+
+                    MessageBox.Show("You have inputted wrong pin.\n"
+                        + "Wait " + (m_PinTimeSpan.TotalMilliseconds / 1000).ToString() + " seconds and try again.",
+                        "Incorrect pin",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
+                    return;
+                }
+                else
+                {
+                    m_PinTimeSpan = PasswordForm.defaultWrongPassDelay;
+                }
             }
 
             Clipboard.SetText(m_Passwords[index].Password);
+
+            ActivatePreviousWindow();
         }
 
         #endregion
@@ -400,6 +403,27 @@ namespace WindowsManipulations
             listBox1.Items.RemoveAt(selectedIndex);
             listBox1.Items.Insert(selectedIndex + 1, tmp.Description + (tmp.Public ? " : " + tmp.Password : " : *******"));
             listBox1.SelectedIndex = selectedIndex + 1;
+        }
+
+        private void ActivatePreviousWindow()
+        {
+            var visibleWindows = User32Windows.GetDesktopWindows();
+
+            if (visibleWindows.Count >= 2)
+            {
+                IntPtr handle = IntPtr.Zero;
+
+                if (visibleWindows[1].Title != "Password Manager")
+                {
+                    handle = visibleWindows[1].Handle;
+                }
+                else if (visibleWindows.Count >= 3)
+                {
+                    handle = visibleWindows[2].Handle;
+                }
+
+                User32Windows.SetForegroundWindow(handle);
+            }
         }
     }
 
