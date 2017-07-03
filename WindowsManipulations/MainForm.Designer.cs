@@ -101,6 +101,8 @@
             this.timerScreenSaver = new System.Windows.Forms.Timer(this.components);
             this.lstWindowsList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.replacernTospaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.replacernTospaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -278,7 +280,8 @@
             this.encodeToToolStripMenuItem1,
             this.encodeUriToToolStripMenuItem1,
             this.encodeUriToExceptSpaceToolStripMenuItem1,
-            this.viewSystemClipboardToolStripMenuItem1});
+            this.viewSystemClipboardToolStripMenuItem1,
+            this.replacernTospaceToolStripMenuItem1});
             this.miscellaneousToolStripMenuItem1.Name = "miscellaneousToolStripMenuItem1";
             this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(223, 22);
             this.miscellaneousToolStripMenuItem1.Text = "Miscellaneous";
@@ -423,7 +426,7 @@
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray.Size = new System.Drawing.Size(216, 220);
+            this.contextMenuStripSysTray.Size = new System.Drawing.Size(216, 198);
             this.contextMenuStripSysTray.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray_Opening);
             this.contextMenuStripSysTray.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
@@ -544,7 +547,8 @@
             this.encodeToToolStripMenuItem,
             this.encodeUriToToolStripMenuItem,
             this.encodeUriToExceptSpaceToolStripMenuItem,
-            this.viewSystemClipboardToolStripMenuItem});
+            this.viewSystemClipboardToolStripMenuItem,
+            this.replacernTospaceToolStripMenuItem});
             this.miscellaneousToolStripMenuItem.Image = global::WindowsManipulations.Properties.Resources.miscellaneous_icon1;
             this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
             this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
@@ -695,6 +699,22 @@
             this.columnHeader1.Text = "";
             this.columnHeader1.Width = 600;
             // 
+            // replacernTospaceToolStripMenuItem
+            // 
+            this.replacernTospaceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("replacernTospaceToolStripMenuItem.Image")));
+            this.replacernTospaceToolStripMenuItem.Name = "replacernTospaceToolStripMenuItem";
+            this.replacernTospaceToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.replacernTospaceToolStripMenuItem.Text = "Replace \\r\\n to <space>";
+            this.replacernTospaceToolStripMenuItem.Click += new System.EventHandler(this.replacernTospaceToolStripMenuItem_Click);
+            // 
+            // replacernTospaceToolStripMenuItem1
+            // 
+            this.replacernTospaceToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("replacernTospaceToolStripMenuItem1.Image")));
+            this.replacernTospaceToolStripMenuItem1.Name = "replacernTospaceToolStripMenuItem1";
+            this.replacernTospaceToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.replacernTospaceToolStripMenuItem1.Text = "Replace \\r\\n to <space>";
+            this.replacernTospaceToolStripMenuItem1.Click += new System.EventHandler(this.replacernTospaceToolStripMenuItem1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -799,5 +819,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ToolStripMenuItem viewSystemClipboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewSystemClipboardToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem replacernTospaceToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem replacernTospaceToolStripMenuItem;
     }
 }

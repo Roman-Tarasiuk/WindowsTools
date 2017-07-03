@@ -582,6 +582,11 @@ namespace WindowsManipulations
             EncodeUriPercentageExceptSpaceClipboard();
         }
 
+        private void replacernTospaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReplaceRNToSpace();
+        }
+
         // Miscellaneous Main menu
         private void decodeClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -616,6 +621,11 @@ namespace WindowsManipulations
         private void contextMenuStripSysTray_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
             BuildPasswordsList();
+        }
+
+        private void replacernTospaceToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ReplaceRNToSpace();
         }
 
         #endregion
@@ -1111,6 +1121,16 @@ namespace WindowsManipulations
         private void MainForm_Click(object sender, EventArgs e)
         {
             //var item = (ToolStripMenuItem)sender;
+        }
+
+        private void ReplaceRNToSpace()
+        {
+            var clipboardStr = Clipboard.GetText();
+
+            if (clipboardStr != null)
+            {
+                Clipboard.SetText(clipboardStr.Replace("\r\n", " "));
+            }
         }
 
         #endregion
