@@ -726,7 +726,10 @@ namespace WindowsManipulations
                 {
                     lstWindowsList.SmallImageList = new ImageList();
                 }
-                lstWindowsList.SmallImageList.Images.Add(window.Handle.ToString(), window.Icon);
+                if (window.Icon != null)
+                {
+                    lstWindowsList.SmallImageList.Images.Add(window.Handle.ToString(), window.Icon);
+                }
                 lstWindowsList.Items.Insert(m_ListedWindows.Count - 1, String.Format("{0,10} : {1}", window.Handle, window.Title), window.Handle.ToString());
             }
 
