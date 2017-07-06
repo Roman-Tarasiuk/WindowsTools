@@ -56,6 +56,7 @@
             this.encodeUriToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.encodeUriToExceptSpaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewSystemClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.replacernTospaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripWindowsList = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -89,6 +90,7 @@
             this.encodeUriToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.encodeUriToExceptSpaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewSystemClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.replacernTospaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
@@ -101,8 +103,6 @@
             this.timerScreenSaver = new System.Windows.Forms.Timer(this.components);
             this.lstWindowsList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.replacernTospaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.replacernTospaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -321,6 +321,14 @@
             this.viewSystemClipboardToolStripMenuItem1.Text = "View system clipboard...";
             this.viewSystemClipboardToolStripMenuItem1.Click += new System.EventHandler(this.viewSystemClipboardToolStripMenuItem1_Click);
             // 
+            // replacernTospaceToolStripMenuItem1
+            // 
+            this.replacernTospaceToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("replacernTospaceToolStripMenuItem1.Image")));
+            this.replacernTospaceToolStripMenuItem1.Name = "replacernTospaceToolStripMenuItem1";
+            this.replacernTospaceToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.replacernTospaceToolStripMenuItem1.Text = "Replace \\r\\n to <space>";
+            this.replacernTospaceToolStripMenuItem1.Click += new System.EventHandler(this.replacernTospaceToolStripMenuItem1_Click);
+            // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
@@ -426,7 +434,7 @@
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray.Size = new System.Drawing.Size(216, 198);
+            this.contextMenuStripSysTray.Size = new System.Drawing.Size(216, 220);
             this.contextMenuStripSysTray.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray_Opening);
             this.contextMenuStripSysTray.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
@@ -535,6 +543,7 @@
             // 
             // passwordsToolStripMenuItem1
             // 
+            this.passwordsToolStripMenuItem1.Image = global::WindowsManipulations.Properties.Resources.password;
             this.passwordsToolStripMenuItem1.Name = "passwordsToolStripMenuItem1";
             this.passwordsToolStripMenuItem1.Size = new System.Drawing.Size(215, 22);
             this.passwordsToolStripMenuItem1.Text = "Password Manager...";
@@ -588,6 +597,14 @@
             this.viewSystemClipboardToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.viewSystemClipboardToolStripMenuItem.Text = "View system clipboard...";
             this.viewSystemClipboardToolStripMenuItem.Click += new System.EventHandler(this.viewSystemClipboardToolStripMenuItem_Click);
+            // 
+            // replacernTospaceToolStripMenuItem
+            // 
+            this.replacernTospaceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("replacernTospaceToolStripMenuItem.Image")));
+            this.replacernTospaceToolStripMenuItem.Name = "replacernTospaceToolStripMenuItem";
+            this.replacernTospaceToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.replacernTospaceToolStripMenuItem.Text = "Replace \\r\\n to <space>";
+            this.replacernTospaceToolStripMenuItem.Click += new System.EventHandler(this.replacernTospaceToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -698,22 +715,6 @@
             // 
             this.columnHeader1.Text = "";
             this.columnHeader1.Width = 600;
-            // 
-            // replacernTospaceToolStripMenuItem
-            // 
-            this.replacernTospaceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("replacernTospaceToolStripMenuItem.Image")));
-            this.replacernTospaceToolStripMenuItem.Name = "replacernTospaceToolStripMenuItem";
-            this.replacernTospaceToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.replacernTospaceToolStripMenuItem.Text = "Replace \\r\\n to <space>";
-            this.replacernTospaceToolStripMenuItem.Click += new System.EventHandler(this.replacernTospaceToolStripMenuItem_Click);
-            // 
-            // replacernTospaceToolStripMenuItem1
-            // 
-            this.replacernTospaceToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("replacernTospaceToolStripMenuItem1.Image")));
-            this.replacernTospaceToolStripMenuItem1.Name = "replacernTospaceToolStripMenuItem1";
-            this.replacernTospaceToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.replacernTospaceToolStripMenuItem1.Text = "Replace \\r\\n to <space>";
-            this.replacernTospaceToolStripMenuItem1.Click += new System.EventHandler(this.replacernTospaceToolStripMenuItem1_Click);
             // 
             // MainForm
             // 
