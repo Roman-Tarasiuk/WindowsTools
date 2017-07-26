@@ -34,6 +34,7 @@ namespace WindowsManipulations
         private WindowsTrackingForm m_TrackingForm;
         private PinForm m_PinForm;
         private SendCommandsForm m_SendCommandForm;
+        private ClipboardManagerForm m_ClipboardManagerForm;
 
         private bool m_MouseTrackingStarted = false;
         private bool m_RefreshStarted = false;
@@ -148,11 +149,6 @@ namespace WindowsManipulations
         private void moveWindowToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MoveWindow();
-        }
-
-        private void clearSystemClipboardToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Clipboard.Clear();
         }
 
         private void textInfoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -610,12 +606,12 @@ namespace WindowsManipulations
 
         private void viewSystemClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new ViewClipboardForm().Show();
+            RunClipboardManager();
         }
 
         private void viewSystemClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            new ViewClipboardForm().Show();
+            RunClipboardManager();
         }
 
         private void contextMenuStripSysTray_Opening(object sender, System.ComponentModel.CancelEventArgs e)
@@ -1134,6 +1130,13 @@ namespace WindowsManipulations
             {
                 Clipboard.SetText(clipboardStr.Replace("\r\n", " "));
             }
+        }
+
+        private void RunClipboardManager()
+        {
+            m_ClipboardManagerForm = (ClipboardManagerForm)User32Windows.GetForm(m_ClipboardManagerForm, typeof(ClipboardManagerForm));
+
+            User32Windows.ShowForm(m_ClipboardManagerForm);
         }
 
         #endregion

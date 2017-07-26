@@ -72,8 +72,6 @@
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsTrackingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.clearSystemClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.screenSaverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendCustomCommandsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.startAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -318,7 +316,7 @@
             // 
             this.viewSystemClipboardToolStripMenuItem1.Name = "viewSystemClipboardToolStripMenuItem1";
             this.viewSystemClipboardToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.viewSystemClipboardToolStripMenuItem1.Text = "View system clipboard...";
+            this.viewSystemClipboardToolStripMenuItem1.Text = "System clipboard manager...";
             this.viewSystemClipboardToolStripMenuItem1.Click += new System.EventHandler(this.viewSystemClipboardToolStripMenuItem1_Click);
             // 
             // replacernTospaceToolStripMenuItem1
@@ -423,18 +421,16 @@
             // 
             this.contextMenuStripSysTray.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showToolStripMenuItem,
+            this.sendCustomCommandsToolStripMenuItem1,
             this.windowsTrackingToolStripMenuItem1,
             this.toolStripSeparator2,
-            this.clearSystemClipboardToolStripMenuItem,
-            this.toolStripSeparator1,
             this.screenSaverToolStripMenuItem,
-            this.sendCustomCommandsToolStripMenuItem1,
             this.passwordsToolStripMenuItem1,
             this.miscellaneousToolStripMenuItem,
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray.Size = new System.Drawing.Size(216, 220);
+            this.contextMenuStripSysTray.Size = new System.Drawing.Size(216, 192);
             this.contextMenuStripSysTray.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray_Opening);
             this.contextMenuStripSysTray.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
@@ -459,18 +455,6 @@
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(212, 6);
-            // 
-            // clearSystemClipboardToolStripMenuItem
-            // 
-            this.clearSystemClipboardToolStripMenuItem.Name = "clearSystemClipboardToolStripMenuItem";
-            this.clearSystemClipboardToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.clearSystemClipboardToolStripMenuItem.Text = "Clear system clipboard";
-            this.clearSystemClipboardToolStripMenuItem.Click += new System.EventHandler(this.clearSystemClipboardToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(212, 6);
             // 
             // screenSaverToolStripMenuItem
             // 
@@ -595,7 +579,7 @@
             // 
             this.viewSystemClipboardToolStripMenuItem.Name = "viewSystemClipboardToolStripMenuItem";
             this.viewSystemClipboardToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.viewSystemClipboardToolStripMenuItem.Text = "View system clipboard...";
+            this.viewSystemClipboardToolStripMenuItem.Text = "System clipboard manager...";
             this.viewSystemClipboardToolStripMenuItem.Click += new System.EventHandler(this.viewSystemClipboardToolStripMenuItem_Click);
             // 
             // replacernTospaceToolStripMenuItem
@@ -763,9 +747,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem moveWindowToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearSystemClipboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem textInfoToolStripMenuItem;
         private System.Windows.Forms.Button btnHideWindow;
         private System.Windows.Forms.Button btnShowHidden;
