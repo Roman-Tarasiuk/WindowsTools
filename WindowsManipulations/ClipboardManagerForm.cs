@@ -17,8 +17,6 @@ namespace WindowsManipulations
         public ClipboardManagerForm()
         {
             InitializeComponent();
-
-            comboBox1.SelectedIndex = 0;
         }
 
         #endregion
@@ -31,7 +29,7 @@ namespace WindowsManipulations
             this.timerStart.Start();
         }
 
-        private void btnClipboardAutodetect_Click(object sender, EventArgs e)
+        private void btnClipboardDetect_Click(object sender, EventArgs e)
         {
             ShowClipboardInfo();
         }
@@ -96,7 +94,14 @@ namespace WindowsManipulations
             }
             else if (Clipboard.ContainsFileDropList())
             {
-                richTextBox1.Text = "File drop list";
+                var filesList = Clipboard.GetFileDropList();
+                var result = new StringBuilder();
+                foreach (var f in filesList)
+                {
+                    result.AppendLine(f);
+                }
+                richTextBox1.Text = result.ToString();
+
                 comboBox1.SelectedIndex = 1;
             }
             else if (Clipboard.ContainsImage())
@@ -106,12 +111,12 @@ namespace WindowsManipulations
             }
             else if (Clipboard.ContainsText())
             {
-                richTextBox1.Text = "Text";
+                richTextBox1.Text = Clipboard.GetText();
                 comboBox1.SelectedIndex = 3;
             }
             else
             {
-                richTextBox1.Text = "Data";
+                richTextBox1.Text = "Data / Empty";
                 comboBox1.SelectedIndex = 4;
             }
         }

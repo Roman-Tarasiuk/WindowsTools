@@ -32,15 +32,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClipboardManagerForm));
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnClipboardAutodetect = new System.Windows.Forms.Button();
+            this.btnClipboardDetect = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.timerStart = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.systemClipboardManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerStart = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,15 +70,15 @@
             this.comboBox1.Size = new System.Drawing.Size(233, 21);
             this.comboBox1.TabIndex = 1;
             // 
-            // btnClipboardAutodetect
+            // btnClipboardDetect
             // 
-            this.btnClipboardAutodetect.Location = new System.Drawing.Point(276, 11);
-            this.btnClipboardAutodetect.Name = "btnClipboardAutodetect";
-            this.btnClipboardAutodetect.Size = new System.Drawing.Size(75, 23);
-            this.btnClipboardAutodetect.TabIndex = 2;
-            this.btnClipboardAutodetect.Text = "Autodetect";
-            this.btnClipboardAutodetect.UseVisualStyleBackColor = true;
-            this.btnClipboardAutodetect.Click += new System.EventHandler(this.btnClipboardAutodetect_Click);
+            this.btnClipboardDetect.Location = new System.Drawing.Point(276, 11);
+            this.btnClipboardDetect.Name = "btnClipboardDetect";
+            this.btnClipboardDetect.Size = new System.Drawing.Size(75, 23);
+            this.btnClipboardDetect.TabIndex = 2;
+            this.btnClipboardDetect.Text = "Detect";
+            this.btnClipboardDetect.UseVisualStyleBackColor = true;
+            this.btnClipboardDetect.Click += new System.EventHandler(this.btnClipboardDetect_Click);
             // 
             // button1
             // 
@@ -99,11 +99,6 @@
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
-            // timerStart
-            // 
-            this.timerStart.Interval = 1000;
-            this.timerStart.Tick += new System.EventHandler(this.timerStart_Tick);
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -112,7 +107,7 @@
             this.toolStripSeparator1,
             this.closeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(218, 98);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(218, 76);
             // 
             // systemClipboardManagerToolStripMenuItem
             // 
@@ -141,13 +136,18 @@
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
+            // timerStart
+            // 
+            this.timerStart.Interval = 1000;
+            this.timerStart.Tick += new System.EventHandler(this.timerStart_Tick);
+            // 
             // ClipboardManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(571, 321);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnClipboardAutodetect);
+            this.Controls.Add(this.btnClipboardDetect);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.richTextBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -164,7 +164,7 @@
 
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button btnClipboardAutodetect;
+        private System.Windows.Forms.Button btnClipboardDetect;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Timer timerStart;
