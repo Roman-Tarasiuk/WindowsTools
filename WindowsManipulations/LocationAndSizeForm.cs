@@ -65,7 +65,6 @@ namespace WindowsManipulations
             GetCharacteristics();
 
             ShowScreenResolution(Screen.PrimaryScreen);
-            m_CurrentScreen++;
         }
 
         private void btnSet_Click(object sender, EventArgs e)
@@ -186,7 +185,7 @@ namespace WindowsManipulations
 
         private void ShowScreenResolution(Screen screen)
         {
-            Rectangle rect = screen.WorkingArea;
+            Rectangle rect = screen.Bounds;
             lblResolution.Text = "Screen resolution: " + rect.Width + "x" + rect.Height
                 + " (" + screen.DeviceName + ")*";
         }
