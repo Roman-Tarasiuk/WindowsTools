@@ -19,6 +19,13 @@ namespace WindowsManipulations
         [DllImport("user32")]
         private static extern void LockWorkStation();
 
+        [DllImport("user32")]
+        private static extern void RegisterHotKey(IntPtr hwnd, int id, int modifiers, int vk);
+
+        const int WM_HOTKEY = 0x0312;
+        const int VK_OEM_3 = 0xC0;
+        const int MOD_CONTROL = 0x0002;
+
 
         #region Fields
 
@@ -82,6 +89,23 @@ namespace WindowsManipulations
             m_Hook = new MyScreenSaverHooker(this);
 
             lstWindowsList.Columns[0].Width = this.Width - ListColumnWidthDelta;
+
+            RegisterHotKey(this.Handle, 0, MOD_CONTROL, VK_OEM_3);
+        }
+
+        #endregion
+
+
+        #region Overridde Form's Methods
+
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+
+            if (m.Msg == WM_HOTKEY)
+            {
+                WindowsTracking();
+            }
         }
 
         #endregion
@@ -386,6 +410,11 @@ namespace WindowsManipulations
         }
 
         private void windowsTrackingToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            WindowsTracking();
+        }
+
+        private void WindowsTracking()
         {
             if (windowsTrackingToolStripMenuItem1.Text == "Start windows tracking")
             {

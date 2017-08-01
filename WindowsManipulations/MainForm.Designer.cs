@@ -70,9 +70,6 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStripSysTray = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.windowsTrackingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.screenSaverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendCustomCommandsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.startAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,6 +78,9 @@
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.setAutohideForAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeAutohideFromAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.windowsTrackingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.screenSaverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.miscellaneousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.decodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -430,7 +430,7 @@
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray.Size = new System.Drawing.Size(216, 192);
+            this.contextMenuStripSysTray.Size = new System.Drawing.Size(216, 170);
             this.contextMenuStripSysTray.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray_Opening);
             this.contextMenuStripSysTray.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
@@ -443,25 +443,6 @@
             this.showToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.showToolStripMenuItem.Text = "Windows Manipulations";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
-            // 
-            // windowsTrackingToolStripMenuItem1
-            // 
-            this.windowsTrackingToolStripMenuItem1.Name = "windowsTrackingToolStripMenuItem1";
-            this.windowsTrackingToolStripMenuItem1.Size = new System.Drawing.Size(215, 22);
-            this.windowsTrackingToolStripMenuItem1.Text = "Start windows tracking";
-            this.windowsTrackingToolStripMenuItem1.Click += new System.EventHandler(this.windowsTrackingToolStripMenuItem1_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(212, 6);
-            // 
-            // screenSaverToolStripMenuItem
-            // 
-            this.screenSaverToolStripMenuItem.Name = "screenSaverToolStripMenuItem";
-            this.screenSaverToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.screenSaverToolStripMenuItem.Text = "Screen saver";
-            this.screenSaverToolStripMenuItem.Click += new System.EventHandler(this.screenSaverToolStripMenuItem_Click);
             // 
             // sendCustomCommandsToolStripMenuItem1
             // 
@@ -524,6 +505,26 @@
             this.removeAutohideFromAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.removeAutohideFromAllToolStripMenuItem.Text = "Remove autohide from all";
             this.removeAutohideFromAllToolStripMenuItem.Click += new System.EventHandler(this.removeAutohideFromAllToolStripMenuItem_Click);
+            // 
+            // windowsTrackingToolStripMenuItem1
+            // 
+            this.windowsTrackingToolStripMenuItem1.Name = "windowsTrackingToolStripMenuItem1";
+            this.windowsTrackingToolStripMenuItem1.Size = new System.Drawing.Size(215, 22);
+            this.windowsTrackingToolStripMenuItem1.Text = "Start windows tracking";
+            this.windowsTrackingToolStripMenuItem1.ToolTipText = "Press Ctrl + ~ to start/stop";
+            this.windowsTrackingToolStripMenuItem1.Click += new System.EventHandler(this.windowsTrackingToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(212, 6);
+            // 
+            // screenSaverToolStripMenuItem
+            // 
+            this.screenSaverToolStripMenuItem.Name = "screenSaverToolStripMenuItem";
+            this.screenSaverToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.screenSaverToolStripMenuItem.Text = "Screen saver";
+            this.screenSaverToolStripMenuItem.Click += new System.EventHandler(this.screenSaverToolStripMenuItem_Click);
             // 
             // passwordsToolStripMenuItem1
             // 
