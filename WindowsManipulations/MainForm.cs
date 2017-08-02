@@ -16,17 +16,6 @@ namespace WindowsManipulations
 {
     public partial class MainForm : Form
     {
-        [DllImport("user32")]
-        private static extern void LockWorkStation();
-
-        [DllImport("user32")]
-        private static extern void RegisterHotKey(IntPtr hwnd, int id, int modifiers, int vk);
-
-        const int WM_HOTKEY = 0x0312;
-        const int VK_OEM_3 = 0xC0;
-        const int MOD_CONTROL = 0x0002;
-
-
         #region Fields
 
         const int ListColumnWidthDelta = 138;
@@ -70,7 +59,7 @@ namespace WindowsManipulations
 
         public void Lock()
         {
-            LockWorkStation();
+            User32Windows.LockWorkStation();
             timerScreenSaver.Stop();
             StopLocking();
         }
@@ -90,7 +79,7 @@ namespace WindowsManipulations
 
             lstWindowsList.Columns[0].Width = this.Width - ListColumnWidthDelta;
 
-            RegisterHotKey(this.Handle, 0, MOD_CONTROL, VK_OEM_3);
+            User32Windows.RegisterHotKey(this.Handle, 0, User32Windows.MOD_CONTROL, User32Windows.VK_OEM_3);
         }
 
         #endregion
@@ -102,7 +91,7 @@ namespace WindowsManipulations
         {
             base.WndProc(ref m);
 
-            if (m.Msg == WM_HOTKEY)
+            if (m.Msg == User32Windows.WM_HOTKEY)
             {
                 WindowsTracking();
             }
@@ -333,6 +322,21 @@ namespace WindowsManipulations
             }
 
             Clipboard.SetText(m_ListedWindows[selected].Handle.ToString());
+        }
+
+        private void copyProcessIdToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int selected = this.lstWindowsList.SelectedIndices[0];
+
+            if (selected == -1)
+            {
+                return;
+            }
+
+            int processId;
+            User32Windows.GetWindowThreadProcessId(m_ListedWindows[selected].Handle, out processId);
+
+            Clipboard.SetText(processId.ToString());
         }
 
         private void btnCloseWindow_Click(object sender, EventArgs e)
@@ -746,7 +750,7 @@ namespace WindowsManipulations
                 }
 
                 m_ListedWindows.Add(window);
-                //var index = 
+
                 if (lstWindowsList.SmallImageList == null)
                 {
                     lstWindowsList.SmallImageList = new ImageList();
@@ -755,7 +759,11 @@ namespace WindowsManipulations
                 {
                     lstWindowsList.SmallImageList.Images.Add(window.Handle.ToString(), window.Icon);
                 }
-                lstWindowsList.Items.Insert(m_ListedWindows.Count - 1, String.Format("{0,10} : {1}", window.Handle, window.Title), window.Handle.ToString());
+
+                int processId;
+                User32Windows.GetWindowThreadProcessId(window.Handle, out processId);
+
+                lstWindowsList.Items.Insert(m_ListedWindows.Count - 1, String.Format("{0,10} : {1,6} : {2}", window.Handle, processId, window.Title), window.Handle.ToString());
             }
 
             for (int i = 0; i < m_ListedWindows.Count; i++)
@@ -765,27 +773,11 @@ namespace WindowsManipulations
                 {
                     m_ListedWindows.RemoveAt(i);
                     lstWindowsList.Items.RemoveAt(i);
-                    //lstWindowsList.SmallImageList.Images.RemoveByKey(window.Handle.ToString());
                     i--;
                 }
             }
 
             lstWindowsList.EndUpdate();
-
-            // ** Need to improve - hidden by user windows are not listed in runningWindows
-            //
-            //for (int i = 0; i < m_HiddenByUserWindows.Count; i++)
-            //{
-            //    var window = m_ListedWindows[i];
-            //    window.Title = window.Title.Substring(m_HiddenPrefix.Length);
-
-            //    if (!runningWindows.Contains(window))
-            //    {
-            //        window.Title = m_HiddenPrefix + window.Title;
-            //        m_HiddenByUserWindows.RemoveAt(i);
-            //        lstWindowsList.Items.RemoveAt(m_ListedWindows.Count + i);
-            //    }
-            //}
         }
 
         private List<DesktopWindow> GetWindowList(bool visibleOnly)

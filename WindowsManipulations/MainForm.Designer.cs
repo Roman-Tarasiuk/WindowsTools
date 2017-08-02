@@ -101,6 +101,7 @@
             this.timerScreenSaver = new System.Windows.Forms.Timer(this.components);
             this.lstWindowsList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.copyProcessIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -347,9 +348,10 @@
             this.addToTrackingToolStripMenuItem,
             this.toolStripSeparator8,
             this.copyWindowHwndToolStripMenuItem,
-            this.copyWindowNameToolStripMenuItem});
+            this.copyWindowNameToolStripMenuItem,
+            this.copyProcessIdToolStripMenuItem});
             this.contextMenuStripWindowsList.Name = "contextMenuStripWindowsList";
-            this.contextMenuStripWindowsList.Size = new System.Drawing.Size(181, 98);
+            this.contextMenuStripWindowsList.Size = new System.Drawing.Size(181, 142);
             // 
             // moveWindowToolStripMenuItem1
             // 
@@ -701,6 +703,13 @@
             this.columnHeader1.Text = "";
             this.columnHeader1.Width = 600;
             // 
+            // copyProcessIdToolStripMenuItem
+            // 
+            this.copyProcessIdToolStripMenuItem.Name = "copyProcessIdToolStripMenuItem";
+            this.copyProcessIdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyProcessIdToolStripMenuItem.Text = "Copy process Id";
+            this.copyProcessIdToolStripMenuItem.Click += new System.EventHandler(this.copyProcessIdToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -805,5 +814,6 @@
         private System.Windows.Forms.ToolStripMenuItem viewSystemClipboardToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem replacernTospaceToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem replacernTospaceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyProcessIdToolStripMenuItem;
     }
 }

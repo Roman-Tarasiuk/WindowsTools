@@ -126,6 +126,12 @@ namespace User32Helper
         [DllImport("User32.dll")]
         public static extern bool IsIconic(IntPtr hWnd);
 
+        [DllImport("user32")]
+        public static extern void LockWorkStation();
+
+        [DllImport("user32")]
+        public static extern void RegisterHotKey(IntPtr hwnd, int id, int modifiers, int vk);
+
         public const int HWND_BOTTOM = 1;
         public const int HWND_NOTOPMOST = -2;
         public const int HWND_TOP = 0;
@@ -155,6 +161,10 @@ namespace User32Helper
         public const int WM_SETTEXT = 0x000c;
         public const int WM_CLOSE = 0x0010;
         public const int WM_NCPAINT = 0x85;
+        public const int WM_HOTKEY = 0x0312;
+
+        public const int VK_OEM_3 = 0xC0;
+        public const int MOD_CONTROL = 0x0002;
 
         public static List<DesktopWindow> GetDesktopWindows(bool visibleOnly = true)
         {
