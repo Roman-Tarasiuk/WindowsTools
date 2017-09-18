@@ -31,6 +31,8 @@ namespace WindowsManipulations
         private PinForm m_PinForm;
         private SendCommandsForm m_SendCommandForm;
         private ClipboardManagerForm m_ClipboardManagerForm;
+        private CompareStringsMainForm m_CompareStringsForm;
+        private NotesForm m_NotesForm;
 
         private bool m_MouseTrackingStarted = false;
         private bool m_RefreshStarted = false;
@@ -657,6 +659,26 @@ namespace WindowsManipulations
             ReplaceRNToSpace();
         }
 
+        private void compareStringsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RunCompareStrings();
+        }
+
+        private void compareStringsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            RunCompareStrings();
+        }
+
+        private void notesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RunNotes();
+        }
+
+        private void notesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            RunNotes();
+        }
+
         #endregion
 
 
@@ -1158,6 +1180,21 @@ namespace WindowsManipulations
             m_ClipboardManagerForm = (ClipboardManagerForm)User32Windows.GetForm(m_ClipboardManagerForm, typeof(ClipboardManagerForm));
 
             User32Windows.ShowForm(m_ClipboardManagerForm);
+        }
+        
+        private void RunCompareStrings()
+        {
+            m_CompareStringsForm = (CompareStringsMainForm)User32Windows.GetForm(m_CompareStringsForm, typeof(CompareStringsMainForm));
+
+            User32Windows.ShowForm(m_CompareStringsForm);
+
+        }
+
+        private void RunNotes()
+        {
+            m_NotesForm = (NotesForm)User32Windows.GetForm(m_NotesForm, typeof(NotesForm));
+
+            User32Windows.ShowForm(m_NotesForm);
         }
 
         #endregion

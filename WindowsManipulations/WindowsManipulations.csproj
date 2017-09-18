@@ -52,10 +52,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompareStringsMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompareStringsMainForm.Designer.cs">
+      <DependentUpon>CompareStringsMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompareStringsSettings.cs" />
+    <Compile Include="CompareStringsSettingsEventArgs.cs" />
+    <Compile Include="CompareStringsSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompareStringsSettingsForm.Designer.cs">
+      <DependentUpon>CompareStringsSettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="myGroupBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="MyScreenSaverHooker.cs" />
+    <Compile Include="NotesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotesForm.Designer.cs">
+      <DependentUpon>NotesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RunningAppsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +204,12 @@
     <None Include="Resources\miscellaneous-icon.png" />
     <None Include="Resources\miscellaneous-icon1.png" />
     <None Include="Resources\password.png" />
+    <None Include="Resources\if_Streamline-75_185095.png" />
+    <None Include="Resources\if_icon-arrow-down-b_211614.png" />
+    <None Include="Resources\if_icon-arrow-up-b_211623.png" />
+    <None Include="Resources\clear.png" />
+    <None Include="Resources\Actions-edit-paste-icon.png" />
+    <None Include="Resources\compare.png" />
     <Content Include="taskmgr_icon.png.ico" />
   </ItemGroup>
   <ItemGroup>
