@@ -68,6 +68,22 @@ namespace WindowsManipulations
         #endregion
 
 
+        #region Override methods
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                // turn on WS_EX_TOOLWINDOW style bit
+                cp.ExStyle |= 0x80;
+                return cp;
+            }
+        }
+
+        #endregion
+
+
         #region Properties
 
         public bool AutoHide
