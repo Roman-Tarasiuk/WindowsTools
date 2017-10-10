@@ -220,5 +220,13 @@ namespace User32Helper
 
             return f;
         }
+
+        public static void CloseForm(Form f)
+        {
+            if (f != null && !f.IsDisposed)
+            {
+                f.Close();
+            }
+        }
     }
 }

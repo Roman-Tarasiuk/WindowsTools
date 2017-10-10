@@ -252,8 +252,15 @@ namespace WindowsManipulations
                 if (!m_PasswordForm.IsDisposed)
                 {
                     e.Cancel = true;
+                    return;
                 }
             }
+
+            User32Windows.CloseForm(m_ClipboardManagerForm);
+            User32Windows.CloseForm(m_CompareStringsForm);
+            User32Windows.CloseForm(m_LocationForm);
+            User32Windows.CloseForm(m_SendCommandForm);
+            User32Windows.CloseForm(m_TrackingForm);
         }
 
         private void moveWindowToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -677,6 +684,16 @@ namespace WindowsManipulations
         private void notesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             RunNotes();
+        }
+
+        private void clearClipboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.Clear();
+        }
+
+        private void clearClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Clipboard.Clear();
         }
 
         #endregion
