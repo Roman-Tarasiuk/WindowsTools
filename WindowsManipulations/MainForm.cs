@@ -696,6 +696,16 @@ namespace WindowsManipulations
             Clipboard.Clear();
         }
 
+        private void currentDateAndTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NowToClipblard();
+        }
+
+        private void currentDateAndTimeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            NowToClipblard();
+        }
+
         #endregion
 
 
@@ -1212,6 +1222,14 @@ namespace WindowsManipulations
             m_NotesForm = (NotesForm)User32Windows.GetForm(m_NotesForm, typeof(NotesForm));
 
             User32Windows.ShowForm(m_NotesForm);
+        }
+
+        private static void NowToClipblard()
+        {
+            var now = DateTime.Now;
+            var strDateTime = now.ToLocalTime();
+
+            Clipboard.SetText(strDateTime.ToString("dd.MM.yyyy HH:mm:ss,fff"));
         }
 
         #endregion
