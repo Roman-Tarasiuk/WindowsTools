@@ -1208,7 +1208,7 @@ namespace WindowsManipulations
 
             User32Windows.ShowForm(m_ClipboardManagerForm);
         }
-        
+
         private void RunCompareStrings()
         {
             m_CompareStringsForm = (CompareStringsMainForm)User32Windows.GetForm(m_CompareStringsForm, typeof(CompareStringsMainForm));
@@ -1227,9 +1227,17 @@ namespace WindowsManipulations
         private static void NowToClipblard()
         {
             var now = DateTime.Now;
-            var strDateTime = now.ToLocalTime();
+            var nowUtc = DateTime.UtcNow;
 
-            Clipboard.SetText(strDateTime.ToString("dd.MM.yyyy HH:mm:ss,fff"));
+            var strDateTime = now.ToString("dd.MM.yyyy HH:mm:ss,fff")
+                + " [UTC " + nowUtc.ToString("dd.MM.yyyy HH:mm:ss,fff") + "]";
+
+            // 1 tick = 0.0000001 seconds (100 nanoseconds or one ten-millionth of a second)
+            //
+            // var strDateTime = now.ToString("dd.MM.yyyy HH:mm:ss,fff") + " (" + now.Ticks.ToString() + " tiks)"
+            //     + " [UTC " + nowUtc.ToString("dd.MM.yyyy HH:mm:ss,fff") + "]" + " (" + nowUtc.Ticks.ToString() + " tiks)";
+
+            Clipboard.SetText(strDateTime);
         }
 
         #endregion
