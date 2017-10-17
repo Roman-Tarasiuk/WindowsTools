@@ -88,6 +88,12 @@
     <Compile Include="SendCommandToolForm.Designer.cs">
       <DependentUpon>SendCommandToolForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SendCommandToolPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendCommandToolPropertiesForm.Designer.cs">
+      <DependentUpon>SendCommandToolPropertiesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TitleColoringForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SendCommandToolForm.resx">
       <DependentUpon>SendCommandToolForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SendCommandToolPropertiesForm.resx">
+      <DependentUpon>SendCommandToolPropertiesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TitleColoringForm.resx">
       <DependentUpon>TitleColoringForm.cs</DependentUpon>

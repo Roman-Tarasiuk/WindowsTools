@@ -31,14 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SendCommandToolForm));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.autoHideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disableSendingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoHideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectBackgroundImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.sizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,11 +49,19 @@
             this.disableSendingToolStripMenuItem,
             this.autoHideToolStripMenuItem,
             this.selectBackgroundImageToolStripMenuItem,
+            this.sizeToolStripMenuItem,
             this.minimizeToolStripMenuItem,
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(218, 142);
+            // 
+            // disableSendingToolStripMenuItem
+            // 
+            this.disableSendingToolStripMenuItem.Name = "disableSendingToolStripMenuItem";
+            this.disableSendingToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.disableSendingToolStripMenuItem.Text = "Enabled sending";
+            this.disableSendingToolStripMenuItem.Click += new System.EventHandler(this.toggleSendingToolStripMenuItem_Click);
             // 
             // autoHideToolStripMenuItem
             // 
@@ -62,13 +71,6 @@
             this.autoHideToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.autoHideToolStripMenuItem.Text = "Auto hide";
             this.autoHideToolStripMenuItem.Click += new System.EventHandler(this.autoHideToolStripMenuItem_Click);
-            // 
-            // disableSendingToolStripMenuItem
-            // 
-            this.disableSendingToolStripMenuItem.Name = "disableSendingToolStripMenuItem";
-            this.disableSendingToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.disableSendingToolStripMenuItem.Text = "Enabled sending";
-            this.disableSendingToolStripMenuItem.Click += new System.EventHandler(this.toggleSendingToolStripMenuItem_Click);
             // 
             // selectBackgroundImageToolStripMenuItem
             // 
@@ -101,6 +103,13 @@
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // sizeToolStripMenuItem
+            // 
+            this.sizeToolStripMenuItem.Name = "sizeToolStripMenuItem";
+            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.sizeToolStripMenuItem.Text = "Size...";
+            this.sizeToolStripMenuItem.Click += new System.EventHandler(this.sizeToolStripMenuItem_Click);
+            // 
             // SendCommandToolForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -112,10 +121,12 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(20, 20);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(20, 20);
             this.Name = "SendCommandToolForm";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Send Command Tool";
             this.TopMost = true;
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.SendCommandToolForm_Paint);
@@ -140,5 +151,6 @@
         private System.Windows.Forms.ToolStripMenuItem selectBackgroundImageToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripMenuItem autoHideToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sizeToolStripMenuItem;
     }
 }
