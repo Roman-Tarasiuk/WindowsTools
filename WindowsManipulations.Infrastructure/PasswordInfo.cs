@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WindowsManipulations
 {
-    class PasswordInfo
+    public class PasswordInfo
     {
         public string Description { get; set; }
         public string Password { get; set; }

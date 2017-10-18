@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 using User32Helper;
 using System.Drawing;
+using WindowsManipulations.Infrastructure;
 
 namespace WindowsManipulations
 {

@@ -11,7 +11,6 @@ namespace WindowsManipulations
         #region Properties
 
         public bool Topmost { get; set; }
-        public int MyProperty { get; set; }
 
         #endregion
 

@@ -58,16 +58,11 @@
     <Compile Include="CompareStringsMainForm.Designer.cs">
       <DependentUpon>CompareStringsMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CompareStringsSettings.cs" />
-    <Compile Include="CompareStringsSettingsEventArgs.cs" />
     <Compile Include="CompareStringsSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CompareStringsSettingsForm.Designer.cs">
       <DependentUpon>CompareStringsSettingsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="myGroupBox.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="MyScreenSaverHooker.cs" />
     <Compile Include="NotesForm.cs">
@@ -118,7 +113,6 @@
     <Compile Include="PasswordForm.Designer.cs">
       <DependentUpon>PasswordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PasswordInfo.cs" />
     <Compile Include="PinForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +219,10 @@
     <ProjectReference Include="..\User32Helper\User32Helper.csproj">
       <Project>{f76dfe47-a3cc-4257-9772-83c60d8292d8}</Project>
       <Name>User32Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsManipulations.Infrastructure\WindowsManipulations.Infrastructure.csproj">
+      <Project>{d170931a-64ab-41e6-a1a2-19fbccd0d5a5}</Project>
+      <Name>WindowsManipulations.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

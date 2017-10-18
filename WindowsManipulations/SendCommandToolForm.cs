@@ -10,16 +10,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using User32Helper;
+using WindowsManipulations.Infrastructure;
 
 namespace WindowsManipulations
 {
-    public enum Switch
-    {
-        On,
-        Off,
-        Toggle
-    }
-
     public partial class SendCommandToolForm : Form
     {
         #region Fields
@@ -273,7 +267,12 @@ namespace WindowsManipulations
 
         private void propertiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var settingsForm = new SendCommandToolPropertiesForm() { ToolWidht = this.Size.Width, ToolHeight = this.Size.Height } ;
+            var settingsForm = new SendCommandToolPropertiesForm()
+            {
+                ToolWidht = this.Size.Width,
+                ToolHeight = this.Size.Height,
+                AnchorV = AnchorVertical.Bottom
+            } ;
             var result = settingsForm.ShowDialog();
 
             if (result == DialogResult.OK)
