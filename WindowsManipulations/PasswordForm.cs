@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 
 using User32Helper;
+using WindowsManipulations.Infrastructure;
 
 namespace WindowsManipulations
 {

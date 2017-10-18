@@ -1,4 +1,6 @@
-﻿namespace WindowsManipulations
+﻿using WindowsManipulations.Infrastructure;
+
+namespace WindowsManipulations
 {
     partial class LocationAndSizeForm
     {
@@ -29,7 +31,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.groupBoxCurrent = new WindowsManipulations.myGroupBox();
+            this.groupBoxCurrent = new WindowsManipulations.Infrastructure.myGroupBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +43,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBoxNew = new WindowsManipulations.myGroupBox();
+            this.groupBoxNew = new WindowsManipulations.Infrastructure.myGroupBox();
             this.txtNewHeight = new System.Windows.Forms.TextBox();
             this.txtNewWidth = new System.Windows.Forms.TextBox();
             this.txtNewTop = new System.Windows.Forms.TextBox();

@@ -270,8 +270,7 @@ namespace WindowsManipulations
             var settingsForm = new SendCommandToolPropertiesForm()
             {
                 ToolWidht = this.Size.Width,
-                ToolHeight = this.Size.Height,
-                AnchorV = AnchorVertical.Bottom
+                ToolHeight = this.Size.Height
             } ;
             var result = settingsForm.ShowDialog();
 

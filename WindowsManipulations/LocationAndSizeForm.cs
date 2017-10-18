@@ -7,6 +7,7 @@ using System.Data;
 
 using User32Helper;
 using System.Text.RegularExpressions;
+using WindowsManipulations.Infrastructure;
 
 namespace WindowsManipulations
 {
