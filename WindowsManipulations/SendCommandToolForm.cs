@@ -271,7 +271,7 @@ namespace WindowsManipulations
 
         #endregion
 
-        private void sizeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void propertiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var settingsForm = new SendCommandToolPropertiesForm() { ToolWidht = this.Size.Width, ToolHeight = this.Size.Height } ;
             var result = settingsForm.ShowDialog();
