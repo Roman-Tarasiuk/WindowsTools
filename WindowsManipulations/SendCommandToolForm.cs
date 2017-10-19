@@ -117,7 +117,7 @@ namespace WindowsManipulations
             {
                 timer1.Stop();
                 m_SendCommandEnabled = false;
-                disableSendingToolStripMenuItem.Text = "Enabled sending";
+                toggleSendingToolStripMenuItem.Text = "Run";
             }
             else
             {
@@ -127,7 +127,7 @@ namespace WindowsManipulations
                 User32Windows.GetWindowRect(m_HostWindowHwnd, out r);
                 m_HostWindowOffsetX = this.Location.X - r.Left;
                 m_HostWindowOffsetY = this.Location.Y - r.Top;
-                disableSendingToolStripMenuItem.Text = "Stop tool / move";
+                toggleSendingToolStripMenuItem.Text = "Stop tool / move";
             }
         }
 

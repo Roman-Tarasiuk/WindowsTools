@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SendCommandToolForm));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.disableSendingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toggleSendingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoHideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectBackgroundImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +46,7 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.disableSendingToolStripMenuItem,
+            this.toggleSendingToolStripMenuItem,
             this.autoHideToolStripMenuItem,
             this.selectBackgroundImageToolStripMenuItem,
             this.propertiesToolStripMenuItem,
@@ -54,14 +54,14 @@
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(218, 164);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(218, 142);
             // 
-            // disableSendingToolStripMenuItem
+            // toggleSendingToolStripMenuItem
             // 
-            this.disableSendingToolStripMenuItem.Name = "disableSendingToolStripMenuItem";
-            this.disableSendingToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.disableSendingToolStripMenuItem.Text = "Enabled sending";
-            this.disableSendingToolStripMenuItem.Click += new System.EventHandler(this.toggleSendingToolStripMenuItem_Click);
+            this.toggleSendingToolStripMenuItem.Name = "toggleSendingToolStripMenuItem";
+            this.toggleSendingToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.toggleSendingToolStripMenuItem.Text = "Run";
+            this.toggleSendingToolStripMenuItem.Click += new System.EventHandler(this.toggleSendingToolStripMenuItem_Click);
             // 
             // autoHideToolStripMenuItem
             // 
@@ -144,7 +144,7 @@
 
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem disableSendingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toggleSendingToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip1;
