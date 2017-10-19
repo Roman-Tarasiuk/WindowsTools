@@ -96,7 +96,7 @@ namespace WindowsManipulations
 
         private void radioBottom_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioTop.Checked)
+            if (radioBottom.Checked)
             {
                 AnchorV = AnchorVertical.Bottom;
             }

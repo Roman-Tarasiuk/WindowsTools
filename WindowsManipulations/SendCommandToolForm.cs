@@ -19,13 +19,18 @@ namespace WindowsManipulations
         #region Fields
 
         private IntPtr m_HostWindowHwnd;
+
         private int m_HostWindowOffsetX;
         private int m_HostWindowOffsetY;
+
+        private AnchorHorizontal m_AnchorH = AnchorHorizontal.Left;
+        private AnchorVertical m_AnchorV = AnchorVertical.Top;
+
         private string m_Commands;
 
         private bool m_MouseIsDown = false;
         private bool m_MouseIsHover = false;
-        private bool m_SendCommandEnabled = false;
+        private bool m_IsRunning = false;
         private bool m_AutoHide = true;
 
         private Pen m_PenNormal = new Pen(Color.White);
@@ -34,9 +39,6 @@ namespace WindowsManipulations
 
         private int m_DX;
         private int m_DY;
-
-        private AnchorHorizontal m_AnchorH = AnchorHorizontal.Left;
-        private AnchorVertical m_AnchorV = AnchorVertical.Top;
 
         #endregion
 
@@ -104,31 +106,53 @@ namespace WindowsManipulations
 
         public void ToggleSending(Switch sw = Switch.Toggle)
         {
+            // Preparing.
             if (sw == Switch.On)
             {
-                m_SendCommandEnabled = false;
+                m_IsRunning = false;
             }
             else if (sw == Switch.Off)
             {
-                m_SendCommandEnabled = true;
+                m_IsRunning = true;
             }
 
-            if (m_SendCommandEnabled)
+            // Toggling.
+            if (m_IsRunning)
             {
                 timer1.Stop();
-                m_SendCommandEnabled = false;
+                m_IsRunning = false;
                 toggleSendingToolStripMenuItem.Text = "Run";
             }
             else
             {
                 timer1.Start();
-                m_SendCommandEnabled = true;
-                Rectangle r;
-                User32Windows.GetWindowRect(m_HostWindowHwnd, out r);
-                m_HostWindowOffsetX = this.Location.X - r.Left;
-                m_HostWindowOffsetY = this.Location.Y - r.Top;
+                m_IsRunning = true;
+
+                Rectangle rHost;
+                User32Windows.GetWindowRect(m_HostWindowHwnd, out rHost);
+
+                if (m_AnchorH == AnchorHorizontal.Left)
+                {
+                    m_HostWindowOffsetX = this.Location.X - rHost.Left;
+                }
+                else
+                {
+                    m_HostWindowOffsetX = this.Location.X - rHost.Width;
+                }
+
+                if (m_AnchorV == AnchorVertical.Top)
+                {
+                    m_HostWindowOffsetY = this.Location.Y - rHost.Top;
+                }
+                else
+                {
+                    m_HostWindowOffsetY = this.Location.Y - rHost.Height;
+                }
+
                 toggleSendingToolStripMenuItem.Text = "Stop tool / move";
             }
+
+            propertiesToolStripMenuItem.Enabled = !m_IsRunning;
         }
 
         #endregion
@@ -159,7 +183,7 @@ namespace WindowsManipulations
             m_MouseIsHover = true;
             Invalidate();
 
-            if (m_MouseIsDown && (!m_SendCommandEnabled))
+            if (m_MouseIsDown && (!m_IsRunning))
             {
                 Point p = PointToScreen(e.Location);
                 this.Location = new Point(p.X + m_DX, p.Y + m_DY);
@@ -173,7 +197,7 @@ namespace WindowsManipulations
 
         private void SendCommandToolForm_MouseClick(object sender, MouseEventArgs e)
         {
-            if (!m_SendCommandEnabled)
+            if (!m_IsRunning)
             {
                 return;
             }
@@ -232,7 +256,7 @@ namespace WindowsManipulations
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (!m_SendCommandEnabled)
+            if (!m_IsRunning)
             {
                 return;
             }
@@ -247,9 +271,39 @@ namespace WindowsManipulations
                 {
                     this.Show();
                 }
-                Rectangle r;
-                User32Windows.GetWindowRect(m_HostWindowHwnd, out r);
-                this.Location = new Point(r.Left + m_HostWindowOffsetX, r.Top + m_HostWindowOffsetY);
+                Rectangle rHost;
+                User32Windows.GetWindowRect(m_HostWindowHwnd, out rHost);
+                //Console.WriteLine(String.Format(
+                //    "X:{0}, Y:{1}, L:{2}, R:{3}, W:{4}, H:{5}",
+                //    rHost.X,
+                //    rHost.Y,
+                //    rHost.Left,
+                //    rHost.Right,
+                //    rHost.Width,
+                //    rHost.Height));
+
+                int newX = 0,
+                    newY = 0;
+
+                if (m_AnchorH == AnchorHorizontal.Left)
+                {
+                    newX = rHost.Left + m_HostWindowOffsetX;
+                }
+                else
+                {
+                    newX = rHost.Width + m_HostWindowOffsetX;
+                }
+
+                if (m_AnchorV == AnchorVertical.Top)
+                {
+                    newY = rHost.Top + m_HostWindowOffsetY;
+                }
+                else
+                {
+                    newY = rHost.Height + m_HostWindowOffsetY;
+                }
+
+                this.Location = new Point(newX, newY);
             }
             else
             {
@@ -271,16 +325,18 @@ namespace WindowsManipulations
             var settingsForm = new SendCommandToolPropertiesForm()
             {
                 ToolWidht = this.Size.Width,
-                ToolHeight = this.Size.Height
+                ToolHeight = this.Size.Height,
+                AnchorH = m_AnchorH,
+                AnchorV = m_AnchorV
             };
             var result = settingsForm.ShowDialog();
 
             if (result == DialogResult.OK)
             {
                 this.Size = new Size(settingsForm.ToolWidht, settingsForm.ToolHeight);
-                this.m_DrawRectangle = new Rectangle(0, 0, this.Size.Width - 1, this.Size.Height - 1);
                 this.m_AnchorH = settingsForm.AnchorH;
                 this.m_AnchorV = settingsForm.AnchorV;
+                this.m_DrawRectangle = new Rectangle(0, 0, this.Size.Width - 1, this.Size.Height - 1);
             }
         }
 
