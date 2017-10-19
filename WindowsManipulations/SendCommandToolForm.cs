@@ -35,6 +35,9 @@ namespace WindowsManipulations
         private int m_DX;
         private int m_DY;
 
+        private AnchorHorizontal m_AnchorH = AnchorHorizontal.Left;
+        private AnchorVertical m_AnchorV = AnchorVertical.Top;
+
         #endregion
 
 
@@ -263,22 +266,24 @@ namespace WindowsManipulations
             autoHideToolStripMenuItem.Checked = m_AutoHide;
         }
 
-        #endregion
-
         private void propertiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var settingsForm = new SendCommandToolPropertiesForm()
             {
                 ToolWidht = this.Size.Width,
                 ToolHeight = this.Size.Height
-            } ;
+            };
             var result = settingsForm.ShowDialog();
 
             if (result == DialogResult.OK)
             {
                 this.Size = new Size(settingsForm.ToolWidht, settingsForm.ToolHeight);
                 this.m_DrawRectangle = new Rectangle(0, 0, this.Size.Width - 1, this.Size.Height - 1);
+                this.m_AnchorH = settingsForm.AnchorH;
+                this.m_AnchorV = settingsForm.AnchorV;
             }
         }
+
+        #endregion
     }
 }

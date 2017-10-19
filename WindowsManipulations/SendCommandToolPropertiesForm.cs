@@ -69,5 +69,37 @@ namespace WindowsManipulations
                 ToolHeight = h;
             }
         }
+
+        private void radioLeft_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioLeft.Checked)
+            {
+                AnchorH = AnchorHorizontal.Left;
+            }
+        }
+
+        private void radioRight_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioRight.Checked)
+            {
+                AnchorH = AnchorHorizontal.Right;
+            }
+        }
+
+        private void radioTop_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioTop.Checked)
+            {
+                AnchorV = AnchorVertical.Top;
+            }
+        }
+
+        private void radioBottom_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioTop.Checked)
+            {
+                AnchorV = AnchorVertical.Bottom;
+            }
+        }
     }
 }

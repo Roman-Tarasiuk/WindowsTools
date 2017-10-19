@@ -120,6 +120,7 @@
             this.radioTop.TabStop = true;
             this.radioTop.Text = "Top";
             this.radioTop.UseVisualStyleBackColor = true;
+            this.radioTop.CheckedChanged += new System.EventHandler(this.radioTop_CheckedChanged);
             // 
             // radioBottom
             // 
@@ -131,6 +132,7 @@
             this.radioBottom.TabStop = true;
             this.radioBottom.Text = "Bottom";
             this.radioBottom.UseVisualStyleBackColor = true;
+            this.radioBottom.CheckedChanged += new System.EventHandler(this.radioBottom_CheckedChanged);
             // 
             // panel1
             // 
@@ -152,6 +154,7 @@
             this.radioLeft.TabStop = true;
             this.radioLeft.Text = "Left";
             this.radioLeft.UseVisualStyleBackColor = true;
+            this.radioLeft.CheckedChanged += new System.EventHandler(this.radioLeft_CheckedChanged);
             // 
             // radioRight
             // 
@@ -163,6 +166,7 @@
             this.radioRight.TabStop = true;
             this.radioRight.Text = "Right";
             this.radioRight.UseVisualStyleBackColor = true;
+            this.radioRight.CheckedChanged += new System.EventHandler(this.radioRight_CheckedChanged);
             // 
             // SendCommandToolPropertiesForm
             // 
