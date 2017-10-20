@@ -208,9 +208,14 @@ namespace WindowsManipulations
                 return;
             }
 
+            if (m_Commands == String.Empty)
+            {
+                return;
+            }
+            
+
             Thread.Sleep(200);
-
-
+            
             var commands = m_Commands.Split(new string[] { "\r\n" }, StringSplitOptions.None);
 
             for (int i = 0; i < commands.Length; i++)

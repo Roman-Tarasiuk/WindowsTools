@@ -706,6 +706,11 @@ namespace WindowsManipulations
             NowToClipblard();
         }
 
+        private void btnSendCustomCommands_Click(object sender, EventArgs e)
+        {
+            SendCustomCommands();
+        }
+
         #endregion
 
 

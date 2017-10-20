@@ -59,6 +59,7 @@
             this.replacernTospaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewSystemClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.currentDateAndTimeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.compareStringsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -96,6 +97,7 @@
             this.replacernTospaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewSystemClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.currentDateAndTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compareStringsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -110,8 +112,7 @@
             this.timerScreenSaver = new System.Windows.Forms.Timer(this.components);
             this.lstWindowsList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.currentDateAndTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.currentDateAndTimeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSendCustomCommands = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -354,6 +355,13 @@
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
             this.toolStripSeparator11.Size = new System.Drawing.Size(230, 6);
+            // 
+            // currentDateAndTimeToolStripMenuItem1
+            // 
+            this.currentDateAndTimeToolStripMenuItem1.Name = "currentDateAndTimeToolStripMenuItem1";
+            this.currentDateAndTimeToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.currentDateAndTimeToolStripMenuItem1.Text = "Current date and time";
+            this.currentDateAndTimeToolStripMenuItem1.Click += new System.EventHandler(this.currentDateAndTimeToolStripMenuItem1_Click);
             // 
             // compareStringsToolStripMenuItem
             // 
@@ -658,6 +666,13 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(230, 6);
             // 
+            // currentDateAndTimeToolStripMenuItem
+            // 
+            this.currentDateAndTimeToolStripMenuItem.Name = "currentDateAndTimeToolStripMenuItem";
+            this.currentDateAndTimeToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.currentDateAndTimeToolStripMenuItem.Text = "Current date and time";
+            this.currentDateAndTimeToolStripMenuItem.Click += new System.EventHandler(this.currentDateAndTimeToolStripMenuItem_Click);
+            // 
             // compareStringsToolStripMenuItem1
             // 
             this.compareStringsToolStripMenuItem1.Name = "compareStringsToolStripMenuItem1";
@@ -782,25 +797,23 @@
             this.columnHeader1.Text = "";
             this.columnHeader1.Width = 600;
             // 
-            // currentDateAndTimeToolStripMenuItem
+            // btnSendCustomCommands
             // 
-            this.currentDateAndTimeToolStripMenuItem.Name = "currentDateAndTimeToolStripMenuItem";
-            this.currentDateAndTimeToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.currentDateAndTimeToolStripMenuItem.Text = "Current date and time";
-            this.currentDateAndTimeToolStripMenuItem.Click += new System.EventHandler(this.currentDateAndTimeToolStripMenuItem_Click);
-            // 
-            // currentDateAndTimeToolStripMenuItem1
-            // 
-            this.currentDateAndTimeToolStripMenuItem1.Name = "currentDateAndTimeToolStripMenuItem1";
-            this.currentDateAndTimeToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.currentDateAndTimeToolStripMenuItem1.Text = "Current date and time";
-            this.currentDateAndTimeToolStripMenuItem1.Click += new System.EventHandler(this.currentDateAndTimeToolStripMenuItem1_Click);
+            this.btnSendCustomCommands.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSendCustomCommands.Location = new System.Drawing.Point(461, 231);
+            this.btnSendCustomCommands.Name = "btnSendCustomCommands";
+            this.btnSendCustomCommands.Size = new System.Drawing.Size(88, 34);
+            this.btnSendCustomCommands.TabIndex = 10;
+            this.btnSendCustomCommands.Text = "Send custom commands...";
+            this.btnSendCustomCommands.UseVisualStyleBackColor = true;
+            this.btnSendCustomCommands.Click += new System.EventHandler(this.btnSendCustomCommands_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 313);
+            this.Controls.Add(this.btnSendCustomCommands);
             this.Controls.Add(this.lstWindowsList);
             this.Controls.Add(this.chkPin);
             this.Controls.Add(this.btnCloseWindow);
@@ -911,5 +924,6 @@
         private System.Windows.Forms.ToolStripMenuItem clearClipboardToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem currentDateAndTimeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem currentDateAndTimeToolStripMenuItem1;
+        private System.Windows.Forms.Button btnSendCustomCommands;
     }
 }
