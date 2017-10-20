@@ -273,14 +273,6 @@ namespace WindowsManipulations
                 }
                 Rectangle rHost;
                 User32Windows.GetWindowRect(m_HostWindowHwnd, out rHost);
-                //Console.WriteLine(String.Format(
-                //    "X:{0}, Y:{1}, L:{2}, R:{3}, W:{4}, H:{5}",
-                //    rHost.X,
-                //    rHost.Y,
-                //    rHost.Left,
-                //    rHost.Right,
-                //    rHost.Width,
-                //    rHost.Height));
 
                 int newX = 0,
                     newY = 0;
@@ -303,7 +295,10 @@ namespace WindowsManipulations
                     newY = rHost.Height + m_HostWindowOffsetY;
                 }
 
-                this.Location = new Point(newX, newY);
+                if ((this.Location.X != newX) || (this.Location.Y != newY))
+                {
+                    this.Location = new Point(newX, newY);
+                }
             }
             else
             {
