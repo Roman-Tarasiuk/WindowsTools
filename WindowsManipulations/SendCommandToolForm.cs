@@ -259,6 +259,9 @@ namespace WindowsManipulations
             Invalidate();
         }
 
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        static extern bool GetWindowRect(IntPtr hWnd, out Rect lpRect);
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (!m_IsRunning)
@@ -272,10 +275,6 @@ namespace WindowsManipulations
                     || (foreWindow == this.Handle))
                     && (!User32Windows.IsIconic(m_HostWindowHwnd)))
             {
-                if (!this.Visible)
-                {
-                    this.Show();
-                }
                 Rectangle rHost;
                 User32Windows.GetWindowRect(m_HostWindowHwnd, out rHost);
 
@@ -304,10 +303,22 @@ namespace WindowsManipulations
                 {
                     this.Location = new Point(newX, newY);
                 }
+
+                if (!this.Visible)
+                {
+                    this.Show();
+                }
             }
-            else
+            else if (((foreWindow != m_HostWindowHwnd)
+                    && (foreWindow != this.Handle)))
             {
-                if (this.Visible && m_AutoHide)
+                Rectangle rForeWindow;
+                User32Windows.GetWindowRect(foreWindow, out rForeWindow);
+
+                var r = this.RectangleToScreen(this.DisplayRectangle);
+                var contains = RectangleContains(rForeWindow, r);
+
+                if (this.Visible && m_AutoHide && contains)
                 {
                     this.Hide();
                 }
@@ -338,6 +349,19 @@ namespace WindowsManipulations
                 this.m_AnchorV = settingsForm.AnchorV;
                 this.m_DrawRectangle = new Rectangle(0, 0, this.Size.Width - 1, this.Size.Height - 1);
             }
+        }
+
+        #endregion
+
+
+        #region Helper methods
+
+        private bool RectangleContains(Rectangle r1, Rectangle r2)
+        {
+            return r1.Left <= r2.Left
+                && r1.Top <= r2.Top
+                && r1.Width >= r2.Right
+                && r1.Height >= r2.Bottom;
         }
 
         #endregion

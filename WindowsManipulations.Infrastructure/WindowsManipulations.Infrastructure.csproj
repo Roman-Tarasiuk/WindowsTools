@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Rect.cs" />
     <Compile Include="CompareStringsSettings.cs" />
     <Compile Include="CompareStringsSettingsEventArgs.cs" />
     <Compile Include="EnumAnchors.cs" />
