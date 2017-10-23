@@ -212,10 +212,10 @@ namespace WindowsManipulations
             {
                 return;
             }
-            
+
 
             Thread.Sleep(200);
-            
+
             var commands = m_Commands.Split(new string[] { "\r\n" }, StringSplitOptions.None);
 
             for (int i = 0; i < commands.Length; i++)
@@ -309,8 +309,13 @@ namespace WindowsManipulations
                     this.Show();
                 }
             }
-            else if (((foreWindow != m_HostWindowHwnd)
-                    && (foreWindow != this.Handle)))
+            else if (User32Windows.IsIconic(m_HostWindowHwnd))
+            {
+                //Console.WriteLine("Hide() 1.");
+                this.Hide();
+            }
+            else //if (((foreWindow != m_HostWindowHwnd)
+                 //   && (foreWindow != this.Handle)))
             {
                 Rectangle rForeWindow;
                 User32Windows.GetWindowRect(foreWindow, out rForeWindow);
@@ -320,6 +325,9 @@ namespace WindowsManipulations
 
                 if (this.Visible && m_AutoHide && contains)
                 {
+                    // var title = new StringBuilder(256);
+                    // User32Windows.GetWindowText(foreWindow, title, title.Capacity + 1);
+                    // Console.WriteLine("Hide() 2. " + title.ToString() + " (" + foreWindow.ToString() + ")");
                     this.Hide();
                 }
             }
