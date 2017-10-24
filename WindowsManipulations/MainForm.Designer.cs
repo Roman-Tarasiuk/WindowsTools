@@ -38,11 +38,11 @@
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.moveWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.sendCustomCommandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setILDASMFontsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setCmdTitleFullPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setCmdTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setCmdPromptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendCustomCommandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.textInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,15 +51,15 @@
             this.screensaverToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miscellaneousToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.decodeClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.encodeToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.encodeUriToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.encodeUriToExceptSpaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.replacernTospaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewSystemClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.currentDateAndTimeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeUriToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeUriToExceptSpaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.replacernTospaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewSystemClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.currentDateAndTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compareStringsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -89,15 +89,15 @@
             this.screenSaverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.miscellaneousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.decodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.encodeToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.encodeUriToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.encodeUriToExceptSpaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.replacernTospaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewSystemClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.decodeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeUriToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeUriToExceptSpaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.replacernTospaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewSystemClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.currentDateAndTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.currentDateAndTimeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.compareStringsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -143,7 +143,7 @@
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShowShortcutKeys = false;
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -154,10 +154,6 @@
             this.toolStripSeparator9,
             this.moveWindowToolStripMenuItem,
             this.toolStripSeparator6,
-            this.setILDASMFontsToolStripMenuItem,
-            this.setCmdTitleFullPathToolStripMenuItem,
-            this.setCmdTitleToolStripMenuItem,
-            this.setCmdPromptToolStripMenuItem,
             this.sendCustomCommandsToolStripMenuItem,
             this.toolStripSeparator3,
             this.textInfoToolStripMenuItem,
@@ -177,26 +173,38 @@
             // taskListToolStripMenuItem
             // 
             this.taskListToolStripMenuItem.Name = "taskListToolStripMenuItem";
-            this.taskListToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.taskListToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.taskListToolStripMenuItem.Text = "Task list...";
             this.taskListToolStripMenuItem.Click += new System.EventHandler(this.taskListToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(220, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(212, 6);
             // 
             // moveWindowToolStripMenuItem
             // 
             this.moveWindowToolStripMenuItem.Name = "moveWindowToolStripMenuItem";
-            this.moveWindowToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.moveWindowToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.moveWindowToolStripMenuItem.Text = "Move window...";
             this.moveWindowToolStripMenuItem.Click += new System.EventHandler(this.moveWindowToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(220, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(212, 6);
+            // 
+            // sendCustomCommandsToolStripMenuItem
+            // 
+            this.sendCustomCommandsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setILDASMFontsToolStripMenuItem,
+            this.setCmdTitleFullPathToolStripMenuItem,
+            this.setCmdTitleToolStripMenuItem,
+            this.setCmdPromptToolStripMenuItem});
+            this.sendCustomCommandsToolStripMenuItem.Name = "sendCustomCommandsToolStripMenuItem";
+            this.sendCustomCommandsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.sendCustomCommandsToolStripMenuItem.Text = "Send custom commands...";
+            this.sendCustomCommandsToolStripMenuItem.Click += new System.EventHandler(this.sendCustomCommandsToolStripMenuItem_Click);
             // 
             // setILDASMFontsToolStripMenuItem
             // 
@@ -230,36 +238,29 @@
             this.setCmdPromptToolStripMenuItem.Text = "Set cmd prompt and pwd";
             this.setCmdPromptToolStripMenuItem.Click += new System.EventHandler(this.setCmdPromptToolStripMenuItem_Click);
             // 
-            // sendCustomCommandsToolStripMenuItem
-            // 
-            this.sendCustomCommandsToolStripMenuItem.Name = "sendCustomCommandsToolStripMenuItem";
-            this.sendCustomCommandsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.sendCustomCommandsToolStripMenuItem.Text = "Send custom commands...";
-            this.sendCustomCommandsToolStripMenuItem.Click += new System.EventHandler(this.sendCustomCommandsToolStripMenuItem_Click);
-            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(220, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(212, 6);
             // 
             // textInfoToolStripMenuItem
             // 
             this.textInfoToolStripMenuItem.Name = "textInfoToolStripMenuItem";
-            this.textInfoToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.textInfoToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.textInfoToolStripMenuItem.Text = "Text info...";
             this.textInfoToolStripMenuItem.Click += new System.EventHandler(this.textInfoToolStripMenuItem_Click);
             // 
             // windowsTrackingToolStripMenuItem
             // 
             this.windowsTrackingToolStripMenuItem.Name = "windowsTrackingToolStripMenuItem";
-            this.windowsTrackingToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.windowsTrackingToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.windowsTrackingToolStripMenuItem.Text = "Windows tracking...";
             this.windowsTrackingToolStripMenuItem.Click += new System.EventHandler(this.windowsTrackingToolStripMenuItem_Click);
             // 
             // customTitleColorsToolStripMenuItem
             // 
             this.customTitleColorsToolStripMenuItem.Name = "customTitleColorsToolStripMenuItem";
-            this.customTitleColorsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.customTitleColorsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.customTitleColorsToolStripMenuItem.Text = "Custom title colors*";
             this.customTitleColorsToolStripMenuItem.ToolTipText = "@@@@@@@...";
             this.customTitleColorsToolStripMenuItem.Click += new System.EventHandler(this.customTitleColorsToolStripMenuItem_Click);
@@ -267,46 +268,46 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(220, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(212, 6);
             // 
             // screensaverToolStripMenuItem1
             // 
             this.screensaverToolStripMenuItem1.Name = "screensaverToolStripMenuItem1";
-            this.screensaverToolStripMenuItem1.Size = new System.Drawing.Size(223, 22);
+            this.screensaverToolStripMenuItem1.Size = new System.Drawing.Size(215, 22);
             this.screensaverToolStripMenuItem1.Text = "Screen saver";
             this.screensaverToolStripMenuItem1.Click += new System.EventHandler(this.screensaverToolStripMenuItem1_Click);
             // 
             // passwordsToolStripMenuItem
             // 
             this.passwordsToolStripMenuItem.Name = "passwordsToolStripMenuItem";
-            this.passwordsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.passwordsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.passwordsToolStripMenuItem.Text = "Password Manager...";
             this.passwordsToolStripMenuItem.Click += new System.EventHandler(this.passwordsToolStripMenuItem_Click);
             // 
             // miscellaneousToolStripMenuItem1
             // 
             this.miscellaneousToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clearClipboardToolStripMenuItem1,
+            this.clearClipboardToolStripMenuItem,
             this.decodeClipboardToolStripMenuItem,
-            this.encodeToToolStripMenuItem1,
-            this.encodeUriToToolStripMenuItem1,
-            this.encodeUriToExceptSpaceToolStripMenuItem1,
-            this.replacernTospaceToolStripMenuItem1,
-            this.viewSystemClipboardToolStripMenuItem1,
-            this.toolStripSeparator11,
-            this.currentDateAndTimeToolStripMenuItem1,
+            this.encodeToToolStripMenuItem,
+            this.encodeUriToToolStripMenuItem,
+            this.encodeUriToExceptSpaceToolStripMenuItem,
+            this.replacernTospaceToolStripMenuItem,
+            this.viewSystemClipboardToolStripMenuItem,
+            this.toolStripSeparator,
+            this.currentDateAndTimeToolStripMenuItem,
             this.compareStringsToolStripMenuItem,
             this.notesToolStripMenuItem});
             this.miscellaneousToolStripMenuItem1.Name = "miscellaneousToolStripMenuItem1";
-            this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(223, 22);
+            this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(215, 22);
             this.miscellaneousToolStripMenuItem1.Text = "Miscellaneous";
             // 
-            // clearClipboardToolStripMenuItem1
+            // clearClipboardToolStripMenuItem
             // 
-            this.clearClipboardToolStripMenuItem1.Name = "clearClipboardToolStripMenuItem1";
-            this.clearClipboardToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.clearClipboardToolStripMenuItem1.Text = "Clear clipboard";
-            this.clearClipboardToolStripMenuItem1.Click += new System.EventHandler(this.clearClipboardToolStripMenuItem1_Click);
+            this.clearClipboardToolStripMenuItem.Name = "clearClipboardToolStripMenuItem";
+            this.clearClipboardToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.clearClipboardToolStripMenuItem.Text = "Clear clipboard";
+            this.clearClipboardToolStripMenuItem.Click += new System.EventHandler(this.clearClipboardToolStripMenuItem_Click);
             // 
             // decodeClipboardToolStripMenuItem
             // 
@@ -315,53 +316,53 @@
             this.decodeClipboardToolStripMenuItem.Text = "Decode % clipboard";
             this.decodeClipboardToolStripMenuItem.Click += new System.EventHandler(this.decodeClipboardToolStripMenuItem_Click);
             // 
-            // encodeToToolStripMenuItem1
+            // encodeToToolStripMenuItem
             // 
-            this.encodeToToolStripMenuItem1.Name = "encodeToToolStripMenuItem1";
-            this.encodeToToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.encodeToToolStripMenuItem1.Text = "Encode data to %";
-            this.encodeToToolStripMenuItem1.Click += new System.EventHandler(this.encodeToToolStripMenuItem1_Click);
+            this.encodeToToolStripMenuItem.Name = "encodeToToolStripMenuItem";
+            this.encodeToToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.encodeToToolStripMenuItem.Text = "Encode data to %";
+            this.encodeToToolStripMenuItem.Click += new System.EventHandler(this.encodeToToolStripMenuItem_Click);
             // 
-            // encodeUriToToolStripMenuItem1
+            // encodeUriToToolStripMenuItem
             // 
-            this.encodeUriToToolStripMenuItem1.Name = "encodeUriToToolStripMenuItem1";
-            this.encodeUriToToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.encodeUriToToolStripMenuItem1.Text = "Encode Uri to %";
-            this.encodeUriToToolStripMenuItem1.Click += new System.EventHandler(this.encodeUriToToolStripMenuItem1_Click);
+            this.encodeUriToToolStripMenuItem.Name = "encodeUriToToolStripMenuItem";
+            this.encodeUriToToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.encodeUriToToolStripMenuItem.Text = "Encode Uri to %";
+            this.encodeUriToToolStripMenuItem.Click += new System.EventHandler(this.encodeUriToToolStripMenuItem_Click);
             // 
-            // encodeUriToExceptSpaceToolStripMenuItem1
+            // encodeUriToExceptSpaceToolStripMenuItem
             // 
-            this.encodeUriToExceptSpaceToolStripMenuItem1.Name = "encodeUriToExceptSpaceToolStripMenuItem1";
-            this.encodeUriToExceptSpaceToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.encodeUriToExceptSpaceToolStripMenuItem1.Text = "Encode Uri to % except spaces";
-            this.encodeUriToExceptSpaceToolStripMenuItem1.Click += new System.EventHandler(this.encodeUriToExceptSpaceToolStripMenuItem1_Click);
+            this.encodeUriToExceptSpaceToolStripMenuItem.Name = "encodeUriToExceptSpaceToolStripMenuItem";
+            this.encodeUriToExceptSpaceToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.encodeUriToExceptSpaceToolStripMenuItem.Text = "Encode Uri to % except spaces";
+            this.encodeUriToExceptSpaceToolStripMenuItem.Click += new System.EventHandler(this.encodeUriToExceptSpaceToolStripMenuItem_Click);
             // 
-            // replacernTospaceToolStripMenuItem1
+            // replacernTospaceToolStripMenuItem
             // 
-            this.replacernTospaceToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("replacernTospaceToolStripMenuItem1.Image")));
-            this.replacernTospaceToolStripMenuItem1.Name = "replacernTospaceToolStripMenuItem1";
-            this.replacernTospaceToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.replacernTospaceToolStripMenuItem1.Text = "Replace \\r\\n to <space>";
-            this.replacernTospaceToolStripMenuItem1.Click += new System.EventHandler(this.replacernTospaceToolStripMenuItem1_Click);
+            this.replacernTospaceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("replacernTospaceToolStripMenuItem.Image")));
+            this.replacernTospaceToolStripMenuItem.Name = "replacernTospaceToolStripMenuItem";
+            this.replacernTospaceToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.replacernTospaceToolStripMenuItem.Text = "Replace \\r\\n to <space>";
+            this.replacernTospaceToolStripMenuItem.Click += new System.EventHandler(this.replacernTospaceToolStripMenuItem_Click);
             // 
-            // viewSystemClipboardToolStripMenuItem1
+            // viewSystemClipboardToolStripMenuItem
             // 
-            this.viewSystemClipboardToolStripMenuItem1.Name = "viewSystemClipboardToolStripMenuItem1";
-            this.viewSystemClipboardToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.viewSystemClipboardToolStripMenuItem1.Text = "System clipboard manager...";
-            this.viewSystemClipboardToolStripMenuItem1.Click += new System.EventHandler(this.viewSystemClipboardToolStripMenuItem1_Click);
+            this.viewSystemClipboardToolStripMenuItem.Name = "viewSystemClipboardToolStripMenuItem";
+            this.viewSystemClipboardToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.viewSystemClipboardToolStripMenuItem.Text = "System clipboard manager...";
+            this.viewSystemClipboardToolStripMenuItem.Click += new System.EventHandler(this.viewSystemClipboardToolStripMenuItem_Click);
             // 
-            // toolStripSeparator11
+            // toolStripSeparator
             // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(230, 6);
+            this.toolStripSeparator.Name = "toolStripSeparator";
+            this.toolStripSeparator.Size = new System.Drawing.Size(230, 6);
             // 
-            // currentDateAndTimeToolStripMenuItem1
+            // currentDateAndTimeToolStripMenuItem
             // 
-            this.currentDateAndTimeToolStripMenuItem1.Name = "currentDateAndTimeToolStripMenuItem1";
-            this.currentDateAndTimeToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.currentDateAndTimeToolStripMenuItem1.Text = "Current date and time";
-            this.currentDateAndTimeToolStripMenuItem1.Click += new System.EventHandler(this.currentDateAndTimeToolStripMenuItem1_Click);
+            this.currentDateAndTimeToolStripMenuItem.Name = "currentDateAndTimeToolStripMenuItem";
+            this.currentDateAndTimeToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.currentDateAndTimeToolStripMenuItem.Text = "Current date and time";
+            this.currentDateAndTimeToolStripMenuItem.Click += new System.EventHandler(this.currentDateAndTimeToolStripMenuItem_Click);
             // 
             // compareStringsToolStripMenuItem
             // 
@@ -380,14 +381,14 @@
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(220, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(212, 6);
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Enabled = false;
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.ShowShortcutKeys = false;
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.optionsToolStripMenuItem.Text = "&Options...";
             // 
             // contextMenuStripWindowsList
@@ -595,15 +596,15 @@
             // miscellaneousToolStripMenuItem
             // 
             this.miscellaneousToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clearClipboardToolStripMenuItem,
-            this.decodeToolStripMenuItem,
-            this.encodeToToolStripMenuItem,
-            this.encodeUriToToolStripMenuItem,
-            this.encodeUriToExceptSpaceToolStripMenuItem,
-            this.replacernTospaceToolStripMenuItem,
-            this.viewSystemClipboardToolStripMenuItem,
+            this.clearClipboardToolStripMenuItem1,
+            this.decodeToolStripMenuItem1,
+            this.encodeToToolStripMenuItem1,
+            this.encodeUriToToolStripMenuItem1,
+            this.encodeUriToExceptSpaceToolStripMenuItem1,
+            this.replacernTospaceToolStripMenuItem1,
+            this.viewSystemClipboardToolStripMenuItem1,
             this.toolStripSeparator1,
-            this.currentDateAndTimeToolStripMenuItem,
+            this.currentDateAndTimeToolStripMenuItem1,
             this.compareStringsToolStripMenuItem1,
             this.notesToolStripMenuItem1});
             this.miscellaneousToolStripMenuItem.Image = global::WindowsManipulations.Properties.Resources.miscellaneous_icon1;
@@ -611,67 +612,67 @@
             this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.miscellaneousToolStripMenuItem.Text = "Miscellaneous";
             // 
-            // clearClipboardToolStripMenuItem
+            // clearClipboardToolStripMenuItem1
             // 
-            this.clearClipboardToolStripMenuItem.Name = "clearClipboardToolStripMenuItem";
-            this.clearClipboardToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.clearClipboardToolStripMenuItem.Text = "Clear clipboard";
-            this.clearClipboardToolStripMenuItem.Click += new System.EventHandler(this.clearClipboardToolStripMenuItem_Click);
+            this.clearClipboardToolStripMenuItem1.Name = "clearClipboardToolStripMenuItem1";
+            this.clearClipboardToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.clearClipboardToolStripMenuItem1.Text = "Clear clipboard";
+            this.clearClipboardToolStripMenuItem1.Click += new System.EventHandler(this.clearClipboardToolStripMenuItem1_Click);
             // 
-            // decodeToolStripMenuItem
+            // decodeToolStripMenuItem1
             // 
-            this.decodeToolStripMenuItem.Name = "decodeToolStripMenuItem";
-            this.decodeToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.decodeToolStripMenuItem.Text = "Decode % clipboard";
-            this.decodeToolStripMenuItem.Click += new System.EventHandler(this.decodeToolStripMenuItem_Click);
+            this.decodeToolStripMenuItem1.Name = "decodeToolStripMenuItem1";
+            this.decodeToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.decodeToolStripMenuItem1.Text = "Decode % clipboard";
+            this.decodeToolStripMenuItem1.Click += new System.EventHandler(this.decodeClipboardToolStripMenuItem1_Click);
             // 
-            // encodeToToolStripMenuItem
+            // encodeToToolStripMenuItem1
             // 
-            this.encodeToToolStripMenuItem.Name = "encodeToToolStripMenuItem";
-            this.encodeToToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.encodeToToolStripMenuItem.Text = "Encode data to %";
-            this.encodeToToolStripMenuItem.Click += new System.EventHandler(this.encodeToToolStripMenuItem_Click);
+            this.encodeToToolStripMenuItem1.Name = "encodeToToolStripMenuItem1";
+            this.encodeToToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.encodeToToolStripMenuItem1.Text = "Encode data to %";
+            this.encodeToToolStripMenuItem1.Click += new System.EventHandler(this.encodeToToolStripMenuItem1_Click);
             // 
-            // encodeUriToToolStripMenuItem
+            // encodeUriToToolStripMenuItem1
             // 
-            this.encodeUriToToolStripMenuItem.Name = "encodeUriToToolStripMenuItem";
-            this.encodeUriToToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.encodeUriToToolStripMenuItem.Text = "Encode Uri to %";
-            this.encodeUriToToolStripMenuItem.Click += new System.EventHandler(this.encodeUriToToolStripMenuItem_Click);
+            this.encodeUriToToolStripMenuItem1.Name = "encodeUriToToolStripMenuItem1";
+            this.encodeUriToToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.encodeUriToToolStripMenuItem1.Text = "Encode Uri to %";
+            this.encodeUriToToolStripMenuItem1.Click += new System.EventHandler(this.encodeUriToToolStripMenuItem1_Click);
             // 
-            // encodeUriToExceptSpaceToolStripMenuItem
+            // encodeUriToExceptSpaceToolStripMenuItem1
             // 
-            this.encodeUriToExceptSpaceToolStripMenuItem.Name = "encodeUriToExceptSpaceToolStripMenuItem";
-            this.encodeUriToExceptSpaceToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.encodeUriToExceptSpaceToolStripMenuItem.Text = "Encode Uri to % except spaces";
-            this.encodeUriToExceptSpaceToolStripMenuItem.Click += new System.EventHandler(this.encodeUriToExceptSpaceToolStripMenuItem_Click);
+            this.encodeUriToExceptSpaceToolStripMenuItem1.Name = "encodeUriToExceptSpaceToolStripMenuItem1";
+            this.encodeUriToExceptSpaceToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.encodeUriToExceptSpaceToolStripMenuItem1.Text = "Encode Uri to % except spaces";
+            this.encodeUriToExceptSpaceToolStripMenuItem1.Click += new System.EventHandler(this.encodeUriToExceptSpaceToolStripMenuItem1_Click);
             // 
-            // replacernTospaceToolStripMenuItem
+            // replacernTospaceToolStripMenuItem1
             // 
-            this.replacernTospaceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("replacernTospaceToolStripMenuItem.Image")));
-            this.replacernTospaceToolStripMenuItem.Name = "replacernTospaceToolStripMenuItem";
-            this.replacernTospaceToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.replacernTospaceToolStripMenuItem.Text = "Replace \\r\\n to <space>";
-            this.replacernTospaceToolStripMenuItem.Click += new System.EventHandler(this.replacernTospaceToolStripMenuItem_Click);
+            this.replacernTospaceToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("replacernTospaceToolStripMenuItem1.Image")));
+            this.replacernTospaceToolStripMenuItem1.Name = "replacernTospaceToolStripMenuItem1";
+            this.replacernTospaceToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.replacernTospaceToolStripMenuItem1.Text = "Replace \\r\\n to <space>";
+            this.replacernTospaceToolStripMenuItem1.Click += new System.EventHandler(this.replacernTospaceToolStripMenuItem1_Click);
             // 
-            // viewSystemClipboardToolStripMenuItem
+            // viewSystemClipboardToolStripMenuItem1
             // 
-            this.viewSystemClipboardToolStripMenuItem.Name = "viewSystemClipboardToolStripMenuItem";
-            this.viewSystemClipboardToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.viewSystemClipboardToolStripMenuItem.Text = "System clipboard manager...";
-            this.viewSystemClipboardToolStripMenuItem.Click += new System.EventHandler(this.viewSystemClipboardToolStripMenuItem_Click);
+            this.viewSystemClipboardToolStripMenuItem1.Name = "viewSystemClipboardToolStripMenuItem1";
+            this.viewSystemClipboardToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.viewSystemClipboardToolStripMenuItem1.Text = "System clipboard manager...";
+            this.viewSystemClipboardToolStripMenuItem1.Click += new System.EventHandler(this.viewSystemClipboardToolStripMenuItem1_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(230, 6);
             // 
-            // currentDateAndTimeToolStripMenuItem
+            // currentDateAndTimeToolStripMenuItem1
             // 
-            this.currentDateAndTimeToolStripMenuItem.Name = "currentDateAndTimeToolStripMenuItem";
-            this.currentDateAndTimeToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.currentDateAndTimeToolStripMenuItem.Text = "Current date and time";
-            this.currentDateAndTimeToolStripMenuItem.Click += new System.EventHandler(this.currentDateAndTimeToolStripMenuItem_Click);
+            this.currentDateAndTimeToolStripMenuItem1.Name = "currentDateAndTimeToolStripMenuItem1";
+            this.currentDateAndTimeToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.currentDateAndTimeToolStripMenuItem1.Text = "Current date and time";
+            this.currentDateAndTimeToolStripMenuItem1.Click += new System.EventHandler(this.currentDateAndTimeToolStripMenuItem1_Click);
             // 
             // compareStringsToolStripMenuItem1
             // 
@@ -898,32 +899,32 @@
         private System.Windows.Forms.Timer timerScreenSaver;
         private System.Windows.Forms.ToolStripMenuItem screensaverToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem miscellaneousToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem decodeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem encodeToToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem decodeToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem encodeToToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem miscellaneousToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem decodeClipboardToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem encodeToToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem encodeUriToToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem encodeToToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem encodeUriToToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem encodeUriToExceptSpaceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem encodeUriToToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem encodeUriToExceptSpaceToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem encodeUriToExceptSpaceToolStripMenuItem;
         private System.Windows.Forms.ListView lstWindowsList;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ToolStripMenuItem viewSystemClipboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewSystemClipboardToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem replacernTospaceToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem viewSystemClipboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem replacernTospaceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem replacernTospaceToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem copyProcessIdToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.ToolStripMenuItem compareStringsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compareStringsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem notesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem notesToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem clearClipboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearClipboardToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem currentDateAndTimeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearClipboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem currentDateAndTimeToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem currentDateAndTimeToolStripMenuItem;
         private System.Windows.Forms.Button btnSendCustomCommands;
     }
 }

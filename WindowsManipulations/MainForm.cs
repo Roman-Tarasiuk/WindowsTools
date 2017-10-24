@@ -599,8 +599,24 @@ namespace WindowsManipulations
             RunScreenSaver();
         }
 
-        // Miscellaneous System tray context menu
-        private void decodeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnSendCustomCommands_Click(object sender, EventArgs e)
+        {
+            SendCustomCommands();
+        }
+
+        private void contextMenuStripSysTray_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            BuildPasswordsList();
+        }
+
+        // Main menu | Miscellaneous
+
+        private void clearClipboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.Clear();
+        }
+
+        private void decodeClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DecodePercentageClipboard();
         }
@@ -625,8 +641,34 @@ namespace WindowsManipulations
             ReplaceRNToSpace();
         }
 
-        // Miscellaneous Main menu
-        private void decodeClipboardToolStripMenuItem_Click(object sender, EventArgs e)
+        private void viewSystemClipboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RunClipboardManager();
+        }
+
+        private void compareStringsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RunCompareStrings();
+        }
+
+        private void notesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RunNotes();
+        }
+
+        private void currentDateAndTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NowToClipblard();
+        }
+
+        // System tray context menu | Miscellaneous
+
+        private void clearClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Clipboard.Clear();
+        }
+
+        private void decodeClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             DecodePercentageClipboard();
         }
@@ -646,9 +688,9 @@ namespace WindowsManipulations
             EncodeUriPercentageExceptSpaceClipboard();
         }
 
-        private void viewSystemClipboardToolStripMenuItem_Click(object sender, EventArgs e)
+        private void replacernTospaceToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            RunClipboardManager();
+            ReplaceRNToSpace();
         }
 
         private void viewSystemClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -656,29 +698,9 @@ namespace WindowsManipulations
             RunClipboardManager();
         }
 
-        private void contextMenuStripSysTray_Opening(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            BuildPasswordsList();
-        }
-
-        private void replacernTospaceToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            ReplaceRNToSpace();
-        }
-
-        private void compareStringsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RunCompareStrings();
-        }
-
         private void compareStringsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             RunCompareStrings();
-        }
-
-        private void notesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RunNotes();
         }
 
         private void notesToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -686,30 +708,12 @@ namespace WindowsManipulations
             RunNotes();
         }
 
-        private void clearClipboardToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Clipboard.Clear();
-        }
-
-        private void clearClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Clipboard.Clear();
-        }
-
-        private void currentDateAndTimeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            NowToClipblard();
-        }
-
         private void currentDateAndTimeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             NowToClipblard();
         }
 
-        private void btnSendCustomCommands_Click(object sender, EventArgs e)
-        {
-            SendCustomCommands();
-        }
+        // Menu items other than Miscellaneous set above these last 2 groups.
 
         #endregion
 

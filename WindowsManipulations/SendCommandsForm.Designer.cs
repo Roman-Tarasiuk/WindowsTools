@@ -186,7 +186,7 @@
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(85, 27);
             this.btnMenu.TabIndex = 10;
-            this.btnMenu.Text = "Tools";
+            this.btnMenu.Text = "Tools ▼";
             this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
