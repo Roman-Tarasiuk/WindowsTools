@@ -481,6 +481,7 @@ namespace WindowsManipulations
 
 
             int selected = this.lstWindowsList.SelectedIndices[0];
+
             if (selected == -1)
             {
                 return;
@@ -489,18 +490,16 @@ namespace WindowsManipulations
             IntPtr hwnd = m_ListedWindows[selected].Handle;
             StringBuilder title = new StringBuilder(256);
             User32Windows.GetWindowText(hwnd, title, title.Capacity + 1);
+
             string titleStr = title.ToString();
 
-            User32Windows.SetWindowText(hwnd,
-                  "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-                + (titleStr.StartsWith("@") ? "" : " ") + titleStr + " "
-                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-                + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            var titleForm = new CustomWindowTitleForm() { CurrentTitle = titleStr };
+            var result = titleForm.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                User32Windows.SetWindowText(hwnd, titleForm.NewTitle);
+            }
         }
 
         private void taskListToolStripMenuItem_Click(object sender, EventArgs e)

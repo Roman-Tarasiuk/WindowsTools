@@ -46,7 +46,7 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.textInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customTitleColorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.screensaverToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -158,7 +158,7 @@
             this.toolStripSeparator3,
             this.textInfoToolStripMenuItem,
             this.windowsTrackingToolStripMenuItem,
-            this.customTitleColorsToolStripMenuItem,
+            this.customTitleToolStripMenuItem,
             this.toolStripSeparator5,
             this.screensaverToolStripMenuItem1,
             this.passwordsToolStripMenuItem,
@@ -257,13 +257,12 @@
             this.windowsTrackingToolStripMenuItem.Text = "Windows tracking...";
             this.windowsTrackingToolStripMenuItem.Click += new System.EventHandler(this.windowsTrackingToolStripMenuItem_Click);
             // 
-            // customTitleColorsToolStripMenuItem
+            // customTitleToolStripMenuItem
             // 
-            this.customTitleColorsToolStripMenuItem.Name = "customTitleColorsToolStripMenuItem";
-            this.customTitleColorsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.customTitleColorsToolStripMenuItem.Text = "Custom title colors*";
-            this.customTitleColorsToolStripMenuItem.ToolTipText = "@@@@@@@...";
-            this.customTitleColorsToolStripMenuItem.Click += new System.EventHandler(this.customTitleColorsToolStripMenuItem_Click);
+            this.customTitleToolStripMenuItem.Name = "customTitleToolStripMenuItem";
+            this.customTitleToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.customTitleToolStripMenuItem.Text = "Custom window title...";
+            this.customTitleToolStripMenuItem.Click += new System.EventHandler(this.customTitleColorsToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -882,7 +881,7 @@
         private System.Windows.Forms.ToolStripMenuItem windowsTrackingToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addToTrackingToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
-        private System.Windows.Forms.ToolStripMenuItem customTitleColorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customTitleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem taskListToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.CheckBox chkPin;

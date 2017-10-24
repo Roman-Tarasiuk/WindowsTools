@@ -64,6 +64,12 @@
     <Compile Include="CompareStringsSettingsForm.Designer.cs">
       <DependentUpon>CompareStringsSettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomWindowTitleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomWindowTitleForm.Designer.cs">
+      <DependentUpon>CustomWindowTitleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyScreenSaverHooker.cs" />
     <Compile Include="NotesForm.cs">
       <SubType>Form</SubType>
@@ -145,6 +151,9 @@
     <Compile Include="TextInfoForm.Designer.cs">
       <DependentUpon>TextInfoForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CustomWindowTitleForm.resx">
+      <DependentUpon>CustomWindowTitleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LocationAndSizeForm.resx">
       <DependentUpon>LocationAndSizeForm.cs</DependentUpon>
     </EmbeddedResource>
