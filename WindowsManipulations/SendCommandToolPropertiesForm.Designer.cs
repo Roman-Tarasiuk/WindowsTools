@@ -40,6 +40,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioLeft = new System.Windows.Forms.RadioButton();
             this.radioRight = new System.Windows.Forms.RadioButton();
+            this.txtCommands = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -81,13 +83,15 @@
             // 
             // btnOk
             // 
+            this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Location = new System.Drawing.Point(171, 112);
+            this.btnOk.Location = new System.Drawing.Point(171, 259);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 4;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // groupBox1
             // 
@@ -168,11 +172,36 @@
             this.radioRight.UseVisualStyleBackColor = true;
             this.radioRight.CheckedChanged += new System.EventHandler(this.radioRight_CheckedChanged);
             // 
+            // txtCommands
+            // 
+            this.txtCommands.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCommands.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtCommands.Location = new System.Drawing.Point(12, 166);
+            this.txtCommands.Multiline = true;
+            this.txtCommands.Name = "txtCommands";
+            this.txtCommands.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtCommands.Size = new System.Drawing.Size(234, 87);
+            this.txtCommands.TabIndex = 6;
+            this.txtCommands.WordWrap = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 150);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Commands:";
+            // 
             // SendCommandToolPropertiesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(258, 148);
+            this.ClientSize = new System.Drawing.Size(258, 294);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtCommands);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.txtToolHeight);
@@ -208,5 +237,7 @@
         private System.Windows.Forms.RadioButton radioLeft;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtCommands;
+        private System.Windows.Forms.Label label3;
     }
 }

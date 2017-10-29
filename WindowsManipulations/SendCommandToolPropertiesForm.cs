@@ -13,6 +13,21 @@ namespace WindowsManipulations
 {
     public partial class SendCommandToolPropertiesForm : Form
     {
+        private string m_Commands = String.Empty;
+
+        public string Commands
+        {
+            get
+            {
+                return m_Commands;
+            }
+            set
+            {
+                m_Commands = value;
+                txtCommands.Text = m_Commands;
+            }
+        }
+
         public AnchorHorizontal AnchorH { get; set; }
         public AnchorVertical AnchorV { get; set; }
         public int ToolWidht { get; set; }
@@ -100,6 +115,11 @@ namespace WindowsManipulations
             {
                 AnchorV = AnchorVertical.Bottom;
             }
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            Commands = txtCommands.Text;
         }
     }
 }

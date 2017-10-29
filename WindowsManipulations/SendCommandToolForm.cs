@@ -346,7 +346,8 @@ namespace WindowsManipulations
                 ToolWidht = this.Size.Width,
                 ToolHeight = this.Size.Height,
                 AnchorH = m_AnchorH,
-                AnchorV = m_AnchorV
+                AnchorV = m_AnchorV,
+                Commands = m_Commands
             };
             var result = settingsForm.ShowDialog();
 
@@ -356,6 +357,8 @@ namespace WindowsManipulations
                 this.m_AnchorH = settingsForm.AnchorH;
                 this.m_AnchorV = settingsForm.AnchorV;
                 this.m_DrawRectangle = new Rectangle(0, 0, this.Size.Width - 1, this.Size.Height - 1);
+
+                this.m_Commands = settingsForm.Commands;
             }
         }
 
