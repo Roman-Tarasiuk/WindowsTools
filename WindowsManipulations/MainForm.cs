@@ -173,58 +173,12 @@ namespace WindowsManipulations
 
         private void btnHideWindow_Click(object sender, EventArgs e)
         {
-            if (lstWindowsList.SelectedIndices.Count < 0)
-            {
-                return;
-            }
-
-            var selIndex = lstWindowsList.SelectedIndices[0];
-
-            if (selIndex >= m_ListedWindows.Count)
-            {
-                MessageBox.Show("The selected window is already hidden.");
-                return;
-            }
-
-            var selectedWindow = m_ListedWindows.ElementAt(selIndex);
-
-            m_ListedWindows.RemoveAt(selIndex);
-            lstWindowsList.Items.RemoveAt(selIndex);
-
-            m_HiddenByUserWindows.Add(selectedWindow);
-
-            selectedWindow.Title = m_PrefixHidden + selectedWindow.Title;
-            lstWindowsList.Items.Add(String.Format("{0,10} : {1}", selectedWindow.Handle, selectedWindow.Title), selectedWindow.Handle.ToString());
-
-            User32Windows.ShowWindow(selectedWindow.Handle, User32Windows.SW_HIDE);
+            HideSelectedWindow();
         }
 
         private void btnShowHidden_Click(object sender, EventArgs e)
         {
-            if (lstWindowsList.SelectedIndices.Count < 0)
-            {
-                return;
-            }
-
-            var selIndex = lstWindowsList.SelectedIndices[0];
-
-            if (selIndex < m_ListedWindows.Count)
-            {
-                MessageBox.Show("The selected window is not hidden.");
-                return;
-            }
-
-            var selectedWindow = m_HiddenByUserWindows.ElementAt(selIndex - m_ListedWindows.Count);
-
-            m_HiddenByUserWindows.RemoveAt(selIndex - m_ListedWindows.Count);
-            lstWindowsList.Items.RemoveAt(selIndex);
-
-            selectedWindow.Title = selectedWindow.Title.Substring(m_PrefixHidden.Length);
-            m_ListedWindows.Add(selectedWindow);
-
-            lstWindowsList.Items.Insert(m_ListedWindows.Count - 1, String.Format("{0,10} : {1}", selectedWindow.Handle, selectedWindow.Title), selectedWindow.Handle.ToString());
-
-            User32Windows.ShowWindow(selectedWindow.Handle, User32Windows.SW_SHOW);
+            ShowHiddenWindow();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -606,6 +560,16 @@ namespace WindowsManipulations
         private void contextMenuStripSysTray_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
             BuildPasswordsList();
+        }
+
+        private void hideSelectedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HideSelectedWindow();
+        }
+
+        private void showHiddenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowHiddenWindow();
         }
 
         // Main menu | Miscellaneous
@@ -1246,6 +1210,62 @@ namespace WindowsManipulations
             //     + " [UTC " + nowUtc.ToString("dd.MM.yyyy HH:mm:ss,fff") + "]" + " (" + nowUtc.Ticks.ToString() + " tiks)";
 
             Clipboard.SetText(strDateTime);
+        }
+
+        private void HideSelectedWindow()
+        {
+            if (lstWindowsList.SelectedIndices.Count < 0)
+            {
+                return;
+            }
+
+            var selIndex = lstWindowsList.SelectedIndices[0];
+
+            if (selIndex >= m_ListedWindows.Count)
+            {
+                MessageBox.Show("The selected window is already hidden.");
+                return;
+            }
+
+            var selectedWindow = m_ListedWindows.ElementAt(selIndex);
+
+            m_ListedWindows.RemoveAt(selIndex);
+            lstWindowsList.Items.RemoveAt(selIndex);
+
+            m_HiddenByUserWindows.Add(selectedWindow);
+
+            selectedWindow.Title = m_PrefixHidden + selectedWindow.Title;
+            lstWindowsList.Items.Add(String.Format("{0,10} : {1}", selectedWindow.Handle, selectedWindow.Title), selectedWindow.Handle.ToString());
+
+            User32Windows.ShowWindow(selectedWindow.Handle, User32Windows.SW_HIDE);
+        }
+
+        private void ShowHiddenWindow()
+        {
+            if (lstWindowsList.SelectedIndices.Count < 0)
+            {
+                return;
+            }
+
+            var selIndex = lstWindowsList.SelectedIndices[0];
+
+            if (selIndex < m_ListedWindows.Count)
+            {
+                MessageBox.Show("The selected window is not hidden.");
+                return;
+            }
+
+            var selectedWindow = m_HiddenByUserWindows.ElementAt(selIndex - m_ListedWindows.Count);
+
+            m_HiddenByUserWindows.RemoveAt(selIndex - m_ListedWindows.Count);
+            lstWindowsList.Items.RemoveAt(selIndex);
+
+            selectedWindow.Title = selectedWindow.Title.Substring(m_PrefixHidden.Length);
+            m_ListedWindows.Add(selectedWindow);
+
+            lstWindowsList.Items.Insert(m_ListedWindows.Count - 1, String.Format("{0,10} : {1}", selectedWindow.Handle, selectedWindow.Title), selectedWindow.Handle.ToString());
+
+            User32Windows.ShowWindow(selectedWindow.Handle, User32Windows.SW_SHOW);
         }
 
         #endregion

@@ -113,6 +113,8 @@
             this.lstWindowsList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnSendCustomCommands = new System.Windows.Forms.Button();
+            this.hideSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showHiddenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray.SuspendLayout();
@@ -143,7 +145,7 @@
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShowShortcutKeys = false;
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -393,6 +395,8 @@
             // contextMenuStripWindowsList
             // 
             this.contextMenuStripWindowsList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hideSelectedToolStripMenuItem,
+            this.showHiddenToolStripMenuItem,
             this.moveWindowToolStripMenuItem1,
             this.addToTrackingToolStripMenuItem,
             this.toolStripSeparator8,
@@ -400,7 +404,7 @@
             this.copyWindowNameToolStripMenuItem,
             this.copyProcessIdToolStripMenuItem});
             this.contextMenuStripWindowsList.Name = "contextMenuStripWindowsList";
-            this.contextMenuStripWindowsList.Size = new System.Drawing.Size(181, 120);
+            this.contextMenuStripWindowsList.Size = new System.Drawing.Size(181, 186);
             // 
             // moveWindowToolStripMenuItem1
             // 
@@ -808,6 +812,20 @@
             this.btnSendCustomCommands.UseVisualStyleBackColor = true;
             this.btnSendCustomCommands.Click += new System.EventHandler(this.btnSendCustomCommands_Click);
             // 
+            // hideSelectedToolStripMenuItem
+            // 
+            this.hideSelectedToolStripMenuItem.Name = "hideSelectedToolStripMenuItem";
+            this.hideSelectedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hideSelectedToolStripMenuItem.Text = "Hide selected";
+            this.hideSelectedToolStripMenuItem.Click += new System.EventHandler(this.hideSelectedToolStripMenuItem_Click);
+            // 
+            // showHiddenToolStripMenuItem
+            // 
+            this.showHiddenToolStripMenuItem.Name = "showHiddenToolStripMenuItem";
+            this.showHiddenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showHiddenToolStripMenuItem.Text = "Show hidden";
+            this.showHiddenToolStripMenuItem.Click += new System.EventHandler(this.showHiddenToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -925,5 +943,7 @@
         private System.Windows.Forms.ToolStripMenuItem currentDateAndTimeToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem currentDateAndTimeToolStripMenuItem;
         private System.Windows.Forms.Button btnSendCustomCommands;
+        private System.Windows.Forms.ToolStripMenuItem hideSelectedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showHiddenToolStripMenuItem;
     }
 }
