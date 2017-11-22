@@ -572,6 +572,16 @@ namespace WindowsManipulations
             ShowHiddenWindow();
         }
 
+        private void trackTitleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int selected = this.lstWindowsList.SelectedIndices[0];
+
+            if (selected != -1)
+            {
+                new WindowTitleTrackingForm(m_ListedWindows[selected].Handle).Show();
+            }
+        }
+
         // Main menu | Miscellaneous
 
         private void clearClipboardToolStripMenuItem_Click(object sender, EventArgs e)
