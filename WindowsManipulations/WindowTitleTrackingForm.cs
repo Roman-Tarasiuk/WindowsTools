@@ -107,7 +107,7 @@ namespace WindowsManipulations
         {
             this.ForeColor = m_Properties.ForeColor;
             this.BackColor = m_Properties.BackColor;
-            this.Font = m_Properties.Font;
+            this.label1.Font = m_Properties.Font;
             this.Width = m_Properties.Width;
             this.Height = m_Properties.Height;
             this.timer1.Interval = m_Properties.Interval * 1000;
