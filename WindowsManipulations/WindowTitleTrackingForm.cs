@@ -109,6 +109,11 @@ namespace WindowsManipulations
             }
         }
 
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisplayTitle();
+        }
+
         #endregion
 
 
