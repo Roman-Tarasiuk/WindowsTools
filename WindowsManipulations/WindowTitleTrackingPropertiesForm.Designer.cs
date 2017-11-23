@@ -96,7 +96,7 @@
             this.btnFont.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnFont.Location = new System.Drawing.Point(176, 56);
             this.btnFont.Name = "btnFont";
-            this.btnFont.Size = new System.Drawing.Size(81, 23);
+            this.btnFont.Size = new System.Drawing.Size(87, 23);
             this.btnFont.TabIndex = 5;
             this.btnFont.Text = "Font...";
             this.btnFont.UseVisualStyleBackColor = true;
@@ -105,9 +105,9 @@
             // btnBackground
             // 
             this.btnBackground.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnBackground.Location = new System.Drawing.Point(176, 82);
+            this.btnBackground.Location = new System.Drawing.Point(176, 108);
             this.btnBackground.Name = "btnBackground";
-            this.btnBackground.Size = new System.Drawing.Size(81, 23);
+            this.btnBackground.Size = new System.Drawing.Size(87, 23);
             this.btnBackground.TabIndex = 6;
             this.btnBackground.Text = "Background...";
             this.btnBackground.UseVisualStyleBackColor = true;
@@ -116,9 +116,9 @@
             // btnForeground
             // 
             this.btnForeground.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnForeground.Location = new System.Drawing.Point(176, 108);
+            this.btnForeground.Location = new System.Drawing.Point(176, 82);
             this.btnForeground.Name = "btnForeground";
-            this.btnForeground.Size = new System.Drawing.Size(81, 23);
+            this.btnForeground.Size = new System.Drawing.Size(87, 23);
             this.btnForeground.TabIndex = 7;
             this.btnForeground.Text = "Foreground...";
             this.btnForeground.UseVisualStyleBackColor = true;
@@ -158,11 +158,11 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Refresh, s";
             // 
-            // txtRefreshTime
+            // txtInterval
             // 
             this.txtInterval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtInterval.Location = new System.Drawing.Point(64, 110);
-            this.txtInterval.Name = "txtRefreshTime";
+            this.txtInterval.Name = "txtInterval";
             this.txtInterval.Size = new System.Drawing.Size(82, 20);
             this.txtInterval.TabIndex = 10;
             // 

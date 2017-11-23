@@ -14,12 +14,19 @@ namespace WindowsManipulations
 {
     public partial class WindowTitleTrackingForm : Form
     {
+        #region Fields
+
         TitleTrackingFormProperties m_Properties = new TitleTrackingFormProperties();
 
         IntPtr m_Hwnd;
 
         private bool m_MouseIsDown = false;
         private Point m_MouseDownCoordinates;
+
+        #endregion
+
+
+        #region Constructor and Additional Settings
 
         public WindowTitleTrackingForm(IntPtr hwnd)
         {
@@ -35,6 +42,7 @@ namespace WindowsManipulations
             m_Properties.Interval = 2;
         }
 
+
         protected override CreateParams CreateParams
         {
             get
@@ -45,6 +53,11 @@ namespace WindowsManipulations
                 return cp;
             }
         }
+
+        #endregion
+
+
+        #region Event Handlers
 
         private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -65,20 +78,13 @@ namespace WindowsManipulations
 
         private void WindowTitleTrackingForm_Shown(object sender, EventArgs e)
         {
+            DisplayTitle();
             this.timer1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            StringBuilder sb = new StringBuilder(256);
-            User32Windows.GetWindowText(m_Hwnd, sb, sb.Capacity + 1);
-
-            var title = sb.ToString();
-
-            if (label1.Text != title)
-            {
-                label1.Text = title;
-            }
+            DisplayTitle();
         }
 
         private void WindowTitleTrackingForm_MouseDown(object sender, MouseEventArgs e)
@@ -103,6 +109,24 @@ namespace WindowsManipulations
             }
         }
 
+        #endregion
+
+
+        #region Helper Methods
+
+        private void DisplayTitle()
+        {
+            StringBuilder sb = new StringBuilder(256);
+            User32Windows.GetWindowText(m_Hwnd, sb, sb.Capacity + 1);
+
+            var title = sb.ToString();
+
+            if (label1.Text != title)
+            {
+                label1.Text = title;
+            }
+        }
+
         private void ApplyProperties(TitleTrackingFormProperties m_Properties)
         {
             this.ForeColor = m_Properties.ForeColor;
@@ -112,5 +136,7 @@ namespace WindowsManipulations
             this.Height = m_Properties.Height;
             this.timer1.Interval = m_Properties.Interval * 1000;
         }
+
+        #endregion
     }
 }
