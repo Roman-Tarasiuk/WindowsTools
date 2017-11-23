@@ -129,6 +129,7 @@ namespace WindowsManipulations
             if (label1.Text != title)
             {
                 label1.Text = title;
+                this.Text = title;
             }
         }
 
@@ -143,5 +144,10 @@ namespace WindowsManipulations
         }
 
         #endregion
+
+        private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
