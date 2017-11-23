@@ -103,6 +103,17 @@ namespace WindowsManipulations
             }
         }
 
+        private void btnBorderColor_Click(object sender, EventArgs e)
+        {
+            colorDialog1.Color = m_Properties.BorderColor;
+            var result = colorDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                this.m_Properties.BorderColor = colorDialog1.Color;
+            }
+        }
+
         private void btnOK_Click(object sender, EventArgs e)
         {
             ReadProperties();

@@ -36,6 +36,7 @@ namespace WindowsManipulations
 
             m_Properties.BackColor = this.BackColor;
             m_Properties.ForeColor = this.ForeColor;
+            m_Properties.BorderColor = Color.White;
             m_Properties.Font = this.label1.Font;
             m_Properties.Height = this.Height;
             m_Properties.Width = this.Width;
@@ -68,6 +69,7 @@ namespace WindowsManipulations
             {
                 m_Properties = propertiesForm.Properties;
                 ApplyProperties(m_Properties);
+                Invalidate();
             }
         }
 
@@ -148,6 +150,11 @@ namespace WindowsManipulations
         private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void WindowTitleTrackingForm_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawRectangle(new Pen(m_Properties.BorderColor, 2), new Rectangle(1, 1, this.Size.Width - 2, this.Size.Height - 2));
         }
     }
 }

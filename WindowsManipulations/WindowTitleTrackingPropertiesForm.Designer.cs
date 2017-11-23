@@ -42,6 +42,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtInterval = new System.Windows.Forms.TextBox();
+            this.btnBorderColor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelSample
@@ -56,7 +57,7 @@
             // txtWidth
             // 
             this.txtWidth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtWidth.Location = new System.Drawing.Point(64, 58);
+            this.txtWidth.Location = new System.Drawing.Point(64, 53);
             this.txtWidth.Name = "txtWidth";
             this.txtWidth.Size = new System.Drawing.Size(82, 20);
             this.txtWidth.TabIndex = 1;
@@ -66,7 +67,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 61);
+            this.label2.Location = new System.Drawing.Point(9, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 2;
@@ -76,7 +77,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 87);
+            this.label3.Location = new System.Drawing.Point(9, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 4;
@@ -85,7 +86,7 @@
             // txtHeight
             // 
             this.txtHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtHeight.Location = new System.Drawing.Point(64, 84);
+            this.txtHeight.Location = new System.Drawing.Point(64, 79);
             this.txtHeight.Name = "txtHeight";
             this.txtHeight.Size = new System.Drawing.Size(82, 20);
             this.txtHeight.TabIndex = 3;
@@ -94,7 +95,7 @@
             // btnFont
             // 
             this.btnFont.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnFont.Location = new System.Drawing.Point(176, 56);
+            this.btnFont.Location = new System.Drawing.Point(176, 51);
             this.btnFont.Name = "btnFont";
             this.btnFont.Size = new System.Drawing.Size(87, 23);
             this.btnFont.TabIndex = 5;
@@ -105,7 +106,7 @@
             // btnBackground
             // 
             this.btnBackground.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnBackground.Location = new System.Drawing.Point(176, 108);
+            this.btnBackground.Location = new System.Drawing.Point(176, 95);
             this.btnBackground.Name = "btnBackground";
             this.btnBackground.Size = new System.Drawing.Size(87, 23);
             this.btnBackground.TabIndex = 6;
@@ -116,7 +117,7 @@
             // btnForeground
             // 
             this.btnForeground.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnForeground.Location = new System.Drawing.Point(176, 82);
+            this.btnForeground.Location = new System.Drawing.Point(176, 73);
             this.btnForeground.Name = "btnForeground";
             this.btnForeground.Size = new System.Drawing.Size(87, 23);
             this.btnForeground.TabIndex = 7;
@@ -152,7 +153,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 113);
+            this.label1.Location = new System.Drawing.Point(9, 108);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 11;
@@ -161,16 +162,28 @@
             // txtInterval
             // 
             this.txtInterval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtInterval.Location = new System.Drawing.Point(64, 110);
+            this.txtInterval.Location = new System.Drawing.Point(64, 105);
             this.txtInterval.Name = "txtInterval";
             this.txtInterval.Size = new System.Drawing.Size(82, 20);
             this.txtInterval.TabIndex = 10;
+            // 
+            // btnBorderColor
+            // 
+            this.btnBorderColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnBorderColor.Location = new System.Drawing.Point(176, 117);
+            this.btnBorderColor.Name = "btnBorderColor";
+            this.btnBorderColor.Size = new System.Drawing.Size(87, 23);
+            this.btnBorderColor.TabIndex = 12;
+            this.btnBorderColor.Text = "Border color...";
+            this.btnBorderColor.UseVisualStyleBackColor = true;
+            this.btnBorderColor.Click += new System.EventHandler(this.btnBorderColor_Click);
             // 
             // WindowTitleTrackingPropertiesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(387, 143);
+            this.Controls.Add(this.btnBorderColor);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtInterval);
             this.Controls.Add(this.btnCancel);
@@ -207,5 +220,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtInterval;
+        private System.Windows.Forms.Button btnBorderColor;
     }
 }
