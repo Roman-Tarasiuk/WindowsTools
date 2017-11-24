@@ -11,6 +11,7 @@ namespace WindowsManipulations.Infrastructure
     {
         public int Width { get; set; }
         public int Height { get; set; }
+        public int BorderWidth { get; set; }
         public int Interval { get; set; }
         public Font Font { get; set; }
         public Color ForeColor { get; set; }

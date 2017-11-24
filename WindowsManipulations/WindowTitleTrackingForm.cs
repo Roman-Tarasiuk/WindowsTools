@@ -36,10 +36,11 @@ namespace WindowsManipulations
 
             m_Properties.BackColor = this.BackColor;
             m_Properties.ForeColor = this.ForeColor;
-            m_Properties.BorderColor = Color.White;
+            m_Properties.BorderColor = Color.FromArgb(128, 255, 128);
             m_Properties.Font = this.label1.Font;
             m_Properties.Height = this.Height;
             m_Properties.Width = this.Width;
+            m_Properties.BorderWidth = 1;
             m_Properties.Interval = 2;
         }
 
@@ -143,6 +144,9 @@ namespace WindowsManipulations
             this.Width = m_Properties.Width;
             this.Height = m_Properties.Height;
             this.timer1.Interval = m_Properties.Interval * 1000;
+            this.label1.Location = new Point(this.label1.Location.X, m_Properties.BorderWidth);
+            this.label1.Height = m_Properties.Height - m_Properties.BorderWidth * 2;
+            Invalidate();
         }
 
         #endregion
@@ -154,7 +158,22 @@ namespace WindowsManipulations
 
         private void WindowTitleTrackingForm_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawRectangle(new Pen(m_Properties.BorderColor, 2), new Rectangle(1, 1, this.Size.Width - 2, this.Size.Height - 2));
+            if (m_Properties.BorderWidth == 0)
+            {
+                return;
+            }
+
+            e.Graphics.DrawRectangle
+            (
+                new Pen(m_Properties.BorderColor, m_Properties.BorderWidth),
+                new Rectangle
+                (
+                    m_Properties.BorderWidth / 2,
+                    m_Properties.BorderWidth / 2,
+                    this.Size.Width - m_Properties.BorderWidth,
+                    this.Size.Height - m_Properties.BorderWidth
+                    )
+            );
         }
     }
 }

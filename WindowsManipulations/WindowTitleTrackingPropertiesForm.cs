@@ -14,6 +14,7 @@ namespace WindowsManipulations
     public partial class WindowTitleTrackingPropertiesForm : Form
     {
         private TitleTrackingFormProperties m_Properties;
+        const int DragMouseRegionWidth = 8;
 
         public TitleTrackingFormProperties Properties
         {
@@ -62,43 +63,48 @@ namespace WindowsManipulations
 
         private void txtWidth_Leave(object sender, EventArgs e)
         {
-            this.labelSample.Width = int.Parse(txtWidth.Text);
+            m_Properties.Width = int.Parse(txtWidth.Text);
+            this.labelSample.Width = m_Properties.Width - DragMouseRegionWidth * 2;
         }
 
         private void txtHeight_Leave(object sender, EventArgs e)
         {
-            this.labelSample.Height = int.Parse(txtHeight.Text);
+            m_Properties.Height = int.Parse(txtHeight.Text);
+            this.labelSample.Height = m_Properties.Height - m_Properties.BorderWidth * 2;
         }
 
         private void btnFont_Click(object sender, EventArgs e)
         {
-            fontDialog1.Font = labelSample.Font;
+            fontDialog1.Font = m_Properties.Font;
             var result = fontDialog1.ShowDialog();
 
             if (result == DialogResult.OK)
             {
+                m_Properties.Font = fontDialog1.Font;
                 this.labelSample.Font = fontDialog1.Font;
             }
         }
 
         private void btnBackground_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = labelSample.BackColor;
+            colorDialog1.Color = m_Properties.BackColor;
             var result = colorDialog1.ShowDialog();
 
             if (result == DialogResult.OK)
             {
+                m_Properties.BackColor = colorDialog1.Color;
                 this.labelSample.BackColor = colorDialog1.Color;
             }
         }
 
         private void btnForeground_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = labelSample.ForeColor;
+            colorDialog1.Color = m_Properties.ForeColor;
             var result = colorDialog1.ShowDialog();
 
             if (result == DialogResult.OK)
             {
+                m_Properties.ForeColor = colorDialog1.Color;
                 this.labelSample.ForeColor = colorDialog1.Color;
             }
         }
@@ -130,26 +136,23 @@ namespace WindowsManipulations
 
         #region
 
-        private void ReadProperties()
-        {
-            m_Properties.BackColor = labelSample.BackColor;
-            m_Properties.ForeColor = labelSample.ForeColor;
-            m_Properties.Font = labelSample.Font;
-            m_Properties.Width = labelSample.Width;
-            m_Properties.Height = labelSample.Height;
-            m_Properties.Interval = int.Parse(txtInterval.Text);
-        }
-
         private void Apply(TitleTrackingFormProperties m_Properties)
         {
             this.labelSample.BackColor = m_Properties.BackColor;
             this.labelSample.ForeColor = m_Properties.ForeColor;
             this.labelSample.Font = m_Properties.Font;
-            this.labelSample.Width = m_Properties.Width;
-            this.labelSample.Height = m_Properties.Height;
+            this.labelSample.Width = m_Properties.Width - DragMouseRegionWidth * 2;
+            this.labelSample.Height = m_Properties.Height - m_Properties.BorderWidth * 2;
             this.txtWidth.Text = m_Properties.Width.ToString();
             this.txtHeight.Text = m_Properties.Height.ToString();
             this.txtInterval.Text = m_Properties.Interval.ToString();
+            this.numBorderWidht.Value = m_Properties.BorderWidth;
+        }
+
+        private void ReadProperties()
+        {
+            m_Properties.BorderWidth = (int)numBorderWidht.Value;
+            m_Properties.Interval = int.Parse(txtInterval.Text);
         }
 
         #endregion

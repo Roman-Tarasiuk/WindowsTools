@@ -43,6 +43,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtInterval = new System.Windows.Forms.TextBox();
             this.btnBorderColor = new System.Windows.Forms.Button();
+            this.numBorderWidht = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.numBorderWidht)).BeginInit();
             this.SuspendLayout();
             // 
             // labelSample
@@ -77,7 +80,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 82);
+            this.label3.Location = new System.Drawing.Point(6, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 4;
@@ -86,7 +89,7 @@
             // txtHeight
             // 
             this.txtHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtHeight.Location = new System.Drawing.Point(64, 79);
+            this.txtHeight.Location = new System.Drawing.Point(64, 75);
             this.txtHeight.Name = "txtHeight";
             this.txtHeight.Size = new System.Drawing.Size(82, 20);
             this.txtHeight.TabIndex = 3;
@@ -153,7 +156,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 108);
+            this.label1.Location = new System.Drawing.Point(6, 100);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 11;
@@ -162,7 +165,7 @@
             // txtInterval
             // 
             this.txtInterval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtInterval.Location = new System.Drawing.Point(64, 105);
+            this.txtInterval.Location = new System.Drawing.Point(64, 97);
             this.txtInterval.Name = "txtInterval";
             this.txtInterval.Size = new System.Drawing.Size(82, 20);
             this.txtInterval.TabIndex = 10;
@@ -178,11 +181,35 @@
             this.btnBorderColor.UseVisualStyleBackColor = true;
             this.btnBorderColor.Click += new System.EventHandler(this.btnBorderColor_Click);
             // 
+            // numBorderWidht
+            // 
+            this.numBorderWidht.Location = new System.Drawing.Point(64, 120);
+            this.numBorderWidht.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numBorderWidht.Name = "numBorderWidht";
+            this.numBorderWidht.Size = new System.Drawing.Size(82, 20);
+            this.numBorderWidht.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 122);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Border";
+            // 
             // WindowTitleTrackingPropertiesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(387, 143);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.numBorderWidht);
             this.Controls.Add(this.btnBorderColor);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtInterval);
@@ -199,6 +226,7 @@
             this.Name = "WindowTitleTrackingPropertiesForm";
             this.Text = "Window title tracking properties";
             this.Shown += new System.EventHandler(this.WindowTitleTrackingPropertiesForm_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.numBorderWidht)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,5 +249,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtInterval;
         private System.Windows.Forms.Button btnBorderColor;
+        private System.Windows.Forms.NumericUpDown numBorderWidht;
+        private System.Windows.Forms.Label label4;
     }
 }
