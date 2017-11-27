@@ -225,7 +225,7 @@ namespace WindowsManipulations
         {
             string clipboard = Clipboard.GetText();
 
-            Regex re = new Regex(@"(\d+)(?:(?:; )*)");
+            Regex re = new Regex(@"(-?\d+)(?:(?:; )*)");
             var matches = re.Matches(clipboard);
 
             if (matches.Count != 4)
