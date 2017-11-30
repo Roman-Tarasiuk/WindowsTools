@@ -41,7 +41,7 @@ namespace WindowsManipulations
             m_Properties.Height = this.Height;
             m_Properties.Width = this.Width;
             m_Properties.BorderWidth = 1;
-            m_Properties.Interval = 2;
+            m_Properties.Interval = 1;
         }
 
 

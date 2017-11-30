@@ -183,6 +183,7 @@
             // 
             // numBorderWidht
             // 
+            this.numBorderWidht.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.numBorderWidht.Location = new System.Drawing.Point(64, 120);
             this.numBorderWidht.Maximum = new decimal(new int[] {
             5,
