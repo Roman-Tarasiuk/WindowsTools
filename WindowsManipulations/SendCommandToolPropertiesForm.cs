@@ -32,6 +32,7 @@ namespace WindowsManipulations
         public AnchorVertical AnchorV { get; set; }
         public int ToolWidht { get; set; }
         public int ToolHeight { get; set; }
+        public bool Clipboard { get; set; }
 
         public SendCommandToolPropertiesForm()
         {
@@ -65,6 +66,9 @@ namespace WindowsManipulations
             {
                 radioBottom.Checked = true;
             }
+
+            chkClipboard.Checked = this.Clipboard;
+            txtCommands.Enabled = !this.Clipboard;
         }
 
         private void txtToolWidth_TextChanged(object sender, EventArgs e)
@@ -120,6 +124,12 @@ namespace WindowsManipulations
         private void btnOk_Click(object sender, EventArgs e)
         {
             Commands = txtCommands.Text;
+        }
+
+        private void chkClipboard_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Clipboard = chkClipboard.Checked;
+            txtCommands.Enabled = !chkClipboard.Checked;
         }
     }
 }

@@ -26,6 +26,7 @@ namespace WindowsManipulations
         private AnchorHorizontal m_AnchorH = AnchorHorizontal.Left;
         private AnchorVertical m_AnchorV = AnchorVertical.Top;
 
+        private bool m_Clipboard = false;
         private string m_Commands;
 
         private bool m_MouseIsDown = false;
@@ -208,6 +209,11 @@ namespace WindowsManipulations
                 return;
             }
 
+            if (this.m_Clipboard)
+            {
+                m_Commands = Clipboard.GetText();
+            }
+
             if (m_Commands == String.Empty)
             {
                 return;
@@ -347,7 +353,8 @@ namespace WindowsManipulations
                 ToolHeight = this.Size.Height,
                 AnchorH = m_AnchorH,
                 AnchorV = m_AnchorV,
-                Commands = m_Commands
+                Commands = m_Commands,
+                Clipboard = m_Clipboard
             };
             var result = settingsForm.ShowDialog();
 
@@ -359,6 +366,7 @@ namespace WindowsManipulations
                 this.m_DrawRectangle = new Rectangle(0, 0, this.Size.Width - 1, this.Size.Height - 1);
 
                 this.m_Commands = settingsForm.Commands;
+                this.m_Clipboard = settingsForm.Clipboard;
             }
         }
 

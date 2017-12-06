@@ -42,6 +42,7 @@
             this.radioRight = new System.Windows.Forms.RadioButton();
             this.txtCommands = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.chkClipboard = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -85,7 +86,7 @@
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Location = new System.Drawing.Point(171, 259);
+            this.btnOk.Location = new System.Drawing.Point(171, 308);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 4;
@@ -182,7 +183,7 @@
             this.txtCommands.Multiline = true;
             this.txtCommands.Name = "txtCommands";
             this.txtCommands.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtCommands.Size = new System.Drawing.Size(234, 87);
+            this.txtCommands.Size = new System.Drawing.Size(234, 113);
             this.txtCommands.TabIndex = 6;
             this.txtCommands.WordWrap = false;
             // 
@@ -195,11 +196,24 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Commands:";
             // 
+            // chkClipboard
+            // 
+            this.chkClipboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chkClipboard.AutoSize = true;
+            this.chkClipboard.Location = new System.Drawing.Point(12, 285);
+            this.chkClipboard.Name = "chkClipboard";
+            this.chkClipboard.Size = new System.Drawing.Size(70, 17);
+            this.chkClipboard.TabIndex = 8;
+            this.chkClipboard.Text = "Clipboard";
+            this.chkClipboard.UseVisualStyleBackColor = true;
+            this.chkClipboard.CheckedChanged += new System.EventHandler(this.chkClipboard_CheckedChanged);
+            // 
             // SendCommandToolPropertiesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(258, 294);
+            this.ClientSize = new System.Drawing.Size(258, 343);
+            this.Controls.Add(this.chkClipboard);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtCommands);
             this.Controls.Add(this.groupBox1);
@@ -239,5 +253,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtCommands;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox chkClipboard;
     }
 }
