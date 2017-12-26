@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WindowsManipulations</RootNamespace>
     <AssemblyName>WindowsManipulations</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -249,6 +249,10 @@
     <ProjectReference Include="..\User32Helper\User32Helper.csproj">
       <Project>{f76dfe47-a3cc-4257-9772-83c60d8292d8}</Project>
       <Name>User32Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsInput\WindowsInput.csproj">
+      <Project>{3549cd6f-80f8-450f-b99e-cf0a736b1f2a}</Project>
+      <Name>WindowsInput</Name>
     </ProjectReference>
     <ProjectReference Include="..\WindowsManipulations.Infrastructure\WindowsManipulations.Infrastructure.csproj">
       <Project>{d170931a-64ab-41e6-a1a2-19fbccd0d5a5}</Project>

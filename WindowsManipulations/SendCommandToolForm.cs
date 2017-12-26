@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 using User32Helper;
 using WindowsManipulations.Infrastructure;
+using WindowsInput;
 
 namespace WindowsManipulations
 {
@@ -222,12 +223,22 @@ namespace WindowsManipulations
 
             Thread.Sleep(200);
 
+            //
+            // Working code (using SendKeys class).
+            //
             var commands = m_Commands.Split(new string[] { "\r\n" }, StringSplitOptions.None);
 
             for (int i = 0; i < commands.Length; i++)
             {
                 SendKeys.SendWait(commands[i]);
             }
+
+
+            //
+            // Working code (using InputSimulator http://inputsimulator.codeplex.com/).
+            //
+            // var simulator = new InputSimulator();
+            // simulator.Keyboard.TextEntry(m_Commands);
         }
 
         private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
