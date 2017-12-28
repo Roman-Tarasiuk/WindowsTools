@@ -17,6 +17,23 @@ namespace WindowsManipulations
             InitializeComponent();
         }
 
+        //
+        // https://stackoverflow.com/questions/27561133/prevent-window-from-showing-in-alt-tab
+        //
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                // turn on WS_EX_TOOLWINDOW style bit
+                cp.ExStyle |= 0x80;
+                return cp;
+            }
+        }
+
+
+        #region Event Handlers
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -34,17 +51,42 @@ namespace WindowsManipulations
             wordWrapToolStripMenuItem.Checked = this.richTextBox1.WordWrap;
         }
 
-        // https://stackoverflow.com/questions/27561133/prevent-window-from-showing-in-alt-tab
-        //
-        protected override CreateParams CreateParams
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                // turn on WS_EX_TOOLWINDOW style bit
-                cp.ExStyle |= 0x80;
-                return cp;
-            }
+            Paste();
         }
+
+        private void pasteWithoutFormattingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PasteWithoutFormatting();
+        }
+
+        private void pasteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Paste();
+        }
+
+        private void pasteWithoutFormattingToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            PasteWithoutFormatting();
+        }
+
+        #endregion
+
+
+        #region Helper Methods
+
+        private void Paste()
+        {
+            richTextBox1.Paste();
+        }
+
+        private void PasteWithoutFormatting()
+        {
+            var txt = Clipboard.GetText();
+            richTextBox1.SelectedText = txt;
+        }
+
+        #endregion
     }
 }

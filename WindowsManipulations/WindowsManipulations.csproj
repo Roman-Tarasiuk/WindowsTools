@@ -175,6 +175,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NotesForm.resx">
+      <DependentUpon>NotesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RunningAppsForm.resx">
       <DependentUpon>RunningAppsForm.cs</DependentUpon>
     </EmbeddedResource>

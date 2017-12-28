@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -35,13 +36,21 @@
             this.topmostWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wordWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteWithoutFormattingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteWithoutFormattingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
+            this.editToolStripMenuItem,
             this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -60,7 +69,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -91,9 +100,10 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.ContextMenuStrip = this.contextMenuStrip1;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.richTextBox1.Location = new System.Drawing.Point(0, 27);
             this.richTextBox1.Name = "richTextBox1";
@@ -102,7 +112,52 @@
             this.richTextBox1.Text = "";
             this.richTextBox1.WordWrap = false;
             // 
-            // Form1
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pasteToolStripMenuItem,
+            this.pasteWithoutFormattingToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(207, 48);
+            // 
+            // pasteToolStripMenuItem
+            // 
+            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.pasteToolStripMenuItem.Text = "Paste";
+            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
+            // 
+            // pasteWithoutFormattingToolStripMenuItem
+            // 
+            this.pasteWithoutFormattingToolStripMenuItem.Name = "pasteWithoutFormattingToolStripMenuItem";
+            this.pasteWithoutFormattingToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.pasteWithoutFormattingToolStripMenuItem.Text = "Paste without formatting";
+            this.pasteWithoutFormattingToolStripMenuItem.Click += new System.EventHandler(this.pasteWithoutFormattingToolStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pasteToolStripMenuItem1,
+            this.pasteWithoutFormattingToolStripMenuItem1});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // pasteToolStripMenuItem1
+            // 
+            this.pasteToolStripMenuItem1.Name = "pasteToolStripMenuItem1";
+            this.pasteToolStripMenuItem1.Size = new System.Drawing.Size(206, 22);
+            this.pasteToolStripMenuItem1.Text = "Paste";
+            this.pasteToolStripMenuItem1.Click += new System.EventHandler(this.pasteToolStripMenuItem1_Click);
+            // 
+            // pasteWithoutFormattingToolStripMenuItem1
+            // 
+            this.pasteWithoutFormattingToolStripMenuItem1.Name = "pasteWithoutFormattingToolStripMenuItem1";
+            this.pasteWithoutFormattingToolStripMenuItem1.Size = new System.Drawing.Size(206, 22);
+            this.pasteWithoutFormattingToolStripMenuItem1.Text = "Paste without formatting";
+            this.pasteWithoutFormattingToolStripMenuItem1.Click += new System.EventHandler(this.pasteWithoutFormattingToolStripMenuItem1_Click);
+            // 
+            // NotesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -110,12 +165,13 @@
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "NotesForm";
             this.ShowInTaskbar = false;
             this.Text = "Notes";
             this.TopMost = true;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,5 +186,11 @@
         private System.Windows.Forms.ToolStripMenuItem topmostWindowToolStripMenuItem;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ToolStripMenuItem wordWrapToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteWithoutFormattingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem pasteWithoutFormattingToolStripMenuItem1;
     }
 }
