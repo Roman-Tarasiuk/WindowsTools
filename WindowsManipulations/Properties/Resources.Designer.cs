@@ -93,6 +93,16 @@ namespace WindowsManipulations.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Editing_Paste_icon {
+            get {
+                object obj = ResourceManager.GetObject("Editing-Paste-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap if_icon_arrow_down_b_211614 {
             get {
                 object obj = ResourceManager.GetObject("if_icon_arrow_down_b_211614", resourceCulture);

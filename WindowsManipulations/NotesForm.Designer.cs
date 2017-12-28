@@ -32,6 +32,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteWithoutFormattingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topmostWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wordWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,9 +42,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteWithoutFormattingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pasteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pasteWithoutFormattingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteWithoutFormattingToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +53,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
-            this.viewToolStripMenuItem});
+            this.viewToolStripMenuItem,
+            this.pasteWithoutFormattingToolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(350, 24);
@@ -72,6 +75,29 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pasteToolStripMenuItem1,
+            this.pasteWithoutFormattingToolStripMenuItem1});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // pasteToolStripMenuItem1
+            // 
+            this.pasteToolStripMenuItem1.Name = "pasteToolStripMenuItem1";
+            this.pasteToolStripMenuItem1.Size = new System.Drawing.Size(206, 22);
+            this.pasteToolStripMenuItem1.Text = "Paste";
+            this.pasteToolStripMenuItem1.Click += new System.EventHandler(this.pasteToolStripMenuItem1_Click);
+            // 
+            // pasteWithoutFormattingToolStripMenuItem1
+            // 
+            this.pasteWithoutFormattingToolStripMenuItem1.Name = "pasteWithoutFormattingToolStripMenuItem1";
+            this.pasteWithoutFormattingToolStripMenuItem1.Size = new System.Drawing.Size(206, 22);
+            this.pasteWithoutFormattingToolStripMenuItem1.Text = "Paste without formatting";
+            this.pasteWithoutFormattingToolStripMenuItem1.Click += new System.EventHandler(this.pasteWithoutFormattingToolStripMenuItem1_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -134,28 +160,13 @@
             this.pasteWithoutFormattingToolStripMenuItem.Text = "Paste without formatting";
             this.pasteWithoutFormattingToolStripMenuItem.Click += new System.EventHandler(this.pasteWithoutFormattingToolStripMenuItem_Click);
             // 
-            // editToolStripMenuItem
+            // pasteWithoutFormattingToolStripMenuItem2
             // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pasteToolStripMenuItem1,
-            this.pasteWithoutFormattingToolStripMenuItem1});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // pasteToolStripMenuItem1
-            // 
-            this.pasteToolStripMenuItem1.Name = "pasteToolStripMenuItem1";
-            this.pasteToolStripMenuItem1.Size = new System.Drawing.Size(206, 22);
-            this.pasteToolStripMenuItem1.Text = "Paste";
-            this.pasteToolStripMenuItem1.Click += new System.EventHandler(this.pasteToolStripMenuItem1_Click);
-            // 
-            // pasteWithoutFormattingToolStripMenuItem1
-            // 
-            this.pasteWithoutFormattingToolStripMenuItem1.Name = "pasteWithoutFormattingToolStripMenuItem1";
-            this.pasteWithoutFormattingToolStripMenuItem1.Size = new System.Drawing.Size(206, 22);
-            this.pasteWithoutFormattingToolStripMenuItem1.Text = "Paste without formatting";
-            this.pasteWithoutFormattingToolStripMenuItem1.Click += new System.EventHandler(this.pasteWithoutFormattingToolStripMenuItem1_Click);
+            this.pasteWithoutFormattingToolStripMenuItem2.Image = global::WindowsManipulations.Properties.Resources.Editing_Paste_icon;
+            this.pasteWithoutFormattingToolStripMenuItem2.Name = "pasteWithoutFormattingToolStripMenuItem2";
+            this.pasteWithoutFormattingToolStripMenuItem2.Size = new System.Drawing.Size(28, 20);
+            this.pasteWithoutFormattingToolStripMenuItem2.ToolTipText = "Paste without formatting";
+            this.pasteWithoutFormattingToolStripMenuItem2.Click += new System.EventHandler(this.pasteWithoutFormattingToolStripMenuItem2_Click);
             // 
             // NotesForm
             // 
@@ -192,5 +203,7 @@
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pasteWithoutFormattingToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem pasteWithoutFormattingToolStripMenuItem2;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

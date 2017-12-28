@@ -71,6 +71,11 @@ namespace WindowsManipulations
             PasteWithoutFormatting();
         }
 
+        private void pasteWithoutFormattingToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            PasteWithoutFormatting();
+        }
+
         #endregion
 
 

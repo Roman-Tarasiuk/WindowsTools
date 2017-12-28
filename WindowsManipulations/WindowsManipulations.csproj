@@ -246,6 +246,7 @@
     <None Include="Resources\clear.png" />
     <None Include="Resources\Actions-edit-paste-icon.png" />
     <None Include="Resources\compare.png" />
+    <None Include="Resources\Editing-Paste-icon.png" />
     <Content Include="taskmgr_icon.png.ico" />
   </ItemGroup>
   <ItemGroup>
