@@ -12,6 +12,8 @@ namespace WindowsManipulations
 {
     public partial class NotesForm : Form
     {
+        private bool m_MainMenuIsVisible = true;
+
         public NotesForm()
         {
             InitializeComponent();
@@ -76,6 +78,16 @@ namespace WindowsManipulations
             PasteWithoutFormatting();
         }
 
+        private void hideMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HideShowMainMenu();
+        }
+
+        private void selectionFontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetSelectionFont();
+        }
+
         #endregion
 
 
@@ -90,6 +102,43 @@ namespace WindowsManipulations
         {
             var txt = Clipboard.GetText();
             richTextBox1.SelectedText = txt;
+        }
+
+        private void HideShowMainMenu()
+        {
+            var currentEditorSize = richTextBox1.Size;
+            var menuDefaultHeight = 27;
+
+            if (m_MainMenuIsVisible)
+            {
+                menuStrip1.Hide();
+                richTextBox1.Location = new Point(0, 0);
+                richTextBox1.Size = new Size(currentEditorSize.Width, currentEditorSize.Height + menuDefaultHeight);
+                hideMainMenuToolStripMenuItem.Text = "Show main menu";
+                m_MainMenuIsVisible = false;
+            }
+            else
+            {
+                menuStrip1.Show();
+                richTextBox1.Location = new Point(0, 27);
+                richTextBox1.Size = new Size(currentEditorSize.Width, currentEditorSize.Height - menuDefaultHeight);
+                hideMainMenuToolStripMenuItem.Text = "Hide main menu";
+                m_MainMenuIsVisible = true;
+            }
+        }
+
+        private void SetSelectionFont()
+        {
+            fontDialog1.Font = richTextBox1.SelectionFont;
+            fontDialog1.Color = richTextBox1.SelectionColor;
+
+            var result = fontDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                richTextBox1.SelectionFont = fontDialog1.Font;
+                richTextBox1.SelectionColor = fontDialog1.Color;
+            }
         }
 
         #endregion

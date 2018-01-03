@@ -38,12 +38,16 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topmostWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wordWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteWithoutFormattingToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteWithoutFormattingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pasteWithoutFormattingToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.hideMainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.selectionFontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -124,6 +128,14 @@
             this.wordWrapToolStripMenuItem.Text = "Word wrap";
             this.wordWrapToolStripMenuItem.Click += new System.EventHandler(this.wordWrapToolStripMenuItem_Click);
             // 
+            // pasteWithoutFormattingToolStripMenuItem2
+            // 
+            this.pasteWithoutFormattingToolStripMenuItem2.Image = global::WindowsManipulations.Properties.Resources.Editing_Paste_icon;
+            this.pasteWithoutFormattingToolStripMenuItem2.Name = "pasteWithoutFormattingToolStripMenuItem2";
+            this.pasteWithoutFormattingToolStripMenuItem2.Size = new System.Drawing.Size(28, 20);
+            this.pasteWithoutFormattingToolStripMenuItem2.ToolTipText = "Paste without formatting";
+            this.pasteWithoutFormattingToolStripMenuItem2.Click += new System.EventHandler(this.pasteWithoutFormattingToolStripMenuItem2_Click);
+            // 
             // richTextBox1
             // 
             this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -141,10 +153,13 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hideMainMenuToolStripMenuItem,
+            this.selectionFontToolStripMenuItem,
+            this.toolStripSeparator1,
             this.pasteToolStripMenuItem,
             this.pasteWithoutFormattingToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(207, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(207, 98);
             // 
             // pasteToolStripMenuItem
             // 
@@ -160,13 +175,28 @@
             this.pasteWithoutFormattingToolStripMenuItem.Text = "Paste without formatting";
             this.pasteWithoutFormattingToolStripMenuItem.Click += new System.EventHandler(this.pasteWithoutFormattingToolStripMenuItem_Click);
             // 
-            // pasteWithoutFormattingToolStripMenuItem2
+            // hideMainMenuToolStripMenuItem
             // 
-            this.pasteWithoutFormattingToolStripMenuItem2.Image = global::WindowsManipulations.Properties.Resources.Editing_Paste_icon;
-            this.pasteWithoutFormattingToolStripMenuItem2.Name = "pasteWithoutFormattingToolStripMenuItem2";
-            this.pasteWithoutFormattingToolStripMenuItem2.Size = new System.Drawing.Size(28, 20);
-            this.pasteWithoutFormattingToolStripMenuItem2.ToolTipText = "Paste without formatting";
-            this.pasteWithoutFormattingToolStripMenuItem2.Click += new System.EventHandler(this.pasteWithoutFormattingToolStripMenuItem2_Click);
+            this.hideMainMenuToolStripMenuItem.Name = "hideMainMenuToolStripMenuItem";
+            this.hideMainMenuToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.hideMainMenuToolStripMenuItem.Text = "Hide main menu";
+            this.hideMainMenuToolStripMenuItem.Click += new System.EventHandler(this.hideMainMenuToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(203, 6);
+            // 
+            // selectionFontToolStripMenuItem
+            // 
+            this.selectionFontToolStripMenuItem.Name = "selectionFontToolStripMenuItem";
+            this.selectionFontToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.selectionFontToolStripMenuItem.Text = "Selection font...";
+            this.selectionFontToolStripMenuItem.Click += new System.EventHandler(this.selectionFontToolStripMenuItem_Click);
+            // 
+            // fontDialog1
+            // 
+            this.fontDialog1.ShowColor = true;
             // 
             // NotesForm
             // 
@@ -175,6 +205,7 @@
             this.ClientSize = new System.Drawing.Size(350, 164);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "NotesForm";
             this.ShowInTaskbar = false;
@@ -205,5 +236,9 @@
         private System.Windows.Forms.ToolStripMenuItem pasteWithoutFormattingToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pasteWithoutFormattingToolStripMenuItem2;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolStripMenuItem hideMainMenuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem selectionFontToolStripMenuItem;
+        private System.Windows.Forms.FontDialog fontDialog1;
     }
 }
