@@ -166,6 +166,9 @@
     <EmbeddedResource Include="CompareStringsMainForm.resx">
       <DependentUpon>CompareStringsMainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CompareStringsSettingsForm.resx">
+      <DependentUpon>CompareStringsSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomWindowTitleForm.resx">
       <DependentUpon>CustomWindowTitleForm.cs</DependentUpon>
     </EmbeddedResource>

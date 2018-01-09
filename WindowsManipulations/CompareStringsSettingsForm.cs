@@ -26,6 +26,7 @@ namespace WindowsManipulations
             InitializeComponent();
 
             chkTopmost.Checked = Settings.Topmost;
+            chkIgnoreCase.Checked = Settings.IgnoreCase;
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
@@ -45,6 +46,11 @@ namespace WindowsManipulations
         private void chkTopmost_CheckedChanged(object sender, EventArgs e)
         {
             Settings.Topmost = chkTopmost.Checked;
+        }
+
+        private void chkIgnoreCase_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.IgnoreCase = chkIgnoreCase.Checked;
         }
 
         private void btnOK_Click(object sender, EventArgs e)

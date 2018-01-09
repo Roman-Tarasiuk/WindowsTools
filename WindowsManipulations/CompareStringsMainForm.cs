@@ -15,6 +15,7 @@ namespace WindowsManipulations
     {
         #region Fields
 
+        private int m_PreviousWidth;
         private int m_TextBoxWidhtDifference;
         private CompareStringsSettings m_Settings = new CompareStringsSettings();
 
@@ -26,7 +27,8 @@ namespace WindowsManipulations
         {
             InitializeComponent();
 
-            m_TextBoxWidhtDifference = this.Width - txtText1.Width;
+            m_TextBoxWidhtDifference = txtText1.Width - this.Width;
+            m_PreviousWidth = this.Width;
         }
 
         #endregion
@@ -94,6 +96,7 @@ namespace WindowsManipulations
             txtText1.Width += 200;
             txtText2.Width = txtText1.Width;
             txtCompare.Width = txtText1.Width;
+            m_TextBoxWidhtDifference += 200;
         }
 
         private void btnLengthDown_Click(object sender, EventArgs e)
@@ -101,11 +104,16 @@ namespace WindowsManipulations
             txtText1.Width -= 200;
             txtText2.Width = txtText1.Width;
             txtCompare.Width = txtText1.Width;
+            m_TextBoxWidhtDifference -= 200;
         }
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            txtText1.Width = this.Width - m_TextBoxWidhtDifference;
+            var diff = this.Width - this.m_PreviousWidth;
+            m_TextBoxWidhtDifference -= diff;
+            this.m_PreviousWidth = this.Width;
+
+            txtText1.Width = this.Width + m_TextBoxWidhtDifference;
             txtText2.Width = txtText1.Width;
             txtCompare.Width = txtText1.Width;
         }
@@ -117,16 +125,16 @@ namespace WindowsManipulations
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            var settings = new CompareStringsSettingsForm(m_Settings);
-            settings.SettingsChanged += (ss, ee) =>
+            var settingsForm = new CompareStringsSettingsForm(m_Settings);
+            settingsForm.SettingsChanged += (ss, ee) =>
             {
                 ApplySettings(ee.Settings);
             };
 
-            var result = settings.ShowDialog();
+            var result = settingsForm.ShowDialog();
             if (result == DialogResult.OK)
             {
-                ApplySettings(settings.Settings);
+                ApplySettings(settingsForm.Settings);
             }
         }
 
@@ -151,7 +159,7 @@ namespace WindowsManipulations
                 return;
             }
 
-            if (str1 == str2)
+            if (String.Compare(str1, str2, m_Settings.IgnoreCase) == 0)
             {
                 txtCompare.Text = String.Empty;
                 txtCompare.BackColor = Color.LimeGreen;
@@ -164,7 +172,7 @@ namespace WindowsManipulations
 
             for (var i = 0; i < minLength; i++)
             {
-                if (str1[i] != str2[i])
+                if (String.Compare(new string(str1[i], 1), new string (str2[i], 1), m_Settings.IgnoreCase) != 0)
                 {
                     sb.Append("x");
                 }

@@ -33,6 +33,7 @@
             this.btnHelp = new System.Windows.Forms.Button();
             this.chkTopmost = new System.Windows.Forms.CheckBox();
             this.btnOK = new System.Windows.Forms.Button();
+            this.chkIgnoreCase = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnAply
@@ -68,7 +69,7 @@
             // chkTopmost
             // 
             this.chkTopmost.AutoSize = true;
-            this.chkTopmost.Location = new System.Drawing.Point(12, 12);
+            this.chkTopmost.Location = new System.Drawing.Point(12, 71);
             this.chkTopmost.Name = "chkTopmost";
             this.chkTopmost.Size = new System.Drawing.Size(106, 17);
             this.chkTopmost.TabIndex = 4;
@@ -87,11 +88,23 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // SettingsForm
+            // chkIgnoreCase
+            // 
+            this.chkIgnoreCase.AutoSize = true;
+            this.chkIgnoreCase.Location = new System.Drawing.Point(12, 12);
+            this.chkIgnoreCase.Name = "chkIgnoreCase";
+            this.chkIgnoreCase.Size = new System.Drawing.Size(82, 17);
+            this.chkIgnoreCase.TabIndex = 6;
+            this.chkIgnoreCase.Text = "Ignore case";
+            this.chkIgnoreCase.UseVisualStyleBackColor = true;
+            this.chkIgnoreCase.CheckedChanged += new System.EventHandler(this.chkIgnoreCase_CheckedChanged);
+            // 
+            // CompareStringsSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(343, 141);
+            this.Controls.Add(this.chkIgnoreCase);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.chkTopmost);
             this.Controls.Add(this.btnHelp);
@@ -100,7 +113,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "SettingsForm";
+            this.Name = "CompareStringsSettingsForm";
             this.Text = "Compare Strings Settings";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -113,5 +126,6 @@
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.CheckBox chkTopmost;
         private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.CheckBox chkIgnoreCase;
     }
 }

@@ -11,6 +11,7 @@ namespace WindowsManipulations.Infrastructure
         #region Properties
 
         public bool Topmost { get; set; }
+        public bool IgnoreCase { get; set; }
 
         #endregion
 
