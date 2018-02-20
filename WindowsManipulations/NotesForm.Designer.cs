@@ -41,13 +41,14 @@
             this.pasteWithoutFormattingToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.hideMainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectionFontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteWithoutFormattingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.hideMainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.selectionFontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.hideBorderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -153,13 +154,33 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hideBorderToolStripMenuItem,
             this.hideMainMenuToolStripMenuItem,
             this.selectionFontToolStripMenuItem,
             this.toolStripSeparator1,
             this.pasteToolStripMenuItem,
             this.pasteWithoutFormattingToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(207, 98);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(207, 120);
+            // 
+            // hideMainMenuToolStripMenuItem
+            // 
+            this.hideMainMenuToolStripMenuItem.Name = "hideMainMenuToolStripMenuItem";
+            this.hideMainMenuToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.hideMainMenuToolStripMenuItem.Text = "Hide main menu";
+            this.hideMainMenuToolStripMenuItem.Click += new System.EventHandler(this.hideMainMenuToolStripMenuItem_Click);
+            // 
+            // selectionFontToolStripMenuItem
+            // 
+            this.selectionFontToolStripMenuItem.Name = "selectionFontToolStripMenuItem";
+            this.selectionFontToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.selectionFontToolStripMenuItem.Text = "Selection font...";
+            this.selectionFontToolStripMenuItem.Click += new System.EventHandler(this.selectionFontToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(203, 6);
             // 
             // pasteToolStripMenuItem
             // 
@@ -175,28 +196,16 @@
             this.pasteWithoutFormattingToolStripMenuItem.Text = "Paste without formatting";
             this.pasteWithoutFormattingToolStripMenuItem.Click += new System.EventHandler(this.pasteWithoutFormattingToolStripMenuItem_Click);
             // 
-            // hideMainMenuToolStripMenuItem
-            // 
-            this.hideMainMenuToolStripMenuItem.Name = "hideMainMenuToolStripMenuItem";
-            this.hideMainMenuToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.hideMainMenuToolStripMenuItem.Text = "Hide main menu";
-            this.hideMainMenuToolStripMenuItem.Click += new System.EventHandler(this.hideMainMenuToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(203, 6);
-            // 
-            // selectionFontToolStripMenuItem
-            // 
-            this.selectionFontToolStripMenuItem.Name = "selectionFontToolStripMenuItem";
-            this.selectionFontToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.selectionFontToolStripMenuItem.Text = "Selection font...";
-            this.selectionFontToolStripMenuItem.Click += new System.EventHandler(this.selectionFontToolStripMenuItem_Click);
-            // 
             // fontDialog1
             // 
             this.fontDialog1.ShowColor = true;
+            // 
+            // hideBorderToolStripMenuItem
+            // 
+            this.hideBorderToolStripMenuItem.Name = "hideBorderToolStripMenuItem";
+            this.hideBorderToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.hideBorderToolStripMenuItem.Text = "Hide border";
+            this.hideBorderToolStripMenuItem.Click += new System.EventHandler(this.hideBorderToolStripMenuItem_Click);
             // 
             // NotesForm
             // 
@@ -240,5 +249,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem selectionFontToolStripMenuItem;
         private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.ToolStripMenuItem hideBorderToolStripMenuItem;
     }
 }

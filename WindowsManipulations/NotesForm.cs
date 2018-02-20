@@ -13,6 +13,7 @@ namespace WindowsManipulations
     public partial class NotesForm : Form
     {
         private bool m_MainMenuIsVisible = true;
+        private bool m_BorderIsVisible = true;
 
         public NotesForm()
         {
@@ -86,6 +87,22 @@ namespace WindowsManipulations
         private void selectionFontToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SetSelectionFont();
+        }
+
+        private void hideBorderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (m_BorderIsVisible)
+            {
+                this.FormBorderStyle = FormBorderStyle.None;
+                hideBorderToolStripMenuItem.Text = "Show border";
+                m_BorderIsVisible = false;
+            }
+            else
+            {
+                this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+                hideBorderToolStripMenuItem.Text = "Hide border";
+                m_BorderIsVisible = true;
+            }
         }
 
         #endregion
