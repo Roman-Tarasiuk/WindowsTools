@@ -32,7 +32,6 @@ namespace WindowsManipulations
         private SendCommandsForm m_SendCommandForm;
         private ClipboardManagerForm m_ClipboardManagerForm;
         private CompareStringsMainForm m_CompareStringsForm;
-        private NotesForm m_NotesForm;
 
         private bool m_MouseTrackingStarted = false;
         private bool m_RefreshStarted = false;
@@ -1201,9 +1200,7 @@ namespace WindowsManipulations
 
         private void RunNotes()
         {
-            m_NotesForm = (NotesForm)User32Windows.GetForm(m_NotesForm, typeof(NotesForm));
-
-            User32Windows.ShowForm(m_NotesForm);
+            new NotesForm().Show();
         }
 
         private static void NowToClipblard()
