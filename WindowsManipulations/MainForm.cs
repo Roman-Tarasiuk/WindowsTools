@@ -310,7 +310,7 @@ namespace WindowsManipulations
                 return;
             }
 
-            User32Windows.SendMessage(m_ListedWindows[selected].Handle, User32Windows.WM_CLOSE, 0, null);
+            User32Windows.SendMessage(m_ListedWindows[selected].Handle, User32Windows.WM_CLOSE, IntPtr.Zero, IntPtr.Zero);
 
             this.RefreshWindowsList();
         }
@@ -633,6 +633,11 @@ namespace WindowsManipulations
             NowToClipblard();
         }
 
+        private void powerOffDisplayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PowerOffDisplay();
+        }
+
         // System tray context menu | Miscellaneous
 
         private void clearClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -683,6 +688,11 @@ namespace WindowsManipulations
         private void currentDateAndTimeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             NowToClipblard();
+        }
+
+        private void powerOffDisplayToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            PowerOffDisplay();
         }
 
         // Menu items other than Miscellaneous set above these last 2 groups.
@@ -1273,6 +1283,11 @@ namespace WindowsManipulations
             lstWindowsList.Items.Insert(m_ListedWindows.Count - 1, String.Format("{0,10} : {1}", selectedWindow.Handle, selectedWindow.Title), selectedWindow.Handle.ToString());
 
             User32Windows.ShowWindow(selectedWindow.Handle, User32Windows.SW_SHOW);
+        }
+
+        private void PowerOffDisplay()
+        {
+            User32Windows.SendMessage(User32Windows.HWND_BROADCAST, User32Windows.WM_SYSCOMMAND, User32Windows.SC_MONITORPOWER, User32Windows.LParamDisplayShutOff);
         }
 
         #endregion

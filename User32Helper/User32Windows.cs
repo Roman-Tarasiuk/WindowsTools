@@ -82,7 +82,7 @@ namespace User32Helper
             IntPtr lParam);
 
         [DllImport("User32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int uMsg, int wParam, string lParam);
+        public static extern int SendMessage(IntPtr hWnd, int uMsg, IntPtr wParam, IntPtr lParam);
 
         [DllImport("user32.dll")]
         public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
@@ -137,6 +137,8 @@ namespace User32Helper
         public const int HWND_TOP = 0;
         public const int HWND_TOPMOST = -1;
 
+        public static IntPtr HWND_BROADCAST = (IntPtr)0xffff;
+
         public const int SWP_ASYNCWINDOWPOS = 0x4000;
         public const int SWP_DEFERERASE = 0x2000;
         public const int SWP_DRAWFRAME = 0x0020;
@@ -163,8 +165,16 @@ namespace User32Helper
         public const int WM_NCPAINT = 0x85;
         public const int WM_HOTKEY = 0x0312;
 
+        public const int WM_SYSCOMMAND = 0x0112;
+
+        public static IntPtr SC_MONITORPOWER = (IntPtr)0xF170;
+
         public const int VK_OEM_3 = 0xC0;
         public const int MOD_CONTROL = 0x0002;
+
+        public static IntPtr LParamDisplayLowPower = (IntPtr)1;
+        public static IntPtr LParamDisplayShutOff = (IntPtr)2;
+        public static IntPtr LParamDisplayTurnOn = (IntPtr)(-1);
 
         public static List<DesktopWindow> GetDesktopWindows(bool visibleOnly = true)
         {
