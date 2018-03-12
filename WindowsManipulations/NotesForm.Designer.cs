@@ -41,6 +41,7 @@
             this.pasteWithoutFormattingToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.hideBorderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideMainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectionFontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -48,7 +49,9 @@
             this.pasteWithoutFormattingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.hideBorderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +62,8 @@
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
             this.viewToolStripMenuItem,
-            this.pasteWithoutFormattingToolStripMenuItem2});
+            this.pasteWithoutFormattingToolStripMenuItem2,
+            this.clearToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(350, 24);
@@ -85,7 +89,8 @@
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pasteToolStripMenuItem1,
-            this.pasteWithoutFormattingToolStripMenuItem1});
+            this.pasteWithoutFormattingToolStripMenuItem1,
+            this.clearToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -99,6 +104,7 @@
             // 
             // pasteWithoutFormattingToolStripMenuItem1
             // 
+            this.pasteWithoutFormattingToolStripMenuItem1.Image = global::WindowsManipulations.Properties.Resources.Editing_Paste_icon;
             this.pasteWithoutFormattingToolStripMenuItem1.Name = "pasteWithoutFormattingToolStripMenuItem1";
             this.pasteWithoutFormattingToolStripMenuItem1.Size = new System.Drawing.Size(206, 22);
             this.pasteWithoutFormattingToolStripMenuItem1.Text = "Paste without formatting";
@@ -159,9 +165,17 @@
             this.selectionFontToolStripMenuItem,
             this.toolStripSeparator1,
             this.pasteToolStripMenuItem,
-            this.pasteWithoutFormattingToolStripMenuItem});
+            this.pasteWithoutFormattingToolStripMenuItem,
+            this.clearToolStripMenuItem2});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(207, 120);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(207, 164);
+            // 
+            // hideBorderToolStripMenuItem
+            // 
+            this.hideBorderToolStripMenuItem.Name = "hideBorderToolStripMenuItem";
+            this.hideBorderToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.hideBorderToolStripMenuItem.Text = "Hide border";
+            this.hideBorderToolStripMenuItem.Click += new System.EventHandler(this.hideBorderToolStripMenuItem_Click);
             // 
             // hideMainMenuToolStripMenuItem
             // 
@@ -200,12 +214,26 @@
             // 
             this.fontDialog1.ShowColor = true;
             // 
-            // hideBorderToolStripMenuItem
+            // clearToolStripMenuItem
             // 
-            this.hideBorderToolStripMenuItem.Name = "hideBorderToolStripMenuItem";
-            this.hideBorderToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.hideBorderToolStripMenuItem.Text = "Hide border";
-            this.hideBorderToolStripMenuItem.Click += new System.EventHandler(this.hideBorderToolStripMenuItem_Click);
+            this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.clearToolStripMenuItem.Text = "Clear";
+            this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
+            // 
+            // clearToolStripMenuItem1
+            // 
+            this.clearToolStripMenuItem1.Image = global::WindowsManipulations.Properties.Resources.clear;
+            this.clearToolStripMenuItem1.Name = "clearToolStripMenuItem1";
+            this.clearToolStripMenuItem1.Size = new System.Drawing.Size(28, 20);
+            this.clearToolStripMenuItem1.Click += new System.EventHandler(this.clearToolStripMenuItem1_Click);
+            // 
+            // clearToolStripMenuItem2
+            // 
+            this.clearToolStripMenuItem2.Name = "clearToolStripMenuItem2";
+            this.clearToolStripMenuItem2.Size = new System.Drawing.Size(206, 22);
+            this.clearToolStripMenuItem2.Text = "Clear";
+            this.clearToolStripMenuItem2.Click += new System.EventHandler(this.clearToolStripMenuItem2_Click);
             // 
             // NotesForm
             // 
@@ -250,5 +278,8 @@
         private System.Windows.Forms.ToolStripMenuItem selectionFontToolStripMenuItem;
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.ToolStripMenuItem hideBorderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem2;
     }
 }

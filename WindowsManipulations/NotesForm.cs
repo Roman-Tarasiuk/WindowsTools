@@ -105,6 +105,21 @@ namespace WindowsManipulations
             }
         }
 
+        private void clearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClearNotes();
+        }
+
+        private void clearToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ClearNotes();
+        }
+
+        private void clearToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            ClearNotes();
+        }
+
         #endregion
 
 
@@ -156,6 +171,11 @@ namespace WindowsManipulations
                 richTextBox1.SelectionFont = fontDialog1.Font;
                 richTextBox1.SelectionColor = fontDialog1.Color;
             }
+        }
+
+        private void ClearNotes()
+        {
+            this.richTextBox1.Clear();
         }
 
         #endregion
