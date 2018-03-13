@@ -81,7 +81,7 @@ namespace WindowsManipulations
 
         private void hideMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HideShowMainMenu();
+            ToggleMainMenu();
         }
 
         private void selectionFontToolStripMenuItem_Click(object sender, EventArgs e)
@@ -94,13 +94,13 @@ namespace WindowsManipulations
             if (m_BorderIsVisible)
             {
                 this.FormBorderStyle = FormBorderStyle.None;
-                hideBorderToolStripMenuItem.Text = "Show border";
+                hideBorderToolStripMenuItem.Checked = false;
                 m_BorderIsVisible = false;
             }
             else
             {
                 this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
-                hideBorderToolStripMenuItem.Text = "Hide border";
+                hideBorderToolStripMenuItem.Checked = true;
                 m_BorderIsVisible = true;
             }
         }
@@ -136,7 +136,7 @@ namespace WindowsManipulations
             richTextBox1.SelectedText = txt;
         }
 
-        private void HideShowMainMenu()
+        private void ToggleMainMenu()
         {
             var currentEditorSize = richTextBox1.Size;
             var menuDefaultHeight = 27;
@@ -145,16 +145,18 @@ namespace WindowsManipulations
             {
                 menuStrip1.Hide();
                 richTextBox1.Location = new Point(0, 0);
-                richTextBox1.Size = new Size(currentEditorSize.Width, currentEditorSize.Height + menuDefaultHeight);
-                hideMainMenuToolStripMenuItem.Text = "Show main menu";
+                this.Size = new Size(this.Size.Width, this.Size.Height - menuDefaultHeight);
+                richTextBox1.Size = currentEditorSize;
+                hideMainMenuToolStripMenuItem.Checked = false;
                 m_MainMenuIsVisible = false;
             }
             else
             {
                 menuStrip1.Show();
                 richTextBox1.Location = new Point(0, 27);
-                richTextBox1.Size = new Size(currentEditorSize.Width, currentEditorSize.Height - menuDefaultHeight);
-                hideMainMenuToolStripMenuItem.Text = "Hide main menu";
+                this.Size = new Size(this.Size.Width, this.Size.Height + menuDefaultHeight);
+                richTextBox1.Size = currentEditorSize;
+                hideMainMenuToolStripMenuItem.Checked = true;
                 m_MainMenuIsVisible = true;
             }
         }

@@ -168,20 +168,24 @@
             this.pasteWithoutFormattingToolStripMenuItem,
             this.clearToolStripMenuItem2});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(207, 164);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(207, 142);
             // 
             // hideBorderToolStripMenuItem
             // 
+            this.hideBorderToolStripMenuItem.Checked = true;
+            this.hideBorderToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.hideBorderToolStripMenuItem.Name = "hideBorderToolStripMenuItem";
             this.hideBorderToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.hideBorderToolStripMenuItem.Text = "Hide border";
+            this.hideBorderToolStripMenuItem.Text = "Show border";
             this.hideBorderToolStripMenuItem.Click += new System.EventHandler(this.hideBorderToolStripMenuItem_Click);
             // 
             // hideMainMenuToolStripMenuItem
             // 
+            this.hideMainMenuToolStripMenuItem.Checked = true;
+            this.hideMainMenuToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.hideMainMenuToolStripMenuItem.Name = "hideMainMenuToolStripMenuItem";
             this.hideMainMenuToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.hideMainMenuToolStripMenuItem.Text = "Hide main menu";
+            this.hideMainMenuToolStripMenuItem.Text = "Show main menu";
             this.hideMainMenuToolStripMenuItem.Click += new System.EventHandler(this.hideMainMenuToolStripMenuItem_Click);
             // 
             // selectionFontToolStripMenuItem
