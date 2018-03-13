@@ -310,7 +310,7 @@ namespace WindowsManipulations
                 return;
             }
 
-            User32Windows.SendMessage(m_ListedWindows[selected].Handle, User32Windows.WM_CLOSE, IntPtr.Zero, IntPtr.Zero);
+            User32Windows.PostMessage(m_ListedWindows[selected].Handle, User32Windows.WM_CLOSE, 0, 0);
 
             this.RefreshWindowsList();
         }
@@ -1287,7 +1287,7 @@ namespace WindowsManipulations
 
         private void PowerOffDisplay()
         {
-            User32Windows.SendMessage(User32Windows.HWND_BROADCAST, User32Windows.WM_SYSCOMMAND, User32Windows.SC_MONITORPOWER, User32Windows.LParamDisplayShutOff);
+            User32Windows.PostMessage(User32Windows.HWND_BROADCAST, User32Windows.WM_SYSCOMMAND, User32Windows.SC_MONITORPOWER, User32Windows.LParamDisplayShutOff);
         }
 
         #endregion
