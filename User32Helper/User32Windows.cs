@@ -135,6 +135,9 @@ namespace User32Helper
         [DllImport("user32")]
         public static extern void RegisterHotKey(IntPtr hwnd, int id, int modifiers, int vk);
 
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetNextWindow(IntPtr hWnd, int wCmd);
+
         public const int HWND_BOTTOM = 1;
         public const int HWND_NOTOPMOST = -2;
         public const int HWND_TOP = 0;
@@ -179,22 +182,26 @@ namespace User32Helper
         public static int LParamDisplayShutOff = 2;
         public static int LParamDisplayTurnOn = -1;
 
+        public const int GW_HWNDNEXT = 2;
+        public const int GW_HWNDPREV = 3;
+
         public static List<DesktopWindow> GetDesktopWindows(bool visibleOnly = true)
         {
             var collection = new List<DesktopWindow>();
 
             EnumDelegate filter = delegate (IntPtr hWnd, int lParam)
             {
-                var result = new StringBuilder(255);
-                GetWindowText(hWnd, result, result.Capacity + 1);
-                string title = result.ToString();
+                Tuple<bool, string> isVisibleAndHasTitle = WindowVisibilityAndTitle(hWnd);
 
-                var isVisible = !string.IsNullOrEmpty(title) && IsWindowVisible(hWnd);
+                var isVisible = isVisibleAndHasTitle.Item1;
 
                 if (visibleOnly && (!isVisible))
                 {
+                    // Current window does not match, continue enumeration.
                     return true;
                 }
+
+                var title = isVisibleAndHasTitle.Item2;
 
                 Icon icon = null;
                 try
@@ -214,7 +221,19 @@ namespace User32Helper
             };
 
             EnumDesktopWindows(IntPtr.Zero, filter, IntPtr.Zero);
+
             return collection;
+        }
+
+        public static Tuple<bool, string> WindowVisibilityAndTitle(IntPtr hWnd)
+        {
+            var titleSB = new StringBuilder(255);
+            GetWindowText(hWnd, titleSB, titleSB.Capacity + 1);
+            string title = titleSB.ToString();
+
+            var isVisible = (!string.IsNullOrEmpty(title)) && IsWindowVisible(hWnd);
+
+            return new Tuple<bool, string>(isVisible, title);
         }
 
         public static void ShowForm(Form form)

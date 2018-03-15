@@ -37,6 +37,8 @@ namespace WindowsManipulations
         private bool m_RefreshStarted = false;
         private bool m_NeedRefresh = false;
         private bool m_EnableRestore = true;
+        private bool m_PasswordsListRefreshed = false;
+        private bool m_RebuldPasswordMenu = true;
 
         static readonly TimeSpan defaultWrongPassDelay = new TimeSpan(0, 0, 0, 0, 5000);
         private TimeSpan m_PinTimeSpan = MainForm.defaultWrongPassDelay;
@@ -45,6 +47,8 @@ namespace WindowsManipulations
         private Point m_ScreenSaverRunCursorPosition;
 
         MyScreenSaverHooker m_Hook;
+
+        private Point m_LastContextMenuCursorPosition;
 
         #endregion
 
@@ -156,8 +160,7 @@ namespace WindowsManipulations
 
         private void notifyIcon1_Click(object sender, EventArgs e)
         {
-            MethodInfo mi = typeof(NotifyIcon).GetMethod("ShowContextMenu", BindingFlags.Instance | BindingFlags.NonPublic);
-            mi.Invoke(notifyIcon1, null);
+            ShowMenu();
         }
 
         private void moveWindowToolStripMenuItem_Click(object sender, EventArgs e)
@@ -558,6 +561,7 @@ namespace WindowsManipulations
 
         private void contextMenuStripSysTray_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            m_LastContextMenuCursorPosition = Cursor.Position;
             BuildPasswordsList();
         }
 
@@ -638,6 +642,11 @@ namespace WindowsManipulations
             PowerOffDisplay();
         }
 
+        private void powerOffDisplayAndLockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PowerOffDisplayAndLock();
+        }
+
         // System tray context menu | Miscellaneous
 
         private void clearClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -693,6 +702,11 @@ namespace WindowsManipulations
         private void powerOffDisplayToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             PowerOffDisplay();
+        }
+
+        private void powerOffDisplayAndLockToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            PowerOffDisplayAndLock();
         }
 
         // Menu items other than Miscellaneous set above these last 2 groups.
@@ -1148,15 +1162,29 @@ namespace WindowsManipulations
             Clipboard.SetText(encodedText.Replace("%20", " "));
         }
 
+        private string TrimMenuItem(string text)
+        {
+            var maxLength = 50;
+
+            return text.Length > maxLength ? text.Substring(0, maxLength - 3) + "..." : text;
+        }
+
         private void BuildPasswordsList()
         {
-            var passMenu = passwordsToolStripMenuItem1.DropDownItems;
-            passMenu.Clear();
-
             if (m_PasswordForm == null || m_PasswordForm.IsDisposed)
             {
                 return;
             }
+
+            var passMenu = passwordsToolStripMenuItem1.DropDownItems;
+
+            if (!m_RebuldPasswordMenu)
+            {
+                ((ToolStripMenuItem)passMenu[0]).Checked = m_PasswordsListRefreshed;
+                return;
+            }
+
+            passMenu.Clear();
 
             var passwordList = m_PasswordForm.PasswordsRepresentation;
 
@@ -1165,22 +1193,54 @@ namespace WindowsManipulations
                 return;
             }
 
-            var count = 0;
+            this.SuspendLayout();
 
+            //passMenu.Add("Refresh windows list");
+            passMenu.Add(this.TrimMenuItem(m_PasswordForm.GetLastActiveWindow().Title));
+            passMenu[0].Image = global::WindowsManipulations.Properties.Resources.refresh_16;
+            passMenu[0].Click += (sender, e) =>
+            {
+                if (m_PasswordForm != null && !m_PasswordForm.IsDisposed)
+                {
+                    // Refreshing the list.
+                    m_PasswordForm.RefreshRunningWindowsList();
+                    m_PasswordsListRefreshed = true;
+
+                    // After click, the menu item state must be changed to checked, displaying the menu again.
+                    var lastRefreshItemCursorPosition = Cursor.Position;
+                    Cursor.Position = m_LastContextMenuCursorPosition;
+                    passMenu[0].Text = this.TrimMenuItem(m_PasswordForm.GetLastActiveWindow().Title);
+                    m_RebuldPasswordMenu = false;
+                    ShowMenu();
+                    m_RebuldPasswordMenu = true;
+                    passwordsToolStripMenuItem1.ShowDropDown();
+                    Cursor.Position = lastRefreshItemCursorPosition;
+                }
+            };
+            ((ToolStripMenuItem)passMenu[0]).Checked = m_PasswordsListRefreshed;
+
+            passMenu.Add(new ToolStripSeparator());
+
+            var count = 2;
             foreach (var p in passwordList)
             {
                 var index = count++;
-                passMenu.Add(p);
+
+                var menuText = this.TrimMenuItem(p);
+                ToolStripMenuItem menuItem = new ToolStripMenuItem(menuText);
+
+                passMenu.Add(menuItem);
                 passMenu[index].Click += (sender, e) =>
                     {
-                        m_PasswordForm.CopyPasswordToClipboard(index);
+                        // index - 2 because 0th menu item is used
+                        // by "Refresh windows list" item and separator.
+                        m_PasswordForm.CopyPasswordToClipboard(index - 2);
+
+                        m_PasswordsListRefreshed = false;
                     };
             }
-        }
 
-        private void MainForm_Click(object sender, EventArgs e)
-        {
-            //var item = (ToolStripMenuItem)sender;
+            this.ResumeLayout();
         }
 
         private void ReplaceRNToSpace()
@@ -1288,6 +1348,18 @@ namespace WindowsManipulations
         private void PowerOffDisplay()
         {
             User32Windows.PostMessage(User32Windows.HWND_BROADCAST, User32Windows.WM_SYSCOMMAND, User32Windows.SC_MONITORPOWER, User32Windows.LParamDisplayShutOff);
+        }
+
+        private void PowerOffDisplayAndLock()
+        {
+            User32Windows.PostMessage(User32Windows.HWND_BROADCAST, User32Windows.WM_SYSCOMMAND, User32Windows.SC_MONITORPOWER, User32Windows.LParamDisplayShutOff);
+            User32Windows.LockWorkStation();
+        }
+
+        private void ShowMenu()
+        {
+            MethodInfo mi = typeof(NotifyIcon).GetMethod("ShowContextMenu", BindingFlags.Instance | BindingFlags.NonPublic);
+            mi.Invoke(notifyIcon1, null);
         }
 
         #endregion

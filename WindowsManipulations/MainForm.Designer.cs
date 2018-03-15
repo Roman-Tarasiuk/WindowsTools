@@ -62,6 +62,7 @@
             this.viewSystemClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.powerOffDisplayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.powerOffDisplayAndLockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compareStringsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -103,6 +104,7 @@
             this.viewSystemClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.powerOffDisplayToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.powerOffDisplayAndLockToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.compareStringsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -180,7 +182,7 @@
             // 
             this.taskListToolStripMenuItem.Name = "taskListToolStripMenuItem";
             this.taskListToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.taskListToolStripMenuItem.Text = "Task list...";
+            this.taskListToolStripMenuItem.Text = "Running apps list...";
             this.taskListToolStripMenuItem.Click += new System.EventHandler(this.taskListToolStripMenuItem_Click);
             // 
             // trackTitleToolStripMenuItem
@@ -309,6 +311,7 @@
             this.viewSystemClipboardToolStripMenuItem,
             this.toolStripSeparator,
             this.powerOffDisplayToolStripMenuItem,
+            this.powerOffDisplayAndLockToolStripMenuItem,
             this.compareStringsToolStripMenuItem,
             this.notesToolStripMenuItem});
             this.miscellaneousToolStripMenuItem1.Name = "miscellaneousToolStripMenuItem1";
@@ -383,6 +386,13 @@
             this.powerOffDisplayToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.powerOffDisplayToolStripMenuItem.Text = "Power off display";
             this.powerOffDisplayToolStripMenuItem.Click += new System.EventHandler(this.powerOffDisplayToolStripMenuItem_Click);
+            // 
+            // powerOffDisplayAndLockToolStripMenuItem
+            // 
+            this.powerOffDisplayAndLockToolStripMenuItem.Name = "powerOffDisplayAndLockToolStripMenuItem";
+            this.powerOffDisplayAndLockToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.powerOffDisplayAndLockToolStripMenuItem.Text = "Power off display and lock";
+            this.powerOffDisplayAndLockToolStripMenuItem.Click += new System.EventHandler(this.powerOffDisplayAndLockToolStripMenuItem_Click);
             // 
             // compareStringsToolStripMenuItem
             // 
@@ -642,6 +652,7 @@
             this.viewSystemClipboardToolStripMenuItem1,
             this.toolStripSeparator1,
             this.powerOffDisplayToolStripMenuItem1,
+            this.powerOffDisplayAndLockToolStripMenuItem1,
             this.compareStringsToolStripMenuItem1,
             this.notesToolStripMenuItem1});
             this.miscellaneousToolStripMenuItem.Image = global::WindowsManipulations.Properties.Resources.miscellaneous_icon1;
@@ -717,6 +728,13 @@
             this.powerOffDisplayToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
             this.powerOffDisplayToolStripMenuItem1.Text = "Power off display";
             this.powerOffDisplayToolStripMenuItem1.Click += new System.EventHandler(this.powerOffDisplayToolStripMenuItem1_Click);
+            // 
+            // powerOffDisplayAndLockToolStripMenuItem1
+            // 
+            this.powerOffDisplayAndLockToolStripMenuItem1.Name = "powerOffDisplayAndLockToolStripMenuItem1";
+            this.powerOffDisplayAndLockToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.powerOffDisplayAndLockToolStripMenuItem1.Text = "Power off display and lock";
+            this.powerOffDisplayAndLockToolStripMenuItem1.Click += new System.EventHandler(this.powerOffDisplayAndLockToolStripMenuItem1_Click);
             // 
             // compareStringsToolStripMenuItem1
             // 
@@ -974,5 +992,7 @@
         private System.Windows.Forms.ToolStripMenuItem trackTitleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem powerOffDisplayToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem powerOffDisplayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem powerOffDisplayAndLockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem powerOffDisplayAndLockToolStripMenuItem1;
     }
 }

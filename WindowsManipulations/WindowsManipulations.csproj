@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FC37CC91-613E-49AE-9103-79F18A466ACC}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WindowsManipulations</RootNamespace>
     <AssemblyName>WindowsManipulations</AssemblyName>
@@ -250,16 +250,15 @@
     <None Include="Resources\Actions-edit-paste-icon.png" />
     <None Include="Resources\compare.png" />
     <None Include="Resources\Editing-Paste-icon.png" />
+    <None Include="Resources\refresh.ico" />
+    <None Include="Resources\refresh-16.ico" />
+    <None Include="Resources\refresh-16.png" />
     <Content Include="taskmgr_icon.png.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\User32Helper\User32Helper.csproj">
       <Project>{f76dfe47-a3cc-4257-9772-83c60d8292d8}</Project>
       <Name>User32Helper</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WindowsInput\WindowsInput.csproj">
-      <Project>{3549cd6f-80f8-450f-b99e-cf0a736b1f2a}</Project>
-      <Name>WindowsInput</Name>
     </ProjectReference>
     <ProjectReference Include="..\WindowsManipulations.Infrastructure\WindowsManipulations.Infrastructure.csproj">
       <Project>{d170931a-64ab-41e6-a1a2-19fbccd0d5a5}</Project>

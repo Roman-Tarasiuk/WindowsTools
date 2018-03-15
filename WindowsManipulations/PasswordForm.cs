@@ -31,12 +31,15 @@ namespace WindowsManipulations
 
         private List<String> m_PasswordRepresentation = new List<string>();
 
+        private List<DesktopWindow> m_RunningWindows;
+
         #endregion
 
 
         #region Public Properties and Methods
 
-        public List<String> PasswordsRepresentation {
+        public List<String> PasswordsRepresentation
+        {
             get
             {
                 bool refresh = false;
@@ -55,7 +58,7 @@ namespace WindowsManipulations
                 {
                     m_PasswordRepresentation.Clear();
 
-                    foreach(var p in m_Passwords)
+                    foreach (var p in m_Passwords)
                     {
                         m_PasswordRepresentation.Add(p.Description + (p.Public ? " : " + p.Password : " : *******"));
                     }
@@ -135,6 +138,46 @@ namespace WindowsManipulations
             Clipboard.SetText(m_Passwords[index].Password);
 
             ActivatePreviousWindow();
+        }
+
+        public void RefreshRunningWindowsList()
+        {
+            m_RunningWindows = User32Windows.GetDesktopWindows();
+        }
+
+        public DesktopWindow GetLastActiveWindow()
+        {
+            if (m_RunningWindows == null)
+            {
+                RefreshRunningWindowsList();
+            }
+
+            int thisProcessId, tmpProcessId;
+
+            User32Windows.GetWindowThreadProcessId(this.Handle, out thisProcessId);
+
+            Console.WriteLine(DateTime.Now);
+            Console.WriteLine("This procId: {0}", thisProcessId);
+
+            foreach (var window in m_RunningWindows)
+            {
+                var tmp = User32Windows.WindowVisibilityAndTitle(window.Handle);
+                var title = tmp.Item2;
+
+                User32Windows.GetWindowThreadProcessId(window.Handle, out tmpProcessId);
+
+                Console.WriteLine("wnd  procId: {0}, {1}", tmpProcessId, tmp.Item2);
+
+                if ((tmpProcessId != thisProcessId) &&
+                    (title != "Пуск" &&
+                     title != "Program Manager" &&
+                     title != "Windows Shell Experience Host"))
+                {
+                    return window;
+                }
+            }
+
+            return null;
         }
 
         #endregion
@@ -408,20 +451,25 @@ namespace WindowsManipulations
 
         private void ActivatePreviousWindow()
         {
-            var visibleWindows = User32Windows.GetDesktopWindows();
+            if (m_RunningWindows == null)
+            {
+                RefreshRunningWindowsList();
+            }
 
-            if (visibleWindows.Count >= 2)
+            if (m_RunningWindows.Count >= 2)
             {
                 IntPtr handle = IntPtr.Zero;
 
-                if (visibleWindows[1].Title != "Password Manager")
-                {
-                    handle = visibleWindows[1].Handle;
-                }
-                else if (visibleWindows.Count >= 3)
-                {
-                    handle = visibleWindows[2].Handle;
-                }
+                // if (m_RunningWindows[1].Title != "Password Manager")
+                // {
+                //     handle = m_RunningWindows[1].Handle;
+                // }
+                // else if (m_RunningWindows.Count >= 3)
+                // {
+                //     handle = m_RunningWindows[2].Handle;
+                // }
+
+                handle = GetLastActiveWindow().Handle;
 
                 User32Windows.SetForegroundWindow(handle);
             }

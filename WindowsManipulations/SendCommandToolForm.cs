@@ -11,7 +11,6 @@ using System.Windows.Forms;
 
 using User32Helper;
 using WindowsManipulations.Infrastructure;
-using WindowsInput;
 
 namespace WindowsManipulations
 {
