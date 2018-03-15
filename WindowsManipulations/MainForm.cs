@@ -1180,7 +1180,6 @@ namespace WindowsManipulations
 
             if (!m_RebuldPasswordMenu)
             {
-                ((ToolStripMenuItem)passMenu[0]).Checked = m_PasswordsListRefreshed;
                 return;
             }
 
@@ -1205,6 +1204,8 @@ namespace WindowsManipulations
                     // Refreshing the list.
                     m_PasswordForm.RefreshRunningWindowsList();
                     m_PasswordsListRefreshed = true;
+                    ((ToolStripMenuItem)passMenu[0]).Checked = m_PasswordsListRefreshed;
+                    passMenu[0].Image = global::WindowsManipulations.Properties.Resources.refresh_16_green;
 
                     // After click, the menu item state must be changed to checked, displaying the menu again.
                     var lastRefreshItemCursorPosition = Cursor.Position;

@@ -163,6 +163,16 @@ namespace WindowsManipulations.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap refresh_16_green {
+            get {
+                object obj = ResourceManager.GetObject("refresh_16_green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wrench_flat {
             get {
                 object obj = ResourceManager.GetObject("wrench-flat", resourceCulture);

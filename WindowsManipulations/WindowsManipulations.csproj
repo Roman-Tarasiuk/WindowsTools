@@ -251,6 +251,7 @@
     <None Include="Resources\compare.png" />
     <None Include="Resources\Editing-Paste-icon.png" />
     <None Include="Resources\refresh-16.png" />
+    <None Include="Resources\refresh-16-green.png" />
     <Content Include="taskmgr_icon.png.ico" />
   </ItemGroup>
   <ItemGroup>
