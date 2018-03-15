@@ -156,17 +156,12 @@ namespace WindowsManipulations
 
             User32Windows.GetWindowThreadProcessId(this.Handle, out thisProcessId);
 
-            Console.WriteLine(DateTime.Now);
-            Console.WriteLine("This procId: {0}", thisProcessId);
-
             foreach (var window in m_RunningWindows)
             {
                 var tmp = User32Windows.WindowVisibilityAndTitle(window.Handle);
                 var title = tmp.Item2;
 
                 User32Windows.GetWindowThreadProcessId(window.Handle, out tmpProcessId);
-
-                Console.WriteLine("wnd  procId: {0}, {1}", tmpProcessId, tmp.Item2);
 
                 if ((tmpProcessId != thisProcessId) &&
                     (title != "Пуск" &&

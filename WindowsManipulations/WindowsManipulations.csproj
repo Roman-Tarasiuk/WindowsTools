@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FC37CC91-613E-49AE-9103-79F18A466ACC}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WindowsManipulations</RootNamespace>
     <AssemblyName>WindowsManipulations</AssemblyName>
@@ -250,8 +250,6 @@
     <None Include="Resources\Actions-edit-paste-icon.png" />
     <None Include="Resources\compare.png" />
     <None Include="Resources\Editing-Paste-icon.png" />
-    <None Include="Resources\refresh.ico" />
-    <None Include="Resources\refresh-16.ico" />
     <None Include="Resources\refresh-16.png" />
     <Content Include="taskmgr_icon.png.ico" />
   </ItemGroup>

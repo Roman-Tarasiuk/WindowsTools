@@ -327,11 +327,9 @@ namespace WindowsManipulations
             }
             else if (User32Windows.IsIconic(m_HostWindowHwnd))
             {
-                //Console.WriteLine("Hide() 1.");
                 this.Hide();
             }
-            else //if (((foreWindow != m_HostWindowHwnd)
-                 //   && (foreWindow != this.Handle)))
+            else
             {
                 Rectangle rForeWindow;
                 User32Windows.GetWindowRect(foreWindow, out rForeWindow);
@@ -341,9 +339,6 @@ namespace WindowsManipulations
 
                 if (this.Visible && m_AutoHide && contains)
                 {
-                    // var title = new StringBuilder(256);
-                    // User32Windows.GetWindowText(foreWindow, title, title.Capacity + 1);
-                    // Console.WriteLine("Hide() 2. " + title.ToString() + " (" + foreWindow.ToString() + ")");
                     this.Hide();
                 }
             }
