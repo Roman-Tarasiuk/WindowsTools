@@ -1276,16 +1276,12 @@ namespace WindowsManipulations
 
         private static void NowToClipblard()
         {
-            var now = DateTime.Now;
             var nowUtc = DateTime.UtcNow;
+            var now = nowUtc.ToLocalTime();
+            var format = "dd.MM.yyyy HH:mm:ss,fff";
 
-            var strDateTime = now.ToString("dd.MM.yyyy HH:mm:ss,fff")
-                + " [UTC " + nowUtc.ToString("dd.MM.yyyy HH:mm:ss,fff") + "]";
-
-            // 1 tick = 0.0000001 seconds (100 nanoseconds or one ten-millionth of a second)
-            //
-            // var strDateTime = now.ToString("dd.MM.yyyy HH:mm:ss,fff") + " (" + now.Ticks.ToString() + " tiks)"
-            //     + " [UTC " + nowUtc.ToString("dd.MM.yyyy HH:mm:ss,fff") + "]" + " (" + nowUtc.Ticks.ToString() + " tiks)";
+            var strDateTime = now.ToString(format)
+                + " [UTC " + nowUtc.ToString(format) + "]";
 
             Clipboard.SetText(strDateTime);
         }
