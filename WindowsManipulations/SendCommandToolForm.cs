@@ -16,6 +16,8 @@ namespace WindowsManipulations
 {
     public partial class SendCommandToolForm : Form
     {
+        public event EventHandler<ToolEventArgs> Exit;
+
         #region Fields
 
         private IntPtr m_HostWindowHwnd;
@@ -291,6 +293,7 @@ namespace WindowsManipulations
                 if ((foreWindow != m_HostWindowHwnd) && (foreWindow != this.Handle))
                 {
                     m_HostWindowHwnd = foreWindow;
+                    m_HostWindowTitle = title;
                     CalculateCoordinates();
                 }
 
@@ -330,6 +333,10 @@ namespace WindowsManipulations
             }
             else if ((!m_RunOnAllWindowsWithSameTitle) && (!User32Windows.IsWindow(m_HostWindowHwnd)))
             {
+                if (this.Exit != null)
+                {
+                    this.Exit(this, new ToolEventArgs() { Title = m_HostWindowTitle });
+                }
                 this.Close();
             }
             else if (User32Windows.IsIconic(m_HostWindowHwnd))

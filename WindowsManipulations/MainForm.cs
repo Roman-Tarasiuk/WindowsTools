@@ -1082,7 +1082,17 @@ namespace WindowsManipulations
 
         private void SendCustomCommands()
         {
+            var tmp = m_SendCommandForm;
+
             m_SendCommandForm = (SendCommandsForm)User32Windows.GetForm(m_SendCommandForm, typeof(SendCommandsForm));
+
+            if (tmp != m_SendCommandForm)
+            {
+                m_SendCommandForm.ToolExit += (o, e) =>
+                {
+                    notifyIcon1.ShowBalloonTip(1000, String.Empty, "'" + e.Title + "' tool has exited.", ToolTipIcon.None);
+                };
+            }
 
             int selected = this.lstWindowsList.SelectedIndices[0];
 
@@ -1358,5 +1368,10 @@ namespace WindowsManipulations
         }
 
         #endregion
+    }
+
+    public class ToolEventArgs : EventArgs
+    {
+        public string Title { get; set; }
     }
 }

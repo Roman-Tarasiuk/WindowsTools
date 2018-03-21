@@ -12,6 +12,8 @@ namespace WindowsManipulations
 {
     public partial class SendCommandsForm : Form
     {
+        public event EventHandler<ToolEventArgs> ToolExit;
+
         #region Fields
 
         private IntPtr m_HostedWindowHwnd;
@@ -182,9 +184,19 @@ namespace WindowsManipulations
                 m_Tools = new List<SendCommandToolForm>();
             }
 
+            tool.Exit += OnToolExit;
+
             m_Tools.Add(tool);
 
             tool.Show();
+        }
+
+        private void OnToolExit(object sender, ToolEventArgs e)
+        {
+            if (ToolExit != null)
+            {
+                ToolExit(this, e);
+            }
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
