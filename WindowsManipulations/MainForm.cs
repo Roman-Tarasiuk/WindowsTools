@@ -444,10 +444,8 @@ namespace WindowsManipulations
             }
 
             IntPtr hwnd = m_ListedWindows[selected].Handle;
-            StringBuilder title = new StringBuilder(256);
-            User32Windows.GetWindowText(hwnd, title, title.Capacity + 1);
 
-            string titleStr = title.ToString();
+            string titleStr = User32Windows.GetWindowText(hwnd, 255);
 
             var titleForm = new CustomWindowTitleForm() { CurrentTitle = titleStr };
             var result = titleForm.ShowDialog();

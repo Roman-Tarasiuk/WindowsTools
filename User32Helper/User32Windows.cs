@@ -76,6 +76,14 @@ namespace User32Helper
             ExactSpelling = false, CharSet = CharSet.Auto, SetLastError = true)]
         public static extern int GetWindowText(IntPtr hWnd, StringBuilder lpWindowText, int nMaxCount);
 
+        public static string GetWindowText(IntPtr hWnd, int length)
+        {
+            var titleStrBuild = new StringBuilder(length);
+            User32Windows.GetWindowText(hWnd, titleStrBuild, length + 1);
+
+            return titleStrBuild.ToString();
+        }
+
         [DllImport("user32.dll", EntryPoint = "EnumDesktopWindows",
             ExactSpelling = false, CharSet = CharSet.Auto, SetLastError = true)]
         public static extern bool EnumDesktopWindows(IntPtr hDesktop, EnumDelegate lpEnumCallbackFunction,
@@ -227,9 +235,7 @@ namespace User32Helper
 
         public static Tuple<bool, string> WindowVisibilityAndTitle(IntPtr hWnd)
         {
-            var titleSB = new StringBuilder(255);
-            GetWindowText(hWnd, titleSB, titleSB.Capacity + 1);
-            string title = titleSB.ToString();
+            string title = GetWindowText(hWnd, 255);
 
             var isVisible = (!string.IsNullOrEmpty(title)) && IsWindowVisible(hWnd);
 

@@ -91,15 +91,23 @@ namespace WindowsManipulations
             this.Location = Properties.Settings.Default.SendCommandsFormLocation;
         }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                // turn on WS_EX_TOOLWINDOW style bit
+                cp.ExStyle |= 0x80;
+                return cp;
+            }
+        }
+
         public SendCommandsForm(IntPtr hwnd)
             : this()
         {
             m_HostedWindowHwnd = hwnd;
 
-            StringBuilder title = new StringBuilder(255);
-            User32Windows.GetWindowText(m_HostedWindowHwnd, title, title.Capacity + 1);
-
-            txtTitle.Text = title.ToString();
+            txtTitle.Text = User32Windows.GetWindowText(m_HostedWindowHwnd, 255);
         }
 
         #endregion
@@ -130,6 +138,7 @@ namespace WindowsManipulations
 
             for (int i = 0; i < commands.Length; i++)
             {
+                Thread.Sleep(200);
                 SendKeys.SendWait(commands[i]);
             }
 

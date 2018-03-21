@@ -13,26 +13,21 @@ namespace WindowsManipulations
 {
     public partial class SendCommandToolPropertiesForm : Form
     {
-        private string m_Commands = String.Empty;
+        #region Properties
 
-        public string Commands
-        {
-            get
-            {
-                return m_Commands;
-            }
-            set
-            {
-                m_Commands = value;
-                txtCommands.Text = m_Commands;
-            }
-        }
-
+        public string Commands { get; set; }
         public AnchorHorizontal AnchorH { get; set; }
         public AnchorVertical AnchorV { get; set; }
         public int ToolWidht { get; set; }
         public int ToolHeight { get; set; }
-        public bool Clipboard { get; set; }
+        public bool ClipboardCommand { get; set; }
+        public bool Sleep { get; set; }
+        public int SleepTimeout { get; set; }
+
+        #endregion
+
+
+        #region Constructors
 
         public SendCommandToolPropertiesForm()
         {
@@ -44,7 +39,32 @@ namespace WindowsManipulations
             AnchorV = AnchorVertical.Top;
         }
 
+        #endregion
+
+
+        #region Event Handlers
+
         private void SendCommandToolPropertiesForm_Shown(object sender, EventArgs e)
+        {
+            InitializeGUI();
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            ApplyProperties();
+        }
+
+        private void chkClipboard_CheckedChanged(object sender, EventArgs e)
+        {
+            txtCommands.Enabled = !chkClipboard.Checked;
+        }
+
+        #endregion
+
+
+        #region Helper Methods
+
+        private void InitializeGUI()
         {
             txtToolWidth.Text = ToolWidht.ToString();
             txtToolHeight.Text = ToolHeight.ToString();
@@ -67,69 +87,68 @@ namespace WindowsManipulations
                 radioBottom.Checked = true;
             }
 
-            chkClipboard.Checked = this.Clipboard;
-            txtCommands.Enabled = !this.Clipboard;
+            chkClipboard.Checked = this.ClipboardCommand;
+            txtCommands.Enabled = !this.ClipboardCommand;
+
+            if (!this.ClipboardCommand)
+            {
+                txtCommands.Text = Commands;
+            }
+
+            chkSleep.Checked = Sleep;
+            txtSleepTimeout.Text = SleepTimeout.ToString();
         }
 
-        private void txtToolWidth_TextChanged(object sender, EventArgs e)
+        private void ApplyProperties()
         {
+            Commands = txtCommands.Text;
+
             int w;
             if (int.TryParse(txtToolWidth.Text, out w))
             {
                 ToolWidht = w;
             }
-        }
 
-        private void txtToolHeight_TextChanged(object sender, EventArgs e)
-        {
             int h;
             if (int.TryParse(txtToolHeight.Text, out h))
             {
                 ToolHeight = h;
             }
-        }
 
-        private void radioLeft_CheckedChanged(object sender, EventArgs e)
-        {
             if (radioLeft.Checked)
             {
                 AnchorH = AnchorHorizontal.Left;
             }
-        }
-
-        private void radioRight_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioRight.Checked)
+            else
             {
                 AnchorH = AnchorHorizontal.Right;
             }
-        }
 
-        private void radioTop_CheckedChanged(object sender, EventArgs e)
-        {
             if (radioTop.Checked)
             {
                 AnchorV = AnchorVertical.Top;
             }
-        }
-
-        private void radioBottom_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioBottom.Checked)
+            else
             {
                 AnchorV = AnchorVertical.Bottom;
             }
+
+            this.ClipboardCommand = chkClipboard.Checked;
+
+            if (!this.ClipboardCommand)
+            {
+                Commands = txtCommands.Text;
+            }
+
+            Sleep = chkSleep.Checked;
+
+            int timeout;
+            if (int.TryParse(txtSleepTimeout.Text, out timeout))
+            {
+                SleepTimeout = timeout;
+            }
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
-        {
-            Commands = txtCommands.Text;
-        }
-
-        private void chkClipboard_CheckedChanged(object sender, EventArgs e)
-        {
-            this.Clipboard = chkClipboard.Checked;
-            txtCommands.Enabled = !chkClipboard.Checked;
-        }
+        #endregion
     }
 }

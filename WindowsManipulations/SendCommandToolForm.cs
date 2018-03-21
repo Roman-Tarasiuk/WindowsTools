@@ -19,6 +19,7 @@ namespace WindowsManipulations
         #region Fields
 
         private IntPtr m_HostWindowHwnd;
+        private string m_HostWindowTitle = String.Empty;
 
         private int m_HostWindowOffsetX;
         private int m_HostWindowOffsetY;
@@ -33,6 +34,9 @@ namespace WindowsManipulations
         private bool m_MouseIsHover = false;
         private bool m_IsRunning = false;
         private bool m_AutoHide = true;
+        private bool m_Sleep = false;
+
+        private int m_SleepTimeout = 0;
 
         private Pen m_PenNormal = new Pen(Color.White);
         private Pen m_PenHover = new Pen(Color.Lime);
@@ -57,6 +61,7 @@ namespace WindowsManipulations
             try
             {
                 User32Windows.GetWindowText(m_HostWindowHwnd, title, title.Capacity + 1);
+                m_HostWindowTitle = title.ToString();
             }
             catch { }
 
@@ -129,26 +134,7 @@ namespace WindowsManipulations
                 timer1.Start();
                 m_IsRunning = true;
 
-                Rectangle rHost;
-                User32Windows.GetWindowRect(m_HostWindowHwnd, out rHost);
-
-                if (m_AnchorH == AnchorHorizontal.Left)
-                {
-                    m_HostWindowOffsetX = this.Location.X - rHost.Left;
-                }
-                else
-                {
-                    m_HostWindowOffsetX = this.Location.X - rHost.Width;
-                }
-
-                if (m_AnchorV == AnchorVertical.Top)
-                {
-                    m_HostWindowOffsetY = this.Location.Y - rHost.Top;
-                }
-                else
-                {
-                    m_HostWindowOffsetY = this.Location.Y - rHost.Height;
-                }
+                CalculateCoordinates();
 
                 toggleSendingToolStripMenuItem.Text = "Stop tool / move";
             }
@@ -219,8 +205,10 @@ namespace WindowsManipulations
                 return;
             }
 
-
-            Thread.Sleep(200);
+            if (this.m_Sleep)
+            {
+                Thread.Sleep(m_SleepTimeout);
+            }
 
             //
             // Working code (using SendKeys class).
@@ -229,6 +217,11 @@ namespace WindowsManipulations
 
             for (int i = 0; i < commands.Length; i++)
             {
+                if (this.m_Sleep)
+                {
+                    Thread.Sleep(m_SleepTimeout);
+                }
+
                 SendKeys.SendWait(commands[i]);
             }
 
@@ -287,10 +280,19 @@ namespace WindowsManipulations
 
             IntPtr foreWindow = User32Windows.GetForegroundWindow();
 
+            var title = User32Windows.GetWindowText(foreWindow, 255);
+
             if (((foreWindow == m_HostWindowHwnd)
                     || (foreWindow == this.Handle))
-                    && (!User32Windows.IsIconic(m_HostWindowHwnd)))
+                   && (!User32Windows.IsIconic(m_HostWindowHwnd))
+                 || (title == m_HostWindowTitle))
             {
+                if ((foreWindow != m_HostWindowHwnd) && (foreWindow != this.Handle))
+                {
+                    m_HostWindowHwnd = foreWindow;
+                    CalculateCoordinates();
+                }
+
                 Rectangle rHost;
                 User32Windows.GetWindowRect(m_HostWindowHwnd, out rHost);
 
@@ -337,7 +339,12 @@ namespace WindowsManipulations
                 var r = this.RectangleToScreen(this.DisplayRectangle);
                 var contains = RectangleContains(rForeWindow, r);
 
-                if (this.Visible && m_AutoHide && contains)
+                int processId,
+                    ptocessIdThis;
+                User32Windows.GetWindowThreadProcessId(foreWindow, out processId);
+                User32Windows.GetWindowThreadProcessId(this.Handle, out ptocessIdThis);
+
+                if (this.Visible && m_AutoHide && contains && (processId != ptocessIdThis))
                 {
                     this.Hide();
                 }
@@ -359,7 +366,9 @@ namespace WindowsManipulations
                 AnchorH = m_AnchorH,
                 AnchorV = m_AnchorV,
                 Commands = m_Commands,
-                Clipboard = m_Clipboard
+                ClipboardCommand = m_Clipboard,
+                Sleep = m_Sleep,
+                SleepTimeout = m_SleepTimeout
             };
             var result = settingsForm.ShowDialog();
 
@@ -371,7 +380,10 @@ namespace WindowsManipulations
                 this.m_DrawRectangle = new Rectangle(0, 0, this.Size.Width - 1, this.Size.Height - 1);
 
                 this.m_Commands = settingsForm.Commands;
-                this.m_Clipboard = settingsForm.Clipboard;
+                this.m_Clipboard = settingsForm.ClipboardCommand;
+
+                this.m_Sleep = settingsForm.Sleep;
+                this.m_SleepTimeout = settingsForm.SleepTimeout;
             }
         }
 
@@ -386,6 +398,30 @@ namespace WindowsManipulations
                 && r1.Top <= r2.Top
                 && r1.Width >= r2.Right
                 && r1.Height >= r2.Bottom;
+        }
+
+        private void CalculateCoordinates()
+        {
+            Rectangle rHost;
+            User32Windows.GetWindowRect(m_HostWindowHwnd, out rHost);
+
+            if (m_AnchorH == AnchorHorizontal.Left)
+            {
+                m_HostWindowOffsetX = this.Location.X - rHost.Left;
+            }
+            else
+            {
+                m_HostWindowOffsetX = this.Location.X - rHost.Width;
+            }
+
+            if (m_AnchorV == AnchorVertical.Top)
+            {
+                m_HostWindowOffsetY = this.Location.Y - rHost.Top;
+            }
+            else
+            {
+                m_HostWindowOffsetY = this.Location.Y - rHost.Height;
+            }
         }
 
         #endregion

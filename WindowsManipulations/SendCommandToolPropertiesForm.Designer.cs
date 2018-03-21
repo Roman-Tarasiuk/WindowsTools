@@ -43,6 +43,8 @@
             this.txtCommands = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.chkClipboard = new System.Windows.Forms.CheckBox();
+            this.chkSleep = new System.Windows.Forms.CheckBox();
+            this.txtSleepTimeout = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -63,7 +65,6 @@
             this.txtToolWidth.Name = "txtToolWidth";
             this.txtToolWidth.Size = new System.Drawing.Size(100, 20);
             this.txtToolWidth.TabIndex = 1;
-            this.txtToolWidth.TextChanged += new System.EventHandler(this.txtToolWidth_TextChanged);
             // 
             // label2
             // 
@@ -80,13 +81,12 @@
             this.txtToolHeight.Name = "txtToolHeight";
             this.txtToolHeight.Size = new System.Drawing.Size(100, 20);
             this.txtToolHeight.TabIndex = 3;
-            this.txtToolHeight.TextChanged += new System.EventHandler(this.txtToolHeight_TextChanged);
             // 
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Location = new System.Drawing.Point(171, 308);
+            this.btnOk.Location = new System.Drawing.Point(171, 314);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 4;
@@ -125,7 +125,6 @@
             this.radioTop.TabStop = true;
             this.radioTop.Text = "Top";
             this.radioTop.UseVisualStyleBackColor = true;
-            this.radioTop.CheckedChanged += new System.EventHandler(this.radioTop_CheckedChanged);
             // 
             // radioBottom
             // 
@@ -137,7 +136,6 @@
             this.radioBottom.TabStop = true;
             this.radioBottom.Text = "Bottom";
             this.radioBottom.UseVisualStyleBackColor = true;
-            this.radioBottom.CheckedChanged += new System.EventHandler(this.radioBottom_CheckedChanged);
             // 
             // panel1
             // 
@@ -159,7 +157,6 @@
             this.radioLeft.TabStop = true;
             this.radioLeft.Text = "Left";
             this.radioLeft.UseVisualStyleBackColor = true;
-            this.radioLeft.CheckedChanged += new System.EventHandler(this.radioLeft_CheckedChanged);
             // 
             // radioRight
             // 
@@ -171,7 +168,6 @@
             this.radioRight.TabStop = true;
             this.radioRight.Text = "Right";
             this.radioRight.UseVisualStyleBackColor = true;
-            this.radioRight.CheckedChanged += new System.EventHandler(this.radioRight_CheckedChanged);
             // 
             // txtCommands
             // 
@@ -183,7 +179,7 @@
             this.txtCommands.Multiline = true;
             this.txtCommands.Name = "txtCommands";
             this.txtCommands.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtCommands.Size = new System.Drawing.Size(234, 113);
+            this.txtCommands.Size = new System.Drawing.Size(234, 92);
             this.txtCommands.TabIndex = 6;
             this.txtCommands.WordWrap = false;
             // 
@@ -200,7 +196,7 @@
             // 
             this.chkClipboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkClipboard.AutoSize = true;
-            this.chkClipboard.Location = new System.Drawing.Point(12, 285);
+            this.chkClipboard.Location = new System.Drawing.Point(12, 264);
             this.chkClipboard.Name = "chkClipboard";
             this.chkClipboard.Size = new System.Drawing.Size(70, 17);
             this.chkClipboard.TabIndex = 8;
@@ -208,11 +204,32 @@
             this.chkClipboard.UseVisualStyleBackColor = true;
             this.chkClipboard.CheckedChanged += new System.EventHandler(this.chkClipboard_CheckedChanged);
             // 
+            // chkSleep
+            // 
+            this.chkSleep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chkSleep.AutoSize = true;
+            this.chkSleep.Location = new System.Drawing.Point(12, 287);
+            this.chkSleep.Name = "chkSleep";
+            this.chkSleep.Size = new System.Drawing.Size(110, 17);
+            this.chkSleep.TabIndex = 9;
+            this.chkSleep.Text = "With timeout (ms):";
+            this.chkSleep.UseVisualStyleBackColor = true;
+            // 
+            // txtSleepTimeout
+            // 
+            this.txtSleepTimeout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtSleepTimeout.Location = new System.Drawing.Point(128, 285);
+            this.txtSleepTimeout.Name = "txtSleepTimeout";
+            this.txtSleepTimeout.Size = new System.Drawing.Size(100, 20);
+            this.txtSleepTimeout.TabIndex = 10;
+            // 
             // SendCommandToolPropertiesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(258, 343);
+            this.Controls.Add(this.txtSleepTimeout);
+            this.Controls.Add(this.chkSleep);
             this.Controls.Add(this.chkClipboard);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtCommands);
@@ -254,5 +271,7 @@
         private System.Windows.Forms.TextBox txtCommands;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox chkClipboard;
+        private System.Windows.Forms.CheckBox chkSleep;
+        private System.Windows.Forms.TextBox txtSleepTimeout;
     }
 }

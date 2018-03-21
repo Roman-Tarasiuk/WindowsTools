@@ -124,10 +124,7 @@ namespace WindowsManipulations
 
         private void DisplayTitle()
         {
-            StringBuilder sb = new StringBuilder(256);
-            User32Windows.GetWindowText(m_Hwnd, sb, sb.Capacity + 1);
-
-            var title = sb.ToString();
+            var title = User32Windows.GetWindowText(m_Hwnd, 255);
 
             if (label1.Text != title)
             {

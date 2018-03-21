@@ -166,9 +166,7 @@ namespace WindowsManipulations
                     var index = hwnds.IndexOf(window.Handle);
                     if (index >= 0)
                     {
-                        StringBuilder title = new StringBuilder(255);
-                        User32Windows.GetWindowText(window.Handle, title, title.Capacity + 1);
-                        m_RunningWindows[index].Title = title.ToString();
+                        m_RunningWindows[index].Title = User32Windows.GetWindowText(window.Handle, 255);
                         continue;
                     }
                 }
