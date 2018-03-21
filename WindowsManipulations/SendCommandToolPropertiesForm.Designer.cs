@@ -45,6 +45,7 @@
             this.chkClipboard = new System.Windows.Forms.CheckBox();
             this.chkSleep = new System.Windows.Forms.CheckBox();
             this.txtSleepTimeout = new System.Windows.Forms.TextBox();
+            this.chkRunOnAllWindowsWithSameTitle = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -86,7 +87,7 @@
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Location = new System.Drawing.Point(171, 314);
+            this.btnOk.Location = new System.Drawing.Point(171, 370);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 4;
@@ -179,7 +180,7 @@
             this.txtCommands.Multiline = true;
             this.txtCommands.Name = "txtCommands";
             this.txtCommands.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtCommands.Size = new System.Drawing.Size(234, 92);
+            this.txtCommands.Size = new System.Drawing.Size(234, 119);
             this.txtCommands.TabIndex = 6;
             this.txtCommands.WordWrap = false;
             // 
@@ -196,7 +197,7 @@
             // 
             this.chkClipboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkClipboard.AutoSize = true;
-            this.chkClipboard.Location = new System.Drawing.Point(12, 264);
+            this.chkClipboard.Location = new System.Drawing.Point(12, 291);
             this.chkClipboard.Name = "chkClipboard";
             this.chkClipboard.Size = new System.Drawing.Size(70, 17);
             this.chkClipboard.TabIndex = 8;
@@ -208,7 +209,7 @@
             // 
             this.chkSleep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkSleep.AutoSize = true;
-            this.chkSleep.Location = new System.Drawing.Point(12, 287);
+            this.chkSleep.Location = new System.Drawing.Point(12, 314);
             this.chkSleep.Name = "chkSleep";
             this.chkSleep.Size = new System.Drawing.Size(110, 17);
             this.chkSleep.TabIndex = 9;
@@ -218,16 +219,28 @@
             // txtSleepTimeout
             // 
             this.txtSleepTimeout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtSleepTimeout.Location = new System.Drawing.Point(128, 285);
+            this.txtSleepTimeout.Location = new System.Drawing.Point(128, 312);
             this.txtSleepTimeout.Name = "txtSleepTimeout";
             this.txtSleepTimeout.Size = new System.Drawing.Size(100, 20);
             this.txtSleepTimeout.TabIndex = 10;
+            // 
+            // chkRunOnAllWindowsWithSameTitle
+            // 
+            this.chkRunOnAllWindowsWithSameTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chkRunOnAllWindowsWithSameTitle.AutoSize = true;
+            this.chkRunOnAllWindowsWithSameTitle.Location = new System.Drawing.Point(12, 337);
+            this.chkRunOnAllWindowsWithSameTitle.Name = "chkRunOnAllWindowsWithSameTitle";
+            this.chkRunOnAllWindowsWithSameTitle.Size = new System.Drawing.Size(187, 17);
+            this.chkRunOnAllWindowsWithSameTitle.TabIndex = 11;
+            this.chkRunOnAllWindowsWithSameTitle.Text = "Run on all windows with same title";
+            this.chkRunOnAllWindowsWithSameTitle.UseVisualStyleBackColor = true;
             // 
             // SendCommandToolPropertiesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(258, 343);
+            this.ClientSize = new System.Drawing.Size(258, 399);
+            this.Controls.Add(this.chkRunOnAllWindowsWithSameTitle);
             this.Controls.Add(this.txtSleepTimeout);
             this.Controls.Add(this.chkSleep);
             this.Controls.Add(this.chkClipboard);
@@ -273,5 +286,6 @@
         private System.Windows.Forms.CheckBox chkClipboard;
         private System.Windows.Forms.CheckBox chkSleep;
         private System.Windows.Forms.TextBox txtSleepTimeout;
+        private System.Windows.Forms.CheckBox chkRunOnAllWindowsWithSameTitle;
     }
 }

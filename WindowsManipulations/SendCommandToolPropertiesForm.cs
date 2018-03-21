@@ -23,6 +23,7 @@ namespace WindowsManipulations
         public bool ClipboardCommand { get; set; }
         public bool Sleep { get; set; }
         public int SleepTimeout { get; set; }
+        public bool RunOnAllWindowsWithSameTitle { get; set; }
 
         #endregion
 
@@ -97,6 +98,8 @@ namespace WindowsManipulations
 
             chkSleep.Checked = Sleep;
             txtSleepTimeout.Text = SleepTimeout.ToString();
+
+            chkRunOnAllWindowsWithSameTitle.Checked = RunOnAllWindowsWithSameTitle;
         }
 
         private void ApplyProperties()
@@ -147,6 +150,8 @@ namespace WindowsManipulations
             {
                 SleepTimeout = timeout;
             }
+
+            RunOnAllWindowsWithSameTitle = chkRunOnAllWindowsWithSameTitle.Checked;
         }
 
         #endregion

@@ -35,6 +35,7 @@ namespace WindowsManipulations
         private bool m_IsRunning = false;
         private bool m_AutoHide = true;
         private bool m_Sleep = false;
+        private bool m_RunOnAllWindowsWithSameTitle = true;
 
         private int m_SleepTimeout = 0;
 
@@ -285,7 +286,7 @@ namespace WindowsManipulations
             if (((foreWindow == m_HostWindowHwnd)
                     || (foreWindow == this.Handle))
                    && (!User32Windows.IsIconic(m_HostWindowHwnd))
-                 || (title == m_HostWindowTitle))
+                 || (title == m_HostWindowTitle && m_RunOnAllWindowsWithSameTitle))
             {
                 if ((foreWindow != m_HostWindowHwnd) && (foreWindow != this.Handle))
                 {
@@ -326,6 +327,10 @@ namespace WindowsManipulations
                 {
                     this.Show();
                 }
+            }
+            else if ((!m_RunOnAllWindowsWithSameTitle) && (!User32Windows.IsWindow(m_HostWindowHwnd)))
+            {
+                this.Close();
             }
             else if (User32Windows.IsIconic(m_HostWindowHwnd))
             {
@@ -368,7 +373,8 @@ namespace WindowsManipulations
                 Commands = m_Commands,
                 ClipboardCommand = m_Clipboard,
                 Sleep = m_Sleep,
-                SleepTimeout = m_SleepTimeout
+                SleepTimeout = m_SleepTimeout,
+                RunOnAllWindowsWithSameTitle = m_RunOnAllWindowsWithSameTitle
             };
             var result = settingsForm.ShowDialog();
 
@@ -384,6 +390,7 @@ namespace WindowsManipulations
 
                 this.m_Sleep = settingsForm.Sleep;
                 this.m_SleepTimeout = settingsForm.SleepTimeout;
+                m_RunOnAllWindowsWithSameTitle = settingsForm.RunOnAllWindowsWithSameTitle;
             }
         }
 
