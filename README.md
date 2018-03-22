@@ -1,4 +1,4 @@
-# WindowsManipulations
+# WindowsTools
 
 Windows desktop (.NET, Windows Forms) application for moving, changing size, hidding windows.<br>
 Customizing 'cmd' window.<br>
