@@ -44,13 +44,21 @@ namespace WindowsTools
             {
                 bool refresh = false;
 
-                for (var i = 0; i < m_Passwords.Count; i++)
+                if (m_PasswordRepresentation.Count != m_Passwords.Count)
                 {
-                    if (i >= m_PasswordRepresentation.Count
-                        || !m_PasswordRepresentation[i].StartsWith(m_Passwords[i].Description))
+                    refresh = true;
+                }
+
+                if (!refresh)
+                {
+                    for (var i = 0; i < m_Passwords.Count; i++)
                     {
-                        refresh = true;
-                        break;
+                        if (i >= m_PasswordRepresentation.Count
+                            || !m_PasswordRepresentation[i].StartsWith(m_Passwords[i].Description))
+                        {
+                            refresh = true;
+                            break;
+                        }
                     }
                 }
 
@@ -260,7 +268,6 @@ namespace WindowsTools
 
             m_Passwords.RemoveAt(selIndex);
             listBox1.Items.RemoveAt(selIndex);
-            m_PasswordRepresentation.RemoveAt(selIndex);
         }
 
         private void timerFlash_Tick(object sender, EventArgs e)
