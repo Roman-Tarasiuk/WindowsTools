@@ -130,7 +130,7 @@ namespace WindowsTools
 
             if (!m_Running)
             {
-                message = FormatTime(now) + " the program is closed now and was in the previous state " + FormatTime(wasRunnind);
+                message = FormatTime(now) + " the program is closed now and was in the previous state: " + FormatTime(wasRunnind);
             }
             else
             {
@@ -138,15 +138,17 @@ namespace WindowsTools
                 {
                     m_WindowIsHanging = true;
                     m_StartTime = now;
-                    message = FormatTime(now) + " the program is hung now and was in the previous state " + FormatTime(wasRunnind);
+                    message = FormatTime(now) + " the program is hung now and was in the previous state: " + FormatTime(wasRunnind);
                     panel1.BackColor = Color.Red;
+                    lblTitle.BackColor = Color.FromArgb(255, 128, 128);
                 }
                 else if (!IsHungAppWindow(Hwnd) && m_WindowIsHanging)
                 {
                     m_WindowIsHanging = false;
                     m_StartTime = now;
-                    message = FormatTime(now) + " the program is accessible now and was in the previous state " + FormatTime(wasRunnind);
+                    message = FormatTime(now) + " the program is accessible now and was in the previous state: " + FormatTime(wasRunnind);
                     panel1.BackColor = Color.Green;
+                    lblTitle.BackColor = Color.FromArgb(192, 255, 192);
                 }
             }
 
@@ -183,6 +185,7 @@ namespace WindowsTools
                 + " the program is " + (m_WindowIsHanging ? "hung" : "accessible");
 
             panel1.BackColor = m_WindowIsHanging ? Color.Red : Color.Green;
+            lblTitle.BackColor = m_WindowIsHanging ? Color.FromArgb(255, 128, 128) : Color.FromArgb(192, 255, 192);
 
             Log(msg);
 
@@ -202,7 +205,8 @@ namespace WindowsTools
                 + " the program is " + (m_WindowIsHanging ? "hung" : "accessible")
                 + "\r\nStop tracking (" + FormatTime(wasRunnind) + ")";
 
-            panel1.BackColor = m_WindowIsHanging ? Color.Red : Color.Green;
+            panel1.BackColor = Color.Green;
+            lblTitle.BackColor = Color.FromArgb(192, 255, 192);
 
             Log(msg);
         }

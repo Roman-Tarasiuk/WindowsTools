@@ -43,9 +43,9 @@
             // 
             // txtHwnd
             // 
-            this.txtHwnd.Location = new System.Drawing.Point(37, 12);
+            this.txtHwnd.Location = new System.Drawing.Point(51, 12);
             this.txtHwnd.Name = "txtHwnd";
-            this.txtHwnd.Size = new System.Drawing.Size(100, 20);
+            this.txtHwnd.Size = new System.Drawing.Size(87, 20);
             this.txtHwnd.TabIndex = 0;
             this.txtHwnd.Leave += new System.EventHandler(this.txtHwnd_Leave);
             // 
@@ -54,17 +54,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 13);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Id:";
+            this.label1.Text = "Hwnd:";
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblTitle.Location = new System.Drawing.Point(143, 15);
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblTitle.Location = new System.Drawing.Point(144, 13);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(0, 13);
+            this.lblTitle.Size = new System.Drawing.Size(0, 15);
             this.lblTitle.TabIndex = 2;
             // 
             // btnStartStop
