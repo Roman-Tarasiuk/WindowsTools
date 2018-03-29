@@ -220,6 +220,11 @@ namespace WindowsTools
         private void Log(string str)
         {
             txtLog.Text += (txtLog.Text == String.Empty ? "" : "\r\n") + str;
+
+            txtLog.SelectionStart = txtLog.Text.Length;
+            txtLog.ScrollToCaret();
+            txtLog.Focus();
+            SendKeys.Send("{HOME}");
         }
 
         private void DisplayTitle()
