@@ -107,6 +107,12 @@
     <Compile Include="ClipboardManagerForm.Designer.cs">
       <DependentUpon>ClipboardManagerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TrackInactiveWindowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrackInactiveWindowForm.Designer.cs">
+      <DependentUpon>TrackInactiveWindowForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WindowsTrackingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClipboardManagerForm.resx">
       <DependentUpon>ClipboardManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrackInactiveWindowForm.resx">
+      <DependentUpon>TrackInactiveWindowForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WindowsTrackingForm.resx">
       <DependentUpon>WindowsTrackingForm.cs</DependentUpon>

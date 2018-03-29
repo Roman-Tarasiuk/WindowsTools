@@ -583,6 +583,24 @@ namespace WindowsTools
             }
         }
 
+        private void trackWindowIsAccessibleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int selected = this.lstWindowsList.SelectedIndices[0];
+
+            IntPtr hwnd = IntPtr.Zero;
+
+            if (selected != -1)
+            {
+                hwnd = m_ListedWindows[selected].Handle;
+            }
+            else
+            {
+                return;
+            }
+
+            new TrackInactiveWindowForm() { Hwnd = hwnd }.Show();
+        }
+
         // Main menu | Miscellaneous
 
         private void clearClipboardToolStripMenuItem_Click(object sender, EventArgs e)
