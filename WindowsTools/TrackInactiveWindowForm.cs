@@ -225,9 +225,10 @@ namespace WindowsTools
         {
             txtLog.Text += (txtLog.Text == String.Empty ? "" : "\r\n") + str;
 
-            txtLog.SelectionStart = txtLog.Text.Length;
-            txtLog.ScrollToCaret();
             txtLog.Focus();
+            txtLog.SelectionStart = txtLog.Text.Length;
+            txtLog.SelectionLength = 0;
+            txtLog.ScrollToCaret();
             SendKeys.Send("{HOME}");
         }
 
