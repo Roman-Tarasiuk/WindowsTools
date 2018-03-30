@@ -38,6 +38,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.chkTopmost = new System.Windows.Forms.CheckBox();
             this.chkWordWrap = new System.Windows.Forms.CheckBox();
+            this.chkShowInTaskbar = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtHwnd
@@ -86,11 +87,11 @@
             this.txtLog.BackColor = System.Drawing.Color.Black;
             this.txtLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtLog.ForeColor = System.Drawing.Color.Green;
-            this.txtLog.Location = new System.Drawing.Point(70, 43);
+            this.txtLog.Location = new System.Drawing.Point(15, 43);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLog.Size = new System.Drawing.Size(340, 100);
+            this.txtLog.Size = new System.Drawing.Size(395, 100);
             this.txtLog.TabIndex = 5;
             this.txtLog.WordWrap = false;
             // 
@@ -115,7 +116,7 @@
             // 
             this.chkWordWrap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkWordWrap.AutoSize = true;
-            this.chkWordWrap.Location = new System.Drawing.Point(415, 68);
+            this.chkWordWrap.Location = new System.Drawing.Point(414, 95);
             this.chkWordWrap.Name = "chkWordWrap";
             this.chkWordWrap.Size = new System.Drawing.Size(78, 17);
             this.chkWordWrap.TabIndex = 7;
@@ -123,12 +124,27 @@
             this.chkWordWrap.UseVisualStyleBackColor = true;
             this.chkWordWrap.CheckedChanged += new System.EventHandler(this.chkWordWrap_CheckedChanged);
             // 
+            // checkBox1
+            // 
+            this.chkShowInTaskbar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkShowInTaskbar.AutoSize = true;
+            this.chkShowInTaskbar.Checked = true;
+            this.chkShowInTaskbar.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkShowInTaskbar.Location = new System.Drawing.Point(415, 62);
+            this.chkShowInTaskbar.Name = "checkBox1";
+            this.chkShowInTaskbar.Size = new System.Drawing.Size(73, 17);
+            this.chkShowInTaskbar.TabIndex = 8;
+            this.chkShowInTaskbar.Text = "In taskbar";
+            this.chkShowInTaskbar.UseVisualStyleBackColor = true;
+            this.chkShowInTaskbar.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // TrackInactiveWindowForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(242)))), ((int)(((byte)(159)))));
             this.ClientSize = new System.Drawing.Size(503, 146);
+            this.Controls.Add(this.chkShowInTaskbar);
             this.Controls.Add(this.chkWordWrap);
             this.Controls.Add(this.chkTopmost);
             this.Controls.Add(this.txtLog);
@@ -155,5 +171,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.CheckBox chkTopmost;
         private System.Windows.Forms.CheckBox chkWordWrap;
+        private System.Windows.Forms.CheckBox chkShowInTaskbar;
     }
 }
