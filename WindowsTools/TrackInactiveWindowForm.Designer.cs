@@ -34,7 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnStartStop = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.txtLog = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.chkTopmost = new System.Windows.Forms.CheckBox();
@@ -61,31 +60,23 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblTitle.Location = new System.Drawing.Point(144, 13);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(0, 15);
+            this.lblTitle.Padding = new System.Windows.Forms.Padding(2);
+            this.lblTitle.Size = new System.Drawing.Size(4, 19);
             this.lblTitle.TabIndex = 2;
             // 
             // btnStartStop
             // 
             this.btnStartStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStartStop.Location = new System.Drawing.Point(416, 120);
+            this.btnStartStop.Location = new System.Drawing.Point(414, 118);
             this.btnStartStop.Name = "btnStartStop";
             this.btnStartStop.Size = new System.Drawing.Size(75, 23);
             this.btnStartStop.TabIndex = 3;
             this.btnStartStop.Text = "Start";
             this.btnStartStop.UseVisualStyleBackColor = true;
             this.btnStartStop.Click += new System.EventHandler(this.btnStartStop_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Green;
-            this.panel1.Location = new System.Drawing.Point(15, 43);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(49, 49);
-            this.panel1.TabIndex = 4;
             // 
             // txtLog
             // 
@@ -112,7 +103,7 @@
             // 
             this.chkTopmost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkTopmost.AutoSize = true;
-            this.chkTopmost.Location = new System.Drawing.Point(416, 43);
+            this.chkTopmost.Location = new System.Drawing.Point(415, 45);
             this.chkTopmost.Name = "chkTopmost";
             this.chkTopmost.Size = new System.Drawing.Size(67, 17);
             this.chkTopmost.TabIndex = 6;
@@ -124,7 +115,7 @@
             // 
             this.chkWordWrap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkWordWrap.AutoSize = true;
-            this.chkWordWrap.Location = new System.Drawing.Point(416, 66);
+            this.chkWordWrap.Location = new System.Drawing.Point(415, 68);
             this.chkWordWrap.Name = "chkWordWrap";
             this.chkWordWrap.Size = new System.Drawing.Size(78, 17);
             this.chkWordWrap.TabIndex = 7;
@@ -136,11 +127,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(242)))), ((int)(((byte)(159)))));
             this.ClientSize = new System.Drawing.Size(503, 146);
             this.Controls.Add(this.chkWordWrap);
             this.Controls.Add(this.chkTopmost);
             this.Controls.Add(this.txtLog);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnStartStop);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.label1);
@@ -160,7 +151,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnStartStop;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtLog;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.CheckBox chkTopmost;
