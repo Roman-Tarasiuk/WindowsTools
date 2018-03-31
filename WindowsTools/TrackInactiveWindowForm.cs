@@ -15,7 +15,7 @@ namespace WindowsTools
 
         private IntPtr m_Hwnd = IntPtr.Zero;
         private bool m_Running = false;
-        private bool m_WindowIsHanging;
+        private bool m_WindowIsHung;
         private DateTime m_StartTime;
 
         private Color m_ColorAccessible = Color.FromArgb(159, 242, 159);
@@ -133,22 +133,30 @@ namespace WindowsTools
 
             if (!m_Running)
             {
-                message = FormatTime(now) + " the program is closed now and was in the previous state: " + FormatTime(wasRunnind) + " hours";
+                message = FormatTime(now) + " the program is closed now and was in the previous state: " + FormatTime(wasRunnind);
+
+                this.BackColor = m_ColorAccessible;
             }
             else
             {
-                if (IsHungAppWindow(Hwnd) && !m_WindowIsHanging)
+                if (IsHungAppWindow(Hwnd) && !m_WindowIsHung)
                 {
-                    m_WindowIsHanging = true;
-                    m_StartTime = now;
-                    message = FormatTime(now) + " the program is hung now and was in the previous state: " + FormatTime(wasRunnind) + " hours";
+                    m_WindowIsHung = true;
+
+                    // The Windows OS detects hung window after 5 seconds.
+                    var fiveSeconds = new TimeSpan(0, 0, 5);
+                    m_StartTime = now - fiveSeconds;
+                    wasRunnind -= fiveSeconds;
+                    message = FormatTime(now) + " the program is hung now and was in the previous state: " + FormatTime(wasRunnind);
+
                     this.BackColor = m_ColorHung;
                 }
-                else if (!IsHungAppWindow(Hwnd) && m_WindowIsHanging)
+                else if (!IsHungAppWindow(Hwnd) && m_WindowIsHung)
                 {
-                    m_WindowIsHanging = false;
+                    m_WindowIsHung = false;
                     m_StartTime = now;
-                    message = FormatTime(now) + " the program is accessible now and was in the previous state: " + FormatTime(wasRunnind) + " hours";
+                    message = FormatTime(now) + " the program is accessible now and was in the previous state: " + FormatTime(wasRunnind);
+
                     this.BackColor = m_ColorAccessible;
                 }
             }
@@ -183,14 +191,14 @@ namespace WindowsTools
             }
 
             m_StartTime = DateTime.Now;
-            m_WindowIsHanging = IsHungAppWindow(m_Hwnd);
+            m_WindowIsHung = IsHungAppWindow(m_Hwnd);
 
             var msg = "Start tracking"
                 + " [" + Hwnd.ToString() + "] \"" + User32Windows.GetWindowText(Hwnd, 255) + "\""
                 + "\r\n" + FormatTime(m_StartTime)
-                + " the program is " + (m_WindowIsHanging ? "hung" : "accessible");
+                + " the program is " + (m_WindowIsHung ? "hung" : "accessible");
 
-            var backColor = m_WindowIsHanging ? m_ColorHung : m_ColorAccessible;
+            var backColor = m_WindowIsHung ? m_ColorHung : m_ColorAccessible;
             this.BackColor = backColor;
 
             Log(msg);
@@ -203,13 +211,13 @@ namespace WindowsTools
             timer1.Stop();
 
             var now = DateTime.Now;
-            m_WindowIsHanging = IsHungAppWindow(m_Hwnd);
+            m_WindowIsHung = IsHungAppWindow(m_Hwnd);
 
             var wasRunnind = now - m_StartTime;
 
             var msg = FormatTime(now)
-                + " the program is " + (m_WindowIsHanging ? "hung" : "accessible")
-                + "\r\nStop tracking (after " + FormatTime(wasRunnind) + " hours)";
+                + " the program is " + (m_WindowIsHung ? "hung" : "accessible")
+                + "\r\nStop tracking (after " + FormatTime(wasRunnind) + " from last state";
 
             this.BackColor = m_ColorAccessible;
 
@@ -223,7 +231,26 @@ namespace WindowsTools
 
         private string FormatTime(TimeSpan t)
         {
-            return t.ToString("hh\\:mm\\:ss");
+            var result = t.ToString((t.Days > 0 ? "d\\:" : "") + "hh\\:mm\\:ss");
+
+            if (t.Days > 0)
+            {
+                result += " days";
+            }
+            else if (t.Hours > 0)
+            {
+                result += " hours";
+            }
+            else if (t.Minutes > 0)
+            {
+                result += " minutes";
+            }
+            else
+            {
+                result += " seconds";
+            }
+
+            return result;
         }
 
         private void Log(string str)
