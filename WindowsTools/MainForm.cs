@@ -1220,31 +1220,8 @@ namespace WindowsTools
 
             this.SuspendLayout();
 
-            //passMenu.Add("Refresh windows list");
-            passMenu.Add(this.TrimMenuItem(m_PasswordForm.GetLastActiveWindow().Title));
+            passMenu.Add(User32Windows.GetLastActiveWindow(hwndExcept: this.Handle).Title);
             ((ToolStripMenuItem)passMenu[0]).Checked = m_PasswordsListRefreshed;
-            passMenu[0].Image = m_PasswordsListRefreshed ? Properties.Resources.refresh_16_green : Properties.Resources.refresh_16;
-            passMenu[0].Click += (sender, e) =>
-            {
-                if (m_PasswordForm != null && !m_PasswordForm.IsDisposed)
-                {
-                    // Refreshing the list.
-                    m_PasswordForm.RefreshRunningWindowsList();
-                    m_PasswordsListRefreshed = true;
-                    ((ToolStripMenuItem)passMenu[0]).Checked = m_PasswordsListRefreshed;
-                    passMenu[0].Image = Properties.Resources.refresh_16_green;
-
-                    // After click, the menu item state must be changed to checked, displaying the menu again.
-                    var lastRefreshItemCursorPosition = Cursor.Position;
-                    Cursor.Position = m_LastContextMenuCursorPosition;
-                    passMenu[0].Text = this.TrimMenuItem(m_PasswordForm.GetLastActiveWindow().Title);
-                    m_RebuldPasswordMenu = false; // Only show the menu, without rebuilding.
-                    ShowMenu();
-                    m_RebuldPasswordMenu = true;  // Rebuild the menu when it will be shown next time.
-                    passwordsToolStripMenuItem1.ShowDropDown();
-                    Cursor.Position = lastRefreshItemCursorPosition;
-                }
-            };
 
             passMenu.Add(new ToolStripSeparator());
 

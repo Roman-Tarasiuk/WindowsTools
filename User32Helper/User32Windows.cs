@@ -197,7 +197,7 @@ namespace User32Helper
         {
             var collection = new List<DesktopWindow>();
 
-            EnumDelegate filter = delegate (IntPtr hWnd, int lParam)
+            EnumDelegate AcquireMatchingWindows = delegate (IntPtr hWnd, int lParam)
             {
                 Tuple<bool, string> isVisibleAndHasTitle = WindowVisibilityAndTitle(hWnd);
 
@@ -219,18 +219,89 @@ namespace User32Helper
                 }
                 catch { }
 
-                collection.Add(new DesktopWindow {
+                collection.Add(new DesktopWindow
+                {
                     Handle = hWnd,
                     Title = title,
                     IsVisible = isVisible,
-                    Icon = icon });
+                    Icon = icon
+                });
 
                 return true;
             };
 
-            EnumDesktopWindows(IntPtr.Zero, filter, IntPtr.Zero);
+            EnumDesktopWindows(IntPtr.Zero, AcquireMatchingWindows, IntPtr.Zero);
 
             return collection;
+        }
+
+        public static DesktopWindow GetLastActiveWindow(bool visibleOnly = true,
+            IntPtr hwndExcept = default(IntPtr),
+            bool skipExcepaAllProcessWindows = true)
+        {
+            DesktopWindow result = null;
+
+            EnumDelegate AcquireMatchingWindows = delegate (IntPtr hWnd, int lParam)
+            {
+                Tuple<bool, string> isVisibleAndHasTitle = WindowVisibilityAndTitle(hWnd);
+
+                var isVisible = isVisibleAndHasTitle.Item1;
+                var title = isVisibleAndHasTitle.Item2;
+
+                if (visibleOnly && (!isVisible))
+                {
+                    // Current window does not match, continue enumeration.
+                    return true;
+                }
+
+                if (title == "Пуск" ||
+                     title == "Program Manager" ||
+                     title == "Windows Shell Experience Host")
+                {
+                    return true;
+                }
+
+                if (hwndExcept != IntPtr.Zero)
+                {
+                    if (hWnd == hwndExcept)
+                    {
+                        return true;
+                    }
+                    else if (skipExcepaAllProcessWindows)
+                    {
+                        int procId1, procId2;
+                        GetWindowThreadProcessId(hWnd, out procId1);
+                        GetWindowThreadProcessId(hwndExcept, out procId2);
+
+                        if (procId1 == procId2)
+                        {
+                            return true;
+                        }
+                    }
+                }
+
+                Icon icon = null;
+                try
+                {
+                    var path = NativeMethods.GetProcessPath(hWnd);
+                    icon = Icon.ExtractAssociatedIcon(path);
+                }
+                catch { }
+
+                result = new DesktopWindow
+                {
+                    Handle = hWnd,
+                    Title = title,
+                    IsVisible = isVisible,
+                    Icon = icon
+                };
+
+                return false;
+            };
+
+            EnumDesktopWindows(IntPtr.Zero, AcquireMatchingWindows, IntPtr.Zero);
+
+            return result;
         }
 
         public static Tuple<bool, string> WindowVisibilityAndTitle(IntPtr hWnd)

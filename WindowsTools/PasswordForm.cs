@@ -31,7 +31,7 @@ namespace WindowsTools
 
         private List<String> m_PasswordRepresentation = new List<string>();
 
-        private List<DesktopWindow> m_RunningWindows;
+        private bool m_ActivateLastActiveWindow = true;
 
         #endregion
 
@@ -145,42 +145,10 @@ namespace WindowsTools
 
             Clipboard.SetText(m_Passwords[index].Password);
 
-            ActivatePreviousWindow();
-        }
-
-        public void RefreshRunningWindowsList()
-        {
-            m_RunningWindows = User32Windows.GetDesktopWindows();
-        }
-
-        public DesktopWindow GetLastActiveWindow()
-        {
-            if (m_RunningWindows == null)
+            if (m_ActivateLastActiveWindow)
             {
-                RefreshRunningWindowsList();
+                ActivatePreviousWindow();
             }
-
-            int thisProcessId, tmpProcessId;
-
-            User32Windows.GetWindowThreadProcessId(this.Handle, out thisProcessId);
-
-            foreach (var window in m_RunningWindows)
-            {
-                var tmp = User32Windows.WindowVisibilityAndTitle(window.Handle);
-                var title = tmp.Item2;
-
-                User32Windows.GetWindowThreadProcessId(window.Handle, out tmpProcessId);
-
-                if ((tmpProcessId != thisProcessId) &&
-                    (title != "Пуск" &&
-                     title != "Program Manager" &&
-                     title != "Windows Shell Experience Host"))
-                {
-                    return window;
-                }
-            }
-
-            return null;
         }
 
         #endregion
@@ -451,30 +419,34 @@ namespace WindowsTools
             listBox1.SelectedIndex = selectedIndex + 1;
         }
 
-        private void ActivatePreviousWindow()
+        private void ActivatePreviousWindow(IntPtr hwnd = default(IntPtr))
         {
-            if (m_RunningWindows == null)
+            if (hwnd == IntPtr.Zero)
             {
-                RefreshRunningWindowsList();
+                hwnd = User32Windows.GetLastActiveWindow(hwndExcept: this.Handle).Handle;
             }
 
-            if (m_RunningWindows.Count >= 2)
-            {
-                IntPtr handle = IntPtr.Zero;
+            User32Windows.SetForegroundWindow(hwnd);
+        }
 
-                // if (m_RunningWindows[1].Title != "Password Manager")
-                // {
-                //     handle = m_RunningWindows[1].Handle;
-                // }
-                // else if (m_RunningWindows.Count >= 3)
-                // {
-                //     handle = m_RunningWindows[2].Handle;
-                // }
+        private void label2_Click(object sender, EventArgs e)
+        {
 
-                handle = GetLastActiveWindow().Handle;
+        }
 
-                User32Windows.SetForegroundWindow(handle);
-            }
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
