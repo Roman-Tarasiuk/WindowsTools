@@ -44,6 +44,11 @@ namespace WindowsTools
             {
                 bool refresh = false;
 
+                if (m_Passwords.Count == 0)
+                {
+                    m_PasswordRepresentation.Clear();
+                }
+
                 if (m_PasswordRepresentation.Count != m_Passwords.Count)
                 {
                     refresh = true;
