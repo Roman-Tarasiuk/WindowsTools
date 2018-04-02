@@ -511,11 +511,11 @@
             // 
             // chkVisibleOnly
             // 
-            this.chkVisibleOnly.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chkVisibleOnly.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkVisibleOnly.AutoSize = true;
             this.chkVisibleOnly.Checked = true;
             this.chkVisibleOnly.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkVisibleOnly.Location = new System.Drawing.Point(12, 284);
+            this.chkVisibleOnly.Location = new System.Drawing.Point(377, 26);
             this.chkVisibleOnly.Name = "chkVisibleOnly";
             this.chkVisibleOnly.Size = new System.Drawing.Size(78, 17);
             this.chkVisibleOnly.TabIndex = 5;
@@ -828,7 +828,7 @@
             // 
             this.chkPin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkPin.AutoSize = true;
-            this.chkPin.Location = new System.Drawing.Point(458, 284);
+            this.chkPin.Location = new System.Drawing.Point(463, 284);
             this.chkPin.Name = "chkPin";
             this.chkPin.Size = new System.Drawing.Size(91, 17);
             this.chkPin.TabIndex = 8;
@@ -858,7 +858,7 @@
             this.lstWindowsList.Location = new System.Drawing.Point(12, 43);
             this.lstWindowsList.MultiSelect = false;
             this.lstWindowsList.Name = "lstWindowsList";
-            this.lstWindowsList.Size = new System.Drawing.Size(443, 235);
+            this.lstWindowsList.Size = new System.Drawing.Size(443, 258);
             this.lstWindowsList.TabIndex = 9;
             this.lstWindowsList.UseCompatibleStateImageBehavior = false;
             this.lstWindowsList.View = System.Windows.Forms.View.Details;
