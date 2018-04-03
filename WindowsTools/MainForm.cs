@@ -37,8 +37,7 @@ namespace WindowsTools
         private bool m_RefreshStarted = false;
         private bool m_NeedRefresh = false;
         private bool m_EnableRestore = true;
-        private bool m_PasswordsListRefreshed = false;
-        private bool m_RebuldPasswordMenu = true;
+        private bool m_RebuldPasswordMenu = false;
 
         static readonly TimeSpan defaultWrongPassDelay = new TimeSpan(0, 0, 0, 0, 5000);
         private TimeSpan m_PinTimeSpan = MainForm.defaultWrongPassDelay;
@@ -47,8 +46,6 @@ namespace WindowsTools
         private Point m_ScreenSaverRunCursorPosition;
 
         MyScreenSaverHooker m_Hook;
-
-        private Point m_LastContextMenuCursorPosition;
 
         #endregion
 
@@ -557,12 +554,6 @@ namespace WindowsTools
             SendCustomCommands();
         }
 
-        private void contextMenuStripSysTray_Opening(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            m_LastContextMenuCursorPosition = Cursor.Position;
-            BuildPasswordsList();
-        }
-
         private void hideSelectedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HideSelectedWindow();
@@ -599,6 +590,11 @@ namespace WindowsTools
             }
 
             new TrackInactiveWindowForm() { Hwnd = hwnd }.Show();
+        }
+
+        private void passwordsToolStripMenuItem1_DropDownOpening(object sender, EventArgs e)
+        {
+            BuildPasswordsList();
         }
 
         // Main menu | Miscellaneous
@@ -1004,7 +1000,16 @@ namespace WindowsTools
 
         private void Passwords()
         {
-            m_PasswordForm = (PasswordForm)User32Windows.GetForm(m_PasswordForm, typeof(PasswordForm));
+            var tmp = (PasswordForm)User32Windows.GetForm(m_PasswordForm, typeof(PasswordForm));
+
+            if (m_PasswordForm != tmp)
+            {
+                m_PasswordForm = tmp;
+                m_PasswordForm.PasswordsChanged += (object sender, EventArgs e) =>
+                {
+                    m_RebuldPasswordMenu = true;
+                };
+            }
 
             User32Windows.ShowForm(m_PasswordForm);
         }
@@ -1206,6 +1211,7 @@ namespace WindowsTools
 
             if (!m_RebuldPasswordMenu)
             {
+                SetFirstMenuItem(passMenu);
                 return;
             }
 
@@ -1220,14 +1226,7 @@ namespace WindowsTools
 
             this.SuspendLayout();
 
-            var lastWindow = User32Windows.GetLastActiveWindow(hwndExcept: this.Handle);
-            var maxMenuLength = 40;
-            passMenu.Add(lastWindow.Title.Length >= maxMenuLength
-                ? lastWindow.Title.Substring(0, maxMenuLength - 3) + "..."
-                : lastWindow.Title);
-            var menuFont = ((ToolStripMenuItem)passMenu[0]).Font;
-            ((ToolStripMenuItem)passMenu[0]).Font = new Font(menuFont, FontStyle.Bold | FontStyle.Italic);
-            ((ToolStripMenuItem)passMenu[0]).Image = lastWindow.Icon?.ToBitmap();
+            SetFirstMenuItem(passMenu);
 
             passMenu.Add(new ToolStripSeparator());
 
@@ -1241,14 +1240,43 @@ namespace WindowsTools
 
                 passMenu.Add(menuItem);
                 passMenu[index].Click += (sender, e) =>
-                    {
-                        // index - 2 because 0th menu item is used
-                        // by "Refresh windows list" item and separator.
-                        m_PasswordForm.CopyPasswordToClipboard(index - 2);
-                    };
+                {
+                    // index - 2 because 0th menu item is used
+                    // by "Refresh windows list" item and separator.
+                    m_PasswordForm.CopyPasswordToClipboard(index - 2);
+                };
             }
 
             this.ResumeLayout();
+
+            m_RebuldPasswordMenu = false;
+        }
+
+        private void SetFirstMenuItem(ToolStripItemCollection passMenu)
+        {
+            if (m_PasswordForm.PasswordsRepresentation.Count == 0)
+            {
+                return;
+            }
+
+            var lastWindow = User32Windows.GetLastActiveWindow(hwndExcept: this.Handle);
+            var maxMenuLength = 40;
+            var title = lastWindow.Title.Length >= maxMenuLength
+                    ? lastWindow.Title.Substring(0, maxMenuLength - 3) + "..."
+                    : lastWindow.Title;
+
+            if (passMenu.Count == 0)
+            {
+                passMenu.Add(title);
+                var menuFont = ((ToolStripMenuItem)passMenu[0]).Font;
+                ((ToolStripMenuItem)passMenu[0]).Font = new Font(menuFont, FontStyle.Bold | FontStyle.Italic);
+            }
+            else
+            {
+                ((ToolStripMenuItem)passMenu[0]).Text = title;
+            }
+
+            ((ToolStripMenuItem)passMenu[0]).Image = lastWindow.Icon?.ToBitmap();
         }
 
         private void ReplaceRNToSpace()

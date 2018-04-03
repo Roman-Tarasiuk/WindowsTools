@@ -545,7 +545,6 @@
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray1.Name = "contextMenuStrip1";
             this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 170);
-            this.contextMenuStripSysTray1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray_Opening);
             this.contextMenuStripSysTray1.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray1.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
             this.contextMenuStripSysTray1.MouseHover += new System.EventHandler(this.contextMenuStripSysTray_MouseHover);
@@ -646,6 +645,7 @@
             this.passwordsToolStripMenuItem1.Name = "passwordsToolStripMenuItem1";
             this.passwordsToolStripMenuItem1.Size = new System.Drawing.Size(215, 22);
             this.passwordsToolStripMenuItem1.Text = "Password Manager...";
+            this.passwordsToolStripMenuItem1.DropDownOpening += new System.EventHandler(this.passwordsToolStripMenuItem1_DropDownOpening);
             this.passwordsToolStripMenuItem1.Click += new System.EventHandler(this.passwordsToolStripMenuItem1_Click);
             // 
             // miscellaneousToolStripMenuItem

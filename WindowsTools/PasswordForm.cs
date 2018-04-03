@@ -38,6 +38,8 @@ namespace WindowsTools
 
         #region Public Properties and Methods
 
+        public event EventHandler PasswordsChanged;
+
         public List<String> PasswordsRepresentation
         {
             get
@@ -135,6 +137,19 @@ namespace WindowsTools
             if (m_ActivateLastActiveWindow)
             {
                 ActivatePreviousWindow();
+            }
+        }
+
+        #endregion
+
+
+        #region Protected Methods
+
+        protected void OnPasswordsChanged()
+        {
+            if (PasswordsChanged != null)
+            {
+                PasswordsChanged.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -366,6 +381,8 @@ namespace WindowsTools
             txtDescription.Focus();
 
             m_PasswordRepresentation.Clear();
+
+            OnPasswordsChanged();
         }
 
         private void RemovePasswordEntry()
@@ -381,6 +398,8 @@ namespace WindowsTools
             listBox1.Items.RemoveAt(selIndex);
 
             m_PasswordRepresentation.Clear();
+
+            OnPasswordsChanged();
         }
 
         private void MoveUp(int selectedIndex)
