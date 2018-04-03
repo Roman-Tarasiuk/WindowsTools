@@ -44,27 +44,9 @@ namespace WindowsTools
             {
                 bool refresh = false;
 
-                if (m_Passwords.Count == 0)
-                {
-                    m_PasswordRepresentation.Clear();
-                }
-
-                if (m_PasswordRepresentation.Count != m_Passwords.Count)
+                if (m_PasswordRepresentation.Count != m_Passwords.Count || m_Passwords.Count == 0)
                 {
                     refresh = true;
-                }
-
-                if (!refresh)
-                {
-                    for (var i = 0; i < m_Passwords.Count; i++)
-                    {
-                        if (i >= m_PasswordRepresentation.Count
-                            || !m_PasswordRepresentation[i].StartsWith(m_Passwords[i].Description))
-                        {
-                            refresh = true;
-                            break;
-                        }
-                    }
                 }
 
                 if (refresh)
@@ -232,15 +214,7 @@ namespace WindowsTools
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            var selIndex = listBox1.SelectedIndex;
-
-            if (selIndex == -1)
-            {
-                return;
-            }
-
-            m_Passwords.RemoveAt(selIndex);
-            listBox1.Items.RemoveAt(selIndex);
+            RemovePasswordEntry();
         }
 
         private void timerFlash_Tick(object sender, EventArgs e)
@@ -390,6 +364,23 @@ namespace WindowsTools
             txtPassword.Clear();
             chkShowPassword.Checked = false;
             txtDescription.Focus();
+
+            m_PasswordRepresentation.Clear();
+        }
+
+        private void RemovePasswordEntry()
+        {
+            var selIndex = listBox1.SelectedIndex;
+
+            if (selIndex == -1)
+            {
+                return;
+            }
+
+            m_Passwords.RemoveAt(selIndex);
+            listBox1.Items.RemoveAt(selIndex);
+
+            m_PasswordRepresentation.Clear();
         }
 
         private void MoveUp(int selectedIndex)

@@ -1220,8 +1220,14 @@ namespace WindowsTools
 
             this.SuspendLayout();
 
-            passMenu.Add(User32Windows.GetLastActiveWindow(hwndExcept: this.Handle).Title);
-            ((ToolStripMenuItem)passMenu[0]).Checked = m_PasswordsListRefreshed;
+            var lastWindow = User32Windows.GetLastActiveWindow(hwndExcept: this.Handle);
+            var maxMenuLength = 40;
+            passMenu.Add(lastWindow.Title.Length >= maxMenuLength
+                ? lastWindow.Title.Substring(0, maxMenuLength - 3) + "..."
+                : lastWindow.Title);
+            var menuFont = ((ToolStripMenuItem)passMenu[0]).Font;
+            ((ToolStripMenuItem)passMenu[0]).Font = new Font(menuFont, FontStyle.Bold | FontStyle.Italic);
+            ((ToolStripMenuItem)passMenu[0]).Image = lastWindow.Icon?.ToBitmap();
 
             passMenu.Add(new ToolStripSeparator());
 
@@ -1239,8 +1245,6 @@ namespace WindowsTools
                         // index - 2 because 0th menu item is used
                         // by "Refresh windows list" item and separator.
                         m_PasswordForm.CopyPasswordToClipboard(index - 2);
-
-                        m_PasswordsListRefreshed = false;
                     };
             }
 
