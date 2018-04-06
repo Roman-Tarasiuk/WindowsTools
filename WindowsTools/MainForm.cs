@@ -592,6 +592,24 @@ namespace WindowsTools
             new TrackInactiveWindowForm() { Hwnd = hwnd }.Show();
         }
 
+        private void contextMenuStripSysTray1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (m_RebuldPasswordMenu)
+            {
+                var passMenu = passwordsToolStripMenuItem1.DropDownItems;
+
+                if (passMenu.Count == 0 && m_PasswordForm.PasswordsRepresentation.Count > 0)
+                {
+                    // Only for displaying a ► sign of the Password Menu.
+                    passMenu.Add(new ToolStripSeparator());
+                }
+                else if (m_PasswordForm.PasswordsRepresentation.Count == 0)
+                {
+                    passMenu.Clear();
+                }
+            }
+        }
+
         private void passwordsToolStripMenuItem1_DropDownOpening(object sender, EventArgs e)
         {
             BuildPasswordsList();
