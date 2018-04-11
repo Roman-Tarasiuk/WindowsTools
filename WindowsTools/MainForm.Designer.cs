@@ -501,7 +501,7 @@
             // btnRefreshWindowsList
             // 
             this.btnRefreshWindowsList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefreshWindowsList.Location = new System.Drawing.Point(461, 43);
+            this.btnRefreshWindowsList.Location = new System.Drawing.Point(461, 23);
             this.btnRefreshWindowsList.Name = "btnRefreshWindowsList";
             this.btnRefreshWindowsList.Size = new System.Drawing.Size(88, 23);
             this.btnRefreshWindowsList.TabIndex = 2;
@@ -544,7 +544,7 @@
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray1.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 192);
+            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 170);
             this.contextMenuStripSysTray1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray1_Opening);
             this.contextMenuStripSysTray1.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray1.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
@@ -784,7 +784,7 @@
             // btnHideWindow
             // 
             this.btnHideWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHideWindow.Location = new System.Drawing.Point(461, 72);
+            this.btnHideWindow.Location = new System.Drawing.Point(461, 64);
             this.btnHideWindow.Name = "btnHideWindow";
             this.btnHideWindow.Size = new System.Drawing.Size(88, 23);
             this.btnHideWindow.TabIndex = 3;
@@ -795,7 +795,7 @@
             // btnShowHidden
             // 
             this.btnShowHidden.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnShowHidden.Location = new System.Drawing.Point(461, 101);
+            this.btnShowHidden.Location = new System.Drawing.Point(461, 87);
             this.btnShowHidden.Name = "btnShowHidden";
             this.btnShowHidden.Size = new System.Drawing.Size(88, 23);
             this.btnShowHidden.TabIndex = 4;
@@ -806,7 +806,7 @@
             // btnKillWindow
             // 
             this.btnKillWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKillWindow.Location = new System.Drawing.Point(461, 183);
+            this.btnKillWindow.Location = new System.Drawing.Point(461, 147);
             this.btnKillWindow.Name = "btnKillWindow";
             this.btnKillWindow.Size = new System.Drawing.Size(88, 23);
             this.btnKillWindow.TabIndex = 6;
@@ -817,7 +817,7 @@
             // btnCloseWindow
             // 
             this.btnCloseWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCloseWindow.Location = new System.Drawing.Point(461, 154);
+            this.btnCloseWindow.Location = new System.Drawing.Point(461, 124);
             this.btnCloseWindow.Name = "btnCloseWindow";
             this.btnCloseWindow.Size = new System.Drawing.Size(88, 23);
             this.btnCloseWindow.TabIndex = 7;
@@ -856,10 +856,10 @@
             this.lstWindowsList.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lstWindowsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.lstWindowsList.HideSelection = false;
-            this.lstWindowsList.Location = new System.Drawing.Point(12, 43);
+            this.lstWindowsList.Location = new System.Drawing.Point(12, 46);
             this.lstWindowsList.MultiSelect = false;
             this.lstWindowsList.Name = "lstWindowsList";
-            this.lstWindowsList.Size = new System.Drawing.Size(443, 258);
+            this.lstWindowsList.Size = new System.Drawing.Size(443, 255);
             this.lstWindowsList.TabIndex = 9;
             this.lstWindowsList.UseCompatibleStateImageBehavior = false;
             this.lstWindowsList.View = System.Windows.Forms.View.Details;
@@ -872,7 +872,7 @@
             // btnSendCustomCommands
             // 
             this.btnSendCustomCommands.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSendCustomCommands.Location = new System.Drawing.Point(461, 231);
+            this.btnSendCustomCommands.Location = new System.Drawing.Point(461, 191);
             this.btnSendCustomCommands.Name = "btnSendCustomCommands";
             this.btnSendCustomCommands.Size = new System.Drawing.Size(88, 34);
             this.btnSendCustomCommands.TabIndex = 10;
