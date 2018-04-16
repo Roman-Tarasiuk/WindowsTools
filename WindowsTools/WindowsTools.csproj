@@ -77,6 +77,12 @@
     <Compile Include="NotesForm.Designer.cs">
       <DependentUpon>NotesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PasswordSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PasswordSettingsForm.Designer.cs">
+      <DependentUpon>PasswordSettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RunningAppsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     <EmbeddedResource Include="NotesForm.resx">
       <DependentUpon>NotesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PasswordSettingsForm.resx">
+      <DependentUpon>PasswordSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RunningAppsForm.resx">
       <DependentUpon>RunningAppsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -261,6 +270,8 @@
     <None Include="Resources\Editing-Paste-icon.png" />
     <None Include="Resources\refresh-16-green.png" />
     <None Include="Resources\refresh-16.png" />
+    <None Include="Resources\cog-24.png" />
+    <None Include="Resources\cog-16.png" />
     <Content Include="taskmgr_icon.png.ico" />
   </ItemGroup>
   <ItemGroup>

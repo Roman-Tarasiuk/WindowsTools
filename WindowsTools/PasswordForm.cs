@@ -297,6 +297,17 @@ namespace WindowsTools
             MoveDown(listBox1.SelectedIndex);
         }
 
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            var passwordSettingsForm = new PasswordSettingsForm { ActivateLastWindow = m_ActivateLastActiveWindow };
+
+            var result = passwordSettingsForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                m_ActivateLastActiveWindow = passwordSettingsForm.ActivateLastWindow;
+            }
+        }
+
         #endregion
 
 
@@ -442,11 +453,6 @@ namespace WindowsTools
             }
 
             User32Windows.SetForegroundWindow(hwnd);
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            m_ActivateLastActiveWindow = chkActivateLastWindow.Checked;
         }
     }
 
