@@ -677,6 +677,11 @@ namespace WindowsTools
             PowerOffDisplayAndLock();
         }
 
+        private void encodeSpacesToToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EncodeSpacesToPercents();
+        }
+
         // System tray context menu | Miscellaneous
 
         private void clearClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -737,6 +742,11 @@ namespace WindowsTools
         private void powerOffDisplayAndLockToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             PowerOffDisplayAndLock();
+        }
+
+        private void encodeSpacesToToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            EncodeSpacesToPercents();
         }
 
         // Menu items other than Miscellaneous set above these last 2 groups.
@@ -1286,8 +1296,6 @@ namespace WindowsTools
             if (passMenu.Count == 0)
             {
                 passMenu.Add(title);
-                var menuFont = ((ToolStripMenuItem)passMenu[0]).Font;
-                ((ToolStripMenuItem)passMenu[0]).Font = new Font(menuFont, FontStyle.Bold | FontStyle.Italic);
             }
             else
             {
@@ -1295,6 +1303,7 @@ namespace WindowsTools
             }
 
             ((ToolStripMenuItem)passMenu[0]).Image = lastWindow.Icon?.ToBitmap();
+            ((ToolStripMenuItem)passMenu[0]).ForeColor = Color.FromArgb(112, 112, 112);
         }
 
         private void ReplaceRNToSpace()
@@ -1410,6 +1419,16 @@ namespace WindowsTools
         {
             MethodInfo mi = typeof(NotifyIcon).GetMethod("ShowContextMenu", BindingFlags.Instance | BindingFlags.NonPublic);
             mi.Invoke(notifyIcon1, null);
+        }
+
+        private void EncodeSpacesToPercents()
+        {
+            try
+            {
+                var clipText = Clipboard.GetText();
+                Clipboard.SetText(clipText.Replace(" ", "%20"));
+            }
+            catch { }
         }
 
         #endregion
