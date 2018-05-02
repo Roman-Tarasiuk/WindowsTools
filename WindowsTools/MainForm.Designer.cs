@@ -121,6 +121,8 @@
             this.lstWindowsList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnSendCustomCommands = new System.Windows.Forms.Button();
+            this.encodeSpacesToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.encodeSpacesToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -316,6 +318,7 @@
             this.encodeToToolStripMenuItem,
             this.encodeUriToToolStripMenuItem,
             this.encodeUriToExceptSpaceToolStripMenuItem,
+            this.encodeSpacesToToolStripMenuItem,
             this.replacernTospaceToolStripMenuItem,
             this.viewSystemClipboardToolStripMenuItem,
             this.toolStripSeparator,
@@ -544,7 +547,7 @@
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray1.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 170);
+            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 192);
             this.contextMenuStripSysTray1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray1_Opening);
             this.contextMenuStripSysTray1.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray1.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
@@ -658,6 +661,7 @@
             this.encodeToToolStripMenuItem1,
             this.encodeUriToToolStripMenuItem1,
             this.encodeUriToExceptSpaceToolStripMenuItem1,
+            this.encodeSpacesToToolStripMenuItem1,
             this.replacernTospaceToolStripMenuItem1,
             this.viewSystemClipboardToolStripMenuItem1,
             this.toolStripSeparator1,
@@ -880,6 +884,20 @@
             this.btnSendCustomCommands.UseVisualStyleBackColor = true;
             this.btnSendCustomCommands.Click += new System.EventHandler(this.btnSendCustomCommands_Click);
             // 
+            // encodeSpacesToToolStripMenuItem
+            // 
+            this.encodeSpacesToToolStripMenuItem.Name = "encodeSpacesToToolStripMenuItem";
+            this.encodeSpacesToToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.encodeSpacesToToolStripMenuItem.Text = "Encode spaces to %";
+            this.encodeSpacesToToolStripMenuItem.Click += new System.EventHandler(this.encodeSpacesToToolStripMenuItem_Click);
+            // 
+            // encodeSpacesToToolStripMenuItem1
+            // 
+            this.encodeSpacesToToolStripMenuItem1.Name = "encodeSpacesToToolStripMenuItem1";
+            this.encodeSpacesToToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.encodeSpacesToToolStripMenuItem1.Text = "Encode spaces to %";
+            this.encodeSpacesToToolStripMenuItem1.Click += new System.EventHandler(this.encodeSpacesToToolStripMenuItem1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1005,5 +1023,7 @@
         private System.Windows.Forms.ToolStripMenuItem powerOffDisplayAndLockToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem powerOffDisplayAndLockToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem trackWindowIsAccessibleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem encodeSpacesToToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem encodeSpacesToToolStripMenuItem1;
     }
 }
