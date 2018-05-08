@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DirectorySizeForm));
             this.txtPath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnOpenPath = new System.Windows.Forms.Button();
@@ -126,6 +127,7 @@
             this.Controls.Add(this.btnOpenPath);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPath);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DirectorySizeForm";
             this.Text = "Directory Sizes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DirectorySizeForm_FormClosing);
