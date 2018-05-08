@@ -113,6 +113,46 @@ namespace WindowsTools.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap file16x16 {
+            get {
+                object obj = ResourceManager.GetObject("file16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fileerror16x16 {
+            get {
+                object obj = ResourceManager.GetObject("fileerror16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap folder16x16 {
+            get {
+                object obj = ResourceManager.GetObject("folder16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap foldererror16x16 {
+            get {
+                object obj = ResourceManager.GetObject("foldererror16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap if_icon_arrow_down_b_211614 {
             get {
                 object obj = ResourceManager.GetObject("if_icon_arrow_down_b_211614", resourceCulture);

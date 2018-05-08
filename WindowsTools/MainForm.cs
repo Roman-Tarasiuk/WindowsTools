@@ -1432,6 +1432,11 @@ namespace WindowsTools
         }
 
         #endregion
+
+        private void directorySizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new DirectorySizeForm().Show();
+        }
     }
 
     public class ToolEventArgs : EventArgs

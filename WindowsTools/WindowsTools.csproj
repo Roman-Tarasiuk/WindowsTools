@@ -70,6 +70,12 @@
     <Compile Include="CustomWindowTitleForm.Designer.cs">
       <DependentUpon>CustomWindowTitleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DirectorySizeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DirectorySizeForm.Designer.cs">
+      <DependentUpon>DirectorySizeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyScreenSaverHooker.cs" />
     <Compile Include="NotesForm.cs">
       <SubType>Form</SubType>
@@ -184,6 +190,9 @@
     <EmbeddedResource Include="CustomWindowTitleForm.resx">
       <DependentUpon>CustomWindowTitleForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DirectorySizeForm.resx">
+      <DependentUpon>DirectorySizeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LocationAndSizeForm.resx">
       <DependentUpon>LocationAndSizeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -272,6 +281,10 @@
     <None Include="Resources\refresh-16.png" />
     <None Include="Resources\cog-24.png" />
     <None Include="Resources\cog-16.png" />
+    <None Include="Resources\file16x16.png" />
+    <None Include="Resources\folder16x16.png" />
+    <None Include="Resources\fileerror16x16.png" />
+    <None Include="Resources\foldererror16x16.png" />
     <Content Include="taskmgr_icon.png.ico" />
   </ItemGroup>
   <ItemGroup>
