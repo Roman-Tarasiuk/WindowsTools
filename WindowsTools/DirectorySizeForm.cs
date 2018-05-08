@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsTools.Infrastructure;
 
 namespace WindowsTools
 {
@@ -61,8 +62,6 @@ namespace WindowsTools
         private void btnCancel_Click(object sender, EventArgs e)
         {
             m_CancelationTokenSource.Cancel();
-
-            //timer1.Stop();
         }
 
         private void DirectorySizeForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -79,7 +78,8 @@ namespace WindowsTools
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            var duration = DateTime.Now - m_Start;
+            var now = DateTime.Now;
+            var duration = now - m_Start;
 
             lblTimer.Text = duration.ToString(@"hh\:mm\:ss");
         }
@@ -155,16 +155,16 @@ namespace WindowsTools
             }
         }
 
-        private void ThreadSafeSetButtonEnabled(Button button, bool enabled)
+        private void ThreadSafeSetControlEnabled(Control control, bool enabled)
         {
             if (this.treeView1.InvokeRequired)
             {
-                Action<Button, bool> d = new Action<Button, bool>(ThreadSafeSetButtonEnabled);
-                this.Invoke(d, new object[] { button, enabled });
+                Action<Control, bool> d = new Action<Control, bool>(ThreadSafeSetControlEnabled);
+                this.Invoke(d, new object[] { control, enabled });
             }
             else
             {
-                button.Enabled = enabled;
+                control.Enabled = enabled;
             }
         }
 
@@ -178,32 +178,6 @@ namespace WindowsTools
             else
             {
                 treeView1.BackColor = color;
-            }
-        }
-
-        private void ThreadSafeSuspendLayout()
-        {
-            if (this.treeView1.InvokeRequired)
-            {
-                Action d = new Action(ThreadSafeSuspendLayout);
-                this.Invoke(d);
-            }
-            else
-            {
-                this.SuspendLayout();
-            }
-        }
-
-        private void ThreadSafeResumeLayout()
-        {
-            if (this.treeView1.InvokeRequired)
-            {
-                Action d = new Action(ThreadSafeResumeLayout);
-                this.Invoke(d);
-            }
-            else
-            {
-                this.ResumeLayout();
             }
         }
 
@@ -242,13 +216,17 @@ namespace WindowsTools
         {
             ThreadSafeTimerStart();
 
-            ThreadSafeSetButtonEnabled(btnProcess, false);
-            ThreadSafeSetButtonEnabled(btnCancel, true);
+            ThreadSafeSetControlEnabled(btnProcess, false);
+            ThreadSafeSetControlEnabled(btnCancel, true);
+            ThreadSafeSetControlEnabled(chkSuspendTreeViewRedrawing, false);
 
             ThreadSafeSetTreeViewBackColor(SystemColors.Window);
             ThreadSafeClearTree();
 
-            ThreadSafeSuspendLayout();
+            if (chkSuspendTreeViewRedrawing.Checked)
+            {
+                DrawingControl.SuspendDrawing(panel1);
+            }
 
             m_Canceled = false;
 
@@ -274,17 +252,22 @@ namespace WindowsTools
 
             m_Start = DateTime.Now;
 
+            // Processing:
+
             var size = EnumerateSubdirs(m_Path, node, cancelationObject);
 
             ThreadSafeSetNodeText(node, FormatSize(size) + " : " + node.Text);
 
+            // Finished.
+
             var end = DateTime.Now;
             var duration = end - m_Start;
 
-            ThreadSafeSetButtonEnabled(btnProcess, true);
-            ThreadSafeSetButtonEnabled(btnCancel, false);
+            ThreadSafeSetControlEnabled(btnProcess, true);
+            ThreadSafeSetControlEnabled(btnCancel, false);
+            ThreadSafeSetControlEnabled(chkSuspendTreeViewRedrawing, true);
 
-            ThreadSafeResumeLayout();
+            DrawingControl.ResumeDrawing(panel1);
 
             m_CancelationTokenSource = null;
 
@@ -297,7 +280,9 @@ namespace WindowsTools
             else
             {
                 ThreadSafeSetTreeViewBackColor(SystemColors.Window);
-                MessageBox.Show("Processed in " + String.Format("{0:N2}", duration.TotalMinutes) + "minutes.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var durationStr = duration.ToString(@"hh\:mm\:ss\.fff");
+                //MessageBox.Show("Processed in " + durationStr + "minutes.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lblTimer.Text = durationStr;
             }
         }
 
