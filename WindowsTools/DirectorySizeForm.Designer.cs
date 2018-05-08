@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtPath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnOpenPath = new System.Windows.Forms.Button();
             this.btnProcess = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblTimer = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtPath
@@ -85,11 +89,38 @@
             this.treeView1.Size = new System.Drawing.Size(431, 253);
             this.treeView1.TabIndex = 4;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Enabled = false;
+            this.btnCancel.Location = new System.Drawing.Point(93, 51);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 5;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.Location = new System.Drawing.Point(174, 56);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(49, 13);
+            this.lblTimer.TabIndex = 6;
+            this.lblTimer.Text = "00:00:00";
+            // 
             // DirectorySizeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(455, 345);
+            this.Controls.Add(this.lblTimer);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.btnProcess);
             this.Controls.Add(this.btnOpenPath);
@@ -97,6 +128,7 @@
             this.Controls.Add(this.txtPath);
             this.Name = "DirectorySizeForm";
             this.Text = "Directory Sizes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DirectorySizeForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,5 +141,8 @@
         private System.Windows.Forms.Button btnOpenPath;
         private System.Windows.Forms.Button btnProcess;
         private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblTimer;
     }
 }
