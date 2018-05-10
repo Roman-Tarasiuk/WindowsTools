@@ -82,6 +82,8 @@ namespace WindowsTools
             lstWindowsList.Columns[0].Width = this.Width - ListColumnWidthDelta;
 
             User32Windows.RegisterHotKey(this.Handle, 0, User32Windows.MOD_CONTROL, User32Windows.VK_OEM_3);
+
+            NLog.LogManager.LoadConfiguration(@"NLog.config");
         }
 
         #endregion

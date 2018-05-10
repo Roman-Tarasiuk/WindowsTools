@@ -41,6 +41,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.chkSuspendTreeViewRedrawing = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnSizeInfo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +76,7 @@
             // 
             // btnProcess
             // 
-            this.btnProcess.Location = new System.Drawing.Point(12, 51);
+            this.btnProcess.Location = new System.Drawing.Point(104, 51);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(75, 23);
             this.btnProcess.TabIndex = 3;
@@ -91,13 +92,13 @@
             this.treeView1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(480, 289);
+            this.treeView1.Size = new System.Drawing.Size(480, 266);
             this.treeView1.TabIndex = 4;
             // 
             // btnCancel
             // 
             this.btnCancel.Enabled = false;
-            this.btnCancel.Location = new System.Drawing.Point(93, 51);
+            this.btnCancel.Location = new System.Drawing.Point(185, 51);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
@@ -116,7 +117,7 @@
             this.lblTimer.BackColor = System.Drawing.Color.Black;
             this.lblTimer.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblTimer.ForeColor = System.Drawing.Color.Green;
-            this.lblTimer.Location = new System.Drawing.Point(391, 56);
+            this.lblTimer.Location = new System.Drawing.Point(219, 81);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(63, 14);
             this.lblTimer.TabIndex = 6;
@@ -128,9 +129,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.treeView1);
-            this.panel1.Location = new System.Drawing.Point(12, 80);
+            this.panel1.Location = new System.Drawing.Point(12, 103);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(480, 289);
+            this.panel1.Size = new System.Drawing.Size(480, 266);
             this.panel1.TabIndex = 7;
             // 
             // chkSuspendTreeViewRedrawing
@@ -138,7 +139,7 @@
             this.chkSuspendTreeViewRedrawing.AutoSize = true;
             this.chkSuspendTreeViewRedrawing.Checked = true;
             this.chkSuspendTreeViewRedrawing.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkSuspendTreeViewRedrawing.Location = new System.Drawing.Point(174, 55);
+            this.chkSuspendTreeViewRedrawing.Location = new System.Drawing.Point(15, 80);
             this.chkSuspendTreeViewRedrawing.Name = "chkSuspendTreeViewRedrawing";
             this.chkSuspendTreeViewRedrawing.Size = new System.Drawing.Size(198, 17);
             this.chkSuspendTreeViewRedrawing.TabIndex = 8;
@@ -146,11 +147,21 @@
             this.toolTip1.SetToolTip(this.chkSuspendTreeViewRedrawing, "Improves performance when checked");
             this.chkSuspendTreeViewRedrawing.UseVisualStyleBackColor = true;
             // 
+            // btnSizeInfo
+            // 
+            this.btnSizeInfo.Location = new System.Drawing.Point(12, 51);
+            this.btnSizeInfo.Name = "btnSizeInfo";
+            this.btnSizeInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnSizeInfo.TabIndex = 9;
+            this.btnSizeInfo.Text = "Size only";
+            this.btnSizeInfo.UseVisualStyleBackColor = true;
+            // 
             // DirectorySizeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 381);
+            this.Controls.Add(this.btnSizeInfo);
             this.Controls.Add(this.chkSuspendTreeViewRedrawing);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblTimer);
@@ -182,5 +193,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox chkSuspendTreeViewRedrawing;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnSizeInfo;
     }
 }

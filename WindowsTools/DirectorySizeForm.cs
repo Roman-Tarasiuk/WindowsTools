@@ -23,6 +23,8 @@ namespace WindowsTools
 
         DateTime m_Start;
 
+        NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
 
         public DirectorySizeForm()
         {
@@ -214,6 +216,8 @@ namespace WindowsTools
 
         private void BuildDirectoryTree(object cancelationObject)
         {
+            logger.Info("Starting build directory tree...");
+
             ThreadSafeTimerStart();
 
             ThreadSafeSetControlEnabled(btnProcess, false);
@@ -272,6 +276,8 @@ namespace WindowsTools
             m_CancelationTokenSource = null;
 
             ThreadSafeTimerStop();
+
+            logger.Info("Directory tree is built.");
 
             if (m_Canceled)
             {
