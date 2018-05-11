@@ -76,7 +76,7 @@
             // 
             // btnProcess
             // 
-            this.btnProcess.Location = new System.Drawing.Point(104, 51);
+            this.btnProcess.Location = new System.Drawing.Point(12, 51);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(75, 23);
             this.btnProcess.TabIndex = 3;
@@ -98,7 +98,7 @@
             // btnCancel
             // 
             this.btnCancel.Enabled = false;
-            this.btnCancel.Location = new System.Drawing.Point(185, 51);
+            this.btnCancel.Location = new System.Drawing.Point(93, 51);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
@@ -149,7 +149,8 @@
             // 
             // btnSizeInfo
             // 
-            this.btnSizeInfo.Location = new System.Drawing.Point(12, 51);
+            this.btnSizeInfo.Enabled = false;
+            this.btnSizeInfo.Location = new System.Drawing.Point(194, 51);
             this.btnSizeInfo.Name = "btnSizeInfo";
             this.btnSizeInfo.Size = new System.Drawing.Size(75, 23);
             this.btnSizeInfo.TabIndex = 9;

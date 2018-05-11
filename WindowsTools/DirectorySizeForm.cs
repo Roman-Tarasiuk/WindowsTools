@@ -216,8 +216,6 @@ namespace WindowsTools
 
         private void BuildDirectoryTree(object cancelationObject)
         {
-            logger.Info("Starting build directory tree...");
-
             ThreadSafeTimerStart();
 
             ThreadSafeSetControlEnabled(btnProcess, false);
@@ -251,6 +249,8 @@ namespace WindowsTools
 
             m_Path = p;
 
+            logger.Info("Starting build directory tree for " + m_Path +" ...");
+
             var node = new TreeNode(Path.GetDirectoryName(m_Path));
             ThreadSafeAddNode(node);
 
@@ -277,18 +277,19 @@ namespace WindowsTools
 
             ThreadSafeTimerStop();
 
-            logger.Info("Directory tree is built.");
-
             if (m_Canceled)
             {
                 ThreadSafeSetTreeViewBackColor(SystemColors.Control);
+
+                logger.Info("Canceled by user.");
             }
             else
             {
                 ThreadSafeSetTreeViewBackColor(SystemColors.Window);
                 var durationStr = duration.ToString(@"hh\:mm\:ss\.fff");
-                //MessageBox.Show("Processed in " + durationStr + "minutes.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lblTimer.Text = durationStr;
+
+                logger.Info("Directory tree is built in " + durationStr + " (" + m_Path + ").");
             }
         }
 
