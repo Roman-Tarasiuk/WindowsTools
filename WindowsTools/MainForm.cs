@@ -617,6 +617,11 @@ namespace WindowsTools
             BuildPasswordsList();
         }
 
+        private void directorySizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new DirectorySizeForm().Show();
+        }
+
         // Main menu | Miscellaneous
 
         private void clearClipboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -684,6 +689,11 @@ namespace WindowsTools
             EncodeSpacesToPercents();
         }
 
+        private void cropImagesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CropImages();
+        }
+
         // System tray context menu | Miscellaneous
 
         private void clearClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -749,6 +759,11 @@ namespace WindowsTools
         private void encodeSpacesToToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             EncodeSpacesToPercents();
+        }
+
+        private void cropImagesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CropImages();
         }
 
         // Menu items other than Miscellaneous set above these last 2 groups.
@@ -1433,12 +1448,12 @@ namespace WindowsTools
             catch { }
         }
 
-        #endregion
-
-        private void directorySizeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CropImages()
         {
-            new DirectorySizeForm().Show();
+            new CropImageForm().Show();
         }
+
+        #endregion
     }
 
     public class ToolEventArgs : EventArgs

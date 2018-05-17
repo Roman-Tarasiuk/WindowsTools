@@ -49,9 +49,7 @@
     <Compile Include="EnumAnchors.cs" />
     <Compile Include="EnumSwitch.cs" />
     <Compile Include="HookParams.cs" />
-    <Compile Include="myGroupBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="myGroupBox.cs" />
     <Compile Include="PasswordInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TitleTrackingFormProperties.cs" />

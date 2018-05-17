@@ -73,6 +73,12 @@
     <Compile Include="CompareStringsSettingsForm.Designer.cs">
       <DependentUpon>CompareStringsSettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CropImageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CropImageForm.Designer.cs">
+      <DependentUpon>CropImageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomWindowTitleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CompareStringsSettingsForm.resx">
       <DependentUpon>CompareStringsSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CropImageForm.resx">
+      <DependentUpon>CropImageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomWindowTitleForm.resx">
       <DependentUpon>CustomWindowTitleForm.cs</DependentUpon>

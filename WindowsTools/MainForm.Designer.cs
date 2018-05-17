@@ -49,6 +49,7 @@
             this.windowsTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackWindowIsAccessibleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.directorySizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.screensaverToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,6 +68,7 @@
             this.powerOffDisplayAndLockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compareStringsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cropImagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripWindowsList = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -123,9 +125,7 @@
             this.lstWindowsList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnSendCustomCommands = new System.Windows.Forms.Button();
-            this.encodeSpacesToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.encodeSpacesToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.directorySizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cropImagesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -294,6 +294,13 @@
             this.trackWindowIsAccessibleToolStripMenuItem.Text = "Track a window is accessible...";
             this.trackWindowIsAccessibleToolStripMenuItem.Click += new System.EventHandler(this.trackWindowIsAccessibleToolStripMenuItem_Click);
             // 
+            // directorySizeToolStripMenuItem
+            // 
+            this.directorySizeToolStripMenuItem.Name = "directorySizeToolStripMenuItem";
+            this.directorySizeToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.directorySizeToolStripMenuItem.Text = "Directory size...";
+            this.directorySizeToolStripMenuItem.Click += new System.EventHandler(this.directorySizeToolStripMenuItem_Click);
+            // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
@@ -325,6 +332,7 @@
             this.encodeSpacesToToolStripMenuItem,
             this.replacernTospaceToolStripMenuItem,
             this.viewSystemClipboardToolStripMenuItem,
+            this.cropImagesToolStripMenuItem,
             this.toolStripSeparator,
             this.powerOffDisplayToolStripMenuItem,
             this.powerOffDisplayAndLockToolStripMenuItem,
@@ -430,6 +438,13 @@
             this.notesToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.notesToolStripMenuItem.Text = "Notes...";
             this.notesToolStripMenuItem.Click += new System.EventHandler(this.notesToolStripMenuItem_Click);
+            // 
+            // cropImagesToolStripMenuItem
+            // 
+            this.cropImagesToolStripMenuItem.Name = "cropImagesToolStripMenuItem";
+            this.cropImagesToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.cropImagesToolStripMenuItem.Text = "Crop images...";
+            this.cropImagesToolStripMenuItem.Click += new System.EventHandler(this.cropImagesToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
@@ -675,6 +690,7 @@
             this.encodeSpacesToToolStripMenuItem1,
             this.replacernTospaceToolStripMenuItem1,
             this.viewSystemClipboardToolStripMenuItem1,
+            this.cropImagesToolStripMenuItem1,
             this.toolStripSeparator1,
             this.powerOffDisplayToolStripMenuItem1,
             this.powerOffDisplayAndLockToolStripMenuItem1,
@@ -902,26 +918,12 @@
             this.btnSendCustomCommands.UseVisualStyleBackColor = true;
             this.btnSendCustomCommands.Click += new System.EventHandler(this.btnSendCustomCommands_Click);
             // 
-            // encodeSpacesToToolStripMenuItem
+            // cropImagesToolStripMenuItem1
             // 
-            this.encodeSpacesToToolStripMenuItem.Name = "encodeSpacesToToolStripMenuItem";
-            this.encodeSpacesToToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.encodeSpacesToToolStripMenuItem.Text = "Encode spaces to %";
-            this.encodeSpacesToToolStripMenuItem.Click += new System.EventHandler(this.encodeSpacesToToolStripMenuItem_Click);
-            // 
-            // encodeSpacesToToolStripMenuItem1
-            // 
-            this.encodeSpacesToToolStripMenuItem1.Name = "encodeSpacesToToolStripMenuItem1";
-            this.encodeSpacesToToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.encodeSpacesToToolStripMenuItem1.Text = "Encode spaces to %";
-            this.encodeSpacesToToolStripMenuItem1.Click += new System.EventHandler(this.encodeSpacesToToolStripMenuItem1_Click);
-            //
-            // directorySizeToolStripMenuItem
-            // 
-            this.directorySizeToolStripMenuItem.Name = "directorySizeToolStripMenuItem";
-            this.directorySizeToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.directorySizeToolStripMenuItem.Text = "Directory size...";
-            this.directorySizeToolStripMenuItem.Click += new System.EventHandler(this.directorySizeToolStripMenuItem_Click);
+            this.cropImagesToolStripMenuItem1.Name = "cropImagesToolStripMenuItem1";
+            this.cropImagesToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.cropImagesToolStripMenuItem1.Text = "Crop images...";
+            this.cropImagesToolStripMenuItem1.Click += new System.EventHandler(this.cropImagesToolStripMenuItem1_Click);
             // 
             // MainForm
             // 
@@ -1051,5 +1053,7 @@
         private System.Windows.Forms.ToolStripMenuItem encodeSpacesToToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem encodeSpacesToToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem directorySizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cropImagesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cropImagesToolStripMenuItem1;
     }
 }
