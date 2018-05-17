@@ -73,34 +73,22 @@ namespace WindowsTools
 
         private void toolStripBtnCropLeft_Click(object sender, EventArgs e)
         {
-            m_Cropping = true;
-            m_Crop = Crop.Left;
-
-            CheckCropButton(m_Crop);
+            ToggleCropLeft();
         }
 
         private void toolStripBtnCropRight_Click(object sender, EventArgs e)
         {
-            m_Cropping = true;
-            m_Crop = Crop.Right;
-
-            CheckCropButton(m_Crop);
+            ToggleCropRight();
         }
 
         private void toolStripBtnCropTop_Click(object sender, EventArgs e)
         {
-            m_Cropping = true;
-            m_Crop = Crop.Top;
-
-            CheckCropButton(m_Crop);
+            ToggleCropTop();
         }
 
         private void toolStripBtnCropBottom_Click(object sender, EventArgs e)
         {
-            m_Cropping = true;
-            m_Crop = Crop.Bottom;
-
-            CheckCropButton(m_Crop);
+            ToggleCropBottom();
         }
 
         private void toolStripBtnEscapeCrop_Click(object sender, EventArgs e)
@@ -115,21 +103,45 @@ namespace WindowsTools
 
         private void CropImageForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.V && e.Control)
+            switch (e.KeyCode)
             {
-                PasteFromClipboard();
-            }
-            else if (e.KeyCode == Keys.C && e.Control)
-            {
-                CopyToClipboard();
-            }
-            else if (e.KeyCode == Keys.Escape)
-            {
-                EscapeCrop();
-            }
-            else if (e.KeyCode == Keys.Delete)
-            {
-                EraseImage();
+                case Keys.V:
+                    if (e.Control)
+                    {
+                        PasteFromClipboard();
+                    }
+                    break;
+
+                case Keys.C:
+                    if (e.Control)
+                    {
+                        CopyToClipboard();
+                    }
+                    break;
+
+                case Keys.Escape:
+                    EscapeCrop();
+                    break;
+
+                case Keys.Delete:
+                    EraseImage();
+                    break;
+
+                case Keys.D1:
+                    ToggleCropLeft();
+                    break;
+
+                case Keys.D2:
+                    ToggleCropTop();
+                    break;
+
+                case Keys.D3:
+                    ToggleCropRight();
+                    break;
+
+                case Keys.D4:
+                    ToggleCropBottom();
+                    break;
             }
         }
 
@@ -137,6 +149,38 @@ namespace WindowsTools
 
 
         #region Helper Methods
+
+        private void ToggleCropLeft()
+        {
+            m_Cropping = true;
+            m_Crop = Crop.Left;
+
+            CheckCropButton(m_Crop);
+        }
+
+        private void ToggleCropRight()
+        {
+            m_Cropping = true;
+            m_Crop = Crop.Right;
+
+            CheckCropButton(m_Crop);
+        }
+
+        private void ToggleCropTop()
+        {
+            m_Cropping = true;
+            m_Crop = Crop.Top;
+
+            CheckCropButton(m_Crop);
+        }
+
+        private void ToggleCropBottom()
+        {
+            m_Cropping = true;
+            m_Crop = Crop.Bottom;
+
+            CheckCropButton(m_Crop);
+        }
 
         private Image CropImage(Image image, Crop crop, int x, int y)
         {

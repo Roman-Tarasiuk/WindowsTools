@@ -52,8 +52,8 @@
             this.toolStripBtnCopy,
             this.toolStripBtnEraseImage,
             this.toolStripBtnCropLeft,
-            this.toolStripBtnCropRight,
             this.toolStripBtnCropTop,
+            this.toolStripBtnCropRight,
             this.toolStripBtnCropBottom,
             this.toolStripBtnEscapeCrop});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -100,7 +100,7 @@
             this.toolStripBtnCropLeft.Margin = new System.Windows.Forms.Padding(12, 1, 0, 2);
             this.toolStripBtnCropLeft.Name = "toolStripBtnCropLeft";
             this.toolStripBtnCropLeft.Size = new System.Drawing.Size(23, 22);
-            this.toolStripBtnCropLeft.Text = "Crop left";
+            this.toolStripBtnCropLeft.Text = "Crop left (1)";
             this.toolStripBtnCropLeft.Click += new System.EventHandler(this.toolStripBtnCropLeft_Click);
             // 
             // toolStripBtnCropRight
@@ -110,7 +110,7 @@
             this.toolStripBtnCropRight.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnCropRight.Name = "toolStripBtnCropRight";
             this.toolStripBtnCropRight.Size = new System.Drawing.Size(23, 22);
-            this.toolStripBtnCropRight.Text = "Crop right";
+            this.toolStripBtnCropRight.Text = "Crop right (3)";
             this.toolStripBtnCropRight.Click += new System.EventHandler(this.toolStripBtnCropRight_Click);
             // 
             // toolStripBtnCropTop
@@ -120,7 +120,7 @@
             this.toolStripBtnCropTop.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnCropTop.Name = "toolStripBtnCropTop";
             this.toolStripBtnCropTop.Size = new System.Drawing.Size(23, 22);
-            this.toolStripBtnCropTop.Text = "Crop top";
+            this.toolStripBtnCropTop.Text = "Crop top (2)";
             this.toolStripBtnCropTop.Click += new System.EventHandler(this.toolStripBtnCropTop_Click);
             // 
             // toolStripBtnCropBottom
@@ -130,7 +130,7 @@
             this.toolStripBtnCropBottom.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnCropBottom.Name = "toolStripBtnCropBottom";
             this.toolStripBtnCropBottom.Size = new System.Drawing.Size(23, 22);
-            this.toolStripBtnCropBottom.Text = "Crop bottom";
+            this.toolStripBtnCropBottom.Text = "Crop bottom (4)";
             this.toolStripBtnCropBottom.Click += new System.EventHandler(this.toolStripBtnCropBottom_Click);
             // 
             // toolStripBtnEscapeCrop
