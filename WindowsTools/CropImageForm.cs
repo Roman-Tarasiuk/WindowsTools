@@ -46,21 +46,12 @@ namespace WindowsTools
 
         private void toolStripBtnPaste_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = Clipboard.GetImage();
-            m_Cropping = false;
-
-            UncheckCropButtons();
+            PasteFromClipboard();
         }
 
         private void toolStripBtnCopy_Click(object sender, EventArgs e)
         {
-            if (pictureBox1.Image != null)
-            {
-                Clipboard.SetImage(pictureBox1.Image);
-            }
-            m_Cropping = false;
-
-            UncheckCropButtons();
+            CopyToClipboard();
         }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
@@ -110,6 +101,27 @@ namespace WindowsTools
             m_Crop = Crop.Bottom;
 
             CheckCropButton(m_Crop);
+        }
+
+        private void toolStripBtnEscapeCrop_Click(object sender, EventArgs e)
+        {
+            EscapeCrop();
+        }
+
+        private void CropImageForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.V && e.Control)
+            {
+                PasteFromClipboard();
+            }
+            else if (e.KeyCode == Keys.C && e.Control)
+            {
+                CopyToClipboard();
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                EscapeCrop();
+            }
         }
 
         #endregion
@@ -190,6 +202,31 @@ namespace WindowsTools
             toolStripBtnCropTop.CheckState = (crop == Crop.Top ? CheckState.Checked : CheckState.Unchecked);
             toolStripBtnCropRight.CheckState = (crop == Crop.Right ? CheckState.Checked : CheckState.Unchecked);
             toolStripBtnCropBottom.CheckState = (crop == Crop.Bottom ? CheckState.Checked : CheckState.Unchecked);
+        }
+
+        private void PasteFromClipboard()
+        {
+            pictureBox1.Image = Clipboard.GetImage();
+            m_Cropping = false;
+
+            UncheckCropButtons();
+        }
+
+        private void CopyToClipboard()
+        {
+            if (pictureBox1.Image != null)
+            {
+                Clipboard.SetImage(pictureBox1.Image);
+            }
+            m_Cropping = false;
+
+            UncheckCropButtons();
+        }
+
+        private void EscapeCrop()
+        {
+            m_Cropping = false;
+            UncheckCropButtons();
         }
 
         #endregion

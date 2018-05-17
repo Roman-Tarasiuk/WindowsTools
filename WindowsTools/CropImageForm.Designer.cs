@@ -38,6 +38,7 @@
             this.toolStripBtnCropBottom = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toolStripBtnEscapeCrop = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -51,7 +52,8 @@
             this.toolStripBtnCropLeft,
             this.toolStripBtnCropRight,
             this.toolStripBtnCropTop,
-            this.toolStripBtnCropBottom});
+            this.toolStripBtnCropBottom,
+            this.toolStripBtnEscapeCrop});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(672, 25);
@@ -65,7 +67,7 @@
             this.toolStripBtnPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnPaste.Name = "toolStripBtnPaste";
             this.toolStripBtnPaste.Size = new System.Drawing.Size(23, 22);
-            this.toolStripBtnPaste.Text = "Paste";
+            this.toolStripBtnPaste.Text = "Paste (Ctrl+V)";
             this.toolStripBtnPaste.Click += new System.EventHandler(this.toolStripBtnPaste_Click);
             // 
             // toolStripBtnCopy
@@ -75,7 +77,7 @@
             this.toolStripBtnCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnCopy.Name = "toolStripBtnCopy";
             this.toolStripBtnCopy.Size = new System.Drawing.Size(23, 22);
-            this.toolStripBtnCopy.Text = "Copy";
+            this.toolStripBtnCopy.Text = "Copy (Ctrl+C)";
             this.toolStripBtnCopy.Click += new System.EventHandler(this.toolStripBtnCopy_Click);
             // 
             // toolStripBtnCropLeft
@@ -83,7 +85,7 @@
             this.toolStripBtnCropLeft.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripBtnCropLeft.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnCropLeft.Image")));
             this.toolStripBtnCropLeft.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnCropLeft.Margin = new System.Windows.Forms.Padding(6, 1, 0, 2);
+            this.toolStripBtnCropLeft.Margin = new System.Windows.Forms.Padding(12, 1, 0, 2);
             this.toolStripBtnCropLeft.Name = "toolStripBtnCropLeft";
             this.toolStripBtnCropLeft.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnCropLeft.Text = "Crop left";
@@ -141,6 +143,16 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
             // 
+            // toolStripBtnEscapeCrop
+            // 
+            this.toolStripBtnEscapeCrop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnEscapeCrop.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnEscapeCrop.Image")));
+            this.toolStripBtnEscapeCrop.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnEscapeCrop.Name = "toolStripBtnEscapeCrop";
+            this.toolStripBtnEscapeCrop.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBtnEscapeCrop.Text = "Escape crop (Esc)";
+            this.toolStripBtnEscapeCrop.Click += new System.EventHandler(this.toolStripBtnEscapeCrop_Click);
+            // 
             // CropImageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,6 +163,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CropImageForm";
             this.Text = "Crop image";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CropImageForm_KeyDown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -172,5 +185,6 @@
         private System.Windows.Forms.ToolStripButton toolStripBtnCropBottom;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripButton toolStripBtnEscapeCrop;
     }
 }
