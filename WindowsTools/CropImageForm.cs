@@ -108,6 +108,11 @@ namespace WindowsTools
             EscapeCrop();
         }
 
+        private void toolStripBtnEraseImage_Click(object sender, EventArgs e)
+        {
+            EraseImage();
+        }
+
         private void CropImageForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.V && e.Control)
@@ -121,6 +126,10 @@ namespace WindowsTools
             else if (e.KeyCode == Keys.Escape)
             {
                 EscapeCrop();
+            }
+            else if (e.KeyCode == Keys.Delete)
+            {
+                EraseImage();
             }
         }
 
@@ -227,6 +236,11 @@ namespace WindowsTools
         {
             m_Cropping = false;
             UncheckCropButtons();
+        }
+
+        private void EraseImage()
+        {
+            pictureBox1.Image = null;
         }
 
         #endregion

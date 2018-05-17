@@ -32,13 +32,14 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripBtnPaste = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnCopy = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnEraseImage = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnCropLeft = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnCropRight = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnCropTop = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnCropBottom = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnEscapeCrop = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolStripBtnEscapeCrop = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -49,6 +50,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripBtnPaste,
             this.toolStripBtnCopy,
+            this.toolStripBtnEraseImage,
             this.toolStripBtnCropLeft,
             this.toolStripBtnCropRight,
             this.toolStripBtnCropTop,
@@ -79,6 +81,16 @@
             this.toolStripBtnCopy.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnCopy.Text = "Copy (Ctrl+C)";
             this.toolStripBtnCopy.Click += new System.EventHandler(this.toolStripBtnCopy_Click);
+            // 
+            // toolStripBtnEraseImage
+            // 
+            this.toolStripBtnEraseImage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnEraseImage.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnEraseImage.Image")));
+            this.toolStripBtnEraseImage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnEraseImage.Name = "toolStripBtnEraseImage";
+            this.toolStripBtnEraseImage.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBtnEraseImage.Text = "Erase image (Del)";
+            this.toolStripBtnEraseImage.Click += new System.EventHandler(this.toolStripBtnEraseImage_Click);
             // 
             // toolStripBtnCropLeft
             // 
@@ -121,28 +133,6 @@
             this.toolStripBtnCropBottom.Text = "Crop bottom";
             this.toolStripBtnCropBottom.Click += new System.EventHandler(this.toolStripBtnCropBottom_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(12, 28);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(648, 354);
-            this.panel1.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(648, 354);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
-            // 
             // toolStripBtnEscapeCrop
             // 
             this.toolStripBtnEscapeCrop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -153,10 +143,33 @@
             this.toolStripBtnEscapeCrop.Text = "Escape crop (Esc)";
             this.toolStripBtnEscapeCrop.Click += new System.EventHandler(this.toolStripBtnEscapeCrop_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Location = new System.Drawing.Point(12, 37);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(648, 345);
+            this.panel1.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(648, 345);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
+            // 
             // CropImageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(252)))), ((int)(((byte)(143)))));
             this.ClientSize = new System.Drawing.Size(672, 394);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
@@ -186,5 +199,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripButton toolStripBtnEscapeCrop;
+        private System.Windows.Forms.ToolStripButton toolStripBtnEraseImage;
     }
 }
