@@ -169,7 +169,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(252)))), ((int)(((byte)(143)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(672, 394);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
