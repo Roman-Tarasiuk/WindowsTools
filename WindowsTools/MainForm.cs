@@ -1454,6 +1454,11 @@ namespace WindowsTools
         }
 
         #endregion
+
+        private void screenRulerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ScreenRulerForm().Show();
+        }
     }
 
     public class ToolEventArgs : EventArgs
