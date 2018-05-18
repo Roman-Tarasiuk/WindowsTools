@@ -141,7 +141,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "ScreenRulerForm";
-            this.Text = "Screen ruller";
+            this.Text = "Screen ruler";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ScreenRulerForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
