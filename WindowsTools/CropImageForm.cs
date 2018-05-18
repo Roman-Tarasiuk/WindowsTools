@@ -101,6 +101,31 @@ namespace WindowsTools
             EraseImage();
         }
 
+        private void btnCropLeft_Click(object sender, EventArgs e)
+        {
+            ToggleCropLeft();
+        }
+
+        private void btnCropTop_Click(object sender, EventArgs e)
+        {
+            ToggleCropTop();
+        }
+
+        private void btnCropRight_Click(object sender, EventArgs e)
+        {
+            ToggleCropRight();
+        }
+
+        private void btnCropBottom_Click(object sender, EventArgs e)
+        {
+            ToggleCropBottom();
+        }
+
+        private void btnEscapeCrop_Click(object sender, EventArgs e)
+        {
+            EscapeCrop();
+        }
+
         private void CropImageForm_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -247,6 +272,8 @@ namespace WindowsTools
             toolStripBtnCropTop.CheckState = CheckState.Unchecked;
             toolStripBtnCropRight.CheckState = CheckState.Unchecked;
             toolStripBtnCropBottom.CheckState = CheckState.Unchecked;
+
+            btnEscapeCrop.Focus();
         }
 
         private void CheckCropButton(Crop crop)
