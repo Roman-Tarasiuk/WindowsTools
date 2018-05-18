@@ -63,6 +63,7 @@
             this.encodeSpacesToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replacernTospaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewSystemClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.screenRulerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cropImagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.powerOffDisplayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,7 +127,7 @@
             this.lstWindowsList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnSendCustomCommands = new System.Windows.Forms.Button();
-            this.screenRulerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.screenRulerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -408,6 +409,13 @@
             this.viewSystemClipboardToolStripMenuItem.Text = "System clipboard manager...";
             this.viewSystemClipboardToolStripMenuItem.Click += new System.EventHandler(this.viewSystemClipboardToolStripMenuItem_Click);
             // 
+            // screenRulerToolStripMenuItem
+            // 
+            this.screenRulerToolStripMenuItem.Name = "screenRulerToolStripMenuItem";
+            this.screenRulerToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.screenRulerToolStripMenuItem.Text = "Screen ruler...";
+            this.screenRulerToolStripMenuItem.Click += new System.EventHandler(this.screenRulerToolStripMenuItem_Click);
+            // 
             // cropImagesToolStripMenuItem
             // 
             this.cropImagesToolStripMenuItem.Name = "cropImagesToolStripMenuItem";
@@ -575,7 +583,7 @@
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray1.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 170);
+            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 192);
             this.contextMenuStripSysTray1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray1_Opening);
             this.contextMenuStripSysTray1.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray1.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
@@ -692,6 +700,7 @@
             this.encodeSpacesToToolStripMenuItem1,
             this.replacernTospaceToolStripMenuItem1,
             this.viewSystemClipboardToolStripMenuItem1,
+            this.screenRulerToolStripMenuItem1,
             this.cropImagesToolStripMenuItem1,
             this.toolStripSeparator1,
             this.powerOffDisplayToolStripMenuItem1,
@@ -927,12 +936,12 @@
             this.btnSendCustomCommands.UseVisualStyleBackColor = true;
             this.btnSendCustomCommands.Click += new System.EventHandler(this.btnSendCustomCommands_Click);
             // 
-            // screenRulerToolStripMenuItem
+            // screenRulerToolStripMenuItem1
             // 
-            this.screenRulerToolStripMenuItem.Name = "screenRulerToolStripMenuItem";
-            this.screenRulerToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.screenRulerToolStripMenuItem.Text = "Screen ruler...";
-            this.screenRulerToolStripMenuItem.Click += new System.EventHandler(this.screenRulerToolStripMenuItem_Click);
+            this.screenRulerToolStripMenuItem1.Name = "screenRulerToolStripMenuItem1";
+            this.screenRulerToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.screenRulerToolStripMenuItem1.Text = "Screen ruler...";
+            this.screenRulerToolStripMenuItem1.Click += new System.EventHandler(this.screenRulerToolStripMenuItem1_Click);
             // 
             // MainForm
             // 
@@ -1065,5 +1074,6 @@
         private System.Windows.Forms.ToolStripMenuItem cropImagesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cropImagesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem screenRulerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem screenRulerToolStripMenuItem1;
     }
 }

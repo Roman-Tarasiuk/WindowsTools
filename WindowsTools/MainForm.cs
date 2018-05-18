@@ -694,6 +694,11 @@ namespace WindowsTools
             CropImages();
         }
 
+        private void screenRulerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ScreenRulerForm().Show();
+        }
+
         // System tray context menu | Miscellaneous
 
         private void clearClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -764,6 +769,11 @@ namespace WindowsTools
         private void cropImagesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             CropImages();
+        }
+
+        private void screenRulerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new ScreenRulerForm().Show();
         }
 
         // Menu items other than Miscellaneous set above these last 2 groups.
@@ -1454,11 +1464,6 @@ namespace WindowsTools
         }
 
         #endregion
-
-        private void screenRulerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new ScreenRulerForm().Show();
-        }
     }
 
     public class ToolEventArgs : EventArgs
