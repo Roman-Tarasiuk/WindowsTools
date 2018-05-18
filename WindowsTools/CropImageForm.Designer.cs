@@ -205,7 +205,7 @@
             // 
             this.btnCropRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCropRight.Image = ((System.Drawing.Image)(resources.GetObject("btnCropRight.Image")));
-            this.btnCropRight.Location = new System.Drawing.Point(651, 143);
+            this.btnCropRight.Location = new System.Drawing.Point(651, 142);
             this.btnCropRight.Name = "btnCropRight";
             this.btnCropRight.Size = new System.Drawing.Size(22, 22);
             this.btnCropRight.TabIndex = 5;

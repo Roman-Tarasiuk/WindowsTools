@@ -282,9 +282,6 @@
       <DependentUpon>WindowTitleTrackingPropertiesForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <Content Include="CursorScreenRuller.cur">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
