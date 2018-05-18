@@ -16,6 +16,7 @@ namespace WindowsTools
         private bool m_Measuring = false;
         private bool m_Started = false;
         private Point m_PointStart = new Point();
+        private Point m_PointCurrent = new Point(0, 0);
 
         public ScreenRulerForm()
         {
@@ -61,6 +62,12 @@ namespace WindowsTools
             if (m_Measuring)
             {
                 var pos = Cursor.Position;
+                if (pos == m_PointCurrent)
+                {
+                    return;
+                }
+
+                m_PointCurrent = pos;
                 txtCurrent.Text = String.Format("{0}, {1}", pos.X, pos.Y);
 
                 // Add +1 because the distance between 2 adjacent pixels is 2.
