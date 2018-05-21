@@ -16,6 +16,7 @@ namespace WindowsTools
         private bool m_Cropping = false;
         private Crop m_Crop;
         private Color m_DefaultBackground = Color.FromArgb(130, 207, 255);
+        private Image m_PreviousImage = null;
 
         #endregion
 
@@ -57,14 +58,13 @@ namespace WindowsTools
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            // MessageBox.Show(String.Format("{0}, {1}", e.X, e.Y));
             var x = e.X;
             var y = e.Y;
             var pixel = ((Bitmap)pictureBox1.Image).GetPixel(x, y);
 
-            //MessageBox.Show(String.Format("{0}, {1}, {2}", pixel.R, pixel.G, pixel.B));
             if (m_Cropping)
             {
+                m_PreviousImage = pictureBox1.Image;
                 pictureBox1.Image = CropImage(pictureBox1.Image, m_Crop, x, y);
             }
 
@@ -167,6 +167,13 @@ namespace WindowsTools
 
                 case Keys.D4:
                     ToggleCropBottom();
+                    break;
+
+                case Keys.Z:
+                    if (e.Control)
+                    {
+                        UndoImage();
+                    }
                     break;
             }
         }
@@ -331,6 +338,16 @@ namespace WindowsTools
         private void EraseImage()
         {
             pictureBox1.Image = null;
+        }
+
+        private void UndoImage()
+        {
+            if (m_PreviousImage != null)
+            {
+                var tmp = pictureBox1.Image;
+                pictureBox1.Image = m_PreviousImage;
+                m_PreviousImage = tmp;
+            }
         }
 
         #endregion
