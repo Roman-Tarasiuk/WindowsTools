@@ -15,6 +15,7 @@ namespace WindowsTools
 
         private bool m_Cropping = false;
         private Crop m_Crop;
+        private Color m_DefaultBackground = Color.FromArgb(130, 207, 255);
 
         #endregion
 
@@ -168,6 +169,24 @@ namespace WindowsTools
                     ToggleCropBottom();
                     break;
             }
+        }
+
+        private void toolStripBtnBackground_Click(object sender, EventArgs e)
+        {
+            var ColorDlg = new ColorDialog();
+            ColorDlg.Color = this.BackColor;
+
+            var result = ColorDlg.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                this.BackColor = ColorDlg.Color;
+            }
+        }
+
+        private void resetBackgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackColor = m_DefaultBackground;
         }
 
         #endregion
