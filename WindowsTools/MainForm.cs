@@ -38,6 +38,7 @@ namespace WindowsTools
         private bool m_NeedRefresh = false;
         private bool m_EnableRestore = true;
         private bool m_RebuldPasswordMenu = false;
+        private bool m_ScreensaverWithLock = false;
 
         static readonly TimeSpan defaultWrongPassDelay = new TimeSpan(0, 0, 0, 0, 5000);
         private TimeSpan m_PinTimeSpan = MainForm.defaultWrongPassDelay;
@@ -354,11 +355,6 @@ namespace WindowsTools
             {
                 m_TrackingForm.StopTracking();
             }
-
-            if (ScreenSaverHooking)
-            {
-                StopLocking();
-            }
         }
 
         private void contextMenuStripSysTray_MouseHover(object sender, EventArgs e)
@@ -531,11 +527,6 @@ namespace WindowsTools
             }
         }
 
-        private void screenSaverToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RunScreenSaver();
-        }
-
         private void timerScreenSaver_Tick(object sender, EventArgs e)
         {
             TrackMouseOnRunningScreenSaver();
@@ -544,11 +535,6 @@ namespace WindowsTools
         private void menuStrip1_MenuActivate(object sender, EventArgs e)
         {
             ArrangeMenu();
-        }
-
-        private void screensaverToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            RunScreenSaver();
         }
 
         private void btnSendCustomCommands_Click(object sender, EventArgs e)
@@ -620,6 +606,30 @@ namespace WindowsTools
         private void directorySizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new DirectorySizeForm().Show();
+        }
+
+        private void screenSaverToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            m_ScreensaverWithLock = false;
+            RunScreenSaver();
+        }
+
+        private void screenSaverAndLockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            m_ScreensaverWithLock = true;
+            RunScreenSaver();
+        }
+
+        private void screenSaverToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            m_ScreensaverWithLock = false;
+            RunScreenSaver();
+        }
+
+        private void screenSaverAndLockToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            m_ScreensaverWithLock = true;
+            RunScreenSaver();
         }
 
         // Main menu | Miscellaneous
@@ -1184,28 +1194,21 @@ namespace WindowsTools
 
         private void RunScreenSaver()
         {
-            if (!this.ScreenSaverHooking)
+            if (m_ScreensaverWithLock)
             {
                 m_ScreenSaverRunCursorPosition = Cursor.Position;
                 timerScreenSaver.Start();
 
                 this.ScreenSaverHooking = true;
-                screenSaverToolStripMenuItem.Text = "Stop locking";
-                User32Windows.ShowForm(this);
+            }
 
-                var ssSettingsPath = Properties.Settings.Default.ScreenSaverPath;
-                var path = Path.GetFullPath(Environment.ExpandEnvironmentVariables(ssSettingsPath));
-                Process.Start(path);
-            }
-            else
-            {
-                StopLocking();
-            }
+            var ssSettingsPath = Properties.Settings.Default.ScreenSaverPath;
+            var path = Path.GetFullPath(Environment.ExpandEnvironmentVariables(ssSettingsPath));
+            Process.Start(path);
         }
 
         private void StopLocking()
         {
-            screenSaverToolStripMenuItem.Text = "Screen saver";
             this.ScreenSaverHooking = false;
         }
 

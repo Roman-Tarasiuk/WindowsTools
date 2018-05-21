@@ -51,7 +51,9 @@
             this.trackWindowIsAccessibleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.directorySizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.screensaverToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.screensaverGToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.screenSaverToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.screenSaverAndLockToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miscellaneousToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clearClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,7 +98,9 @@
             this.removeAutohideFromAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsTrackingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.screenSaverGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.screenSaverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.screenSaverAndLockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.miscellaneousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -108,6 +112,7 @@
             this.encodeSpacesToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.replacernTospaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewSystemClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.screenRulerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cropImagesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.powerOffDisplayToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -127,7 +132,6 @@
             this.lstWindowsList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnSendCustomCommands = new System.Windows.Forms.Button();
-            this.screenRulerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -178,7 +182,7 @@
             this.trackWindowIsAccessibleToolStripMenuItem,
             this.directorySizeToolStripMenuItem,
             this.toolStripSeparator5,
-            this.screensaverToolStripMenuItem1,
+            this.screensaverGToolStripMenuItem1,
             this.passwordsToolStripMenuItem,
             this.miscellaneousToolStripMenuItem1,
             this.toolStripSeparator7,
@@ -308,12 +312,28 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(229, 6);
             // 
-            // screensaverToolStripMenuItem1
+            // screensaverGToolStripMenuItem1
             // 
-            this.screensaverToolStripMenuItem1.Name = "screensaverToolStripMenuItem1";
-            this.screensaverToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
-            this.screensaverToolStripMenuItem1.Text = "Screen saver";
-            this.screensaverToolStripMenuItem1.Click += new System.EventHandler(this.screensaverToolStripMenuItem1_Click);
+            this.screensaverGToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.screenSaverToolStripMenuItem1,
+            this.screenSaverAndLockToolStripMenuItem1});
+            this.screensaverGToolStripMenuItem1.Name = "screensaverGToolStripMenuItem1";
+            this.screensaverGToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
+            this.screensaverGToolStripMenuItem1.Text = "Screen saver";
+            // 
+            // screenSaverToolStripMenuItem1
+            // 
+            this.screenSaverToolStripMenuItem1.Name = "screenSaverToolStripMenuItem1";
+            this.screenSaverToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
+            this.screenSaverToolStripMenuItem1.Text = "Screen saver";
+            this.screenSaverToolStripMenuItem1.Click += new System.EventHandler(this.screenSaverToolStripMenuItem_Click);
+            // 
+            // screenSaverAndLockToolStripMenuItem1
+            // 
+            this.screenSaverAndLockToolStripMenuItem1.Name = "screenSaverAndLockToolStripMenuItem1";
+            this.screenSaverAndLockToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
+            this.screenSaverAndLockToolStripMenuItem1.Text = "Screen saver and lock";
+            this.screenSaverAndLockToolStripMenuItem1.Click += new System.EventHandler(this.screenSaverAndLockToolStripMenuItem_Click);
             // 
             // passwordsToolStripMenuItem
             // 
@@ -577,13 +597,13 @@
             this.sendCustomCommandsToolStripMenuItem1,
             this.windowsTrackingToolStripMenuItem1,
             this.toolStripSeparator2,
-            this.screenSaverToolStripMenuItem,
+            this.screenSaverGToolStripMenuItem,
             this.passwordsToolStripMenuItem1,
             this.miscellaneousToolStripMenuItem,
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray1.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 192);
+            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 170);
             this.contextMenuStripSysTray1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray1_Opening);
             this.contextMenuStripSysTray1.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray1.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
@@ -672,12 +692,28 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(212, 6);
             // 
+            // screenSaverGToolStripMenuItem
+            // 
+            this.screenSaverGToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.screenSaverToolStripMenuItem,
+            this.screenSaverAndLockToolStripMenuItem});
+            this.screenSaverGToolStripMenuItem.Name = "screenSaverGToolStripMenuItem";
+            this.screenSaverGToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.screenSaverGToolStripMenuItem.Text = "Screen saver";
+            // 
             // screenSaverToolStripMenuItem
             // 
             this.screenSaverToolStripMenuItem.Name = "screenSaverToolStripMenuItem";
-            this.screenSaverToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.screenSaverToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.screenSaverToolStripMenuItem.Text = "Screen saver";
-            this.screenSaverToolStripMenuItem.Click += new System.EventHandler(this.screenSaverToolStripMenuItem_Click);
+            this.screenSaverToolStripMenuItem.Click += new System.EventHandler(this.screenSaverToolStripMenuItem1_Click);
+            // 
+            // screenSaverAndLockToolStripMenuItem
+            // 
+            this.screenSaverAndLockToolStripMenuItem.Name = "screenSaverAndLockToolStripMenuItem";
+            this.screenSaverAndLockToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.screenSaverAndLockToolStripMenuItem.Text = "Screen saver and lock";
+            this.screenSaverAndLockToolStripMenuItem.Click += new System.EventHandler(this.screenSaverAndLockToolStripMenuItem1_Click);
             // 
             // passwordsToolStripMenuItem1
             // 
@@ -775,6 +811,13 @@
             this.viewSystemClipboardToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
             this.viewSystemClipboardToolStripMenuItem1.Text = "System clipboard manager...";
             this.viewSystemClipboardToolStripMenuItem1.Click += new System.EventHandler(this.viewSystemClipboardToolStripMenuItem1_Click);
+            // 
+            // screenRulerToolStripMenuItem1
+            // 
+            this.screenRulerToolStripMenuItem1.Name = "screenRulerToolStripMenuItem1";
+            this.screenRulerToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.screenRulerToolStripMenuItem1.Text = "Screen ruler...";
+            this.screenRulerToolStripMenuItem1.Click += new System.EventHandler(this.screenRulerToolStripMenuItem1_Click);
             // 
             // cropImagesToolStripMenuItem1
             // 
@@ -936,13 +979,6 @@
             this.btnSendCustomCommands.UseVisualStyleBackColor = true;
             this.btnSendCustomCommands.Click += new System.EventHandler(this.btnSendCustomCommands_Click);
             // 
-            // screenRulerToolStripMenuItem1
-            // 
-            this.screenRulerToolStripMenuItem1.Name = "screenRulerToolStripMenuItem1";
-            this.screenRulerToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.screenRulerToolStripMenuItem1.Text = "Screen ruler...";
-            this.screenRulerToolStripMenuItem1.Click += new System.EventHandler(this.screenRulerToolStripMenuItem1_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1029,9 +1065,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripMenuItem setAutohideForAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeAutohideFromAllToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem screenSaverToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem screenSaverGToolStripMenuItem;
         private System.Windows.Forms.Timer timerScreenSaver;
-        private System.Windows.Forms.ToolStripMenuItem screensaverToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem screensaverGToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem miscellaneousToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem decodeToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem encodeToToolStripMenuItem1;
@@ -1075,5 +1111,9 @@
         private System.Windows.Forms.ToolStripMenuItem cropImagesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem screenRulerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem screenRulerToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem screenSaverToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem screenSaverAndLockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem screenSaverToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem screenSaverAndLockToolStripMenuItem1;
     }
 }
