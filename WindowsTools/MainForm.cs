@@ -632,12 +632,37 @@ namespace WindowsTools
             RunScreenSaver();
         }
 
-        // Main menu | Miscellaneous
-
         private void clearClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Clipboard.Clear();
         }
+
+        private void clearClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Clipboard.Clear();
+        }
+
+        private void powerOffDisplayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PowerOffDisplay();
+        }
+
+        private void powerOffDisplayAndLockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PowerOffDisplayAndLock();
+        }
+
+        private void powerOffDisplayToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            PowerOffDisplay();
+        }
+
+        private void powerOffDisplayAndLockToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            PowerOffDisplayAndLock();
+        }
+
+        // Main menu | Miscellaneous
 
         private void decodeClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -684,16 +709,6 @@ namespace WindowsTools
             NowToClipblard();
         }
 
-        private void powerOffDisplayToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PowerOffDisplay();
-        }
-
-        private void powerOffDisplayAndLockToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PowerOffDisplayAndLock();
-        }
-
         private void encodeSpacesToToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EncodeSpacesToPercents();
@@ -710,11 +725,6 @@ namespace WindowsTools
         }
 
         // System tray context menu | Miscellaneous
-
-        private void clearClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Clipboard.Clear();
-        }
 
         private void decodeClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -759,16 +769,6 @@ namespace WindowsTools
         private void currentDateAndTimeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             NowToClipblard();
-        }
-
-        private void powerOffDisplayToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            PowerOffDisplay();
-        }
-
-        private void powerOffDisplayAndLockToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            PowerOffDisplayAndLock();
         }
 
         private void encodeSpacesToToolStripMenuItem1_Click(object sender, EventArgs e)
