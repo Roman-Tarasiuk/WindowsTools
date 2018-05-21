@@ -119,6 +119,7 @@
             // clearClipboardToolStripMenuItem
             // 
             this.clearClipboardToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.clearClipboardToolStripMenuItem.Image = global::WindowsTools.Properties.Resources.clear_clipboard_20;
             this.clearClipboardToolStripMenuItem.Name = "clearClipboardToolStripMenuItem";
             this.clearClipboardToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.clearClipboardToolStripMenuItem.Text = "Clear clipboard";

@@ -319,6 +319,7 @@
     <None Include="Resources\folder16x16.png" />
     <None Include="Resources\fileerror16x16.png" />
     <None Include="Resources\foldererror16x16.png" />
+    <None Include="Resources\clear-clipboard-20.png" />
     <Content Include="taskmgr_icon.png.ico" />
   </ItemGroup>
   <ItemGroup>
