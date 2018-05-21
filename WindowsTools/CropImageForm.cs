@@ -312,6 +312,7 @@ namespace WindowsTools
 
         private void PasteFromClipboard()
         {
+            m_PreviousImage = pictureBox1.Image;
             pictureBox1.Image = Clipboard.GetImage();
             m_Cropping = false;
 
@@ -337,6 +338,7 @@ namespace WindowsTools
 
         private void EraseImage()
         {
+            m_PreviousImage = pictureBox1.Image;
             pictureBox1.Image = null;
         }
 
