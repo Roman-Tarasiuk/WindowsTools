@@ -60,12 +60,15 @@
             this.passwordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miscellaneousToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.currentDateAndTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.decodeClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.encodeToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.encodeUriToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.encodeUriToExceptSpaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.encodeSpacesToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.replacernTospaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewSystemClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.screenRulerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cropImagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compareStringsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,6 +89,7 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStripSysTray1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sendCustomCommandsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.startAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -101,24 +105,6 @@
             this.screenSaverAndLockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.powerOffDisplayToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.powerOffDisplayAndLockToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnHideWindow = new System.Windows.Forms.Button();
-            this.btnShowHidden = new System.Windows.Forms.Button();
-            this.btnKillWindow = new System.Windows.Forms.Button();
-            this.btnCloseWindow = new System.Windows.Forms.Button();
-            this.chkPin = new System.Windows.Forms.CheckBox();
-            this.timerWrongPin = new System.Windows.Forms.Timer(this.components);
-            this.timerScreenSaver = new System.Windows.Forms.Timer(this.components);
-            this.lstWindowsList = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnSendCustomCommands = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.replacernTospaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.miscellaneousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.currentDateAndTimeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -135,6 +121,22 @@
             this.cropImagesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.compareStringsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnHideWindow = new System.Windows.Forms.Button();
+            this.btnShowHidden = new System.Windows.Forms.Button();
+            this.btnKillWindow = new System.Windows.Forms.Button();
+            this.btnCloseWindow = new System.Windows.Forms.Button();
+            this.chkPin = new System.Windows.Forms.CheckBox();
+            this.timerWrongPin = new System.Windows.Forms.Timer(this.components);
+            this.timerScreenSaver = new System.Windows.Forms.Timer(this.components);
+            this.lstWindowsList = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnSendCustomCommands = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -399,6 +401,11 @@
             this.currentDateAndTimeToolStripMenuItem.ToolTipText = "Will be copied to the clipboard";
             this.currentDateAndTimeToolStripMenuItem.Click += new System.EventHandler(this.currentDateAndTimeToolStripMenuItem_Click);
             // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(230, 6);
+            // 
             // decodeClipboardToolStripMenuItem
             // 
             this.decodeClipboardToolStripMenuItem.Name = "decodeClipboardToolStripMenuItem";
@@ -434,12 +441,25 @@
             this.encodeSpacesToToolStripMenuItem.Text = "Encode spaces to %";
             this.encodeSpacesToToolStripMenuItem.Click += new System.EventHandler(this.encodeSpacesToToolStripMenuItem_Click);
             // 
+            // replacernTospaceToolStripMenuItem
+            // 
+            this.replacernTospaceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("replacernTospaceToolStripMenuItem.Image")));
+            this.replacernTospaceToolStripMenuItem.Name = "replacernTospaceToolStripMenuItem";
+            this.replacernTospaceToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.replacernTospaceToolStripMenuItem.Text = "Replace \\r\\n to <space>";
+            this.replacernTospaceToolStripMenuItem.Click += new System.EventHandler(this.replacernTospaceToolStripMenuItem_Click);
+            // 
             // viewSystemClipboardToolStripMenuItem
             // 
             this.viewSystemClipboardToolStripMenuItem.Name = "viewSystemClipboardToolStripMenuItem";
             this.viewSystemClipboardToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.viewSystemClipboardToolStripMenuItem.Text = "System clipboard manager...";
             this.viewSystemClipboardToolStripMenuItem.Click += new System.EventHandler(this.viewSystemClipboardToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(230, 6);
             // 
             // screenRulerToolStripMenuItem
             // 
@@ -587,7 +607,9 @@
             // 
             this.contextMenuStripSysTray1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showToolStripMenuItem,
+            this.toolStripSeparator14,
             this.clearClipboardToolStripMenuItem1,
+            this.toolStripSeparator15,
             this.sendCustomCommandsToolStripMenuItem1,
             this.windowsTrackingToolStripMenuItem1,
             this.toolStripSeparator2,
@@ -597,7 +619,7 @@
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray1.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 192);
+            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 204);
             this.contextMenuStripSysTray1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray1_Opening);
             this.contextMenuStripSysTray1.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray1.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
@@ -610,6 +632,14 @@
             this.showToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.showToolStripMenuItem.Text = "Windows Manipulations";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
+            // 
+            // clearClipboardToolStripMenuItem1
+            // 
+            this.clearClipboardToolStripMenuItem1.Image = global::WindowsTools.Properties.Resources.clear_clipboard_20;
+            this.clearClipboardToolStripMenuItem1.Name = "clearClipboardToolStripMenuItem1";
+            this.clearClipboardToolStripMenuItem1.Size = new System.Drawing.Size(215, 22);
+            this.clearClipboardToolStripMenuItem1.Text = "Clear clipboard";
+            this.clearClipboardToolStripMenuItem1.Click += new System.EventHandler(this.clearClipboardToolStripMenuItem1_Click);
             // 
             // sendCustomCommandsToolStripMenuItem1
             // 
@@ -724,152 +754,6 @@
             this.powerOffDisplayAndLockToolStripMenuItem1.Size = new System.Drawing.Size(213, 22);
             this.powerOffDisplayAndLockToolStripMenuItem1.Text = "Power off display and lock";
             this.powerOffDisplayAndLockToolStripMenuItem1.Click += new System.EventHandler(this.powerOffDisplayAndLockToolStripMenuItem1_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(212, 6);
-            // 
-            // exitToolStripMenuItem1
-            // 
-            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(215, 22);
-            this.exitToolStripMenuItem1.Text = "Exit";
-            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Running windows:";
-            // 
-            // btnHideWindow
-            // 
-            this.btnHideWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHideWindow.Location = new System.Drawing.Point(461, 64);
-            this.btnHideWindow.Name = "btnHideWindow";
-            this.btnHideWindow.Size = new System.Drawing.Size(88, 23);
-            this.btnHideWindow.TabIndex = 3;
-            this.btnHideWindow.Text = "Hide selected";
-            this.btnHideWindow.UseVisualStyleBackColor = true;
-            this.btnHideWindow.Click += new System.EventHandler(this.btnHideWindow_Click);
-            // 
-            // btnShowHidden
-            // 
-            this.btnShowHidden.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnShowHidden.Location = new System.Drawing.Point(461, 87);
-            this.btnShowHidden.Name = "btnShowHidden";
-            this.btnShowHidden.Size = new System.Drawing.Size(88, 23);
-            this.btnShowHidden.TabIndex = 4;
-            this.btnShowHidden.Text = "Show hidden";
-            this.btnShowHidden.UseVisualStyleBackColor = true;
-            this.btnShowHidden.Click += new System.EventHandler(this.btnShowHidden_Click);
-            // 
-            // btnKillWindow
-            // 
-            this.btnKillWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKillWindow.Location = new System.Drawing.Point(461, 147);
-            this.btnKillWindow.Name = "btnKillWindow";
-            this.btnKillWindow.Size = new System.Drawing.Size(88, 23);
-            this.btnKillWindow.TabIndex = 6;
-            this.btnKillWindow.Text = "Kill selected";
-            this.btnKillWindow.UseVisualStyleBackColor = true;
-            this.btnKillWindow.Click += new System.EventHandler(this.btnKillWindow_Click);
-            // 
-            // btnCloseWindow
-            // 
-            this.btnCloseWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCloseWindow.Location = new System.Drawing.Point(461, 124);
-            this.btnCloseWindow.Name = "btnCloseWindow";
-            this.btnCloseWindow.Size = new System.Drawing.Size(88, 23);
-            this.btnCloseWindow.TabIndex = 7;
-            this.btnCloseWindow.Text = "Close selected";
-            this.btnCloseWindow.UseVisualStyleBackColor = true;
-            this.btnCloseWindow.Click += new System.EventHandler(this.btnCloseWindow_Click);
-            // 
-            // chkPin
-            // 
-            this.chkPin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkPin.AutoSize = true;
-            this.chkPin.Location = new System.Drawing.Point(463, 284);
-            this.chkPin.Name = "chkPin";
-            this.chkPin.Size = new System.Drawing.Size(91, 17);
-            this.chkPin.TabIndex = 8;
-            this.chkPin.Text = "Protect by pin";
-            this.chkPin.UseVisualStyleBackColor = true;
-            this.chkPin.CheckedChanged += new System.EventHandler(this.chkPin_CheckedChanged);
-            // 
-            // timerWrongPin
-            // 
-            this.timerWrongPin.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // timerScreenSaver
-            // 
-            this.timerScreenSaver.Tick += new System.EventHandler(this.timerScreenSaver_Tick);
-            // 
-            // lstWindowsList
-            // 
-            this.lstWindowsList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstWindowsList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1});
-            this.lstWindowsList.ContextMenuStrip = this.contextMenuStripWindowsList;
-            this.lstWindowsList.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lstWindowsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.lstWindowsList.HideSelection = false;
-            this.lstWindowsList.Location = new System.Drawing.Point(12, 46);
-            this.lstWindowsList.MultiSelect = false;
-            this.lstWindowsList.Name = "lstWindowsList";
-            this.lstWindowsList.Size = new System.Drawing.Size(443, 255);
-            this.lstWindowsList.TabIndex = 9;
-            this.lstWindowsList.UseCompatibleStateImageBehavior = false;
-            this.lstWindowsList.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "";
-            this.columnHeader1.Width = 600;
-            // 
-            // btnSendCustomCommands
-            // 
-            this.btnSendCustomCommands.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSendCustomCommands.Location = new System.Drawing.Point(461, 191);
-            this.btnSendCustomCommands.Name = "btnSendCustomCommands";
-            this.btnSendCustomCommands.Size = new System.Drawing.Size(88, 34);
-            this.btnSendCustomCommands.TabIndex = 10;
-            this.btnSendCustomCommands.Text = "Send custom commands...";
-            this.btnSendCustomCommands.UseVisualStyleBackColor = true;
-            this.btnSendCustomCommands.Click += new System.EventHandler(this.btnSendCustomCommands_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(230, 6);
-            // 
-            // toolStripSeparator11
-            // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(230, 6);
-            // 
-            // replacernTospaceToolStripMenuItem
-            // 
-            this.replacernTospaceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("replacernTospaceToolStripMenuItem.Image")));
-            this.replacernTospaceToolStripMenuItem.Name = "replacernTospaceToolStripMenuItem";
-            this.replacernTospaceToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.replacernTospaceToolStripMenuItem.Text = "Replace \\r\\n to <space>";
-            this.replacernTospaceToolStripMenuItem.Click += new System.EventHandler(this.replacernTospaceToolStripMenuItem_Click);
-            // 
-            // clearClipboardToolStripMenuItem1
-            // 
-            this.clearClipboardToolStripMenuItem1.Image = global::WindowsTools.Properties.Resources.clear_clipboard_20;
-            this.clearClipboardToolStripMenuItem1.Name = "clearClipboardToolStripMenuItem1";
-            this.clearClipboardToolStripMenuItem1.Size = new System.Drawing.Size(215, 22);
-            this.clearClipboardToolStripMenuItem1.Text = "Clear clipboard";
-            this.clearClipboardToolStripMenuItem1.Click += new System.EventHandler(this.clearClipboardToolStripMenuItem1_Click);
             // 
             // passwordsToolStripMenuItem1
             // 
@@ -997,6 +881,136 @@
             this.notesToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
             this.notesToolStripMenuItem1.Text = "Notes...";
             this.notesToolStripMenuItem1.Click += new System.EventHandler(this.notesToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(212, 6);
+            // 
+            // exitToolStripMenuItem1
+            // 
+            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(215, 22);
+            this.exitToolStripMenuItem1.Text = "Exit";
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Running windows:";
+            // 
+            // btnHideWindow
+            // 
+            this.btnHideWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHideWindow.Location = new System.Drawing.Point(461, 64);
+            this.btnHideWindow.Name = "btnHideWindow";
+            this.btnHideWindow.Size = new System.Drawing.Size(88, 23);
+            this.btnHideWindow.TabIndex = 3;
+            this.btnHideWindow.Text = "Hide selected";
+            this.btnHideWindow.UseVisualStyleBackColor = true;
+            this.btnHideWindow.Click += new System.EventHandler(this.btnHideWindow_Click);
+            // 
+            // btnShowHidden
+            // 
+            this.btnShowHidden.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShowHidden.Location = new System.Drawing.Point(461, 87);
+            this.btnShowHidden.Name = "btnShowHidden";
+            this.btnShowHidden.Size = new System.Drawing.Size(88, 23);
+            this.btnShowHidden.TabIndex = 4;
+            this.btnShowHidden.Text = "Show hidden";
+            this.btnShowHidden.UseVisualStyleBackColor = true;
+            this.btnShowHidden.Click += new System.EventHandler(this.btnShowHidden_Click);
+            // 
+            // btnKillWindow
+            // 
+            this.btnKillWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnKillWindow.Location = new System.Drawing.Point(461, 147);
+            this.btnKillWindow.Name = "btnKillWindow";
+            this.btnKillWindow.Size = new System.Drawing.Size(88, 23);
+            this.btnKillWindow.TabIndex = 6;
+            this.btnKillWindow.Text = "Kill selected";
+            this.btnKillWindow.UseVisualStyleBackColor = true;
+            this.btnKillWindow.Click += new System.EventHandler(this.btnKillWindow_Click);
+            // 
+            // btnCloseWindow
+            // 
+            this.btnCloseWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCloseWindow.Location = new System.Drawing.Point(461, 124);
+            this.btnCloseWindow.Name = "btnCloseWindow";
+            this.btnCloseWindow.Size = new System.Drawing.Size(88, 23);
+            this.btnCloseWindow.TabIndex = 7;
+            this.btnCloseWindow.Text = "Close selected";
+            this.btnCloseWindow.UseVisualStyleBackColor = true;
+            this.btnCloseWindow.Click += new System.EventHandler(this.btnCloseWindow_Click);
+            // 
+            // chkPin
+            // 
+            this.chkPin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkPin.AutoSize = true;
+            this.chkPin.Location = new System.Drawing.Point(463, 284);
+            this.chkPin.Name = "chkPin";
+            this.chkPin.Size = new System.Drawing.Size(91, 17);
+            this.chkPin.TabIndex = 8;
+            this.chkPin.Text = "Protect by pin";
+            this.chkPin.UseVisualStyleBackColor = true;
+            this.chkPin.CheckedChanged += new System.EventHandler(this.chkPin_CheckedChanged);
+            // 
+            // timerWrongPin
+            // 
+            this.timerWrongPin.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timerScreenSaver
+            // 
+            this.timerScreenSaver.Tick += new System.EventHandler(this.timerScreenSaver_Tick);
+            // 
+            // lstWindowsList
+            // 
+            this.lstWindowsList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstWindowsList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.lstWindowsList.ContextMenuStrip = this.contextMenuStripWindowsList;
+            this.lstWindowsList.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lstWindowsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.lstWindowsList.HideSelection = false;
+            this.lstWindowsList.Location = new System.Drawing.Point(12, 46);
+            this.lstWindowsList.MultiSelect = false;
+            this.lstWindowsList.Name = "lstWindowsList";
+            this.lstWindowsList.Size = new System.Drawing.Size(443, 255);
+            this.lstWindowsList.TabIndex = 9;
+            this.lstWindowsList.UseCompatibleStateImageBehavior = false;
+            this.lstWindowsList.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "";
+            this.columnHeader1.Width = 600;
+            // 
+            // btnSendCustomCommands
+            // 
+            this.btnSendCustomCommands.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSendCustomCommands.Location = new System.Drawing.Point(461, 191);
+            this.btnSendCustomCommands.Name = "btnSendCustomCommands";
+            this.btnSendCustomCommands.Size = new System.Drawing.Size(88, 34);
+            this.btnSendCustomCommands.TabIndex = 10;
+            this.btnSendCustomCommands.Text = "Send custom commands...";
+            this.btnSendCustomCommands.UseVisualStyleBackColor = true;
+            this.btnSendCustomCommands.Click += new System.EventHandler(this.btnSendCustomCommands_Click);
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            this.toolStripSeparator14.Size = new System.Drawing.Size(212, 6);
+            // 
+            // toolStripSeparator15
+            // 
+            this.toolStripSeparator15.Name = "toolStripSeparator15";
+            this.toolStripSeparator15.Size = new System.Drawing.Size(212, 6);
             // 
             // MainForm
             // 
@@ -1137,5 +1151,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
     }
 }
