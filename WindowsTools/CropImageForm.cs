@@ -58,6 +58,11 @@ namespace WindowsTools
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
+            if (pictureBox1.Image == null)
+            {
+                return;
+            }
+
             var x = e.X;
             var y = e.Y;
             var pixel = ((Bitmap)pictureBox1.Image).GetPixel(x, y);
@@ -180,14 +185,13 @@ namespace WindowsTools
 
         private void toolStripBtnBackground_Click(object sender, EventArgs e)
         {
-            var ColorDlg = new ColorDialog();
-            ColorDlg.Color = this.BackColor;
+            colorDialog1.Color = this.BackColor;
 
-            var result = ColorDlg.ShowDialog();
+            var result = colorDialog1.ShowDialog();
 
             if (result == DialogResult.OK)
             {
-                this.BackColor = ColorDlg.Color;
+                this.BackColor = colorDialog1.Color;
             }
         }
 

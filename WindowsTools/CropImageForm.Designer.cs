@@ -31,14 +31,20 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CropImageForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.resetBackgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripBtnPaste = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnCopy = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnEraseImage = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripBtnCropLeft = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnCropTop = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnCropRight = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnCropBottom = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripBtnEscapeCrop = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripBtnBackground = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCropLeft = new System.Windows.Forms.Button();
@@ -46,16 +52,11 @@
             this.btnCropBottom = new System.Windows.Forms.Button();
             this.btnCropRight = new System.Windows.Forms.Button();
             this.btnEscapeCrop = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.resetBackgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripBtnBackground = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.toolStrip1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -79,6 +80,20 @@
             this.toolStrip1.Size = new System.Drawing.Size(672, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resetBackgroundColorToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(200, 26);
+            // 
+            // resetBackgroundColorToolStripMenuItem
+            // 
+            this.resetBackgroundColorToolStripMenuItem.Name = "resetBackgroundColorToolStripMenuItem";
+            this.resetBackgroundColorToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.resetBackgroundColorToolStripMenuItem.Text = "Reset background color";
+            this.resetBackgroundColorToolStripMenuItem.Click += new System.EventHandler(this.resetBackgroundColorToolStripMenuItem_Click);
             // 
             // toolStripBtnPaste
             // 
@@ -109,6 +124,11 @@
             this.toolStripBtnEraseImage.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnEraseImage.Text = "Erase image (Del)";
             this.toolStripBtnEraseImage.Click += new System.EventHandler(this.toolStripBtnEraseImage_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripBtnCropLeft
             // 
@@ -151,6 +171,11 @@
             this.toolStripBtnCropBottom.Text = "Crop bottom (4)";
             this.toolStripBtnCropBottom.Click += new System.EventHandler(this.toolStripBtnCropBottom_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // toolStripBtnEscapeCrop
             // 
             this.toolStripBtnEscapeCrop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -160,6 +185,22 @@
             this.toolStripBtnEscapeCrop.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnEscapeCrop.Text = "Escape crop (Esc)";
             this.toolStripBtnEscapeCrop.Click += new System.EventHandler(this.toolStripBtnEscapeCrop_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripBtnBackground
+            // 
+            this.toolStripBtnBackground.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnBackground.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnBackground.Image")));
+            this.toolStripBtnBackground.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnBackground.Margin = new System.Windows.Forms.Padding(12, 1, 0, 2);
+            this.toolStripBtnBackground.Name = "toolStripBtnBackground";
+            this.toolStripBtnBackground.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBtnBackground.Text = "Select background color";
+            this.toolStripBtnBackground.Click += new System.EventHandler(this.toolStripBtnBackground_Click);
             // 
             // panel1
             // 
@@ -235,46 +276,6 @@
             this.btnEscapeCrop.UseVisualStyleBackColor = true;
             this.btnEscapeCrop.Click += new System.EventHandler(this.btnEscapeCrop_Click);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.resetBackgroundColorToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(200, 26);
-            // 
-            // resetBackgroundColorToolStripMenuItem
-            // 
-            this.resetBackgroundColorToolStripMenuItem.Name = "resetBackgroundColorToolStripMenuItem";
-            this.resetBackgroundColorToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.resetBackgroundColorToolStripMenuItem.Text = "Reset background color";
-            this.resetBackgroundColorToolStripMenuItem.Click += new System.EventHandler(this.resetBackgroundColorToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripBtnBackground
-            // 
-            this.toolStripBtnBackground.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripBtnBackground.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnBackground.Image")));
-            this.toolStripBtnBackground.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnBackground.Margin = new System.Windows.Forms.Padding(12, 1, 0, 2);
-            this.toolStripBtnBackground.Name = "toolStripBtnBackground";
-            this.toolStripBtnBackground.Size = new System.Drawing.Size(23, 22);
-            this.toolStripBtnBackground.Text = "toolStripButton1";
-            this.toolStripBtnBackground.Click += new System.EventHandler(this.toolStripBtnBackground_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
             // CropImageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,10 +296,10 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CropImageForm_KeyDown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,5 +329,6 @@
         private System.Windows.Forms.ToolStripButton toolStripBtnBackground;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem resetBackgroundColorToolStripMenuItem;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
