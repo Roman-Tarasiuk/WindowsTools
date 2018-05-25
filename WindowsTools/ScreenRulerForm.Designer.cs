@@ -40,6 +40,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnDummuToTemporaryFocusing = new System.Windows.Forms.Button();
             this.lblHelp = new System.Windows.Forms.Label();
+            this.btnPanel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnStartStopRuller
@@ -124,11 +125,22 @@
             this.lblHelp.Text = "Press the spacebar to set start/end points";
             this.lblHelp.Visible = false;
             // 
+            // btnPanel
+            // 
+            this.btnPanel.Location = new System.Drawing.Point(183, 133);
+            this.btnPanel.Name = "btnPanel";
+            this.btnPanel.Size = new System.Drawing.Size(75, 23);
+            this.btnPanel.TabIndex = 9;
+            this.btnPanel.Text = "Panel...";
+            this.btnPanel.UseVisualStyleBackColor = true;
+            this.btnPanel.Click += new System.EventHandler(this.btnPanel_Click);
+            // 
             // ScreenRulerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(270, 168);
+            this.Controls.Add(this.btnPanel);
             this.Controls.Add(this.lblHelp);
             this.Controls.Add(this.btnDummuToTemporaryFocusing);
             this.Controls.Add(this.label3);
@@ -160,5 +172,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnDummuToTemporaryFocusing;
         private System.Windows.Forms.Label lblHelp;
+        private System.Windows.Forms.Button btnPanel;
     }
 }

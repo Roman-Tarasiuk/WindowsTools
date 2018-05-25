@@ -76,5 +76,10 @@ namespace WindowsTools
                 txtDistance.Text = String.Format("{0}, {1}", w, h);
             }
         }
+
+        private void btnPanel_Click(object sender, EventArgs e)
+        {
+            new ScreenRulerHelperForm().Show();
+        }
     }
 }
