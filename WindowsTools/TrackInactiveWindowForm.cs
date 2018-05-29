@@ -81,6 +81,7 @@ namespace WindowsTools
                 StopTracking();
 
                 m_Running = false;
+                m_WindowIsHung = false;
                 btnStartStop.Text = "Start";
             }
             else
@@ -90,6 +91,8 @@ namespace WindowsTools
                 m_Running = true;
                 btnStartStop.Text = "Stop";
             }
+
+            WindowColors();
         }
 
         private void txtHwnd_Leave(object sender, EventArgs e)
@@ -134,8 +137,9 @@ namespace WindowsTools
             if (!m_Running)
             {
                 message = FormatTime(now) + " the program is closed now and was in the previous state: " + FormatTime(wasRunnind);
+                m_WindowIsHung = false;
 
-                this.BackColor = m_ColorAccessible;
+                this.btnStartStop.Enabled = false;
             }
             else
             {
@@ -148,22 +152,19 @@ namespace WindowsTools
                     m_StartTime = now - fiveSeconds;
                     wasRunnind -= fiveSeconds;
                     message = FormatTime(now) + " the program is hung now and was in the previous state: " + FormatTime(wasRunnind);
-
-                    this.BackColor = m_ColorHung;
                 }
                 else if (!IsHungAppWindow(Hwnd) && m_WindowIsHung)
                 {
                     m_WindowIsHung = false;
                     m_StartTime = now;
                     message = FormatTime(now) + " the program is accessible now and was in the previous state: " + FormatTime(wasRunnind);
-
-                    this.BackColor = m_ColorAccessible;
                 }
             }
 
             if (message != String.Empty)
             {
                 Log(message);
+                WindowColors();
             }
         }
 
@@ -198,10 +199,8 @@ namespace WindowsTools
                 + "\r\n" + FormatTime(m_StartTime)
                 + " the program is " + (m_WindowIsHung ? "hung" : "accessible");
 
-            var backColor = m_WindowIsHung ? m_ColorHung : m_ColorAccessible;
-            this.BackColor = backColor;
-
             Log(msg);
+            WindowColors();
 
             timer1.Start();
         }
@@ -219,9 +218,8 @@ namespace WindowsTools
                 + " the program is " + (m_WindowIsHung ? "hung" : "accessible")
                 + "\r\nStop tracking (after " + FormatTime(wasRunnind) + " from last state";
 
-            this.BackColor = m_ColorAccessible;
-
             Log(msg);
+            WindowColors();
         }
 
         private string FormatTime(DateTime t)
@@ -273,6 +271,22 @@ namespace WindowsTools
             else
             {
                 lblTitle.Text = "-";
+            }
+        }
+
+        private void WindowColors()
+        {
+            if (m_WindowIsHung)
+            {
+                this.BackColor = m_ColorHung;
+                this.txtLog.BackColor = m_ColorHung;
+                this.txtLog.ForeColor = Color.FromArgb(255, 255, 0);
+            }
+            else
+            {
+                this.BackColor = m_ColorAccessible;
+                this.txtLog.BackColor = Color.Black;
+                this.txtLog.ForeColor = Color.Green;
             }
         }
 

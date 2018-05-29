@@ -124,14 +124,14 @@
             this.chkWordWrap.UseVisualStyleBackColor = true;
             this.chkWordWrap.CheckedChanged += new System.EventHandler(this.chkWordWrap_CheckedChanged);
             // 
-            // checkBox1
+            // chkShowInTaskbar
             // 
             this.chkShowInTaskbar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkShowInTaskbar.AutoSize = true;
             this.chkShowInTaskbar.Checked = true;
             this.chkShowInTaskbar.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkShowInTaskbar.Location = new System.Drawing.Point(415, 62);
-            this.chkShowInTaskbar.Name = "checkBox1";
+            this.chkShowInTaskbar.Name = "chkShowInTaskbar";
             this.chkShowInTaskbar.Size = new System.Drawing.Size(73, 17);
             this.chkShowInTaskbar.TabIndex = 8;
             this.chkShowInTaskbar.Text = "In taskbar";
