@@ -211,6 +211,13 @@ namespace User32Helper
 
                 var title = isVisibleAndHasTitle.Item2;
 
+                if (title == "Пуск" ||
+                     title == "Program Manager" ||
+                     title == "Windows Shell Experience Host")
+                {
+                    return true;
+                }
+
                 Icon icon = null;
                 try
                 {

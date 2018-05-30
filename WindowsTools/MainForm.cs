@@ -662,6 +662,11 @@ namespace WindowsTools
             PowerOffDisplayAndLock();
         }
 
+        private void chkVisibleOnly_CheckedChanged(object sender, EventArgs e)
+        {
+            chkShowMinimized.Enabled = chkVisibleOnly.Checked;
+        }
+
         // Main menu | Miscellaneous
 
         private void decodeClipboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -802,7 +807,10 @@ namespace WindowsTools
 
             m_RefreshStarted = true;
 
-            var runningWindows = GetWindowList(this.chkVisibleOnly.Checked);
+            var visibleOnly = this.chkVisibleOnly.Checked;
+            var showMinimized = chkShowMinimized.Checked;
+
+            var runningWindows = GetWindowList(visibleOnly, visibleOnly ? showMinimized : true);
 
             bool match = WindowsMatch(runningWindows);
 
@@ -911,7 +919,7 @@ namespace WindowsTools
             lstWindowsList.EndUpdate();
         }
 
-        private List<DesktopWindow> GetWindowList(bool visibleOnly)
+        private List<DesktopWindow> GetWindowList(bool visibleOnly, bool includeIconic = true)
         {
             var result = new List<DesktopWindow>();
 
@@ -919,7 +927,8 @@ namespace WindowsTools
 
             foreach (var window in RunningWindows)
             {
-                if ((!visibleOnly) || (visibleOnly && window.IsVisible))
+                if (((!visibleOnly) || (visibleOnly && window.IsVisible))
+                    && (includeIconic || (!includeIconic && !User32Windows.IsIconic(window.Handle))))
                 {
                     result.Add(window);
                 }
