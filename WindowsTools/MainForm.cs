@@ -667,6 +667,25 @@ namespace WindowsTools
             chkShowMinimized.Enabled = chkVisibleOnly.Checked;
         }
 
+        private void lstWindowsList_DoubleClick(object sender, EventArgs e)
+        {
+            SetForegroundSelectiveWindow();
+        }
+
+        private void topmostWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.TopMost = !this.TopMost;
+            topmostWindowToolStripMenuItem.Checked = this.TopMost;
+        }
+
+        private void lstWindowsList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space || e.KeyCode == Keys.Enter)
+            {
+                SetForegroundSelectiveWindow();
+            }
+        }
+
         // Main menu | Miscellaneous
 
         private void decodeClipboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1475,6 +1494,25 @@ namespace WindowsTools
         private void CropImages()
         {
             new CropImageForm().Show();
+        }
+
+        private void SetForegroundSelectiveWindow()
+        {
+            int selected = this.lstWindowsList.SelectedIndices[0];
+
+            IntPtr hwnd = IntPtr.Zero;
+
+            if (selected != -1)
+            {
+                hwnd = m_ListedWindows[selected].Handle;
+            }
+            else
+            {
+                return;
+            }
+
+            User32Windows.SetForegroundWindow(hwnd);
+            User32Windows.SetForegroundWindow(this.Handle);
         }
 
         #endregion

@@ -139,6 +139,8 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.chkShowMinimized = new System.Windows.Forms.CheckBox();
             this.lblWindowsCount = new System.Windows.Forms.Label();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topmostWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -148,7 +150,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.toolsToolStripMenuItem});
+            this.toolsToolStripMenuItem,
+            this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(561, 24);
@@ -998,6 +1001,8 @@
             this.lstWindowsList.TabIndex = 9;
             this.lstWindowsList.UseCompatibleStateImageBehavior = false;
             this.lstWindowsList.View = System.Windows.Forms.View.Details;
+            this.lstWindowsList.DoubleClick += new System.EventHandler(this.lstWindowsList_DoubleClick);
+            this.lstWindowsList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstWindowsList_KeyDown);
             // 
             // columnHeader1
             // 
@@ -1036,6 +1041,21 @@
             this.lblWindowsCount.Size = new System.Drawing.Size(16, 13);
             this.lblWindowsCount.TabIndex = 12;
             this.lblWindowsCount.Text = "...";
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.topmostWindowToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // topmostWindowToolStripMenuItem
+            // 
+            this.topmostWindowToolStripMenuItem.Name = "topmostWindowToolStripMenuItem";
+            this.topmostWindowToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.topmostWindowToolStripMenuItem.Text = "Topmost window";
+            this.topmostWindowToolStripMenuItem.Click += new System.EventHandler(this.topmostWindowToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -1182,5 +1202,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
         private System.Windows.Forms.CheckBox chkShowMinimized;
         private System.Windows.Forms.Label lblWindowsCount;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topmostWindowToolStripMenuItem;
     }
 }
