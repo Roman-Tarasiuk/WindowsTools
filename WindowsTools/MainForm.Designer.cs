@@ -138,6 +138,7 @@
             this.btnSendCustomCommands = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.chkShowMinimized = new System.Windows.Forms.CheckBox();
+            this.lblWindowsCount = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -588,7 +589,7 @@
             this.chkVisibleOnly.AutoSize = true;
             this.chkVisibleOnly.Checked = true;
             this.chkVisibleOnly.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkVisibleOnly.Location = new System.Drawing.Point(270, 26);
+            this.chkVisibleOnly.Location = new System.Drawing.Point(299, 26);
             this.chkVisibleOnly.Name = "chkVisibleOnly";
             this.chkVisibleOnly.Size = new System.Drawing.Size(78, 17);
             this.chkVisibleOnly.TabIndex = 5;
@@ -1020,18 +1021,28 @@
             this.chkShowMinimized.AutoSize = true;
             this.chkShowMinimized.Checked = true;
             this.chkShowMinimized.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkShowMinimized.Location = new System.Drawing.Point(354, 26);
+            this.chkShowMinimized.Location = new System.Drawing.Point(383, 26);
             this.chkShowMinimized.Name = "chkShowMinimized";
-            this.chkShowMinimized.Size = new System.Drawing.Size(101, 17);
+            this.chkShowMinimized.Size = new System.Drawing.Size(72, 17);
             this.chkShowMinimized.TabIndex = 11;
-            this.chkShowMinimized.Text = "Show minimized";
+            this.chkShowMinimized.Text = "Minimized";
             this.chkShowMinimized.UseVisualStyleBackColor = true;
+            // 
+            // lblWindowsCount
+            // 
+            this.lblWindowsCount.AutoSize = true;
+            this.lblWindowsCount.Location = new System.Drawing.Point(100, 27);
+            this.lblWindowsCount.Name = "lblWindowsCount";
+            this.lblWindowsCount.Size = new System.Drawing.Size(16, 13);
+            this.lblWindowsCount.TabIndex = 12;
+            this.lblWindowsCount.Text = "...";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 313);
+            this.Controls.Add(this.lblWindowsCount);
             this.Controls.Add(this.chkShowMinimized);
             this.Controls.Add(this.btnSendCustomCommands);
             this.Controls.Add(this.lstWindowsList);
@@ -1170,5 +1181,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
         private System.Windows.Forms.CheckBox chkShowMinimized;
+        private System.Windows.Forms.Label lblWindowsCount;
     }
 }

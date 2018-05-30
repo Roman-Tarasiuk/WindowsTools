@@ -819,6 +819,8 @@ namespace WindowsTools
                 UpdateWindowsLists(runningWindows);
             }
 
+            lblWindowsCount.Text = runningWindows.Count.ToString();
+
             m_RefreshStarted = false;
         }
 
@@ -826,7 +828,11 @@ namespace WindowsTools
         {
             bool match = true;
 
-            if ((m_ListedWindows.Count + m_HiddenByUserWindows.Count) == runningWindows.Count)
+            if ((m_ListedWindows.Count + m_HiddenByUserWindows.Count) != runningWindows.Count)
+            {
+                match = false;
+            }
+            else
             {
                 foreach (var w in m_ListedWindows)
                 {
@@ -849,10 +855,6 @@ namespace WindowsTools
                         }
                     }
                 }
-            }
-            else
-            {
-                match = false;
             }
 
             return match;
