@@ -209,16 +209,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(22, 47);
+            this.panel1.Location = new System.Drawing.Point(22, 48);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(629, 326);
+            this.panel1.Size = new System.Drawing.Size(628, 324);
             this.panel1.TabIndex = 1;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(629, 326);
+            this.pictureBox1.Size = new System.Drawing.Size(628, 324);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -226,44 +226,62 @@
             // 
             // btnCropLeft
             // 
+            this.btnCropLeft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCropLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.btnCropLeft.FlatAppearance.BorderSize = 0;
+            this.btnCropLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCropLeft.Image = ((System.Drawing.Image)(resources.GetObject("btnCropLeft.Image")));
-            this.btnCropLeft.Location = new System.Drawing.Point(-1, 255);
+            this.btnCropLeft.Location = new System.Drawing.Point(-1, 99);
             this.btnCropLeft.Name = "btnCropLeft";
-            this.btnCropLeft.Size = new System.Drawing.Size(22, 22);
+            this.btnCropLeft.Size = new System.Drawing.Size(20, 222);
             this.btnCropLeft.TabIndex = 3;
-            this.btnCropLeft.UseVisualStyleBackColor = true;
+            this.btnCropLeft.UseVisualStyleBackColor = false;
             this.btnCropLeft.Click += new System.EventHandler(this.btnCropLeft_Click);
             // 
             // btnCropTop
             // 
+            this.btnCropTop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCropTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.btnCropTop.FlatAppearance.BorderSize = 0;
+            this.btnCropTop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCropTop.Image = ((System.Drawing.Image)(resources.GetObject("btnCropTop.Image")));
-            this.btnCropTop.Location = new System.Drawing.Point(230, 25);
+            this.btnCropTop.Location = new System.Drawing.Point(74, 25);
             this.btnCropTop.Name = "btnCropTop";
-            this.btnCropTop.Size = new System.Drawing.Size(22, 22);
+            this.btnCropTop.Size = new System.Drawing.Size(524, 20);
             this.btnCropTop.TabIndex = 4;
-            this.btnCropTop.UseVisualStyleBackColor = true;
+            this.btnCropTop.UseVisualStyleBackColor = false;
             this.btnCropTop.Click += new System.EventHandler(this.btnCropTop_Click);
             // 
             // btnCropBottom
             // 
-            this.btnCropBottom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCropBottom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCropBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.btnCropBottom.FlatAppearance.BorderSize = 0;
+            this.btnCropBottom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCropBottom.Image = ((System.Drawing.Image)(resources.GetObject("btnCropBottom.Image")));
-            this.btnCropBottom.Location = new System.Drawing.Point(420, 373);
+            this.btnCropBottom.Location = new System.Drawing.Point(74, 373);
             this.btnCropBottom.Name = "btnCropBottom";
-            this.btnCropBottom.Size = new System.Drawing.Size(22, 22);
+            this.btnCropBottom.Size = new System.Drawing.Size(524, 20);
             this.btnCropBottom.TabIndex = 6;
-            this.btnCropBottom.UseVisualStyleBackColor = true;
+            this.btnCropBottom.UseVisualStyleBackColor = false;
             this.btnCropBottom.Click += new System.EventHandler(this.btnCropBottom_Click);
             // 
             // btnCropRight
             // 
-            this.btnCropRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCropRight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCropRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.btnCropRight.FlatAppearance.BorderSize = 0;
+            this.btnCropRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCropRight.Image = ((System.Drawing.Image)(resources.GetObject("btnCropRight.Image")));
-            this.btnCropRight.Location = new System.Drawing.Point(651, 142);
+            this.btnCropRight.Location = new System.Drawing.Point(653, 99);
             this.btnCropRight.Name = "btnCropRight";
-            this.btnCropRight.Size = new System.Drawing.Size(22, 22);
+            this.btnCropRight.Size = new System.Drawing.Size(20, 222);
             this.btnCropRight.TabIndex = 5;
-            this.btnCropRight.UseVisualStyleBackColor = true;
+            this.btnCropRight.UseVisualStyleBackColor = false;
             this.btnCropRight.Click += new System.EventHandler(this.btnCropRight_Click);
             // 
             // btnEscapeCrop
