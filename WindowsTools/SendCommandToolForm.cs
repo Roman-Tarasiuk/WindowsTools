@@ -141,8 +141,6 @@ namespace WindowsTools
 
                 toggleSendingToolStripMenuItem.Text = "Stop tool / move";
             }
-
-            propertiesToolStripMenuItem.Enabled = !m_IsRunning;
         }
 
         #endregion
