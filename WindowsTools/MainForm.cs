@@ -940,10 +940,8 @@ namespace WindowsTools
                     lstWindowsList.SmallImageList.Images.Add(window.Handle.ToString(), window.Icon);
                 }
 
-                int processId;
-                User32Windows.GetWindowThreadProcessId(window.Handle, out processId);
-
-                lstWindowsList.Items.Insert(m_ListedWindows.Count - 1, String.Format("{0,10} : {1,6} : {2}", window.Handle, processId, window.Title), window.Handle.ToString());
+                lstWindowsList.Items.Insert(m_ListedWindows.Count - 1,
+                    String.Format("{0,10} : {1,6} : {2}", window.Handle, window.ProcessId, window.Title), window.Handle.ToString());
             }
 
             for (int i = 0; i < m_ListedWindows.Count; i++)
@@ -1551,6 +1549,23 @@ namespace WindowsTools
             {
                 Clipboard.SetText(text.ToLower());
             }
+        }
+
+        private void copyAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var result = "";
+
+            foreach (var w in m_ListedWindows)
+            {
+                result += String.Format("{0}\t{1}\t{2}\t{3}\r\n", w.Handle, w.ProcessId, w.Title, w.IsVisible ? "Visible" : "Not visible");
+            }
+
+            foreach (var w in m_HiddenByUserWindows)
+            {
+                result += String.Format("{0}\t{1}\t{2}\t{3}\r\n", w.Handle, w.ProcessId, w.Title, w.IsVisible ? "Visible" : "Not visible");
+            }
+
+            Clipboard.SetText(result);
         }
 
         #endregion

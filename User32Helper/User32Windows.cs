@@ -11,6 +11,7 @@ namespace User32Helper
     public class DesktopWindow
     {
         public IntPtr Handle { get; set; }
+        public int ProcessId { get; set; }
         public string Title { get; set; }
         public bool IsVisible { get; set; }
         public Icon Icon { get; set; }
@@ -226,9 +227,13 @@ namespace User32Helper
                 }
                 catch { }
 
+                int processId;
+                User32Windows.GetWindowThreadProcessId(hWnd, out processId);
+
                 collection.Add(new DesktopWindow
                 {
                     Handle = hWnd,
+                    ProcessId = processId,
                     Title = title,
                     IsVisible = isVisible,
                     Icon = icon
