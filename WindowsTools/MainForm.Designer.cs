@@ -67,6 +67,8 @@
             this.encodeUriToExceptSpaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.encodeSpacesToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replacernTospaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toUPPERCASEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toLowercaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewSystemClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.screenRulerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,6 +77,8 @@
             this.notesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topmostWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripWindowsList = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.hideSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showHiddenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,6 +121,8 @@
             this.encodeUriToExceptSpaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.encodeSpacesToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.replacernTospaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toUPPERCASEToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toLowercaseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewSystemClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.screenRulerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -139,8 +145,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.chkShowMinimized = new System.Windows.Forms.CheckBox();
             this.lblWindowsCount = new System.Windows.Forms.Label();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.topmostWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -388,6 +392,8 @@
             this.encodeUriToExceptSpaceToolStripMenuItem,
             this.encodeSpacesToToolStripMenuItem,
             this.replacernTospaceToolStripMenuItem,
+            this.toUPPERCASEToolStripMenuItem,
+            this.toLowercaseToolStripMenuItem,
             this.viewSystemClipboardToolStripMenuItem,
             this.toolStripSeparator1,
             this.screenRulerToolStripMenuItem,
@@ -454,6 +460,20 @@
             this.replacernTospaceToolStripMenuItem.Text = "Replace \\r\\n to <space>";
             this.replacernTospaceToolStripMenuItem.Click += new System.EventHandler(this.replacernTospaceToolStripMenuItem_Click);
             // 
+            // toUPPERCASEToolStripMenuItem
+            // 
+            this.toUPPERCASEToolStripMenuItem.Name = "toUPPERCASEToolStripMenuItem";
+            this.toUPPERCASEToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.toUPPERCASEToolStripMenuItem.Text = "To UPPERCASE";
+            this.toUPPERCASEToolStripMenuItem.Click += new System.EventHandler(this.toUPPERCASEToolStripMenuItem_Click);
+            // 
+            // toLowercaseToolStripMenuItem
+            // 
+            this.toLowercaseToolStripMenuItem.Name = "toLowercaseToolStripMenuItem";
+            this.toLowercaseToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.toLowercaseToolStripMenuItem.Text = "To lowercase";
+            this.toLowercaseToolStripMenuItem.Click += new System.EventHandler(this.toLowercaseToolStripMenuItem_Click);
+            // 
             // viewSystemClipboardToolStripMenuItem
             // 
             this.viewSystemClipboardToolStripMenuItem.Name = "viewSystemClipboardToolStripMenuItem";
@@ -506,6 +526,21 @@
             this.optionsToolStripMenuItem.ShowShortcutKeys = false;
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.optionsToolStripMenuItem.Text = "&Options...";
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.topmostWindowToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // topmostWindowToolStripMenuItem
+            // 
+            this.topmostWindowToolStripMenuItem.Name = "topmostWindowToolStripMenuItem";
+            this.topmostWindowToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.topmostWindowToolStripMenuItem.Text = "Topmost window";
+            this.topmostWindowToolStripMenuItem.Click += new System.EventHandler(this.topmostWindowToolStripMenuItem_Click);
             // 
             // contextMenuStripWindowsList
             // 
@@ -625,7 +660,7 @@
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray1.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 204);
+            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 226);
             this.contextMenuStripSysTray1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray1_Opening);
             this.contextMenuStripSysTray1.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray1.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
@@ -791,6 +826,8 @@
             this.encodeUriToExceptSpaceToolStripMenuItem1,
             this.encodeSpacesToToolStripMenuItem1,
             this.replacernTospaceToolStripMenuItem1,
+            this.toUPPERCASEToolStripMenuItem1,
+            this.toLowercaseToolStripMenuItem1,
             this.viewSystemClipboardToolStripMenuItem1,
             this.toolStripSeparator12,
             this.screenRulerToolStripMenuItem1,
@@ -857,6 +894,20 @@
             this.replacernTospaceToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
             this.replacernTospaceToolStripMenuItem1.Text = "Replace \\r\\n to <space>";
             this.replacernTospaceToolStripMenuItem1.Click += new System.EventHandler(this.replacernTospaceToolStripMenuItem1_Click);
+            // 
+            // toUPPERCASEToolStripMenuItem1
+            // 
+            this.toUPPERCASEToolStripMenuItem1.Name = "toUPPERCASEToolStripMenuItem1";
+            this.toUPPERCASEToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.toUPPERCASEToolStripMenuItem1.Text = "To UPPERCASE";
+            this.toUPPERCASEToolStripMenuItem1.Click += new System.EventHandler(this.toUPPERCASEToolStripMenuItem1_Click);
+            // 
+            // toLowercaseToolStripMenuItem1
+            // 
+            this.toLowercaseToolStripMenuItem1.Name = "toLowercaseToolStripMenuItem1";
+            this.toLowercaseToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.toLowercaseToolStripMenuItem1.Text = "To lowercase";
+            this.toLowercaseToolStripMenuItem1.Click += new System.EventHandler(this.toLowercaseToolStripMenuItem1_Click);
             // 
             // viewSystemClipboardToolStripMenuItem1
             // 
@@ -1042,21 +1093,6 @@
             this.lblWindowsCount.TabIndex = 12;
             this.lblWindowsCount.Text = "...";
             // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.topmostWindowToolStripMenuItem});
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.viewToolStripMenuItem.Text = "View";
-            // 
-            // topmostWindowToolStripMenuItem
-            // 
-            this.topmostWindowToolStripMenuItem.Name = "topmostWindowToolStripMenuItem";
-            this.topmostWindowToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.topmostWindowToolStripMenuItem.Text = "Topmost window";
-            this.topmostWindowToolStripMenuItem.Click += new System.EventHandler(this.topmostWindowToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1204,5 +1240,9 @@
         private System.Windows.Forms.Label lblWindowsCount;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem topmostWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toUPPERCASEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toLowercaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toUPPERCASEToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toLowercaseToolStripMenuItem1;
     }
 }

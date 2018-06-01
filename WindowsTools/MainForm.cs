@@ -748,6 +748,16 @@ namespace WindowsTools
             new ScreenRulerForm().Show();
         }
 
+        private void toUPPERCASEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClipboardToUpperCase();
+        }
+
+        private void toLowercaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClipboardToLowerCase();
+        }
+
         // System tray context menu | Miscellaneous
 
         private void decodeClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -808,6 +818,16 @@ namespace WindowsTools
         private void screenRulerToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             new ScreenRulerForm().Show();
+        }
+
+        private void toUPPERCASEToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ClipboardToUpperCase();
+        }
+
+        private void toLowercaseToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ClipboardToLowerCase();
         }
 
         // Menu items other than Miscellaneous set above these last 2 groups.
@@ -1513,6 +1533,24 @@ namespace WindowsTools
 
             User32Windows.SetForegroundWindow(hwnd);
             User32Windows.SetForegroundWindow(this.Handle);
+        }
+
+        private void ClipboardToUpperCase()
+        {
+            var text = Clipboard.GetText();
+            if (text != null && text != String.Empty)
+            {
+                Clipboard.SetText(text.ToUpper());
+            }
+        }
+
+        private void ClipboardToLowerCase()
+        {
+            var text = Clipboard.GetText();
+            if (text != null && text != String.Empty)
+            {
+                Clipboard.SetText(text.ToLower());
+            }
         }
 
         #endregion
