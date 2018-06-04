@@ -24,6 +24,8 @@ namespace WindowsTools
         public bool Sleep { get; set; }
         public int SleepTimeout { get; set; }
         public bool RunOnAllWindowsWithSameTitle { get; set; }
+        public int Top { get; set; }
+        public int Left { get; set; }
 
         #endregion
 
@@ -100,6 +102,9 @@ namespace WindowsTools
             txtSleepTimeout.Text = SleepTimeout.ToString();
 
             chkRunOnAllWindowsWithSameTitle.Checked = RunOnAllWindowsWithSameTitle;
+
+            txtLeft.Text = Left.ToString();
+            txtTop.Text = Top.ToString();
         }
 
         private void ApplyProperties()
@@ -152,6 +157,9 @@ namespace WindowsTools
             }
 
             RunOnAllWindowsWithSameTitle = chkRunOnAllWindowsWithSameTitle.Checked;
+
+            Top = int.Parse(txtTop.Text);
+            Left = int.Parse(txtLeft.Text);
         }
 
         #endregion

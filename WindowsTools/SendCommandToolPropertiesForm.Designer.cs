@@ -46,6 +46,10 @@
             this.chkSleep = new System.Windows.Forms.CheckBox();
             this.txtSleepTimeout = new System.Windows.Forms.TextBox();
             this.chkRunOnAllWindowsWithSameTitle = new System.Windows.Forms.CheckBox();
+            this.txtTop = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtLeft = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -64,7 +68,7 @@
             // 
             this.txtToolWidth.Location = new System.Drawing.Point(59, 88);
             this.txtToolWidth.Name = "txtToolWidth";
-            this.txtToolWidth.Size = new System.Drawing.Size(100, 20);
+            this.txtToolWidth.Size = new System.Drawing.Size(63, 20);
             this.txtToolWidth.TabIndex = 1;
             // 
             // label2
@@ -80,7 +84,7 @@
             // 
             this.txtToolHeight.Location = new System.Drawing.Point(59, 114);
             this.txtToolHeight.Name = "txtToolHeight";
-            this.txtToolHeight.Size = new System.Drawing.Size(100, 20);
+            this.txtToolHeight.Size = new System.Drawing.Size(63, 20);
             this.txtToolHeight.TabIndex = 3;
             // 
             // btnOk
@@ -235,11 +239,47 @@
             this.chkRunOnAllWindowsWithSameTitle.Text = "Run on all windows with same title";
             this.chkRunOnAllWindowsWithSameTitle.UseVisualStyleBackColor = true;
             // 
+            // txtTop
+            // 
+            this.txtTop.Location = new System.Drawing.Point(183, 114);
+            this.txtTop.Name = "txtTop";
+            this.txtTop.Size = new System.Drawing.Size(63, 20);
+            this.txtTop.TabIndex = 15;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(149, 117);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Top:";
+            // 
+            // txtLeft
+            // 
+            this.txtLeft.Location = new System.Drawing.Point(183, 88);
+            this.txtLeft.Name = "txtLeft";
+            this.txtLeft.Size = new System.Drawing.Size(63, 20);
+            this.txtLeft.TabIndex = 13;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(149, 91);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(28, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Left:";
+            // 
             // SendCommandToolPropertiesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(258, 399);
+            this.Controls.Add(this.txtTop);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtLeft);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.chkRunOnAllWindowsWithSameTitle);
             this.Controls.Add(this.txtSleepTimeout);
             this.Controls.Add(this.chkSleep);
@@ -287,5 +327,9 @@
         private System.Windows.Forms.CheckBox chkSleep;
         private System.Windows.Forms.TextBox txtSleepTimeout;
         private System.Windows.Forms.CheckBox chkRunOnAllWindowsWithSameTitle;
+        private System.Windows.Forms.TextBox txtTop;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtLeft;
+        private System.Windows.Forms.Label label5;
     }
 }

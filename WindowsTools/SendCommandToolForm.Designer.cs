@@ -130,6 +130,7 @@
             this.Text = "Send Command Tool";
             this.TopMost = true;
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.SendCommandToolForm_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SendCommandToolForm_KeyDown);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SendCommandToolForm_MouseClick);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SendCommandToolForm_MouseDown);
             this.MouseLeave += new System.EventHandler(this.SendCommandToolForm_MouseLeave);

@@ -382,7 +382,9 @@ namespace WindowsTools
                 ClipboardCommand = m_Clipboard,
                 Sleep = m_Sleep,
                 SleepTimeout = m_SleepTimeout,
-                RunOnAllWindowsWithSameTitle = m_RunOnAllWindowsWithSameTitle
+                RunOnAllWindowsWithSameTitle = m_RunOnAllWindowsWithSameTitle,
+                Left = this.Location.X,
+                Top = this.Location.Y
             };
             var result = settingsForm.ShowDialog();
 
@@ -399,6 +401,37 @@ namespace WindowsTools
                 this.m_Sleep = settingsForm.Sleep;
                 this.m_SleepTimeout = settingsForm.SleepTimeout;
                 m_RunOnAllWindowsWithSameTitle = settingsForm.RunOnAllWindowsWithSameTitle;
+
+                this.Location = new Point(settingsForm.Left, settingsForm.Top);
+            }
+        }
+
+        private void SendCommandToolForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!m_IsRunning)
+            {
+                var offset = 11;
+
+                if (e.Control)
+                {
+                    offset = 1;
+                }
+
+                switch (e.KeyCode)
+                {
+                    case Keys.Left:
+                        this.Location = new Point(this.Location.X - offset, this.Location.Y);
+                        break;
+                    case Keys.Right:
+                        this.Location = new Point(this.Location.X + offset, this.Location.Y);
+                        break;
+                    case Keys.Up:
+                        this.Location = new Point(this.Location.X, this.Location.Y - offset);
+                        break;
+                    case Keys.Down:
+                        this.Location = new Point(this.Location.X, this.Location.Y + offset);
+                        break;
+                }
             }
         }
 
