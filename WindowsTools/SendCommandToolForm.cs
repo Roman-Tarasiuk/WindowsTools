@@ -226,6 +226,9 @@ namespace WindowsTools
                 SendKeys.SendWait(commands[i]);
             }
 
+            var lastWindow = User32Windows.GetLastActiveWindow(hwndExcept: this.Handle);
+
+            User32Windows.SetForegroundWindow(lastWindow.Handle);
 
             //
             // Working code (using InputSimulator http://inputsimulator.codeplex.com/).
