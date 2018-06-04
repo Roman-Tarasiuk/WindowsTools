@@ -1036,7 +1036,11 @@ namespace WindowsTools
 
         private void SetILDASMFonts()
         {
-            int selected = this.lstWindowsList.SelectedIndices[0];
+            var selected = -1;
+            if (lstWindowsList.SelectedIndices.Count > 0)
+            {
+                selected = this.lstWindowsList.SelectedIndices[0];
+            }
 
             if ((selected == -1) || (!m_ListedWindows[selected].Title.Contains("IL DASM")))
             {
@@ -1096,7 +1100,11 @@ namespace WindowsTools
 
         private void MoveWindow()
         {
-            int selected = this.lstWindowsList.SelectedIndices[0];
+            var selected = -1;
+            if (lstWindowsList.SelectedIndices.Count > 0)
+            {
+                selected = this.lstWindowsList.SelectedIndices[0];
+            }
             if (selected == -1)
             {
                 return;
@@ -1129,7 +1137,11 @@ namespace WindowsTools
 
         private void SendCommands(string[] commands)
         {
-            int selected = this.lstWindowsList.SelectedIndices[0];
+            var selected = -1;
+            if (lstWindowsList.SelectedIndices.Count > 0)
+            {
+                selected = this.lstWindowsList.SelectedIndices[0];
+            }
 
             if (selected == -1)
             {
@@ -1230,7 +1242,11 @@ namespace WindowsTools
                 };
             }
 
-            int selected = this.lstWindowsList.SelectedIndices[0];
+            var selected = -1;
+            if (lstWindowsList.SelectedIndices.Count > 0)
+            {
+                selected = this.lstWindowsList.SelectedIndices[0];
+            }
 
             if (selected != -1)
             {
@@ -1516,7 +1532,11 @@ namespace WindowsTools
 
         private void SetForegroundSelectiveWindow()
         {
-            int selected = this.lstWindowsList.SelectedIndices[0];
+            var selected = -1;
+            if (lstWindowsList.SelectedIndices.Count > 0)
+            {
+                selected = this.lstWindowsList.SelectedIndices[0];
+            }
 
             IntPtr hwnd = IntPtr.Zero;
 
