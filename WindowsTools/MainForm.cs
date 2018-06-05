@@ -700,6 +700,11 @@ namespace WindowsTools
         {
             Comparison<DesktopWindow> comparison = (i1, i2) =>
             {
+                if (i1.ProcessId == i2.ProcessId)
+                {
+                    return i1.Title.CompareTo(i2.Title);
+                }
+
                 return i1.ProcessId.CompareTo(i2.ProcessId);
             };
 
