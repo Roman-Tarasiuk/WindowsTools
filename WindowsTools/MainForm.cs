@@ -27,7 +27,7 @@ namespace WindowsTools
 
         private LocationAndSizeForm m_LocationForm;
         private PasswordForm m_PasswordForm;
-        private WindowsTrackingForm m_TrackingForm;
+        private MouseHoverForm m_TrackingForm;
         private PinForm m_PinForm;
         private SendCommandsForm m_SendCommandForm;
         private ClipboardManagerForm m_ClipboardManagerForm;
@@ -1181,7 +1181,7 @@ namespace WindowsTools
         {
             Form tmp = m_TrackingForm;
 
-            m_TrackingForm = (WindowsTrackingForm)User32Windows.GetForm(m_TrackingForm, typeof(WindowsTrackingForm));
+            m_TrackingForm = (MouseHoverForm)User32Windows.GetForm(m_TrackingForm, typeof(MouseHoverForm));
 
             if (m_TrackingForm != tmp)
             {

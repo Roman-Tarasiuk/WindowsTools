@@ -1,6 +1,6 @@
 ﻿namespace WindowsTools
 {
-    partial class WindowsTrackingForm
+    partial class MouseHoverForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MouseHoverForm));
             this.txtHwndList = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnStartTracking = new System.Windows.Forms.Button();
@@ -42,11 +43,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtHwndList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtHwndList.Location = new System.Drawing.Point(12, 25);
+            this.txtHwndList.Location = new System.Drawing.Point(5, 25);
             this.txtHwndList.Multiline = true;
             this.txtHwndList.Name = "txtHwndList";
             this.txtHwndList.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtHwndList.Size = new System.Drawing.Size(246, 82);
+            this.txtHwndList.Size = new System.Drawing.Size(262, 87);
             this.txtHwndList.TabIndex = 0;
             this.toolTip1.SetToolTip(this.txtHwndList, "Use space, new line and tab characters to split hwnds");
             this.txtHwndList.WordWrap = false;
@@ -54,7 +55,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(2, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 1;
@@ -64,7 +65,7 @@
             // btnStartTracking
             // 
             this.btnStartTracking.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStartTracking.Location = new System.Drawing.Point(178, 113);
+            this.btnStartTracking.Location = new System.Drawing.Point(187, 118);
             this.btnStartTracking.Name = "btnStartTracking";
             this.btnStartTracking.Size = new System.Drawing.Size(80, 23);
             this.btnStartTracking.TabIndex = 2;
@@ -76,18 +77,19 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // WindowsTrackingForm
+            // MouseHoverForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(270, 137);
+            this.ClientSize = new System.Drawing.Size(270, 142);
             this.Controls.Add(this.btnStartTracking);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtHwndList);
-            this.Name = "WindowsTrackingForm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "MouseHoverForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Windows tracking";
+            this.Text = "Mouse hover";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WindowsTrackingForm_FormClosing);
             this.LocationChanged += new System.EventHandler(this.WindowsTrackingForm_LocationChanged);
             this.Resize += new System.EventHandler(this.WindowsTrackingForm_Resize);

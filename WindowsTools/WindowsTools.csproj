@@ -152,11 +152,11 @@
     <Compile Include="TrackInactiveWindowForm.Designer.cs">
       <DependentUpon>TrackInactiveWindowForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="WindowsTrackingForm.cs">
+    <Compile Include="MouseHoverForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsTrackingForm.Designer.cs">
-      <DependentUpon>WindowsTrackingForm.cs</DependentUpon>
+    <Compile Include="MouseHoverForm.Designer.cs">
+      <DependentUpon>MouseHoverForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PasswordForm.cs">
       <SubType>Form</SubType>
@@ -259,8 +259,8 @@
     <EmbeddedResource Include="TrackInactiveWindowForm.resx">
       <DependentUpon>TrackInactiveWindowForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WindowsTrackingForm.resx">
-      <DependentUpon>WindowsTrackingForm.cs</DependentUpon>
+    <EmbeddedResource Include="MouseHoverForm.resx">
+      <DependentUpon>MouseHoverForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PasswordForm.resx">
       <DependentUpon>PasswordForm.cs</DependentUpon>

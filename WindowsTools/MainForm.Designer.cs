@@ -36,7 +36,6 @@
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.taskListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trackTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.moveWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -49,6 +48,7 @@
             this.textInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trackTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackWindowIsAccessibleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.directorySizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -86,6 +86,7 @@
             this.addToTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.sortByNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sortByProcessIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
             this.copyAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyWindowHwndToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -148,7 +149,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.chkShowMinimized = new System.Windows.Forms.CheckBox();
             this.lblWindowsCount = new System.Windows.Forms.Label();
-            this.sortByProcessIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -189,7 +190,6 @@
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clearClipboardToolStripMenuItem,
             this.taskListToolStripMenuItem,
-            this.trackTitleToolStripMenuItem,
             this.toolStripSeparator9,
             this.moveWindowToolStripMenuItem,
             this.toolStripSeparator6,
@@ -198,6 +198,7 @@
             this.textInfoToolStripMenuItem,
             this.windowsTrackingToolStripMenuItem,
             this.customTitleToolStripMenuItem,
+            this.trackTitleToolStripMenuItem,
             this.trackWindowIsAccessibleToolStripMenuItem,
             this.directorySizeToolStripMenuItem,
             this.toolStripSeparator5,
@@ -215,40 +216,33 @@
             // 
             this.clearClipboardToolStripMenuItem.Image = global::WindowsTools.Properties.Resources.clear_clipboard_20;
             this.clearClipboardToolStripMenuItem.Name = "clearClipboardToolStripMenuItem";
-            this.clearClipboardToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.clearClipboardToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.clearClipboardToolStripMenuItem.Text = "Clear clipboard";
             this.clearClipboardToolStripMenuItem.Click += new System.EventHandler(this.clearClipboardToolStripMenuItem_Click);
             // 
             // taskListToolStripMenuItem
             // 
             this.taskListToolStripMenuItem.Name = "taskListToolStripMenuItem";
-            this.taskListToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.taskListToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.taskListToolStripMenuItem.Text = "Running apps list...";
             this.taskListToolStripMenuItem.Click += new System.EventHandler(this.taskListToolStripMenuItem_Click);
-            // 
-            // trackTitleToolStripMenuItem
-            // 
-            this.trackTitleToolStripMenuItem.Name = "trackTitleToolStripMenuItem";
-            this.trackTitleToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.trackTitleToolStripMenuItem.Text = "Track title";
-            this.trackTitleToolStripMenuItem.Click += new System.EventHandler(this.trackTitleToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(229, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(256, 6);
             // 
             // moveWindowToolStripMenuItem
             // 
             this.moveWindowToolStripMenuItem.Name = "moveWindowToolStripMenuItem";
-            this.moveWindowToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.moveWindowToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.moveWindowToolStripMenuItem.Text = "Move window...";
             this.moveWindowToolStripMenuItem.Click += new System.EventHandler(this.moveWindowToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(229, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(256, 6);
             // 
             // sendCustomCommandsToolStripMenuItem
             // 
@@ -258,7 +252,7 @@
             this.setCmdTitleToolStripMenuItem,
             this.setCmdPromptToolStripMenuItem});
             this.sendCustomCommandsToolStripMenuItem.Name = "sendCustomCommandsToolStripMenuItem";
-            this.sendCustomCommandsToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.sendCustomCommandsToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.sendCustomCommandsToolStripMenuItem.Text = "Send custom commands...";
             this.sendCustomCommandsToolStripMenuItem.Click += new System.EventHandler(this.sendCustomCommandsToolStripMenuItem_Click);
             // 
@@ -297,47 +291,54 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(229, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(256, 6);
             // 
             // textInfoToolStripMenuItem
             // 
             this.textInfoToolStripMenuItem.Name = "textInfoToolStripMenuItem";
-            this.textInfoToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.textInfoToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.textInfoToolStripMenuItem.Text = "Text info...";
             this.textInfoToolStripMenuItem.Click += new System.EventHandler(this.textInfoToolStripMenuItem_Click);
             // 
             // windowsTrackingToolStripMenuItem
             // 
             this.windowsTrackingToolStripMenuItem.Name = "windowsTrackingToolStripMenuItem";
-            this.windowsTrackingToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.windowsTrackingToolStripMenuItem.Text = "Windows tracking...";
+            this.windowsTrackingToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+            this.windowsTrackingToolStripMenuItem.Text = "Activate window by mouse hover...";
             this.windowsTrackingToolStripMenuItem.Click += new System.EventHandler(this.windowsTrackingToolStripMenuItem_Click);
             // 
             // customTitleToolStripMenuItem
             // 
             this.customTitleToolStripMenuItem.Name = "customTitleToolStripMenuItem";
-            this.customTitleToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.customTitleToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.customTitleToolStripMenuItem.Text = "Custom window title...";
             this.customTitleToolStripMenuItem.Click += new System.EventHandler(this.customTitleColorsToolStripMenuItem_Click);
+            // 
+            // trackTitleToolStripMenuItem
+            // 
+            this.trackTitleToolStripMenuItem.Name = "trackTitleToolStripMenuItem";
+            this.trackTitleToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+            this.trackTitleToolStripMenuItem.Text = "Track window\'s title...";
+            this.trackTitleToolStripMenuItem.Click += new System.EventHandler(this.trackTitleToolStripMenuItem_Click);
             // 
             // trackWindowIsAccessibleToolStripMenuItem
             // 
             this.trackWindowIsAccessibleToolStripMenuItem.Name = "trackWindowIsAccessibleToolStripMenuItem";
-            this.trackWindowIsAccessibleToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.trackWindowIsAccessibleToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.trackWindowIsAccessibleToolStripMenuItem.Text = "Track a window is accessible...";
             this.trackWindowIsAccessibleToolStripMenuItem.Click += new System.EventHandler(this.trackWindowIsAccessibleToolStripMenuItem_Click);
             // 
             // directorySizeToolStripMenuItem
             // 
             this.directorySizeToolStripMenuItem.Name = "directorySizeToolStripMenuItem";
-            this.directorySizeToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.directorySizeToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.directorySizeToolStripMenuItem.Text = "Directory size...";
             this.directorySizeToolStripMenuItem.Click += new System.EventHandler(this.directorySizeToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(229, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(256, 6);
             // 
             // screensaverGToolStripMenuItem1
             // 
@@ -347,7 +348,7 @@
             this.powerOffDisplayToolStripMenuItem,
             this.powerOffDisplayAndLockToolStripMenuItem});
             this.screensaverGToolStripMenuItem1.Name = "screensaverGToolStripMenuItem1";
-            this.screensaverGToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
+            this.screensaverGToolStripMenuItem1.Size = new System.Drawing.Size(259, 22);
             this.screensaverGToolStripMenuItem1.Text = "Screen saver";
             // 
             // screenSaverToolStripMenuItem1
@@ -381,7 +382,7 @@
             // passwordsToolStripMenuItem
             // 
             this.passwordsToolStripMenuItem.Name = "passwordsToolStripMenuItem";
-            this.passwordsToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.passwordsToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.passwordsToolStripMenuItem.Text = "Password Manager...";
             this.passwordsToolStripMenuItem.Click += new System.EventHandler(this.passwordsToolStripMenuItem_Click);
             // 
@@ -405,7 +406,7 @@
             this.compareStringsToolStripMenuItem,
             this.notesToolStripMenuItem});
             this.miscellaneousToolStripMenuItem1.Name = "miscellaneousToolStripMenuItem1";
-            this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
+            this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(259, 22);
             this.miscellaneousToolStripMenuItem1.Text = "Miscellaneous";
             // 
             // currentDateAndTimeToolStripMenuItem
@@ -521,14 +522,14 @@
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(229, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(256, 6);
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Enabled = false;
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.ShowShortcutKeys = false;
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.optionsToolStripMenuItem.Text = "&Options...";
             // 
             // viewToolStripMenuItem
@@ -552,6 +553,7 @@
             this.hideSelectedToolStripMenuItem,
             this.showHiddenToolStripMenuItem,
             this.moveWindowToolStripMenuItem1,
+            this.toolStripSeparator17,
             this.addToTrackingToolStripMenuItem,
             this.toolStripSeparator8,
             this.sortByNameToolStripMenuItem,
@@ -562,78 +564,85 @@
             this.copyWindowNameToolStripMenuItem,
             this.copyProcessIdToolStripMenuItem});
             this.contextMenuStripWindowsList.Name = "contextMenuStripWindowsList";
-            this.contextMenuStripWindowsList.Size = new System.Drawing.Size(181, 258);
+            this.contextMenuStripWindowsList.Size = new System.Drawing.Size(183, 242);
             // 
             // hideSelectedToolStripMenuItem
             // 
             this.hideSelectedToolStripMenuItem.Name = "hideSelectedToolStripMenuItem";
-            this.hideSelectedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hideSelectedToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.hideSelectedToolStripMenuItem.Text = "Hide selected";
             this.hideSelectedToolStripMenuItem.Click += new System.EventHandler(this.hideSelectedToolStripMenuItem_Click);
             // 
             // showHiddenToolStripMenuItem
             // 
             this.showHiddenToolStripMenuItem.Name = "showHiddenToolStripMenuItem";
-            this.showHiddenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showHiddenToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.showHiddenToolStripMenuItem.Text = "Show hidden";
             this.showHiddenToolStripMenuItem.Click += new System.EventHandler(this.showHiddenToolStripMenuItem_Click);
             // 
             // moveWindowToolStripMenuItem1
             // 
             this.moveWindowToolStripMenuItem1.Name = "moveWindowToolStripMenuItem1";
-            this.moveWindowToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.moveWindowToolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
             this.moveWindowToolStripMenuItem1.Text = "Move window...";
             this.moveWindowToolStripMenuItem1.Click += new System.EventHandler(this.moveWindowToolStripMenuItem1_Click);
             // 
             // addToTrackingToolStripMenuItem
             // 
             this.addToTrackingToolStripMenuItem.Name = "addToTrackingToolStripMenuItem";
-            this.addToTrackingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addToTrackingToolStripMenuItem.Text = "Add to tracking";
+            this.addToTrackingToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.addToTrackingToolStripMenuItem.Text = "Add to mouse hover";
             this.addToTrackingToolStripMenuItem.Click += new System.EventHandler(this.addToTrackingToolStripMenuItem_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(179, 6);
             // 
             // sortByNameToolStripMenuItem
             // 
             this.sortByNameToolStripMenuItem.Name = "sortByNameToolStripMenuItem";
-            this.sortByNameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sortByNameToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.sortByNameToolStripMenuItem.Text = "Sort by name";
             this.sortByNameToolStripMenuItem.Click += new System.EventHandler(this.sortByNameToolStripMenuItem_Click);
+            // 
+            // sortByProcessIdToolStripMenuItem
+            // 
+            this.sortByProcessIdToolStripMenuItem.Name = "sortByProcessIdToolStripMenuItem";
+            this.sortByProcessIdToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.sortByProcessIdToolStripMenuItem.Text = "Sort by process id";
+            this.sortByProcessIdToolStripMenuItem.Click += new System.EventHandler(this.sortByProcessIdToolStripMenuItem_Click);
             // 
             // toolStripSeparator16
             // 
             this.toolStripSeparator16.Name = "toolStripSeparator16";
-            this.toolStripSeparator16.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator16.Size = new System.Drawing.Size(179, 6);
             // 
             // copyAllToolStripMenuItem
             // 
             this.copyAllToolStripMenuItem.Name = "copyAllToolStripMenuItem";
-            this.copyAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyAllToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.copyAllToolStripMenuItem.Text = "Copy all";
             this.copyAllToolStripMenuItem.Click += new System.EventHandler(this.copyAllToolStripMenuItem_Click);
             // 
             // copyWindowHwndToolStripMenuItem
             // 
             this.copyWindowHwndToolStripMenuItem.Name = "copyWindowHwndToolStripMenuItem";
-            this.copyWindowHwndToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyWindowHwndToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.copyWindowHwndToolStripMenuItem.Text = "Copy window hwnd";
             this.copyWindowHwndToolStripMenuItem.Click += new System.EventHandler(this.copyWindowHwndToolStripMenuItem_Click);
             // 
             // copyWindowNameToolStripMenuItem
             // 
             this.copyWindowNameToolStripMenuItem.Name = "copyWindowNameToolStripMenuItem";
-            this.copyWindowNameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyWindowNameToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.copyWindowNameToolStripMenuItem.Text = "Copy window name";
             this.copyWindowNameToolStripMenuItem.Click += new System.EventHandler(this.copyWindowNameToolStripMenuItem_Click);
             // 
             // copyProcessIdToolStripMenuItem
             // 
             this.copyProcessIdToolStripMenuItem.Name = "copyProcessIdToolStripMenuItem";
-            this.copyProcessIdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyProcessIdToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.copyProcessIdToolStripMenuItem.Text = "Copy process Id";
             this.copyProcessIdToolStripMenuItem.Click += new System.EventHandler(this.copyProcessIdToolStripMenuItem_Click);
             // 
@@ -785,7 +794,7 @@
             // 
             this.windowsTrackingToolStripMenuItem1.Name = "windowsTrackingToolStripMenuItem1";
             this.windowsTrackingToolStripMenuItem1.Size = new System.Drawing.Size(215, 22);
-            this.windowsTrackingToolStripMenuItem1.Text = "Start windows tracking";
+            this.windowsTrackingToolStripMenuItem1.Text = "Start mouse hover";
             this.windowsTrackingToolStripMenuItem1.ToolTipText = "Press Ctrl + ~ to start/stop";
             this.windowsTrackingToolStripMenuItem1.Click += new System.EventHandler(this.windowsTrackingToolStripMenuItem1_Click);
             // 
@@ -1120,12 +1129,10 @@
             this.lblWindowsCount.TabIndex = 12;
             this.lblWindowsCount.Text = "...";
             // 
-            // sortByProcessIdToolStripMenuItem
+            // toolStripSeparator17
             // 
-            this.sortByProcessIdToolStripMenuItem.Name = "sortByProcessIdToolStripMenuItem";
-            this.sortByProcessIdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sortByProcessIdToolStripMenuItem.Text = "Sort by process id";
-            this.sortByProcessIdToolStripMenuItem.Click += new System.EventHandler(this.sortByProcessIdToolStripMenuItem_Click);
+            this.toolStripSeparator17.Name = "toolStripSeparator17";
+            this.toolStripSeparator17.Size = new System.Drawing.Size(179, 6);
             // 
             // MainForm
             // 
@@ -1282,5 +1289,6 @@
         private System.Windows.Forms.ToolStripMenuItem sortByNameToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;
         private System.Windows.Forms.ToolStripMenuItem sortByProcessIdToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
     }
 }
