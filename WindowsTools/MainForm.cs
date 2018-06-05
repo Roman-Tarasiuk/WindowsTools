@@ -380,16 +380,16 @@ namespace WindowsTools
 
         private void WindowsTracking()
         {
-            if (windowsTrackingToolStripMenuItem1.Text == "Start windows tracking")
+            if (windowsTrackingToolStripMenuItem1.Text == "Start mouse hover")
             {
                 m_TrackingForm.StartTracking();
-                windowsTrackingToolStripMenuItem1.Text = "Stop windows tracking";
+                windowsTrackingToolStripMenuItem1.Text = "Stop mouse hover";
                 m_MouseTrackingStarted = true;
             }
             else
             {
                 m_TrackingForm.StopTracking();
-                windowsTrackingToolStripMenuItem1.Text = "Start windows tracking";
+                windowsTrackingToolStripMenuItem1.Text = "Start mouse hover";
                 m_MouseTrackingStarted = false;
             }
         }
@@ -1185,7 +1185,7 @@ namespace WindowsTools
 
             if (m_TrackingForm != tmp)
             {
-                windowsTrackingToolStripMenuItem1.Text = "Start windows tracking";
+                windowsTrackingToolStripMenuItem1.Text = "Start mouse hover";
                 m_MouseTrackingStarted = false;
 
                 return;
@@ -1193,12 +1193,12 @@ namespace WindowsTools
 
             if (m_TrackingForm.IsTracking)
             {
-                windowsTrackingToolStripMenuItem1.Text = "Stop windows tracking";
+                windowsTrackingToolStripMenuItem1.Text = "Stop mouse hover";
                 m_MouseTrackingStarted = true;
             }
             else
             {
-                windowsTrackingToolStripMenuItem1.Text = "Start windows tracking";
+                windowsTrackingToolStripMenuItem1.Text = "Start mouse hover";
                 m_MouseTrackingStarted = false;
             }
         }
