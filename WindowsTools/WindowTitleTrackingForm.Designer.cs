@@ -44,7 +44,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoEllipsis = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(8, 1);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
@@ -111,9 +111,6 @@
             this.TopMost = true;
             this.Shown += new System.EventHandler(this.WindowTitleTrackingForm_Shown);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.WindowTitleTrackingForm_Paint);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowTitleTrackingForm_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WindowTitleTrackingForm_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.WindowTitleTrackingForm_MouseUp);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 

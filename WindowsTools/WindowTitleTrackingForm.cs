@@ -16,6 +16,8 @@ namespace WindowsTools
     {
         #region Fields
 
+        private System.Windows.Forms.Panel panel1;
+
         TitleTrackingFormProperties m_Properties = new TitleTrackingFormProperties();
 
         IntPtr m_Hwnd;
@@ -42,8 +44,49 @@ namespace WindowsTools
             m_Properties.Width = this.Width;
             m_Properties.BorderWidth = 1;
             m_Properties.Interval = 1;
+
+            InitializeAdditionalComponents();
         }
 
+        private void InitializeAdditionalComponents()
+        {
+            // The panel for moving the form by any point.
+
+            this.panel1 = new TransparentPanel();
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(220, 31);
+            this.panel1.TabIndex = 1;
+
+            this.Controls.Add(this.panel1);
+
+            panel1.BringToFront();
+
+            panel1.MouseDown += (sender, e) =>
+            {
+                m_MouseIsDown = true;
+                m_MouseDownCoordinates = e.Location;
+            };
+
+            panel1.MouseUp += (sender, e) =>
+            {
+                m_MouseIsDown = false;
+            };
+
+            panel1.MouseMove += (sender, e) =>
+            {
+                if (m_MouseIsDown)
+                {
+                    Point LocationNew = new Point(this.Location.X + e.Location.X - m_MouseDownCoordinates.X,
+                        this.Location.Y + e.Location.Y - m_MouseDownCoordinates.Y);
+
+                    this.Location = LocationNew;
+                }
+            };
+        }
 
         protected override CreateParams CreateParams
         {
@@ -88,28 +131,6 @@ namespace WindowsTools
         private void timer1_Tick(object sender, EventArgs e)
         {
             DisplayTitle();
-        }
-
-        private void WindowTitleTrackingForm_MouseDown(object sender, MouseEventArgs e)
-        {
-            m_MouseIsDown = true;
-            m_MouseDownCoordinates = e.Location;
-        }
-
-        private void WindowTitleTrackingForm_MouseUp(object sender, MouseEventArgs e)
-        {
-            m_MouseIsDown = false;
-        }
-
-        private void WindowTitleTrackingForm_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (m_MouseIsDown)
-            {
-                Point LocationNew = new Point(this.Location.X + e.Location.X - m_MouseDownCoordinates.X,
-                    this.Location.Y + e.Location.Y - m_MouseDownCoordinates.Y);
-
-                this.Location = LocationNew;
-            }
         }
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
@@ -171,6 +192,23 @@ namespace WindowsTools
                     this.Size.Height - m_Properties.BorderWidth
                     )
             );
+        }
+    }
+
+    public class TransparentPanel : Panel
+    {
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x00000020; // WS_EX_TRANSPARENT
+                return cp;
+            }
+        }
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            //base.OnPaintBackground(e);
         }
     }
 }
