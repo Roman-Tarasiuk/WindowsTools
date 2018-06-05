@@ -85,6 +85,9 @@
             this.moveWindowToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addToTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.sortByNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
+            this.copyAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyWindowHwndToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyWindowNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyProcessIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -145,7 +148,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.chkShowMinimized = new System.Windows.Forms.CheckBox();
             this.lblWindowsCount = new System.Windows.Forms.Label();
-            this.copyAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sortByProcessIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -551,12 +554,15 @@
             this.moveWindowToolStripMenuItem1,
             this.addToTrackingToolStripMenuItem,
             this.toolStripSeparator8,
+            this.sortByNameToolStripMenuItem,
+            this.sortByProcessIdToolStripMenuItem,
+            this.toolStripSeparator16,
             this.copyAllToolStripMenuItem,
             this.copyWindowHwndToolStripMenuItem,
             this.copyWindowNameToolStripMenuItem,
             this.copyProcessIdToolStripMenuItem});
             this.contextMenuStripWindowsList.Name = "contextMenuStripWindowsList";
-            this.contextMenuStripWindowsList.Size = new System.Drawing.Size(181, 208);
+            this.contextMenuStripWindowsList.Size = new System.Drawing.Size(181, 258);
             // 
             // hideSelectedToolStripMenuItem
             // 
@@ -590,6 +596,25 @@
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
             this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
+            // 
+            // sortByNameToolStripMenuItem
+            // 
+            this.sortByNameToolStripMenuItem.Name = "sortByNameToolStripMenuItem";
+            this.sortByNameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sortByNameToolStripMenuItem.Text = "Sort by name";
+            this.sortByNameToolStripMenuItem.Click += new System.EventHandler(this.sortByNameToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator16
+            // 
+            this.toolStripSeparator16.Name = "toolStripSeparator16";
+            this.toolStripSeparator16.Size = new System.Drawing.Size(177, 6);
+            // 
+            // copyAllToolStripMenuItem
+            // 
+            this.copyAllToolStripMenuItem.Name = "copyAllToolStripMenuItem";
+            this.copyAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyAllToolStripMenuItem.Text = "Copy all";
+            this.copyAllToolStripMenuItem.Click += new System.EventHandler(this.copyAllToolStripMenuItem_Click);
             // 
             // copyWindowHwndToolStripMenuItem
             // 
@@ -1095,12 +1120,12 @@
             this.lblWindowsCount.TabIndex = 12;
             this.lblWindowsCount.Text = "...";
             // 
-            // copyAllToolStripMenuItem
+            // sortByProcessIdToolStripMenuItem
             // 
-            this.copyAllToolStripMenuItem.Name = "copyAllToolStripMenuItem";
-            this.copyAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.copyAllToolStripMenuItem.Text = "Copy all";
-            this.copyAllToolStripMenuItem.Click += new System.EventHandler(this.copyAllToolStripMenuItem_Click);
+            this.sortByProcessIdToolStripMenuItem.Name = "sortByProcessIdToolStripMenuItem";
+            this.sortByProcessIdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sortByProcessIdToolStripMenuItem.Text = "Sort by process id";
+            this.sortByProcessIdToolStripMenuItem.Click += new System.EventHandler(this.sortByProcessIdToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -1254,5 +1279,8 @@
         private System.Windows.Forms.ToolStripMenuItem toUPPERCASEToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toLowercaseToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem copyAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sortByNameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;
+        private System.Windows.Forms.ToolStripMenuItem sortByProcessIdToolStripMenuItem;
     }
 }

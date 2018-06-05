@@ -686,6 +686,26 @@ namespace WindowsTools
             }
         }
 
+        private void sortByNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Comparison<DesktopWindow> comparison = (i1, i2) =>
+            {
+                return i1.Title.CompareTo(i2.Title);
+            };
+
+            SortAndShowWindows(comparison);
+        }
+
+        private void sortByProcessIdToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Comparison<DesktopWindow> comparison = (i1, i2) =>
+            {
+                return i1.ProcessId.CompareTo(i2.ProcessId);
+            };
+
+            SortAndShowWindows(comparison);
+        }
+
         // Main menu | Miscellaneous
 
         private void decodeClipboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -931,17 +951,7 @@ namespace WindowsTools
 
                 m_ListedWindows.Add(window);
 
-                if (lstWindowsList.SmallImageList == null)
-                {
-                    lstWindowsList.SmallImageList = new ImageList();
-                }
-                if (window.Icon != null)
-                {
-                    lstWindowsList.SmallImageList.Images.Add(window.Handle.ToString(), window.Icon);
-                }
-
-                lstWindowsList.Items.Insert(m_ListedWindows.Count - 1,
-                    String.Format("{0,10} : {1,6} : {2}", window.Handle, window.ProcessId, window.Title), window.Handle.ToString());
+                ShowInList(window, m_ListedWindows.Count - 1);
             }
 
             for (int i = 0; i < m_ListedWindows.Count; i++)
@@ -1465,7 +1475,8 @@ namespace WindowsTools
             m_HiddenByUserWindows.Add(selectedWindow);
 
             selectedWindow.Title = m_PrefixHidden + selectedWindow.Title;
-            lstWindowsList.Items.Add(String.Format("{0,10} : {1}", selectedWindow.Handle, selectedWindow.Title), selectedWindow.Handle.ToString());
+
+            ShowInList(selectedWindow, m_ListedWindows.Count + m_HiddenByUserWindows.Count - 1);
 
             User32Windows.ShowWindow(selectedWindow.Handle, User32Windows.SW_HIDE);
         }
@@ -1493,7 +1504,7 @@ namespace WindowsTools
             selectedWindow.Title = selectedWindow.Title.Substring(m_PrefixHidden.Length);
             m_ListedWindows.Add(selectedWindow);
 
-            lstWindowsList.Items.Insert(m_ListedWindows.Count - 1, String.Format("{0,10} : {1}", selectedWindow.Handle, selectedWindow.Title), selectedWindow.Handle.ToString());
+            ShowInList(selectedWindow, m_ListedWindows.Count - 1);
 
             User32Windows.ShowWindow(selectedWindow.Handle, User32Windows.SW_SHOW);
         }
@@ -1586,6 +1597,43 @@ namespace WindowsTools
             }
 
             Clipboard.SetText(result);
+        }
+
+        private void ShowInList(DesktopWindow window, int position)
+        {
+            if (lstWindowsList.SmallImageList == null)
+            {
+                lstWindowsList.SmallImageList = new ImageList();
+            }
+
+            var key = window.Handle.ToString();
+            if (window.Icon != null && !lstWindowsList.SmallImageList.Images.ContainsKey(key))
+            {
+                lstWindowsList.SmallImageList.Images.Add(key, window.Icon);
+            }
+
+            lstWindowsList.Items.Insert(position,
+                String.Format("{0,10} : {1,6} : {2}", window.Handle, window.ProcessId, window.Title), window.Handle.ToString());
+        }
+
+        private void SortAndShowWindows(Comparison<DesktopWindow> comparison)
+        {
+            m_ListedWindows.Sort(comparison);
+            m_HiddenByUserWindows.Sort(comparison);
+
+            lstWindowsList.Items.Clear();
+
+            var position = 0;
+
+            foreach (var w in m_ListedWindows)
+            {
+                ShowInList(w, position++);
+            }
+
+            foreach (var w in m_HiddenByUserWindows)
+            {
+                ShowInList(w, position++);
+            }
         }
 
         #endregion
