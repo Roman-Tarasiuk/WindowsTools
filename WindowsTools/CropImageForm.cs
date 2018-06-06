@@ -107,26 +107,6 @@ namespace WindowsTools
             EraseImage();
         }
 
-        private void btnCropLeft_Click(object sender, EventArgs e)
-        {
-            ToggleCropLeft();
-        }
-
-        private void btnCropTop_Click(object sender, EventArgs e)
-        {
-            ToggleCropTop();
-        }
-
-        private void btnCropRight_Click(object sender, EventArgs e)
-        {
-            ToggleCropRight();
-        }
-
-        private void btnCropBottom_Click(object sender, EventArgs e)
-        {
-            ToggleCropBottom();
-        }
-
         private void btnEscapeCrop_Click(object sender, EventArgs e)
         {
             EscapeCrop();
@@ -200,6 +180,26 @@ namespace WindowsTools
             this.BackColor = m_DefaultBackground;
         }
 
+        private void chkBtnLeft_Click(object sender, EventArgs e)
+        {
+            ToggleCropLeft();
+        }
+
+        private void chkBtnTop_Click(object sender, EventArgs e)
+        {
+            ToggleCropTop();
+        }
+
+        private void chkBtnRight_Click(object sender, EventArgs e)
+        {
+            ToggleCropRight();
+        }
+
+        private void chkBtnBottom_Click(object sender, EventArgs e)
+        {
+            ToggleCropBottom();
+        }
+
         #endregion
 
 
@@ -210,7 +210,7 @@ namespace WindowsTools
             m_Cropping = true;
             m_Crop = Crop.Left;
 
-            CheckCropButton(m_Crop);
+            CheckCropButtons(m_Crop);
         }
 
         private void ToggleCropRight()
@@ -218,7 +218,7 @@ namespace WindowsTools
             m_Cropping = true;
             m_Crop = Crop.Right;
 
-            CheckCropButton(m_Crop);
+            CheckCropButtons(m_Crop);
         }
 
         private void ToggleCropTop()
@@ -226,7 +226,7 @@ namespace WindowsTools
             m_Cropping = true;
             m_Crop = Crop.Top;
 
-            CheckCropButton(m_Crop);
+            CheckCropButtons(m_Crop);
         }
 
         private void ToggleCropBottom()
@@ -234,7 +234,7 @@ namespace WindowsTools
             m_Cropping = true;
             m_Crop = Crop.Bottom;
 
-            CheckCropButton(m_Crop);
+            CheckCropButtons(m_Crop);
         }
 
         private Image CropImage(Image image, Crop crop, int x, int y)
@@ -303,15 +303,25 @@ namespace WindowsTools
             toolStripBtnCropRight.CheckState = CheckState.Unchecked;
             toolStripBtnCropBottom.CheckState = CheckState.Unchecked;
 
+            chkBtnLeft.Checked = false;
+            chkBtnTop.Checked = false;
+            chkBtnRight.Checked = false;
+            chkBtnBottom.Checked = false;
+
             btnEscapeCrop.Focus();
         }
 
-        private void CheckCropButton(Crop crop)
+        private void CheckCropButtons(Crop crop)
         {
             toolStripBtnCropLeft.CheckState = (crop == Crop.Left ? CheckState.Checked : CheckState.Unchecked);
             toolStripBtnCropTop.CheckState = (crop == Crop.Top ? CheckState.Checked : CheckState.Unchecked);
             toolStripBtnCropRight.CheckState = (crop == Crop.Right ? CheckState.Checked : CheckState.Unchecked);
             toolStripBtnCropBottom.CheckState = (crop == Crop.Bottom ? CheckState.Checked : CheckState.Unchecked);
+
+            chkBtnLeft.CheckState = (crop == Crop.Left ? CheckState.Checked : CheckState.Unchecked);
+            chkBtnTop.CheckState = (crop == Crop.Top ? CheckState.Checked : CheckState.Unchecked);
+            chkBtnRight.CheckState = (crop == Crop.Right ? CheckState.Checked : CheckState.Unchecked);
+            chkBtnBottom.CheckState = (crop == Crop.Bottom ? CheckState.Checked : CheckState.Unchecked);
         }
 
         private void PasteFromClipboard()

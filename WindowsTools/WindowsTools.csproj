@@ -329,6 +329,11 @@
     <None Include="Resources\fileerror16x16.png" />
     <None Include="Resources\foldererror16x16.png" />
     <None Include="Resources\clear-clipboard-20.png" />
+    <None Include="Resources\crop_left.png" />
+    <None Include="Resources\crop_left_small.png" />
+    <None Include="Resources\crop_top_small.png" />
+    <None Include="Resources\crop_right_small.png" />
+    <None Include="Resources\crop_bottom_small.png" />
     <Content Include="taskmgr_icon.png.ico" />
   </ItemGroup>
   <ItemGroup>

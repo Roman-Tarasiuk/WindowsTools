@@ -47,12 +47,12 @@
             this.toolStripBtnBackground = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnCropLeft = new System.Windows.Forms.Button();
-            this.btnCropTop = new System.Windows.Forms.Button();
-            this.btnCropBottom = new System.Windows.Forms.Button();
-            this.btnCropRight = new System.Windows.Forms.Button();
-            this.btnEscapeCrop = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.chkBtnBottom = new System.Windows.Forms.CheckBox();
+            this.chkBtnRight = new System.Windows.Forms.CheckBox();
+            this.chkBtnTop = new System.Windows.Forms.CheckBox();
+            this.chkBtnLeft = new System.Windows.Forms.CheckBox();
+            this.btnEscapeCrop = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -209,80 +209,84 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(22, 48);
+            this.panel1.Location = new System.Drawing.Point(23, 48);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(628, 324);
+            this.panel1.Size = new System.Drawing.Size(626, 323);
             this.panel1.TabIndex = 1;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(628, 324);
+            this.pictureBox1.Size = new System.Drawing.Size(626, 323);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
             // 
-            // btnCropLeft
+            // chkBtnBottom
             // 
-            this.btnCropLeft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.chkBtnBottom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkBtnBottom.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkBtnBottom.FlatAppearance.BorderSize = 0;
+            this.chkBtnBottom.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(186)))), ((int)(((byte)(229)))));
+            this.chkBtnBottom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkBtnBottom.Image = global::WindowsTools.Properties.Resources.crop_bottom_small;
+            this.chkBtnBottom.Location = new System.Drawing.Point(23, 374);
+            this.chkBtnBottom.Name = "chkBtnBottom";
+            this.chkBtnBottom.Size = new System.Drawing.Size(626, 20);
+            this.chkBtnBottom.TabIndex = 6;
+            this.chkBtnBottom.UseVisualStyleBackColor = true;
+            this.chkBtnBottom.Click += new System.EventHandler(this.chkBtnBottom_Click);
+            // 
+            // chkBtnRight
+            // 
+            this.chkBtnRight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkBtnRight.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkBtnRight.FlatAppearance.BorderSize = 0;
+            this.chkBtnRight.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(186)))), ((int)(((byte)(229)))));
+            this.chkBtnRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkBtnRight.Image = global::WindowsTools.Properties.Resources.crop_right_small;
+            this.chkBtnRight.Location = new System.Drawing.Point(652, 48);
+            this.chkBtnRight.Name = "chkBtnRight";
+            this.chkBtnRight.Size = new System.Drawing.Size(20, 323);
+            this.chkBtnRight.TabIndex = 5;
+            this.chkBtnRight.UseVisualStyleBackColor = true;
+            this.chkBtnRight.Click += new System.EventHandler(this.chkBtnRight_Click);
+            // 
+            // chkBtnTop
+            // 
+            this.chkBtnTop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkBtnTop.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkBtnTop.FlatAppearance.BorderSize = 0;
+            this.chkBtnTop.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(186)))), ((int)(((byte)(229)))));
+            this.chkBtnTop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkBtnTop.Image = global::WindowsTools.Properties.Resources.crop_top_small;
+            this.chkBtnTop.Location = new System.Drawing.Point(23, 25);
+            this.chkBtnTop.Name = "chkBtnTop";
+            this.chkBtnTop.Size = new System.Drawing.Size(626, 20);
+            this.chkBtnTop.TabIndex = 4;
+            this.chkBtnTop.UseVisualStyleBackColor = true;
+            this.chkBtnTop.Click += new System.EventHandler(this.chkBtnTop_Click);
+            // 
+            // chkBtnLeft
+            // 
+            this.chkBtnLeft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCropLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.btnCropLeft.FlatAppearance.BorderSize = 0;
-            this.btnCropLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCropLeft.Image = ((System.Drawing.Image)(resources.GetObject("btnCropLeft.Image")));
-            this.btnCropLeft.Location = new System.Drawing.Point(-1, 99);
-            this.btnCropLeft.Name = "btnCropLeft";
-            this.btnCropLeft.Size = new System.Drawing.Size(20, 222);
-            this.btnCropLeft.TabIndex = 3;
-            this.btnCropLeft.UseVisualStyleBackColor = false;
-            this.btnCropLeft.Click += new System.EventHandler(this.btnCropLeft_Click);
-            // 
-            // btnCropTop
-            // 
-            this.btnCropTop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCropTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.btnCropTop.FlatAppearance.BorderSize = 0;
-            this.btnCropTop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCropTop.Image = ((System.Drawing.Image)(resources.GetObject("btnCropTop.Image")));
-            this.btnCropTop.Location = new System.Drawing.Point(74, 25);
-            this.btnCropTop.Name = "btnCropTop";
-            this.btnCropTop.Size = new System.Drawing.Size(524, 20);
-            this.btnCropTop.TabIndex = 4;
-            this.btnCropTop.UseVisualStyleBackColor = false;
-            this.btnCropTop.Click += new System.EventHandler(this.btnCropTop_Click);
-            // 
-            // btnCropBottom
-            // 
-            this.btnCropBottom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCropBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.btnCropBottom.FlatAppearance.BorderSize = 0;
-            this.btnCropBottom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCropBottom.Image = ((System.Drawing.Image)(resources.GetObject("btnCropBottom.Image")));
-            this.btnCropBottom.Location = new System.Drawing.Point(74, 373);
-            this.btnCropBottom.Name = "btnCropBottom";
-            this.btnCropBottom.Size = new System.Drawing.Size(524, 20);
-            this.btnCropBottom.TabIndex = 6;
-            this.btnCropBottom.UseVisualStyleBackColor = false;
-            this.btnCropBottom.Click += new System.EventHandler(this.btnCropBottom_Click);
-            // 
-            // btnCropRight
-            // 
-            this.btnCropRight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCropRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.btnCropRight.FlatAppearance.BorderSize = 0;
-            this.btnCropRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCropRight.Image = ((System.Drawing.Image)(resources.GetObject("btnCropRight.Image")));
-            this.btnCropRight.Location = new System.Drawing.Point(653, 99);
-            this.btnCropRight.Name = "btnCropRight";
-            this.btnCropRight.Size = new System.Drawing.Size(20, 222);
-            this.btnCropRight.TabIndex = 5;
-            this.btnCropRight.UseVisualStyleBackColor = false;
-            this.btnCropRight.Click += new System.EventHandler(this.btnCropRight_Click);
+            this.chkBtnLeft.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkBtnLeft.FlatAppearance.BorderSize = 0;
+            this.chkBtnLeft.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(186)))), ((int)(((byte)(229)))));
+            this.chkBtnLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkBtnLeft.Image = global::WindowsTools.Properties.Resources.crop_left_small;
+            this.chkBtnLeft.Location = new System.Drawing.Point(0, 48);
+            this.chkBtnLeft.Name = "chkBtnLeft";
+            this.chkBtnLeft.Size = new System.Drawing.Size(20, 323);
+            this.chkBtnLeft.TabIndex = 3;
+            this.chkBtnLeft.UseVisualStyleBackColor = true;
+            this.chkBtnLeft.Click += new System.EventHandler(this.chkBtnLeft_Click);
             // 
             // btnEscapeCrop
             // 
@@ -300,11 +304,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(672, 394);
+            this.Controls.Add(this.chkBtnBottom);
+            this.Controls.Add(this.chkBtnRight);
+            this.Controls.Add(this.chkBtnTop);
+            this.Controls.Add(this.chkBtnLeft);
             this.Controls.Add(this.btnEscapeCrop);
-            this.Controls.Add(this.btnCropRight);
-            this.Controls.Add(this.btnCropBottom);
-            this.Controls.Add(this.btnCropTop);
-            this.Controls.Add(this.btnCropLeft);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -336,10 +340,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripButton toolStripBtnEscapeCrop;
         private System.Windows.Forms.ToolStripButton toolStripBtnEraseImage;
-        private System.Windows.Forms.Button btnCropLeft;
-        private System.Windows.Forms.Button btnCropTop;
-        private System.Windows.Forms.Button btnCropBottom;
-        private System.Windows.Forms.Button btnCropRight;
         private System.Windows.Forms.Button btnEscapeCrop;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -348,5 +348,9 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem resetBackgroundColorToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.CheckBox chkBtnLeft;
+        private System.Windows.Forms.CheckBox chkBtnTop;
+        private System.Windows.Forms.CheckBox chkBtnRight;
+        private System.Windows.Forms.CheckBox chkBtnBottom;
     }
 }
