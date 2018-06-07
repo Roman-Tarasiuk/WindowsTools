@@ -9,14 +9,14 @@ using System.Windows.Forms;
 
 namespace WindowsTools
 {
-    public partial class ScreenRulerHelperForm : Form
+    public partial class ArrangementPanelForm : Form
     {
         private FormBorderStyle m_FormBorderStyle = FormBorderStyle.None;
 
         private bool m_MousePressed = false;
         int m_X, m_Y;
 
-        public ScreenRulerHelperForm()
+        public ArrangementPanelForm()
         {
             InitializeComponent();
         }

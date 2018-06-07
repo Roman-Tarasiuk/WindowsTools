@@ -79,7 +79,7 @@ namespace WindowsTools
 
         private void btnPanel_Click(object sender, EventArgs e)
         {
-            new ScreenRulerHelperForm().Show();
+            new ArrangementPanelForm().Show();
         }
     }
 }

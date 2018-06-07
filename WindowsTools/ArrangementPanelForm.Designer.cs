@@ -1,6 +1,6 @@
 ﻿namespace WindowsTools
 {
-    partial class ScreenRulerHelperForm
+    partial class ArrangementPanelForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScreenRulerHelperForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArrangementPanelForm));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.backgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formBorderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,7 +98,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ScreenRulerHelperForm";
-            this.Text = "Screen ruler helper";
+            this.Text = "Arrangement panel";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ScreenRulerHelperForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ScreenRulerHelperForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ScreenRulerHelperForm_MouseUp);

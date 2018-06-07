@@ -116,11 +116,11 @@
     <Compile Include="ScreenRulerForm.Designer.cs">
       <DependentUpon>ScreenRulerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ScreenRulerHelperForm.cs">
+    <Compile Include="ArrangementPanelForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ScreenRulerHelperForm.Designer.cs">
-      <DependentUpon>ScreenRulerHelperForm.cs</DependentUpon>
+    <Compile Include="ArrangementPanelForm.Designer.cs">
+      <DependentUpon>ArrangementPanelForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SendCommandToolForm.cs">
       <SubType>Form</SubType>
@@ -241,8 +241,8 @@
     <EmbeddedResource Include="ScreenRulerForm.resx">
       <DependentUpon>ScreenRulerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ScreenRulerHelperForm.resx">
-      <DependentUpon>ScreenRulerHelperForm.cs</DependentUpon>
+    <EmbeddedResource Include="ArrangementPanelForm.resx">
+      <DependentUpon>ArrangementPanelForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SendCommandToolForm.resx">
       <DependentUpon>SendCommandToolForm.cs</DependentUpon>
