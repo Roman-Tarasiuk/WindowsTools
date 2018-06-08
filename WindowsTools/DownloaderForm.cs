@@ -101,12 +101,20 @@ namespace WindowsTools
                 txtProxy.Enabled = true;
                 txtLogin.Enabled = true;
                 txtPassword.Enabled = true;
+
+                lblProxy.Enabled = true;
+                lblLogin.Enabled = true;
+                lblPassword.Enabled = true;
             }
             else
             {
                 txtProxy.Enabled = false;
                 txtLogin.Enabled = false;
                 txtPassword.Enabled = false;
+
+                lblProxy.Enabled = false;
+                lblLogin.Enabled = false;
+                lblPassword.Enabled = false;
             }
         }
 

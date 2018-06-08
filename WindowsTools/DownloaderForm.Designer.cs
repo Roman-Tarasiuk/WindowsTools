@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DownloaderForm));
             this.txtUrl = new System.Windows.Forms.TextBox();
             this.btnLoad = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblLogin = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.chkUseProxy = new System.Windows.Forms.CheckBox();
             this.txtProxy = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblProxy = new System.Windows.Forms.Label();
             this.txtLocalPath = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSaveTo = new System.Windows.Forms.Button();
@@ -68,41 +68,45 @@
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
-            // label1
+            // lblLogin
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 238);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Login:";
+            this.lblLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.Enabled = false;
+            this.lblLogin.Location = new System.Drawing.Point(9, 234);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(36, 13);
+            this.lblLogin.TabIndex = 2;
+            this.lblLogin.Text = "Login:";
             // 
-            // label2
+            // lblPassword
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 264);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Password:";
+            this.lblPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Enabled = false;
+            this.lblPassword.Location = new System.Drawing.Point(9, 260);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(56, 13);
+            this.lblPassword.TabIndex = 3;
+            this.lblPassword.Text = "Password:";
             // 
             // txtLogin
             // 
             this.txtLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtLogin.Location = new System.Drawing.Point(108, 235);
+            this.txtLogin.Enabled = false;
+            this.txtLogin.Location = new System.Drawing.Point(91, 231);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(237, 20);
+            this.txtLogin.Size = new System.Drawing.Size(254, 20);
             this.txtLogin.TabIndex = 4;
             // 
             // txtPassword
             // 
             this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtPassword.Location = new System.Drawing.Point(108, 261);
+            this.txtPassword.Enabled = false;
+            this.txtPassword.Location = new System.Drawing.Point(91, 257);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(237, 20);
+            this.txtPassword.Size = new System.Drawing.Size(254, 20);
             this.txtPassword.TabIndex = 5;
             // 
             // label3
@@ -118,8 +122,6 @@
             // 
             this.chkUseProxy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkUseProxy.AutoSize = true;
-            this.chkUseProxy.Checked = true;
-            this.chkUseProxy.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkUseProxy.Location = new System.Drawing.Point(12, 186);
             this.chkUseProxy.Name = "chkUseProxy";
             this.chkUseProxy.Size = new System.Drawing.Size(73, 17);
@@ -132,29 +134,31 @@
             // 
             this.txtProxy.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProxy.Location = new System.Drawing.Point(108, 209);
+            this.txtProxy.Enabled = false;
+            this.txtProxy.Location = new System.Drawing.Point(91, 205);
             this.txtProxy.Name = "txtProxy";
-            this.txtProxy.Size = new System.Drawing.Size(360, 20);
+            this.txtProxy.Size = new System.Drawing.Size(377, 20);
             this.txtProxy.TabIndex = 9;
             this.txtProxy.Text = "http://your.proxy:8080";
             // 
-            // label4
+            // lblProxy
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 212);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Proxy:";
+            this.lblProxy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblProxy.AutoSize = true;
+            this.lblProxy.Enabled = false;
+            this.lblProxy.Location = new System.Drawing.Point(9, 208);
+            this.lblProxy.Name = "lblProxy";
+            this.lblProxy.Size = new System.Drawing.Size(36, 13);
+            this.lblProxy.TabIndex = 8;
+            this.lblProxy.Text = "Proxy:";
             // 
             // txtLocalPath
             // 
             this.txtLocalPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLocalPath.Location = new System.Drawing.Point(108, 153);
+            this.txtLocalPath.Location = new System.Drawing.Point(91, 153);
             this.txtLocalPath.Name = "txtLocalPath";
-            this.txtLocalPath.Size = new System.Drawing.Size(360, 20);
+            this.txtLocalPath.Size = new System.Drawing.Size(377, 20);
             this.txtLocalPath.TabIndex = 11;
             // 
             // label5
@@ -187,13 +191,13 @@
             this.Controls.Add(this.txtLocalPath);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtProxy);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblProxy);
             this.Controls.Add(this.chkUseProxy);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtLogin);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.lblLogin);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.txtUrl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -209,14 +213,14 @@
 
         private System.Windows.Forms.TextBox txtUrl;
         private System.Windows.Forms.Button btnLoad;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblLogin;
+        private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox chkUseProxy;
         private System.Windows.Forms.TextBox txtProxy;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblProxy;
         private System.Windows.Forms.TextBox txtLocalPath;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSaveTo;
