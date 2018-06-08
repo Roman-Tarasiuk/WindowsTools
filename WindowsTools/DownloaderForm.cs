@@ -48,17 +48,21 @@ namespace WindowsTools
                     wc.UseDefaultCredentials = true;
                 }
 
+                var filename = "";
+
                 DownloadProgressChangedEventHandler progressTracker = (senderTracker, progressChangesArgs) =>
                 {
                     var percent = progressChangesArgs.ProgressPercentage;
 
                     progressBar1.Value = percent;
-                    lblDownloadPercentage.Text = percent.ToString() + '%';
+                    lblDownloadPercentage.Text = percent.ToString() + "% - " + filename;
                 };
 
-                wc.DownloadProgressChanged += progressTracker; foreach (var f in list)
+                wc.DownloadProgressChanged += progressTracker;
+
+                foreach (var f in list)
                 {
-                    var filename = Path.GetFileName(f);
+                    filename = Path.GetFileName(f);
 
                     try
                     {
