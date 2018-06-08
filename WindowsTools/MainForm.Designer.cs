@@ -83,6 +83,7 @@
             this.hideSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showHiddenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moveWindowToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
             this.addToTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.sortByNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -149,7 +150,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.chkShowMinimized = new System.Windows.Forms.CheckBox();
             this.lblWindowsCount = new System.Windows.Forms.Label();
-            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
+            this.downloadFilesFromInternetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -201,6 +202,7 @@
             this.trackTitleToolStripMenuItem,
             this.trackWindowIsAccessibleToolStripMenuItem,
             this.directorySizeToolStripMenuItem,
+            this.downloadFilesFromInternetToolStripMenuItem,
             this.toolStripSeparator5,
             this.screensaverGToolStripMenuItem1,
             this.passwordsToolStripMenuItem,
@@ -586,6 +588,11 @@
             this.moveWindowToolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
             this.moveWindowToolStripMenuItem1.Text = "Move window...";
             this.moveWindowToolStripMenuItem1.Click += new System.EventHandler(this.moveWindowToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator17
+            // 
+            this.toolStripSeparator17.Name = "toolStripSeparator17";
+            this.toolStripSeparator17.Size = new System.Drawing.Size(179, 6);
             // 
             // addToTrackingToolStripMenuItem
             // 
@@ -1129,10 +1136,12 @@
             this.lblWindowsCount.TabIndex = 12;
             this.lblWindowsCount.Text = "...";
             // 
-            // toolStripSeparator17
+            // downloadFilesFromInternetToolStripMenuItem
             // 
-            this.toolStripSeparator17.Name = "toolStripSeparator17";
-            this.toolStripSeparator17.Size = new System.Drawing.Size(179, 6);
+            this.downloadFilesFromInternetToolStripMenuItem.Name = "downloadFilesFromInternetToolStripMenuItem";
+            this.downloadFilesFromInternetToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+            this.downloadFilesFromInternetToolStripMenuItem.Text = "Download files from Internet...";
+            this.downloadFilesFromInternetToolStripMenuItem.Click += new System.EventHandler(this.downloadFilesFromInternetToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -1290,5 +1299,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;
         private System.Windows.Forms.ToolStripMenuItem sortByProcessIdToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
+        private System.Windows.Forms.ToolStripMenuItem downloadFilesFromInternetToolStripMenuItem;
     }
 }

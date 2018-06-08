@@ -711,6 +711,11 @@ namespace WindowsTools
             SortAndShowWindows(comparison);
         }
 
+        private void downloadFilesFromInternetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new DownloaderForm().Show();
+        }
+
         // Main menu | Miscellaneous
 
         private void decodeClipboardToolStripMenuItem_Click(object sender, EventArgs e)

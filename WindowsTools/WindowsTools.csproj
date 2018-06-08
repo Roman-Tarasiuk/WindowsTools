@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WindowsTools</RootNamespace>
     <AssemblyName>WindowsTools</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -90,6 +90,12 @@
     </Compile>
     <Compile Include="DirectorySizeForm.Designer.cs">
       <DependentUpon>DirectorySizeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DownloaderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DownloaderForm.Designer.cs">
+      <DependentUpon>DownloaderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MyScreenSaverHooker.cs" />
     <Compile Include="NotesForm.cs">
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DirectorySizeForm.resx">
       <DependentUpon>DirectorySizeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DownloaderForm.resx">
+      <DependentUpon>DownloaderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LocationAndSizeForm.resx">
       <DependentUpon>LocationAndSizeForm.cs</DependentUpon>
