@@ -16,10 +16,15 @@ namespace WindowsTools
         public DownloaderForm()
         {
             InitializeComponent();
+
+            lblDownloadPercentage.Parent = progressBar1;
+            lblDownloadPercentage.Location = new Point(5, 3);
         }
 
         private async void btnLoad_Click(object sender, EventArgs e)
         {
+            ToggleDownloadProgress(true);
+
             var finishedSuccessfully = true;
 
             var list = txtUrl.Text.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
@@ -43,7 +48,15 @@ namespace WindowsTools
                     wc.UseDefaultCredentials = true;
                 }
 
-                foreach (var f in list)
+                DownloadProgressChangedEventHandler progressTracker = (senderTracker, progressChangesArgs) =>
+                {
+                    var percent = progressChangesArgs.ProgressPercentage;
+
+                    progressBar1.Value = percent;
+                    lblDownloadPercentage.Text = percent.ToString() + '%';
+                };
+
+                wc.DownloadProgressChanged += progressTracker; foreach (var f in list)
                 {
                     var filename = Path.GetFileName(f);
 
@@ -79,6 +92,22 @@ namespace WindowsTools
             else
             {
                 MessageBox.Show("Finished with error(s).", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            ToggleDownloadProgress(false);
+        }
+
+        private void ToggleDownloadProgress(bool on)
+        {
+            if (on)
+            {
+                progressBar1.Visible = true;
+                lblDownloadPercentage.Visible = true;
+            }
+            else
+            {
+                progressBar1.Visible = false;
+                lblDownloadPercentage.Visible = false;
             }
         }
 
@@ -121,6 +150,24 @@ namespace WindowsTools
         private void DownloaderForm_Shown(object sender, EventArgs e)
         {
             txtLocalPath.Text = AppDomain.CurrentDomain.BaseDirectory;
+        }
+    }
+
+    public class TransparentLabel : Label
+    {
+        public TransparentLabel()
+        {
+            this.SetStyle(ControlStyles.Opaque, true);
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, false);
+        }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams parms = base.CreateParams;
+                parms.ExStyle |= 0x20;  // Turn on WS_EX_TRANSPARENT
+                return parms;
+            }
         }
     }
 }

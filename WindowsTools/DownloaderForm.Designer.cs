@@ -43,6 +43,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnSaveTo = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.lblDownloadPercentage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtUrl
@@ -182,11 +184,33 @@
             this.btnSaveTo.UseVisualStyleBackColor = true;
             this.btnSaveTo.Click += new System.EventHandler(this.btnSaveTo_Click);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.Location = new System.Drawing.Point(91, 3);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(420, 19);
+            this.progressBar1.TabIndex = 13;
+            this.progressBar1.Visible = false;
+            // 
+            // lblDownloadPercentage
+            // 
+            this.lblDownloadPercentage.AutoSize = true;
+            this.lblDownloadPercentage.Location = new System.Drawing.Point(97, 6);
+            this.lblDownloadPercentage.Name = "lblDownloadPercentage";
+            this.lblDownloadPercentage.Size = new System.Drawing.Size(15, 13);
+            this.lblDownloadPercentage.TabIndex = 14;
+            this.lblDownloadPercentage.Text = "%";
+            this.lblDownloadPercentage.Visible = false;
+            // 
             // DownloaderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(523, 326);
+            this.Controls.Add(this.lblDownloadPercentage);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnSaveTo);
             this.Controls.Add(this.txtLocalPath);
             this.Controls.Add(this.label5);
@@ -225,5 +249,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSaveTo;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label lblDownloadPercentage;
     }
 }
