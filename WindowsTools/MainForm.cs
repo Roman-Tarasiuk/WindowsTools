@@ -50,6 +50,8 @@ namespace WindowsTools
 
         MyScreenSaverHooker m_Hook;
 
+        NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
         #endregion
 
 
@@ -1688,6 +1690,18 @@ namespace WindowsTools
         }
 
         #endregion
+
+        private void timerSaveSettings_Tick(object sender, EventArgs e)
+        {
+            if (m_SettingsChanged)
+            {
+                Properties.Settings.Default.Save();
+
+                logger.Log(NLog.LogLevel.Info, "Settings saved (autosave).");
+
+                m_SettingsChanged = false;
+            }
+        }
     }
 
     public class ToolEventArgs : EventArgs

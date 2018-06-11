@@ -51,6 +51,7 @@
             this.trackTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackWindowIsAccessibleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.directorySizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.downloadFilesFromInternetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.screensaverGToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.screenSaverToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -150,7 +151,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.chkShowMinimized = new System.Windows.Forms.CheckBox();
             this.lblWindowsCount = new System.Windows.Forms.Label();
-            this.downloadFilesFromInternetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerSaveSettings = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -336,6 +337,13 @@
             this.directorySizeToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.directorySizeToolStripMenuItem.Text = "Directory size...";
             this.directorySizeToolStripMenuItem.Click += new System.EventHandler(this.directorySizeToolStripMenuItem_Click);
+            // 
+            // downloadFilesFromInternetToolStripMenuItem
+            // 
+            this.downloadFilesFromInternetToolStripMenuItem.Name = "downloadFilesFromInternetToolStripMenuItem";
+            this.downloadFilesFromInternetToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+            this.downloadFilesFromInternetToolStripMenuItem.Text = "Download files from Internet...";
+            this.downloadFilesFromInternetToolStripMenuItem.Click += new System.EventHandler(this.downloadFilesFromInternetToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -1136,12 +1144,11 @@
             this.lblWindowsCount.TabIndex = 12;
             this.lblWindowsCount.Text = "...";
             // 
-            // downloadFilesFromInternetToolStripMenuItem
+            // timerSaveSettings
             // 
-            this.downloadFilesFromInternetToolStripMenuItem.Name = "downloadFilesFromInternetToolStripMenuItem";
-            this.downloadFilesFromInternetToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.downloadFilesFromInternetToolStripMenuItem.Text = "Download files from Internet...";
-            this.downloadFilesFromInternetToolStripMenuItem.Click += new System.EventHandler(this.downloadFilesFromInternetToolStripMenuItem_Click);
+            this.timerSaveSettings.Enabled = true;
+            this.timerSaveSettings.Interval = 60000;
+            this.timerSaveSettings.Tick += new System.EventHandler(this.timerSaveSettings_Tick);
             // 
             // MainForm
             // 
@@ -1300,5 +1307,6 @@
         private System.Windows.Forms.ToolStripMenuItem sortByProcessIdToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
         private System.Windows.Forms.ToolStripMenuItem downloadFilesFromInternetToolStripMenuItem;
+        private System.Windows.Forms.Timer timerSaveSettings;
     }
 }
