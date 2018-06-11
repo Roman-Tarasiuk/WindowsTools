@@ -11,7 +11,7 @@ using WindowsTools.Infrastructure;
 
 namespace WindowsTools
 {
-    public partial class LocationAndSizeForm : Form
+    public partial class LocationAndSizeForm : Form, IProgramSettings
     {
         #region Fields
 
@@ -28,6 +28,10 @@ namespace WindowsTools
 
         private FieldSet m_CurrentFieldSet;
 
+        NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
+        public event EventHandler SettingsChanged;
+
         #endregion
 
 
@@ -37,7 +41,7 @@ namespace WindowsTools
         {
             InitializeComponent();
 
-            this.Location = Properties.Settings.Default.LocationAndSizeFormLocation;
+            this.Location = Properties.Settings.Default.LocationAndSizeForm_Location;
 
             this.toolTip1.SetToolTip(this.groupBoxCurrent,
                 "It is possible to copy and paste sets of values:"
@@ -112,14 +116,11 @@ namespace WindowsTools
 
         private void LocationAndSizeForm_LocationChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.LocationAndSizeFormLocation = this.Location;
-        }
-
-        private void LocationAndSizeForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
             if (WindowState != FormWindowState.Minimized)
             {
-                Properties.Settings.Default.Save();
+                Properties.Settings.Default.LocationAndSizeForm_Location = this.Location;
+
+                SettingsChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 

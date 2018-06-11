@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DrawingControl.cs" />
+    <Compile Include="IProgramSettings.cs" />
     <Compile Include="Rect.cs" />
     <Compile Include="CompareStringsSettings.cs" />
     <Compile Include="CompareStringsSettingsEventArgs.cs" />

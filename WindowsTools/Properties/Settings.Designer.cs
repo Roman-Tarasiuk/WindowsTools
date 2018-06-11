@@ -26,48 +26,48 @@ namespace WindowsTools.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
-        public global::System.Drawing.Point LocationAndSizeFormLocation {
+        public global::System.Drawing.Point LocationAndSizeForm_Location {
             get {
-                return ((global::System.Drawing.Point)(this["LocationAndSizeFormLocation"]));
+                return ((global::System.Drawing.Point)(this["LocationAndSizeForm_Location"]));
             }
             set {
-                this["LocationAndSizeFormLocation"] = value;
+                this["LocationAndSizeForm_Location"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
-        public global::System.Drawing.Point PasswordsFormLocation {
+        public global::System.Drawing.Point PasswordsForm_Location {
             get {
-                return ((global::System.Drawing.Point)(this["PasswordsFormLocation"]));
+                return ((global::System.Drawing.Point)(this["PasswordsForm_Location"]));
             }
             set {
-                this["PasswordsFormLocation"] = value;
+                this["PasswordsForm_Location"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
-        public global::System.Drawing.Point SendCommandsFormLocation {
+        public global::System.Drawing.Point SendCommandsForm_Location {
             get {
-                return ((global::System.Drawing.Point)(this["SendCommandsFormLocation"]));
+                return ((global::System.Drawing.Point)(this["SendCommandsForm_Location"]));
             }
             set {
-                this["SendCommandsFormLocation"] = value;
+                this["SendCommandsForm_Location"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
-        public global::System.Drawing.Point WindowsTrackingFormLocation {
+        public global::System.Drawing.Point WindowsTrackingForm_Location {
             get {
-                return ((global::System.Drawing.Point)(this["WindowsTrackingFormLocation"]));
+                return ((global::System.Drawing.Point)(this["WindowsTrackingForm_Location"]));
             }
             set {
-                this["WindowsTrackingFormLocation"] = value;
+                this["WindowsTrackingForm_Location"] = value;
             }
         }
         
@@ -80,6 +80,42 @@ namespace WindowsTools.Properties {
             }
             set {
                 this["ScreenSaverPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://your.proxy:8080")]
+        public string DownloaderForm_Proxy {
+            get {
+                return ((string)(this["DownloaderForm_Proxy"]));
+            }
+            set {
+                this["DownloaderForm_Proxy"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DownloaderForm_Username {
+            get {
+                return ((string)(this["DownloaderForm_Username"]));
+            }
+            set {
+                this["DownloaderForm_Username"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DownloaderForm_LocalPath {
+            get {
+                return ((string)(this["DownloaderForm_LocalPath"]));
+            }
+            set {
+                this["DownloaderForm_LocalPath"] = value;
             }
         }
     }

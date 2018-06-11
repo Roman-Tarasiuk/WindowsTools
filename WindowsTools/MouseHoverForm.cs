@@ -9,14 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using User32Helper;
+using WindowsTools.Infrastructure;
 
 namespace WindowsTools
 {
-    public partial class MouseHoverForm : Form
+    public partial class MouseHoverForm : Form, IProgramSettings
     {
         #region ** Fields
 
         List<IntPtr> m_TrackedWindows = new List<IntPtr>();
+
+        public event EventHandler SettingsChanged;
 
         #endregion
 
@@ -28,7 +31,7 @@ namespace WindowsTools
             InitializeComponent();
 
             IsTracking = false;
-            this.Location = Properties.Settings.Default.WindowsTrackingFormLocation;
+            this.Location = Properties.Settings.Default.WindowsTrackingForm_Location;
         }
 
         #endregion
@@ -63,15 +66,16 @@ namespace WindowsTools
 
         private void WindowsTrackingForm_LocationChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.WindowsTrackingFormLocation = this.Location;
+            if (WindowState != FormWindowState.Minimized)
+            {
+                Properties.Settings.Default.WindowsTrackingForm_Location = this.Location;
+
+                SettingsChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         private void WindowsTrackingForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (WindowState != FormWindowState.Minimized)
-            {
-                Properties.Settings.Default.Save();
-            }
         }
 
         #endregion

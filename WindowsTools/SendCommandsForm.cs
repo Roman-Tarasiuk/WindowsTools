@@ -10,9 +10,10 @@ using WindowsTools.Infrastructure;
 
 namespace WindowsTools
 {
-    public partial class SendCommandsForm : Form
+    public partial class SendCommandsForm : Form, IProgramSettings
     {
         public event EventHandler<ToolEventArgs> ToolExit;
+        public event EventHandler SettingsChanged;
 
         #region Fields
 
@@ -90,7 +91,7 @@ namespace WindowsTools
             InitializeComponent();
 
             this.TopMost = true;
-            this.Location = Properties.Settings.Default.SendCommandsFormLocation;
+            this.Location = Properties.Settings.Default.SendCommandsForm_Location;
         }
 
         protected override CreateParams CreateParams
@@ -164,12 +165,16 @@ namespace WindowsTools
 
         private void SendCommandsForm_LocationChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.SendCommandsFormLocation = this.Location;
+            if (this.WindowState != FormWindowState.Minimized)
+            {
+                Properties.Settings.Default.SendCommandsForm_Location = this.Location;
+
+                SettingsChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         private void SendCommandsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Properties.Settings.Default.Save();
             e.Cancel = true;
             this.Hide();
         }
@@ -193,10 +198,7 @@ namespace WindowsTools
 
         private void OnToolExit(object sender, ToolEventArgs e)
         {
-            if (ToolExit != null)
-            {
-                ToolExit(this, e);
-            }
+            ToolExit?.Invoke(this, e);
         }
 
         private void btnMenu_Click(object sender, EventArgs e)

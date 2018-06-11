@@ -46,6 +46,8 @@ namespace WindowsTools
 
         private Point m_ScreenSaverRunCursorPosition;
 
+        private bool m_SettingsChanged = false;
+
         MyScreenSaverHooker m_Hook;
 
         #endregion
@@ -217,6 +219,11 @@ namespace WindowsTools
             User32Windows.CloseForm(m_LocationForm);
             User32Windows.CloseForm(m_SendCommandForm);
             User32Windows.CloseForm(m_TrackingForm);
+
+            if (m_SettingsChanged)
+            {
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void moveWindowToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -713,7 +720,14 @@ namespace WindowsTools
 
         private void downloadFilesFromInternetToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new DownloaderForm().Show();
+            var downloader = new DownloaderForm();
+
+            downloader.SettingsChanged += (o, eSettings) =>
+            {
+                m_SettingsChanged = true;
+            };
+
+            downloader.Show();
         }
 
         // Main menu | Miscellaneous
@@ -1130,7 +1144,16 @@ namespace WindowsTools
                 return;
             }
 
+            var tmp = m_LocationForm;
             m_LocationForm = (LocationAndSizeForm)User32Windows.GetForm(m_LocationForm, typeof(LocationAndSizeForm));
+
+            if (tmp != m_LocationForm)
+            {
+                m_LocationForm.SettingsChanged += (o, e) =>
+                {
+                    m_SettingsChanged = true;
+                };
+            }
 
             m_LocationForm.SelectWindow(m_ListedWindows[selected].Handle);
 
@@ -1141,14 +1164,20 @@ namespace WindowsTools
 
         private void Passwords()
         {
-            var tmp = (PasswordForm)User32Windows.GetForm(m_PasswordForm, typeof(PasswordForm));
+            var tmp = m_PasswordForm;
+
+            m_PasswordForm = (PasswordForm)User32Windows.GetForm(m_PasswordForm, typeof(PasswordForm));
 
             if (m_PasswordForm != tmp)
             {
-                m_PasswordForm = tmp;
                 m_PasswordForm.PasswordsChanged += (object sender, EventArgs e) =>
                 {
                     m_RebuldPasswordMenu = true;
+                };
+
+                m_PasswordForm.SettingsChanged += (o, e) =>
+                {
+                    m_SettingsChanged = true;
                 };
             }
 
@@ -1184,7 +1213,7 @@ namespace WindowsTools
 
         private void CheckTrackingForm()
         {
-            Form tmp = m_TrackingForm;
+            var tmp = m_TrackingForm;
 
             m_TrackingForm = (MouseHoverForm)User32Windows.GetForm(m_TrackingForm, typeof(MouseHoverForm));
 
@@ -1192,6 +1221,11 @@ namespace WindowsTools
             {
                 windowsTrackingToolStripMenuItem1.Text = "Start mouse hover";
                 m_MouseTrackingStarted = false;
+
+                m_TrackingForm.SettingsChanged += (o, e) =>
+                {
+                    m_SettingsChanged = true;
+                };
 
                 return;
             }
@@ -1260,6 +1294,11 @@ namespace WindowsTools
                 {
                     notifyIcon1.ShowBalloonTip(1000, String.Empty, "'" + e.Title + "' tool has exited.", ToolTipIcon.None);
                 };
+
+                m_SendCommandForm.SettingsChanged += (o, e) =>
+                {
+                    m_SettingsChanged = true;
+                };
             }
 
             var selected = -1;
@@ -1287,7 +1326,9 @@ namespace WindowsTools
             }
 
             var ssSettingsPath = Properties.Settings.Default.ScreenSaverPath;
+
             var path = Path.GetFullPath(Environment.ExpandEnvironmentVariables(ssSettingsPath));
+
             Process.Start(path);
         }
 

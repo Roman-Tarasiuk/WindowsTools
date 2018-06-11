@@ -12,7 +12,7 @@ using WindowsTools.Infrastructure;
 
 namespace WindowsTools
 {
-    public partial class PasswordForm : Form
+    public partial class PasswordForm : Form, IProgramSettings
     {
         #region Fields
 
@@ -39,6 +39,7 @@ namespace WindowsTools
         #region Public Properties and Methods
 
         public event EventHandler PasswordsChanged;
+        public event EventHandler SettingsChanged;
 
         public List<String> PasswordsRepresentation
         {
@@ -162,7 +163,7 @@ namespace WindowsTools
         {
             InitializeComponent();
 
-            this.Location = Properties.Settings.Default.PasswordsFormLocation;
+            this.Location = Properties.Settings.Default.PasswordsForm_Location;
         }
 
         #endregion
@@ -201,11 +202,6 @@ namespace WindowsTools
                     e.Cancel = true;
                 }
             }
-
-            if (WindowState != FormWindowState.Minimized)
-            {
-                Properties.Settings.Default.Save();
-            }
         }
 
         private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
@@ -241,7 +237,12 @@ namespace WindowsTools
 
         private void PasswordForm_LocationChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.PasswordsFormLocation = this.Location;
+            if (this.WindowState != FormWindowState.Minimized)
+            {
+                Properties.Settings.Default.PasswordsForm_Location = this.Location;
+
+                SettingsChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         private void PasswordForm_Shown(object sender, EventArgs e)

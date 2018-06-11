@@ -1,21 +1,30 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WindowsManipulations.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WindowsTools.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="LocationAndSizeFormLocation" Type="System.Drawing.Point" Scope="User">
+    <Setting Name="LocationAndSizeForm_Location" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">100, 100</Value>
     </Setting>
-    <Setting Name="PasswordsFormLocation" Type="System.Drawing.Point" Scope="User">
+    <Setting Name="PasswordsForm_Location" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">100, 100</Value>
     </Setting>
-    <Setting Name="SendCommandsFormLocation" Type="System.Drawing.Point" Scope="User">
+    <Setting Name="SendCommandsForm_Location" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">100, 100</Value>
     </Setting>
-    <Setting Name="WindowsTrackingFormLocation" Type="System.Drawing.Point" Scope="User">
+    <Setting Name="WindowsTrackingForm_Location" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">100, 100</Value>
     </Setting>
     <Setting Name="ScreenSaverPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">%SystemRoot%\System32\ssText3d.scr</Value>
+    </Setting>
+    <Setting Name="DownloaderForm_Proxy" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://your.proxy:8080</Value>
+    </Setting>
+    <Setting Name="DownloaderForm_Username" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DownloaderForm_LocalPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

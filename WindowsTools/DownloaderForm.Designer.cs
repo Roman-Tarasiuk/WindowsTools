@@ -100,6 +100,7 @@
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(254, 20);
             this.txtLogin.TabIndex = 4;
+            this.txtLogin.TextChanged += new System.EventHandler(this.txtLogin_TextChanged);
             // 
             // txtPassword
             // 
@@ -110,6 +111,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(254, 20);
             this.txtPassword.TabIndex = 5;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // label3
             // 
@@ -141,7 +143,7 @@
             this.txtProxy.Name = "txtProxy";
             this.txtProxy.Size = new System.Drawing.Size(377, 20);
             this.txtProxy.TabIndex = 9;
-            this.txtProxy.Text = "http://your.proxy:8080";
+            this.txtProxy.TextChanged += new System.EventHandler(this.txtProxy_TextChanged);
             // 
             // lblProxy
             // 
@@ -162,6 +164,7 @@
             this.txtLocalPath.Name = "txtLocalPath";
             this.txtLocalPath.Size = new System.Drawing.Size(377, 20);
             this.txtLocalPath.TabIndex = 11;
+            this.txtLocalPath.TextChanged += new System.EventHandler(this.txtLocalPath_TextChanged);
             // 
             // label5
             // 
@@ -227,7 +230,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DownloaderForm";
             this.Text = "Downloader";
-            this.Shown += new System.EventHandler(this.DownloaderForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

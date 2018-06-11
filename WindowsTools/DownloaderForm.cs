@@ -8,18 +8,27 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Windows.Forms;
+using WindowsTools.Infrastructure;
 
 namespace WindowsTools
 {
-    public partial class DownloaderForm : Form
+    public partial class DownloaderForm : Form, IProgramSettings
     {
+        private Color m_ErrorBackground = Color.FromArgb(255, 192, 192);
+
         public DownloaderForm()
         {
             InitializeComponent();
 
+            txtProxy.Text = Properties.Settings.Default.DownloaderForm_Proxy;
+            txtLogin.Text = Properties.Settings.Default.DownloaderForm_Username;
+            txtLocalPath.Text = Properties.Settings.Default.DownloaderForm_LocalPath;
+
             lblDownloadPercentage.Parent = progressBar1;
             lblDownloadPercentage.Location = new Point(5, 3);
         }
+
+        public event EventHandler SettingsChanged;
 
         private async void btnLoad_Click(object sender, EventArgs e)
         {
@@ -124,6 +133,10 @@ namespace WindowsTools
             if (result == DialogResult.OK)
             {
                 txtLocalPath.Text = folderBrowserDialog1.SelectedPath;
+
+                Properties.Settings.Default.DownloaderForm_LocalPath = txtLocalPath.Text;
+
+                SettingsChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -138,6 +151,8 @@ namespace WindowsTools
                 lblProxy.Enabled = true;
                 lblLogin.Enabled = true;
                 lblPassword.Enabled = true;
+
+                SetPasswordBackground(true);
             }
             else
             {
@@ -148,12 +163,48 @@ namespace WindowsTools
                 lblProxy.Enabled = false;
                 lblLogin.Enabled = false;
                 lblPassword.Enabled = false;
+
+                SetPasswordBackground(false);
             }
         }
 
-        private void DownloaderForm_Shown(object sender, EventArgs e)
+        private void txtProxy_TextChanged(object sender, EventArgs e)
         {
-            txtLocalPath.Text = AppDomain.CurrentDomain.BaseDirectory;
+            Properties.Settings.Default.DownloaderForm_Proxy = txtProxy.Text;
+
+            SettingsChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void txtLogin_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.DownloaderForm_Username = txtLogin.Text;
+
+            SettingsChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void txtLocalPath_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.DownloaderForm_LocalPath = txtLocalPath.Text;
+
+            SettingsChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            SetPasswordBackground();
+        }
+
+
+        private void SetPasswordBackground(bool editEnabled = true)
+        {
+            if (txtPassword.Text != String.Empty || !editEnabled)
+            {
+                txtPassword.BackColor = SystemColors.Window;
+            }
+            else
+            {
+                txtPassword.BackColor = m_ErrorBackground;
+            }
         }
     }
 
