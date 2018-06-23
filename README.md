@@ -15,5 +15,4 @@ Windows desktop (.NET, Windows Forms) application for<br>
 - crop images;<br>
 - other stuff.<br>
 <br>
-<br>
 &#42; Look at <a href="https://github.com/Roman-Tarasiuk/WindowsTools/wiki">Wiki</a> page of the program for additional info.
