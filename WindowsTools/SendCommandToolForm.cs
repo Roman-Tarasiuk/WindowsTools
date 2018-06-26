@@ -334,7 +334,10 @@ namespace WindowsTools
             }
             else if ((!m_RunOnAllWindowsWithSameTitle) && (!User32Windows.IsWindow(m_HostWindowHwnd)))
             {
-                this.Exit?.Invoke(this, new ToolEventArgs() { Title = m_HostWindowTitle });
+                if (this.Exit != null)
+                {
+                    this.Exit.Invoke(this, new ToolEventArgs() { Title = m_HostWindowTitle });
+                }
                 this.Close();
             }
             else if (User32Windows.IsIconic(m_HostWindowHwnd))

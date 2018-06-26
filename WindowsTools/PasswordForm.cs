@@ -241,7 +241,10 @@ namespace WindowsTools
             {
                 Properties.Settings.Default.PasswordsForm_Location = this.Location;
 
-                SettingsChanged?.Invoke(this, EventArgs.Empty);
+                if (SettingsChanged != null)
+                {
+                    SettingsChanged.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 

@@ -169,7 +169,10 @@ namespace WindowsTools
             {
                 Properties.Settings.Default.SendCommandsForm_Location = this.Location;
 
-                SettingsChanged?.Invoke(this, EventArgs.Empty);
+                if (SettingsChanged != null)
+                {
+                    SettingsChanged.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -198,7 +201,10 @@ namespace WindowsTools
 
         private void OnToolExit(object sender, ToolEventArgs e)
         {
-            ToolExit?.Invoke(this, e);
+            if (ToolExit != null)
+            {
+                ToolExit.Invoke(this, e);
+            }
         }
 
         private void btnMenu_Click(object sender, EventArgs e)

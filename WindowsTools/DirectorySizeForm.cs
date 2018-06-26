@@ -16,7 +16,7 @@ namespace WindowsTools
 {
     public partial class DirectorySizeForm : Form
     {
-        public string m_Path { get; set; } = String.Empty;
+        public string m_Path { get; set; }
 
         private CancellationTokenSource m_CancelationTokenSource;
         private bool m_Canceled = false;
@@ -29,6 +29,8 @@ namespace WindowsTools
         public DirectorySizeForm()
         {
             InitializeComponent();
+
+            m_Path = String.Empty;
 
             treeView1.ImageList = new ImageList();
             treeView1.ImageList.Images.Add(WindowsTools.Properties.Resources.folder16x16);

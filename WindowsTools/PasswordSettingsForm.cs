@@ -11,11 +11,13 @@ namespace WindowsTools
 {
     public partial class PasswordSettingsForm : Form
     {
-        public bool ActivateLastWindow { get; set; } = true;
+        public bool ActivateLastWindow { get; set; }
 
         public PasswordSettingsForm()
         {
             InitializeComponent();
+
+            ActivateLastWindow = true;
         }
 
         private void PasswordSettingsForm_Shown(object sender, EventArgs e)

@@ -1459,7 +1459,10 @@ namespace WindowsTools
                 ((ToolStripMenuItem)passMenu[0]).Text = title;
             }
 
-            ((ToolStripMenuItem)passMenu[0]).Image = lastWindow.Icon?.ToBitmap();
+            if (lastWindow.Icon != null)
+            {
+                ((ToolStripMenuItem)passMenu[0]).Image = lastWindow.Icon.ToBitmap();
+            }
             ((ToolStripMenuItem)passMenu[0]).ForeColor = Color.FromArgb(112, 112, 112);
         }
 

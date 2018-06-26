@@ -37,7 +37,10 @@ namespace WindowsTools
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SettingsChanged?.Invoke(this, new CompareStringsSettingsEventArgs() { Settings = Settings });
+            if (SettingsChanged != null)
+            {
+                SettingsChanged.Invoke(this, new CompareStringsSettingsEventArgs() { Settings = Settings });
+            }
         }
 
         private void chkTopmost_CheckedChanged(object sender, EventArgs e)

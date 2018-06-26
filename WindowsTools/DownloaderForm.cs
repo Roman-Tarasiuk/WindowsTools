@@ -136,7 +136,10 @@ namespace WindowsTools
 
                 Properties.Settings.Default.DownloaderForm_LocalPath = txtLocalPath.Text;
 
-                SettingsChanged?.Invoke(this, EventArgs.Empty);
+                if (SettingsChanged != null)
+                {
+                    SettingsChanged.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -172,21 +175,30 @@ namespace WindowsTools
         {
             Properties.Settings.Default.DownloaderForm_Proxy = txtProxy.Text;
 
-            SettingsChanged?.Invoke(this, EventArgs.Empty);
+            if (SettingsChanged != null)
+            {
+                SettingsChanged.Invoke(this, EventArgs.Empty);
+            }
         }
 
         private void txtLogin_TextChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.DownloaderForm_Username = txtLogin.Text;
 
-            SettingsChanged?.Invoke(this, EventArgs.Empty);
+            if (SettingsChanged != null)
+            {
+                SettingsChanged.Invoke(this, EventArgs.Empty);
+            }
         }
 
         private void txtLocalPath_TextChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.DownloaderForm_LocalPath = txtLocalPath.Text;
 
-            SettingsChanged?.Invoke(this, EventArgs.Empty);
+            if (SettingsChanged != null)
+            {
+                SettingsChanged.Invoke(this, EventArgs.Empty);
+            }
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
