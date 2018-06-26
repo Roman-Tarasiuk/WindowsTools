@@ -56,9 +56,7 @@ namespace WindowsTools
 
                 HandleMove.LocationChanged += (handleSender, handleE) =>
                 {
-                    this.Hide();
                     this.Location = new Point(HandleMove.Location.X - m_HandlerX, HandleMove.Location.Y - m_HandlerY);
-                    this.Show();
                 };
             }
         }
@@ -116,6 +114,12 @@ namespace WindowsTools
                 this.TopMost = true;
                 topmostToolStripMenuItem.Checked = true;
             }
+        }
+
+        private void ArrangementPanelForm_Shown(object sender, EventArgs e)
+        {
+            this.topmostToolStripMenuItem.Checked = this.TopMost;
+            this.showInTaskbarToolStripMenuItem.Checked = this.ShowInTaskbar;
         }
 
         private void showInTaskbarToolStripMenuItem_Click(object sender, EventArgs e)
