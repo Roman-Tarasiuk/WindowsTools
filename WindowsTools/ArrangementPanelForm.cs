@@ -15,10 +15,20 @@ namespace WindowsTools
 
         private bool m_MousePressed = false;
         int m_X, m_Y;
+        int m_HandlerX, m_HandlerY;
 
         public ArrangementPanelForm()
         {
             InitializeComponent();
+
+            this.LocationChanged += (handleSender, handleE) =>
+            {
+                if (HandleMove != null && !HandleMove.IsDisposed)
+                {
+                    m_HandlerX = HandleMove.Location.X - this.Location.X;
+                    m_HandlerY = HandleMove.Location.Y - this.Location.Y;
+                }
+            };
         }
 
         protected override CreateParams CreateParams
@@ -29,6 +39,27 @@ namespace WindowsTools
                 // turn on WS_EX_TOOLWINDOW style bit
                 cp.ExStyle |= 0x80;
                 return cp;
+            }
+        }
+
+        private void handleMoveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (HandleMove == null || HandleMove.IsDisposed)
+            {
+                HandleMove = new ArrangementPanelForm();
+                HandleMove.ClientSize = new System.Drawing.Size(20, 20);
+                HandleMove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+                HandleMove.Location = this.Location;
+                HandleMove.StartPosition = FormStartPosition.Manual;
+                HandleMove.TopMost = true;
+                HandleMove.Show();
+
+                HandleMove.LocationChanged += (handleSender, handleE) =>
+                {
+                    this.Hide();
+                    this.Location = new Point(HandleMove.Location.X - m_HandlerX, HandleMove.Location.Y - m_HandlerY);
+                    this.Show();
+                };
             }
         }
 
