@@ -42,9 +42,9 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // contextMenuStrip1
-            // 
+            //
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.handleMoveToolStripMenuItem,
             this.backgroundColorToolStripMenuItem,
@@ -54,53 +54,53 @@
             this.closeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(178, 136);
-            // 
+            //
             // handleMoveToolStripMenuItem
-            // 
+            //
             this.handleMoveToolStripMenuItem.Name = "handleMoveToolStripMenuItem";
             this.handleMoveToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.handleMoveToolStripMenuItem.Text = "Handle";
             this.handleMoveToolStripMenuItem.Click += new System.EventHandler(this.handleMoveToolStripMenuItem_Click);
-            // 
+            //
             // backgroundColorToolStripMenuItem
-            // 
+            //
             this.backgroundColorToolStripMenuItem.Name = "backgroundColorToolStripMenuItem";
             this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.backgroundColorToolStripMenuItem.Text = "Background color...";
             this.backgroundColorToolStripMenuItem.Click += new System.EventHandler(this.backgroundColorToolStripMenuItem_Click);
-            // 
+            //
             // formBorderToolStripMenuItem
-            // 
+            //
             this.formBorderToolStripMenuItem.Name = "formBorderToolStripMenuItem";
             this.formBorderToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.formBorderToolStripMenuItem.Text = "Form border";
             this.formBorderToolStripMenuItem.Click += new System.EventHandler(this.formBorderToolStripMenuItem_Click);
-            // 
+            //
             // topmostToolStripMenuItem
-            // 
+            //
             this.topmostToolStripMenuItem.Name = "topmostToolStripMenuItem";
             this.topmostToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.topmostToolStripMenuItem.Text = "Topmost";
             this.topmostToolStripMenuItem.Click += new System.EventHandler(this.topmostToolStripMenuItem_Click);
-            // 
+            //
             // showInTaskbarToolStripMenuItem
-            // 
+            //
             this.showInTaskbarToolStripMenuItem.Checked = true;
             this.showInTaskbarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.showInTaskbarToolStripMenuItem.Name = "showInTaskbarToolStripMenuItem";
             this.showInTaskbarToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.showInTaskbarToolStripMenuItem.Text = "Show in taskbar";
             this.showInTaskbarToolStripMenuItem.Click += new System.EventHandler(this.showInTaskbarToolStripMenuItem_Click);
-            // 
+            //
             // closeToolStripMenuItem
-            // 
+            //
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
-            // 
+            //
             // ArrangementPanelForm
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -108,6 +108,7 @@
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ArrangementPanelForm_KeyDown);
             this.Name = "ArrangementPanelForm";
             this.Text = "Arrangement panel";
             this.Shown += new System.EventHandler(this.ArrangementPanelForm_Shown);

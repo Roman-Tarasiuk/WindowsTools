@@ -151,5 +151,31 @@ namespace WindowsTools
                 this.formBorderToolStripMenuItem.Checked = false;
             }
         }
+
+        private void ArrangementPanelForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            var offset = 11;
+
+            if (e.Control)
+            {
+                offset = 1;
+            }
+
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    this.Location = new Point(this.Location.X - offset, this.Location.Y);
+                    break;
+                case Keys.Right:
+                    this.Location = new Point(this.Location.X + offset, this.Location.Y);
+                    break;
+                case Keys.Up:
+                    this.Location = new Point(this.Location.X, this.Location.Y - offset);
+                    break;
+                case Keys.Down:
+                    this.Location = new Point(this.Location.X, this.Location.Y + offset);
+                    break;
+            }
+        }
     }
 }
