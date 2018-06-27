@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace WindowsTools
 {
-    public partial class ArrangementPanelForm : Form
+    public partial class ScreenRulerArrangePanelForm : Form
     {
         private FormBorderStyle m_FormBorderStyle = FormBorderStyle.None;
 
@@ -17,7 +17,7 @@ namespace WindowsTools
         int m_X, m_Y;
         int m_HandlerX, m_HandlerY;
 
-        public ArrangementPanelForm()
+        public ScreenRulerArrangePanelForm()
         {
             InitializeComponent();
 
@@ -46,7 +46,7 @@ namespace WindowsTools
         {
             if (HandleMove == null || HandleMove.IsDisposed)
             {
-                HandleMove = new ArrangementPanelForm();
+                HandleMove = new ScreenRulerArrangePanelForm();
                 HandleMove.ClientSize = new System.Drawing.Size(20, 20);
                 HandleMove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
                 HandleMove.Location = this.Location;
@@ -116,7 +116,7 @@ namespace WindowsTools
             }
         }
 
-        private void ArrangementPanelForm_Shown(object sender, EventArgs e)
+        private void ScreenRulerArrangePanelForm_Shown(object sender, EventArgs e)
         {
             this.topmostToolStripMenuItem.Checked = this.TopMost;
             this.showInTaskbarToolStripMenuItem.Checked = this.ShowInTaskbar;
@@ -152,7 +152,7 @@ namespace WindowsTools
             }
         }
 
-        private void ArrangementPanelForm_KeyDown(object sender, KeyEventArgs e)
+        private void ScreenRulerArrangePanelForm_KeyDown(object sender, KeyEventArgs e)
         {
             var offset = 11;
 

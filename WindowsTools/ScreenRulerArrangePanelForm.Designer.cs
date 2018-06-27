@@ -1,13 +1,13 @@
 ﻿namespace WindowsTools
 {
-    partial class ArrangementPanelForm
+    partial class ScreenRulerArrangePanelForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        private ArrangementPanelForm HandleMove = null;
+        private ScreenRulerArrangePanelForm HandleMove = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -31,7 +31,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArrangementPanelForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScreenRulerArrangePanelForm));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.handleMoveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,7 +99,7 @@
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             //
-            // ArrangementPanelForm
+            // ScreenRulerArrangePanelForm
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -108,10 +108,10 @@
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ArrangementPanelForm_KeyDown);
-            this.Name = "ArrangementPanelForm";
-            this.Text = "Arrangement panel";
-            this.Shown += new System.EventHandler(this.ArrangementPanelForm_Shown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ScreenRulerArrangePanelForm_KeyDown);
+            this.Name = "ScreenRulerArrangePanelForm";
+            this.Text = "Screen ruler arrange";
+            this.Shown += new System.EventHandler(this.ScreenRulerArrangePanelForm_Shown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ScreenRulerHelperForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ScreenRulerHelperForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ScreenRulerHelperForm_MouseUp);
