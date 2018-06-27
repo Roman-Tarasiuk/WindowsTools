@@ -52,6 +52,7 @@ namespace WindowsTools
                 HandleMove.Location = this.Location;
                 HandleMove.StartPosition = FormStartPosition.Manual;
                 HandleMove.TopMost = true;
+                HandleMove.Text = "Screen ruler handle";
                 HandleMove.Show();
 
                 HandleMove.LocationChanged += (handleSender, handleE) =>
