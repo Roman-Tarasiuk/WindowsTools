@@ -115,6 +115,7 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ScreenRulerHelperForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ScreenRulerHelperForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ScreenRulerHelperForm_MouseUp);
+            this.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.ScreenRulerHelperForm_MouseWheel);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 

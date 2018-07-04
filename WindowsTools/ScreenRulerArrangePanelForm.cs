@@ -91,6 +91,18 @@ namespace WindowsTools
             this.Close();
         }
 
+        private void ScreenRulerHelperForm_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta > 0 && this.Opacity < 1)
+            {
+                this.Opacity += 0.1;
+            }
+            else if (e.Delta < 0 && this.Opacity >= 0.2)
+            {
+                this.Opacity -= 0.1;
+            }
+        }
+
         private void backgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.colorDialog1.Color = this.BackColor;
@@ -156,6 +168,8 @@ namespace WindowsTools
         private void ScreenRulerArrangePanelForm_KeyDown(object sender, KeyEventArgs e)
         {
             var offset = 11;
+            const int minHeight = 1;
+            const int minWidth = 1;
 
             if (e.Control)
             {
@@ -165,16 +179,50 @@ namespace WindowsTools
             switch (e.KeyCode)
             {
                 case Keys.Left:
-                    this.Location = new Point(this.Location.X - offset, this.Location.Y);
+                    if (e.Alt)
+                    {
+                        if (this.Width - offset >= minWidth)
+                        {
+                            this.Width -= offset;
+                        }
+                    }
+                    else
+                    {
+                        this.Location = new Point(this.Location.X - offset, this.Location.Y);
+                    }
                     break;
                 case Keys.Right:
-                    this.Location = new Point(this.Location.X + offset, this.Location.Y);
+                    if (e.Alt)
+                    {
+                        this.Width += offset;
+                    }
+                    else
+                    {
+                        this.Location = new Point(this.Location.X + offset, this.Location.Y);
+                    }
                     break;
                 case Keys.Up:
-                    this.Location = new Point(this.Location.X, this.Location.Y - offset);
+                    if (e.Alt)
+                    {
+                        if (this.Height - offset >= minHeight)
+                        {
+                            this.Height -= offset;
+                        }
+                    }
+                    else
+                    {
+                        this.Location = new Point(this.Location.X, this.Location.Y - offset);
+                    }
                     break;
                 case Keys.Down:
-                    this.Location = new Point(this.Location.X, this.Location.Y + offset);
+                    if (e.Alt)
+                    {
+                        this.Height += offset;
+                    }
+                    else
+                    {
+                        this.Location = new Point(this.Location.X, this.Location.Y + offset);
+                    }
                     break;
             }
         }

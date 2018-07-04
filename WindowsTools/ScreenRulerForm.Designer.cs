@@ -42,101 +42,101 @@
             this.lblHelp = new System.Windows.Forms.Label();
             this.btnPanel = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
+            //
             // btnStartStopRuller
-            // 
+            //
             this.btnStartStopRuller.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnStartStopRuller.Location = new System.Drawing.Point(12, 133);
             this.btnStartStopRuller.Name = "btnStartStopRuller";
             this.btnStartStopRuller.Size = new System.Drawing.Size(75, 23);
-            this.btnStartStopRuller.TabIndex = 0;
+            this.btnStartStopRuller.TabIndex = 7;
             this.btnStartStopRuller.Text = "Start";
             this.btnStartStopRuller.UseVisualStyleBackColor = true;
             this.btnStartStopRuller.Click += new System.EventHandler(this.btnStartStopRuller_Click);
-            // 
+            //
             // label1
-            // 
+            //
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 13);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 2;
             this.label1.Text = "Current mouse coordinates:";
-            // 
+            //
             // label2
-            // 
+            //
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 13);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Start measuring from:";
-            // 
+            //
             // txtStart
-            // 
+            //
             this.txtStart.Location = new System.Drawing.Point(154, 6);
             this.txtStart.Name = "txtStart";
             this.txtStart.Size = new System.Drawing.Size(100, 20);
-            this.txtStart.TabIndex = 3;
-            // 
+            this.txtStart.TabIndex = 1;
+            //
             // txtCurrent
-            // 
+            //
             this.txtCurrent.Location = new System.Drawing.Point(154, 32);
             this.txtCurrent.Name = "txtCurrent";
             this.txtCurrent.Size = new System.Drawing.Size(100, 20);
-            this.txtCurrent.TabIndex = 4;
-            // 
+            this.txtCurrent.TabIndex = 3;
+            //
             // txtDistance
-            // 
+            //
             this.txtDistance.Location = new System.Drawing.Point(154, 58);
             this.txtDistance.Name = "txtDistance";
             this.txtDistance.Size = new System.Drawing.Size(100, 20);
             this.txtDistance.TabIndex = 5;
-            // 
+            //
             // label3
-            // 
+            //
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 61);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
-            this.label3.TabIndex = 6;
+            this.label3.TabIndex = 4;
             this.label3.Text = "Distance:";
-            // 
+            //
             // timer1
-            // 
+            //
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
+            //
             // btnDummuToTemporaryFocusing
-            // 
+            //
             this.btnDummuToTemporaryFocusing.Location = new System.Drawing.Point(0, 0);
             this.btnDummuToTemporaryFocusing.Name = "btnDummuToTemporaryFocusing";
             this.btnDummuToTemporaryFocusing.Size = new System.Drawing.Size(1, 1);
-            this.btnDummuToTemporaryFocusing.TabIndex = 7;
+            this.btnDummuToTemporaryFocusing.TabIndex = 9;
             this.btnDummuToTemporaryFocusing.Text = "button1";
             this.btnDummuToTemporaryFocusing.UseVisualStyleBackColor = true;
-            // 
+            //
             // lblHelp
-            // 
+            //
             this.lblHelp.AutoSize = true;
             this.lblHelp.Location = new System.Drawing.Point(12, 100);
             this.lblHelp.Name = "lblHelp";
             this.lblHelp.Size = new System.Drawing.Size(204, 13);
-            this.lblHelp.TabIndex = 8;
+            this.lblHelp.TabIndex = 6;
             this.lblHelp.Text = "Press the spacebar to set start/end points";
             this.lblHelp.Visible = false;
-            // 
+            //
             // btnPanel
-            // 
+            //
             this.btnPanel.Location = new System.Drawing.Point(183, 133);
             this.btnPanel.Name = "btnPanel";
             this.btnPanel.Size = new System.Drawing.Size(75, 23);
-            this.btnPanel.TabIndex = 9;
+            this.btnPanel.TabIndex = 8;
             this.btnPanel.Text = "Panel...";
             this.btnPanel.UseVisualStyleBackColor = true;
             this.btnPanel.Click += new System.EventHandler(this.btnPanel_Click);
-            // 
+            //
             // ScreenRulerForm
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(270, 168);
