@@ -5,9 +5,9 @@ Windows desktop (.NET, Windows Forms) application for<br>
 - send custom keypresses to any window;<br>
 - simple password manager (for running session only);<br>
 - activating windows by mouse hover&#42;;<br>
-- track a windows is active; track a window's title;<br>
+- track a window is active; track a window's title;<br>
 - start screensaver / power off display (+ optional PC locking);<br>
-- download a bush of files;<br>
+- download a bunch of files;<br>
 - display a directory's subfolders, files and their sizes;
 - customizing 'cmd' window;<br>
 - decode / encode %-like urls / strings;
