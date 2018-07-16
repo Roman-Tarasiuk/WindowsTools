@@ -58,9 +58,9 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // toolStrip1
-            // 
+            //
             this.toolStrip1.ContextMenuStrip = this.contextMenuStrip1;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripBtnPaste,
@@ -80,23 +80,24 @@
             this.toolStrip1.Size = new System.Drawing.Size(672, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
+            this.toolStrip1.TabStop = false;
+            //
             // contextMenuStrip1
-            // 
+            //
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.resetBackgroundColorToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(200, 26);
-            // 
+            //
             // resetBackgroundColorToolStripMenuItem
-            // 
+            //
             this.resetBackgroundColorToolStripMenuItem.Name = "resetBackgroundColorToolStripMenuItem";
             this.resetBackgroundColorToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.resetBackgroundColorToolStripMenuItem.Text = "Reset background color";
             this.resetBackgroundColorToolStripMenuItem.Click += new System.EventHandler(this.resetBackgroundColorToolStripMenuItem_Click);
-            // 
+            //
             // toolStripBtnPaste
-            // 
+            //
             this.toolStripBtnPaste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripBtnPaste.Image = global::WindowsTools.Properties.Resources.Editing_Paste_icon;
             this.toolStripBtnPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -104,9 +105,9 @@
             this.toolStripBtnPaste.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnPaste.Text = "Paste (Ctrl+V)";
             this.toolStripBtnPaste.Click += new System.EventHandler(this.toolStripBtnPaste_Click);
-            // 
+            //
             // toolStripBtnCopy
-            // 
+            //
             this.toolStripBtnCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripBtnCopy.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnCopy.Image")));
             this.toolStripBtnCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -114,9 +115,9 @@
             this.toolStripBtnCopy.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnCopy.Text = "Copy (Ctrl+C)";
             this.toolStripBtnCopy.Click += new System.EventHandler(this.toolStripBtnCopy_Click);
-            // 
+            //
             // toolStripBtnEraseImage
-            // 
+            //
             this.toolStripBtnEraseImage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripBtnEraseImage.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnEraseImage.Image")));
             this.toolStripBtnEraseImage.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -124,14 +125,14 @@
             this.toolStripBtnEraseImage.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnEraseImage.Text = "Erase image (Del)";
             this.toolStripBtnEraseImage.Click += new System.EventHandler(this.toolStripBtnEraseImage_Click);
-            // 
+            //
             // toolStripSeparator2
-            // 
+            //
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
+            //
             // toolStripBtnCropLeft
-            // 
+            //
             this.toolStripBtnCropLeft.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripBtnCropLeft.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnCropLeft.Image")));
             this.toolStripBtnCropLeft.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -140,9 +141,9 @@
             this.toolStripBtnCropLeft.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnCropLeft.Text = "Crop left (1)";
             this.toolStripBtnCropLeft.Click += new System.EventHandler(this.toolStripBtnCropLeft_Click);
-            // 
+            //
             // toolStripBtnCropTop
-            // 
+            //
             this.toolStripBtnCropTop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripBtnCropTop.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnCropTop.Image")));
             this.toolStripBtnCropTop.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -150,9 +151,9 @@
             this.toolStripBtnCropTop.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnCropTop.Text = "Crop top (2)";
             this.toolStripBtnCropTop.Click += new System.EventHandler(this.toolStripBtnCropTop_Click);
-            // 
+            //
             // toolStripBtnCropRight
-            // 
+            //
             this.toolStripBtnCropRight.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripBtnCropRight.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnCropRight.Image")));
             this.toolStripBtnCropRight.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -160,9 +161,9 @@
             this.toolStripBtnCropRight.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnCropRight.Text = "Crop right (3)";
             this.toolStripBtnCropRight.Click += new System.EventHandler(this.toolStripBtnCropRight_Click);
-            // 
+            //
             // toolStripBtnCropBottom
-            // 
+            //
             this.toolStripBtnCropBottom.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripBtnCropBottom.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnCropBottom.Image")));
             this.toolStripBtnCropBottom.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -170,14 +171,14 @@
             this.toolStripBtnCropBottom.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnCropBottom.Text = "Crop bottom (4)";
             this.toolStripBtnCropBottom.Click += new System.EventHandler(this.toolStripBtnCropBottom_Click);
-            // 
+            //
             // toolStripSeparator1
-            // 
+            //
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
+            //
             // toolStripBtnEscapeCrop
-            // 
+            //
             this.toolStripBtnEscapeCrop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripBtnEscapeCrop.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnEscapeCrop.Image")));
             this.toolStripBtnEscapeCrop.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -185,14 +186,14 @@
             this.toolStripBtnEscapeCrop.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnEscapeCrop.Text = "Escape crop (Esc)";
             this.toolStripBtnEscapeCrop.Click += new System.EventHandler(this.toolStripBtnEscapeCrop_Click);
-            // 
+            //
             // toolStripSeparator3
-            // 
+            //
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
+            //
             // toolStripBtnBackground
-            // 
+            //
             this.toolStripBtnBackground.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripBtnBackground.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnBackground.Image")));
             this.toolStripBtnBackground.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -201,11 +202,11 @@
             this.toolStripBtnBackground.Size = new System.Drawing.Size(23, 22);
             this.toolStripBtnBackground.Text = "Select background color";
             this.toolStripBtnBackground.Click += new System.EventHandler(this.toolStripBtnBackground_Click);
-            // 
+            //
             // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.pictureBox1);
@@ -213,9 +214,10 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(626, 323);
             this.panel1.TabIndex = 1;
-            // 
+            this.panel1.TabStop = false;
+            //
             // pictureBox1
-            // 
+            //
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(626, 323);
@@ -223,10 +225,10 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
-            // 
+            //
             // chkBtnBottom
-            // 
-            this.chkBtnBottom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.chkBtnBottom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chkBtnBottom.Appearance = System.Windows.Forms.Appearance.Button;
             this.chkBtnBottom.FlatAppearance.BorderSize = 0;
@@ -239,10 +241,11 @@
             this.chkBtnBottom.TabIndex = 6;
             this.chkBtnBottom.UseVisualStyleBackColor = true;
             this.chkBtnBottom.Click += new System.EventHandler(this.chkBtnBottom_Click);
-            // 
+            this.chkBtnBottom.TabStop = false;
+            //
             // chkBtnRight
-            // 
-            this.chkBtnRight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            //
+            this.chkBtnRight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chkBtnRight.Appearance = System.Windows.Forms.Appearance.Button;
             this.chkBtnRight.FlatAppearance.BorderSize = 0;
@@ -255,10 +258,11 @@
             this.chkBtnRight.TabIndex = 5;
             this.chkBtnRight.UseVisualStyleBackColor = true;
             this.chkBtnRight.Click += new System.EventHandler(this.chkBtnRight_Click);
-            // 
+            this.chkBtnRight.TabStop = false;
+            //
             // chkBtnTop
-            // 
-            this.chkBtnTop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.chkBtnTop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chkBtnTop.Appearance = System.Windows.Forms.Appearance.Button;
             this.chkBtnTop.FlatAppearance.BorderSize = 0;
@@ -271,10 +275,11 @@
             this.chkBtnTop.TabIndex = 4;
             this.chkBtnTop.UseVisualStyleBackColor = true;
             this.chkBtnTop.Click += new System.EventHandler(this.chkBtnTop_Click);
-            // 
+            this.chkBtnTop.TabStop = false;
+            //
             // chkBtnLeft
-            // 
-            this.chkBtnLeft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            //
+            this.chkBtnLeft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.chkBtnLeft.Appearance = System.Windows.Forms.Appearance.Button;
             this.chkBtnLeft.FlatAppearance.BorderSize = 0;
@@ -287,9 +292,10 @@
             this.chkBtnLeft.TabIndex = 3;
             this.chkBtnLeft.UseVisualStyleBackColor = true;
             this.chkBtnLeft.Click += new System.EventHandler(this.chkBtnLeft_Click);
-            // 
+            this.chkBtnLeft.TabStop = false;
+            //
             // btnEscapeCrop
-            // 
+            //
             this.btnEscapeCrop.Image = ((System.Drawing.Image)(resources.GetObject("btnEscapeCrop.Image")));
             this.btnEscapeCrop.Location = new System.Drawing.Point(0, 25);
             this.btnEscapeCrop.Name = "btnEscapeCrop";
@@ -297,9 +303,10 @@
             this.btnEscapeCrop.TabIndex = 2;
             this.btnEscapeCrop.UseVisualStyleBackColor = true;
             this.btnEscapeCrop.Click += new System.EventHandler(this.btnEscapeCrop_Click);
-            // 
+            this.btnEscapeCrop.TabStop = false;
+            //
             // CropImageForm
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));

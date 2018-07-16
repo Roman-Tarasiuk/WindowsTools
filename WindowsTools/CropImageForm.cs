@@ -160,6 +160,60 @@ namespace WindowsTools
                         UndoImage();
                     }
                     break;
+
+                //case Keys.A:
+                //case Keys.W:
+                //    CropUsingKeyboard(e.KeyCode, e.Control, e.Shift, e.Alt);
+                //    break;
+            }
+        }
+
+        protected override bool IsInputKey(Keys keyData)
+        {
+            switch (keyData)
+            {
+                case Keys.Right:
+                case Keys.Left:
+                case Keys.Up:
+                case Keys.Down:
+                    return true;
+                case Keys.Shift | Keys.Right:
+                case Keys.Shift | Keys.Left:
+                case Keys.Shift | Keys.Up:
+                case Keys.Shift | Keys.Down:
+                    return true;
+                case Keys.Alt | Keys.Right:
+                case Keys.Alt | Keys.Left:
+                case Keys.Alt | Keys.Up:
+                case Keys.Alt | Keys.Down:
+                    return true;
+                case Keys.Control | Keys.Right:
+                case Keys.Control | Keys.Left:
+                case Keys.Control | Keys.Up:
+                case Keys.Control | Keys.Down:
+                    return true;
+            }
+            return base.IsInputKey(keyData);
+        }
+
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            base.OnKeyDown(e);
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                case Keys.Right:
+                case Keys.Up:
+                case Keys.Down:
+                    // if (e.Shift)
+                    // {
+                    // }
+                    // else
+                    // {
+                    // }
+                    //MessageBox.Show("K");
+                    CropUsingKeyboard(e.KeyCode, e.Control, e.Shift, e.Alt);
+                    break;
             }
         }
 
@@ -241,7 +295,7 @@ namespace WindowsTools
         {
             var bitmap = (Bitmap)image;
 
-            int left = 0, 
+            int left = 0,
                 top = 0,
                 width = bitmap.Width,
                 height = bitmap.Height;
@@ -296,6 +350,73 @@ namespace WindowsTools
             return ((Bitmap)image).Clone(new Rectangle(left, top, width, height), System.Drawing.Imaging.PixelFormat.DontCare);
         }
 
+        private void CropUsingKeyboard(Keys key, bool Ctrl, bool Shift, bool Alt)
+        {
+            if (pictureBox1.Image == null)
+            {
+                return;
+            }
+
+            //MessageBox.Show(String.Format("{0}, {1}, {2}", Ctrl, Shift, Alt));
+            //MessageBox.Show(key.ToString());
+
+            var offset = 10;
+            if (Ctrl)
+            {
+                offset = 1;
+            }
+
+            var W = ((Bitmap)pictureBox1.Image).Width;
+            var H = ((Bitmap)pictureBox1.Image).Height;
+
+            int left = 0,
+                top = 0,
+                width = W,
+                height = H;
+
+            switch (key)
+            {
+                case (Keys.Up):
+                    if (height - offset > 0)
+                    {
+                        if (Alt || Shift)
+                        {
+                            height -= offset;
+                        }
+                        else
+                        {
+                            top += offset;
+                        }
+                    }
+                    break;
+                case (Keys.Left):
+                    if (width - offset > 0)
+                    {
+                        if (Alt || Shift)
+                        {
+                            width -= offset;
+                        }
+                        else
+                        {
+                            left += offset;
+                        }
+                    }
+                    break;
+            }
+
+            // MessageBox.Show(String.Format(
+            //     "{0}, {1}", left, top
+            // ));
+            if (left != 0 ||
+                top != 0 ||
+                width != W ||
+                height != H)
+                {
+                    m_PreviousImage = pictureBox1.Image;
+                    pictureBox1.Image = ((Bitmap)m_PreviousImage).Clone(new Rectangle(left, top, width - left, height - top), System.Drawing.Imaging.PixelFormat.DontCare);
+                }
+        }
+
         private void UncheckCropButtons()
         {
             toolStripBtnCropLeft.CheckState = CheckState.Unchecked;
@@ -308,7 +429,7 @@ namespace WindowsTools
             chkBtnRight.Checked = false;
             chkBtnBottom.Checked = false;
 
-            btnEscapeCrop.Focus();
+            //btnEscapeCrop.Focus();
         }
 
         private void CheckCropButtons(Crop crop)
