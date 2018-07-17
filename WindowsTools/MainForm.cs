@@ -759,6 +759,10 @@ namespace WindowsTools
             ReplaceRNToSpace();
         }
 
+        private void replacernToEmptyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReplaceRNToEmpty();
+        }
         private void viewSystemClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RunClipboardManager();
@@ -829,6 +833,11 @@ namespace WindowsTools
         private void replacernTospaceToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ReplaceRNToSpace();
+        }
+
+        private void replacernToEmptyToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ReplaceRNToEmpty();
         }
 
         private void viewSystemClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -1473,6 +1482,16 @@ namespace WindowsTools
             if (clipboardStr != null)
             {
                 Clipboard.SetText(clipboardStr.Replace("\r\n", " "));
+            }
+        }
+
+        private void ReplaceRNToEmpty()
+        {
+            var clipboardStr = Clipboard.GetText();
+
+            if (clipboardStr != null)
+            {
+                Clipboard.SetText(clipboardStr.Replace("\r\n", ""));
             }
         }
 

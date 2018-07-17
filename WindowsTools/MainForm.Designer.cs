@@ -68,6 +68,7 @@
             this.encodeUriToExceptSpaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.encodeSpacesToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replacernTospaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.replacernToEmptyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toUPPERCASEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toLowercaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewSystemClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -127,6 +128,7 @@
             this.encodeUriToExceptSpaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.encodeSpacesToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.replacernTospaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.replacernToEmptyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toUPPERCASEToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toLowercaseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewSystemClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -407,6 +409,7 @@
             this.encodeUriToExceptSpaceToolStripMenuItem,
             this.encodeSpacesToToolStripMenuItem,
             this.replacernTospaceToolStripMenuItem,
+            this.replacernToEmptyToolStripMenuItem,
             this.toUPPERCASEToolStripMenuItem,
             this.toLowercaseToolStripMenuItem,
             this.viewSystemClipboardToolStripMenuItem,
@@ -469,11 +472,17 @@
             //
             // replacernTospaceToolStripMenuItem
             //
-            this.replacernTospaceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("replacernTospaceToolStripMenuItem.Image")));
             this.replacernTospaceToolStripMenuItem.Name = "replacernTospaceToolStripMenuItem";
             this.replacernTospaceToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.replacernTospaceToolStripMenuItem.Text = "Replace \\r\\n to <space>";
             this.replacernTospaceToolStripMenuItem.Click += new System.EventHandler(this.replacernTospaceToolStripMenuItem_Click);
+            //
+            // replacernToEmptyToolStripMenuItem
+            //
+            this.replacernToEmptyToolStripMenuItem.Name = "replacernToEmptyToolStripMenuItem";
+            this.replacernToEmptyToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.replacernToEmptyToolStripMenuItem.Text = "Replace \\r\\n to empty";
+            this.replacernToEmptyToolStripMenuItem.Click += new System.EventHandler(this.replacernToEmptyToolStripMenuItem_Click);
             //
             // toUPPERCASEToolStripMenuItem
             //
@@ -877,6 +886,7 @@
             this.encodeUriToExceptSpaceToolStripMenuItem1,
             this.encodeSpacesToToolStripMenuItem1,
             this.replacernTospaceToolStripMenuItem1,
+            this.replacernToEmptyToolStripMenuItem1,
             this.toUPPERCASEToolStripMenuItem1,
             this.toLowercaseToolStripMenuItem1,
             this.viewSystemClipboardToolStripMenuItem1,
@@ -940,11 +950,17 @@
             //
             // replacernTospaceToolStripMenuItem1
             //
-            this.replacernTospaceToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("replacernTospaceToolStripMenuItem1.Image")));
             this.replacernTospaceToolStripMenuItem1.Name = "replacernTospaceToolStripMenuItem1";
             this.replacernTospaceToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
             this.replacernTospaceToolStripMenuItem1.Text = "Replace \\r\\n to <space>";
             this.replacernTospaceToolStripMenuItem1.Click += new System.EventHandler(this.replacernTospaceToolStripMenuItem1_Click);
+            //
+            // replacernToEmptyToolStripMenuItem1
+            //
+            this.replacernToEmptyToolStripMenuItem1.Name = "replacernToEmptyToolStripMenuItem1";
+            this.replacernToEmptyToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.replacernToEmptyToolStripMenuItem1.Text = "Replace \\r\\n to empty";
+            this.replacernToEmptyToolStripMenuItem1.Click += new System.EventHandler(this.replacernToEmptyToolStripMenuItem1_Click);
             //
             // toUPPERCASEToolStripMenuItem1
             //
@@ -1256,7 +1272,9 @@
         private System.Windows.Forms.ToolStripMenuItem viewSystemClipboardToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem viewSystemClipboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem replacernTospaceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem replacernToEmptyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem replacernTospaceToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem replacernToEmptyToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem copyProcessIdToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compareStringsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compareStringsToolStripMenuItem1;
