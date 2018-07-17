@@ -167,10 +167,10 @@ namespace WindowsTools
 
         private void ScreenRulerArrangePanelForm_KeyDown(object sender, KeyEventArgs e)
         {
-            var offset = 10;
             const int minHeight = 1;
             const int minWidth = 1;
 
+            var offset = 10;
             if (e.Control)
             {
                 offset = 1;

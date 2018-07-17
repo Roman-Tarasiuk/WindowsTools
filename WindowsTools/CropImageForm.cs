@@ -112,6 +112,11 @@ namespace WindowsTools
             EscapeCrop();
         }
 
+        private void toolStripBtnToggleBigButtons_Click(object sender, EventArgs e)
+        {
+            ToggleBigButtons();
+        }
+
         private void CropImageForm_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -160,11 +165,6 @@ namespace WindowsTools
                         UndoImage();
                     }
                     break;
-
-                //case Keys.A:
-                //case Keys.W:
-                //    CropUsingKeyboard(e.KeyCode, e.Control, e.Shift, e.Alt);
-                //    break;
             }
         }
 
@@ -205,13 +205,6 @@ namespace WindowsTools
                 case Keys.Right:
                 case Keys.Up:
                 case Keys.Down:
-                    // if (e.Shift)
-                    // {
-                    // }
-                    // else
-                    // {
-                    // }
-                    //MessageBox.Show("K");
                     CropUsingKeyboard(e.KeyCode, e.Control, e.Shift, e.Alt);
                     break;
             }
@@ -357,9 +350,6 @@ namespace WindowsTools
                 return;
             }
 
-            //MessageBox.Show(String.Format("{0}, {1}, {2}", Ctrl, Shift, Alt));
-            //MessageBox.Show(key.ToString());
-
             var offset = 10;
             if (Ctrl)
             {
@@ -404,9 +394,6 @@ namespace WindowsTools
                     break;
             }
 
-            // MessageBox.Show(String.Format(
-            //     "{0}, {1}", left, top
-            // ));
             if (left != 0 ||
                 top != 0 ||
                 width != W ||
@@ -484,6 +471,32 @@ namespace WindowsTools
                 var tmp = pictureBox1.Image;
                 pictureBox1.Image = m_PreviousImage;
                 m_PreviousImage = tmp;
+            }
+        }
+
+        private void ToggleBigButtons()
+        {
+            if (this.btnEscapeCrop.Enabled)
+            {
+                this.btnEscapeCrop.Enabled = false;
+
+                this.chkBtnLeft.Enabled = false;
+                this.chkBtnTop.Enabled = false;
+                this.chkBtnBottom.Enabled = false;
+                this.chkBtnRight.Enabled = false;
+
+                this.toolStripBtnToggleBigButtons.Checked = false;
+            }
+            else
+            {
+                this.btnEscapeCrop.Enabled = true;
+
+                this.chkBtnLeft.Enabled = true;
+                this.chkBtnTop.Enabled = true;
+                this.chkBtnBottom.Enabled = true;
+                this.chkBtnRight.Enabled = true;
+
+                this.toolStripBtnToggleBigButtons.Checked = true;
             }
         }
 

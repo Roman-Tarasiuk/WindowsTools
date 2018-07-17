@@ -45,6 +45,8 @@
             this.toolStripBtnEscapeCrop = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripBtnBackground = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripBtnToggleBigButtons = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
@@ -74,7 +76,10 @@
             this.toolStripSeparator1,
             this.toolStripBtnEscapeCrop,
             this.toolStripSeparator3,
-            this.toolStripBtnBackground});
+            this.toolStripBtnBackground,
+            this.toolStripSeparator4,
+            this.toolStripBtnToggleBigButtons
+            });
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(672, 25);
@@ -203,6 +208,22 @@
             this.toolStripBtnBackground.Text = "Select background color";
             this.toolStripBtnBackground.Click += new System.EventHandler(this.toolStripBtnBackground_Click);
             //
+            // toolStripSeparator4
+            //
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            //
+            // toolStripBtnToggleBigButtons
+            //
+            this.toolStripBtnToggleBigButtons.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnToggleBigButtons.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnToggleBigButtons.Image")));
+            this.toolStripBtnToggleBigButtons.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnToggleBigButtons.Margin = new System.Windows.Forms.Padding(12, 1, 0, 2);
+            this.toolStripBtnToggleBigButtons.Name = "toolStripBtnToggleBigButtons";
+            this.toolStripBtnToggleBigButtons.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBtnToggleBigButtons.Text = "Toggle big buttons";
+            this.toolStripBtnToggleBigButtons.Click += new System.EventHandler(this.toolStripBtnToggleBigButtons_Click);
+            //
             // panel1
             //
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -242,6 +263,7 @@
             this.chkBtnBottom.UseVisualStyleBackColor = true;
             this.chkBtnBottom.Click += new System.EventHandler(this.chkBtnBottom_Click);
             this.chkBtnBottom.TabStop = false;
+            this.chkBtnBottom.Enabled = false;
             //
             // chkBtnRight
             //
@@ -259,6 +281,7 @@
             this.chkBtnRight.UseVisualStyleBackColor = true;
             this.chkBtnRight.Click += new System.EventHandler(this.chkBtnRight_Click);
             this.chkBtnRight.TabStop = false;
+            this.chkBtnRight.Enabled = false;
             //
             // chkBtnTop
             //
@@ -276,6 +299,7 @@
             this.chkBtnTop.UseVisualStyleBackColor = true;
             this.chkBtnTop.Click += new System.EventHandler(this.chkBtnTop_Click);
             this.chkBtnTop.TabStop = false;
+            this.chkBtnTop.Enabled = false;
             //
             // chkBtnLeft
             //
@@ -293,6 +317,7 @@
             this.chkBtnLeft.UseVisualStyleBackColor = true;
             this.chkBtnLeft.Click += new System.EventHandler(this.chkBtnLeft_Click);
             this.chkBtnLeft.TabStop = false;
+            this.chkBtnLeft.Enabled = false;
             //
             // btnEscapeCrop
             //
@@ -304,6 +329,7 @@
             this.btnEscapeCrop.UseVisualStyleBackColor = true;
             this.btnEscapeCrop.Click += new System.EventHandler(this.btnEscapeCrop_Click);
             this.btnEscapeCrop.TabStop = false;
+            this.btnEscapeCrop.Enabled = false;
             //
             // CropImageForm
             //
@@ -331,7 +357,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -351,7 +376,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripButton toolStripBtnBackground;
+        private System.Windows.Forms.ToolStripButton toolStripBtnToggleBigButtons;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem resetBackgroundColorToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorDialog1;
