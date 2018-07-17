@@ -7,7 +7,7 @@ Windows desktop (.NET, Windows Forms) application for<br>
 - activating windows by mouse hover&#42;;<br>
 - track a window is active; track a window's title;<br>
 - start screensaver / power off display (+ optional PC locking);<br>
-- download a bunch of files;<br>
+- download a bunch of files from Internet;<br>
 - display a directory's subfolders, files and their sizes;
 - customizing 'cmd' window;<br>
 - decode / encode %-like urls / strings;
