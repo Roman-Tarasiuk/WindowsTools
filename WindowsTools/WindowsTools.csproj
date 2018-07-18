@@ -110,6 +110,12 @@
     <Compile Include="PasswordSettingsForm.Designer.cs">
       <DependentUpon>PasswordSettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PromptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PromptForm.Designer.cs">
+      <DependentUpon>PromptForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RunningAppsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PasswordSettingsForm.resx">
       <DependentUpon>PasswordSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PromptForm.resx">
+      <DependentUpon>PromptForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RunningAppsForm.resx">
       <DependentUpon>RunningAppsForm.cs</DependentUpon>

@@ -1711,8 +1711,6 @@ namespace WindowsTools
             }
         }
 
-        #endregion
-
         private void timerSaveSettings_Tick(object sender, EventArgs e)
         {
             if (m_SettingsChanged)
@@ -1723,6 +1721,58 @@ namespace WindowsTools
 
                 m_SettingsChanged = false;
             }
+        }
+
+        private void ClipboardTextToWidth()
+        {
+            var text = Clipboard.GetText();
+
+            if (text == null || text == String.Empty)
+            {
+                return;
+            }
+
+            var promptForm = new PromptForm() { Description = "Enter width", UserInput = "120" };
+            var result = promptForm.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                var width = 0;
+                if (int.TryParse(promptForm.UserInput, out width))
+                {
+                    if (width <= 0)
+                    {
+                        MessageBox.Show("Width cannot be less than 0.", this.Text + " - Clipboard to width");
+                        return;
+                    }
+
+                    var rows = text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
+
+                    var resultString = new StringBuilder();
+
+                    for (var i = 0; i < rows.Length; i++)
+                    {
+                        resultString.AppendLine(StringToWidth(rows[i], width));
+                    }
+                }
+            }
+        }
+
+        private string StringToWidth(string s, int width)
+        {
+            
+        }
+
+        #endregion
+
+        private void clipboardTextToWidthToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clipboardTextToWidthToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
