@@ -808,6 +808,10 @@ namespace WindowsTools
             ClipboardToLowerCase();
         }
 
+        private void clipboarToWidthToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClipboardTextToWidth();
+        }
         // System tray context menu | Miscellaneous
 
         private void decodeClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -885,6 +889,10 @@ namespace WindowsTools
             ClipboardToLowerCase();
         }
 
+        private void clipboarToWidthToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ClipboardTextToWidth();
+        }
         // Menu items other than Miscellaneous set above these last 2 groups.
 
         #endregion
@@ -1732,7 +1740,18 @@ namespace WindowsTools
                 return;
             }
 
-            var promptForm = new PromptForm() { Description = "Enter width", UserInput = "120" };
+            var rows = text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
+
+            var maxLength = 0;
+            for (var i = 0; i < rows.Length; i++)
+            {
+                if (rows[i].Length > maxLength)
+                {
+                    maxLength = rows[i].Length;
+                }
+            }
+
+            var promptForm = new PromptForm() { Description = "Enter width", UserInput = maxLength.ToString() };
             var result = promptForm.ShowDialog();
 
             if (result == DialogResult.OK)
@@ -1746,33 +1765,53 @@ namespace WindowsTools
                         return;
                     }
 
-                    var rows = text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
-
                     var resultString = new StringBuilder();
 
                     for (var i = 0; i < rows.Length; i++)
                     {
                         resultString.AppendLine(StringToWidth(rows[i], width));
                     }
+
+                    Clipboard.SetText(resultString.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("Invalid width value.", this.Text + " - Clipboard to width");
                 }
             }
         }
 
         private string StringToWidth(string s, int width)
         {
-            
+            if (width <= s.Length)
+            {
+                return s.Substring(0, width);
+            }
+            else
+            {
+                var restLength = width - s.Length;
+
+                var resultString = new StringBuilder();
+
+                for (var i = 0; i < restLength; i++)
+                {
+                    resultString.Append(" ");
+                }
+
+                return s + resultString.ToString();
+            }
         }
 
         #endregion
 
         private void clipboardTextToWidthToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ClipboardTextToWidth();
         }
 
         private void clipboardTextToWidthToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            ClipboardTextToWidth();
         }
     }
 

@@ -12,12 +12,15 @@ namespace WindowsTools
 {
     public partial class PromptForm : Form
     {
-        public string Description { get; set; } = String.Empty;
-        public string UserInput { get; set; } = String.Empty;
+        public string Description { get; set; }
+        public string UserInput { get; set; }
 
         public PromptForm()
         {
             InitializeComponent();
+
+            Description = String.Empty;
+            UserInput = String.Empty;
 
             lblDescription.Text = this.Description;
             txtUserInput.Text = this.UserInput;
@@ -34,6 +37,12 @@ namespace WindowsTools
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void PromptForm_Shown(object sender, EventArgs e)
+        {
+            lblDescription.Text = this.Description;
+            txtUserInput.Text = this.UserInput;
         }
     }
 }
