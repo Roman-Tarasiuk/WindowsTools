@@ -95,11 +95,25 @@ namespace WindowsTools
         {
             if (e.Delta > 0 && this.Opacity < 1)
             {
-                this.Opacity += 0.1;
+                if (this.Opacity >= 0.1)
+                {
+                    this.Opacity += 0.1;
+                }
+                else
+                {
+                    this.Opacity += 0.01;
+                }
             }
-            else if (e.Delta < 0 && this.Opacity >= 0.2)
+            else if (e.Delta < 0 && this.Opacity > 0.01)
             {
-                this.Opacity -= 0.1;
+                if (this.Opacity > 0.1)
+                {
+                    this.Opacity -= 0.1;
+                }
+                else if (this.Opacity > 0.02)
+                {
+                    this.Opacity -= 0.01;
+                }
             }
         }
 
