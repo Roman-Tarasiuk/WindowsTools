@@ -61,6 +61,8 @@
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Location = new System.Drawing.Point(3, 3);
             this.lblInfo.Text = "";
+            this.lblInfo.Visible = false;
+            this.lblInfo.Click += new System.EventHandler(this.lblInfo_Click);
             //
             // handleMoveToolStripMenuItem
             //

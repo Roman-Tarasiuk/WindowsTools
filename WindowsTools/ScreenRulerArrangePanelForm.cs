@@ -15,7 +15,7 @@ namespace WindowsTools
 
         private bool m_MousePressed = false;
         int m_X, m_Y;
-        int m_HandlerX, m_HandlerY;
+        int m_HandlerX = 0, m_HandlerY = 0;
 
         public event EventHandler OpacityChanged;
 
@@ -27,6 +27,7 @@ namespace WindowsTools
             }
             set
             {
+                this.lblInfo.Visible = true;
                 this.lblInfo.Text = value;
             }
         }
@@ -35,14 +36,19 @@ namespace WindowsTools
         {
             InitializeComponent();
 
-            // this.LocationChanged += (handleSender, handleE) =>
-            // {
-            //     if (HandleMove != null && !HandleMove.IsDisposed)
-            //     {
-            //         m_HandlerX = HandleMove.Location.X - this.Location.X;
-            //         m_HandlerY = HandleMove.Location.Y - this.Location.Y;
-            //     }
-            // };
+            this.LocationChanged += (handleSender, handleE) =>
+            {
+                if (HandleMove != null && !HandleMove.IsDisposed)
+                {
+                    m_HandlerX = HandleMove.Location.X - this.Location.X;
+                    m_HandlerY = HandleMove.Location.Y - this.Location.Y;
+                }
+                else
+                {
+                    m_HandlerX = 0;
+                    m_HandlerY = 0;
+                }
+            };
         }
 
         protected override CreateParams CreateParams
@@ -56,12 +62,17 @@ namespace WindowsTools
             }
         }
 
+        private void lblInfo_Click(object sender, EventArgs e)
+        {
+            lblInfo.Visible = false;
+        }
+
         private void handleMoveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (HandleMove == null || HandleMove.IsDisposed)
             {
                 HandleMove = new ScreenRulerArrangePanelForm();
-                HandleMove.ClientSize = new System.Drawing.Size(20, 20);
+                HandleMove.ClientSize = new System.Drawing.Size(28, 20);
                 HandleMove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
                 HandleMove.Location = this.Location;
                 HandleMove.StartPosition = FormStartPosition.Manual;
@@ -74,10 +85,10 @@ namespace WindowsTools
                     this.Location = new Point(HandleMove.Location.X - m_HandlerX, HandleMove.Location.Y - m_HandlerY);
                 };
 
-                // this.OpacityChanged += (handleSender, handleE) =>
-                // {
-                //     HandleMove.Info = this.Opacity.ToString();
-                // };
+                this.OpacityChanged += (handleSender, handleE) =>
+                {
+                    HandleMove.Info = this.Opacity.ToString();
+                };
             }
         }
 
@@ -129,12 +140,12 @@ namespace WindowsTools
             }
             else if (e.Delta < 0 && this.Opacity > 0.01)
             {
-                if (this.Opacity > 0.1)
+                if (this.Opacity >= 0.2)
                 {
                     this.Opacity -= 0.1;
                     opacityChanged = true;
                 }
-                else if (this.Opacity > 0.02)
+                else if (this.Opacity >= 0.02)
                 {
                     this.Opacity -= 0.01;
                     opacityChanged = true;
