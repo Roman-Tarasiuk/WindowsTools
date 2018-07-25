@@ -907,6 +907,8 @@ namespace WindowsTools
                 return;
             }
 
+            logger.Log(NLog.LogLevel.Info, "Refresh windows list started...");
+
             m_RefreshStarted = true;
 
             var visibleOnly = this.chkVisibleOnly.Checked;
@@ -922,6 +924,8 @@ namespace WindowsTools
             }
 
             lblWindowsCount.Text = runningWindows.Count.ToString();
+
+            logger.Log(NLog.LogLevel.Info, "Refresh windows list finished.");
 
             m_RefreshStarted = false;
         }

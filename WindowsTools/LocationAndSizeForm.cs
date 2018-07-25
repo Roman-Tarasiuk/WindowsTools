@@ -28,8 +28,6 @@ namespace WindowsTools
 
         private FieldSet m_CurrentFieldSet;
 
-        NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
-
         public event EventHandler SettingsChanged;
 
         #endregion
