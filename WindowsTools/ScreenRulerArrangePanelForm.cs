@@ -175,7 +175,27 @@ namespace WindowsTools
             if (result == DialogResult.OK)
             {
                 this.BackColor = this.colorDialog1.Color;
+
+                ChangeTaskbarIcon(this.BackColor);
             }
+        }
+
+        private void ChangeTaskbarIcon(Color color)
+        {
+            var width = 20;
+            var height = 20;
+
+            var bmp = new Bitmap(width, height);
+
+            for (var i = 0; i < height; i++)
+            {
+                for (var j = 0; j < width; j++)
+                {
+                    bmp.SetPixel(j, i, color);
+                }
+            }
+
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
 
         private void topmostToolStripMenuItem_Click(object sender, EventArgs e)
