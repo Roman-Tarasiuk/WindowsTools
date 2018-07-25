@@ -907,7 +907,10 @@ namespace WindowsTools
                 return;
             }
 
-            logger.Log(NLog.LogLevel.Info, "Refresh windows list started...");
+            if (Properties.Settings.Default.MainForm_LogRefresh)
+            {
+                logger.Log(NLog.LogLevel.Info, "Refresh windows list started...");
+            }
 
             m_RefreshStarted = true;
 
@@ -925,7 +928,10 @@ namespace WindowsTools
 
             lblWindowsCount.Text = runningWindows.Count.ToString();
 
-            logger.Log(NLog.LogLevel.Info, "Refresh windows list finished.");
+            if (Properties.Settings.Default.MainForm_LogRefresh)
+            {
+                logger.Log(NLog.LogLevel.Info, "Refresh windows list finished.");
+            }
 
             m_RefreshStarted = false;
         }

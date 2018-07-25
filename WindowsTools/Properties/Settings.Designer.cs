@@ -9,20 +9,20 @@
 //------------------------------------------------------------------------------
 
 namespace WindowsTools.Properties {
-    
-    
+
+
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
+
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-        
+
         public static Settings Default {
             get {
                 return defaultInstance;
             }
         }
-        
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
@@ -34,7 +34,7 @@ namespace WindowsTools.Properties {
                 this["LocationAndSizeForm_Location"] = value;
             }
         }
-        
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
@@ -46,7 +46,7 @@ namespace WindowsTools.Properties {
                 this["PasswordsForm_Location"] = value;
             }
         }
-        
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
@@ -58,7 +58,7 @@ namespace WindowsTools.Properties {
                 this["SendCommandsForm_Location"] = value;
             }
         }
-        
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
@@ -70,7 +70,7 @@ namespace WindowsTools.Properties {
                 this["WindowsTrackingForm_Location"] = value;
             }
         }
-        
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("%SystemRoot%\\System32\\ssText3d.scr")]
@@ -82,7 +82,7 @@ namespace WindowsTools.Properties {
                 this["ScreenSaverPath"] = value;
             }
         }
-        
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://your.proxy:8080")]
@@ -94,7 +94,7 @@ namespace WindowsTools.Properties {
                 this["DownloaderForm_Proxy"] = value;
             }
         }
-        
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
@@ -106,7 +106,7 @@ namespace WindowsTools.Properties {
                 this["DownloaderForm_Username"] = value;
             }
         }
-        
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
@@ -116,6 +116,18 @@ namespace WindowsTools.Properties {
             }
             set {
                 this["DownloaderForm_LocalPath"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public bool MainForm_LogRefresh {
+            get {
+                return ((bool)(this["MainForm_LogRefresh"]));
+            }
+            set {
+                this["MainForm_LogRefresh"] = value;
             }
         }
     }
