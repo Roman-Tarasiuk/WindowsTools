@@ -17,18 +17,32 @@ namespace WindowsTools
         int m_X, m_Y;
         int m_HandlerX, m_HandlerY;
 
+        public event EventHandler OpacityChanged;
+
+        public string Info
+        {
+            get
+            {
+                return this.lblInfo.Text;
+            }
+            set
+            {
+                this.lblInfo.Text = value;
+            }
+        }
+
         public ScreenRulerArrangePanelForm()
         {
             InitializeComponent();
 
-            this.LocationChanged += (handleSender, handleE) =>
-            {
-                if (HandleMove != null && !HandleMove.IsDisposed)
-                {
-                    m_HandlerX = HandleMove.Location.X - this.Location.X;
-                    m_HandlerY = HandleMove.Location.Y - this.Location.Y;
-                }
-            };
+            // this.LocationChanged += (handleSender, handleE) =>
+            // {
+            //     if (HandleMove != null && !HandleMove.IsDisposed)
+            //     {
+            //         m_HandlerX = HandleMove.Location.X - this.Location.X;
+            //         m_HandlerY = HandleMove.Location.Y - this.Location.Y;
+            //     }
+            // };
         }
 
         protected override CreateParams CreateParams
@@ -59,6 +73,11 @@ namespace WindowsTools
                 {
                     this.Location = new Point(HandleMove.Location.X - m_HandlerX, HandleMove.Location.Y - m_HandlerY);
                 };
+
+                // this.OpacityChanged += (handleSender, handleE) =>
+                // {
+                //     HandleMove.Info = this.Opacity.ToString();
+                // };
             }
         }
 
@@ -93,15 +112,19 @@ namespace WindowsTools
 
         private void ScreenRulerHelperForm_MouseWheel(object sender, MouseEventArgs e)
         {
+            var opacityChanged = false;
+
             if (e.Delta > 0 && this.Opacity < 1)
             {
                 if (this.Opacity >= 0.1)
                 {
                     this.Opacity += 0.1;
+                    opacityChanged = true;
                 }
                 else
                 {
                     this.Opacity += 0.01;
+                    opacityChanged = true;
                 }
             }
             else if (e.Delta < 0 && this.Opacity > 0.01)
@@ -109,11 +132,26 @@ namespace WindowsTools
                 if (this.Opacity > 0.1)
                 {
                     this.Opacity -= 0.1;
+                    opacityChanged = true;
                 }
                 else if (this.Opacity > 0.02)
                 {
                     this.Opacity -= 0.01;
+                    opacityChanged = true;
                 }
+            }
+
+            if (opacityChanged)
+            {
+                OnOpacityChanged();
+            }
+        }
+
+        protected void OnOpacityChanged()
+        {
+            if (this.OpacityChanged != null)
+            {
+                this.OpacityChanged(this, EventArgs.Empty);
             }
         }
 

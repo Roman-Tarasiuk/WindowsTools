@@ -40,6 +40,7 @@
             this.showInTaskbarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             //
@@ -54,6 +55,12 @@
             this.closeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(178, 136);
+            //
+            // lblInfo
+            //
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Location = new System.Drawing.Point(3, 3);
+            this.lblInfo.Text = "";
             //
             // handleMoveToolStripMenuItem
             //
@@ -101,6 +108,7 @@
             //
             // ScreenRulerArrangePanelForm
             //
+            this.Controls.Add(this.lblInfo);
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -131,5 +139,6 @@
         private System.Windows.Forms.ToolStripMenuItem topmostToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showInTaskbarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem handleMoveToolStripMenuItem;
+        private System.Windows.Forms.Label lblInfo;
     }
 }
