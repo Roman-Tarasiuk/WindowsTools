@@ -208,6 +208,15 @@
     <Compile Include="TextInfoForm.Designer.cs">
       <DependentUpon>TextInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransparentDraggablePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TransparentWindowToolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransparentWindowToolForm.Designer.cs">
+      <DependentUpon>TransparentWindowToolForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WindowTitleTrackingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TextInfoForm.resx">
       <DependentUpon>TextInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransparentWindowToolForm.resx">
+      <DependentUpon>TransparentWindowToolForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WindowTitleTrackingForm.resx">
       <DependentUpon>WindowTitleTrackingForm.cs</DependentUpon>

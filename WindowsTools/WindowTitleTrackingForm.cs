@@ -22,9 +22,6 @@ namespace WindowsTools
 
         IntPtr m_Hwnd;
 
-        private bool m_MouseIsDown = false;
-        private Point m_MouseDownCoordinates;
-
         #endregion
 
 
@@ -52,40 +49,17 @@ namespace WindowsTools
         {
             // The panel for moving the form by any point.
 
-            this.panel1 = new TransparentPanel();
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 31);
-            this.panel1.TabIndex = 1;
+            this.panel1 = new TransparentDraggablePanel(this)
+            {
+                Name = "panel1",
+                Location = new System.Drawing.Point(0, 0),
+                Size = new System.Drawing.Size(220, 31),
+                TabIndex = 1
+            };
 
             this.Controls.Add(this.panel1);
 
             panel1.BringToFront();
-
-            panel1.MouseDown += (sender, e) =>
-            {
-                m_MouseIsDown = true;
-                m_MouseDownCoordinates = e.Location;
-            };
-
-            panel1.MouseUp += (sender, e) =>
-            {
-                m_MouseIsDown = false;
-            };
-
-            panel1.MouseMove += (sender, e) =>
-            {
-                if (m_MouseIsDown)
-                {
-                    Point LocationNew = new Point(this.Location.X + e.Location.X - m_MouseDownCoordinates.X,
-                        this.Location.Y + e.Location.Y - m_MouseDownCoordinates.Y);
-
-                    this.Location = LocationNew;
-                }
-            };
         }
 
         protected override CreateParams CreateParams
@@ -138,6 +112,31 @@ namespace WindowsTools
             DisplayTitle();
         }
 
+        private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void WindowTitleTrackingForm_Paint(object sender, PaintEventArgs e)
+        {
+            if (m_Properties.BorderWidth == 0)
+            {
+                return;
+            }
+
+            e.Graphics.DrawRectangle
+            (
+                new Pen(m_Properties.BorderColor, m_Properties.BorderWidth),
+                new Rectangle
+                (
+                    m_Properties.BorderWidth / 2,
+                    m_Properties.BorderWidth / 2,
+                    this.Size.Width - m_Properties.BorderWidth,
+                    this.Size.Height - m_Properties.BorderWidth
+                    )
+            );
+        }
+
         #endregion
 
 
@@ -168,47 +167,5 @@ namespace WindowsTools
         }
 
         #endregion
-
-        private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void WindowTitleTrackingForm_Paint(object sender, PaintEventArgs e)
-        {
-            if (m_Properties.BorderWidth == 0)
-            {
-                return;
-            }
-
-            e.Graphics.DrawRectangle
-            (
-                new Pen(m_Properties.BorderColor, m_Properties.BorderWidth),
-                new Rectangle
-                (
-                    m_Properties.BorderWidth / 2,
-                    m_Properties.BorderWidth / 2,
-                    this.Size.Width - m_Properties.BorderWidth,
-                    this.Size.Height - m_Properties.BorderWidth
-                    )
-            );
-        }
-    }
-
-    public class TransparentPanel : Panel
-    {
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x00000020; // WS_EX_TRANSPARENT
-                return cp;
-            }
-        }
-        protected override void OnPaintBackground(PaintEventArgs e)
-        {
-            //base.OnPaintBackground(e);
-        }
     }
 }
