@@ -187,12 +187,9 @@ namespace WindowsTools
 
             var bmp = new Bitmap(width, height);
 
-            for (var i = 0; i < height; i++)
+            using (Graphics g = Graphics.FromImage(bmp))
             {
-                for (var j = 0; j < width; j++)
-                {
-                    bmp.SetPixel(j, i, color);
-                }
+                g.FillRectangle(new SolidBrush(color), 0, 0, width, height);
             }
 
             this.Icon = Icon.FromHandle(bmp.GetHicon());
