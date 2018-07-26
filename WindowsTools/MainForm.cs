@@ -233,6 +233,11 @@ namespace WindowsTools
             MoveWindow();
         }
 
+        private void setTransparencyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetTransparency();
+        }
+
         private void passwordsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Passwords();
@@ -1189,6 +1194,55 @@ namespace WindowsTools
             User32Windows.ShowForm(m_LocationForm);
 
             this.RefreshWindowsList();
+        }
+
+        [DllImport("user32.dll")]
+        static extern bool SetLayeredWindowAttributes(IntPtr hwnd, uint crKey, byte bAlpha, uint dwFlags);
+
+        [DllImport("user32.dll", EntryPoint="GetWindowLong")]
+        static extern IntPtr GetWindowLong(IntPtr hWnd, int nIndex);
+
+        [DllImport("user32.dll", EntryPoint="SetWindowLong")]
+        private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+        public const int GWL_EXSTYLE = -20;
+        public const int WS_EX_LAYERED = 0x80000;
+        public const int LWA_ALPHA = 0x2;
+        public const int LWA_COLORKEY = 0x1;
+
+        private bool firstTime = true;
+
+        private void SetTransparency()
+        {
+            var selected = -1;
+            if (lstWindowsList.SelectedIndices.Count > 0)
+            {
+                selected = this.lstWindowsList.SelectedIndices[0];
+            }
+
+            if (selected == -1)
+            {
+                return;
+            }
+
+            var promptForm = new PromptForm() { Description = "Enter transparency 0-255:", UserInput = "128" };
+
+            var result = promptForm.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                var handle = m_ListedWindows[selected].Handle;
+                int transparency;
+                if (int.TryParse(promptForm.UserInput, out transparency))
+                {
+                    if (firstTime)
+                    {
+                        SetWindowLong(handle, GWL_EXSTYLE, GetWindowLong(handle, GWL_EXSTYLE).ToInt32() ^ WS_EX_LAYERED);
+                        firstTime = false;
+                    }
+                    SetLayeredWindowAttributes(handle, 0, (byte)transparency, LWA_ALPHA);
+                }
+            }
         }
 
         private void Passwords()

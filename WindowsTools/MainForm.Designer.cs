@@ -87,6 +87,7 @@
             this.hideSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showHiddenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moveWindowToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.setTransparencyToolStripMenuItem  = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
             this.addToTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
@@ -584,6 +585,7 @@
             this.hideSelectedToolStripMenuItem,
             this.showHiddenToolStripMenuItem,
             this.moveWindowToolStripMenuItem1,
+            this.setTransparencyToolStripMenuItem,
             this.toolStripSeparator17,
             this.addToTrackingToolStripMenuItem,
             this.toolStripSeparator8,
@@ -617,6 +619,13 @@
             this.moveWindowToolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
             this.moveWindowToolStripMenuItem1.Text = "Move window...";
             this.moveWindowToolStripMenuItem1.Click += new System.EventHandler(this.moveWindowToolStripMenuItem1_Click);
+            //
+            // setTransparencyToolStripMenuItem
+            //
+            this.setTransparencyToolStripMenuItem.Name = "setTransparencyToolStripMenuItem";
+            this.setTransparencyToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.setTransparencyToolStripMenuItem.Text = "Set transparency...";
+            this.setTransparencyToolStripMenuItem.Click += new System.EventHandler(this.setTransparencyToolStripMenuItem_Click);
             //
             // toolStripSeparator17
             //
@@ -1256,7 +1265,8 @@
         private System.Windows.Forms.Button btnHideWindow;
         private System.Windows.Forms.Button btnShowHidden;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripWindowsList;
-        private System.Windows.Forms.ToolStripMenuItem moveWindowToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem moveWindowToolStripMenuItem1; // there also exists moveWindowToolStripMenuItem
+        private System.Windows.Forms.ToolStripMenuItem setTransparencyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem passwordsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem passwordsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
