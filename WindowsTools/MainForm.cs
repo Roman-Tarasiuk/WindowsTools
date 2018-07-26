@@ -1199,6 +1199,9 @@ namespace WindowsTools
         [DllImport("user32.dll")]
         static extern bool SetLayeredWindowAttributes(IntPtr hwnd, uint crKey, byte bAlpha, uint dwFlags);
 
+        [DllImport("user32.dll", SetLastError=true)]
+        static extern bool GetLayeredWindowAttributes(IntPtr hwnd, out uint crKey, out byte bAlpha, out uint dwFlags);
+
         [DllImport("user32.dll", EntryPoint="GetWindowLong")]
         static extern IntPtr GetWindowLong(IntPtr hWnd, int nIndex);
 
@@ -1225,13 +1228,19 @@ namespace WindowsTools
                 return;
             }
 
-            var promptForm = new PromptForm() { Description = "Enter transparency 0-255:", UserInput = "128" };
+            var handle = m_ListedWindows[selected].Handle;
+
+            uint tmp1 = 0;
+            uint tmp2 = 0;
+            byte currentTransparency;
+            GetLayeredWindowAttributes(handle, out tmp1, out currentTransparency, out tmp2);
+
+            var promptForm = new PromptForm() { Description = "Enter transparency 0-255:", UserInput = currentTransparency.ToString() };
 
             var result = promptForm.ShowDialog();
 
             if (result == DialogResult.OK)
             {
-                var handle = m_ListedWindows[selected].Handle;
                 int transparency;
                 if (int.TryParse(promptForm.UserInput, out transparency))
                 {
