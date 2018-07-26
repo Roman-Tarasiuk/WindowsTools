@@ -219,13 +219,8 @@ namespace User32Helper
                     return true;
                 }
 
-                Icon icon = null;
-                try
-                {
-                    var path = NativeMethods.GetProcessPath(hWnd);
-                    icon = Icon.ExtractAssociatedIcon(path);
-                }
-                catch { }
+                Icon icon = GetIcon(hWnd);
+                
 
                 int processId;
                 User32Windows.GetWindowThreadProcessId(hWnd, out processId);
@@ -245,6 +240,21 @@ namespace User32Helper
             EnumDesktopWindows(IntPtr.Zero, AcquireMatchingWindows, IntPtr.Zero);
 
             return collection;
+        }
+
+        public static Icon GetIcon(IntPtr hWnd)
+        {
+            try
+            {
+                var path = NativeMethods.GetProcessPath(hWnd);
+                var icon = Icon.ExtractAssociatedIcon(path);
+
+                return icon;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public static DesktopWindow GetLastActiveWindow(bool visibleOnly = true,
