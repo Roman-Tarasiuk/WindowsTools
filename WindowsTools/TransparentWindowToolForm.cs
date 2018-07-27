@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using User32Helper;
+using Microsoft.Win32;
 
 namespace WindowsTools
 {
@@ -74,7 +75,16 @@ namespace WindowsTools
 
             panel1.BringToFront();
 
-            this.panel1.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.TransparentWindowToolForm_MouseWheel);
+            if (IsWindows10())
+            {
+                this.panel1.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.TransparentWindowToolForm_MouseWheel);
+            }
+            else
+            {
+                this.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.TransparentWindowToolForm_MouseWheel);
+            }
+
+            this.panel1.DoubleClick += new System.EventHandler(this.TransparentWindowToolForm_DoubleClick);
         }
 
         private void TransparentWindowToolForm_MouseWheel(object sender, MouseEventArgs e)
@@ -124,17 +134,19 @@ namespace WindowsTools
             }
         }
 
+        private void TransparentWindowToolForm_DoubleClick(object sender, EventArgs e)
+        {
+            User32Windows.SetForegroundWindow(m_Handle);
+        }
+
         private void ChangeTransparency(byte transparency)
         {
             // uint tmp1 = 0;
             // uint tmp2 = 0;
             // byte currentTransparency;
             // GetLayeredWindowAttributes(m_Handle, out tmp1, out currentTransparency, out tmp2);
-            //
             // var promptForm = new PromptForm() { Description = "Enter transparency 0-255:", UserInput = currentTransparency.ToString() };
-            // 
             // var result = promptForm.ShowDialog();
-            //
             // if (int.TryParse(promptForm.UserInput, out transparency))
 
             if (m_FirstRun)
@@ -184,6 +196,15 @@ namespace WindowsTools
         {
             this.ShowInTaskbar = !this.ShowInTaskbar;
             this.showInTaskbarToolStripMenuItem.Checked = this.ShowInTaskbar;
+        }
+
+        static bool IsWindows10()
+        {
+            var reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
+
+            string productName = (string)reg.GetValue("ProductName");
+
+            return productName.StartsWith("Windows 10");
         }
     }
 }
