@@ -137,6 +137,7 @@ namespace WindowsTools
         private void TransparentWindowToolForm_DoubleClick(object sender, EventArgs e)
         {
             User32Windows.SetForegroundWindow(m_Handle);
+            User32Windows.SetForegroundWindow(this.Handle);
         }
 
         private void ChangeTransparency(byte transparency)
