@@ -80,9 +80,8 @@ namespace WindowsTools
         private void TransparentWindowToolForm_MouseWheel(object sender, MouseEventArgs e)
         {
             byte tmp = m_Transparency;
-            byte tmp2 = 0;
-            byte step = 10;
 
+            byte step = 10;
             if (m_AltKey)
             {
                 step = 30;
@@ -94,20 +93,28 @@ namespace WindowsTools
 
             if (e.Delta > 0)
             {
-                tmp2 = (byte)(m_Transparency + step);
+                var tmp2 = (byte)(m_Transparency + step);
 
                 if (tmp2 >= m_Transparency)
                 {
                     m_Transparency = tmp2;
                 }
+                else
+                {
+                    m_Transparency = 255;
+                }
             }
             else if (e.Delta < 0)
             {
-                tmp2 = (byte)(m_Transparency - step);
+                var tmp2 = (byte)(m_Transparency - step);
 
                 if (tmp2 <= m_Transparency)
                 {
                     m_Transparency = tmp2;
+                }
+                else
+                {
+                    m_Transparency = 0;
                 }
             }
 
@@ -119,11 +126,11 @@ namespace WindowsTools
 
         private void ChangeTransparency(byte transparency)
         {
-            uint tmp1 = 0;
-            uint tmp2 = 0;
-            byte currentTransparency;
-            //GetLayeredWindowAttributes(m_Handle, out tmp1, out currentTransparency, out tmp2);
-
+            // uint tmp1 = 0;
+            // uint tmp2 = 0;
+            // byte currentTransparency;
+            // GetLayeredWindowAttributes(m_Handle, out tmp1, out currentTransparency, out tmp2);
+            //
             // var promptForm = new PromptForm() { Description = "Enter transparency 0-255:", UserInput = currentTransparency.ToString() };
             // 
             // var result = promptForm.ShowDialog();
