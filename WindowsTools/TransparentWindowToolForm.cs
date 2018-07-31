@@ -185,13 +185,12 @@ namespace WindowsTools
                 case Keys.D0:
                 case Keys.NumPad0:
                     CheckFirstRun();
-                    m_Transparency = 0;
-                    SetLayeredWindowAttributes(m_Handle, 0, m_Transparency, LWA_ALPHA);
+                    byte transparency = 0;
+                    SetLayeredWindowAttributes(m_Handle, 0, transparency, LWA_ALPHA);
                     break;
                 case Keys.D1:
                 case Keys.NumPad1:
                     CheckFirstRun();
-                    m_Transparency = 255;
                     SetLayeredWindowAttributes(m_Handle, 0, m_Transparency, LWA_ALPHA);
                     break;
                 case Keys.Up:
