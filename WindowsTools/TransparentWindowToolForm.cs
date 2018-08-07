@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using User32Helper;
@@ -89,6 +90,8 @@ namespace WindowsTools
 
         private void TransparentWindowToolForm_MouseWheel(object sender, MouseEventArgs e)
         {
+            CheckFirstRun();
+
             byte tmp = m_Transparency;
 
             byte step = 10;
@@ -130,7 +133,24 @@ namespace WindowsTools
 
             if (tmp != m_Transparency)
             {
-                ChangeTransparency(m_Transparency);
+                SetLayeredWindowAttributes(m_Handle, 0, m_Transparency, LWA_ALPHA);
+            }
+        }
+
+        private void CheckFirstRun()
+        {
+            if (m_FirstRun)
+            {
+                uint tmp1 = 0;
+                uint tmp2 = 0;
+                GetLayeredWindowAttributes(m_Handle, out tmp1, out m_Transparency, out tmp2);
+
+                if (m_Transparency == 255)
+                {
+                    SetWindowLong(m_Handle, GWL_EXSTYLE, GetWindowLong(m_Handle, GWL_EXSTYLE).ToInt32() ^ WS_EX_LAYERED);
+                }
+
+                m_FirstRun = false;
             }
         }
 
@@ -140,23 +160,11 @@ namespace WindowsTools
             User32Windows.SetForegroundWindow(this.Handle);
         }
 
-        private void ChangeTransparency(byte transparency)
+        private void ChangeTransparency()
         {
-            // uint tmp1 = 0;
-            // uint tmp2 = 0;
-            // byte currentTransparency;
-            // GetLayeredWindowAttributes(m_Handle, out tmp1, out currentTransparency, out tmp2);
             // var promptForm = new PromptForm() { Description = "Enter transparency 0-255:", UserInput = currentTransparency.ToString() };
             // var result = promptForm.ShowDialog();
             // if (int.TryParse(promptForm.UserInput, out transparency))
-
-            if (m_FirstRun)
-            {
-                SetWindowLong(m_Handle, GWL_EXSTYLE, GetWindowLong(m_Handle, GWL_EXSTYLE).ToInt32() ^ WS_EX_LAYERED);
-                m_FirstRun = false;
-            }
-
-            SetLayeredWindowAttributes(m_Handle, 0, transparency, LWA_ALPHA);
         }
 
         private void TransparentWindowToolForm_KeyDown(object sender, KeyEventArgs e)
@@ -164,10 +172,39 @@ namespace WindowsTools
             if (e.Control)
             {
                 m_CtrlKey = true;
+                return;
             }
             if (e.Alt)
             {
                 m_AltKey = true;
+                return;
+            }
+
+            switch (e.KeyData)
+            {
+                case Keys.D0:
+                case Keys.NumPad0:
+                    CheckFirstRun();
+                    byte transparency = 0;
+                    SetLayeredWindowAttributes(m_Handle, 0, transparency, LWA_ALPHA);
+                    break;
+                case Keys.D1:
+                case Keys.NumPad1:
+                    CheckFirstRun();
+                    SetLayeredWindowAttributes(m_Handle, 0, m_Transparency, LWA_ALPHA);
+                    break;
+                case Keys.Up:
+                    User32Windows.SetForegroundWindow(m_Handle);
+                    Thread.Sleep(100);
+                    SendKeys.Send("{UP}");
+                    User32Windows.SetForegroundWindow(this.Handle);
+                    break;
+                case Keys.Down:
+                    User32Windows.SetForegroundWindow(m_Handle);
+                    Thread.Sleep(100);
+                    SendKeys.Send("{DOWN}");
+                    User32Windows.SetForegroundWindow(this.Handle);
+                    break;
             }
         }
 
@@ -180,6 +217,8 @@ namespace WindowsTools
         private void resetTransparencyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.m_FirstRun = true;
+            m_Transparency = 255;
+            SetLayeredWindowAttributes(m_Handle, 0, m_Transparency, LWA_ALPHA);
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
