@@ -65,6 +65,9 @@ namespace WindowsTools
                 TabIndex = 1
             };
 
+            var title = User32Windows.GetWindowText(m_Handle, 255);
+            this.Text = "Transparent - " + title;
+
             var icon = User32Windows.GetIcon(m_Handle);
 
             if (icon != null)
