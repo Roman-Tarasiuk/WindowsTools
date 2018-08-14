@@ -12,6 +12,7 @@ namespace WindowsTools
     public partial class PasswordSettingsForm : Form
     {
         public bool ActivateLastWindow { get; set; }
+        public bool ShowSystemTrayIcon { get; set; }
 
         public PasswordSettingsForm()
         {
@@ -23,11 +24,17 @@ namespace WindowsTools
         private void PasswordSettingsForm_Shown(object sender, EventArgs e)
         {
             chkActivateLastWindow.Checked = ActivateLastWindow;
+            chkShowSystemTrayIcon.Checked = ShowSystemTrayIcon;
         }
 
         private void PasswordSettingsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             ActivateLastWindow = chkActivateLastWindow.Checked;
+        }
+
+        private void chkShowSystemTrayIcon_CheckedChanged(object sender, EventArgs e)
+        {
+            this.ShowSystemTrayIcon = chkShowSystemTrayIcon.Checked;
         }
     }
 }

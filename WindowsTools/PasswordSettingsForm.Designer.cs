@@ -31,6 +31,7 @@
             this.chkActivateLastWindow = new System.Windows.Forms.CheckBox();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.chkShowSystemTrayIcon = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // chkActivateLastWindow
@@ -68,11 +69,23 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // chkShowInTaskbar
+            // 
+            this.chkShowSystemTrayIcon.AutoSize = true;
+            this.chkShowSystemTrayIcon.Location = new System.Drawing.Point(12, 35);
+            this.chkShowSystemTrayIcon.Name = "chkShowInTaskbar";
+            this.chkShowSystemTrayIcon.Size = new System.Drawing.Size(102, 17);
+            this.chkShowSystemTrayIcon.TabIndex = 14;
+            this.chkShowSystemTrayIcon.Text = "Show in taskbar";
+            this.chkShowSystemTrayIcon.UseVisualStyleBackColor = true;
+            this.chkShowSystemTrayIcon.CheckedChanged += new System.EventHandler(this.chkShowSystemTrayIcon_CheckedChanged);
+            // 
             // PasswordSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(415, 74);
+            this.Controls.Add(this.chkShowSystemTrayIcon);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.chkActivateLastWindow);
@@ -90,5 +103,6 @@
         private System.Windows.Forms.CheckBox chkActivateLastWindow;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.CheckBox chkShowSystemTrayIcon;
     }
 }

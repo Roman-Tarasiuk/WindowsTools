@@ -303,12 +303,16 @@ namespace WindowsTools
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            var passwordSettingsForm = new PasswordSettingsForm { ActivateLastWindow = m_ActivateLastActiveWindow };
+            var passwordSettingsForm = new PasswordSettingsForm {
+                ActivateLastWindow = m_ActivateLastActiveWindow,
+                ShowSystemTrayIcon = this.notifyIcon1.Visible
+            };
 
             var result = passwordSettingsForm.ShowDialog();
             if (result == DialogResult.OK)
             {
                 m_ActivateLastActiveWindow = passwordSettingsForm.ActivateLastWindow;
+                this.notifyIcon1.Visible = passwordSettingsForm.ShowSystemTrayIcon;
             }
         }
 
