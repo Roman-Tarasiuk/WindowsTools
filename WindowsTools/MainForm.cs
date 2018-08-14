@@ -614,7 +614,7 @@ namespace WindowsTools
 
         private void passwordsToolStripMenuItem1_DropDownOpening(object sender, EventArgs e)
         {
-            BuildPasswordsList();
+            BuildPasswordsList(passwordsToolStripMenuItem1.DropDownItems, ref m_RebuldPasswordMenu);
         }
 
         private void directorySizeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1231,6 +1231,8 @@ namespace WindowsTools
                 {
                     m_SettingsChanged = true;
                 };
+
+                m_PasswordForm.MainForm = this;
             }
 
             User32Windows.ShowForm(m_PasswordForm);
@@ -1435,16 +1437,14 @@ namespace WindowsTools
             return text.Length > maxLength ? text.Substring(0, maxLength - 3) + "..." : text;
         }
 
-        private void BuildPasswordsList()
+        public void BuildPasswordsList(ToolStripItemCollection passMenu, ref bool rebuild)
         {
             if (m_PasswordForm == null || m_PasswordForm.IsDisposed)
             {
                 return;
             }
 
-            var passMenu = passwordsToolStripMenuItem1.DropDownItems;
-
-            if (!m_RebuldPasswordMenu)
+            if (!rebuild)
             {
                 SetFirstMenuItem(passMenu);
                 return;
@@ -1484,7 +1484,7 @@ namespace WindowsTools
 
             this.ResumeLayout();
 
-            m_RebuldPasswordMenu = false;
+            rebuild = false;
         }
 
         private void SetFirstMenuItem(ToolStripItemCollection passMenu)

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Reflection;
 
 using User32Helper;
 using WindowsTools.Infrastructure;
@@ -25,6 +26,8 @@ namespace WindowsTools
         private DateTime m_BlockStartTime;
         private bool m_EnablePasswordCopy = true;
 
+        private bool m_NeedRebuildTrayMenu = false;
+
         private Color m_BackColor;
 
         private PinForm m_PinForm;
@@ -38,6 +41,7 @@ namespace WindowsTools
 
         #region Public Properties and Methods
 
+        public MainForm MainForm { get; set; }
         public event EventHandler PasswordsChanged;
         public event EventHandler SettingsChanged;
 
@@ -148,6 +152,8 @@ namespace WindowsTools
 
         protected void OnPasswordsChanged()
         {
+            m_NeedRebuildTrayMenu = true;
+
             if (PasswordsChanged != null)
             {
                 PasswordsChanged.Invoke(this, EventArgs.Empty);
@@ -170,6 +176,16 @@ namespace WindowsTools
 
 
         #region Controls' event handlers
+
+        private void contextMenuStripSysTray_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MainForm.BuildPasswordsList(contextMenuStripSysTray.Items, ref m_NeedRebuildTrayMenu);
+        }
+
+        private void notifyIcon1_Click(object sender, EventArgs e)
+        {
+            ShowMenu();
+        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -461,6 +477,12 @@ namespace WindowsTools
             }
 
             User32Windows.SetForegroundWindow(hwnd);
+        }
+
+        private void ShowMenu()
+        {
+            MethodInfo mi = typeof(NotifyIcon).GetMethod("ShowContextMenu", BindingFlags.Instance | BindingFlags.NonPublic);
+            mi.Invoke(notifyIcon1, null);
         }
     }
 
