@@ -26,7 +26,8 @@ namespace WindowsTools
         private DateTime m_BlockStartTime;
         private bool m_EnablePasswordCopy = true;
 
-        private bool m_NeedRebuildTrayMenu = false;
+        private bool m_NeedRebuildTrayMenu = true;
+        private bool m_MenuBuilt = false;
 
         private Color m_BackColor;
 
@@ -152,6 +153,12 @@ namespace WindowsTools
 
         protected void OnPasswordsChanged()
         {
+            if (!m_MenuBuilt)
+            {
+                BuildMenu();
+                m_MenuBuilt = true;
+            }
+
             m_NeedRebuildTrayMenu = true;
 
             if (PasswordsChanged != null)
@@ -179,7 +186,7 @@ namespace WindowsTools
 
         private void contextMenuStripSysTray_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MainForm.BuildPasswordsList(contextMenuStripSysTray.Items, ref m_NeedRebuildTrayMenu);
+            BuildMenu();
         }
 
         private void notifyIcon1_Click(object sender, EventArgs e)
@@ -483,6 +490,11 @@ namespace WindowsTools
         {
             MethodInfo mi = typeof(NotifyIcon).GetMethod("ShowContextMenu", BindingFlags.Instance | BindingFlags.NonPublic);
             mi.Invoke(notifyIcon1, null);
+        }
+
+        private void BuildMenu()
+        {
+            this.MainForm.BuildPasswordsList(contextMenuStripSysTray.Items, ref m_NeedRebuildTrayMenu);
         }
     }
 
