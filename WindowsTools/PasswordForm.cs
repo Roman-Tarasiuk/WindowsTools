@@ -27,7 +27,6 @@ namespace WindowsTools
         private bool m_EnablePasswordCopy = true;
 
         private bool m_NeedRebuildTrayMenu = true;
-        private bool m_MenuBuilt = false;
 
         private Color m_BackColor;
 
@@ -153,12 +152,6 @@ namespace WindowsTools
 
         protected void OnPasswordsChanged()
         {
-            if (!m_MenuBuilt)
-            {
-                BuildMenu();
-                m_MenuBuilt = true;
-            }
-
             m_NeedRebuildTrayMenu = true;
 
             if (PasswordsChanged != null)
