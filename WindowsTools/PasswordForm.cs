@@ -487,7 +487,88 @@ namespace WindowsTools
 
         private void BuildMenu()
         {
-            this.MainForm.BuildPasswordsList(contextMenuStripSysTray.Items, ref m_NeedRebuildTrayMenu);
+            this.BuildPasswordsList(contextMenuStripSysTray.Items, ref m_NeedRebuildTrayMenu);
+        }
+
+        public void BuildPasswordsList(ToolStripItemCollection passMenu, ref bool rebuild)
+        {
+            if (!rebuild)
+            {
+                SetFirstMenuItem(passMenu);
+                return;
+            }
+
+            passMenu.Clear();
+
+            if (m_Passwords.Count == 0)
+            {
+                return;
+            }
+
+            var passwordList = this.PasswordsRepresentation;
+
+            this.SuspendLayout();
+
+            SetFirstMenuItem(passMenu);
+
+            passMenu.Add(new ToolStripSeparator());
+
+            var count = 2;
+            foreach (var p in passwordList)
+            {
+                var index = count++;
+
+                var menuText = this.TrimMenuItem(p);
+                ToolStripMenuItem menuItem = new ToolStripMenuItem(menuText);
+
+                passMenu.Add(menuItem);
+                passMenu[index].Click += (sender, e) =>
+                {
+                    // index - 2 because 0th menu item is used
+                    // by 1) target window item and 2) separator.
+                    this.CopyPasswordToClipboard(index - 2);
+                };
+            }
+
+            this.ResumeLayout();
+
+            rebuild = false;
+        }
+
+        private void SetFirstMenuItem(ToolStripItemCollection passMenu)
+        {
+            if (m_Passwords.Count == 0)
+            {
+                return;
+            }
+
+            var lastWindow = User32Windows.GetLastActiveWindow(hwndExcept: this.Handle);
+            var maxMenuLength = 40;
+            var title = lastWindow.Title.Length >= maxMenuLength
+                    ? lastWindow.Title.Substring(0, maxMenuLength - 3) + "..."
+                    : lastWindow.Title;
+
+            if (passMenu.Count == 0)
+            {
+                passMenu.Add(title);
+            }
+            else
+            {
+                ((ToolStripMenuItem)passMenu[0]).Text = title;
+            }
+
+            if (lastWindow.Icon != null)
+            {
+                ((ToolStripMenuItem)passMenu[0]).Image = lastWindow.Icon.ToBitmap();
+            }
+            ((ToolStripMenuItem)passMenu[0]).ForeColor = Color.FromArgb(112, 112, 112);
+        }
+
+        private string TrimMenuItem(string text)
+        {
+            var maxLength = 50;
+
+            return text.Length > maxLength ? text.Substring(0, maxLength - 3) + "..." : text;
         }
     }
 
