@@ -158,6 +158,8 @@
             this.chkShowMinimized = new System.Windows.Forms.CheckBox();
             this.lblWindowsCount = new System.Windows.Forms.Label();
             this.timerSaveSettings = new System.Windows.Forms.Timer(this.components);
+            this.panelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -526,6 +528,8 @@
             // 
             // screenRulerToolStripMenuItem
             // 
+            this.screenRulerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.panelToolStripMenuItem});
             this.screenRulerToolStripMenuItem.Name = "screenRulerToolStripMenuItem";
             this.screenRulerToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.screenRulerToolStripMenuItem.Text = "Screen ruler...";
@@ -748,7 +752,7 @@
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray1.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 204);
+            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 226);
             this.contextMenuStripSysTray1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray1_Opening);
             this.contextMenuStripSysTray1.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray1.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
@@ -1027,6 +1031,8 @@
             // 
             // screenRulerToolStripMenuItem1
             // 
+            this.screenRulerToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.panelToolStripMenuItem1});
             this.screenRulerToolStripMenuItem1.Name = "screenRulerToolStripMenuItem1";
             this.screenRulerToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
             this.screenRulerToolStripMenuItem1.Text = "Screen ruler...";
@@ -1203,6 +1209,20 @@
             this.timerSaveSettings.Interval = 60000;
             this.timerSaveSettings.Tick += new System.EventHandler(this.timerSaveSettings_Tick);
             // 
+            // panelToolStripMenuItem
+            // 
+            this.panelToolStripMenuItem.Name = "panelToolStripMenuItem";
+            this.panelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.panelToolStripMenuItem.Text = "Panel...";
+            this.panelToolStripMenuItem.Click += new System.EventHandler(this.panelToolStripMenuItem_Click);
+            // 
+            // panelToolStripMenuItem1
+            // 
+            this.panelToolStripMenuItem1.Name = "panelToolStripMenuItem1";
+            this.panelToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.panelToolStripMenuItem1.Text = "Panel...";
+            this.panelToolStripMenuItem1.Click += new System.EventHandler(this.panelToolStripMenuItem1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1367,5 +1387,7 @@
         private System.Windows.Forms.ToolStripMenuItem clipboardTextToWidthToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem setWindowOpacityToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem panelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem panelToolStripMenuItem1;
     }
 }

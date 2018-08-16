@@ -822,6 +822,17 @@ namespace WindowsTools
         {
             ClipboardTextToWidth();
         }
+
+        private void clipboardTextToWidthToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClipboardTextToWidth();
+        }
+
+        private void panelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ScreenRulerArrangePanelForm().Show();
+        }
+
         // System tray context menu | Miscellaneous
 
         private void decodeClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -903,6 +914,17 @@ namespace WindowsTools
         {
             ClipboardTextToWidth();
         }
+
+        private void clipboardTextToWidthToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ClipboardTextToWidth();
+        }
+
+        private void panelToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new ScreenRulerArrangePanelForm().Show();
+        }
+
         // Menu items other than Miscellaneous set above these last 2 groups.
 
         #endregion
@@ -1753,16 +1775,6 @@ namespace WindowsTools
         }
 
         #endregion
-
-        private void clipboardTextToWidthToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ClipboardTextToWidth();
-        }
-
-        private void clipboardTextToWidthToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            ClipboardTextToWidth();
-        }
     }
 
     public class ToolEventArgs : EventArgs
