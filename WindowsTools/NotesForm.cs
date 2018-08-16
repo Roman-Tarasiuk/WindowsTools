@@ -18,6 +18,8 @@ namespace WindowsTools
         public NotesForm()
         {
             InitializeComponent();
+
+            InitializeComponentsOther();
         }
 
         //
@@ -96,18 +98,7 @@ namespace WindowsTools
 
         private void hideBorderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (m_BorderIsVisible)
-            {
-                this.FormBorderStyle = FormBorderStyle.None;
-                hideBorderToolStripMenuItem.Checked = false;
-                m_BorderIsVisible = false;
-            }
-            else
-            {
-                this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
-                hideBorderToolStripMenuItem.Checked = true;
-                m_BorderIsVisible = true;
-            }
+            ToggleBorder();
         }
 
         private void clearToolStripMenuItem_Click(object sender, EventArgs e)
@@ -131,10 +122,42 @@ namespace WindowsTools
             showInTaskbarToolStripMenuItem.Checked = this.ShowInTaskbar;
         }
 
+        private void showBorderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleBorder();
+        }
+
+        private void showMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleMainMenu();
+        }
+
+        private void moveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.panel1.BringToFront();
+        }
+
         #endregion
 
 
         #region Helper Methods
+
+        private void InitializeComponentsOther()
+        {
+            this.panel1 = new TransparentDraggablePanel(this);
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+| System.Windows.Forms.AnchorStyles.Left)
+| System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Location = new System.Drawing.Point(0, 27);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(350, 138);
+            this.panel1.TabIndex = 2;
+            this.panel1.MouseUp += (object sender, MouseEventArgs e) => {
+                this.panel1.SendToBack();
+            };
+
+            this.Controls.Add(this.panel1);
+        }
 
         private void Paste()
         {
@@ -158,7 +181,6 @@ namespace WindowsTools
                 richTextBox1.Location = new Point(0, 0);
                 this.Size = new Size(this.Size.Width, this.Size.Height - menuDefaultHeight);
                 richTextBox1.Size = currentEditorSize;
-                hideMainMenuToolStripMenuItem.Checked = false;
                 m_MainMenuIsVisible = false;
             }
             else
@@ -167,9 +189,11 @@ namespace WindowsTools
                 richTextBox1.Location = new Point(0, 27);
                 this.Size = new Size(this.Size.Width, this.Size.Height + menuDefaultHeight);
                 richTextBox1.Size = currentEditorSize;
-                hideMainMenuToolStripMenuItem.Checked = true;
                 m_MainMenuIsVisible = true;
             }
+
+            hideMainMenuToolStripMenuItem.Checked = m_MainMenuIsVisible;
+            showMainMenuToolStripMenuItem.Checked = m_MainMenuIsVisible;
         }
 
         private void SetSelectionFont()
@@ -202,6 +226,23 @@ namespace WindowsTools
         private void ClearNotes()
         {
             this.richTextBox1.Clear();
+        }
+
+        private void ToggleBorder()
+        {
+            if (m_BorderIsVisible)
+            {
+                this.FormBorderStyle = FormBorderStyle.None;
+                m_BorderIsVisible = false;
+            }
+            else
+            {
+                this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+                m_BorderIsVisible = true;
+            }
+
+            showBorderToolStripMenuItem.Checked = m_BorderIsVisible;
+            hideBorderToolStripMenuItem.Checked = m_BorderIsVisible;
         }
 
         #endregion

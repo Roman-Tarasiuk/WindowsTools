@@ -39,6 +39,7 @@
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topmostWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showInTaskbarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wordWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteWithoutFormattingToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +55,10 @@
             this.clearToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.showInTaskbarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showBorderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showMainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +73,7 @@
             this.clearToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.ShowItemToolTips = true;
             this.menuStrip1.Size = new System.Drawing.Size(350, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
@@ -123,6 +128,8 @@
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showBorderToolStripMenuItem,
+            this.showMainMenuToolStripMenuItem,
             this.topmostWindowToolStripMenuItem,
             this.showInTaskbarToolStripMenuItem,
             this.wordWrapToolStripMenuItem});
@@ -138,6 +145,13 @@
             this.topmostWindowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.topmostWindowToolStripMenuItem.Text = "Topmost window";
             this.topmostWindowToolStripMenuItem.Click += new System.EventHandler(this.topmostWindowToolStripMenuItem_Click);
+            // 
+            // showInTaskbarToolStripMenuItem
+            // 
+            this.showInTaskbarToolStripMenuItem.Name = "showInTaskbarToolStripMenuItem";
+            this.showInTaskbarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showInTaskbarToolStripMenuItem.Text = "Show in taskbar";
+            this.showInTaskbarToolStripMenuItem.Click += new System.EventHandler(this.showInTaskbarToolStripMenuItem_Click);
             // 
             // wordWrapToolStripMenuItem
             // 
@@ -184,11 +198,13 @@
             this.selectionFontToolStripMenuItem,
             this.backgroundColorToolStripMenuItem,
             this.toolStripSeparator1,
+            this.moveToolStripMenuItem,
+            this.toolStripSeparator2,
             this.pasteToolStripMenuItem,
             this.pasteWithoutFormattingToolStripMenuItem,
             this.clearToolStripMenuItem2});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(207, 164);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(207, 192);
             // 
             // hideBorderToolStripMenuItem
             // 
@@ -236,6 +252,7 @@
             // 
             // pasteWithoutFormattingToolStripMenuItem
             // 
+            this.pasteWithoutFormattingToolStripMenuItem.Image = global::WindowsTools.Properties.Resources.Editing_Paste_icon;
             this.pasteWithoutFormattingToolStripMenuItem.Name = "pasteWithoutFormattingToolStripMenuItem";
             this.pasteWithoutFormattingToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.pasteWithoutFormattingToolStripMenuItem.Text = "Paste without formatting";
@@ -252,12 +269,35 @@
             // 
             this.fontDialog1.ShowColor = true;
             // 
-            // showInTaskbarToolStripMenuItem
+            // showBorderToolStripMenuItem
             // 
-            this.showInTaskbarToolStripMenuItem.Name = "showInTaskbarToolStripMenuItem";
-            this.showInTaskbarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.showInTaskbarToolStripMenuItem.Text = "Show in taskbar";
-            this.showInTaskbarToolStripMenuItem.Click += new System.EventHandler(this.showInTaskbarToolStripMenuItem_Click);
+            this.showBorderToolStripMenuItem.Checked = true;
+            this.showBorderToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.showBorderToolStripMenuItem.Name = "showBorderToolStripMenuItem";
+            this.showBorderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showBorderToolStripMenuItem.Text = "Show border";
+            this.showBorderToolStripMenuItem.Click += new System.EventHandler(this.showBorderToolStripMenuItem_Click);
+            // 
+            // showMainMenuToolStripMenuItem
+            // 
+            this.showMainMenuToolStripMenuItem.Checked = true;
+            this.showMainMenuToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.showMainMenuToolStripMenuItem.Name = "showMainMenuToolStripMenuItem";
+            this.showMainMenuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showMainMenuToolStripMenuItem.Text = "Show main menu";
+            this.showMainMenuToolStripMenuItem.Click += new System.EventHandler(this.showMainMenuToolStripMenuItem_Click);
+            // 
+            // moveToolStripMenuItem
+            // 
+            this.moveToolStripMenuItem.Name = "moveToolStripMenuItem";
+            this.moveToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.moveToolStripMenuItem.Text = "Move";
+            this.moveToolStripMenuItem.Click += new System.EventHandler(this.moveToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(203, 6);
             // 
             // NotesForm
             // 
@@ -308,5 +348,10 @@
         private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem showInTaskbarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showBorderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showMainMenuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem moveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.Panel panel1;
     }
 }
