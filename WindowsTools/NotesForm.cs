@@ -125,6 +125,12 @@ namespace WindowsTools
             ClearNotes();
         }
 
+        private void showInTaskbarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.ShowInTaskbar = !this.ShowInTaskbar;
+            showInTaskbarToolStripMenuItem.Checked = this.ShowInTaskbar;
+        }
+
         #endregion
 
 
