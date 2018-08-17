@@ -53,11 +53,11 @@ namespace WindowsTools
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
-            //
+            // 
             // listBox1
-            //
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            // 
+            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.ContextMenuStrip = this.contextMenuStrip1;
             this.listBox1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -69,32 +69,32 @@ namespace WindowsTools
             this.listBox1.TabIndex = 0;
             this.listBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseClick);
             this.listBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox1_KeyDown);
-            //
+            // 
             // contextMenuStrip1
-            //
+            // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.copyDescriptionToClipboardToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(232, 26);
-            //
+            // 
             // copyDescriptionToClipboardToolStripMenuItem
-            //
+            // 
             this.copyDescriptionToClipboardToolStripMenuItem.Name = "copyDescriptionToClipboardToolStripMenuItem";
             this.copyDescriptionToClipboardToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.copyDescriptionToClipboardToolStripMenuItem.Text = "Copy description to clipboard";
             this.copyDescriptionToClipboardToolStripMenuItem.Click += new System.EventHandler(this.copyDescriptionToClipboardToolStripMenuItem_Click);
-            //
+            // 
             // txtDescription
-            //
-            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            // 
+            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescription.Location = new System.Drawing.Point(78, 211);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(274, 20);
             this.txtDescription.TabIndex = 2;
-            //
+            // 
             // label1
-            //
+            // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 214);
@@ -102,9 +102,9 @@ namespace WindowsTools
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Description:";
-            //
+            // 
             // label2
-            //
+            // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(9, 240);
@@ -112,19 +112,19 @@ namespace WindowsTools
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Password:";
-            //
+            // 
             // txtPassword
-            //
-            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            // 
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPassword.Location = new System.Drawing.Point(78, 237);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(274, 20);
             this.txtPassword.TabIndex = 4;
-            //
+            // 
             // btnAdd
-            //
+            // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.Location = new System.Drawing.Point(176, 263);
             this.btnAdd.Name = "btnAdd";
@@ -133,13 +133,13 @@ namespace WindowsTools
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            //
+            // 
             // timer1
-            //
+            // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            //
+            // 
             // chkShowPassword
-            //
+            // 
             this.chkShowPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkShowPassword.AutoSize = true;
             this.chkShowPassword.Location = new System.Drawing.Point(12, 267);
@@ -149,9 +149,9 @@ namespace WindowsTools
             this.chkShowPassword.Text = "Show password";
             this.chkShowPassword.UseVisualStyleBackColor = true;
             this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
-            //
+            // 
             // btnRemove
-            //
+            // 
             this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemove.Location = new System.Drawing.Point(252, 263);
             this.btnRemove.Name = "btnRemove";
@@ -160,14 +160,14 @@ namespace WindowsTools
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            //
+            // 
             // timerFlash
-            //
+            // 
             this.timerFlash.Interval = 150;
             this.timerFlash.Tick += new System.EventHandler(this.timerFlash_Tick);
-            //
+            // 
             // btnMoveUp
-            //
+            // 
             this.btnMoveUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMoveUp.Location = new System.Drawing.Point(114, 263);
             this.btnMoveUp.Name = "btnMoveUp";
@@ -176,9 +176,9 @@ namespace WindowsTools
             this.btnMoveUp.Text = "▲";
             this.btnMoveUp.UseVisualStyleBackColor = true;
             this.btnMoveUp.Click += new System.EventHandler(this.btnMoveUp_Click);
-            //
+            // 
             // btnMoveDown
-            //
+            // 
             this.btnMoveDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMoveDown.Location = new System.Drawing.Point(143, 263);
             this.btnMoveDown.Name = "btnMoveDown";
@@ -187,9 +187,9 @@ namespace WindowsTools
             this.btnMoveDown.Text = "▼";
             this.btnMoveDown.UseVisualStyleBackColor = true;
             this.btnMoveDown.Click += new System.EventHandler(this.btnMoveDown_Click);
-            //
+            // 
             // btnSettings
-            //
+            // 
             this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSettings.Image = global::WindowsTools.Properties.Resources.cog_16;
             this.btnSettings.Location = new System.Drawing.Point(330, 263);
@@ -198,30 +198,28 @@ namespace WindowsTools
             this.btnSettings.TabIndex = 12;
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
-            //
+            // 
             // fileSystemWatcher1
-            //
+            // 
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
-            //
+            // 
             // notifyIcon1
-            //
+            // 
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStripSysTray;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "Password Manager";
+            this.notifyIcon1.Visible = true;
             this.notifyIcon1.Click += new System.EventHandler(this.notifyIcon1_Click);
-            //
+            // 
             // contextMenuStripSysTray
-            //
+            // 
             this.contextMenuStripSysTray.Name = "contextMenuStripSysTray";
-            this.contextMenuStripSysTray.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStripSysTray.Size = new System.Drawing.Size(61, 10);
             this.contextMenuStripSysTray.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray_Opening);
-            this.contextMenuStripSysTray.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                new ToolStripSeparator()
-            });
-            //
+            // 
             // PasswordForm
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 296);

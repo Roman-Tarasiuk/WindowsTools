@@ -20,6 +20,9 @@ namespace WindowsTools
             InitializeComponent();
 
             InitializeComponentsOther();
+
+            ToggleBorder();
+            ToggleMainMenu();
         }
 
         //
@@ -46,8 +49,7 @@ namespace WindowsTools
 
         private void topmostWindowToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.TopMost = !this.TopMost;
-            this.topmostWindowToolStripMenuItem.Checked = this.TopMost;
+            ToggleTopmost();
         }
 
         private void wordWrapToolStripMenuItem_Click(object sender, EventArgs e)
@@ -118,8 +120,7 @@ namespace WindowsTools
 
         private void showInTaskbarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.ShowInTaskbar = !this.ShowInTaskbar;
-            showInTaskbarToolStripMenuItem.Checked = this.ShowInTaskbar;
+            ToggleShowInTaskbar();
         }
 
         private void showBorderToolStripMenuItem_Click(object sender, EventArgs e)
@@ -135,6 +136,22 @@ namespace WindowsTools
         private void moveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.panel1.BringToFront();
+            this.Cursor = Cursors.SizeAll;
+        }
+
+        private void topmostWindowToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ToggleTopmost();
+        }
+
+        private void showInTaskbarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ToggleShowInTaskbar();
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         #endregion
@@ -145,15 +162,18 @@ namespace WindowsTools
         private void InitializeComponentsOther()
         {
             this.panel1 = new TransparentDraggablePanel(this);
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-| System.Windows.Forms.AnchorStyles.Left)
-| System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)
+                System.Windows.Forms.AnchorStyles.Top
+                | System.Windows.Forms.AnchorStyles.Bottom
+                | System.Windows.Forms.AnchorStyles.Left
+                | System.Windows.Forms.AnchorStyles.Right);
             this.panel1.Location = new System.Drawing.Point(0, 27);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(350, 138);
             this.panel1.TabIndex = 2;
             this.panel1.MouseUp += (object sender, MouseEventArgs e) => {
                 this.panel1.SendToBack();
+                this.Cursor = Cursors.Default;
             };
 
             this.Controls.Add(this.panel1);
@@ -243,6 +263,20 @@ namespace WindowsTools
 
             showBorderToolStripMenuItem.Checked = m_BorderIsVisible;
             hideBorderToolStripMenuItem.Checked = m_BorderIsVisible;
+        }
+
+        private void ToggleTopmost()
+        {
+            this.TopMost = !this.TopMost;
+            this.topmostWindowToolStripMenuItem.Checked = this.TopMost;
+            this.topmostWindowToolStripMenuItem1.Checked = this.TopMost;
+        }
+
+        private void ToggleShowInTaskbar()
+        {
+            this.ShowInTaskbar = !this.ShowInTaskbar;
+            showInTaskbarToolStripMenuItem.Checked = this.ShowInTaskbar;
+            showInTaskbarToolStripMenuItem1.Checked = this.ShowInTaskbar;
         }
 
         #endregion
