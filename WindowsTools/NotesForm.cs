@@ -199,18 +199,21 @@ namespace WindowsTools
             {
                 menuStrip1.Hide();
                 richTextBox1.Location = new Point(0, 0);
+                panel1.Location = new Point(0, 0);
                 this.Size = new Size(this.Size.Width, this.Size.Height - menuDefaultHeight);
-                richTextBox1.Size = currentEditorSize;
                 m_MainMenuIsVisible = false;
             }
             else
             {
                 menuStrip1.Show();
                 richTextBox1.Location = new Point(0, 27);
+                panel1.Location = new Point(0, 27);
                 this.Size = new Size(this.Size.Width, this.Size.Height + menuDefaultHeight);
-                richTextBox1.Size = currentEditorSize;
                 m_MainMenuIsVisible = true;
             }
+
+            richTextBox1.Size = currentEditorSize;
+            panel1.Size = currentEditorSize;
 
             hideMainMenuToolStripMenuItem.Checked = m_MainMenuIsVisible;
             showMainMenuToolStripMenuItem.Checked = m_MainMenuIsVisible;
