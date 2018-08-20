@@ -217,6 +217,9 @@ namespace WindowsTools
             this.contextMenuStripSysTray.Name = "contextMenuStripSysTray";
             this.contextMenuStripSysTray.Size = new System.Drawing.Size(61, 10);
             this.contextMenuStripSysTray.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray_Opening);
+            this.contextMenuStripSysTray.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                new ToolStripSeparator()
+            });
             // 
             // PasswordForm
             // 

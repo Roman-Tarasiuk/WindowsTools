@@ -93,6 +93,16 @@ namespace WindowsTools
             SetSelectionFont();
         }
 
+        private void selectionColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SelectionColor();
+        }
+
+        private void selectionBackColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SelectionBackColor();
+        }
+
         private void backgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SelectBackColor();
@@ -230,6 +240,32 @@ namespace WindowsTools
             {
                 richTextBox1.SelectionFont = fontDialog1.Font;
                 richTextBox1.SelectionColor = fontDialog1.Color;
+            }
+        }
+
+        private void SelectionColor()
+        {
+            var dlg = new ColorDialog();
+            dlg.Color = this.richTextBox1.SelectionColor;
+
+            var result = dlg.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                this.richTextBox1.SelectionColor = dlg.Color;
+            }
+        }
+
+        private void SelectionBackColor()
+        {
+            var dlg = new ColorDialog();
+            dlg.Color = this.richTextBox1.SelectionColor;
+
+            var result = dlg.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                this.richTextBox1.SelectionBackColor = dlg.Color;
             }
         }
 

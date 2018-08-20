@@ -54,6 +54,8 @@
             this.showInTaskbarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.selectionFontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectionColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectionBackColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -228,6 +230,8 @@
             this.showInTaskbarToolStripMenuItem1,
             this.toolStripSeparator1,
             this.selectionFontToolStripMenuItem,
+            this.selectionColorToolStripMenuItem,
+            this.selectionBackColorToolStripMenuItem,
             this.backgroundColorToolStripMenuItem,
             this.moveToolStripMenuItem,
             this.toolStripSeparator2,
@@ -284,6 +288,20 @@
             this.selectionFontToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.selectionFontToolStripMenuItem.Text = "Selection font...";
             this.selectionFontToolStripMenuItem.Click += new System.EventHandler(this.selectionFontToolStripMenuItem_Click);
+            // 
+            // selectionColorToolStripMenuItem
+            // 
+            this.selectionColorToolStripMenuItem.Name = "selectionColorToolStripMenuItem";
+            this.selectionColorToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.selectionColorToolStripMenuItem.Text = "Selection color...";
+            this.selectionColorToolStripMenuItem.Click += new System.EventHandler(this.selectionColorToolStripMenuItem_Click);
+            // 
+            // selectionBackColorToolStripMenuItem
+            // 
+            this.selectionBackColorToolStripMenuItem.Name = "selectionBackColorToolStripMenuItem";
+            this.selectionBackColorToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.selectionBackColorToolStripMenuItem.Text = "Selection background color...";
+            this.selectionBackColorToolStripMenuItem.Click += new System.EventHandler(this.selectionBackColorToolStripMenuItem_Click);
             // 
             // backgroundColorToolStripMenuItem
             // 
@@ -385,6 +403,8 @@
         private System.Windows.Forms.ToolStripMenuItem hideMainMenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem selectionFontToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectionColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectionBackColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backgroundColorToolStripMenuItem;
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.ToolStripMenuItem hideBorderToolStripMenuItem;
