@@ -371,6 +371,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.Shown += new System.EventHandler(this.NotesForm_Shown);
             this.Name = "NotesForm";
             this.ShowInTaskbar = false;
             this.Text = "Notes";

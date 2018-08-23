@@ -20,9 +20,6 @@ namespace WindowsTools
             InitializeComponent();
 
             InitializeComponentsOther();
-
-            ToggleBorder();
-            ToggleMainMenu();
         }
 
         //
@@ -162,6 +159,14 @@ namespace WindowsTools
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void NotesForm_Shown(object sender, EventArgs e)
+        {
+            this.panel1.Calibrate();
+
+            ToggleBorder();
+            ToggleMainMenu();
         }
 
         #endregion
