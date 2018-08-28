@@ -10,6 +10,7 @@ using System.Reflection;
 
 using User32Helper;
 using WindowsTools.Infrastructure;
+using System.Configuration;
 
 namespace WindowsTools
 {
@@ -33,6 +34,7 @@ namespace WindowsTools
         private PinForm m_PinForm;
 
         private List<String> m_PasswordRepresentation = new List<string>();
+        private List<String> m_ExceptPasswordWindows = new List<string>();
 
         private bool m_ActivateLastActiveWindow = true;
 
@@ -170,6 +172,16 @@ namespace WindowsTools
             InitializeComponent();
 
             this.Location = Properties.Settings.Default.PasswordsForm_Location;
+
+            m_ExceptPasswordWindows = new List<String>();
+            var exceptNamesStr = ConfigurationManager.AppSettings.Get("exceptPasswordWindowsNames");
+            var separatorStr = ConfigurationManager.AppSettings.Get("exceptPasswordWindowsNamesSeparator");
+            var separator = new string[] { separatorStr };
+            var splitted = exceptNamesStr.Split(separator, StringSplitOptions.None);
+            foreach (var s in splitted)
+            {
+                m_ExceptPasswordWindows.Add(s);
+            }
         }
 
         #endregion
@@ -473,7 +485,7 @@ namespace WindowsTools
         {
             if (hwnd == IntPtr.Zero)
             {
-                hwnd = User32Windows.GetLastActiveWindow(hwndExcept: this.Handle).Handle;
+                hwnd = User32Windows.GetLastActiveWindow(hwndExcept: this.Handle, exceptNames: m_ExceptPasswordWindows).Handle;
             }
 
             User32Windows.SetForegroundWindow(hwnd);
@@ -542,7 +554,7 @@ namespace WindowsTools
                 return;
             }
 
-            var lastWindow = User32Windows.GetLastActiveWindow(hwndExcept: this.Handle);
+            var lastWindow = User32Windows.GetLastActiveWindow(hwndExcept: this.Handle, exceptNames: m_ExceptPasswordWindows);
             var maxMenuLength = 40;
             var title = lastWindow.Title.Length >= maxMenuLength
                     ? lastWindow.Title.Substring(0, maxMenuLength - 3) + "..."

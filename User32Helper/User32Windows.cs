@@ -194,7 +194,7 @@ namespace User32Helper
         public const int GW_HWNDNEXT = 2;
         public const int GW_HWNDPREV = 3;
 
-        public static List<DesktopWindow> GetDesktopWindows(bool visibleOnly = true)
+        public static List<DesktopWindow> GetDesktopWindows(bool visibleOnly = true, List<string> exceptNames = null)
         {
             var collection = new List<DesktopWindow>();
 
@@ -212,9 +212,7 @@ namespace User32Helper
 
                 var title = isVisibleAndHasTitle.Item2;
 
-                if (title == "Пуск" ||
-                     title == "Program Manager" ||
-                     title == "Windows Shell Experience Host")
+                if (exceptNames != null && exceptNames.IndexOf(title) != -1)
                 {
                     return true;
                 }
@@ -259,7 +257,8 @@ namespace User32Helper
 
         public static DesktopWindow GetLastActiveWindow(bool visibleOnly = true,
             IntPtr hwndExcept = default(IntPtr),
-            bool skipExcepaAllProcessWindows = true)
+            bool skipExcepaAllProcessWindows = true,
+            List<string> exceptNames = null)
         {
             DesktopWindow result = null;
 
@@ -276,9 +275,7 @@ namespace User32Helper
                     return true;
                 }
 
-                if (title == "Пуск" ||
-                     title == "Program Manager" ||
-                     title == "Windows Shell Experience Host")
+                if (exceptNames != null && exceptNames.IndexOf(title) != -1)
                 {
                     return true;
                 }

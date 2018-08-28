@@ -11,6 +11,7 @@ using System.Text;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.IO;
+using System.Configuration;
 
 namespace WindowsTools
 {
@@ -52,6 +53,8 @@ namespace WindowsTools
 
         NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
+        private List<String> m_ExceptDisplayWindows;
+
         #endregion
 
 
@@ -89,6 +92,16 @@ namespace WindowsTools
             User32Windows.RegisterHotKey(this.Handle, 0, User32Windows.MOD_CONTROL, User32Windows.VK_OEM_3);
 
             NLog.LogManager.LoadConfiguration(@"NLog.config");
+
+            m_ExceptDisplayWindows = new List<String>();
+            var exceptNamesStr = ConfigurationManager.AppSettings.Get("exceptRunningWindowsNames");
+            var separatorStr = ConfigurationManager.AppSettings.Get("exceptRunningWindowsNamesSeparator");
+            var separator = new string[] { separatorStr };
+            var splitted = exceptNamesStr.Split(separator, StringSplitOptions.None);
+            foreach (var s in splitted)
+            {
+                m_ExceptDisplayWindows.Add(s);
+            }
         }
 
         #endregion
@@ -1057,7 +1070,7 @@ namespace WindowsTools
         {
             var result = new List<DesktopWindow>();
 
-            List<DesktopWindow> RunningWindows = User32Windows.GetDesktopWindows(visibleOnly);
+            List<DesktopWindow> RunningWindows = User32Windows.GetDesktopWindows(visibleOnly, m_ExceptDisplayWindows);
 
             foreach (var window in RunningWindows)
             {

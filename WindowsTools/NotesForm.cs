@@ -163,7 +163,7 @@ namespace WindowsTools
 
         private void NotesForm_Shown(object sender, EventArgs e)
         {
-            this.panel1.Calibrate();
+            //this.panel1.Calibrate();
 
             ToggleBorder();
             ToggleMainMenu();
