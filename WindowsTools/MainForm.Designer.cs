@@ -75,6 +75,7 @@
             this.viewSystemClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.screenRulerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cropImagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compareStringsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -138,6 +139,7 @@
             this.viewSystemClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.screenRulerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cropImagesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.compareStringsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -158,8 +160,6 @@
             this.chkShowMinimized = new System.Windows.Forms.CheckBox();
             this.lblWindowsCount = new System.Windows.Forms.Label();
             this.timerSaveSettings = new System.Windows.Forms.Timer(this.components);
-            this.panelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -535,6 +535,13 @@
             this.screenRulerToolStripMenuItem.Text = "Screen ruler...";
             this.screenRulerToolStripMenuItem.Click += new System.EventHandler(this.screenRulerToolStripMenuItem_Click);
             // 
+            // panelToolStripMenuItem
+            // 
+            this.panelToolStripMenuItem.Name = "panelToolStripMenuItem";
+            this.panelToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.panelToolStripMenuItem.Text = "Panel...";
+            this.panelToolStripMenuItem.Click += new System.EventHandler(this.panelToolStripMenuItem_Click);
+            // 
             // cropImagesToolStripMenuItem
             // 
             this.cropImagesToolStripMenuItem.Name = "cropImagesToolStripMenuItem";
@@ -752,7 +759,7 @@
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray1.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 226);
+            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 204);
             this.contextMenuStripSysTray1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray1_Opening);
             this.contextMenuStripSysTray1.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray1.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
@@ -1038,6 +1045,13 @@
             this.screenRulerToolStripMenuItem1.Text = "Screen ruler...";
             this.screenRulerToolStripMenuItem1.Click += new System.EventHandler(this.screenRulerToolStripMenuItem1_Click);
             // 
+            // panelToolStripMenuItem1
+            // 
+            this.panelToolStripMenuItem1.Name = "panelToolStripMenuItem1";
+            this.panelToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.panelToolStripMenuItem1.Text = "Panel...";
+            this.panelToolStripMenuItem1.Click += new System.EventHandler(this.panelToolStripMenuItem1_Click);
+            // 
             // cropImagesToolStripMenuItem1
             // 
             this.cropImagesToolStripMenuItem1.Name = "cropImagesToolStripMenuItem1";
@@ -1156,7 +1170,6 @@
             this.lstWindowsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.lstWindowsList.HideSelection = false;
             this.lstWindowsList.Location = new System.Drawing.Point(12, 46);
-            this.lstWindowsList.MultiSelect = false;
             this.lstWindowsList.Name = "lstWindowsList";
             this.lstWindowsList.Size = new System.Drawing.Size(443, 255);
             this.lstWindowsList.TabIndex = 9;
@@ -1208,20 +1221,6 @@
             this.timerSaveSettings.Enabled = true;
             this.timerSaveSettings.Interval = 60000;
             this.timerSaveSettings.Tick += new System.EventHandler(this.timerSaveSettings_Tick);
-            // 
-            // panelToolStripMenuItem
-            // 
-            this.panelToolStripMenuItem.Name = "panelToolStripMenuItem";
-            this.panelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.panelToolStripMenuItem.Text = "Panel...";
-            this.panelToolStripMenuItem.Click += new System.EventHandler(this.panelToolStripMenuItem_Click);
-            // 
-            // panelToolStripMenuItem1
-            // 
-            this.panelToolStripMenuItem1.Name = "panelToolStripMenuItem1";
-            this.panelToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.panelToolStripMenuItem1.Text = "Panel...";
-            this.panelToolStripMenuItem1.Click += new System.EventHandler(this.panelToolStripMenuItem1_Click);
             // 
             // MainForm
             // 

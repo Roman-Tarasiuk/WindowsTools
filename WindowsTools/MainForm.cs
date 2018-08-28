@@ -294,36 +294,36 @@ namespace WindowsTools
 
         private void copyWindowNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int selected = this.lstWindowsList.SelectedIndices[0];
-
-            if (selected == -1)
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
             {
                 return;
             }
+
+            int selected = this.lstWindowsList.SelectedIndices[0];
 
             Clipboard.SetText(m_ListedWindows[selected].Title);
         }
 
         private void copyWindowHwndToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int selected = this.lstWindowsList.SelectedIndices[0];
-
-            if (selected == -1)
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
             {
                 return;
             }
+
+            int selected = this.lstWindowsList.SelectedIndices[0];
 
             Clipboard.SetText(m_ListedWindows[selected].Handle.ToString());
         }
 
         private void copyProcessIdToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int selected = this.lstWindowsList.SelectedIndices[0];
-
-            if (selected == -1)
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
             {
                 return;
             }
+
+            int selected = this.lstWindowsList.SelectedIndices[0];
 
             int processId;
             User32Windows.GetWindowThreadProcessId(m_ListedWindows[selected].Handle, out processId);
@@ -333,12 +333,12 @@ namespace WindowsTools
 
         private void btnCloseWindow_Click(object sender, EventArgs e)
         {
-            int selected = this.lstWindowsList.SelectedIndices[0];
-
-            if (selected == -1)
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
             {
                 return;
             }
+
+            int selected = this.lstWindowsList.SelectedIndices[0];
 
             User32Windows.PostMessage(m_ListedWindows[selected].Handle, User32Windows.WM_CLOSE, 0, 0);
 
@@ -347,12 +347,12 @@ namespace WindowsTools
 
         private void btnKillWindow_Click(object sender, EventArgs e)
         {
-            int selected = this.lstWindowsList.SelectedIndices[0];
-
-            if (selected == -1)
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
             {
                 return;
             }
+
+            int selected = this.lstWindowsList.SelectedIndices[0];
 
             int hwnd;
             User32Windows.GetWindowThreadProcessId(m_ListedWindows[selected].Handle, out hwnd);
@@ -423,12 +423,12 @@ namespace WindowsTools
 
         private void addToTrackingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int selected = this.lstWindowsList.SelectedIndices[0];
-
-            if (selected == -1)
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
             {
                 return;
             }
+
+            int selected = this.lstWindowsList.SelectedIndices[0];
 
             CheckTrackingForm();
             m_TrackingForm.AddToTracking(m_ListedWindows[selected].Handle);
@@ -458,12 +458,12 @@ namespace WindowsTools
             //new TitleColoringForm().Show();
 
 
-            int selected = this.lstWindowsList.SelectedIndices[0];
-
-            if (selected == -1)
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
             {
                 return;
             }
+
+            int selected = this.lstWindowsList.SelectedIndices[0];
 
             IntPtr hwnd = m_ListedWindows[selected].Handle;
 
@@ -581,28 +581,26 @@ namespace WindowsTools
 
         private void trackTitleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            {
+                return;
+            }
+
             int selected = this.lstWindowsList.SelectedIndices[0];
 
-            if (selected != -1)
-            {
-                new WindowTitleTrackingForm(m_ListedWindows[selected].Handle).Show();
-            }
+            new WindowTitleTrackingForm(m_ListedWindows[selected].Handle).Show();
         }
 
         private void trackWindowIsAccessibleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int selected = this.lstWindowsList.SelectedIndices[0];
-
-            IntPtr hwnd = IntPtr.Zero;
-
-            if (selected != -1)
-            {
-                hwnd = m_ListedWindows[selected].Handle;
-            }
-            else
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
             {
                 return;
             }
+
+            int selected = this.lstWindowsList.SelectedIndices[0];
+
+            IntPtr hwnd = m_ListedWindows[selected].Handle;
 
             new TrackInactiveWindowForm() { Hwnd = hwnd }.Show();
         }
@@ -1144,11 +1142,12 @@ namespace WindowsTools
 
         private void SetILDASMFonts()
         {
-            var selected = -1;
-            if (lstWindowsList.SelectedIndices.Count > 0)
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
             {
-                selected = this.lstWindowsList.SelectedIndices[0];
+                return;
             }
+
+            var selected = this.lstWindowsList.SelectedIndices[0];
 
             if ((selected == -1) || (!m_ListedWindows[selected].Title.Contains("IL DASM")))
             {
@@ -1187,11 +1186,12 @@ namespace WindowsTools
 
         private void ArrangeMenu()
         {
-            int selected = -1;
-            if (this.lstWindowsList.SelectedIndices.Count > 0)
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
             {
-                selected = this.lstWindowsList.SelectedIndices[0];
+                return;
             }
+
+            var selected = this.lstWindowsList.SelectedIndices[0];
 
             if (selected == -1)
             {
@@ -1208,15 +1208,12 @@ namespace WindowsTools
 
         private void MoveWindow()
         {
-            var selected = -1;
-            if (lstWindowsList.SelectedIndices.Count > 0)
-            {
-                selected = this.lstWindowsList.SelectedIndices[0];
-            }
-            if (selected == -1)
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
             {
                 return;
             }
+
+            var selected = this.lstWindowsList.SelectedIndices[0];
 
             var tmp = m_LocationForm;
             m_LocationForm = (LocationAndSizeForm)User32Windows.GetForm(m_LocationForm, typeof(LocationAndSizeForm));
@@ -1238,11 +1235,12 @@ namespace WindowsTools
 
         private void SetTransparency()
         {
-            var selected = -1;
-            if (lstWindowsList.SelectedIndices.Count > 0)
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
             {
-                selected = this.lstWindowsList.SelectedIndices[0];
+                return;
             }
+
+            var selected =  this.lstWindowsList.SelectedIndices[0];
 
             if (selected == -1)
             {
@@ -1278,11 +1276,12 @@ namespace WindowsTools
 
         private void SendCommands(string[] commands)
         {
-            var selected = -1;
-            if (lstWindowsList.SelectedIndices.Count > 0)
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
             {
-                selected = this.lstWindowsList.SelectedIndices[0];
+                return;
             }
+
+            var selected = this.lstWindowsList.SelectedIndices[0];
 
             if (selected == -1)
             {
@@ -1376,6 +1375,11 @@ namespace WindowsTools
 
         private void SendCustomCommands()
         {
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            {
+                return;
+            }
+
             var tmp = m_SendCommandForm;
 
             m_SendCommandForm = (SendCommandsForm)User32Windows.GetForm(m_SendCommandForm, typeof(SendCommandsForm));
@@ -1393,16 +1397,9 @@ namespace WindowsTools
                 };
             }
 
-            var selected = -1;
-            if (lstWindowsList.SelectedIndices.Count > 0)
-            {
-                selected = this.lstWindowsList.SelectedIndices[0];
-            }
+            var selected  = this.lstWindowsList.SelectedIndices[0];
 
-            if (selected != -1)
-            {
-                m_SendCommandForm.HostedWindowHwnd = m_ListedWindows[selected].Handle;
-            }
+            m_SendCommandForm.HostedWindowHwnd = m_ListedWindows[selected].Handle;
 
             User32Windows.ShowForm(m_SendCommandForm);
         }
@@ -1522,7 +1519,7 @@ namespace WindowsTools
 
         private void HideSelectedWindow()
         {
-            if (lstWindowsList.SelectedIndices.Count < 0)
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
             {
                 return;
             }
@@ -1551,7 +1548,7 @@ namespace WindowsTools
 
         private void ShowHiddenWindow()
         {
-            if (lstWindowsList.SelectedIndices.Count < 0)
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
             {
                 return;
             }
@@ -1611,22 +1608,14 @@ namespace WindowsTools
 
         private void SetForegroundSelectiveWindow()
         {
-            var selected = -1;
-            if (lstWindowsList.SelectedIndices.Count > 0)
-            {
-                selected = this.lstWindowsList.SelectedIndices[0];
-            }
-
-            IntPtr hwnd = IntPtr.Zero;
-
-            if (selected != -1)
-            {
-                hwnd = m_ListedWindows[selected].Handle;
-            }
-            else
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
             {
                 return;
             }
+
+            var selected = this.lstWindowsList.SelectedIndices[0];
+
+            IntPtr hwnd  = m_ListedWindows[selected].Handle;
 
             User32Windows.SetForegroundWindow(hwnd);
             User32Windows.SetForegroundWindow(this.Handle);
