@@ -160,6 +160,9 @@
             this.chkShowMinimized = new System.Windows.Forms.CheckBox();
             this.lblWindowsCount = new System.Windows.Forms.Label();
             this.timerSaveSettings = new System.Windows.Forms.Timer(this.components);
+            this.btnMoveUp = new System.Windows.Forms.Button();
+            this.btnMoveDown = new System.Windows.Forms.Button();
+            this.btnOrder = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -1142,7 +1145,7 @@
             // 
             this.chkPin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkPin.AutoSize = true;
-            this.chkPin.Location = new System.Drawing.Point(463, 284);
+            this.chkPin.Location = new System.Drawing.Point(463, 312);
             this.chkPin.Name = "chkPin";
             this.chkPin.Size = new System.Drawing.Size(91, 17);
             this.chkPin.TabIndex = 8;
@@ -1171,10 +1174,11 @@
             this.lstWindowsList.HideSelection = false;
             this.lstWindowsList.Location = new System.Drawing.Point(12, 46);
             this.lstWindowsList.Name = "lstWindowsList";
-            this.lstWindowsList.Size = new System.Drawing.Size(443, 255);
+            this.lstWindowsList.Size = new System.Drawing.Size(443, 283);
             this.lstWindowsList.TabIndex = 9;
             this.lstWindowsList.UseCompatibleStateImageBehavior = false;
             this.lstWindowsList.View = System.Windows.Forms.View.Details;
+            this.lstWindowsList.SelectedIndexChanged += new System.EventHandler(this.lstWindowsList_SelectedIndexChanged);
             this.lstWindowsList.DoubleClick += new System.EventHandler(this.lstWindowsList_DoubleClick);
             this.lstWindowsList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstWindowsList_KeyDown);
             // 
@@ -1222,11 +1226,50 @@
             this.timerSaveSettings.Interval = 60000;
             this.timerSaveSettings.Tick += new System.EventHandler(this.timerSaveSettings_Tick);
             // 
+            // btnMoveUp
+            // 
+            this.btnMoveUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMoveUp.Enabled = false;
+            this.btnMoveUp.Location = new System.Drawing.Point(461, 245);
+            this.btnMoveUp.Name = "btnMoveUp";
+            this.btnMoveUp.Size = new System.Drawing.Size(44, 23);
+            this.btnMoveUp.TabIndex = 13;
+            this.btnMoveUp.Text = "▲";
+            this.btnMoveUp.UseVisualStyleBackColor = true;
+            this.btnMoveUp.Click += new System.EventHandler(this.btnMoveUp_Click);
+            // 
+            // btnMoveDown
+            // 
+            this.btnMoveDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMoveDown.Enabled = false;
+            this.btnMoveDown.Location = new System.Drawing.Point(505, 245);
+            this.btnMoveDown.Name = "btnMoveDown";
+            this.btnMoveDown.Size = new System.Drawing.Size(44, 23);
+            this.btnMoveDown.TabIndex = 14;
+            this.btnMoveDown.Text = "▼";
+            this.btnMoveDown.UseVisualStyleBackColor = true;
+            this.btnMoveDown.Click += new System.EventHandler(this.btnMoveDown_Click);
+            // 
+            // btnOrder
+            // 
+            this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOrder.Enabled = false;
+            this.btnOrder.Location = new System.Drawing.Point(461, 268);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(88, 23);
+            this.btnOrder.TabIndex = 15;
+            this.btnOrder.Text = "Order";
+            this.btnOrder.UseVisualStyleBackColor = true;
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(561, 313);
+            this.ClientSize = new System.Drawing.Size(561, 341);
+            this.Controls.Add(this.btnOrder);
+            this.Controls.Add(this.btnMoveDown);
+            this.Controls.Add(this.btnMoveUp);
             this.Controls.Add(this.lblWindowsCount);
             this.Controls.Add(this.chkShowMinimized);
             this.Controls.Add(this.btnSendCustomCommands);
@@ -1388,5 +1431,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem panelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem panelToolStripMenuItem1;
+        private System.Windows.Forms.Button btnMoveUp;
+        private System.Windows.Forms.Button btnMoveDown;
+        private System.Windows.Forms.Button btnOrder;
     }
 }

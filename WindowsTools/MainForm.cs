@@ -753,6 +753,43 @@ namespace WindowsTools
             downloader.Show();
         }
 
+        private void btnMoveUp_Click(object sender, EventArgs e)
+        {
+            MoveSelectedUp();
+        }
+
+        private void btnMoveDown_Click(object sender, EventArgs e)
+        {
+            MoveSelectedDown();
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            OrderWindows();
+        }
+
+        private void lstWindowsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstWindowsList.SelectedIndices.Count == 0)
+            {
+                btnMoveUp.Enabled = false;
+                btnMoveDown.Enabled = false;
+                btnOrder.Enabled = false;
+            }
+            else if (lstWindowsList.SelectedIndices.Count == 1)
+            {
+                btnMoveUp.Enabled = true;
+                btnMoveDown.Enabled = true;
+                btnOrder.Enabled = false;
+            }
+            else
+            {
+                btnMoveUp.Enabled = false;
+                btnMoveDown.Enabled = false;
+                btnOrder.Enabled = true;
+            }
+        }
+
         // Main menu | Miscellaneous
 
         private void decodeClipboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1773,6 +1810,88 @@ namespace WindowsTools
                 }
 
                 return s + resultString.ToString();
+            }
+        }
+
+        private void MoveSelectedUp()
+        {
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            {
+                return;
+            }
+
+            int selected = this.lstWindowsList.SelectedIndices[0];
+
+            // Move only visible windows.
+            if (selected >= m_ListedWindows.Count)
+            {
+                return;
+            }
+
+            if (selected == 0)
+            {
+                return;
+            }
+
+            var tmp = lstWindowsList.Items[selected];
+            lstWindowsList.Items.RemoveAt(selected);
+            lstWindowsList.Items.Insert(selected - 1, tmp);
+
+            var tmpWindow = m_ListedWindows[selected];
+            m_ListedWindows.RemoveAt(selected);
+            m_ListedWindows.Insert(selected - 1, tmpWindow);
+        }
+
+        private void MoveSelectedDown()
+        {
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            {
+                return;
+            }
+
+            int selected = this.lstWindowsList.SelectedIndices[0];
+
+            // Move only visible windows.
+            if (selected >= m_ListedWindows.Count)
+            {
+                return;
+            }
+
+            if (selected == m_ListedWindows.Count - 1)
+            {
+                return;
+            }
+
+            var tmp = lstWindowsList.Items[selected];
+            lstWindowsList.Items.RemoveAt(selected);
+            lstWindowsList.Items.Insert(selected + 1, tmp);
+
+            var tmpWindow = m_ListedWindows[selected];
+            m_ListedWindows.RemoveAt(selected);
+            m_ListedWindows.Insert(selected + 1, tmpWindow);
+        }
+
+        private void OrderWindows()
+        {
+            var indices = lstWindowsList.SelectedIndices;
+
+            // Order only visible windows.
+            for (var i = 0; i < indices.Count; i++)
+            {
+                if (indices[i] >= m_ListedWindows.Count)
+                {
+                    return;
+                }
+            }
+
+            for (var i = 0; i < indices.Count; i++)
+            {
+                User32Windows.ShowWindow(m_ListedWindows[indices[i]].Handle, User32Windows.SW_HIDE);
+            }
+
+            for (var i = 0; i < indices.Count; i++)
+            {
+                User32Windows.ShowWindow(m_ListedWindows[indices[i]].Handle, User32Windows.SW_SHOW);
             }
         }
 
