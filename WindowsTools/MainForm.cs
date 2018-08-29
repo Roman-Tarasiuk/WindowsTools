@@ -1833,6 +1833,8 @@ namespace WindowsTools
                 return;
             }
 
+            this.lstWindowsList.BeginUpdate();
+
             var tmp = lstWindowsList.Items[selected];
             lstWindowsList.Items.RemoveAt(selected);
             lstWindowsList.Items.Insert(selected - 1, tmp);
@@ -1840,6 +1842,8 @@ namespace WindowsTools
             var tmpWindow = m_ListedWindows[selected];
             m_ListedWindows.RemoveAt(selected);
             m_ListedWindows.Insert(selected - 1, tmpWindow);
+
+            this.lstWindowsList.EndUpdate();
         }
 
         private void MoveSelectedDown()
@@ -1862,6 +1866,8 @@ namespace WindowsTools
                 return;
             }
 
+            this.lstWindowsList.BeginUpdate();
+
             var tmp = lstWindowsList.Items[selected];
             lstWindowsList.Items.RemoveAt(selected);
             lstWindowsList.Items.Insert(selected + 1, tmp);
@@ -1869,6 +1875,8 @@ namespace WindowsTools
             var tmpWindow = m_ListedWindows[selected];
             m_ListedWindows.RemoveAt(selected);
             m_ListedWindows.Insert(selected + 1, tmpWindow);
+
+            this.lstWindowsList.EndUpdate();
         }
 
         private void OrderWindows()
@@ -1901,5 +1909,28 @@ namespace WindowsTools
     public class ToolEventArgs : EventArgs
     {
         public string Title { get; set; }
+    }
+
+    // https://stackoverflow.com/questions/442817/c-sharp-flickering-listview-on-update
+    class ListViewNF : System.Windows.Forms.ListView
+    {
+       public ListViewNF()
+       {
+           //Activate double buffering
+           this.SetStyle(System.Windows.Forms.ControlStyles.OptimizedDoubleBuffer | System.Windows.Forms.ControlStyles.AllPaintingInWmPaint, true);
+
+           //Enable the OnNotifyMessage event so we get a chance to filter out 
+           // Windows messages before they get to the form's WndProc
+           this.SetStyle(System.Windows.Forms.ControlStyles.EnableNotifyMessage, true);
+       }
+
+       protected override void OnNotifyMessage(System.Windows.Forms.Message m)
+       {
+           //Filter out the WM_ERASEBKGND message
+           if(m.Msg != 0x14)
+           {
+               base.OnNotifyMessage(m);
+           }
+       }
     }
 }

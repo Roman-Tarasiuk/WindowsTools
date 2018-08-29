@@ -153,7 +153,7 @@
             this.chkPin = new System.Windows.Forms.CheckBox();
             this.timerWrongPin = new System.Windows.Forms.Timer(this.components);
             this.timerScreenSaver = new System.Windows.Forms.Timer(this.components);
-            this.lstWindowsList = new System.Windows.Forms.ListView();
+            this.lstWindowsList = new ListViewNF();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnSendCustomCommands = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
