@@ -732,7 +732,25 @@ namespace WindowsTools
             {
                 if (i1.ProcessId == i2.ProcessId)
                 {
-                    return i1.Title.CompareTo(i2.Title);
+                    //return i1.Title.CompareTo(i2.Title);
+                    var index1 = m_ListedWindows.IndexOf(i1);
+                    var index2 = m_ListedWindows.IndexOf(i2);
+
+                    if (index1 == -1 || index2 == -1)
+                    {
+                        logger.Log(NLog.LogLevel.Info, 
+                            String.Format("Compare windows: {0}: {1} [[{4}]] <> {2}: {3} [[{5}]]",
+                                i1.Handle, i1.Title, i2.Handle, i2.Title, index1, index2));
+
+                        index1 = m_HiddenByUserWindows.IndexOf(i1);
+                        index2 = m_HiddenByUserWindows.IndexOf(i2);
+
+                        logger.Log(NLog.LogLevel.Info, 
+                            String.Format("In hidden windows: [[{0}]] <> [[{1}]]",
+                                index1, index2));
+                    }
+                    
+                    return index1.CompareTo(index2);
                 }
 
                 return i1.ProcessId.CompareTo(i2.ProcessId);
