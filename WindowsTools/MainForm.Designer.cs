@@ -1235,6 +1235,7 @@
             this.btnMoveUp.Size = new System.Drawing.Size(44, 23);
             this.btnMoveUp.TabIndex = 13;
             this.btnMoveUp.Text = "▲";
+            this.btnMoveUp.ForeColor = System.Drawing.Color.FromArgb(51, 102, 204);
             this.btnMoveUp.UseVisualStyleBackColor = true;
             this.btnMoveUp.Click += new System.EventHandler(this.btnMoveUp_Click);
             // 
@@ -1247,6 +1248,7 @@
             this.btnMoveDown.Size = new System.Drawing.Size(44, 23);
             this.btnMoveDown.TabIndex = 14;
             this.btnMoveDown.Text = "▼";
+            this.btnMoveDown.ForeColor = System.Drawing.Color.FromArgb(51, 102, 204);
             this.btnMoveDown.UseVisualStyleBackColor = true;
             this.btnMoveDown.Click += new System.EventHandler(this.btnMoveDown_Click);
             // 
