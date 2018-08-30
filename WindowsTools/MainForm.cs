@@ -341,6 +341,8 @@ namespace WindowsTools
             int selected = this.lstWindowsList.SelectedIndices[0];
 
             User32Windows.PostMessage(m_ListedWindows[selected].Handle, User32Windows.WM_CLOSE, 0, 0);
+            
+            Thread.Sleep(1000);
 
             this.RefreshWindowsList();
         }
