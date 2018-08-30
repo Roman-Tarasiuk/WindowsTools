@@ -728,26 +728,22 @@ namespace WindowsTools
 
         private void sortByProcessIdToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var listedTmp = new List<DesktopWindow>(m_ListedWindows);
+            var hiddenTmp = new List<DesktopWindow>(m_HiddenByUserWindows);
+
             Comparison<DesktopWindow> comparison = (i1, i2) =>
             {
                 if (i1.ProcessId == i2.ProcessId)
                 {
                     //return i1.Title.CompareTo(i2.Title);
-                    var index1 = m_ListedWindows.IndexOf(i1);
-                    var index2 = m_ListedWindows.IndexOf(i2);
+                    var index1 = listedTmp.IndexOf(i1);
+                    var index2 = listedTmp.IndexOf(i2);
 
                     if (index1 == -1 || index2 == -1)
                     {
-                        logger.Log(NLog.LogLevel.Info, 
-                            String.Format("Compare windows: {0}: {1} [[{4}]] <> {2}: {3} [[{5}]]",
-                                i1.Handle, i1.Title, i2.Handle, i2.Title, index1, index2));
 
-                        index1 = m_HiddenByUserWindows.IndexOf(i1);
-                        index2 = m_HiddenByUserWindows.IndexOf(i2);
-
-                        logger.Log(NLog.LogLevel.Info, 
-                            String.Format("In hidden windows: [[{0}]] <> [[{1}]]",
-                                index1, index2));
+                        index1 = hiddenTmp.IndexOf(i1);
+                        index2 = hiddenTmp.IndexOf(i2);
                     }
                     
                     return index1.CompareTo(index2);
