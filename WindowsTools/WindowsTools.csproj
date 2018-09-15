@@ -365,6 +365,7 @@
     <None Include="Resources\crop_right_small.png" />
     <None Include="Resources\crop_bottom_small.png" />
     <None Include="Resources\toggle.png" />
+    <None Include="Resources\screen-4-64x64.png" />
     <Content Include="taskmgr_icon.png.ico" />
   </ItemGroup>
   <ItemGroup>
