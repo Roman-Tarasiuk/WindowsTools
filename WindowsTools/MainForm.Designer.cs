@@ -377,7 +377,7 @@
             // 
             this.screenSaverAndLockToolStripMenuItem1.Name = "screenSaverAndLockToolStripMenuItem1";
             this.screenSaverAndLockToolStripMenuItem1.Size = new System.Drawing.Size(213, 22);
-            this.screenSaverAndLockToolStripMenuItem1.Text = "Screen saver and lock";
+            this.screenSaverAndLockToolStripMenuItem1.Text = "Screen saver + lock";
             this.screenSaverAndLockToolStripMenuItem1.Click += new System.EventHandler(this.screenSaverAndLockToolStripMenuItem_Click);
             // 
             // powerOffDisplayAndLockToolStripMenuItem
@@ -385,7 +385,7 @@
             this.powerOffDisplayAndLockToolStripMenuItem.Image = global::WindowsTools.Properties.Resources.screen_4_64x64;
             this.powerOffDisplayAndLockToolStripMenuItem.Name = "powerOffDisplayAndLockToolStripMenuItem";
             this.powerOffDisplayAndLockToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.powerOffDisplayAndLockToolStripMenuItem.Text = "Power off display and lock";
+            this.powerOffDisplayAndLockToolStripMenuItem.Text = "Power off display + lock";
             this.powerOffDisplayAndLockToolStripMenuItem.Click += new System.EventHandler(this.powerOffDisplayAndLockToolStripMenuItem_Click);
             // 
             // passwordsToolStripMenuItem
@@ -862,7 +862,7 @@
             // 
             this.screenSaverAndLockToolStripMenuItem.Name = "screenSaverAndLockToolStripMenuItem";
             this.screenSaverAndLockToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.screenSaverAndLockToolStripMenuItem.Text = "Screen saver and lock";
+            this.screenSaverAndLockToolStripMenuItem.Text = "Screen saver + lock";
             this.screenSaverAndLockToolStripMenuItem.Click += new System.EventHandler(this.screenSaverAndLockToolStripMenuItem1_Click);
             // 
             // powerOffDisplayToolStripMenuItem1
@@ -878,7 +878,7 @@
             this.powerOffDisplayAndLockToolStripMenuItem1.Image = global::WindowsTools.Properties.Resources.screen_4_64x64;
             this.powerOffDisplayAndLockToolStripMenuItem1.Name = "powerOffDisplayAndLockToolStripMenuItem1";
             this.powerOffDisplayAndLockToolStripMenuItem1.Size = new System.Drawing.Size(213, 22);
-            this.powerOffDisplayAndLockToolStripMenuItem1.Text = "Power off display and lock";
+            this.powerOffDisplayAndLockToolStripMenuItem1.Text = "Power off display + lock";
             this.powerOffDisplayAndLockToolStripMenuItem1.Click += new System.EventHandler(this.powerOffDisplayAndLockToolStripMenuItem1_Click);
             // 
             // toolStripSeparator4
