@@ -186,6 +186,7 @@ namespace WindowsTools
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(350, 138);
             this.panel1.TabIndex = 2;
+            this.panel1.Cursor = Cursors.SizeAll;
             this.panel1.MouseUp += (object sender, MouseEventArgs e) => {
                 this.panel1.SendToBack();
                 this.Cursor = Cursors.Default;
@@ -213,7 +214,7 @@ namespace WindowsTools
             if (m_MainMenuIsVisible)
             {
                 menuStrip1.Hide();
-                richTextBox1.Location = new Point(0, 0);
+                richTextBox1.Location = new Point(2, 2);
                 panel1.Location = new Point(0, 0);
                 this.Size = new Size(this.Size.Width, this.Size.Height - menuDefaultHeight);
                 m_MainMenuIsVisible = false;
@@ -221,14 +222,14 @@ namespace WindowsTools
             else
             {
                 menuStrip1.Show();
-                richTextBox1.Location = new Point(0, 27);
+                richTextBox1.Location = new Point(2, 29);
                 panel1.Location = new Point(0, 27);
                 this.Size = new Size(this.Size.Width, this.Size.Height + menuDefaultHeight);
                 m_MainMenuIsVisible = true;
             }
 
             richTextBox1.Size = currentEditorSize;
-            panel1.Size = currentEditorSize;
+            panel1.Size = new Size(currentEditorSize.Width + 8, currentEditorSize.Height + 8);
 
             hideMainMenuToolStripMenuItem.Checked = m_MainMenuIsVisible;
             showMainMenuToolStripMenuItem.Checked = m_MainMenuIsVisible;
