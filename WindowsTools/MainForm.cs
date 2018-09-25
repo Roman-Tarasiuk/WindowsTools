@@ -272,9 +272,9 @@ namespace WindowsTools
         private void setCmdTitleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SendCommands(new string[] {
-                "%for {%}* in {(}.{)} do echo {%}{~}nx* > tmp.tmp & set /P var1=<tmp.tmp%",
+                "%for {%}* in {(}.{)} do echo {%}{~}nx* > C:\\Windows\\Temp\\tmp.tmp & set /P var1=<C:\\Windows\\Temp\\tmp.tmp%",
                 "{ENTER}",
-                "%title {%}var1{%} & del tmp.tmp & set \"var1=\"%",
+                "%title {%}var1{%} & del C:\\Windows\\Temp\\tmp.tmp & set \"var1=\"%",
                 "{ENTER}"});
         }
 
