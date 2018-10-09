@@ -94,10 +94,9 @@ namespace WindowsTools
 
         private void ScreenRulerHelperForm_MouseDown(object sender, MouseEventArgs e)
         {
-            m_MousePressed = true;
-
             if (e.Button == MouseButtons.Left)
             {
+                m_MousePressed = true;
                 m_X = e.X;
                 m_Y = e.Y;
             }
