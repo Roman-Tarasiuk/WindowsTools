@@ -106,7 +106,8 @@ namespace WindowsTools
             }
             else if (Clipboard.ContainsImage())
             {
-                richTextBox1.Text = "Image";
+                richTextBox1.Clear();
+                richTextBox1.Paste();
                 comboBox1.SelectedIndex = 2;
             }
             else if (Clipboard.ContainsText())
