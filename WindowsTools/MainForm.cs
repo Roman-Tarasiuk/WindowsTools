@@ -897,6 +897,15 @@ namespace WindowsTools
             new ScreenRulerArrangePanelForm().Show();
         }
 
+        private void clearClipboardTextFormatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var text = Clipboard.GetText();
+            if (text != null && text != String.Empty)
+            {
+                Clipboard.SetText(text);
+            }
+        }
+
         // System tray context menu | Miscellaneous
 
         private void decodeClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -987,6 +996,15 @@ namespace WindowsTools
         private void panelToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             new ScreenRulerArrangePanelForm().Show();
+        }
+
+        private void clearClipboardTextFormatToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var text = Clipboard.GetText();
+            if (text != null && text != String.Empty)
+            {
+                Clipboard.SetText(text);
+            }
         }
 
         // Menu items other than Miscellaneous set above these last 2 groups.

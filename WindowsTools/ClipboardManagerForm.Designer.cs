@@ -41,6 +41,8 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerStart = new System.Windows.Forms.Timer(this.components);
+            this.clearClipboarFormatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,11 +105,13 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.systemClipboardManagerToolStripMenuItem,
+            this.toolStripSeparator2,
             this.clearClipboardToolStripMenuItem,
+            this.clearClipboarFormatToolStripMenuItem,
             this.toolStripSeparator1,
             this.closeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(218, 76);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(218, 126);
             // 
             // systemClipboardManagerToolStripMenuItem
             // 
@@ -142,6 +146,18 @@
             this.timerStart.Interval = 1000;
             this.timerStart.Tick += new System.EventHandler(this.timerStart_Tick);
             // 
+            // clearClipboarFormatToolStripMenuItem
+            // 
+            this.clearClipboarFormatToolStripMenuItem.Name = "clearClipboarFormatToolStripMenuItem";
+            this.clearClipboarFormatToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.clearClipboarFormatToolStripMenuItem.Text = "Clear clipboard text format";
+            this.clearClipboarFormatToolStripMenuItem.Click += new System.EventHandler(this.clearClipboarFormatToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(214, 6);
+            // 
             // ClipboardManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,5 +190,7 @@
         private System.Windows.Forms.ToolStripMenuItem clearClipboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem clearClipboarFormatToolStripMenuItem;
     }
 }

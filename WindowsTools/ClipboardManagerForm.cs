@@ -80,6 +80,15 @@ namespace WindowsTools
             this.ClearClipboard();
         }
 
+        private void clearClipboarFormatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var text = Clipboard.GetText();
+            if (text != null && text != String.Empty)
+            {
+                Clipboard.SetText(text);
+            }
+        }
+
         #endregion
 
 
