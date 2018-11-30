@@ -36,6 +36,8 @@ namespace WindowsTools
 
         private System.Windows.Forms.Panel panel1;
 
+        private const int ClicksToShow = 5;
+
 
         private bool m_FirstRun = true;
         private IntPtr m_Handle;
@@ -43,6 +45,8 @@ namespace WindowsTools
 
         private bool m_AltKey = false;
         private bool m_CtrlKey = false;
+
+        private int m_ClicksCount = 0;
 
         public TransparentWindowToolForm(IntPtr handle)
         {
@@ -89,6 +93,7 @@ namespace WindowsTools
             }
 
             this.panel1.DoubleClick += new System.EventHandler(this.TransparentWindowToolForm_DoubleClick);
+            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TransparentWindowToolForm_MouseClick);
         }
 
         private void TransparentWindowToolForm_MouseWheel(object sender, MouseEventArgs e)
@@ -159,8 +164,17 @@ namespace WindowsTools
 
         private void TransparentWindowToolForm_DoubleClick(object sender, EventArgs e)
         {
-            User32Windows.SetForegroundWindow(m_Handle);
-            User32Windows.SetForegroundWindow(this.Handle);
+            User32Windows.ShowWindow(m_Handle, User32Windows.SW_HIDE);
+            m_ClicksCount = 0;
+        }
+
+        private void TransparentWindowToolForm_MouseClick(object sender, MouseEventArgs e)
+        {
+            m_ClicksCount ++;
+            if (m_ClicksCount >= ClicksToShow)
+            {
+                User32Windows.ShowWindow(m_Handle, User32Windows.SW_SHOW);
+            }
         }
 
         private void ChangeTransparency()

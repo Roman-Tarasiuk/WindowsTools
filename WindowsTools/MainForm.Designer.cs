@@ -47,7 +47,7 @@
             this.customTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackWindowIsAccessibleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setWindowOpacityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setWindowTransparencyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.directorySizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.downloadFilesFromInternetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -212,7 +212,7 @@
             this.customTitleToolStripMenuItem,
             this.trackTitleToolStripMenuItem,
             this.trackWindowIsAccessibleToolStripMenuItem,
-            this.setWindowOpacityToolStripMenuItem,
+            this.setWindowTransparencyToolStripMenuItem,
             this.toolStripSeparator6,
             this.directorySizeToolStripMenuItem,
             this.downloadFilesFromInternetToolStripMenuItem,
@@ -327,12 +327,12 @@
             this.trackWindowIsAccessibleToolStripMenuItem.Text = "Track a window is accessible...";
             this.trackWindowIsAccessibleToolStripMenuItem.Click += new System.EventHandler(this.trackWindowIsAccessibleToolStripMenuItem_Click);
             // 
-            // setWindowOpacityToolStripMenuItem
+            // setWindowTransparencyToolStripMenuItem
             // 
-            this.setWindowOpacityToolStripMenuItem.Name = "setWindowOpacityToolStripMenuItem";
-            this.setWindowOpacityToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.setWindowOpacityToolStripMenuItem.Text = "Set window transparency...";
-            this.setWindowOpacityToolStripMenuItem.Click += new System.EventHandler(this.setWindowTransparencyToolStripMenuItem_Click);
+            this.setWindowTransparencyToolStripMenuItem.Name = "setWindowTransparencyToolStripMenuItem";
+            this.setWindowTransparencyToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+            this.setWindowTransparencyToolStripMenuItem.Text = "Set window transparency...";
+            this.setWindowTransparencyToolStripMenuItem.Click += new System.EventHandler(this.setWindowTransparencyToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
@@ -1450,7 +1450,7 @@
         private System.Windows.Forms.Timer timerSaveSettings;
         private System.Windows.Forms.ToolStripMenuItem clipboardTextToWidthToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clipboardTextToWidthToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem setWindowOpacityToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setWindowTransparencyToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem panelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem panelToolStripMenuItem1;
