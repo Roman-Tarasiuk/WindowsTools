@@ -178,6 +178,9 @@ namespace WindowsTools
             if (m_ClicksCount >= ClicksToShow)
             {
                 User32Windows.ShowWindow(m_Handle, User32Windows.SW_SHOW);
+                User32Windows.SetForegroundWindow(m_Handle);
+                User32Windows.SetForegroundWindow(this.Handle);
+                m_ClicksCount = ClicksToShow;
             }
         }
 
