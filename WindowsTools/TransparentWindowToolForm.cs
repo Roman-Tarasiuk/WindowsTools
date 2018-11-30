@@ -94,6 +94,10 @@ namespace WindowsTools
 
             this.panel1.DoubleClick += new System.EventHandler(this.TransparentWindowToolForm_DoubleClick);
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TransparentWindowToolForm_MouseClick);
+            this.LocationChanged += (sender, e) =>
+            {
+                m_ClicksCount = 0;
+            };
         }
 
         private void TransparentWindowToolForm_MouseWheel(object sender, MouseEventArgs e)
