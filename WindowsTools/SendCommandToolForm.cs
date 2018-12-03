@@ -350,7 +350,8 @@ namespace WindowsTools
                 User32Windows.GetWindowRect(foreWindow, out rForeWindow);
 
                 var r = this.RectangleToScreen(this.DisplayRectangle);
-                var contains = RectangleContains(rForeWindow, r);
+                var contains = RectangleContains(rForeWindow, r)
+                            || RectangleIntersects(rForeWindow, r);
 
                 int processId,
                     ptocessIdThis;
@@ -440,12 +441,31 @@ namespace WindowsTools
 
         #region Helper methods
 
-        private bool RectangleContains(Rectangle r1, Rectangle r2)
+        private bool RectangleContains(Rectangle outer, Rectangle inner)
         {
-            return r1.Left <= r2.Left
-                && r1.Top <= r2.Top
-                && r1.Width >= r2.Right
-                && r1.Height >= r2.Bottom;
+            // Outer rectangle is get by the User32Windows.GetWindowRect()
+            // which returns rectangle that actually has
+            // its width = right, height = bottom.
+
+            return outer.Left <= inner.Left
+                && outer.Top <= inner.Top
+                && outer.Width >= inner.Right
+                && outer.Height >= inner.Bottom;
+        }
+
+        private bool RectangleIntersects(Rectangle outer, Rectangle inner)
+        {
+            // See comment to the RectangleContains() method.
+
+            Rectangle tmp = new Rectangle(outer.Left, outer.Top, outer.Width - outer.Left, outer.Height - outer.Top);
+
+            var intersect =Rectangle.Intersect(tmp, inner);
+            if (intersect != Rectangle.Empty)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private void CalculateCoordinates()
