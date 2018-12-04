@@ -1116,45 +1116,45 @@ namespace WindowsTools
 
             var selectedIndex = -1;
             var selectedWindow = default(DesktopWindow);
-            try {
-            if (lstWindowsList.SelectedIndices.Count == 1)
+            try
             {
-                selectedIndex = lstWindowsList.SelectedIndices[0];
-
-                if (selectedIndex >= 0 && selectedIndex < m_ListedWindows.Count)
+                if (lstWindowsList.SelectedIndices.Count == 1)
                 {
-                    var listed = false;
-                    for (var i = 0; i < lstWindowsList.SelectedItems.Count; i++)
+                    selectedIndex = lstWindowsList.SelectedIndices[0];
+
+                    if (selectedIndex >= 0 && selectedIndex < m_ListedWindows.Count)
                     {
-                        if (lstWindowsList.SelectedItems[i].Text.Contains(m_ListedWindows[selectedIndex].Title))
+                        var listed = false;
+                        for (var i = 0; i < lstWindowsList.SelectedItems.Count; i++)
                         {
-                            listed = true;
-                            break;
+                            if (lstWindowsList.SelectedItems[i].Text.Contains(m_ListedWindows[selectedIndex].Title))
+                            {
+                                listed = true;
+                                break;
+                            }
+                        }
+
+                        if (lstWindowsList.SelectedItems != null && listed)
+                        {
+                            selectedWindow = m_ListedWindows[selectedIndex];
                         }
                     }
-
-                    if (lstWindowsList.SelectedItems != null && listed)
+                    else
                     {
-                        selectedWindow = m_ListedWindows[selectedIndex];
+                        selectedIndex = -1;
+                    }
+
+                    if (selectedIndex == -1 ||
+                        selectedWindow == null ||
+                        !User32Windows.IsWindow(selectedWindow.Handle))
+                    {
+                        selectedIndex = -1;
+                        selectedWindow = default(DesktopWindow);
+
+                        lstWindowsList.SelectedItems.Clear();
+                        lstWindowsList.SelectedIndices.Clear();
                     }
                 }
-                else
-                {
-                    selectedIndex = -1;
-                }
-
-                if (selectedIndex == -1 ||
-                    selectedWindow == null ||
-                    !User32Windows.IsWindow(selectedWindow.Handle))
-                {
-                    selectedIndex = -1;
-                    selectedWindow = default(DesktopWindow);
-
-                    lstWindowsList.SelectedItems.Clear();
-                    lstWindowsList.SelectedIndices.Clear();
-                }
-            }
-
             }
             catch
             {
