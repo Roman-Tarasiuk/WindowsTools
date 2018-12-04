@@ -13,6 +13,8 @@ using System.Runtime.InteropServices;
 using System.IO;
 using System.Configuration;
 
+using System.Threading.Tasks;
+
 namespace WindowsTools
 {
     public partial class MainForm : Form
@@ -786,24 +788,12 @@ namespace WindowsTools
 
         private void lstWindowsList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstWindowsList.SelectedIndices.Count == 0)
+            if (m_RefreshStarted)
             {
-                btnMoveUp.Enabled = false;
-                btnMoveDown.Enabled = false;
-                btnOrder.Enabled = false;
+                return;
             }
-            else if (lstWindowsList.SelectedIndices.Count == 1)
-            {
-                btnMoveUp.Enabled = true;
-                btnMoveDown.Enabled = true;
-                btnOrder.Enabled = false;
-            }
-            else
-            {
-                btnMoveUp.Enabled = false;
-                btnMoveDown.Enabled = false;
-                btnOrder.Enabled = true;
-            }
+
+            ToggleMovingOrderingButtons();
         }
 
         // Main menu | Miscellaneous
@@ -1031,23 +1021,53 @@ namespace WindowsTools
             var visibleOnly = this.chkVisibleOnly.Checked;
             var showMinimized = chkShowMinimized.Checked;
 
-            var runningWindows = GetWindowList(visibleOnly, visibleOnly ? showMinimized : true);
+            Task.Run(() => {
+                var initialState1 = btnMoveUp.Enabled;
+                var initialState2 = btnOrder.Enabled;
+                btnRefreshWindowsList.Enabled = false;
+                btnCloseWindow.Enabled = false;
+                btnHideWindow.Enabled = false;
+                btnKillWindow.Enabled = false;
+                btnMoveDown.Enabled = false;
+                btnMoveUp.Enabled = false;
+                btnOrder.Enabled = false;
+                btnSendCustomCommands.Enabled = false;
+                btnShowHidden.Enabled = false;
 
-            bool match = WindowsMatch(runningWindows);
+                //
 
-            if (!match)
-            {
-                UpdateWindowsLists(runningWindows);
-            }
+                var runningWindows = GetWindowList(visibleOnly, visibleOnly ? showMinimized : true);
 
-            lblWindowsCount.Text = runningWindows.Count.ToString();
+                bool match = WindowsMatch(runningWindows);
 
-            if (Properties.Settings.Default.MainForm_LogRefresh)
-            {
-                logger.Log(NLog.LogLevel.Info, "Refresh windows list finished.");
-            }
+                if (!match)
+                {
+                    UpdateWindowsLists(runningWindows);
+                }
 
-            m_RefreshStarted = false;
+                lblWindowsCount.Text = runningWindows.Count.ToString();
+
+                if (Properties.Settings.Default.MainForm_LogRefresh)
+                {
+                    logger.Log(NLog.LogLevel.Info, "Refresh windows list finished.");
+                }
+
+                m_RefreshStarted = false;
+
+                ToggleMovingOrderingButtons();
+
+                //
+
+                btnRefreshWindowsList.Enabled = true;
+                btnCloseWindow.Enabled = true;
+                btnHideWindow.Enabled = true;
+                btnKillWindow.Enabled = true;
+                btnMoveDown.Enabled = initialState1;
+                btnMoveUp.Enabled = initialState1;
+                btnOrder.Enabled = initialState2;
+                btnSendCustomCommands.Enabled = true;
+                btnShowHidden.Enabled = true;
+            });
         }
 
         private bool WindowsMatch(List<DesktopWindow> runningWindows)
@@ -1934,6 +1954,28 @@ namespace WindowsTools
             for (var i = 0; i < indices.Count; i++)
             {
                 User32Windows.ShowWindow(m_ListedWindows[indices[i]].Handle, User32Windows.SW_SHOW);
+            }
+        }
+
+        private void ToggleMovingOrderingButtons()
+        {
+            if (lstWindowsList.SelectedIndices.Count == 0)
+            {
+                btnMoveUp.Enabled = false;
+                btnMoveDown.Enabled = false;
+                btnOrder.Enabled = false;
+            }
+            else if (lstWindowsList.SelectedIndices.Count == 1)
+            {
+                btnMoveUp.Enabled = true;
+                btnMoveDown.Enabled = true;
+                btnOrder.Enabled = false;
+            }
+            else // Multiple indices selected.
+            {
+                btnMoveUp.Enabled = false;
+                btnMoveDown.Enabled = false;
+                btnOrder.Enabled = true;
             }
         }
 
