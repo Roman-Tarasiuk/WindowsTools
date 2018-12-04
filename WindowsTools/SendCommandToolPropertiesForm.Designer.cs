@@ -55,50 +55,6 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 91);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Width:";
-            // 
-            // txtToolWidth
-            // 
-            this.txtToolWidth.Location = new System.Drawing.Point(59, 88);
-            this.txtToolWidth.Name = "txtToolWidth";
-            this.txtToolWidth.Size = new System.Drawing.Size(63, 20);
-            this.txtToolWidth.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 117);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Height:";
-            // 
-            // txtToolHeight
-            // 
-            this.txtToolHeight.Location = new System.Drawing.Point(59, 114);
-            this.txtToolHeight.Name = "txtToolHeight";
-            this.txtToolHeight.Size = new System.Drawing.Size(63, 20);
-            this.txtToolHeight.TabIndex = 3;
-            // 
-            // btnOk
-            // 
-            this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Location = new System.Drawing.Point(171, 370);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 4;
-            this.btnOk.Text = "OK";
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panel2);
@@ -106,9 +62,41 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 7);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(234, 70);
-            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Anchor";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.radioLeft);
+            this.panel1.Controls.Add(this.radioRight);
+            this.panel1.Location = new System.Drawing.Point(6, 15);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(79, 45);
+            this.panel1.TabIndex = 2;
+            // 
+            // radioLeft
+            // 
+            this.radioLeft.AutoSize = true;
+            this.radioLeft.Checked = true;
+            this.radioLeft.Location = new System.Drawing.Point(3, 3);
+            this.radioLeft.Name = "radioLeft";
+            this.radioLeft.Size = new System.Drawing.Size(43, 17);
+            this.radioLeft.TabIndex = 3;
+            this.radioLeft.TabStop = true;
+            this.radioLeft.Text = "Left";
+            this.radioLeft.UseVisualStyleBackColor = true;
+            // 
+            // radioRight
+            // 
+            this.radioRight.AutoSize = true;
+            this.radioRight.Location = new System.Drawing.Point(3, 26);
+            this.radioRight.Name = "radioRight";
+            this.radioRight.Size = new System.Drawing.Size(50, 17);
+            this.radioRight.TabIndex = 4;
+            this.radioRight.TabStop = true;
+            this.radioRight.Text = "Right";
+            this.radioRight.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -126,7 +114,7 @@
             this.radioTop.Location = new System.Drawing.Point(3, 3);
             this.radioTop.Name = "radioTop";
             this.radioTop.Size = new System.Drawing.Size(44, 17);
-            this.radioTop.TabIndex = 2;
+            this.radioTop.TabIndex = 6;
             this.radioTop.TabStop = true;
             this.radioTop.Text = "Top";
             this.radioTop.UseVisualStyleBackColor = true;
@@ -137,42 +125,83 @@
             this.radioBottom.Location = new System.Drawing.Point(3, 26);
             this.radioBottom.Name = "radioBottom";
             this.radioBottom.Size = new System.Drawing.Size(58, 17);
-            this.radioBottom.TabIndex = 3;
+            this.radioBottom.TabIndex = 7;
             this.radioBottom.TabStop = true;
             this.radioBottom.Text = "Bottom";
             this.radioBottom.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // label5
             // 
-            this.panel1.Controls.Add(this.radioLeft);
-            this.panel1.Controls.Add(this.radioRight);
-            this.panel1.Location = new System.Drawing.Point(6, 15);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(79, 45);
-            this.panel1.TabIndex = 4;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 91);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(28, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Left:";
             // 
-            // radioLeft
+            // txtLeft
             // 
-            this.radioLeft.AutoSize = true;
-            this.radioLeft.Checked = true;
-            this.radioLeft.Location = new System.Drawing.Point(3, 3);
-            this.radioLeft.Name = "radioLeft";
-            this.radioLeft.Size = new System.Drawing.Size(43, 17);
-            this.radioLeft.TabIndex = 0;
-            this.radioLeft.TabStop = true;
-            this.radioLeft.Text = "Left";
-            this.radioLeft.UseVisualStyleBackColor = true;
+            this.txtLeft.Location = new System.Drawing.Point(59, 88);
+            this.txtLeft.Name = "txtLeft";
+            this.txtLeft.Size = new System.Drawing.Size(63, 20);
+            this.txtLeft.TabIndex = 9;
             // 
-            // radioRight
+            // label4
             // 
-            this.radioRight.AutoSize = true;
-            this.radioRight.Location = new System.Drawing.Point(3, 26);
-            this.radioRight.Name = "radioRight";
-            this.radioRight.Size = new System.Drawing.Size(50, 17);
-            this.radioRight.TabIndex = 1;
-            this.radioRight.TabStop = true;
-            this.radioRight.Text = "Right";
-            this.radioRight.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 117);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Top:";
+            // 
+            // txtTop
+            // 
+            this.txtTop.Location = new System.Drawing.Point(59, 114);
+            this.txtTop.Name = "txtTop";
+            this.txtTop.Size = new System.Drawing.Size(63, 20);
+            this.txtTop.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(149, 91);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Width:";
+            // 
+            // txtToolWidth
+            // 
+            this.txtToolWidth.Location = new System.Drawing.Point(188, 88);
+            this.txtToolWidth.Name = "txtToolWidth";
+            this.txtToolWidth.Size = new System.Drawing.Size(63, 20);
+            this.txtToolWidth.TabIndex = 13;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(149, 117);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Height:";
+            // 
+            // txtToolHeight
+            // 
+            this.txtToolHeight.Location = new System.Drawing.Point(188, 114);
+            this.txtToolHeight.Name = "txtToolHeight";
+            this.txtToolHeight.Size = new System.Drawing.Size(63, 20);
+            this.txtToolHeight.TabIndex = 15;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 150);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Commands:";
             // 
             // txtCommands
             // 
@@ -185,17 +214,8 @@
             this.txtCommands.Name = "txtCommands";
             this.txtCommands.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtCommands.Size = new System.Drawing.Size(234, 119);
-            this.txtCommands.TabIndex = 6;
+            this.txtCommands.TabIndex = 17;
             this.txtCommands.WordWrap = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 150);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Commands:";
             // 
             // chkClipboard
             // 
@@ -204,7 +224,7 @@
             this.chkClipboard.Location = new System.Drawing.Point(12, 291);
             this.chkClipboard.Name = "chkClipboard";
             this.chkClipboard.Size = new System.Drawing.Size(70, 17);
-            this.chkClipboard.TabIndex = 8;
+            this.chkClipboard.TabIndex = 18;
             this.chkClipboard.Text = "Clipboard";
             this.chkClipboard.UseVisualStyleBackColor = true;
             this.chkClipboard.CheckedChanged += new System.EventHandler(this.chkClipboard_CheckedChanged);
@@ -216,7 +236,7 @@
             this.chkSleep.Location = new System.Drawing.Point(12, 314);
             this.chkSleep.Name = "chkSleep";
             this.chkSleep.Size = new System.Drawing.Size(110, 17);
-            this.chkSleep.TabIndex = 9;
+            this.chkSleep.TabIndex = 19;
             this.chkSleep.Text = "With timeout (ms):";
             this.chkSleep.UseVisualStyleBackColor = true;
             // 
@@ -226,7 +246,7 @@
             this.txtSleepTimeout.Location = new System.Drawing.Point(128, 312);
             this.txtSleepTimeout.Name = "txtSleepTimeout";
             this.txtSleepTimeout.Size = new System.Drawing.Size(100, 20);
-            this.txtSleepTimeout.TabIndex = 10;
+            this.txtSleepTimeout.TabIndex = 20;
             // 
             // chkRunOnAllWindowsWithSameTitle
             // 
@@ -235,41 +255,21 @@
             this.chkRunOnAllWindowsWithSameTitle.Location = new System.Drawing.Point(12, 337);
             this.chkRunOnAllWindowsWithSameTitle.Name = "chkRunOnAllWindowsWithSameTitle";
             this.chkRunOnAllWindowsWithSameTitle.Size = new System.Drawing.Size(187, 17);
-            this.chkRunOnAllWindowsWithSameTitle.TabIndex = 11;
+            this.chkRunOnAllWindowsWithSameTitle.TabIndex = 21;
             this.chkRunOnAllWindowsWithSameTitle.Text = "Run on all windows with same title";
             this.chkRunOnAllWindowsWithSameTitle.UseVisualStyleBackColor = true;
             // 
-            // txtTop
+            // btnOk
             // 
-            this.txtTop.Location = new System.Drawing.Point(183, 114);
-            this.txtTop.Name = "txtTop";
-            this.txtTop.Size = new System.Drawing.Size(63, 20);
-            this.txtTop.TabIndex = 15;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(149, 117);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Top:";
-            // 
-            // txtLeft
-            // 
-            this.txtLeft.Location = new System.Drawing.Point(183, 88);
-            this.txtLeft.Name = "txtLeft";
-            this.txtLeft.Size = new System.Drawing.Size(63, 20);
-            this.txtLeft.TabIndex = 13;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(149, 91);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(28, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Left:";
+            this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnOk.Location = new System.Drawing.Point(171, 370);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(75, 23);
+            this.btnOk.TabIndex = 22;
+            this.btnOk.Text = "OK";
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // SendCommandToolPropertiesForm
             // 
