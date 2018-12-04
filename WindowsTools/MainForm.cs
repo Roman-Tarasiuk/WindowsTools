@@ -1054,8 +1054,6 @@ namespace WindowsTools
 
                 m_RefreshStarted = false;
 
-                ToggleMovingOrderingButtons();
-
                 //
 
                 btnRefreshWindowsList.Enabled = true;
@@ -1067,6 +1065,10 @@ namespace WindowsTools
                 btnOrder.Enabled = initialState2;
                 btnSendCustomCommands.Enabled = true;
                 btnShowHidden.Enabled = true;
+
+                //
+
+                ToggleMovingOrderingButtons();
             });
         }
 
@@ -1110,6 +1112,57 @@ namespace WindowsTools
         {
             lstWindowsList.BeginUpdate();
 
+            // Get selected current window.
+
+            var selectedIndex = -1;
+            var selectedWindow = default(DesktopWindow);
+            try {
+            if (lstWindowsList.SelectedIndices.Count == 1)
+            {
+                selectedIndex = lstWindowsList.SelectedIndices[0];
+
+                if (selectedIndex >= 0 && selectedIndex < m_ListedWindows.Count)
+                {
+                    var listed = false;
+                    for (var i = 0; i < lstWindowsList.SelectedItems.Count; i++)
+                    {
+                        if (lstWindowsList.SelectedItems[i].Text.Contains(m_ListedWindows[selectedIndex].Title))
+                        {
+                            listed = true;
+                            break;
+                        }
+                    }
+
+                    if (lstWindowsList.SelectedItems != null && listed)
+                    {
+                        selectedWindow = m_ListedWindows[selectedIndex];
+                    }
+                }
+                else
+                {
+                    selectedIndex = -1;
+                }
+
+                if (selectedIndex == -1 ||
+                    selectedWindow == null ||
+                    !User32Windows.IsWindow(selectedWindow.Handle))
+                {
+                    selectedIndex = -1;
+                    selectedWindow = default(DesktopWindow);
+
+                    lstWindowsList.SelectedItems.Clear();
+                    lstWindowsList.SelectedIndices.Clear();
+                }
+            }
+
+            }
+            catch
+            {
+                logger.Error("WTF!..");
+            }
+
+            //
+
             foreach (var window in runningWindows)
             {
                 if (m_ListedWindows.Contains(window))
@@ -1150,6 +1203,15 @@ namespace WindowsTools
                     lstWindowsList.Items.RemoveAt(i);
                     i--;
                 }
+            }
+
+            if (selectedIndex >= 0)
+            {
+                if (m_ListedWindows[selectedIndex] == selectedWindow)
+                {
+                    lstWindowsList.Items[selectedIndex].Selected = true;
+                }
+                //else if (selectedIndex)
             }
 
             lstWindowsList.EndUpdate();
