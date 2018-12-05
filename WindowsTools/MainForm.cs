@@ -1004,6 +1004,32 @@ namespace WindowsTools
 
         #region Helper methods
 
+        private void SetEnabledSafe(Control control, bool enabled)
+        {
+            if (control.InvokeRequired)
+            {
+                var callback = new Action<Control, bool>(SetEnabledSafe);
+                this.Invoke(callback, new object[] { control, enabled });
+            }
+            else
+            {
+                control.Enabled = enabled;
+            }
+        }
+
+        private void SetTextSafe(Control control, string text)
+        {
+            if (control.InvokeRequired)
+            {
+                var callback = new Action<Control, string>(SetTextSafe);
+                this.Invoke(callback, new object[] { control, text });
+            }
+            else
+            {
+                control.Text = text;
+            }
+        }
+
         private void RefreshWindowsList()
         {
             if (m_RefreshStarted)
@@ -1024,15 +1050,16 @@ namespace WindowsTools
             Task.Run(() => {
                 var initialState1 = btnMoveUp.Enabled;
                 var initialState2 = btnOrder.Enabled;
-                btnRefreshWindowsList.Enabled = false;
-                btnCloseWindow.Enabled = false;
-                btnHideWindow.Enabled = false;
-                btnKillWindow.Enabled = false;
-                btnMoveDown.Enabled = false;
-                btnMoveUp.Enabled = false;
-                btnOrder.Enabled = false;
-                btnSendCustomCommands.Enabled = false;
-                btnShowHidden.Enabled = false;
+                
+                SetEnabledSafe(btnRefreshWindowsList, false);
+                SetEnabledSafe(btnCloseWindow,        false);
+                SetEnabledSafe(btnHideWindow,         false);
+                SetEnabledSafe(btnKillWindow,         false);
+                SetEnabledSafe(btnMoveDown,           false);
+                SetEnabledSafe(btnMoveUp,             false);
+                SetEnabledSafe(btnOrder,              false);
+                SetEnabledSafe(btnSendCustomCommands, false);
+                SetEnabledSafe(btnShowHidden,         false);
 
                 //
 
@@ -1045,7 +1072,7 @@ namespace WindowsTools
                     UpdateWindowsLists(runningWindows);
                 }
 
-                lblWindowsCount.Text = runningWindows.Count.ToString();
+                SetTextSafe(lblWindowsCount, runningWindows.Count.ToString());
 
                 if (Properties.Settings.Default.MainForm_LogRefresh)
                 {
@@ -1056,15 +1083,15 @@ namespace WindowsTools
 
                 //
 
-                btnRefreshWindowsList.Enabled = true;
-                btnCloseWindow.Enabled = true;
-                btnHideWindow.Enabled = true;
-                btnKillWindow.Enabled = true;
-                btnMoveDown.Enabled = initialState1;
-                btnMoveUp.Enabled = initialState1;
-                btnOrder.Enabled = initialState2;
-                btnSendCustomCommands.Enabled = true;
-                btnShowHidden.Enabled = true;
+                SetEnabledSafe(btnRefreshWindowsList, true);
+                SetEnabledSafe(btnCloseWindow,        true);
+                SetEnabledSafe(btnHideWindow,         true);
+                SetEnabledSafe(btnKillWindow,         true);
+                SetEnabledSafe(btnMoveDown,  initialState1);
+                SetEnabledSafe(btnMoveUp,    initialState1);
+                SetEnabledSafe(btnOrder,     initialState2);
+                SetEnabledSafe(btnSendCustomCommands, true);
+                SetEnabledSafe(btnShowHidden,         true);
 
                 //
 
@@ -1110,111 +1137,119 @@ namespace WindowsTools
 
         private void UpdateWindowsLists(List<DesktopWindow> runningWindows)
         {
-            lstWindowsList.BeginUpdate();
-
-            // Get selected current window.
-
-            var selectedIndex = -1;
-            var selectedWindow = default(DesktopWindow);
-            try
+            if (lstWindowsList.InvokeRequired)
             {
-                if (lstWindowsList.SelectedIndices.Count == 1)
-                {
-                    selectedIndex = lstWindowsList.SelectedIndices[0];
+                var callback = new Action<List<DesktopWindow>>(UpdateWindowsLists);
+                this.Invoke(callback, new object[] { runningWindows });
+            }
+            else
+            {
+                lstWindowsList.BeginUpdate();
 
-                    if (selectedIndex >= 0 && selectedIndex < m_ListedWindows.Count)
+                // Get selected current window.
+
+                var selectedIndex = -1;
+                var selectedWindow = default(DesktopWindow);
+                try
+                {
+                    if (lstWindowsList.SelectedIndices.Count == 1)
                     {
-                        var listed = false;
-                        for (var i = 0; i < lstWindowsList.SelectedItems.Count; i++)
+                        selectedIndex = lstWindowsList.SelectedIndices[0];
+
+                        if (selectedIndex >= 0 && selectedIndex < m_ListedWindows.Count)
                         {
-                            if (lstWindowsList.SelectedItems[i].Text.Contains(m_ListedWindows[selectedIndex].Title))
+                            var listed = false;
+                            for (var i = 0; i < lstWindowsList.SelectedItems.Count; i++)
                             {
-                                listed = true;
-                                break;
+                                if (lstWindowsList.SelectedItems[i].Text.Contains(m_ListedWindows[selectedIndex].Title))
+                                {
+                                    listed = true;
+                                    break;
+                                }
+                            }
+
+                            if (lstWindowsList.SelectedItems != null && listed)
+                            {
+                                selectedWindow = m_ListedWindows[selectedIndex];
                             }
                         }
-
-                        if (lstWindowsList.SelectedItems != null && listed)
+                        else
                         {
-                            selectedWindow = m_ListedWindows[selectedIndex];
+                            selectedIndex = -1;
+                        }
+
+                        if (selectedIndex == -1 ||
+                            selectedWindow == null ||
+                            !User32Windows.IsWindow(selectedWindow.Handle))
+                        {
+                            selectedIndex = -1;
+                            selectedWindow = default(DesktopWindow);
+
+                            lstWindowsList.SelectedItems.Clear();
+                            lstWindowsList.SelectedIndices.Clear();
                         }
                     }
-                    else
-                    {
-                        selectedIndex = -1;
-                    }
-
-                    if (selectedIndex == -1 ||
-                        selectedWindow == null ||
-                        !User32Windows.IsWindow(selectedWindow.Handle))
-                    {
-                        selectedIndex = -1;
-                        selectedWindow = default(DesktopWindow);
-
-                        lstWindowsList.SelectedItems.Clear();
-                        lstWindowsList.SelectedIndices.Clear();
-                    }
                 }
-            }
-            catch
-            {
-                logger.Error("WTF!..");
-            }
-
-            //
-
-            foreach (var window in runningWindows)
-            {
-                if (m_ListedWindows.Contains(window))
+                catch
                 {
-                    continue;
+                    logger.Error("WTF!..");
                 }
-                else
+
+                //
+
+                foreach (var window in runningWindows)
                 {
-                    bool titleChanged = false;
-
-                    if (window.Title.StartsWith(m_PrefixHidden))
-                    {
-                        window.Title = window.Title.Substring(m_PrefixHidden.Length);
-                        titleChanged = true;
-                    }
-
-                    if (m_HiddenByUserWindows.Contains(window))
+                    if (m_ListedWindows.Contains(window))
                     {
                         continue;
                     }
-                    else if (titleChanged)
+                    else
                     {
-                        window.Title = m_PrefixHidden + window.Title;
+                        bool titleChanged = false;
+
+                        if (window.Title.StartsWith(m_PrefixHidden))
+                        {
+                            window.Title = window.Title.Substring(m_PrefixHidden.Length);
+                            titleChanged = true;
+                        }
+
+                        if (m_HiddenByUserWindows.Contains(window))
+                        {
+                            continue;
+                        }
+                        else if (titleChanged)
+                        {
+                            window.Title = m_PrefixHidden + window.Title;
+                        }
+                    }
+
+                    m_ListedWindows.Add(window);
+
+                    ShowInList(window, m_ListedWindows.Count - 1);
+                }
+
+                for (int i = 0; i < m_ListedWindows.Count; i++)
+                {
+                    var window = m_ListedWindows[i];
+                    if (!runningWindows.Contains(window))
+                    {
+                        m_ListedWindows.RemoveAt(i);
+                        lstWindowsList.Items.RemoveAt(i);
+                        i--;
                     }
                 }
 
-                m_ListedWindows.Add(window);
-
-                ShowInList(window, m_ListedWindows.Count - 1);
-            }
-
-            for (int i = 0; i < m_ListedWindows.Count; i++)
-            {
-                var window = m_ListedWindows[i];
-                if (!runningWindows.Contains(window))
+                if (selectedIndex >= 0)
                 {
-                    m_ListedWindows.RemoveAt(i);
-                    lstWindowsList.Items.RemoveAt(i);
-                    i--;
+                    if (m_ListedWindows[selectedIndex] == selectedWindow)
+                    {
+                        lstWindowsList.Items[selectedIndex].Selected = true;
+                    }
+                    //else if (selectedIndex)
                 }
-            }
 
-            if (selectedIndex >= 0)
-            {
-                if (m_ListedWindows[selectedIndex] == selectedWindow)
-                {
-                    lstWindowsList.Items[selectedIndex].Selected = true;
-                }
-                //else if (selectedIndex)
+                lstWindowsList.EndUpdate();
             }
-
-            lstWindowsList.EndUpdate();
         }
 
         private List<DesktopWindow> GetWindowList(bool visibleOnly, bool includeIconic = true)
@@ -2023,21 +2058,21 @@ namespace WindowsTools
         {
             if (lstWindowsList.SelectedIndices.Count == 0)
             {
-                btnMoveUp.Enabled = false;
-                btnMoveDown.Enabled = false;
-                btnOrder.Enabled = false;
+                SetEnabledSafe(btnMoveUp,   false);
+                SetEnabledSafe(btnMoveDown, false);
+                SetEnabledSafe(btnOrder,    false);
             }
             else if (lstWindowsList.SelectedIndices.Count == 1)
             {
-                btnMoveUp.Enabled = true;
-                btnMoveDown.Enabled = true;
-                btnOrder.Enabled = false;
+                SetEnabledSafe(btnMoveUp,    true);
+                SetEnabledSafe(btnMoveDown,  true);
+                SetEnabledSafe(btnOrder,    false);
             }
             else // Multiple indices selected.
             {
-                btnMoveUp.Enabled = false;
-                btnMoveDown.Enabled = false;
-                btnOrder.Enabled = true;
+                SetEnabledSafe(btnMoveUp,   false);
+                SetEnabledSafe(btnMoveDown, false);
+                SetEnabledSafe(btnOrder,    true);
             }
         }
 
