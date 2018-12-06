@@ -27,7 +27,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="MainForm_LogRefresh" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)" >false</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

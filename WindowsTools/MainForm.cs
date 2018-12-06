@@ -2056,23 +2056,31 @@ namespace WindowsTools
 
         private void ToggleMovingOrderingButtons()
         {
-            if (lstWindowsList.SelectedIndices.Count == 0)
+            if (lstWindowsList.InvokeRequired)
             {
-                SetEnabledSafe(btnMoveUp,   false);
-                SetEnabledSafe(btnMoveDown, false);
-                SetEnabledSafe(btnOrder,    false);
+                var callbac = new Action(ToggleMovingOrderingButtons);
+                this.Invoke(callbac, null);
             }
-            else if (lstWindowsList.SelectedIndices.Count == 1)
+            else
             {
-                SetEnabledSafe(btnMoveUp,    true);
-                SetEnabledSafe(btnMoveDown,  true);
-                SetEnabledSafe(btnOrder,    false);
-            }
-            else // Multiple indices selected.
-            {
-                SetEnabledSafe(btnMoveUp,   false);
-                SetEnabledSafe(btnMoveDown, false);
-                SetEnabledSafe(btnOrder,    true);
+                if (lstWindowsList.SelectedIndices.Count == 0)
+                {
+                    SetEnabledSafe(btnMoveUp, false);
+                    SetEnabledSafe(btnMoveDown, false);
+                    SetEnabledSafe(btnOrder, false);
+                }
+                else if (lstWindowsList.SelectedIndices.Count == 1)
+                {
+                    SetEnabledSafe(btnMoveUp, true);
+                    SetEnabledSafe(btnMoveDown, true);
+                    SetEnabledSafe(btnOrder, false);
+                }
+                else // Multiple indices selected.
+                {
+                    SetEnabledSafe(btnMoveUp, false);
+                    SetEnabledSafe(btnMoveDown, false);
+                    SetEnabledSafe(btnOrder, true);
+                }
             }
         }
 
