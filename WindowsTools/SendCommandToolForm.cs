@@ -384,8 +384,10 @@ namespace WindowsTools
                 Sleep = m_Sleep,
                 SleepTimeout = m_SleepTimeout,
                 RunOnAllWindowsWithSameTitle = m_RunOnAllWindowsWithSameTitle,
-                Left = this.Location.X,
-                Top = this.Location.Y
+                ToolLeft = this.Location.X,
+                ToolTop = this.Location.Y,
+                BorderColor = this.m_PenNormal.Color,
+                BorderHoverColor = this.m_PenHover.Color
             };
             var result = settingsForm.ShowDialog();
 
@@ -403,7 +405,10 @@ namespace WindowsTools
                 this.m_SleepTimeout = settingsForm.SleepTimeout;
                 m_RunOnAllWindowsWithSameTitle = settingsForm.RunOnAllWindowsWithSameTitle;
 
-                this.Location = new Point(settingsForm.Left, settingsForm.Top);
+                this.Location = new Point(settingsForm.ToolLeft, settingsForm.ToolTop);
+
+                this.m_PenNormal.Color = settingsForm.BorderColor;
+                this.m_PenHover.Color = settingsForm.BorderHoverColor;
             }
         }
 

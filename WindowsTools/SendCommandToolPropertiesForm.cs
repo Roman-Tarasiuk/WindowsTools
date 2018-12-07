@@ -18,14 +18,16 @@ namespace WindowsTools
         public string Commands { get; set; }
         public AnchorHorizontal AnchorH { get; set; }
         public AnchorVertical AnchorV { get; set; }
+        public int ToolTop { get; set; }
+        public int ToolLeft { get; set; }
         public int ToolWidht { get; set; }
         public int ToolHeight { get; set; }
         public bool ClipboardCommand { get; set; }
         public bool Sleep { get; set; }
         public int SleepTimeout { get; set; }
         public bool RunOnAllWindowsWithSameTitle { get; set; }
-        public int Top { get; set; }
-        public int Left { get; set; }
+        public Color BorderColor { get; set; }
+        public Color BorderHoverColor { get; set; }
 
         #endregion
 
@@ -60,6 +62,28 @@ namespace WindowsTools
         private void chkClipboard_CheckedChanged(object sender, EventArgs e)
         {
             txtCommands.Enabled = !chkClipboard.Checked;
+        }
+
+        private void btnBorderColor_Click(object sender, EventArgs e)
+        {
+            var result = colorDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                BorderColor = colorDialog1.Color;
+                lblBorder.BackColor = BorderColor;
+            }
+        }
+
+        private void btnBorderHoverColor_Click(object sender, EventArgs e)
+        {
+            var result = colorDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                BorderHoverColor = colorDialog1.Color;
+                lblBorderHover.BackColor = BorderHoverColor;
+            }
         }
 
         #endregion
@@ -103,8 +127,11 @@ namespace WindowsTools
 
             chkRunOnAllWindowsWithSameTitle.Checked = RunOnAllWindowsWithSameTitle;
 
-            txtLeft.Text = Left.ToString();
-            txtTop.Text = Top.ToString();
+            txtLeft.Text = ToolLeft.ToString();
+            txtTop.Text = ToolTop.ToString();
+
+            lblBorder.BackColor = BorderColor;
+            lblBorderHover.BackColor = BorderHoverColor;
         }
 
         private void ApplyProperties()
@@ -158,8 +185,8 @@ namespace WindowsTools
 
             RunOnAllWindowsWithSameTitle = chkRunOnAllWindowsWithSameTitle.Checked;
 
-            Top = int.Parse(txtTop.Text);
-            Left = int.Parse(txtLeft.Text);
+            ToolTop = int.Parse(txtTop.Text);
+            ToolLeft = int.Parse(txtLeft.Text);
         }
 
         #endregion

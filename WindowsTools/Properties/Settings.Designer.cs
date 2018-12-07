@@ -121,7 +121,7 @@ namespace WindowsTools.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool MainForm_LogRefresh {
             get {
                 return ((bool)(this["MainForm_LogRefresh"]));
