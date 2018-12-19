@@ -3,7 +3,7 @@
 Windows desktop (.NET, Windows Forms) application for<br>
 - moving, changing size, changing title, hidding windows; screen ruler;<br>
 - send custom keypresses to any window;<br>
-- password manager;<br>
+- password manager (in-memory);<br>
 - activating windows by mouse hover&#42;;<br>
 - track a window is active; track a window's title;<br>
 - make any window transparent;<br>
