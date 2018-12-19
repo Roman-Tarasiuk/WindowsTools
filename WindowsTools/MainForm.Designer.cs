@@ -83,7 +83,9 @@
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topmostWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showTipsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clipboarToWidthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripWindowsList = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.hideSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -175,7 +177,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.toolsToolStripMenuItem,
-            this.viewToolStripMenuItem});
+            this.viewToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(561, 24);
@@ -605,6 +608,21 @@
             this.topmostWindowToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.topmostWindowToolStripMenuItem.Text = "Topmost window";
             this.topmostWindowToolStripMenuItem.Click += new System.EventHandler(this.topmostWindowToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showTipsToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // showTipsToolStripMenuItem
+            // 
+            this.showTipsToolStripMenuItem.Name = "showTipsToolStripMenuItem";
+            this.showTipsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.showTipsToolStripMenuItem.Text = "Show tips...";
+            this.showTipsToolStripMenuItem.Click += new System.EventHandler(this.showTipsToolStripMenuItem_Click);
             // 
             // clipboarToWidthToolStripMenuItem
             // 
@@ -1434,7 +1452,9 @@
         private System.Windows.Forms.CheckBox chkShowMinimized;
         private System.Windows.Forms.Label lblWindowsCount;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem topmostWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showTipsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toUPPERCASEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toLowercaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toUPPERCASEToolStripMenuItem1;

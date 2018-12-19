@@ -712,6 +712,11 @@ namespace WindowsTools
             topmostWindowToolStripMenuItem.Checked = this.TopMost;
         }
 
+        private void showTipsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Roman-Tarasiuk/WindowsTools/wiki");
+        }
+
         private void lstWindowsList_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space || e.KeyCode == Keys.Enter)
