@@ -25,6 +25,7 @@ namespace WindowsTools
 
         private List<DesktopWindow> m_ListedWindows = new List<DesktopWindow>();
         private List<DesktopWindow> m_HiddenByUserWindows = new List<DesktopWindow>();
+        private List<NotesForm> m_Notes = new List<NotesForm>();
         private string m_PrefixHidden = "[hidden]";
         private string m_Pin = String.Empty;
 
@@ -225,6 +226,18 @@ namespace WindowsTools
                 m_PasswordForm.Close();
 
                 if (!m_PasswordForm.IsDisposed)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+            }
+
+            // Notes.
+            foreach(var n in m_Notes)
+            {
+                n.Close();
+
+                if (!n.IsDisposed)
                 {
                     e.Cancel = true;
                     return;
@@ -1695,7 +1708,9 @@ namespace WindowsTools
 
         private void RunNotes()
         {
-            new NotesForm().Show();
+            var nf = new NotesForm();
+            m_Notes.Add(nf);
+            nf.Show();
         }
 
         private static void NowToClipblard()
