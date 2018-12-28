@@ -169,6 +169,24 @@ namespace WindowsTools
             ToggleMainMenu();
         }
 
+        private void NotesForm_Closing(object sender, FormClosingEventArgs e)
+        {
+            if (this.richTextBox1.TextLength > 0)
+            {
+                var result = MessageBox.Show("There are your notes in this notebook.\n"
+                    + "Are you sure to close?",
+                    this.Text,
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button2);
+                
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
         #endregion
 
 

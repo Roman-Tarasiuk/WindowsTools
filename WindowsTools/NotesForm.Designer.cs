@@ -372,6 +372,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Shown += new System.EventHandler(this.NotesForm_Shown);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NotesForm_Closing);
             this.Name = "NotesForm";
             this.ShowInTaskbar = false;
             this.Text = "Notes";
