@@ -589,6 +589,7 @@
             this.notesToggleAllToolStripMenuItem.Name = "notesToggleAllToolStripMenuItem";
             this.notesToggleAllToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.notesToggleAllToolStripMenuItem.Text = "Toggle all notes";
+            this.notesToggleAllToolStripMenuItem.Checked = true;
             this.notesToggleAllToolStripMenuItem.Click += new System.EventHandler(this.notesToggleAllToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
@@ -1125,6 +1126,7 @@
             this.notesToggleAllToolStripMenuItem1.Name = "notesToggleAllToolStripMenuItem1";
             this.notesToggleAllToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
             this.notesToggleAllToolStripMenuItem1.Text = "Toggle all notes";
+            this.notesToggleAllToolStripMenuItem1.Checked = true;
             this.notesToggleAllToolStripMenuItem1.Click += new System.EventHandler(this.notesToggleAllToolStripMenuItem1_Click);
             // 
             // toolStripSeparator4

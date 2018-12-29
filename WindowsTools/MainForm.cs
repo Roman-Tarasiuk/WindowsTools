@@ -1732,6 +1732,9 @@ namespace WindowsTools
             {
                 f.ToggleTopmost(m_NotesTopmost);
             }
+
+            notesToggleAllToolStripMenuItem.Checked = m_NotesTopmost;
+            notesToggleAllToolStripMenuItem1.Checked = m_NotesTopmost;
         }
 
         private static void NowToClipblard()
