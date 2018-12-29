@@ -80,6 +80,7 @@
             this.cropImagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compareStringsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notesToggleAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -146,6 +147,7 @@
             this.cropImagesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.compareStringsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.notesToggleAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
@@ -437,7 +439,8 @@
             this.screenRulerToolStripMenuItem,
             this.cropImagesToolStripMenuItem,
             this.compareStringsToolStripMenuItem,
-            this.notesToolStripMenuItem});
+            this.notesToolStripMenuItem,
+            this.notesToggleAllToolStripMenuItem});
             this.miscellaneousToolStripMenuItem1.Name = "miscellaneousToolStripMenuItem1";
             this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(259, 22);
             this.miscellaneousToolStripMenuItem1.Text = "Miscellaneous";
@@ -580,6 +583,13 @@
             this.notesToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.notesToolStripMenuItem.Text = "Notes...";
             this.notesToolStripMenuItem.Click += new System.EventHandler(this.notesToolStripMenuItem_Click);
+            // 
+            // notesToggleAllToolStripMenuItem
+            // 
+            this.notesToggleAllToolStripMenuItem.Name = "notesToggleAllToolStripMenuItem";
+            this.notesToggleAllToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.notesToggleAllToolStripMenuItem.Text = "Toggle all notes";
+            this.notesToggleAllToolStripMenuItem.Click += new System.EventHandler(this.notesToggleAllToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
@@ -964,7 +974,8 @@
             this.screenRulerToolStripMenuItem1,
             this.cropImagesToolStripMenuItem1,
             this.compareStringsToolStripMenuItem1,
-            this.notesToolStripMenuItem1});
+            this.notesToolStripMenuItem1,
+            this.notesToggleAllToolStripMenuItem1});
             this.miscellaneousToolStripMenuItem.Image = global::WindowsTools.Properties.Resources.miscellaneous_icon1;
             this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
             this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
@@ -1108,6 +1119,13 @@
             this.notesToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
             this.notesToolStripMenuItem1.Text = "Notes...";
             this.notesToolStripMenuItem1.Click += new System.EventHandler(this.notesToolStripMenuItem1_Click);
+            // 
+            // notesToggleAllToolStripMenuItem1
+            // 
+            this.notesToggleAllToolStripMenuItem1.Name = "notesToggleAllToolStripMenuItem1";
+            this.notesToggleAllToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.notesToggleAllToolStripMenuItem1.Text = "Toggle all notes";
+            this.notesToggleAllToolStripMenuItem1.Click += new System.EventHandler(this.notesToggleAllToolStripMenuItem1_Click);
             // 
             // toolStripSeparator4
             // 
@@ -1418,6 +1436,8 @@
         private System.Windows.Forms.ToolStripMenuItem compareStringsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem notesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem notesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem notesToggleAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem notesToggleAllToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem currentDateAndTimeToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem currentDateAndTimeToolStripMenuItem;
         private System.Windows.Forms.Button btnSendCustomCommands;

@@ -43,6 +43,7 @@ namespace WindowsTools
         private bool m_EnableRestore = true;
         private bool m_RebuldPasswordMenu = false;
         private bool m_ScreensaverWithLock = false;
+        private bool m_NotesTopmost = true;
 
         static readonly TimeSpan defaultWrongPassDelay = new TimeSpan(0, 0, 0, 0, 5000);
         private TimeSpan m_PinTimeSpan = MainForm.defaultWrongPassDelay;
@@ -860,6 +861,11 @@ namespace WindowsTools
             RunNotes();
         }
 
+        private void notesToggleAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleNotes();
+        }
+
         private void currentDateAndTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NowToClipblard();
@@ -959,6 +965,11 @@ namespace WindowsTools
         private void notesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             RunNotes();
+        }
+
+        private void notesToggleAllToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ToggleNotes();
         }
 
         private void currentDateAndTimeToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -1711,6 +1722,16 @@ namespace WindowsTools
             var nf = new NotesForm();
             m_Notes.Add(nf);
             nf.Show();
+        }
+
+        private void ToggleNotes()
+        {
+            m_NotesTopmost = !m_NotesTopmost;
+
+            foreach (var f in m_Notes)
+            {
+                f.ToggleTopmost(m_NotesTopmost);
+            }
         }
 
         private static void NowToClipblard()

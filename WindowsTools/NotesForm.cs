@@ -14,6 +14,8 @@ namespace WindowsTools
     {
         private bool m_MainMenuIsVisible = true;
         private bool m_BorderIsVisible = true;
+        private int m_BorderOffsetX = 0;
+        private int m_BorderOffsetY = 0;
 
         public NotesForm()
         {
@@ -37,6 +39,18 @@ namespace WindowsTools
         }
 
 
+        #region Public methods
+
+        public void ToggleTopmost(bool topmost)
+        {
+            this.TopMost = topmost;
+            this.topmostWindowToolStripMenuItem.Checked = this.TopMost;
+            this.topmostWindowToolStripMenuItem1.Checked = this.TopMost;
+        }
+
+        #endregion
+
+
         #region Event Handlers
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -46,7 +60,7 @@ namespace WindowsTools
 
         private void topmostWindowToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToggleTopmost();
+            ToggleTopmost(!this.TopMost);
         }
 
         private void wordWrapToolStripMenuItem_Click(object sender, EventArgs e)
@@ -148,7 +162,7 @@ namespace WindowsTools
 
         private void topmostWindowToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ToggleTopmost();
+            ToggleTopmost(!this.TopMost);
         }
 
         private void showInTaskbarToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -316,23 +330,28 @@ namespace WindowsTools
             if (m_BorderIsVisible)
             {
                 this.FormBorderStyle = FormBorderStyle.None;
+
+                this.Location = new Point(this.Location.X + m_BorderOffsetX, this.Location.Y + m_BorderOffsetY);
                 m_BorderIsVisible = false;
             }
             else
             {
+                var currentLocation = this.richTextBox1.PointToScreen(this.richTextBox1.Location);
                 this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+
+                if (m_BorderOffsetX == 0 || m_BorderOffsetY == 0)
+                {
+                    var newLocation = this.richTextBox1.PointToScreen(this.richTextBox1.Location);
+                    m_BorderOffsetX = newLocation.X - currentLocation.X;
+                    m_BorderOffsetY = newLocation.Y - currentLocation.Y;
+                }
+
+                this.Location = new Point(this.Location.X - m_BorderOffsetX, this.Location.Y - m_BorderOffsetY);
                 m_BorderIsVisible = true;
             }
 
             showBorderToolStripMenuItem.Checked = m_BorderIsVisible;
             hideBorderToolStripMenuItem.Checked = m_BorderIsVisible;
-        }
-
-        private void ToggleTopmost()
-        {
-            this.TopMost = !this.TopMost;
-            this.topmostWindowToolStripMenuItem.Checked = this.TopMost;
-            this.topmostWindowToolStripMenuItem1.Checked = this.TopMost;
         }
 
         private void ToggleShowInTaskbar()
