@@ -22,6 +22,7 @@ namespace WindowsTools
             InitializeComponent();
 
             InitializeComponentsOther();
+            BackgroundColorToolStripMenuItemColor(Color.White);
         }
 
         //
@@ -317,7 +318,19 @@ namespace WindowsTools
             if (result == DialogResult.OK)
             {
                 this.richTextBox1.BackColor = dlg.Color;
+
+                BackgroundColorToolStripMenuItemColor(dlg.Color);
             }
+        }
+
+        private void BackgroundColorToolStripMenuItemColor(Color c)
+        {
+            var image = new Bitmap(20, 20);
+                using (var graphics = Graphics.FromImage(image))
+                {
+                    graphics.FillRectangle(new SolidBrush(c), 0, 0, 20, 20);
+                }
+            this.backgroundColorToolStripMenuItem.Image = image;
         }
 
         private void ClearNotes()
