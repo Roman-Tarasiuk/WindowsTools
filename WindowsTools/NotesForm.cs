@@ -328,7 +328,8 @@ namespace WindowsTools
             var image = new Bitmap(20, 20);
                 using (var graphics = Graphics.FromImage(image))
                 {
-                    graphics.FillRectangle(new SolidBrush(c), 0, 0, 20, 20);
+                    graphics.DrawRectangle(new Pen(Color.Black), 0, 0, 19, 19);
+                    graphics.FillRectangle(new SolidBrush(c), 1, 1, 18, 18);
                 }
             this.backgroundColorToolStripMenuItem.Image = image;
         }

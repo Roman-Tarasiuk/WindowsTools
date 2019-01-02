@@ -308,7 +308,6 @@
             this.backgroundColorToolStripMenuItem.Name = "backgroundColorToolStripMenuItem";
             this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.backgroundColorToolStripMenuItem.Text = "Background color...";
-            this.backgroundColorToolStripMenuItem.Checked = true;
             this.backgroundColorToolStripMenuItem.Click += new System.EventHandler(this.backgroundColorToolStripMenuItem_Click);
             // 
             // moveToolStripMenuItem
