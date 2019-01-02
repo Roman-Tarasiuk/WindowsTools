@@ -224,21 +224,21 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pasteToolStripMenuItem,
+            this.pasteWithoutFormattingToolStripMenuItem,
+            this.clearToolStripMenuItem2,
+            this.toolStripSeparator4,
+            this.moveToolStripMenuItem,
             this.hideBorderToolStripMenuItem,
             this.hideMainMenuToolStripMenuItem,
             this.topmostWindowToolStripMenuItem1,
             this.showInTaskbarToolStripMenuItem1,
             this.toolStripSeparator1,
+            this.backgroundColorToolStripMenuItem,
             this.selectionFontToolStripMenuItem,
             this.selectionColorToolStripMenuItem,
             this.selectionBackColorToolStripMenuItem,
-            this.backgroundColorToolStripMenuItem,
-            this.moveToolStripMenuItem,
             this.toolStripSeparator2,
-            this.pasteToolStripMenuItem,
-            this.pasteWithoutFormattingToolStripMenuItem,
-            this.clearToolStripMenuItem2,
-            this.toolStripSeparator4,
             this.closeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(207, 286);
@@ -342,7 +342,7 @@
             // 
             this.clearToolStripMenuItem2.Name = "clearToolStripMenuItem2";
             this.clearToolStripMenuItem2.Size = new System.Drawing.Size(206, 22);
-            this.clearToolStripMenuItem2.Text = "Clear";
+            this.clearToolStripMenuItem2.Text = "Clear all";
             this.clearToolStripMenuItem2.Click += new System.EventHandler(this.clearToolStripMenuItem2_Click);
             // 
             // toolStripSeparator4
