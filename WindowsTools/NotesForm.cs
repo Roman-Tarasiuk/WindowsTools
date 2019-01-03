@@ -161,6 +161,11 @@ namespace WindowsTools
             this.Cursor = Cursors.SizeAll;
         }
 
+        private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
         private void topmostWindowToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ToggleTopmost(!this.TopMost);

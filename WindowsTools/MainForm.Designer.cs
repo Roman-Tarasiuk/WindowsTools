@@ -439,8 +439,7 @@
             this.screenRulerToolStripMenuItem,
             this.cropImagesToolStripMenuItem,
             this.compareStringsToolStripMenuItem,
-            this.notesToolStripMenuItem,
-            this.notesToggleAllToolStripMenuItem});
+            this.notesToolStripMenuItem});
             this.miscellaneousToolStripMenuItem1.Name = "miscellaneousToolStripMenuItem1";
             this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(259, 22);
             this.miscellaneousToolStripMenuItem1.Text = "Miscellaneous";
@@ -579,6 +578,8 @@
             // 
             // notesToolStripMenuItem
             // 
+            this.notesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.notesToggleAllToolStripMenuItem});
             this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
             this.notesToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.notesToolStripMenuItem.Text = "Notes...";
@@ -975,8 +976,7 @@
             this.screenRulerToolStripMenuItem1,
             this.cropImagesToolStripMenuItem1,
             this.compareStringsToolStripMenuItem1,
-            this.notesToolStripMenuItem1,
-            this.notesToggleAllToolStripMenuItem1});
+            this.notesToolStripMenuItem1});
             this.miscellaneousToolStripMenuItem.Image = global::WindowsTools.Properties.Resources.miscellaneous_icon1;
             this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
             this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
@@ -1116,6 +1116,8 @@
             // 
             // notesToolStripMenuItem1
             // 
+            this.notesToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.notesToggleAllToolStripMenuItem1});
             this.notesToolStripMenuItem1.Name = "notesToolStripMenuItem1";
             this.notesToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
             this.notesToolStripMenuItem1.Text = "Notes...";
