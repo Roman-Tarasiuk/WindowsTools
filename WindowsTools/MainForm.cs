@@ -78,6 +78,22 @@ namespace WindowsTools
             StopLocking();
         }
 
+        public void MinimizeNotes()
+        {
+            foreach (var f in m_Notes)
+            {
+                f.WindowState = FormWindowState.Minimized;
+            }
+        }
+
+        public void RestoreNotes()
+        {
+            foreach (var f in m_Notes)
+            {
+                f.WindowState = FormWindowState.Normal;
+            }
+        }
+
         #endregion
 
 
@@ -1739,7 +1755,7 @@ namespace WindowsTools
 
         private void RunNotes()
         {
-            var nf = new NotesForm();
+            var nf = new NotesForm(this);
             m_Notes.Add(nf);
             nf.Show();
         }
@@ -1755,22 +1771,6 @@ namespace WindowsTools
 
             notesToggleAllToolStripMenuItem.Checked = m_NotesTopmost;
             notesToggleAllToolStripMenuItem1.Checked = m_NotesTopmost;
-        }
-
-        private void MinimizeNotes()
-        {
-            foreach (var f in m_Notes)
-            {
-                f.WindowState = FormWindowState.Minimized;
-            }
-        }
-
-        private void RestoreNotes()
-        {
-            foreach (var f in m_Notes)
-            {
-                f.WindowState = FormWindowState.Normal;
-            }
         }
 
         private static void NowToClipblard()

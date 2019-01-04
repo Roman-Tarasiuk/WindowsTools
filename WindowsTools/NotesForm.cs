@@ -16,11 +16,13 @@ namespace WindowsTools
         private bool m_BorderIsVisible = true;
         private int m_BorderOffsetX = 0;
         private int m_BorderOffsetY = 0;
+        private Form m_HostForm;
 
-        public NotesForm()
+        public NotesForm(Form hostForm = null)
         {
             InitializeComponent();
 
+            m_HostForm = hostForm;
             InitializeComponentsOther();
             BackgroundColorToolStripMenuItemColor(Color.White);
         }
@@ -53,6 +55,15 @@ namespace WindowsTools
 
 
         #region Event Handlers
+
+        private void richtextBox1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                ToggleBorder(false);
+                ToggleMainMenu(false);
+            }
+        }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -95,9 +106,9 @@ namespace WindowsTools
             PasteWithoutFormatting();
         }
 
-        private void hideMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toggleMainMenuToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ToggleMainMenu();
+            ToggleMainMenu(!m_MainMenuIsVisible);
         }
 
         private void selectionFontToolStripMenuItem_Click(object sender, EventArgs e)
@@ -120,9 +131,9 @@ namespace WindowsTools
             SelectBackColor();
         }
 
-        private void hideBorderToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toggleBorderToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ToggleBorder();
+            ToggleBorder(!m_BorderIsVisible);
         }
 
         private void clearToolStripMenuItem_Click(object sender, EventArgs e)
@@ -145,14 +156,14 @@ namespace WindowsTools
             ToggleShowInTaskbar();
         }
 
-        private void showBorderToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toggleBorderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToggleBorder();
+            ToggleBorder(!m_BorderIsVisible);
         }
 
-        private void showMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toggleMainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToggleMainMenu();
+            ToggleMainMenu(!m_MainMenuIsVisible);
         }
 
         private void moveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -164,6 +175,24 @@ namespace WindowsTools
         private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void minimizeAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var host = m_HostForm as MainForm;
+            if (host != null)
+            {
+                host.MinimizeNotes();
+            }
+        }
+
+        private void restoreAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var host = m_HostForm as MainForm;
+            if (host != null)
+            {
+                host.RestoreNotes();
+            }
         }
 
         private void topmostWindowToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -185,8 +214,8 @@ namespace WindowsTools
         {
             //this.panel1.Calibrate();
 
-            ToggleBorder();
-            ToggleMainMenu();
+            ToggleBorder(!m_BorderIsVisible);
+            ToggleMainMenu(!m_MainMenuIsVisible);
         }
 
         private void NotesForm_Closing(object sender, FormClosingEventArgs e)
@@ -244,18 +273,24 @@ namespace WindowsTools
             richTextBox1.SelectedText = txt;
         }
 
-        private void ToggleMainMenu()
+        private void ToggleMainMenu(bool visibility)
         {
+            if (m_MainMenuIsVisible == visibility)
+            {
+                return;
+            }
+            
+            m_MainMenuIsVisible = visibility;
+
             var currentEditorSize = richTextBox1.Size;
             var menuDefaultHeight = 27;
 
-            if (m_MainMenuIsVisible)
+            if (!visibility)
             {
                 menuStrip1.Hide();
                 richTextBox1.Location = new Point(2, 2);
                 panel1.Location = new Point(0, 0);
                 this.Size = new Size(this.Size.Width, this.Size.Height - menuDefaultHeight);
-                m_MainMenuIsVisible = false;
             }
             else
             {
@@ -263,14 +298,13 @@ namespace WindowsTools
                 richTextBox1.Location = new Point(2, 29);
                 panel1.Location = new Point(0, 27);
                 this.Size = new Size(this.Size.Width, this.Size.Height + menuDefaultHeight);
-                m_MainMenuIsVisible = true;
             }
 
             richTextBox1.Size = currentEditorSize;
             panel1.Size = new Size(currentEditorSize.Width + 8, currentEditorSize.Height + 8);
 
-            hideMainMenuToolStripMenuItem.Checked = m_MainMenuIsVisible;
-            showMainMenuToolStripMenuItem.Checked = m_MainMenuIsVisible;
+            toggleMainMenuToolStripMenuItem1.Checked = m_MainMenuIsVisible;
+            toggleMainMenuToolStripMenuItem.Checked = m_MainMenuIsVisible;
         }
 
         private void SetSelectionFont()
@@ -344,14 +378,20 @@ namespace WindowsTools
             this.richTextBox1.Clear();
         }
 
-        private void ToggleBorder()
+        private void ToggleBorder(bool visibility)
         {
-            if (m_BorderIsVisible)
+            if (m_BorderIsVisible == visibility)
+            {
+                return;
+            }
+
+            m_BorderIsVisible = visibility;
+
+            if (!visibility)
             {
                 this.FormBorderStyle = FormBorderStyle.None;
 
                 this.Location = new Point(this.Location.X + m_BorderOffsetX, this.Location.Y + m_BorderOffsetY);
-                m_BorderIsVisible = false;
             }
             else
             {
@@ -366,11 +406,10 @@ namespace WindowsTools
                 }
 
                 this.Location = new Point(this.Location.X - m_BorderOffsetX, this.Location.Y - m_BorderOffsetY);
-                m_BorderIsVisible = true;
             }
 
-            showBorderToolStripMenuItem.Checked = m_BorderIsVisible;
-            hideBorderToolStripMenuItem.Checked = m_BorderIsVisible;
+            toggleBorderToolStripMenuItem.Checked = m_BorderIsVisible;
+            toggleBorderToolStripMenuItem1.Checked = m_BorderIsVisible;
         }
 
         private void ToggleShowInTaskbar()

@@ -38,8 +38,8 @@
             this.pasteWithoutFormattingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showBorderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showMainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toggleBorderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toggleMainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topmostWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showInTaskbarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -48,8 +48,8 @@
             this.clearToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.hideBorderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hideMainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toggleBorderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toggleMainMenuToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.topmostWindowToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.showInTaskbarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -59,6 +59,8 @@
             this.backgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.minimizeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restoreAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteWithoutFormattingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -137,8 +139,8 @@
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showBorderToolStripMenuItem,
-            this.showMainMenuToolStripMenuItem,
+            this.toggleBorderToolStripMenuItem,
+            this.toggleMainMenuToolStripMenuItem,
             this.topmostWindowToolStripMenuItem,
             this.showInTaskbarToolStripMenuItem,
             this.toolStripSeparator3,
@@ -147,23 +149,23 @@
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
             // 
-            // showBorderToolStripMenuItem
+            // toggleBorderToolStripMenuItem
             // 
-            this.showBorderToolStripMenuItem.Checked = true;
-            this.showBorderToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.showBorderToolStripMenuItem.Name = "showBorderToolStripMenuItem";
-            this.showBorderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.showBorderToolStripMenuItem.Text = "Show border";
-            this.showBorderToolStripMenuItem.Click += new System.EventHandler(this.showBorderToolStripMenuItem_Click);
+            this.toggleBorderToolStripMenuItem.Checked = true;
+            this.toggleBorderToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toggleBorderToolStripMenuItem.Name = "toggleBorderToolStripMenuItem";
+            this.toggleBorderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toggleBorderToolStripMenuItem.Text = "Show border";
+            this.toggleBorderToolStripMenuItem.Click += new System.EventHandler(this.toggleBorderToolStripMenuItem_Click);
             // 
-            // showMainMenuToolStripMenuItem
+            // toggleMainMenuToolStripMenuItem
             // 
-            this.showMainMenuToolStripMenuItem.Checked = true;
-            this.showMainMenuToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.showMainMenuToolStripMenuItem.Name = "showMainMenuToolStripMenuItem";
-            this.showMainMenuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.showMainMenuToolStripMenuItem.Text = "Show main menu";
-            this.showMainMenuToolStripMenuItem.Click += new System.EventHandler(this.showMainMenuToolStripMenuItem_Click);
+            this.toggleMainMenuToolStripMenuItem.Checked = true;
+            this.toggleMainMenuToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toggleMainMenuToolStripMenuItem.Name = "toggleMainMenuToolStripMenuItem";
+            this.toggleMainMenuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toggleMainMenuToolStripMenuItem.Text = "Show main menu";
+            this.toggleMainMenuToolStripMenuItem.Click += new System.EventHandler(this.toggleMainMenuToolStripMenuItem_Click);
             // 
             // topmostWindowToolStripMenuItem
             // 
@@ -222,6 +224,7 @@
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             this.richTextBox1.WordWrap = false;
+            this.richTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richtextBox1_KeyDown);
             // 
             // contextMenuStrip1
             // 
@@ -232,9 +235,11 @@
             this.toolStripSeparator4,
             this.moveToolStripMenuItem,
             this.minimizeToolStripMenuItem,
+            this.minimizeAllToolStripMenuItem,
+            this.restoreAllToolStripMenuItem,
             this.toolStripSeparator5,
-            this.hideBorderToolStripMenuItem,
-            this.hideMainMenuToolStripMenuItem,
+            this.toggleBorderToolStripMenuItem1,
+            this.toggleMainMenuToolStripMenuItem1,
             this.topmostWindowToolStripMenuItem1,
             this.showInTaskbarToolStripMenuItem1,
             this.toolStripSeparator1,
@@ -247,23 +252,23 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(207, 286);
             // 
-            // hideBorderToolStripMenuItem
+            // toggleBorderToolStripMenuItem1
             // 
-            this.hideBorderToolStripMenuItem.Checked = true;
-            this.hideBorderToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.hideBorderToolStripMenuItem.Name = "hideBorderToolStripMenuItem";
-            this.hideBorderToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.hideBorderToolStripMenuItem.Text = "Show border";
-            this.hideBorderToolStripMenuItem.Click += new System.EventHandler(this.hideBorderToolStripMenuItem_Click);
+            this.toggleBorderToolStripMenuItem1.Checked = true;
+            this.toggleBorderToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toggleBorderToolStripMenuItem1.Name = "toggleBorderToolStripMenuItem1";
+            this.toggleBorderToolStripMenuItem1.Size = new System.Drawing.Size(206, 22);
+            this.toggleBorderToolStripMenuItem1.Text = "Show border";
+            this.toggleBorderToolStripMenuItem1.Click += new System.EventHandler(this.toggleBorderToolStripMenuItem1_Click);
             // 
-            // hideMainMenuToolStripMenuItem
+            // toggleMainMenuToolStripMenuItem1
             // 
-            this.hideMainMenuToolStripMenuItem.Checked = true;
-            this.hideMainMenuToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.hideMainMenuToolStripMenuItem.Name = "hideMainMenuToolStripMenuItem";
-            this.hideMainMenuToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.hideMainMenuToolStripMenuItem.Text = "Show main menu";
-            this.hideMainMenuToolStripMenuItem.Click += new System.EventHandler(this.hideMainMenuToolStripMenuItem_Click);
+            this.toggleMainMenuToolStripMenuItem1.Checked = true;
+            this.toggleMainMenuToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toggleMainMenuToolStripMenuItem1.Name = "toggleMainMenuToolStripMenuItem1";
+            this.toggleMainMenuToolStripMenuItem1.Size = new System.Drawing.Size(206, 22);
+            this.toggleMainMenuToolStripMenuItem1.Text = "Show main menu";
+            this.toggleMainMenuToolStripMenuItem1.Click += new System.EventHandler(this.toggleMainMenuToolStripMenuItem1_Click);
             // 
             // topmostWindowToolStripMenuItem1
             // 
@@ -328,6 +333,20 @@
             this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.minimizeToolStripMenuItem.Text = "Minimize";
             this.minimizeToolStripMenuItem.Click += new System.EventHandler(this.minimizeToolStripMenuItem_Click);
+            // 
+            // minimizeAllToolStripMenuItem
+            // 
+            this.minimizeAllToolStripMenuItem.Name = "minimizeAllToolStripMenuItem";
+            this.minimizeAllToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.minimizeAllToolStripMenuItem.Text = "Minimize all notes";
+            this.minimizeAllToolStripMenuItem.Click += new System.EventHandler(this.minimizeAllToolStripMenuItem_Click);
+            // 
+            // restoreAllToolStripMenuItem
+            // 
+            this.restoreAllToolStripMenuItem.Name = "restoreAllToolStripMenuItem";
+            this.restoreAllToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.restoreAllToolStripMenuItem.Text = "Restore all notes";
+            this.restoreAllToolStripMenuItem.Click += new System.EventHandler(this.restoreAllToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -418,22 +437,24 @@
         private System.Windows.Forms.ToolStripMenuItem pasteWithoutFormattingToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pasteWithoutFormattingToolStripMenuItem2;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ToolStripMenuItem hideMainMenuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toggleMainMenuToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem selectionFontToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem selectionColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem selectionBackColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backgroundColorToolStripMenuItem;
         private System.Windows.Forms.FontDialog fontDialog1;
-        private System.Windows.Forms.ToolStripMenuItem hideBorderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toggleBorderToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem showInTaskbarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showBorderToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showMainMenuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toggleBorderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toggleMainMenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem moveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem minimizeAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restoreAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
