@@ -56,6 +56,11 @@ namespace WindowsTools
 
         #region Event Handlers
 
+        private void richTextBox1_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            richTextBox1.Focus();
+        }
+
         private void richtextBox1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)

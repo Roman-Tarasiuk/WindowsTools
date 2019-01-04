@@ -227,6 +227,7 @@
             this.richTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richtextBox1_KeyDown);
             this.richTextBox1.HideSelection = false;
             this.richTextBox1.AutoWordSelection = false;
+            this.richTextBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.richTextBox1_MouseMove);
             // 
             // contextMenuStrip1
             // 
