@@ -81,6 +81,8 @@
             this.compareStringsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToggleAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notesMinimizeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notesRestoreAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -148,6 +150,8 @@
             this.compareStringsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToggleAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.notesMinimizeAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.notesRestoreAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
@@ -579,7 +583,9 @@
             // notesToolStripMenuItem
             // 
             this.notesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.notesToggleAllToolStripMenuItem});
+            this.notesToggleAllToolStripMenuItem,
+            this.notesMinimizeAllToolStripMenuItem,
+            this.notesRestoreAllToolStripMenuItem});
             this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
             this.notesToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.notesToolStripMenuItem.Text = "Notes...";
@@ -589,9 +595,23 @@
             // 
             this.notesToggleAllToolStripMenuItem.Name = "notesToggleAllToolStripMenuItem";
             this.notesToggleAllToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.notesToggleAllToolStripMenuItem.Text = "Toggle all notes";
+            this.notesToggleAllToolStripMenuItem.Text = "Toggle all notes's topmost";
             this.notesToggleAllToolStripMenuItem.Checked = true;
             this.notesToggleAllToolStripMenuItem.Click += new System.EventHandler(this.notesToggleAllToolStripMenuItem_Click);
+            // 
+            // notesMinimizeAllToolStripMenuItem
+            // 
+            this.notesMinimizeAllToolStripMenuItem.Name = "notesMinimizeAllToolStripMenuItem";
+            this.notesMinimizeAllToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.notesMinimizeAllToolStripMenuItem.Text = "Minimize all notes";
+            this.notesMinimizeAllToolStripMenuItem.Click += new System.EventHandler(this.notesMinimizeAllToolStripMenuItem_Click);
+            // 
+            // notesRestoreAllToolStripMenuItem
+            // 
+            this.notesRestoreAllToolStripMenuItem.Name = "notesRestoreAllToolStripMenuItem";
+            this.notesRestoreAllToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.notesRestoreAllToolStripMenuItem.Text = "Restore all notes";
+            this.notesRestoreAllToolStripMenuItem.Click += new System.EventHandler(this.notesRestoreAllToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
@@ -1117,7 +1137,9 @@
             // notesToolStripMenuItem1
             // 
             this.notesToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.notesToggleAllToolStripMenuItem1});
+            this.notesToggleAllToolStripMenuItem1,
+            this.notesMinimizeAllToolStripMenuItem1,
+            this.notesRestoreAllToolStripMenuItem1});
             this.notesToolStripMenuItem1.Name = "notesToolStripMenuItem1";
             this.notesToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
             this.notesToolStripMenuItem1.Text = "Notes...";
@@ -1127,9 +1149,23 @@
             // 
             this.notesToggleAllToolStripMenuItem1.Name = "notesToggleAllToolStripMenuItem1";
             this.notesToggleAllToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.notesToggleAllToolStripMenuItem1.Text = "Toggle all notes";
+            this.notesToggleAllToolStripMenuItem1.Text = "Toggle all notes's topmost";
             this.notesToggleAllToolStripMenuItem1.Checked = true;
             this.notesToggleAllToolStripMenuItem1.Click += new System.EventHandler(this.notesToggleAllToolStripMenuItem1_Click);
+            // 
+            // notesMinimizeAllToolStripMenuItem1
+            // 
+            this.notesMinimizeAllToolStripMenuItem1.Name = "notesMinimizeAllToolStripMenuItem1";
+            this.notesMinimizeAllToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.notesMinimizeAllToolStripMenuItem1.Text = "Minimize all notes";
+            this.notesMinimizeAllToolStripMenuItem1.Click += new System.EventHandler(this.notesMinimizeAllToolStripMenuItem1_Click);
+            // 
+            // notesRestoreAllToolStripMenuItem1
+            // 
+            this.notesRestoreAllToolStripMenuItem1.Name = "notesRestoreAllToolStripMenuItem1";
+            this.notesRestoreAllToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.notesRestoreAllToolStripMenuItem1.Text = "Restore all notes";
+            this.notesRestoreAllToolStripMenuItem1.Click += new System.EventHandler(this.notesRestoreAllToolStripMenuItem1_Click);
             // 
             // toolStripSeparator4
             // 
@@ -1442,6 +1478,10 @@
         private System.Windows.Forms.ToolStripMenuItem notesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem notesToggleAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem notesToggleAllToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem notesMinimizeAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem notesMinimizeAllToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem notesRestoreAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem notesRestoreAllToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem currentDateAndTimeToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem currentDateAndTimeToolStripMenuItem;
         private System.Windows.Forms.Button btnSendCustomCommands;

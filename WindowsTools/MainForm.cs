@@ -866,6 +866,16 @@ namespace WindowsTools
             ToggleNotes();
         }
 
+        private void notesMinimizeAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MinimizeNotes();
+        }
+
+        private void notesRestoreAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RestoreNotes();
+        }
+
         private void currentDateAndTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NowToClipblard();
@@ -970,6 +980,16 @@ namespace WindowsTools
         private void notesToggleAllToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ToggleNotes();
+        }
+
+        private void notesMinimizeAllToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MinimizeNotes();
+        }
+
+        private void notesRestoreAllToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            RestoreNotes();
         }
 
         private void currentDateAndTimeToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -1735,6 +1755,22 @@ namespace WindowsTools
 
             notesToggleAllToolStripMenuItem.Checked = m_NotesTopmost;
             notesToggleAllToolStripMenuItem1.Checked = m_NotesTopmost;
+        }
+
+        private void MinimizeNotes()
+        {
+            foreach (var f in m_Notes)
+            {
+                f.WindowState = FormWindowState.Minimized;
+            }
+        }
+
+        private void RestoreNotes()
+        {
+            foreach (var f in m_Notes)
+            {
+                f.WindowState = FormWindowState.Normal;
+            }
         }
 
         private static void NowToClipblard()
