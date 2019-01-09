@@ -63,10 +63,24 @@ namespace WindowsTools
 
         private void richtextBox1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
+            switch (e.KeyCode)
             {
-                ToggleBorder(false);
-                ToggleMainMenu(false);
+                case Keys.Escape:
+                    ToggleBorder(false);
+                    ToggleMainMenu(false);
+                    break;
+                case Keys.N:
+                    if (e.Control && m_HostForm != null)
+                    {
+                        ((MainForm)m_HostForm).RunNotes();
+                    }
+                    break;
+                case Keys.F4:
+                    if (e.Control)
+                    {
+                        this.Close();
+                    }
+                    break;
             }
         }
 

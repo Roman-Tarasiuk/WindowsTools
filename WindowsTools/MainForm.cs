@@ -94,6 +94,13 @@ namespace WindowsTools
             }
         }
 
+        public void RunNotes()
+        {
+            var nf = new NotesForm(this);
+            m_Notes.Add(nf);
+            nf.Show();
+        }
+
         #endregion
 
 
@@ -1751,13 +1758,6 @@ namespace WindowsTools
 
             User32Windows.ShowForm(m_CompareStringsForm);
 
-        }
-
-        private void RunNotes()
-        {
-            var nf = new NotesForm(this);
-            m_Notes.Add(nf);
-            nf.Show();
         }
 
         private void ToggleNotes()
