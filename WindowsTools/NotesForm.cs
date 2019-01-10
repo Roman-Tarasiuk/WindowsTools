@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -56,9 +57,27 @@ namespace WindowsTools
 
         #region Event Handlers
 
-        private void richTextBox1_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+        private void richTextBox1_MouseMove(object sender, MouseEventArgs e)
         {
             richTextBox1.Focus();
+        }
+
+        private void richTextBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            string text = richTextBox1.SelectedText;
+            var strA = Regex.Match(text, @"\w+");
+            var length = strA.Value.Length;
+            char c;
+            while ((c = richTextBox1.Text[richTextBox1.SelectionStart + length]) != ' '
+                && c != '\t'
+                && c != '\n'
+                && c != ','
+                && c != '.')
+            {
+                length++;
+            }
+            
+            richTextBox1.Select(richTextBox1.SelectionStart, length);
         }
 
         private void richtextBox1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
@@ -76,6 +95,7 @@ namespace WindowsTools
                     }
                     break;
                 case Keys.F4:
+                case Keys.W:
                     if (e.Control)
                     {
                         this.Close();
