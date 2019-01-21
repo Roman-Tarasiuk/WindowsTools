@@ -228,6 +228,7 @@ namespace WindowsTools
 
         private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.contextMenuStrip1.Hide();
             this.WindowState = FormWindowState.Minimized;
         }
 

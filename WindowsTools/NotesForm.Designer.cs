@@ -250,8 +250,6 @@
             this.toolStripSeparator4,
             this.moveToolStripMenuItem,
             this.minimizeToolStripMenuItem,
-            this.minimizeAllToolStripMenuItem,
-            this.restoreAllToolStripMenuItem,
             this.toolStripSeparator5,
             this.toggleBorderToolStripMenuItem1,
             this.toggleMainMenuToolStripMenuItem1,
@@ -349,7 +347,11 @@
             // 
             this.minimizeToolStripMenuItem.Name = "minimizeToolStripMenuItem";
             this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.minimizeToolStripMenuItem.Text = "Minimize";
+            this.minimizeToolStripMenuItem.Text = "Minimize this.";
+            this.minimizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.minimizeAllToolStripMenuItem,
+                this.restoreAllToolStripMenuItem
+            });
             this.minimizeToolStripMenuItem.Click += new System.EventHandler(this.minimizeToolStripMenuItem_Click);
             // 
             // minimizeAllToolStripMenuItem
