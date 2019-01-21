@@ -347,7 +347,7 @@
             // 
             this.minimizeToolStripMenuItem.Name = "minimizeToolStripMenuItem";
             this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.minimizeToolStripMenuItem.Text = "Minimize this.";
+            this.minimizeToolStripMenuItem.Text = "Minimize▾";
             this.minimizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
                 this.minimizeAllToolStripMenuItem,
                 this.restoreAllToolStripMenuItem
