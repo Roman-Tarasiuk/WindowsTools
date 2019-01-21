@@ -238,6 +238,7 @@
             this.richTextBox1.AutoWordSelection = false;
             this.richTextBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.richTextBox1_MouseMove);
             this.richTextBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.richTextBox1_MouseDoubleClick);
+            this.richTextBox1.SelectionChanged += new System.EventHandler(richTextBox1_SelectionChanged);
             // 
             // contextMenuStrip1
             // 
@@ -375,6 +376,7 @@
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             this.copyToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.copyToolStripMenuItem.Text = "Copy text";
+            this.copyToolStripMenuItem.Enabled = false;
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // pasteToolStripMenuItem

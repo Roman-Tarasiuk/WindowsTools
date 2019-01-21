@@ -68,7 +68,8 @@ namespace WindowsTools
             var strA = Regex.Match(text, @"\w+");
             var length = strA.Value.Length;
             char c;
-            while ((c = richTextBox1.Text[richTextBox1.SelectionStart + length]) != ' '
+            while ( (richTextBox1.SelectionStart + length < richTextBox1.Text.Length) &&
+                (c = richTextBox1.Text[richTextBox1.SelectionStart + length]) != ' '
                 && c != '\t'
                 && c != '\n'
                 && c != ','
@@ -102,6 +103,11 @@ namespace WindowsTools
                     }
                     break;
             }
+        }
+
+        private void richTextBox1_SelectionChanged(Object sender, EventArgs e)
+        {
+            this.copyToolStripMenuItem.Enabled = this.richTextBox1.SelectedText.Length > 0;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
