@@ -44,6 +44,7 @@
             this.showInTaskbarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.wordWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wordWrapToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteWithoutFormattingToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -62,6 +63,7 @@
             this.minimizeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restoreAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteWithoutFormattingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -195,6 +197,13 @@
             this.wordWrapToolStripMenuItem.Text = "Word wrap";
             this.wordWrapToolStripMenuItem.Click += new System.EventHandler(this.wordWrapToolStripMenuItem_Click);
             // 
+            // wordWrapToolStripMenuItem1
+            // 
+            this.wordWrapToolStripMenuItem1.Name = "wordWrapToolStripMenuItem1";
+            this.wordWrapToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.wordWrapToolStripMenuItem1.Text = "Word wrap";
+            this.wordWrapToolStripMenuItem1.Click += new System.EventHandler(this.wordWrapToolStripMenuItem1_Click);
+            // 
             // pasteWithoutFormattingToolStripMenuItem2
             // 
             this.pasteWithoutFormattingToolStripMenuItem2.Image = global::WindowsTools.Properties.Resources.Editing_Paste_icon;
@@ -233,6 +242,7 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyToolStripMenuItem,
             this.pasteToolStripMenuItem,
             this.pasteWithoutFormattingToolStripMenuItem,
             this.clearToolStripMenuItem2,
@@ -248,9 +258,7 @@
             this.showInTaskbarToolStripMenuItem1,
             this.toolStripSeparator1,
             this.backgroundColorToolStripMenuItem,
-            this.selectionFontToolStripMenuItem,
-            this.selectionColorToolStripMenuItem,
-            this.selectionBackColorToolStripMenuItem,
+            this.wordWrapToolStripMenuItem1,
             this.toolStripSeparator2,
             this.closeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
@@ -322,6 +330,11 @@
             this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.backgroundColorToolStripMenuItem.Text = "Background color...";
             this.backgroundColorToolStripMenuItem.Click += new System.EventHandler(this.backgroundColorToolStripMenuItem_Click);
+            this.backgroundColorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.selectionFontToolStripMenuItem,
+                this.selectionColorToolStripMenuItem,
+                this.selectionBackColorToolStripMenuItem,
+            });
             // 
             // moveToolStripMenuItem
             // 
@@ -356,6 +369,13 @@
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(203, 6);
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.copyToolStripMenuItem.Text = "Copy text";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // pasteToolStripMenuItem
             // 
@@ -433,7 +453,9 @@
         private System.Windows.Forms.ToolStripMenuItem topmostWindowToolStripMenuItem;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ToolStripMenuItem wordWrapToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wordWrapToolStripMenuItem1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteWithoutFormattingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;

@@ -116,8 +116,17 @@ namespace WindowsTools
 
         private void wordWrapToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.richTextBox1.WordWrap = !this.richTextBox1.WordWrap;
-            wordWrapToolStripMenuItem.Checked = this.richTextBox1.WordWrap;
+            WordWrap();
+        }
+
+        private void wordWrapToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            WordWrap();
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CopyText();
         }
 
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -299,6 +308,18 @@ namespace WindowsTools
             };
 
             this.Controls.Add(this.panel1);
+        }
+
+        private void WordWrap()
+        {
+            this.richTextBox1.WordWrap = !this.richTextBox1.WordWrap;
+            wordWrapToolStripMenuItem.Checked = this.richTextBox1.WordWrap;
+            wordWrapToolStripMenuItem1.Checked = this.richTextBox1.WordWrap;
+        }
+
+        private void CopyText()
+        {
+            Clipboard.SetText(richTextBox1.SelectedText);
         }
 
         private void Paste()
