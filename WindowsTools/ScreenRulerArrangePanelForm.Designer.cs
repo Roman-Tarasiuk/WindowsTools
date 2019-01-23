@@ -38,6 +38,7 @@
             this.formBorderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topmostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showInTaskbarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.lblInfo = new System.Windows.Forms.Label();
@@ -52,6 +53,7 @@
             this.formBorderToolStripMenuItem,
             this.topmostToolStripMenuItem,
             this.showInTaskbarToolStripMenuItem,
+            this.minimizeToolStripMenuItem,
             this.closeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(178, 136);
@@ -101,6 +103,13 @@
             this.showInTaskbarToolStripMenuItem.Text = "Show in taskbar";
             this.showInTaskbarToolStripMenuItem.Click += new System.EventHandler(this.showInTaskbarToolStripMenuItem_Click);
             //
+            // minimizeToolStripMenuItem
+            //
+            this.minimizeToolStripMenuItem.Name = "minimizeToolStripMenuItem";
+            this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.minimizeToolStripMenuItem.Text = "Minimize";
+            this.minimizeToolStripMenuItem.Click += new System.EventHandler(this.minimizeToolStripMenuItem_Click);
+            //
             // closeToolStripMenuItem
             //
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
@@ -136,6 +145,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem backgroundColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formBorderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.ToolStripMenuItem topmostToolStripMenuItem;

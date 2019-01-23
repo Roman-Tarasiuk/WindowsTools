@@ -115,6 +115,11 @@ namespace WindowsTools
             }
         }
 
+        private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
