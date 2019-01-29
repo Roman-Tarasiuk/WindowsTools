@@ -60,10 +60,12 @@
             this.powerOffDisplayAndLockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miscellaneousToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.clockToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.clockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.currentDateAndTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.clearClipboarFormatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.decodeClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.decodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.encodeToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.encodeUriToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.encodeUriToExceptSpaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,7 +91,6 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topmostWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showTipsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clipboarToWidthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripWindowsList = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.hideSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showHiddenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -140,7 +141,6 @@
             this.replacernToEmptyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toUPPERCASEToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toLowercaseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.clipboarToWidthToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clipboardTextToWidthToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewSystemClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
@@ -425,18 +425,14 @@
             // miscellaneousToolStripMenuItem1
             // 
             this.miscellaneousToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.currentDateAndTimeToolStripMenuItem,
+            this.clockToolStripMenuItem,
             this.toolStripSeparator11,
-            this.clearClipboarFormatToolStripMenuItem,
-            this.decodeClipboardToolStripMenuItem,
-            this.encodeToToolStripMenuItem,
-            this.encodeUriToToolStripMenuItem,
-            this.encodeUriToExceptSpaceToolStripMenuItem,
-            this.encodeSpacesToToolStripMenuItem,
+            this.decodeToolStripMenuItem,
             this.replacernTospaceToolStripMenuItem,
             this.replacernToEmptyToolStripMenuItem,
             this.toUPPERCASEToolStripMenuItem,
             this.toLowercaseToolStripMenuItem,
+            this.clearClipboarFormatToolStripMenuItem,
             this.clipboardTextToWidthToolStripMenuItem,
             this.viewSystemClipboardToolStripMenuItem,
             this.toolStripSeparator1,
@@ -447,6 +443,16 @@
             this.miscellaneousToolStripMenuItem1.Name = "miscellaneousToolStripMenuItem1";
             this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(259, 22);
             this.miscellaneousToolStripMenuItem1.Text = "Miscellaneous";
+            // 
+            // clockToolStripMenuItem
+            // 
+            this.clockToolStripMenuItem.Name = "clockToolStripMenuItem";
+            this.clockToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.clockToolStripMenuItem.Text = "Clock...";
+            this.clockToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.currentDateAndTimeToolStripMenuItem
+            });
+            this.clockToolStripMenuItem.Click += new System.EventHandler(this.clockToolStripMenuItem_Click);
             // 
             // currentDateAndTimeToolStripMenuItem
             // 
@@ -470,10 +476,16 @@
             // 
             // decodeClipboardToolStripMenuItem
             // 
-            this.decodeClipboardToolStripMenuItem.Name = "decodeClipboardToolStripMenuItem";
-            this.decodeClipboardToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.decodeClipboardToolStripMenuItem.Text = "Decode % clipboard";
-            this.decodeClipboardToolStripMenuItem.Click += new System.EventHandler(this.decodeClipboardToolStripMenuItem_Click);
+            this.decodeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.encodeToToolStripMenuItem,
+                this.encodeUriToToolStripMenuItem,
+                this.encodeUriToExceptSpaceToolStripMenuItem,
+                this.encodeSpacesToToolStripMenuItem
+            });
+            this.decodeToolStripMenuItem.Name = "decodeClipboardToolStripMenuItem";
+            this.decodeToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.decodeToolStripMenuItem.Text = "Decode % clipboard▾";
+            this.decodeToolStripMenuItem.Click += new System.EventHandler(this.decodeClipboardToolStripMenuItem_Click);
             // 
             // encodeToToolStripMenuItem
             // 
@@ -655,13 +667,6 @@
             this.showTipsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.showTipsToolStripMenuItem.Text = "Show tips...";
             this.showTipsToolStripMenuItem.Click += new System.EventHandler(this.showTipsToolStripMenuItem_Click);
-            // 
-            // clipboarToWidthToolStripMenuItem
-            // 
-            this.clipboarToWidthToolStripMenuItem.Name = "clipboarToWidthToolStripMenuItem";
-            this.clipboarToWidthToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.clipboarToWidthToolStripMenuItem.Text = "To lowercase";
-            this.clipboarToWidthToolStripMenuItem.Click += new System.EventHandler(this.clipboarToWidthToolStripMenuItem_Click);
             // 
             // contextMenuStripWindowsList
             // 
@@ -977,19 +982,14 @@
             // miscellaneousToolStripMenuItem
             // 
             this.miscellaneousToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.currentDateAndTimeToolStripMenuItem1,
+            this.clockToolStripMenuItem1,
             this.toolStripSeparator13,
             this.decodeToolStripMenuItem1,
-            this.clearClipboarFormatToolStripMenuItem1,
-            this.encodeToToolStripMenuItem1,
-            this.encodeUriToToolStripMenuItem1,
-            this.encodeUriToExceptSpaceToolStripMenuItem1,
-            this.encodeSpacesToToolStripMenuItem1,
             this.replacernTospaceToolStripMenuItem1,
             this.replacernToEmptyToolStripMenuItem1,
             this.toUPPERCASEToolStripMenuItem1,
             this.toLowercaseToolStripMenuItem1,
-            this.clipboarToWidthToolStripMenuItem1,
+            this.clearClipboarFormatToolStripMenuItem1,
             this.clipboardTextToWidthToolStripMenuItem1,
             this.viewSystemClipboardToolStripMenuItem1,
             this.toolStripSeparator12,
@@ -1001,6 +1001,16 @@
             this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
             this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.miscellaneousToolStripMenuItem.Text = "Miscellaneous";
+            // 
+            // clockToolStripMenuItem
+            // 
+            this.clockToolStripMenuItem1.Name = "clockToolStripMenuItem1";
+            this.clockToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.clockToolStripMenuItem1.Text = "Clock...";
+            this.clockToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.currentDateAndTimeToolStripMenuItem1
+            });
+            this.clockToolStripMenuItem1.Click += new System.EventHandler(this.clockToolStripMenuItem1_Click);
             // 
             // currentDateAndTimeToolStripMenuItem1
             // 
@@ -1017,9 +1027,15 @@
             // 
             // decodeToolStripMenuItem1
             // 
+            this.decodeToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.encodeToToolStripMenuItem1,
+                this.encodeUriToToolStripMenuItem1,
+                this.encodeUriToExceptSpaceToolStripMenuItem1,
+                this.encodeSpacesToToolStripMenuItem1
+            });
             this.decodeToolStripMenuItem1.Name = "decodeToolStripMenuItem1";
             this.decodeToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.decodeToolStripMenuItem1.Text = "Decode % clipboard";
+            this.decodeToolStripMenuItem1.Text = "Decode % clipboard▾";
             this.decodeToolStripMenuItem1.Click += new System.EventHandler(this.decodeClipboardToolStripMenuItem1_Click);
             // 
             // encodeToToolStripMenuItem1
@@ -1077,13 +1093,6 @@
             this.toLowercaseToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
             this.toLowercaseToolStripMenuItem1.Text = "To lowercase";
             this.toLowercaseToolStripMenuItem1.Click += new System.EventHandler(this.toLowercaseToolStripMenuItem1_Click);
-            // 
-            // clipboarToWidthToolStripMenuItem1
-            // 
-            this.clipboarToWidthToolStripMenuItem1.Name = "clipboarToWidthToolStripMenuItem1";
-            this.clipboarToWidthToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.clipboarToWidthToolStripMenuItem1.Text = "To lowercase";
-            this.clipboarToWidthToolStripMenuItem1.Click += new System.EventHandler(this.clipboarToWidthToolStripMenuItem1_Click);
             // 
             // clipboardTextToWidthToolStripMenuItem1
             // 
@@ -1458,7 +1467,7 @@
         private System.Windows.Forms.ToolStripMenuItem decodeToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem encodeToToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem miscellaneousToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem decodeClipboardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem decodeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem encodeToToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem encodeUriToToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem encodeUriToToolStripMenuItem;
@@ -1482,6 +1491,8 @@
         private System.Windows.Forms.ToolStripMenuItem notesMinimizeAllToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem notesRestoreAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem notesRestoreAllToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem clockToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem clockToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem currentDateAndTimeToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem currentDateAndTimeToolStripMenuItem;
         private System.Windows.Forms.Button btnSendCustomCommands;
@@ -1523,8 +1534,6 @@
         private System.Windows.Forms.ToolStripMenuItem toLowercaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toUPPERCASEToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toLowercaseToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem clipboarToWidthToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clipboarToWidthToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem copyAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sortByNameToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;

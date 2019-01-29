@@ -79,6 +79,18 @@
     <Compile Include="CropImageForm.Designer.cs">
       <DependentUpon>CropImageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CalendarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalendarForm.Designer.cs">
+      <DependentUpon>CalendarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClockForm.Designer.cs">
+      <DependentUpon>ClockForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomWindowTitleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +246,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CompareStringsSettingsForm.resx">
       <DependentUpon>CompareStringsSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalendarForm.resx">
+      <DependentUpon>CalendarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClockForm.resx">
+      <DependentUpon>ClockForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CropImageForm.resx">
       <DependentUpon>CropImageForm.cs</DependentUpon>

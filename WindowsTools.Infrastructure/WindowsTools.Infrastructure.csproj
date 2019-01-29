@@ -52,6 +52,7 @@
     <Compile Include="HookParams.cs" />
     <Compile Include="myGroupBox.cs" />
     <Compile Include="PasswordInfo.cs" />
+    <Compile Include="MovingPanelEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TitleTrackingFormProperties.cs" />
   </ItemGroup>

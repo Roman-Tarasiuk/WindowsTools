@@ -842,6 +842,7 @@ namespace WindowsTools
 
         private void decodeClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.toolsToolStripMenuItem.HideDropDown();
             DecodePercentageClipboard();
         }
 
@@ -899,6 +900,11 @@ namespace WindowsTools
             RestoreNotes();
         }
 
+        private void clockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clock();
+        }
+
         private void currentDateAndTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NowToClipblard();
@@ -929,11 +935,6 @@ namespace WindowsTools
             ClipboardToLowerCase();
         }
 
-        private void clipboarToWidthToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ClipboardTextToWidth();
-        }
-
         private void clipboardTextToWidthToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClipboardTextToWidth();
@@ -957,6 +958,7 @@ namespace WindowsTools
 
         private void decodeClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            this.contextMenuStripSysTray1.Hide();
             DecodePercentageClipboard();
         }
 
@@ -1015,6 +1017,11 @@ namespace WindowsTools
             RestoreNotes();
         }
 
+        private void clockToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Clock();
+        }
+
         private void currentDateAndTimeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             NowToClipblard();
@@ -1043,11 +1050,6 @@ namespace WindowsTools
         private void toLowercaseToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ClipboardToLowerCase();
-        }
-
-        private void clipboarToWidthToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            ClipboardTextToWidth();
         }
 
         private void clipboardTextToWidthToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -1771,6 +1773,12 @@ namespace WindowsTools
 
             notesToggleAllToolStripMenuItem.Checked = m_NotesTopmost;
             notesToggleAllToolStripMenuItem1.Checked = m_NotesTopmost;
+        }
+
+        private void Clock()
+        {
+            //MessageBox.Show("Clock will be soon...");
+            new ClockForm().Show();
         }
 
         private static void NowToClipblard()
