@@ -90,6 +90,10 @@ namespace User32Helper
         public static extern bool EnumDesktopWindows(IntPtr hDesktop, EnumDelegate lpEnumCallbackFunction,
             IntPtr lParam);
 
+        [DllImport("user32.dll")]
+        public static extern bool EnumThreadWindows(IntPtr hDesktop, EnumDelegate lpEnumCallbackFunction,
+            IntPtr lParam);
+
         [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int uMsg, int wParam, int lParam);
 
@@ -218,7 +222,7 @@ namespace User32Helper
                 }
 
                 Icon icon = GetIcon(hWnd);
-                
+
 
                 int processId;
                 User32Windows.GetWindowThreadProcessId(hWnd, out processId);

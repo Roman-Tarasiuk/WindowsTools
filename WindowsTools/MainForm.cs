@@ -14,6 +14,7 @@ using System.IO;
 using System.Configuration;
 
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace WindowsTools
 {
@@ -380,7 +381,7 @@ namespace WindowsTools
             int selected = this.lstWindowsList.SelectedIndices[0];
 
             User32Windows.PostMessage(m_ListedWindows[selected].Handle, User32Windows.WM_CLOSE, 0, 0);
-            
+
             Thread.Sleep(1000);
 
             this.RefreshWindowsList();
@@ -646,6 +647,50 @@ namespace WindowsTools
             new TrackInactiveWindowForm() { Hwnd = hwnd }.Show();
         }
 
+        private void trackWindowAndPopupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            {
+                return;
+            }
+
+            var trackTitlesStr = ConfigurationManager.AppSettings.Get("TrackReminderWindows");
+            var trackTitles = trackTitlesStr.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var t in trackTitles) {
+                logger.Log(NLog.LogLevel.Info, String.Format("Title: {0}", t));
+            }
+
+            int selected = this.lstWindowsList.SelectedIndices[0];
+            var process = Process.GetProcessById(m_ListedWindows[selected].ProcessId);
+
+            var timer = new System.Timers.Timer(2000);
+            timer.AutoReset = true;
+            timer.Enabled = true;
+            timer.Elapsed += (o, ee) => {
+                foreach (ProcessThread procThread in process.Threads)
+                {
+                    User32Windows.EnumThreadWindows((IntPtr)procThread.Id, (hwnd, param) => {
+                        Tuple<bool, string> isVisibleAndHasTitle = User32Windows.WindowVisibilityAndTitle(hwnd);
+                        var visible = isVisibleAndHasTitle.Item1;
+                        var title = isVisibleAndHasTitle.Item2;
+                        if (visible)
+                        {
+                            foreach (var t in trackTitles)
+                            {
+                                if (title.Contains(t))
+                                {
+                                    logger.Log(NLog.LogLevel.Info, String.Format("Found: {0}", title));
+                                    User32Windows.SetWindowPos(hwnd, User32Windows.HWND_TOPMOST, 0, 0, 0, 0,
+                                        User32Windows.SWP_SHOWWINDOW | User32Windows.SWP_NOSIZE | User32Windows.SWP_NOMOVE);
+                                }
+                            }
+                        }
+                        return true;
+                    }, IntPtr.Zero);
+                }
+            };
+        }
+
         private void contextMenuStripSysTray1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (m_RebuldPasswordMenu)
@@ -791,7 +836,7 @@ namespace WindowsTools
                         index1 = hiddenTmp.IndexOf(i1);
                         index2 = hiddenTmp.IndexOf(i2);
                     }
-                    
+
                     return index1.CompareTo(index2);
                 }
 
@@ -1124,7 +1169,7 @@ namespace WindowsTools
             Task.Run(() => {
                 var initialState1 = btnMoveUp.Enabled;
                 var initialState2 = btnOrder.Enabled;
-                
+
                 SetEnabledSafe(btnRefreshWindowsList, false);
                 SetEnabledSafe(btnCloseWindow,        false);
                 SetEnabledSafe(btnHideWindow,         false);
@@ -2188,7 +2233,7 @@ namespace WindowsTools
            //Activate double buffering
            this.SetStyle(System.Windows.Forms.ControlStyles.OptimizedDoubleBuffer | System.Windows.Forms.ControlStyles.AllPaintingInWmPaint, true);
 
-           //Enable the OnNotifyMessage event so we get a chance to filter out 
+           //Enable the OnNotifyMessage event so we get a chance to filter out
            // Windows messages before they get to the form's WndProc
            this.SetStyle(System.Windows.Forms.ControlStyles.EnableNotifyMessage, true);
        }
