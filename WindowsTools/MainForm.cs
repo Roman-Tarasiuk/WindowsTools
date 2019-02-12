@@ -656,9 +656,6 @@ namespace WindowsTools
 
             var trackTitlesStr = ConfigurationManager.AppSettings.Get("TrackReminderWindows");
             var trackTitles = trackTitlesStr.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (var t in trackTitles) {
-                logger.Log(NLog.LogLevel.Info, String.Format("Title: {0}", t));
-            }
 
             int selected = this.lstWindowsList.SelectedIndices[0];
             var process = Process.GetProcessById(m_ListedWindows[selected].ProcessId);
@@ -679,7 +676,6 @@ namespace WindowsTools
                             {
                                 if (title.Contains(t))
                                 {
-                                    logger.Log(NLog.LogLevel.Info, String.Format("Found: {0}", title));
                                     User32Windows.SetWindowPos(hwnd, User32Windows.HWND_TOPMOST, 0, 0, 0, 0,
                                         User32Windows.SWP_SHOWWINDOW | User32Windows.SWP_NOSIZE | User32Windows.SWP_NOMOVE);
                                 }
