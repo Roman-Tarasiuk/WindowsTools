@@ -18,12 +18,13 @@ namespace WindowsTools
 
         private System.Windows.Forms.Panel panel1;
 
-        TitleTrackingFormProperties m_Properties = new TitleTrackingFormProperties();
+        private TitleTrackingFormProperties m_Properties = new TitleTrackingFormProperties();
 
-        IntPtr m_Hwnd;
-        Func<string> m_Info;
-        Size m_FormSize;
-        System.Drawing.ContentAlignment m_InfoTextAlign;
+        private IntPtr m_Hwnd;
+        private Func<string> m_Info;
+        private Size m_FormSize;
+        private System.Drawing.ContentAlignment m_InfoTextAlign;
+        private int m_RefreshInterval;
 
         #endregion
 
@@ -33,7 +34,8 @@ namespace WindowsTools
         public WindowTitleTrackingForm(IntPtr? hwnd = null,
             Func<string> info = null,
             Size? size = null,
-            System.Drawing.ContentAlignment alignment = System.Drawing.ContentAlignment.MiddleLeft)
+            ContentAlignment alignment = ContentAlignment.MiddleLeft,
+            int refreshInterval = 1000)
         {
             InitializeComponent();
 
@@ -65,6 +67,7 @@ namespace WindowsTools
             }
 
             m_InfoTextAlign = alignment;
+            m_RefreshInterval = refreshInterval;
 
             InitializeAdditionalComponents();
         }
@@ -72,6 +75,7 @@ namespace WindowsTools
         private void InitializeAdditionalComponents()
         {
             this.label1.TextAlign = m_InfoTextAlign;
+            this.timer1.Interval = m_RefreshInterval;
 
             if (m_FormSize != Size.Empty)
             {

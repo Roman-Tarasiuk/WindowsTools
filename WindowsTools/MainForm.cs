@@ -691,7 +691,13 @@ namespace WindowsTools
 
         private void trackWindowKeyboardLayoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new WindowTitleTrackingForm(null, GetLayout, new Size(50, 30), System.Drawing.ContentAlignment.MiddleCenter).Show();
+            new WindowTitleTrackingForm(
+                hwnd: null,
+                info: () => KeyboardLayout.GetLayout(),
+                size: new Size(50, 30),
+                alignment: System.Drawing.ContentAlignment.MiddleCenter,
+                refreshInterval: 100
+            ).Show();
         }
 
         private void contextMenuStripSysTray1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
@@ -2218,12 +2224,6 @@ namespace WindowsTools
                     SetEnabledSafe(btnOrder, true);
                 }
             }
-        }
-
-        private string GetLayout()
-        {
-            var result = KeyboardLayout.GetLayout();
-            return result;
         }
 
         #endregion
