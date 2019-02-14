@@ -21,17 +21,21 @@ namespace WindowsTools
         TitleTrackingFormProperties m_Properties = new TitleTrackingFormProperties();
 
         IntPtr m_Hwnd;
+        Func<string> m_Info;
+        Size m_FormSize;
+        System.Drawing.ContentAlignment m_InfoTextAlign;
 
         #endregion
 
 
         #region Constructor and Additional Settings
 
-        public WindowTitleTrackingForm(IntPtr hwnd)
+        public WindowTitleTrackingForm(IntPtr? hwnd = null,
+            Func<string> info = null,
+            Size? size = null,
+            System.Drawing.ContentAlignment alignment = System.Drawing.ContentAlignment.MiddleLeft)
         {
             InitializeComponent();
-
-            m_Hwnd = hwnd;
 
             m_Properties.BackColor = this.BackColor;
             m_Properties.ForeColor = this.ForeColor;
@@ -42,18 +46,45 @@ namespace WindowsTools
             m_Properties.BorderWidth = 1;
             m_Properties.Interval = 1;
 
+            m_Hwnd = hwnd ?? IntPtr.Zero;
+
+            if (hwnd != null)
+            {
+                info = () => User32Windows.GetWindowText(m_Hwnd, 255);
+            }
+            if (info != null)
+            {
+                this.m_Info = info;
+            }
+
+            m_FormSize = size ?? Size.Empty;
+            if (size != null)
+            {
+                m_Properties.Width = m_FormSize.Width;
+                m_Properties.Height = m_FormSize.Height;
+            }
+
+            m_InfoTextAlign = alignment;
+
             InitializeAdditionalComponents();
         }
 
         private void InitializeAdditionalComponents()
         {
-            // The panel for moving the form by any point.
+            this.label1.TextAlign = m_InfoTextAlign;
 
+            if (m_FormSize != Size.Empty)
+            {
+                this.ClientSize = m_FormSize;
+                this.label1.Size = new System.Drawing.Size(m_FormSize.Width - 2, m_FormSize.Height - 2);
+            }
+
+            // The panel for moving the form by any point.
             this.panel1 = new TransparentDraggablePanel(this)
             {
                 Name = "panel1",
                 Location = new System.Drawing.Point(0, 0),
-                Size = new System.Drawing.Size(220, 31),
+                Size = (m_FormSize != Size.Empty ? m_FormSize : new System.Drawing.Size(220, 31)),
                 TabIndex = 1
             };
 
@@ -133,7 +164,7 @@ namespace WindowsTools
                     m_Properties.BorderWidth / 2,
                     this.Size.Width - m_Properties.BorderWidth,
                     this.Size.Height - m_Properties.BorderWidth
-                    )
+                )
             );
         }
 
@@ -144,7 +175,7 @@ namespace WindowsTools
 
         private void DisplayTitle()
         {
-            var title = User32Windows.GetWindowText(m_Hwnd, 255);
+            var title = m_Info();
 
             if (label1.Text != title)
             {

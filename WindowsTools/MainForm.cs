@@ -16,6 +16,8 @@ using System.Configuration;
 using System.Threading.Tasks;
 using System.Timers;
 
+using WindowsTools.Infrastructure;
+
 namespace WindowsTools
 {
     public partial class MainForm : Form
@@ -685,6 +687,11 @@ namespace WindowsTools
                     }, IntPtr.Zero);
                 }
             };
+        }
+
+        private void trackWindowKeyboardLayoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new WindowTitleTrackingForm(null, GetLayout, new Size(50, 30), System.Drawing.ContentAlignment.MiddleCenter).Show();
         }
 
         private void contextMenuStripSysTray1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
@@ -2211,6 +2218,12 @@ namespace WindowsTools
                     SetEnabledSafe(btnOrder, true);
                 }
             }
+        }
+
+        private string GetLayout()
+        {
+            var result = KeyboardLayout.GetLayout();
+            return result;
         }
 
         #endregion

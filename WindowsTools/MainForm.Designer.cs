@@ -48,6 +48,7 @@
             this.trackTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackWindowIsAccessibleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackWindowAndPopupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trackWindowKeyboardLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setWindowTransparencyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.directorySizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -223,6 +224,7 @@
             this.trackTitleToolStripMenuItem,
             this.trackWindowIsAccessibleToolStripMenuItem,
             this.trackWindowAndPopupToolStripMenuItem,
+            this.trackWindowKeyboardLayoutToolStripMenuItem,
             this.setWindowTransparencyToolStripMenuItem,
             this.toolStripSeparator6,
             this.directorySizeToolStripMenuItem,
@@ -344,6 +346,13 @@
             this.trackWindowAndPopupToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.trackWindowAndPopupToolStripMenuItem.Text = "Track reminder";
             this.trackWindowAndPopupToolStripMenuItem.Click += new System.EventHandler(this.trackWindowAndPopupToolStripMenuItem_Click);
+            //
+            // trackWindowKeyboardLayoutToolStripMenuItem
+            //
+            this.trackWindowKeyboardLayoutToolStripMenuItem.Name = "trackWindowKeyboardLayoutToolStripMenuItem";
+            this.trackWindowKeyboardLayoutToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+            this.trackWindowKeyboardLayoutToolStripMenuItem.Text = "Track keyboard layout";
+            this.trackWindowKeyboardLayoutToolStripMenuItem.Click += new System.EventHandler(this.trackWindowKeyboardLayoutToolStripMenuItem_Click);
             //
             // setWindowTransparencyToolStripMenuItem
             //
@@ -1510,6 +1519,7 @@
         private System.Windows.Forms.ToolStripMenuItem trackTitleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trackWindowIsAccessibleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trackWindowAndPopupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem trackWindowKeyboardLayoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem encodeSpacesToToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem encodeSpacesToToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem directorySizeToolStripMenuItem;
