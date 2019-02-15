@@ -229,17 +229,17 @@
     <Compile Include="TransparentWindowToolForm.Designer.cs">
       <DependentUpon>TransparentWindowToolForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="WindowTitleTrackingForm.cs">
+    <Compile Include="TrackWindowTitleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowTitleTrackingForm.Designer.cs">
-      <DependentUpon>WindowTitleTrackingForm.cs</DependentUpon>
+    <Compile Include="TrackWindowTitleForm.Designer.cs">
+      <DependentUpon>TrackWindowTitleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="WindowTitleTrackingPropertiesForm.cs">
+    <Compile Include="TrackWindowTitleFormPropertiesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowTitleTrackingPropertiesForm.Designer.cs">
-      <DependentUpon>WindowTitleTrackingPropertiesForm.cs</DependentUpon>
+    <Compile Include="TrackWindowTitleFormPropertiesForm.Designer.cs">
+      <DependentUpon>TrackWindowTitleFormPropertiesForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CompareStringsMainForm.resx">
       <DependentUpon>CompareStringsMainForm.cs</DependentUpon>
@@ -332,11 +332,11 @@
     <EmbeddedResource Include="TransparentWindowToolForm.resx">
       <DependentUpon>TransparentWindowToolForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WindowTitleTrackingForm.resx">
-      <DependentUpon>WindowTitleTrackingForm.cs</DependentUpon>
+    <EmbeddedResource Include="TrackWindowTitleForm.resx">
+      <DependentUpon>TrackWindowTitleForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WindowTitleTrackingPropertiesForm.resx">
-      <DependentUpon>WindowTitleTrackingPropertiesForm.cs</DependentUpon>
+    <EmbeddedResource Include="TrackWindowTitleFormPropertiesForm.resx">
+      <DependentUpon>TrackWindowTitleFormPropertiesForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <Content Include="NLog.config">

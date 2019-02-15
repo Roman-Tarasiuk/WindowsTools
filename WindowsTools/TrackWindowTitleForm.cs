@@ -12,7 +12,7 @@ using WindowsTools.Infrastructure;
 
 namespace WindowsTools
 {
-    public partial class WindowTitleTrackingForm : Form
+    public partial class TrackWindowTitleForm : Form
     {
         #region Fields
 
@@ -31,7 +31,7 @@ namespace WindowsTools
 
         #region Constructor and Additional Settings
 
-        public WindowTitleTrackingForm(IntPtr? hwnd = null,
+        public TrackWindowTitleForm(IntPtr? hwnd = null,
             Func<string> info = null,
             Size? size = null,
             ContentAlignment alignment = ContentAlignment.MiddleLeft,
@@ -115,7 +115,7 @@ namespace WindowsTools
 
         private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var propertiesForm = new WindowTitleTrackingPropertiesForm(m_Properties);
+            var propertiesForm = new TrackWindowTitleFormPropertiesForm(m_Properties);
             var result = propertiesForm.ShowDialog();
 
             if (result == DialogResult.OK)
@@ -196,7 +196,6 @@ namespace WindowsTools
             this.Width = m_Properties.Width;
             this.Height = m_Properties.Height;
             this.timer1.Interval = m_Properties.Interval * 1000;
-            this.label1.Location = new Point(this.label1.Location.X, m_Properties.BorderWidth);
             this.label1.Height = m_Properties.Height - m_Properties.BorderWidth * 2;
             Invalidate();
         }

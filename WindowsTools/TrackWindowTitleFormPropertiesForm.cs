@@ -11,7 +11,7 @@ using WindowsTools.Infrastructure;
 
 namespace WindowsTools
 {
-    public partial class WindowTitleTrackingPropertiesForm : Form
+    public partial class TrackWindowTitleFormPropertiesForm : Form
     {
         private TitleTrackingFormProperties m_Properties;
         const int DragMouseRegionWidth = 8;
@@ -37,12 +37,12 @@ namespace WindowsTools
 
         #region Constructors
 
-        public WindowTitleTrackingPropertiesForm()
+        public TrackWindowTitleFormPropertiesForm()
         {
             InitializeComponent();
         }
 
-        public WindowTitleTrackingPropertiesForm(TitleTrackingFormProperties prop)
+        public TrackWindowTitleFormPropertiesForm(TitleTrackingFormProperties prop)
             : this()
         {
             this.m_Properties = prop;

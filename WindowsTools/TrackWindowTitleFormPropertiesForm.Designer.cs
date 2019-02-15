@@ -1,6 +1,6 @@
 ﻿namespace WindowsTools
 {
-    partial class WindowTitleTrackingPropertiesForm
+    partial class TrackWindowTitleFormPropertiesForm
     {
         /// <summary>
         /// Required designer variable.

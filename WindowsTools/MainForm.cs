@@ -632,7 +632,7 @@ namespace WindowsTools
 
             int selected = this.lstWindowsList.SelectedIndices[0];
 
-            new WindowTitleTrackingForm(m_ListedWindows[selected].Handle).Show();
+            new TrackWindowTitleForm(m_ListedWindows[selected].Handle).Show();
         }
 
         private void trackWindowIsAccessibleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -691,7 +691,7 @@ namespace WindowsTools
 
         private void trackWindowKeyboardLayoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new WindowTitleTrackingForm(
+            new TrackWindowTitleForm(
                 hwnd: null,
                 info: () => KeyboardLayout.GetLayout(),
                 size: new Size(50, 30),
