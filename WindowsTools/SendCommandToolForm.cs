@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -56,6 +57,9 @@ namespace WindowsTools
         public SendCommandToolForm(IntPtr hwnd, string commands)
         {
             InitializeComponent();
+
+            var refreshIntervalStr = ConfigurationManager.AppSettings.Get("CommandToolRefreshInterval");
+            this.timer1.Interval = int.Parse(refreshIntervalStr);
 
             m_HostWindowHwnd = hwnd;
             m_Commands = commands;
