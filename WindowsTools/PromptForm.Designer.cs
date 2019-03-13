@@ -39,15 +39,17 @@
             this.lblDescription.AutoSize = true;
             this.lblDescription.Location = new System.Drawing.Point(12, 9);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(63, 13);
+            this.lblDescription.Size = new System.Drawing.Size(277, 13);
             this.lblDescription.TabIndex = 0;
             this.lblDescription.Text = "Description:";
             //
             // txtUserInput
             //
-            this.txtUserInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUserInput.Anchor = (System.Windows.Forms.AnchorStyles)
+            ( System.Windows.Forms.AnchorStyles.Top
+            | System.Windows.Forms.AnchorStyles.Bottom
+            | System.Windows.Forms.AnchorStyles.Left
+            | System.Windows.Forms.AnchorStyles.Right);
             this.txtUserInput.Location = new System.Drawing.Point(15, 25);
             this.txtUserInput.Multiline = true;
             this.txtUserInput.Name = "txtUserInput";

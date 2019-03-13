@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 using User32Helper;
 using WindowsTools.Infrastructure;
@@ -39,6 +40,8 @@ namespace WindowsTools
         private bool m_AutoHide = true;
         private bool m_Sleep = false;
         private bool m_RunOnAllWindowsWithSameTitle = true;
+        private string m_TitlePattern = String.Empty;
+        private Regex m_TitleRegex = null;
 
         private int m_SleepTimeout = 0;
 
@@ -288,18 +291,33 @@ namespace WindowsTools
 
             IntPtr foreWindow = User32Windows.GetForegroundWindow();
 
-            var title = User32Windows.GetWindowText(foreWindow, 255);
 
-            if (((foreWindow == m_HostWindowHwnd)
-                    || (foreWindow == this.Handle))
-                   && (!User32Windows.IsIconic(m_HostWindowHwnd))
-                 || (title == m_HostWindowTitle && m_RunOnAllWindowsWithSameTitle))
+
+            var title = User32Windows.GetWindowText(foreWindow, 255);
+            bool titlePattern = false;
+
+            if (  ((foreWindow == m_HostWindowHwnd
+                    || foreWindow == this.Handle)
+                   && !User32Windows.IsIconic(m_HostWindowHwnd))
+                 || (title == m_HostWindowTitle && m_RunOnAllWindowsWithSameTitle)
+                 || (m_TitlePattern != String.Empty && (titlePattern = m_TitleRegex.IsMatch(title))))
             {
                 if ((foreWindow != m_HostWindowHwnd) && (foreWindow != this.Handle))
                 {
+                    int pidFore, pidThis;
+                    User32Windows.GetWindowThreadProcessId(foreWindow, out pidFore);
+                    User32Windows.GetWindowThreadProcessId(this.Handle, out pidThis);
+                    if (pidFore == pidThis)
+                    {
+                        return;
+                    }
+
                     m_HostWindowHwnd = foreWindow;
                     m_HostWindowTitle = title;
-                    CalculateCoordinates();
+                    if (!titlePattern)
+                    {
+                        CalculateCoordinates();
+                    }
                 }
 
                 Rectangle rHost;
@@ -391,7 +409,8 @@ namespace WindowsTools
                 ToolLeft = this.Location.X,
                 ToolTop = this.Location.Y,
                 BorderColor = this.m_PenNormal.Color,
-                BorderHoverColor = this.m_PenHover.Color
+                BorderHoverColor = this.m_PenHover.Color,
+                TitlePattern = this.m_TitlePattern
             };
             var result = settingsForm.ShowDialog();
 
@@ -407,12 +426,22 @@ namespace WindowsTools
 
                 this.m_Sleep = settingsForm.Sleep;
                 this.m_SleepTimeout = settingsForm.SleepTimeout;
-                m_RunOnAllWindowsWithSameTitle = settingsForm.RunOnAllWindowsWithSameTitle;
+                this.m_RunOnAllWindowsWithSameTitle = settingsForm.RunOnAllWindowsWithSameTitle;
+                this.m_TitlePattern = settingsForm.TitlePattern;
 
                 this.Location = new Point(settingsForm.ToolLeft, settingsForm.ToolTop);
 
                 this.m_PenNormal.Color = settingsForm.BorderColor;
                 this.m_PenHover.Color = settingsForm.BorderHoverColor;
+
+                if (m_TitlePattern != String.Empty)
+                {
+                    m_TitleRegex = new Regex(m_TitlePattern);
+                }
+                else
+                {
+                    m_TitlePattern = null;
+                }
             }
         }
 

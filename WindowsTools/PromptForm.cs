@@ -12,6 +12,7 @@ namespace WindowsTools
 {
     public partial class PromptForm : Form
     {
+        public string Title { get; set; }
         public string Description { get; set; }
         public string UserInput { get; set; }
 
@@ -21,6 +22,7 @@ namespace WindowsTools
 
             Description = String.Empty;
             UserInput = String.Empty;
+            Title = "Prompt";
 
             lblDescription.Text = this.Description;
             txtUserInput.Text = this.UserInput;
@@ -28,7 +30,6 @@ namespace WindowsTools
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            this.Description = lblDescription.Text;
             this.UserInput = txtUserInput.Text;
 
             this.Close();
@@ -43,6 +44,7 @@ namespace WindowsTools
         {
             lblDescription.Text = this.Description;
             txtUserInput.Text = this.UserInput;
+            this.Text = this.Title;
         }
     }
 }

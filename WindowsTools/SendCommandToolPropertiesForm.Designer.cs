@@ -59,41 +59,41 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // label1
-            // 
+            //
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(146, 292);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 12;
             this.label1.Text = "Width:";
-            // 
+            //
             // txtToolWidth
-            // 
+            //
             this.txtToolWidth.Location = new System.Drawing.Point(185, 289);
             this.txtToolWidth.Name = "txtToolWidth";
             this.txtToolWidth.Size = new System.Drawing.Size(63, 20);
             this.txtToolWidth.TabIndex = 13;
-            // 
+            //
             // label2
-            // 
+            //
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(146, 318);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 14;
             this.label2.Text = "Height:";
-            // 
+            //
             // txtToolHeight
-            // 
+            //
             this.txtToolHeight.Location = new System.Drawing.Point(185, 315);
             this.txtToolHeight.Name = "txtToolHeight";
             this.txtToolHeight.Size = new System.Drawing.Size(63, 20);
             this.txtToolHeight.TabIndex = 15;
-            // 
+            //
             // btnOk
-            // 
+            //
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOk.Location = new System.Drawing.Point(171, 370);
@@ -103,9 +103,9 @@
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
-            // 
+            //
             // groupBox1
-            // 
+            //
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Location = new System.Drawing.Point(12, 217);
@@ -114,18 +114,18 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Anchor";
-            // 
+            //
             // panel2
-            // 
+            //
             this.panel2.Controls.Add(this.radioTop);
             this.panel2.Controls.Add(this.radioBottom);
             this.panel2.Location = new System.Drawing.Point(149, 15);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(79, 45);
             this.panel2.TabIndex = 5;
-            // 
+            //
             // radioTop
-            // 
+            //
             this.radioTop.AutoSize = true;
             this.radioTop.Checked = true;
             this.radioTop.Location = new System.Drawing.Point(3, 3);
@@ -135,9 +135,9 @@
             this.radioTop.TabStop = true;
             this.radioTop.Text = "Top";
             this.radioTop.UseVisualStyleBackColor = true;
-            // 
+            //
             // radioBottom
-            // 
+            //
             this.radioBottom.AutoSize = true;
             this.radioBottom.Location = new System.Drawing.Point(3, 26);
             this.radioBottom.Name = "radioBottom";
@@ -146,18 +146,18 @@
             this.radioBottom.TabStop = true;
             this.radioBottom.Text = "Bottom";
             this.radioBottom.UseVisualStyleBackColor = true;
-            // 
+            //
             // panel1
-            // 
+            //
             this.panel1.Controls.Add(this.radioLeft);
             this.panel1.Controls.Add(this.radioRight);
             this.panel1.Location = new System.Drawing.Point(6, 15);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(79, 45);
             this.panel1.TabIndex = 2;
-            // 
+            //
             // radioLeft
-            // 
+            //
             this.radioLeft.AutoSize = true;
             this.radioLeft.Checked = true;
             this.radioLeft.Location = new System.Drawing.Point(3, 3);
@@ -167,9 +167,9 @@
             this.radioLeft.TabStop = true;
             this.radioLeft.Text = "Left";
             this.radioLeft.UseVisualStyleBackColor = true;
-            // 
+            //
             // radioRight
-            // 
+            //
             this.radioRight.AutoSize = true;
             this.radioRight.Location = new System.Drawing.Point(3, 26);
             this.radioRight.Name = "radioRight";
@@ -178,11 +178,11 @@
             this.radioRight.TabStop = true;
             this.radioRight.Text = "Right";
             this.radioRight.UseVisualStyleBackColor = true;
-            // 
+            //
             // txtCommands
-            // 
-            this.txtCommands.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.txtCommands.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCommands.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtCommands.Location = new System.Drawing.Point(12, 25);
@@ -192,18 +192,18 @@
             this.txtCommands.Size = new System.Drawing.Size(234, 119);
             this.txtCommands.TabIndex = 17;
             this.txtCommands.WordWrap = false;
-            // 
+            //
             // label3
-            // 
+            //
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 13);
             this.label3.TabIndex = 16;
             this.label3.Text = "Commands:";
-            // 
+            //
             // chkClipboard
-            // 
+            //
             this.chkClipboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkClipboard.AutoSize = true;
             this.chkClipboard.Location = new System.Drawing.Point(12, 150);
@@ -213,9 +213,9 @@
             this.chkClipboard.Text = "Clipboard";
             this.chkClipboard.UseVisualStyleBackColor = true;
             this.chkClipboard.CheckedChanged += new System.EventHandler(this.chkClipboard_CheckedChanged);
-            // 
+            //
             // chkSleep
-            // 
+            //
             this.chkSleep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkSleep.AutoSize = true;
             this.chkSleep.Location = new System.Drawing.Point(12, 173);
@@ -224,17 +224,17 @@
             this.chkSleep.TabIndex = 19;
             this.chkSleep.Text = "With timeout (ms):";
             this.chkSleep.UseVisualStyleBackColor = true;
-            // 
+            //
             // txtSleepTimeout
-            // 
+            //
             this.txtSleepTimeout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtSleepTimeout.Location = new System.Drawing.Point(128, 171);
             this.txtSleepTimeout.Name = "txtSleepTimeout";
             this.txtSleepTimeout.Size = new System.Drawing.Size(100, 20);
             this.txtSleepTimeout.TabIndex = 20;
-            // 
+            //
             // chkRunOnAllWindowsWithSameTitle
-            // 
+            //
             this.chkRunOnAllWindowsWithSameTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkRunOnAllWindowsWithSameTitle.AutoSize = true;
             this.chkRunOnAllWindowsWithSameTitle.Location = new System.Drawing.Point(12, 196);
@@ -243,41 +243,42 @@
             this.chkRunOnAllWindowsWithSameTitle.TabIndex = 21;
             this.chkRunOnAllWindowsWithSameTitle.Text = "Run on all windows with same title";
             this.chkRunOnAllWindowsWithSameTitle.UseVisualStyleBackColor = true;
-            // 
+            this.chkRunOnAllWindowsWithSameTitle.Click += new System.EventHandler(this.chkRunOnAllWindowsWithSameTitle_click);
+            //
             // txtTop
-            // 
+            //
             this.txtTop.Location = new System.Drawing.Point(56, 315);
             this.txtTop.Name = "txtTop";
             this.txtTop.Size = new System.Drawing.Size(63, 20);
             this.txtTop.TabIndex = 11;
-            // 
+            //
             // label4
-            // 
+            //
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(9, 318);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 10;
             this.label4.Text = "Top:";
-            // 
+            //
             // txtLeft
-            // 
+            //
             this.txtLeft.Location = new System.Drawing.Point(56, 289);
             this.txtLeft.Name = "txtLeft";
             this.txtLeft.Size = new System.Drawing.Size(63, 20);
             this.txtLeft.TabIndex = 9;
-            // 
+            //
             // label5
-            // 
+            //
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(9, 292);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(28, 13);
             this.label5.TabIndex = 8;
             this.label5.Text = "Left:";
-            // 
+            //
             // lblBorder
-            // 
+            //
             this.lblBorder.AutoSize = true;
             this.lblBorder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblBorder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -286,9 +287,9 @@
             this.lblBorder.Size = new System.Drawing.Size(30, 19);
             this.lblBorder.TabIndex = 23;
             this.lblBorder.Text = "     ";
-            // 
+            //
             // btnBorderColor
-            // 
+            //
             this.btnBorderColor.Location = new System.Drawing.Point(9, 340);
             this.btnBorderColor.Name = "btnBorderColor";
             this.btnBorderColor.Size = new System.Drawing.Size(55, 23);
@@ -296,9 +297,9 @@
             this.btnBorderColor.Text = "Border,,,";
             this.btnBorderColor.UseVisualStyleBackColor = true;
             this.btnBorderColor.Click += new System.EventHandler(this.btnBorderColor_Click);
-            // 
+            //
             // btnBorderHoverColor
-            // 
+            //
             this.btnBorderHoverColor.Location = new System.Drawing.Point(119, 340);
             this.btnBorderHoverColor.Name = "btnBorderHoverColor";
             this.btnBorderHoverColor.Size = new System.Drawing.Size(93, 23);
@@ -306,9 +307,9 @@
             this.btnBorderHoverColor.Text = "Border hover,,,";
             this.btnBorderHoverColor.UseVisualStyleBackColor = true;
             this.btnBorderHoverColor.Click += new System.EventHandler(this.btnBorderHoverColor_Click);
-            // 
+            //
             // lblBorderHover
-            // 
+            //
             this.lblBorderHover.AutoSize = true;
             this.lblBorderHover.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblBorderHover.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -317,9 +318,9 @@
             this.lblBorderHover.Size = new System.Drawing.Size(30, 19);
             this.lblBorderHover.TabIndex = 25;
             this.lblBorderHover.Text = "     ";
-            // 
+            //
             // SendCommandToolPropertiesForm
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(258, 399);

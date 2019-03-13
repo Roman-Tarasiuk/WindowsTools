@@ -26,6 +26,7 @@ namespace WindowsTools
         public bool Sleep { get; set; }
         public int SleepTimeout { get; set; }
         public bool RunOnAllWindowsWithSameTitle { get; set; }
+        public string TitlePattern { get; set; }
         public Color BorderColor { get; set; }
         public Color BorderHoverColor { get; set; }
 
@@ -42,6 +43,8 @@ namespace WindowsTools
             ToolHeight = 40;
             AnchorH = AnchorHorizontal.Left;
             AnchorV = AnchorVertical.Top;
+
+            TitlePattern = String.Empty;
         }
 
         #endregion
@@ -72,6 +75,25 @@ namespace WindowsTools
             {
                 BorderColor = colorDialog1.Color;
                 lblBorder.BackColor = BorderColor;
+            }
+        }
+
+        private void chkRunOnAllWindowsWithSameTitle_click(object sender, EventArgs e)
+        {
+            if (!chkRunOnAllWindowsWithSameTitle.Checked)
+            {
+                return;
+            }
+
+            var prompt = new PromptForm {
+                Description = "Regular expression or empty for exact matching",
+                UserInput = TitlePattern
+            };
+            var result = prompt.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                TitlePattern = prompt.UserInput;
             }
         }
 
