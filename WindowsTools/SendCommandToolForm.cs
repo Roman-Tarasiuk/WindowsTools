@@ -412,6 +412,7 @@ namespace WindowsTools
                 BorderHoverColor = this.m_PenHover.Color,
                 TitlePattern = this.m_TitlePattern
             };
+
             var result = settingsForm.ShowDialog();
 
             if (result == DialogResult.OK)

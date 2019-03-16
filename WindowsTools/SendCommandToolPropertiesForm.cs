@@ -80,21 +80,7 @@ namespace WindowsTools
 
         private void chkRunOnAllWindowsWithSameTitle_click(object sender, EventArgs e)
         {
-            if (!chkRunOnAllWindowsWithSameTitle.Checked)
-            {
-                return;
-            }
-
-            var prompt = new PromptForm {
-                Description = "Regular expression or empty for exact matching",
-                UserInput = TitlePattern
-            };
-            var result = prompt.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                TitlePattern = prompt.UserInput;
-            }
+            txtTitlePattern.ReadOnly = !chkRunOnAllWindowsWithSameTitle.Checked;
         }
 
         private void btnBorderHoverColor_Click(object sender, EventArgs e)
@@ -148,6 +134,7 @@ namespace WindowsTools
             txtSleepTimeout.Text = SleepTimeout.ToString();
 
             chkRunOnAllWindowsWithSameTitle.Checked = RunOnAllWindowsWithSameTitle;
+            txtTitlePattern.ReadOnly = !RunOnAllWindowsWithSameTitle;
 
             txtLeft.Text = ToolLeft.ToString();
             txtTop.Text = ToolTop.ToString();
@@ -206,6 +193,14 @@ namespace WindowsTools
             }
 
             RunOnAllWindowsWithSameTitle = chkRunOnAllWindowsWithSameTitle.Checked;
+            if (RunOnAllWindowsWithSameTitle)
+            {
+                TitlePattern = txtTitlePattern.Text;
+            }
+            else
+            {
+                TitlePattern = String.Empty;
+            }
 
             ToolTop = int.Parse(txtTop.Text);
             ToolLeft = int.Parse(txtLeft.Text);
