@@ -443,17 +443,14 @@
             // miscellaneousToolStripMenuItem1
             //
             this.miscellaneousToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clockToolStripMenuItem,
-            this.toolStripSeparator11,
             this.decodeToolStripMenuItem,
             this.replacernTospaceToolStripMenuItem,
             this.replacernToEmptyToolStripMenuItem,
             this.toUPPERCASEToolStripMenuItem,
             this.toLowercaseToolStripMenuItem,
             this.clearClipboarFormatToolStripMenuItem,
-            this.clipboardTextToWidthToolStripMenuItem,
-            this.viewSystemClipboardToolStripMenuItem,
             this.toolStripSeparator1,
+            this.clockToolStripMenuItem,
             this.screenRulerToolStripMenuItem,
             this.cropImagesToolStripMenuItem,
             this.compareStringsToolStripMenuItem,
@@ -489,7 +486,11 @@
             //
             this.clearClipboarFormatToolStripMenuItem.Name = "clearClipboarFormatToolStripMenuItem";
             this.clearClipboarFormatToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.clearClipboarFormatToolStripMenuItem.Text = "Clear clipboard text format";
+            this.clearClipboarFormatToolStripMenuItem.Text = "Clear clipboard text format▾";
+            this.clearClipboarFormatToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.clipboardTextToWidthToolStripMenuItem,
+                this.viewSystemClipboardToolStripMenuItem
+            });
             this.clearClipboarFormatToolStripMenuItem.Click += new System.EventHandler(this.clearClipboardTextFormatToolStripMenuItem_Click);
             //
             // decodeClipboardToolStripMenuItem
@@ -537,14 +538,14 @@
             //
             this.replacernTospaceToolStripMenuItem.Name = "replacernTospaceToolStripMenuItem";
             this.replacernTospaceToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.replacernTospaceToolStripMenuItem.Text = "Replace \\r\\n to <space>";
+            this.replacernTospaceToolStripMenuItem.Text = "\\r\\n to space";
             this.replacernTospaceToolStripMenuItem.Click += new System.EventHandler(this.replacernTospaceToolStripMenuItem_Click);
             //
             // replacernToEmptyToolStripMenuItem
             //
             this.replacernToEmptyToolStripMenuItem.Name = "replacernToEmptyToolStripMenuItem";
             this.replacernToEmptyToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.replacernToEmptyToolStripMenuItem.Text = "Replace \\r\\n to empty";
+            this.replacernToEmptyToolStripMenuItem.Text = "\\r\\n to empty";
             this.replacernToEmptyToolStripMenuItem.Click += new System.EventHandler(this.replacernToEmptyToolStripMenuItem_Click);
             //
             // toUPPERCASEToolStripMenuItem
@@ -1000,17 +1001,14 @@
             // miscellaneousToolStripMenuItem
             //
             this.miscellaneousToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clockToolStripMenuItem1,
-            this.toolStripSeparator13,
             this.decodeToolStripMenuItem1,
             this.replacernTospaceToolStripMenuItem1,
             this.replacernToEmptyToolStripMenuItem1,
             this.toUPPERCASEToolStripMenuItem1,
             this.toLowercaseToolStripMenuItem1,
             this.clearClipboarFormatToolStripMenuItem1,
-            this.clipboardTextToWidthToolStripMenuItem1,
-            this.viewSystemClipboardToolStripMenuItem1,
             this.toolStripSeparator12,
+            this.clockToolStripMenuItem1,
             this.screenRulerToolStripMenuItem1,
             this.cropImagesToolStripMenuItem1,
             this.compareStringsToolStripMenuItem1,
@@ -1088,14 +1086,14 @@
             //
             this.replacernTospaceToolStripMenuItem1.Name = "replacernTospaceToolStripMenuItem1";
             this.replacernTospaceToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.replacernTospaceToolStripMenuItem1.Text = "Replace \\r\\n to <space>";
+            this.replacernTospaceToolStripMenuItem1.Text = "\\r\\n to space";
             this.replacernTospaceToolStripMenuItem1.Click += new System.EventHandler(this.replacernTospaceToolStripMenuItem1_Click);
             //
             // replacernToEmptyToolStripMenuItem1
             //
             this.replacernToEmptyToolStripMenuItem1.Name = "replacernToEmptyToolStripMenuItem1";
             this.replacernToEmptyToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.replacernToEmptyToolStripMenuItem1.Text = "Replace \\r\\n to empty";
+            this.replacernToEmptyToolStripMenuItem1.Text = "\\r\\n to empty";
             this.replacernToEmptyToolStripMenuItem1.Click += new System.EventHandler(this.replacernToEmptyToolStripMenuItem1_Click);
             //
             // toUPPERCASEToolStripMenuItem1
@@ -1386,7 +1384,11 @@
             //
             this.clearClipboarFormatToolStripMenuItem1.Name = "clearClipboarFormatToolStripMenuItem1";
             this.clearClipboarFormatToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
-            this.clearClipboarFormatToolStripMenuItem1.Text = "Clear clipboard text format";
+            this.clearClipboarFormatToolStripMenuItem1.Text = "Clear clipboard text format▾";
+            this.clearClipboarFormatToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.clipboardTextToWidthToolStripMenuItem1,
+                this.viewSystemClipboardToolStripMenuItem1
+            });
             this.clearClipboarFormatToolStripMenuItem1.Click += new System.EventHandler(this.clearClipboardTextFormatToolStripMenuItem1_Click);
             //
             // MainForm
