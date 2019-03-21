@@ -46,7 +46,7 @@ namespace WindowsTools
         private bool m_AltKey = false;
         private bool m_CtrlKey = false;
 
-        private int m_ClicksCount = 0;
+        private int m_ClicksCount = ClicksToShow;
 
         public TransparentWindowToolForm(IntPtr handle)
         {
@@ -96,7 +96,7 @@ namespace WindowsTools
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TransparentWindowToolForm_MouseClick);
             this.LocationChanged += (sender, e) =>
             {
-                m_ClicksCount = 0;
+                m_ClicksCount = ClicksToShow - 2;
             };
         }
 
@@ -174,21 +174,21 @@ namespace WindowsTools
 
         private void TransparentWindowToolForm_MouseClick(object sender, MouseEventArgs e)
         {
-            m_ClicksCount ++;
+            m_ClicksCount++;
             if (m_ClicksCount >= ClicksToShow)
             {
-                User32Windows.ShowWindow(m_Handle, User32Windows.SW_SHOW);
+                if (User32Windows.IsIconic(m_Handle))
+                {
+                    User32Windows.ShowWindow(m_Handle, User32Windows.SW_RESTORE);
+                }
+                else
+                {
+                    User32Windows.ShowWindow(m_Handle, User32Windows.SW_SHOW);
+                }
                 User32Windows.SetForegroundWindow(m_Handle);
                 User32Windows.SetForegroundWindow(this.Handle);
                 m_ClicksCount = ClicksToShow;
             }
-        }
-
-        private void ChangeTransparency()
-        {
-            // var promptForm = new PromptForm() { Description = "Enter transparency 0-255:", UserInput = currentTransparency.ToString() };
-            // var result = promptForm.ShowDialog();
-            // if (int.TryParse(promptForm.UserInput, out transparency))
         }
 
         private void TransparentWindowToolForm_KeyDown(object sender, KeyEventArgs e)
