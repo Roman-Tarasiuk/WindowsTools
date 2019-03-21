@@ -1001,7 +1001,7 @@ namespace WindowsTools
 
         private void clearClipboardTextFormatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            toolsToolStripMenuItem.HideDropDown();
+            this.toolsToolStripMenuItem.HideDropDown();
             var text = Clipboard.GetText();
             if (text != null && text != String.Empty)
             {
