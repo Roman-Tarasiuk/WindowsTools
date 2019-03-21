@@ -291,16 +291,14 @@ namespace WindowsTools
 
             IntPtr foreWindow = User32Windows.GetForegroundWindow();
 
-
-
             var title = User32Windows.GetWindowText(foreWindow, 255);
-            bool titlePattern = false;
+            bool matchesTitlePattern = false;
 
             if (  ((foreWindow == m_HostWindowHwnd
                     || foreWindow == this.Handle)
                    && !User32Windows.IsIconic(m_HostWindowHwnd))
                  || (title == m_HostWindowTitle && m_RunOnAllWindowsWithSameTitle)
-                 || (m_TitlePattern != String.Empty && (titlePattern = m_TitleRegex.IsMatch(title))))
+                 || (m_TitlePattern != String.Empty && (matchesTitlePattern = m_TitleRegex.IsMatch(title))))
             {
                 if ((foreWindow != m_HostWindowHwnd) && (foreWindow != this.Handle))
                 {
@@ -314,7 +312,7 @@ namespace WindowsTools
 
                     m_HostWindowHwnd = foreWindow;
                     m_HostWindowTitle = title;
-                    if (!titlePattern)
+                    if (!matchesTitlePattern)
                     {
                         CalculateCoordinates();
                     }
@@ -441,7 +439,7 @@ namespace WindowsTools
                 }
                 else
                 {
-                    m_TitlePattern = null;
+                    m_TitleRegex = null;
                 }
             }
         }
