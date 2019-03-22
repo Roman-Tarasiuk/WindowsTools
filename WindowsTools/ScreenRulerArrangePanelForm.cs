@@ -36,6 +36,8 @@ namespace WindowsTools
         {
             InitializeComponent();
 
+            BackgroundColorToolStripMenuItemColor(Color.FromArgb(128, 255, 128));
+
             this.LocationChanged += (handleSender, handleE) =>
             {
                 if (HandleMove != null && !HandleMove.IsDisposed)
@@ -180,7 +182,8 @@ namespace WindowsTools
             {
                 this.BackColor = this.colorDialog1.Color;
 
-                ChangeTaskbarIcon(this.BackColor);
+                ChangeTaskbarIcon(this.colorDialog1.Color);
+                BackgroundColorToolStripMenuItemColor(this.colorDialog1.Color);
             }
         }
 
@@ -310,5 +313,22 @@ namespace WindowsTools
                     break;
             }
         }
+
+        #region Helper Methods
+
+        // TODO: Duplicated (NotesForm).
+
+        private void BackgroundColorToolStripMenuItemColor(Color c)
+        {
+            var image = new Bitmap(20, 20);
+                using (var graphics = Graphics.FromImage(image))
+                {
+                    graphics.DrawRectangle(new Pen(Color.Black), 0, 0, 19, 19);
+                    graphics.FillRectangle(new SolidBrush(c), 1, 1, 18, 18);
+                }
+            this.backgroundColorToolStripMenuItem.Image = image;
+        }
+
+        #endregion
     }
 }
