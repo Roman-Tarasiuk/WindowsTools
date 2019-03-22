@@ -351,7 +351,7 @@
             //
             this.trackWindowKeyboardLayoutToolStripMenuItem.Name = "trackWindowKeyboardLayoutToolStripMenuItem";
             this.trackWindowKeyboardLayoutToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.trackWindowKeyboardLayoutToolStripMenuItem.Text = "Track keyboard layout";
+            this.trackWindowKeyboardLayoutToolStripMenuItem.Text = "Track keyboard layout...";
             this.trackWindowKeyboardLayoutToolStripMenuItem.Click += new System.EventHandler(this.trackWindowKeyboardLayoutToolStripMenuItem_Click);
             //
             // setWindowTransparencyToolStripMenuItem
