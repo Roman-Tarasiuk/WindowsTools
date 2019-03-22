@@ -37,6 +37,13 @@ namespace WindowsTools
         #endregion
 
 
+        #region Properties
+
+        public bool Locked { get; set; }
+
+        #endregion
+
+
         #region Public Methods
 
         public void Calibrate(FormBorderStyle borderStyle)
@@ -110,6 +117,10 @@ namespace WindowsTools
 
             this.MouseMove += (sender, e) =>
             {
+                if (Locked)
+                {
+                    return;
+                }
                 if (m_MouseIsDown)
                 {
                     Point LocationNew = new Point(m_HostForm.Location.X + e.Location.X - m_MouseDownCoordinates.X,

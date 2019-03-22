@@ -38,6 +38,7 @@ namespace WindowsTools
             this.resetTransparencyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topmostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showInTaskbarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lockedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activateTargetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,6 +60,7 @@ namespace WindowsTools
             this.resetTransparencyToolStripMenuItem,
             this.topmostToolStripMenuItem,
             this.showInTaskbarToolStripMenuItem,
+            this.lockedToolStripMenuItem,
             this.activateTargetToolStripMenuItem,
             this.toolStripSeparator1,
             this.closeToolStripMenuItem});
@@ -87,6 +89,13 @@ namespace WindowsTools
             this.showInTaskbarToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.showInTaskbarToolStripMenuItem.Text = "Show in taskbar";
             this.showInTaskbarToolStripMenuItem.Click += new System.EventHandler(this.showInTaskbarToolStripMenuItem_Click);
+            //
+            // lockedToolStripMenuItem
+            //
+            this.lockedToolStripMenuItem.Name = "lockedToolStripMenuItem";
+            this.lockedToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.lockedToolStripMenuItem.Text = "Locked";
+            this.lockedToolStripMenuItem.Click += new System.EventHandler(this.lockedToolStripMenuItem_Click);
             //
             // activateTargetToolStripMenuItem
             //
@@ -140,6 +149,7 @@ namespace WindowsTools
         private ToolStripMenuItem closeToolStripMenuItem;
         private ToolStripMenuItem topmostToolStripMenuItem;
         private ToolStripMenuItem showInTaskbarToolStripMenuItem;
+        private ToolStripMenuItem lockedToolStripMenuItem;
         private ToolStripMenuItem activateTargetToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
     }

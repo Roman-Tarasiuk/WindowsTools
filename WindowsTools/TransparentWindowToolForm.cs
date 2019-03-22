@@ -39,6 +39,7 @@ namespace WindowsTools
         private const int ClicksToShow = 5;
 
 
+        private bool m_Locked = false;
         private bool m_ActivateTarget = true;
         private bool m_FirstRun = true;
         private IntPtr m_Handle;
@@ -78,7 +79,8 @@ namespace WindowsTools
                 Name = "panel1",
                 Location = new System.Drawing.Point(0, 0),
                 Size = this.Size,
-                TabIndex = 1
+                TabIndex = 1,
+                Locked = m_Locked
             };
 
             var title = User32Windows.GetWindowText(m_Handle, 255);
@@ -277,6 +279,13 @@ namespace WindowsTools
         {
             this.ShowInTaskbar = !this.ShowInTaskbar;
             this.showInTaskbarToolStripMenuItem.Checked = this.ShowInTaskbar;
+        }
+
+        private void lockedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.m_Locked = !this.m_Locked;
+            ((TransparentDraggablePanel)this.panel1).Locked = this.m_Locked;
+            lockedToolStripMenuItem.Checked = this.m_Locked;
         }
 
         private void activateTargetToolStripMenuItem_Click(object sender, EventArgs e)
