@@ -39,6 +39,7 @@ namespace WindowsTools
         private const int ClicksToShow = 5;
 
 
+        private bool m_ActivateTarget = true;
         private bool m_FirstRun = true;
         private IntPtr m_Handle;
         private byte m_Transparency = 255;
@@ -196,8 +197,13 @@ namespace WindowsTools
                 {
                     User32Windows.ShowWindow(m_Handle, User32Windows.SW_SHOW);
                 }
+
                 User32Windows.SetForegroundWindow(m_Handle);
-                User32Windows.SetForegroundWindow(this.Handle);
+                if (!this.m_ActivateTarget)
+                {
+                    User32Windows.SetForegroundWindow(this.Handle);
+                }
+
                 m_ClicksCount = ClicksToShow;
             }
         }
@@ -271,6 +277,12 @@ namespace WindowsTools
         {
             this.ShowInTaskbar = !this.ShowInTaskbar;
             this.showInTaskbarToolStripMenuItem.Checked = this.ShowInTaskbar;
+        }
+
+        private void activateTargetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.m_ActivateTarget = !this.m_ActivateTarget;
+            this.activateTargetToolStripMenuItem.Checked = this.m_ActivateTarget;
         }
 
         static bool IsWindows10()

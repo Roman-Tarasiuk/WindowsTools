@@ -38,6 +38,7 @@ namespace WindowsTools
             this.resetTransparencyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topmostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showInTaskbarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activateTargetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -58,6 +59,7 @@ namespace WindowsTools
             this.resetTransparencyToolStripMenuItem,
             this.topmostToolStripMenuItem,
             this.showInTaskbarToolStripMenuItem,
+            this.activateTargetToolStripMenuItem,
             this.toolStripSeparator1,
             this.closeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
@@ -85,6 +87,14 @@ namespace WindowsTools
             this.showInTaskbarToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.showInTaskbarToolStripMenuItem.Text = "Show in taskbar";
             this.showInTaskbarToolStripMenuItem.Click += new System.EventHandler(this.showInTaskbarToolStripMenuItem_Click);
+            //
+            // activateTargetToolStripMenuItem
+            //
+            this.activateTargetToolStripMenuItem.Checked = true;
+            this.activateTargetToolStripMenuItem.Name = "activateTargetToolStripMenuItem";
+            this.activateTargetToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.activateTargetToolStripMenuItem.Text = "Activate target window";
+            this.activateTargetToolStripMenuItem.Click += new System.EventHandler(this.activateTargetToolStripMenuItem_Click);
             //
             // toolStripSeparator1
             //
@@ -130,6 +140,7 @@ namespace WindowsTools
         private ToolStripMenuItem closeToolStripMenuItem;
         private ToolStripMenuItem topmostToolStripMenuItem;
         private ToolStripMenuItem showInTaskbarToolStripMenuItem;
+        private ToolStripMenuItem activateTargetToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
     }
 }
