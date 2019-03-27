@@ -15,6 +15,7 @@ using System.Configuration;
 
 using System.Threading.Tasks;
 using System.Timers;
+using NLog;
 
 using WindowsTools.Infrastructure;
 
@@ -58,7 +59,7 @@ namespace WindowsTools
 
         MyScreenSaverHooker m_Hook;
 
-        NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+        Logger logger = LogManager.GetCurrentClassLogger();
 
         private List<String> m_ExceptDisplayWindows;
 
@@ -121,7 +122,7 @@ namespace WindowsTools
 
             User32Windows.RegisterHotKey(this.Handle, 0, User32Windows.MOD_CONTROL, User32Windows.VK_OEM_3);
 
-            NLog.LogManager.LoadConfiguration(@"NLog.config");
+            LogManager.LoadConfiguration(@"NLog.config");
 
             m_ExceptDisplayWindows = new List<String>();
             var exceptNamesStr = ConfigurationManager.AppSettings.Get("exceptRunningWindowsNames");
@@ -132,6 +133,8 @@ namespace WindowsTools
             {
                 m_ExceptDisplayWindows.Add(s);
             }
+
+            logger.Log(LogLevel.Info, "WindowsTools has started.");
         }
 
         #endregion
@@ -656,16 +659,35 @@ namespace WindowsTools
                 return;
             }
 
+            var trackingInterval = 5000;
+
             var trackTitlesStr = ConfigurationManager.AppSettings.Get("TrackReminderWindows");
             var trackTitles = trackTitlesStr.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
 
             int selected = this.lstWindowsList.SelectedIndices[0];
             var process = Process.GetProcessById(m_ListedWindows[selected].ProcessId);
 
-            var timer = new System.Timers.Timer(2000);
+            var startLogged = false;
+            var exitLogged = false;
+
+            var timer = new System.Timers.Timer(trackingInterval);
             timer.AutoReset = true;
             timer.Enabled = true;
             timer.Elapsed += (o, ee) => {
+                if (!startLogged)
+                {
+                    logger.Log(LogLevel.Info, "Tracking reminder started.");
+                    startLogged = true;
+                }
+
+                if (process.HasExited && !exitLogged)
+                {
+                    timer.Close();
+                    logger.Log(LogLevel.Info, "Tracking reminder stopped.");
+                    exitLogged = true;
+                    return;
+                }
+
                 foreach (ProcessThread procThread in process.Threads)
                 {
                     User32Windows.EnumThreadWindows((IntPtr)procThread.Id, (hwnd, param) => {
@@ -1169,7 +1191,7 @@ namespace WindowsTools
 
             if (Properties.Settings.Default.MainForm_LogRefresh)
             {
-                logger.Log(NLog.LogLevel.Info, "Refresh windows list started...");
+                logger.Log(LogLevel.Info, "Refresh windows list started...");
             }
 
             m_RefreshStarted = true;
@@ -1206,7 +1228,7 @@ namespace WindowsTools
 
                 if (Properties.Settings.Default.MainForm_LogRefresh)
                 {
-                    logger.Log(NLog.LogLevel.Info, "Refresh windows list finished.");
+                    logger.Log(LogLevel.Info, "Refresh windows list finished.");
                 }
 
                 m_RefreshStarted = false;
@@ -2031,7 +2053,7 @@ namespace WindowsTools
             {
                 Properties.Settings.Default.Save();
 
-                logger.Log(NLog.LogLevel.Info, "Settings saved (autosave).");
+                logger.Log(LogLevel.Info, "Settings saved (autosave).");
 
                 m_SettingsChanged = false;
             }

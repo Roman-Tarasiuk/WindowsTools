@@ -49,6 +49,7 @@ namespace WindowsTools
         {
             this.Show();
             this.WindowState = FormWindowState.Normal;
+            User32Helper.User32Windows.SetForegroundWindow(this.Handle);
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
