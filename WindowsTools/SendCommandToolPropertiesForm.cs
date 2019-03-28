@@ -89,6 +89,21 @@ namespace WindowsTools
             }
         }
 
+        private void radioCustom_CheckedChanged(object sender, EventArgs e)
+        {
+            txtCommands.ReadOnly = radioClipboard.Checked;
+        }
+
+        private void radioClipboard_CheckedChanged(object sender, EventArgs e)
+        {
+            txtCommands.ReadOnly = radioClipboard.Checked;
+        }
+
+        private void radioActivateWindow_CheckedChanged(object sender, EventArgs e)
+        {
+            txtCommands.ReadOnly = radioClipboard.Checked;
+        }
+
         #endregion
 
 
@@ -122,9 +137,9 @@ namespace WindowsTools
             radioClipboard.Checked = (this.CommandType == SendCommandType.Clipboard);
             radioActivateWindow.Checked = (this.CommandType == SendCommandType.ActivateWindow);
 
-            txtCommands.ReadOnly = !this.radioCommand.Checked;
+            txtCommands.ReadOnly = radioClipboard.Checked;
 
-            if (this.CommandType == SendCommandType.Command)
+            if (this.CommandType != SendCommandType.Clipboard)
             {
                 txtCommands.Text = Commands;
             }
@@ -212,20 +227,5 @@ namespace WindowsTools
         }
 
         #endregion
-
-        private void radioCustom_CheckedChanged(object sender, EventArgs e)
-        {
-            txtCommands.ReadOnly = !radioCommand.Checked;
-        }
-
-        private void radioClipboard_CheckedChanged(object sender, EventArgs e)
-        {
-            txtCommands.ReadOnly = !radioCommand.Checked;
-        }
-
-        private void radioActivateWindow_CheckedChanged(object sender, EventArgs e)
-        {
-            txtCommands.ReadOnly = !radioCommand.Checked;
-        }
     }
 }

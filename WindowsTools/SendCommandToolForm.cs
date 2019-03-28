@@ -275,6 +275,20 @@ namespace WindowsTools
                 this.m_Commands = settingsForm.Commands;
                 this.m_SendCommandType = settingsForm.CommandType;
 
+                if (this.m_SendCommandType == SendCommandType.ActivateWindow)
+                {
+                    int handle;
+                    if (int.TryParse(m_Commands, out handle))
+                    {
+                        var icon = User32Windows.GetIcon((IntPtr)handle);
+
+                        if (icon != null)
+                        {
+                            this.BackgroundImage = icon.ToBitmap();
+                        }
+                    }
+                }
+
                 this.m_Sleep = settingsForm.Sleep;
                 this.m_SleepTimeout = settingsForm.SleepTimeout;
                 this.m_RunOnAllWindowsWithSameTitle = settingsForm.RunOnAllWindowsWithSameTitle;
@@ -347,7 +361,17 @@ namespace WindowsTools
 
             if (this.m_SendCommandType == SendCommandType.ActivateWindow)
             {
-                User32Windows.SetForegroundWindow(m_HostWindowHwnd);
+                // User32Windows.SetForegroundWindow(m_HostWindowHwnd);
+                int handle;
+                if (int.TryParse(m_Commands, out handle))
+                {
+                    User32Windows.SetForegroundWindow((IntPtr)handle);
+                }
+                else
+                {
+                    MessageBox.Show(String.Format("Window {0} not found.", m_Commands),
+                        this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 return;
             }
 
