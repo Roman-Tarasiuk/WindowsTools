@@ -24,32 +24,14 @@ namespace WindowsTools
 
         #region Event Handlers
 
-        private void ViewClipboardForm_Shown(object sender, EventArgs e)
-        {
-            this.timerStart.Start();
-        }
-
         private void btnClipboardDetect_Click(object sender, EventArgs e)
         {
             ShowClipboardInfo();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            StringBuilder resultStr = new StringBuilder();
-            resultStr.AppendLine(DataFormats.Bitmap);
-            resultStr.AppendLine(DataFormats.CommaSeparatedValue);
-            resultStr.AppendLine(DataFormats.Dib);
-            resultStr.AppendLine(DataFormats.Dif);
-
-            MessageBox.Show(resultStr.ToString());
-        }
-
         private void systemClipboardManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Show();
-            this.WindowState = FormWindowState.Normal;
-            User32Helper.User32Windows.SetForegroundWindow(this.Handle);
+            ShowMainWindow();
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,12 +47,6 @@ namespace WindowsTools
             }
         }
 
-        private void timerStart_Tick(object sender, EventArgs e)
-        {
-            this.timerStart.Stop();
-            this.WindowState = FormWindowState.Minimized;
-        }
-
         private void clearClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.ClearClipboard();
@@ -78,7 +54,7 @@ namespace WindowsTools
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            this.ClearClipboard();
+            this.ShowMainWindow();
         }
 
         private void clearClipboarFormatToolStripMenuItem_Click(object sender, EventArgs e)
@@ -135,6 +111,13 @@ namespace WindowsTools
         private void ClearClipboard()
         {
             Clipboard.Clear();
+        }
+
+        private void ShowMainWindow()
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+            User32Helper.User32Windows.SetForegroundWindow(this.Handle);
         }
 
         #endregion

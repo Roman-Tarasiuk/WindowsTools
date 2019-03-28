@@ -31,7 +31,7 @@ namespace WindowsTools
         private AnchorHorizontal m_AnchorH = AnchorHorizontal.Left;
         private AnchorVertical m_AnchorV = AnchorVertical.Top;
 
-        private bool m_Clipboard = false;
+        private SendCommandType m_SendCommandType = SendCommandType.Command;
         private string m_Commands;
 
         private bool m_MouseIsDown = false;
@@ -192,56 +192,7 @@ namespace WindowsTools
 
         private void SendCommandToolForm_MouseClick(object sender, MouseEventArgs e)
         {
-            if (!m_IsRunning)
-            {
-                return;
-            }
-
-            if (!User32Windows.SetForegroundWindow(m_HostWindowHwnd))
-            {
-                MessageBox.Show("Window not found. Try to refresh list.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            if (this.m_Clipboard)
-            {
-                m_Commands = Clipboard.GetText();
-            }
-
-            if (m_Commands == String.Empty)
-            {
-                return;
-            }
-
-            if (this.m_Sleep)
-            {
-                Thread.Sleep(m_SleepTimeout);
-            }
-
-            //
-            // Working code (using SendKeys class).
-            //
-            var commands = m_Commands.Split(new string[] { "\r\n" }, StringSplitOptions.None);
-
-            for (int i = 0; i < commands.Length; i++)
-            {
-                if (this.m_Sleep)
-                {
-                    Thread.Sleep(m_SleepTimeout);
-                }
-
-                SendKeys.SendWait(commands[i]);
-            }
-
-            var lastWindow = User32Windows.GetLastActiveWindow(hwndExcept: this.Handle);
-
-            User32Windows.SetForegroundWindow(lastWindow.Handle);
-
-            //
-            // Working code (using InputSimulator http://inputsimulator.codeplex.com/).
-            //
-            // var simulator = new InputSimulator();
-            // simulator.Keyboard.TextEntry(m_Commands);
+            Process();
         }
 
         private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -284,6 +235,216 @@ namespace WindowsTools
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            CheckToolDisplaying();
+        }
+
+        private void autoHideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AutoHide = !AutoHide;
+        }
+
+        private void propertiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var settingsForm = new SendCommandToolPropertiesForm()
+            {
+                ToolWidht = this.Size.Width,
+                ToolHeight = this.Size.Height,
+                AnchorH = m_AnchorH,
+                AnchorV = m_AnchorV,
+                Commands = m_Commands,
+                CommandType = m_SendCommandType,
+                Sleep = m_Sleep,
+                SleepTimeout = m_SleepTimeout,
+                RunOnAllWindowsWithSameTitle = m_RunOnAllWindowsWithSameTitle,
+                ToolLeft = this.Location.X,
+                ToolTop = this.Location.Y,
+                BorderColor = this.m_PenNormal.Color,
+                BorderHoverColor = this.m_PenHover.Color,
+                TitlePattern = this.m_TitlePattern
+            };
+
+            var result = settingsForm.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                this.Size = new Size(settingsForm.ToolWidht, settingsForm.ToolHeight);
+                this.m_AnchorH = settingsForm.AnchorH;
+                this.m_AnchorV = settingsForm.AnchorV;
+                this.m_DrawRectangle = new Rectangle(0, 0, this.Size.Width - 1, this.Size.Height - 1);
+
+                this.m_Commands = settingsForm.Commands;
+                this.m_SendCommandType = settingsForm.CommandType;
+
+                this.m_Sleep = settingsForm.Sleep;
+                this.m_SleepTimeout = settingsForm.SleepTimeout;
+                this.m_RunOnAllWindowsWithSameTitle = settingsForm.RunOnAllWindowsWithSameTitle;
+                this.m_TitlePattern = settingsForm.TitlePattern;
+
+                this.Location = new Point(settingsForm.ToolLeft, settingsForm.ToolTop);
+
+                this.m_PenNormal.Color = settingsForm.BorderColor;
+                this.m_PenHover.Color = settingsForm.BorderHoverColor;
+
+                if (m_TitlePattern != String.Empty)
+                {
+                    m_TitleRegex = new Regex(m_TitlePattern);
+                }
+                else
+                {
+                    m_TitleRegex = null;
+                }
+            }
+        }
+
+        private void SendCommandToolForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!m_IsRunning)
+            {
+                var offset = 11;
+
+                if (e.Control)
+                {
+                    offset = 1;
+                }
+
+                switch (e.KeyCode)
+                {
+                    case Keys.Left:
+                        this.Location = new Point(this.Location.X - offset, this.Location.Y);
+                        break;
+                    case Keys.Right:
+                        this.Location = new Point(this.Location.X + offset, this.Location.Y);
+                        break;
+                    case Keys.Up:
+                        this.Location = new Point(this.Location.X, this.Location.Y - offset);
+                        break;
+                    case Keys.Down:
+                        this.Location = new Point(this.Location.X, this.Location.Y + offset);
+                        break;
+                }
+            }
+        }
+
+        #endregion
+
+
+        #region Helper methods
+
+        private void Process()
+        {
+            if (!m_IsRunning)
+            {
+                return;
+            }
+
+            if (!User32Windows.SetForegroundWindow(m_HostWindowHwnd))
+            {
+                MessageBox.Show("Window not found. Try to refresh list.\nExit tool.",
+                    this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+                return;
+            }
+
+            if (this.m_SendCommandType == SendCommandType.ActivateWindow)
+            {
+                User32Windows.SetForegroundWindow(m_HostWindowHwnd);
+                return;
+            }
+
+            if (this.m_SendCommandType == SendCommandType.Clipboard)
+            {
+                m_Commands = Clipboard.GetText();
+            }
+
+            if (m_Commands == String.Empty)
+            {
+                return;
+            }
+
+            if (this.m_Sleep)
+            {
+                Thread.Sleep(m_SleepTimeout);
+            }
+
+            //
+            // Working code (using SendKeys class).
+            //
+            var commands = m_Commands.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+
+            for (int i = 0; i < commands.Length; i++)
+            {
+                if (this.m_Sleep)
+                {
+                    Thread.Sleep(m_SleepTimeout);
+                }
+
+                SendKeys.SendWait(commands[i]);
+            }
+
+            var lastWindow = User32Windows.GetLastActiveWindow(hwndExcept: this.Handle);
+
+            User32Windows.SetForegroundWindow(lastWindow.Handle);
+
+            //
+            // Working code (using InputSimulator http://inputsimulator.codeplex.com/).
+            //
+            // var simulator = new InputSimulator();
+            // simulator.Keyboard.TextEntry(m_Commands);
+        }
+
+        private bool RectangleContains(Rectangle outer, Rectangle inner)
+        {
+            // Outer rectangle is get by the User32Windows.GetWindowRect()
+            // which returns rectangle that actually has
+            // its width = right, height = bottom.
+
+            return outer.Left <= inner.Left
+                && outer.Top <= inner.Top
+                && outer.Width >= inner.Right
+                && outer.Height >= inner.Bottom;
+        }
+
+        private bool RectangleIntersects(Rectangle outer, Rectangle inner)
+        {
+            // See comment to the RectangleContains() method.
+
+            Rectangle tmp = new Rectangle(outer.Left, outer.Top, outer.Width - outer.Left, outer.Height - outer.Top);
+
+            var intersect =Rectangle.Intersect(tmp, inner);
+            if (intersect != Rectangle.Empty)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private void CalculateCoordinates()
+        {
+            Rectangle rHost;
+            User32Windows.GetWindowRect(m_HostWindowHwnd, out rHost);
+
+            if (m_AnchorH == AnchorHorizontal.Left)
+            {
+                m_HostWindowOffsetX = this.Location.X - rHost.Left;
+            }
+            else
+            {
+                m_HostWindowOffsetX = this.Location.X - rHost.Width;
+            }
+
+            if (m_AnchorV == AnchorVertical.Top)
+            {
+                m_HostWindowOffsetY = this.Location.Y - rHost.Top;
+            }
+            else
+            {
+                m_HostWindowOffsetY = this.Location.Y - rHost.Height;
+            }
+        }
+
+        private void CheckToolDisplaying()
+        {
             if (!m_IsRunning)
             {
                 return;
@@ -294,7 +455,7 @@ namespace WindowsTools
             var title = User32Windows.GetWindowText(foreWindow, 255);
             bool matchesTitlePattern = false;
 
-            if (  ((foreWindow == m_HostWindowHwnd
+            if (((foreWindow == m_HostWindowHwnd
                     || foreWindow == this.Handle)
                    && !User32Windows.IsIconic(m_HostWindowHwnd))
                  || (title == m_HostWindowTitle && m_RunOnAllWindowsWithSameTitle)
@@ -382,150 +543,6 @@ namespace WindowsTools
                 {
                     this.Hide();
                 }
-            }
-        }
-
-        private void autoHideToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            m_AutoHide = !m_AutoHide;
-            autoHideToolStripMenuItem.Checked = m_AutoHide;
-        }
-
-        private void propertiesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var settingsForm = new SendCommandToolPropertiesForm()
-            {
-                ToolWidht = this.Size.Width,
-                ToolHeight = this.Size.Height,
-                AnchorH = m_AnchorH,
-                AnchorV = m_AnchorV,
-                Commands = m_Commands,
-                ClipboardCommand = m_Clipboard,
-                Sleep = m_Sleep,
-                SleepTimeout = m_SleepTimeout,
-                RunOnAllWindowsWithSameTitle = m_RunOnAllWindowsWithSameTitle,
-                ToolLeft = this.Location.X,
-                ToolTop = this.Location.Y,
-                BorderColor = this.m_PenNormal.Color,
-                BorderHoverColor = this.m_PenHover.Color,
-                TitlePattern = this.m_TitlePattern
-            };
-
-            var result = settingsForm.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                this.Size = new Size(settingsForm.ToolWidht, settingsForm.ToolHeight);
-                this.m_AnchorH = settingsForm.AnchorH;
-                this.m_AnchorV = settingsForm.AnchorV;
-                this.m_DrawRectangle = new Rectangle(0, 0, this.Size.Width - 1, this.Size.Height - 1);
-
-                this.m_Commands = settingsForm.Commands;
-                this.m_Clipboard = settingsForm.ClipboardCommand;
-
-                this.m_Sleep = settingsForm.Sleep;
-                this.m_SleepTimeout = settingsForm.SleepTimeout;
-                this.m_RunOnAllWindowsWithSameTitle = settingsForm.RunOnAllWindowsWithSameTitle;
-                this.m_TitlePattern = settingsForm.TitlePattern;
-
-                this.Location = new Point(settingsForm.ToolLeft, settingsForm.ToolTop);
-
-                this.m_PenNormal.Color = settingsForm.BorderColor;
-                this.m_PenHover.Color = settingsForm.BorderHoverColor;
-
-                if (m_TitlePattern != String.Empty)
-                {
-                    m_TitleRegex = new Regex(m_TitlePattern);
-                }
-                else
-                {
-                    m_TitleRegex = null;
-                }
-            }
-        }
-
-        private void SendCommandToolForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (!m_IsRunning)
-            {
-                var offset = 11;
-
-                if (e.Control)
-                {
-                    offset = 1;
-                }
-
-                switch (e.KeyCode)
-                {
-                    case Keys.Left:
-                        this.Location = new Point(this.Location.X - offset, this.Location.Y);
-                        break;
-                    case Keys.Right:
-                        this.Location = new Point(this.Location.X + offset, this.Location.Y);
-                        break;
-                    case Keys.Up:
-                        this.Location = new Point(this.Location.X, this.Location.Y - offset);
-                        break;
-                    case Keys.Down:
-                        this.Location = new Point(this.Location.X, this.Location.Y + offset);
-                        break;
-                }
-            }
-        }
-
-        #endregion
-
-
-        #region Helper methods
-
-        private bool RectangleContains(Rectangle outer, Rectangle inner)
-        {
-            // Outer rectangle is get by the User32Windows.GetWindowRect()
-            // which returns rectangle that actually has
-            // its width = right, height = bottom.
-
-            return outer.Left <= inner.Left
-                && outer.Top <= inner.Top
-                && outer.Width >= inner.Right
-                && outer.Height >= inner.Bottom;
-        }
-
-        private bool RectangleIntersects(Rectangle outer, Rectangle inner)
-        {
-            // See comment to the RectangleContains() method.
-
-            Rectangle tmp = new Rectangle(outer.Left, outer.Top, outer.Width - outer.Left, outer.Height - outer.Top);
-
-            var intersect =Rectangle.Intersect(tmp, inner);
-            if (intersect != Rectangle.Empty)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        private void CalculateCoordinates()
-        {
-            Rectangle rHost;
-            User32Windows.GetWindowRect(m_HostWindowHwnd, out rHost);
-
-            if (m_AnchorH == AnchorHorizontal.Left)
-            {
-                m_HostWindowOffsetX = this.Location.X - rHost.Left;
-            }
-            else
-            {
-                m_HostWindowOffsetX = this.Location.X - rHost.Width;
-            }
-
-            if (m_AnchorV == AnchorVertical.Top)
-            {
-                m_HostWindowOffsetY = this.Location.Y - rHost.Top;
-            }
-            else
-            {
-                m_HostWindowOffsetY = this.Location.Y - rHost.Height;
             }
         }
 

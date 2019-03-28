@@ -22,7 +22,7 @@ namespace WindowsTools
         public int ToolLeft { get; set; }
         public int ToolWidht { get; set; }
         public int ToolHeight { get; set; }
-        public bool ClipboardCommand { get; set; }
+        public SendCommandType CommandType { get; set; }
         public bool Sleep { get; set; }
         public int SleepTimeout { get; set; }
         public bool RunOnAllWindowsWithSameTitle { get; set; }
@@ -60,11 +60,6 @@ namespace WindowsTools
         private void btnOk_Click(object sender, EventArgs e)
         {
             ApplyProperties();
-        }
-
-        private void chkClipboard_CheckedChanged(object sender, EventArgs e)
-        {
-            txtCommands.Enabled = !chkClipboard.Checked;
         }
 
         private void btnBorderColor_Click(object sender, EventArgs e)
@@ -122,10 +117,14 @@ namespace WindowsTools
                 radioBottom.Checked = true;
             }
 
-            chkClipboard.Checked = this.ClipboardCommand;
-            txtCommands.Enabled = !this.ClipboardCommand;
+            // chkClipboard.Checked = this.ClipboardCommand;
+            radioCommand.Checked = (this.CommandType == SendCommandType.Command);
+            radioClipboard.Checked = (this.CommandType == SendCommandType.Clipboard);
+            radioActivateWindow.Checked = (this.CommandType == SendCommandType.ActivateWindow);
 
-            if (!this.ClipboardCommand)
+            txtCommands.ReadOnly = !this.radioCommand.Checked;
+
+            if (this.CommandType == SendCommandType.Command)
             {
                 txtCommands.Text = Commands;
             }
@@ -177,11 +176,17 @@ namespace WindowsTools
                 AnchorV = AnchorVertical.Bottom;
             }
 
-            this.ClipboardCommand = chkClipboard.Checked;
-
-            if (!this.ClipboardCommand)
+            if (radioCommand.Checked)
             {
-                Commands = txtCommands.Text;
+                this.CommandType = SendCommandType.Command;
+            }
+            else if (radioClipboard.Checked)
+            {
+                this.CommandType = SendCommandType.Clipboard;
+            }
+            else
+            {
+                this.CommandType = SendCommandType.ActivateWindow;
             }
 
             Sleep = chkSleep.Checked;
@@ -207,5 +212,20 @@ namespace WindowsTools
         }
 
         #endregion
+
+        private void radioCustom_CheckedChanged(object sender, EventArgs e)
+        {
+            txtCommands.ReadOnly = !radioCommand.Checked;
+        }
+
+        private void radioClipboard_CheckedChanged(object sender, EventArgs e)
+        {
+            txtCommands.ReadOnly = !radioCommand.Checked;
+        }
+
+        private void radioActivateWindow_CheckedChanged(object sender, EventArgs e)
+        {
+            txtCommands.ReadOnly = !radioCommand.Checked;
+        }
     }
 }

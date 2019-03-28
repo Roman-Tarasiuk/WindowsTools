@@ -42,7 +42,6 @@
             this.radioRight = new System.Windows.Forms.RadioButton();
             this.txtCommands = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.chkClipboard = new System.Windows.Forms.CheckBox();
             this.chkSleep = new System.Windows.Forms.CheckBox();
             this.txtSleepTimeout = new System.Windows.Forms.TextBox();
             this.chkRunOnAllWindowsWithSameTitle = new System.Windows.Forms.CheckBox();
@@ -56,6 +55,11 @@
             this.lblBorderHover = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.txtTitlePattern = new System.Windows.Forms.TextBox();
+            this.radioCommand = new System.Windows.Forms.RadioButton();
+            this.radioClipboard = new System.Windows.Forms.RadioButton();
+            this.radioActivateWindow = new System.Windows.Forms.RadioButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -65,7 +69,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(351, 209);
+            this.label1.Location = new System.Drawing.Point(351, 175);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 12;
@@ -74,7 +78,7 @@
             // txtToolWidth
             // 
             this.txtToolWidth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtToolWidth.Location = new System.Drawing.Point(390, 206);
+            this.txtToolWidth.Location = new System.Drawing.Point(390, 172);
             this.txtToolWidth.Name = "txtToolWidth";
             this.txtToolWidth.Size = new System.Drawing.Size(63, 20);
             this.txtToolWidth.TabIndex = 13;
@@ -83,7 +87,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(351, 235);
+            this.label2.Location = new System.Drawing.Point(351, 201);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 14;
@@ -92,7 +96,7 @@
             // txtToolHeight
             // 
             this.txtToolHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtToolHeight.Location = new System.Drawing.Point(390, 232);
+            this.txtToolHeight.Location = new System.Drawing.Point(390, 198);
             this.txtToolHeight.Name = "txtToolHeight";
             this.txtToolHeight.Size = new System.Drawing.Size(63, 20);
             this.txtToolHeight.TabIndex = 15;
@@ -101,7 +105,7 @@
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Location = new System.Drawing.Point(379, 294);
+            this.btnOk.Location = new System.Drawing.Point(379, 260);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 22;
@@ -114,7 +118,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 209);
+            this.groupBox1.Location = new System.Drawing.Point(12, 175);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(182, 70);
             this.groupBox1.TabIndex = 1;
@@ -195,7 +199,7 @@
             this.txtCommands.Multiline = true;
             this.txtCommands.Name = "txtCommands";
             this.txtCommands.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtCommands.Size = new System.Drawing.Size(441, 119);
+            this.txtCommands.Size = new System.Drawing.Size(441, 85);
             this.txtCommands.TabIndex = 17;
             this.txtCommands.WordWrap = false;
             // 
@@ -208,23 +212,11 @@
             this.label3.TabIndex = 16;
             this.label3.Text = "Commands:";
             // 
-            // chkClipboard
-            // 
-            this.chkClipboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.chkClipboard.AutoSize = true;
-            this.chkClipboard.Location = new System.Drawing.Point(12, 150);
-            this.chkClipboard.Name = "chkClipboard";
-            this.chkClipboard.Size = new System.Drawing.Size(70, 17);
-            this.chkClipboard.TabIndex = 18;
-            this.chkClipboard.Text = "Clipboard";
-            this.chkClipboard.UseVisualStyleBackColor = true;
-            this.chkClipboard.CheckedChanged += new System.EventHandler(this.chkClipboard_CheckedChanged);
-            // 
             // chkSleep
             // 
             this.chkSleep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkSleep.AutoSize = true;
-            this.chkSleep.Location = new System.Drawing.Point(12, 173);
+            this.chkSleep.Location = new System.Drawing.Point(12, 139);
             this.chkSleep.Name = "chkSleep";
             this.chkSleep.Size = new System.Drawing.Size(110, 17);
             this.chkSleep.TabIndex = 19;
@@ -234,7 +226,7 @@
             // txtSleepTimeout
             // 
             this.txtSleepTimeout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtSleepTimeout.Location = new System.Drawing.Point(128, 171);
+            this.txtSleepTimeout.Location = new System.Drawing.Point(128, 137);
             this.txtSleepTimeout.Name = "txtSleepTimeout";
             this.txtSleepTimeout.Size = new System.Drawing.Size(59, 20);
             this.txtSleepTimeout.TabIndex = 20;
@@ -243,7 +235,7 @@
             // 
             this.chkRunOnAllWindowsWithSameTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkRunOnAllWindowsWithSameTitle.AutoSize = true;
-            this.chkRunOnAllWindowsWithSameTitle.Location = new System.Drawing.Point(208, 150);
+            this.chkRunOnAllWindowsWithSameTitle.Location = new System.Drawing.Point(208, 116);
             this.chkRunOnAllWindowsWithSameTitle.Name = "chkRunOnAllWindowsWithSameTitle";
             this.chkRunOnAllWindowsWithSameTitle.Size = new System.Drawing.Size(187, 17);
             this.chkRunOnAllWindowsWithSameTitle.TabIndex = 21;
@@ -254,7 +246,7 @@
             // txtTop
             // 
             this.txtTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtTop.Location = new System.Drawing.Point(261, 232);
+            this.txtTop.Location = new System.Drawing.Point(261, 198);
             this.txtTop.Name = "txtTop";
             this.txtTop.Size = new System.Drawing.Size(63, 20);
             this.txtTop.TabIndex = 11;
@@ -263,7 +255,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(214, 235);
+            this.label4.Location = new System.Drawing.Point(214, 201);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 10;
@@ -272,7 +264,7 @@
             // txtLeft
             // 
             this.txtLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtLeft.Location = new System.Drawing.Point(261, 206);
+            this.txtLeft.Location = new System.Drawing.Point(261, 172);
             this.txtLeft.Name = "txtLeft";
             this.txtLeft.Size = new System.Drawing.Size(63, 20);
             this.txtLeft.TabIndex = 9;
@@ -281,7 +273,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(214, 209);
+            this.label5.Location = new System.Drawing.Point(214, 175);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(28, 13);
             this.label5.TabIndex = 8;
@@ -293,7 +285,7 @@
             this.lblBorder.AutoSize = true;
             this.lblBorder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblBorder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblBorder.Location = new System.Drawing.Point(275, 259);
+            this.lblBorder.Location = new System.Drawing.Point(275, 225);
             this.lblBorder.Name = "lblBorder";
             this.lblBorder.Size = new System.Drawing.Size(30, 19);
             this.lblBorder.TabIndex = 23;
@@ -302,7 +294,7 @@
             // btnBorderColor
             // 
             this.btnBorderColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnBorderColor.Location = new System.Drawing.Point(214, 257);
+            this.btnBorderColor.Location = new System.Drawing.Point(214, 223);
             this.btnBorderColor.Name = "btnBorderColor";
             this.btnBorderColor.Size = new System.Drawing.Size(55, 23);
             this.btnBorderColor.TabIndex = 24;
@@ -313,7 +305,7 @@
             // btnBorderHoverColor
             // 
             this.btnBorderHoverColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnBorderHoverColor.Location = new System.Drawing.Point(324, 257);
+            this.btnBorderHoverColor.Location = new System.Drawing.Point(324, 223);
             this.btnBorderHoverColor.Name = "btnBorderHoverColor";
             this.btnBorderHoverColor.Size = new System.Drawing.Size(93, 23);
             this.btnBorderHoverColor.TabIndex = 26;
@@ -327,7 +319,7 @@
             this.lblBorderHover.AutoSize = true;
             this.lblBorderHover.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblBorderHover.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblBorderHover.Location = new System.Drawing.Point(423, 259);
+            this.lblBorderHover.Location = new System.Drawing.Point(423, 225);
             this.lblBorderHover.Name = "lblBorderHover";
             this.lblBorderHover.Size = new System.Drawing.Size(30, 19);
             this.lblBorderHover.TabIndex = 25;
@@ -337,16 +329,74 @@
             // 
             this.txtTitlePattern.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTitlePattern.Location = new System.Drawing.Point(208, 171);
+            this.txtTitlePattern.Location = new System.Drawing.Point(208, 137);
             this.txtTitlePattern.Name = "txtTitlePattern";
             this.txtTitlePattern.Size = new System.Drawing.Size(245, 20);
             this.txtTitlePattern.TabIndex = 27;
+            // 
+            // radioCommand
+            // 
+            this.radioCommand.AutoSize = true;
+            this.radioCommand.Checked = true;
+            this.radioCommand.Location = new System.Drawing.Point(84, 7);
+            this.radioCommand.Name = "radioCommand";
+            this.radioCommand.Size = new System.Drawing.Size(60, 17);
+            this.radioCommand.TabIndex = 28;
+            this.radioCommand.TabStop = true;
+            this.radioCommand.Text = "Custom";
+            this.radioCommand.UseVisualStyleBackColor = true;
+            this.radioCommand.CheckedChanged += new System.EventHandler(this.radioCustom_CheckedChanged);
+            // 
+            // radioClipboard
+            // 
+            this.radioClipboard.AutoSize = true;
+            this.radioClipboard.Location = new System.Drawing.Point(150, 7);
+            this.radioClipboard.Name = "radioClipboard";
+            this.radioClipboard.Size = new System.Drawing.Size(69, 17);
+            this.radioClipboard.TabIndex = 29;
+            this.radioClipboard.Text = "Clipboard";
+            this.radioClipboard.UseVisualStyleBackColor = true;
+            this.radioClipboard.CheckedChanged += new System.EventHandler(this.radioClipboard_CheckedChanged);
+            // 
+            // radioActivateWindow
+            // 
+            this.radioActivateWindow.AutoSize = true;
+            this.radioActivateWindow.Location = new System.Drawing.Point(225, 7);
+            this.radioActivateWindow.Name = "radioActivateWindow";
+            this.radioActivateWindow.Size = new System.Drawing.Size(103, 17);
+            this.radioActivateWindow.TabIndex = 30;
+            this.radioActivateWindow.Text = "Activate window";
+            this.radioActivateWindow.UseVisualStyleBackColor = true;
+            this.radioActivateWindow.CheckedChanged += new System.EventHandler(this.radioActivateWindow_CheckedChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBox1.Location = new System.Drawing.Point(128, 114);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(59, 20);
+            this.textBox1.TabIndex = 32;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(9, 117);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(97, 13);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "Track interval (ms):";
             // 
             // SendCommandToolPropertiesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(465, 323);
+            this.ClientSize = new System.Drawing.Size(465, 289);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.radioActivateWindow);
+            this.Controls.Add(this.radioClipboard);
+            this.Controls.Add(this.radioCommand);
             this.Controls.Add(this.txtTitlePattern);
             this.Controls.Add(this.btnBorderHoverColor);
             this.Controls.Add(this.lblBorderHover);
@@ -359,7 +409,6 @@
             this.Controls.Add(this.chkRunOnAllWindowsWithSameTitle);
             this.Controls.Add(this.txtSleepTimeout);
             this.Controls.Add(this.chkSleep);
-            this.Controls.Add(this.chkClipboard);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtCommands);
             this.Controls.Add(this.groupBox1);
@@ -399,7 +448,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtCommands;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox chkClipboard;
         private System.Windows.Forms.CheckBox chkSleep;
         private System.Windows.Forms.TextBox txtSleepTimeout;
         private System.Windows.Forms.CheckBox chkRunOnAllWindowsWithSameTitle;
@@ -413,5 +461,10 @@
         private System.Windows.Forms.Label lblBorderHover;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.TextBox txtTitlePattern;
+        private System.Windows.Forms.RadioButton radioCommand;
+        private System.Windows.Forms.RadioButton radioClipboard;
+        private System.Windows.Forms.RadioButton radioActivateWindow;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label6;
     }
 }
