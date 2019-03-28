@@ -362,10 +362,15 @@ namespace WindowsTools
             if (this.m_SendCommandType == SendCommandType.ActivateWindow)
             {
                 // User32Windows.SetForegroundWindow(m_HostWindowHwnd);
-                int handle;
-                if (int.TryParse(m_Commands, out handle))
+                int handleTmp;
+                if (int.TryParse(m_Commands, out handleTmp))
                 {
-                    User32Windows.SetForegroundWindow((IntPtr)handle);
+                    var handle = (IntPtr)handleTmp;
+                    if (User32Windows.IsIconic(handle))
+                    {
+                        User32Windows.ShowWindow(handle, User32Windows.SW_RESTORE);
+                    }
+                    User32Windows.SetForegroundWindow(handle);
                 }
                 else
                 {
