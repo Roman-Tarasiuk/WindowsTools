@@ -29,6 +29,12 @@ namespace WindowsTools
             ShowClipboardInfo();
         }
 
+        private void btnClipboardClear_Click(object sender, EventArgs e)
+        {
+            Clipboard.Clear();
+            ShowClipboardInfo();
+        }
+
         private void systemClipboardManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowMainWindow();
