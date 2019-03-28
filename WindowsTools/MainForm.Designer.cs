@@ -47,7 +47,7 @@
             this.customTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackWindowIsAccessibleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trackWindowAndPopupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trackReminderAndPopupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackWindowKeyboardLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setWindowTransparencyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -223,7 +223,7 @@
             this.customTitleToolStripMenuItem,
             this.trackTitleToolStripMenuItem,
             this.trackWindowIsAccessibleToolStripMenuItem,
-            this.trackWindowAndPopupToolStripMenuItem,
+            this.trackReminderAndPopupToolStripMenuItem,
             this.trackWindowKeyboardLayoutToolStripMenuItem,
             this.setWindowTransparencyToolStripMenuItem,
             this.toolStripSeparator6,
@@ -342,10 +342,10 @@
             //
             // trackWindowAndPopupToolStripMenuItem
             //
-            this.trackWindowAndPopupToolStripMenuItem.Name = "trackWindowAndPopupToolStripMenuItem";
-            this.trackWindowAndPopupToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.trackWindowAndPopupToolStripMenuItem.Text = "Track reminder";
-            this.trackWindowAndPopupToolStripMenuItem.Click += new System.EventHandler(this.trackWindowAndPopupToolStripMenuItem_Click);
+            this.trackReminderAndPopupToolStripMenuItem.Name = "trackWindowAndPopupToolStripMenuItem";
+            this.trackReminderAndPopupToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+            this.trackReminderAndPopupToolStripMenuItem.Text = "Track reminder";
+            this.trackReminderAndPopupToolStripMenuItem.Click += new System.EventHandler(this.trackReminderAndPopupToolStripMenuItem_Click);
             //
             // trackWindowKeyboardLayoutToolStripMenuItem
             //
@@ -1520,7 +1520,7 @@
         private System.Windows.Forms.ToolStripMenuItem showHiddenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trackTitleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trackWindowIsAccessibleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem trackWindowAndPopupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem trackReminderAndPopupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trackWindowKeyboardLayoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem encodeSpacesToToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem encodeSpacesToToolStripMenuItem1;

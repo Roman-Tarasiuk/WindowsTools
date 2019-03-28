@@ -652,7 +652,7 @@ namespace WindowsTools
             new TrackInactiveWindowForm() { Hwnd = hwnd }.Show();
         }
 
-        private void trackWindowAndPopupToolStripMenuItem_Click(object sender, EventArgs e)
+        private void trackReminderAndPopupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (this.lstWindowsList.SelectedIndices.Count != 1)
             {
