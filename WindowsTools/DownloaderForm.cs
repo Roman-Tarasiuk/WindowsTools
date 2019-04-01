@@ -9,6 +9,7 @@ using System.Net;
 using System.Text;
 using System.Windows.Forms;
 using WindowsTools.Infrastructure;
+using User32Helper;
 
 namespace WindowsTools
 {
@@ -100,6 +101,16 @@ namespace WindowsTools
 
             if (finishedSuccessfully)
             {
+                if (User32Windows.IsIconic(this.Handle))
+                {
+                    User32Windows.ShowWindow(this.Handle, User32Windows.SW_RESTORE);
+                }
+                else
+                {
+                    User32Windows.ShowWindow(this.Handle, User32Windows.SW_SHOW);
+                }
+                User32Windows.SetForegroundWindow(this.Handle);
+
                 MessageBox.Show("Successfully finished.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
