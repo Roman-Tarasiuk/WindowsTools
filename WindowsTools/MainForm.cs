@@ -1528,7 +1528,8 @@ namespace WindowsTools
 
         private void ArrangeMenu()
         {
-            if (!CheckTargetWindow())
+            // Do not use CheckTargetWindow() here because the MessageBox it can use.
+            if (lstWindowsList.SelectedIndices.Count != 1)
             {
                 return;
             }
