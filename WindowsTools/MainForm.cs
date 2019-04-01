@@ -339,7 +339,7 @@ namespace WindowsTools
 
         private void copyWindowNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -351,7 +351,7 @@ namespace WindowsTools
 
         private void copyWindowHwndToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -363,7 +363,7 @@ namespace WindowsTools
 
         private void copyProcessIdToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -378,7 +378,7 @@ namespace WindowsTools
 
         private void btnCloseWindow_Click(object sender, EventArgs e)
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -394,7 +394,7 @@ namespace WindowsTools
 
         private void btnKillWindow_Click(object sender, EventArgs e)
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -470,7 +470,7 @@ namespace WindowsTools
 
         private void addToTrackingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -505,7 +505,7 @@ namespace WindowsTools
             //new TitleColoringForm().Show();
 
 
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -628,7 +628,7 @@ namespace WindowsTools
 
         private void trackTitleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -640,7 +640,7 @@ namespace WindowsTools
 
         private void trackWindowIsAccessibleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -654,7 +654,7 @@ namespace WindowsTools
 
         private void trackReminderAndPopupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -662,7 +662,9 @@ namespace WindowsTools
             var trackingInterval = 5000;
 
             var trackTitlesStr = ConfigurationManager.AppSettings.Get("TrackReminderWindows");
-            var trackTitles = trackTitlesStr.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+            var trackTitlesSeparatorStr = ConfigurationManager.AppSettings.Get("TrackReminderWindowsSeparator");
+            var trackingTitles = trackTitlesStr.Split(new string[] { trackTitlesSeparatorStr },
+                    StringSplitOptions.RemoveEmptyEntries);
 
             int selected = this.lstWindowsList.SelectedIndices[0];
             var process = Process.GetProcessById(m_ListedWindows[selected].ProcessId);
@@ -696,7 +698,7 @@ namespace WindowsTools
                         var title = isVisibleAndHasTitle.Item2;
                         if (visible)
                         {
-                            foreach (var t in trackTitles)
+                            foreach (var t in trackingTitles)
                             {
                                 if (title.Contains(t))
                                 {
@@ -1482,7 +1484,7 @@ namespace WindowsTools
 
         private void SetILDASMFonts()
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -1526,7 +1528,7 @@ namespace WindowsTools
 
         private void ArrangeMenu()
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -1548,7 +1550,7 @@ namespace WindowsTools
 
         private void MoveWindow()
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -1575,7 +1577,7 @@ namespace WindowsTools
 
         private void SetTransparency()
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -1616,7 +1618,7 @@ namespace WindowsTools
 
         private void SendCommands(string[] commands)
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -1715,7 +1717,7 @@ namespace WindowsTools
 
         private void SendCustomCommands()
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -1873,7 +1875,7 @@ namespace WindowsTools
 
         private void HideSelectedWindow()
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -1902,7 +1904,7 @@ namespace WindowsTools
 
         private void ShowHiddenWindow()
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -1962,7 +1964,7 @@ namespace WindowsTools
 
         private void SetForegroundSelectiveWindow()
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -2132,7 +2134,7 @@ namespace WindowsTools
 
         private void MoveSelectedUp()
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -2165,7 +2167,7 @@ namespace WindowsTools
 
         private void MoveSelectedDown()
         {
-            if (this.lstWindowsList.SelectedIndices.Count != 1)
+            if (!CheckTargetWindow())
             {
                 return;
             }
@@ -2248,6 +2250,31 @@ namespace WindowsTools
                     SetEnabledSafe(btnOrder, true);
                 }
             }
+        }
+
+        private bool CheckTargetWindow()
+        {
+            var selectionCountWarningStr = ConfigurationManager.AppSettings.Get("selectionCountWarning");
+
+            var showWarning = false;
+
+            if (selectionCountWarningStr != null && selectionCountWarningStr != String.Empty)
+            {
+                Boolean.TryParse(selectionCountWarningStr, out showWarning);
+            }
+
+            if (lstWindowsList.SelectedIndices.Count != 1)
+            {
+                if (showWarning)
+                {
+                    MessageBox.Show("Please select only 1 window to run the task.",
+                        this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                return false;
+            }
+
+            return true;
         }
 
         #endregion
