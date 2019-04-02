@@ -1960,7 +1960,7 @@ namespace WindowsTools
 
         private void CropImages()
         {
-            new CropImageForm().Show();
+            new CropImageForm(5).Show();
         }
 
         private void SetForegroundSelectiveWindow()

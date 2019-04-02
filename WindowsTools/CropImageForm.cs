@@ -16,7 +16,10 @@ namespace WindowsTools
         private bool m_Cropping = false;
         private Crop m_Crop;
         private Color m_DefaultBackground = Color.FromArgb(130, 207, 255);
-        private Image m_PreviousImage = null;
+
+        private readonly int MAX_UNDO;
+        private List<Image> m_Undo = new List<Image>();
+        private int m_Current = -1;
 
         #endregion
 
@@ -36,9 +39,11 @@ namespace WindowsTools
 
         #region Constructors
 
-        public CropImageForm()
+        public CropImageForm(int maxUndo)
         {
             InitializeComponent();
+
+            this.MAX_UNDO = maxUndo;
         }
 
         #endregion
@@ -69,7 +74,7 @@ namespace WindowsTools
 
             if (m_Cropping)
             {
-                m_PreviousImage = pictureBox1.Image;
+                ToUndoList();
                 pictureBox1.Image = CropImage(pictureBox1.Image, m_Crop, x, y);
             }
 
@@ -162,7 +167,7 @@ namespace WindowsTools
                 case Keys.Z:
                     if (e.Control)
                     {
-                        UndoImage();
+                        Undo();
                     }
                     break;
             }
@@ -399,8 +404,9 @@ namespace WindowsTools
                 width != W ||
                 height != H)
                 {
-                    m_PreviousImage = pictureBox1.Image;
-                    pictureBox1.Image = ((Bitmap)m_PreviousImage).Clone(new Rectangle(left, top, width - left, height - top), System.Drawing.Imaging.PixelFormat.DontCare);
+                    ToUndoList();
+                    MessageBox.Show(String.Format("{0} {2} {1}", m_Undo.Count, m_Undo[m_Current] == null, m_Current));
+                    pictureBox1.Image = ((Bitmap)m_Undo[m_Current]).Clone(new Rectangle(left, top, width - left, height - top), System.Drawing.Imaging.PixelFormat.DontCare);
                 }
         }
 
@@ -434,7 +440,7 @@ namespace WindowsTools
 
         private void PasteFromClipboard()
         {
-            m_PreviousImage = pictureBox1.Image;
+            ToUndoList();
             pictureBox1.Image = Clipboard.GetImage();
             m_Cropping = false;
 
@@ -460,18 +466,8 @@ namespace WindowsTools
 
         private void EraseImage()
         {
-            m_PreviousImage = pictureBox1.Image;
+            ToUndoList();
             pictureBox1.Image = null;
-        }
-
-        private void UndoImage()
-        {
-            if (m_PreviousImage != null)
-            {
-                var tmp = pictureBox1.Image;
-                pictureBox1.Image = m_PreviousImage;
-                m_PreviousImage = tmp;
-            }
         }
 
         private void ToggleBigButtons()
@@ -498,6 +494,33 @@ namespace WindowsTools
 
                 this.toolStripBtnToggleBigButtons.Checked = true;
             }
+        }
+
+        private void Undo()
+        {
+            if (m_Current > 0)
+            {
+                pictureBox1.Image = m_Undo[--m_Current];
+            }
+        }
+
+        private void Redo()
+        {
+            if (m_Current < m_Undo.Count - 1)
+            {
+                pictureBox1.Image = m_Undo[++m_Current];
+            }
+        }
+
+        private void ToUndoList()
+        {
+            if (m_Undo.Count > 0 && m_Undo[m_Undo.Count - 1] == null)
+            {
+                return;
+            }
+
+            m_Undo.Add(pictureBox1.Image);
+            m_Current++;
         }
 
         #endregion
