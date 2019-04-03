@@ -22,8 +22,6 @@ namespace WindowsTools
         private List<Image> m_Undo = new List<Image>();
         private int m_Current = -1;
 
-        private Logger logger = LogManager.GetCurrentClassLogger();
-
         #endregion
 
 
@@ -509,12 +507,8 @@ namespace WindowsTools
         {
             if (m_Current > 0)
             {
-                logger.Log(LogLevel.Info,
-                    String.Format(">> Undo(): Decrement."));
                 m_Current--;
             }
-            logger.Log(LogLevel.Info,
-                String.Format(">> Undo(): m_Current {0}.", m_Current));
             pictureBox1.Image = m_Undo[m_Current];
         }
 
@@ -522,39 +516,26 @@ namespace WindowsTools
         {
             if (m_Current < m_Undo.Count - 1)
             {
-                logger.Log(LogLevel.Info,
-                    String.Format(">> Redo(): Increment."));
                 m_Current++;
             }
-            logger.Log(LogLevel.Info,
-                String.Format(">> Redo(): m_Current {0}.", m_Current));
             pictureBox1.Image = m_Undo[m_Current];
         }
 
         private void ToUndoList()
         {
-            logger.Log(LogLevel.Info,
-                String.Format(">> ToUndoList(): m_Undo.Count {0}, m_Current {1}.", m_Undo.Count, m_Current));
+            for (var i = m_Undo.Count - 1; i > m_Current; i--)
+            {
+                m_Undo.RemoveAt(i);
+            }
+
             if (m_Undo.Count > MAX_UNDO)
             {
-                logger.Log(LogLevel.Info,
-                    ">> ToUndoList(): removed at 0 (MAX_UNDO).");
                 m_Undo.RemoveAt(0);
                 m_Current--;
             }
 
-            for (var i = m_Undo.Count - 1; i > m_Current; i--)
-            {
-                logger.Log(LogLevel.Info,
-                    String.Format(">> ToUndoList(): remove at {0}.", m_Undo.Count, m_Current));
-                m_Undo.RemoveAt(i);
-            }
-
             m_Undo.Add(pictureBox1.Image);
             m_Current++;
-
-            logger.Log(LogLevel.Info,
-                String.Format(">> ToUndoList(): Added: m_Undo.Count {0}, m_Current {1}.", m_Undo.Count, m_Current));
         }
 
         #endregion
