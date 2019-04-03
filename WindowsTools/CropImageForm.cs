@@ -19,8 +19,8 @@ namespace WindowsTools
         private Color m_DefaultBackground = Color.FromArgb(130, 207, 255);
 
         private readonly int MAX_UNDO;
-        private List<Image> m_Undo = new List<Image>();
-        private int m_Current = -1;
+        private List<Image> m_UndoList = new List<Image>();
+        private int m_UndoCurrentIndex = -1;
 
         #endregion
 
@@ -412,7 +412,7 @@ namespace WindowsTools
                 width != W ||
                 height != H)
                 {
-                    pictureBox1.Image = ((Bitmap)m_Undo[m_Current]).Clone(new Rectangle(left, top, width - left, height - top), System.Drawing.Imaging.PixelFormat.DontCare);
+                    pictureBox1.Image = ((Bitmap)m_UndoList[m_UndoCurrentIndex]).Clone(new Rectangle(left, top, width - left, height - top), System.Drawing.Imaging.PixelFormat.DontCare);
                     ToUndoList();
                 }
         }
@@ -505,37 +505,37 @@ namespace WindowsTools
 
         private void Undo()
         {
-            if (m_Current > 0)
+            if (m_UndoCurrentIndex > 0)
             {
-                m_Current--;
+                m_UndoCurrentIndex--;
             }
-            pictureBox1.Image = m_Undo[m_Current];
+            pictureBox1.Image = m_UndoList[m_UndoCurrentIndex];
         }
 
         private void Redo()
         {
-            if (m_Current < m_Undo.Count - 1)
+            if (m_UndoCurrentIndex < m_UndoList.Count - 1)
             {
-                m_Current++;
+                m_UndoCurrentIndex++;
             }
-            pictureBox1.Image = m_Undo[m_Current];
+            pictureBox1.Image = m_UndoList[m_UndoCurrentIndex];
         }
 
         private void ToUndoList()
         {
-            for (var i = m_Undo.Count - 1; i > m_Current; i--)
+            for (var i = m_UndoList.Count - 1; i > m_UndoCurrentIndex; i--)
             {
-                m_Undo.RemoveAt(i);
+                m_UndoList.RemoveAt(i);
             }
 
-            if (m_Undo.Count > MAX_UNDO)
+            if (m_UndoList.Count > MAX_UNDO)
             {
-                m_Undo.RemoveAt(0);
-                m_Current--;
+                m_UndoList.RemoveAt(0);
+                m_UndoCurrentIndex--;
             }
 
-            m_Undo.Add(pictureBox1.Image);
-            m_Current++;
+            m_UndoList.Add(pictureBox1.Image);
+            m_UndoCurrentIndex++;
         }
 
         #endregion
