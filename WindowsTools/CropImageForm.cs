@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using NLog;
 
 namespace WindowsTools
 {
@@ -20,6 +21,8 @@ namespace WindowsTools
         private readonly int MAX_UNDO;
         private List<Image> m_Undo = new List<Image>();
         private int m_Current = -1;
+
+        private Logger logger = LogManager.GetCurrentClassLogger();
 
         #endregion
 
@@ -74,8 +77,8 @@ namespace WindowsTools
 
             if (m_Cropping)
             {
-                ToUndoList();
                 pictureBox1.Image = CropImage(pictureBox1.Image, m_Crop, x, y);
+                ToUndoList();
             }
 
             m_Cropping = false;
@@ -168,6 +171,13 @@ namespace WindowsTools
                     if (e.Control)
                     {
                         Undo();
+                    }
+                    break;
+
+                case Keys.Y:
+                    if (e.Control)
+                    {
+                        Redo();
                     }
                     break;
             }
@@ -404,9 +414,8 @@ namespace WindowsTools
                 width != W ||
                 height != H)
                 {
-                    ToUndoList();
-                    MessageBox.Show(String.Format("{0} {2} {1}", m_Undo.Count, m_Undo[m_Current] == null, m_Current));
                     pictureBox1.Image = ((Bitmap)m_Undo[m_Current]).Clone(new Rectangle(left, top, width - left, height - top), System.Drawing.Imaging.PixelFormat.DontCare);
+                    ToUndoList();
                 }
         }
 
@@ -440,8 +449,8 @@ namespace WindowsTools
 
         private void PasteFromClipboard()
         {
-            ToUndoList();
             pictureBox1.Image = Clipboard.GetImage();
+            ToUndoList();
             m_Cropping = false;
 
             UncheckCropButtons();
@@ -466,8 +475,8 @@ namespace WindowsTools
 
         private void EraseImage()
         {
-            ToUndoList();
             pictureBox1.Image = null;
+            ToUndoList();
         }
 
         private void ToggleBigButtons()
@@ -500,27 +509,52 @@ namespace WindowsTools
         {
             if (m_Current > 0)
             {
-                pictureBox1.Image = m_Undo[--m_Current];
+                logger.Log(LogLevel.Info,
+                    String.Format(">> Undo(): Decrement."));
+                m_Current--;
             }
+            logger.Log(LogLevel.Info,
+                String.Format(">> Undo(): m_Current {0}.", m_Current));
+            pictureBox1.Image = m_Undo[m_Current];
         }
 
         private void Redo()
         {
             if (m_Current < m_Undo.Count - 1)
             {
-                pictureBox1.Image = m_Undo[++m_Current];
+                logger.Log(LogLevel.Info,
+                    String.Format(">> Redo(): Increment."));
+                m_Current++;
             }
+            logger.Log(LogLevel.Info,
+                String.Format(">> Redo(): m_Current {0}.", m_Current));
+            pictureBox1.Image = m_Undo[m_Current];
         }
 
         private void ToUndoList()
         {
-            if (m_Undo.Count > 0 && m_Undo[m_Undo.Count - 1] == null)
+            logger.Log(LogLevel.Info,
+                String.Format(">> ToUndoList(): m_Undo.Count {0}, m_Current {1}.", m_Undo.Count, m_Current));
+            if (m_Undo.Count > MAX_UNDO)
             {
-                return;
+                logger.Log(LogLevel.Info,
+                    ">> ToUndoList(): removed at 0 (MAX_UNDO).");
+                m_Undo.RemoveAt(0);
+                m_Current--;
+            }
+
+            for (var i = m_Undo.Count - 1; i > m_Current; i--)
+            {
+                logger.Log(LogLevel.Info,
+                    String.Format(">> ToUndoList(): remove at {0}.", m_Undo.Count, m_Current));
+                m_Undo.RemoveAt(i);
             }
 
             m_Undo.Add(pictureBox1.Image);
             m_Current++;
+
+            logger.Log(LogLevel.Info,
+                String.Format(">> ToUndoList(): Added: m_Undo.Count {0}, m_Current {1}.", m_Undo.Count, m_Current));
         }
 
         #endregion

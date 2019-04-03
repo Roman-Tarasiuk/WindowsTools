@@ -25,7 +25,7 @@ namespace WindowsTools
     {
         #region Fields
 
-        const int ListColumnWidthDelta = 138;
+        private const int ListColumnWidthDelta = 138;
 
         private List<DesktopWindow> m_ListedWindows = new List<DesktopWindow>();
         private List<DesktopWindow> m_HiddenByUserWindows = new List<DesktopWindow>();
@@ -49,7 +49,7 @@ namespace WindowsTools
         private bool m_ScreensaverWithLock = false;
         private bool m_NotesTopmost = true;
 
-        static readonly TimeSpan defaultWrongPassDelay = new TimeSpan(0, 0, 0, 0, 5000);
+        private static readonly TimeSpan defaultWrongPassDelay = new TimeSpan(0, 0, 0, 0, 5000);
         private TimeSpan m_PinTimeSpan = MainForm.defaultWrongPassDelay;
         private DateTime m_BlockStartTime;
 
@@ -57,9 +57,9 @@ namespace WindowsTools
 
         private bool m_SettingsChanged = false;
 
-        MyScreenSaverHooker m_Hook;
+        private MyScreenSaverHooker m_Hook;
 
-        Logger logger = LogManager.GetCurrentClassLogger();
+        private Logger logger = LogManager.GetCurrentClassLogger();
 
         private List<String> m_ExceptDisplayWindows;
 
