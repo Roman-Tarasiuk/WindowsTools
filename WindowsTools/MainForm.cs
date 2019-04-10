@@ -172,6 +172,11 @@ namespace WindowsTools
             this.RefreshWindowsList();
         }
 
+        private void saveSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveSettings("Settings saved.");
+        }
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.DoExit();
@@ -2066,14 +2071,7 @@ namespace WindowsTools
 
         private void timerSaveSettings_Tick(object sender, EventArgs e)
         {
-            if (m_SettingsChanged)
-            {
-                Properties.Settings.Default.Save();
-
-                logger.Log(LogLevel.Info, "Settings saved (autosave).");
-
-                m_SettingsChanged = false;
-            }
+            SaveSettings("Settings saved (autosave).");
         }
 
         private void ClipboardTextToWidth()
@@ -2292,7 +2290,20 @@ namespace WindowsTools
             return true;
         }
 
+        private void SaveSettings(string message)
+        {
+            if (m_SettingsChanged)
+            {
+                Properties.Settings.Default.Save();
+
+                logger.Log(LogLevel.Info, message);
+
+                m_SettingsChanged = false;
+            }
+        }
+
         #endregion
+
     } // class MainForm.
 
     public class ToolEventArgs : EventArgs
