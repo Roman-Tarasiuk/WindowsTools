@@ -92,6 +92,7 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topmostWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hideMinimizedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showTipsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripWindowsList = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.hideSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -660,10 +661,18 @@
             // viewToolStripMenuItem
             //
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hideMinimizedToolStripMenuItem,
             this.topmostWindowToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
+            //
+            // hideMinimizedToolStripMenuItem
+            //
+            this.hideMinimizedToolStripMenuItem.Name = "hideMinimizedToolStripMenuItem";
+            this.hideMinimizedToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.hideMinimizedToolStripMenuItem.Text = "Hide minimized";
+            this.hideMinimizedToolStripMenuItem.Click += new System.EventHandler(this.hideMinimizedToolStripMenuItem_Click);
             //
             // topmostWindowToolStripMenuItem
             //
@@ -1551,6 +1560,7 @@
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem topmostWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hideMinimizedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showTipsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toUPPERCASEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toLowercaseToolStripMenuItem;

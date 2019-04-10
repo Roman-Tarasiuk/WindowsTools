@@ -30,6 +30,7 @@ namespace WindowsTools
         private List<DesktopWindow> m_ListedWindows = new List<DesktopWindow>();
         private List<DesktopWindow> m_HiddenByUserWindows = new List<DesktopWindow>();
         private List<NotesForm> m_Notes = new List<NotesForm>();
+        // The Form's OwnedForms has another role.
         private string m_PrefixHidden = "[hidden]";
         private string m_Pin = String.Empty;
 
@@ -48,6 +49,7 @@ namespace WindowsTools
         private bool m_RebuldPasswordMenu = false;
         private bool m_ScreensaverWithLock = false;
         private bool m_NotesTopmost = true;
+        private bool m_MinimizeToTray = true;
 
         private static readonly TimeSpan defaultWrongPassDelay = new TimeSpan(0, 0, 0, 0, 5000);
         private TimeSpan m_PinTimeSpan = MainForm.defaultWrongPassDelay;
@@ -134,6 +136,9 @@ namespace WindowsTools
                 m_ExceptDisplayWindows.Add(s);
             }
 
+            this.m_MinimizeToTray = Properties.Settings.Default.HideMinimized;
+            this.hideMinimizedToolStripMenuItem.Checked = m_MinimizeToTray;
+
             logger.Log(LogLevel.Info, "WindowsTools has started.");
         }
 
@@ -189,7 +194,7 @@ namespace WindowsTools
 
         private void MainForm_Resize(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Minimized)
+            if (this.WindowState == FormWindowState.Minimized && m_MinimizeToTray)
             {
                 this.Hide();
                 m_NeedRefresh = true;
@@ -825,6 +830,14 @@ namespace WindowsTools
         {
             this.TopMost = !this.TopMost;
             topmostWindowToolStripMenuItem.Checked = this.TopMost;
+        }
+
+        private void hideMinimizedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.m_MinimizeToTray = !this.m_MinimizeToTray;
+            Properties.Settings.Default.HideMinimized = this.m_MinimizeToTray;
+            hideMinimizedToolStripMenuItem.Checked = this.m_MinimizeToTray;
+            m_SettingsChanged = true;
         }
 
         private void showTipsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1960,7 +1973,8 @@ namespace WindowsTools
 
         private void CropImages()
         {
-            new CropImageForm(5).Show();
+            var cropForm = new CropImageForm(5);
+            cropForm.Show();
         }
 
         private void SetForegroundSelectiveWindow()
@@ -2279,7 +2293,7 @@ namespace WindowsTools
         }
 
         #endregion
-    }
+    } // class MainForm.
 
     public class ToolEventArgs : EventArgs
     {

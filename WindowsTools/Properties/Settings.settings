@@ -11,6 +11,9 @@
     <Setting Name="SendCommandsForm_Location" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">100, 100</Value>
     </Setting>
+    <setting name="HideMinimized" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </setting>
     <Setting Name="WindowsTrackingForm_Location" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">100, 100</Value>
     </Setting>
