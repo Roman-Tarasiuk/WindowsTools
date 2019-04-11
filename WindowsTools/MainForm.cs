@@ -58,6 +58,15 @@ namespace WindowsTools
         private Point m_ScreenSaverRunCursorPosition;
 
         private bool m_SettingsChanged = false;
+        private bool SettingsChanged
+        {
+            get { return m_SettingsChanged; }
+            set
+            {
+                m_SettingsChanged = value;
+                this.Text = (m_SettingsChanged ? "● " : "") + "Windows Tools";
+            }
+        }
 
         private MyScreenSaverHooker m_Hook;
 
@@ -290,7 +299,7 @@ namespace WindowsTools
             User32Windows.CloseForm(m_SendCommandForm);
             User32Windows.CloseForm(m_TrackingForm);
 
-            if (m_SettingsChanged)
+            if (SettingsChanged)
             {
                 Properties.Settings.Default.Save();
             }
@@ -842,7 +851,7 @@ namespace WindowsTools
             this.m_MinimizeToTray = !this.m_MinimizeToTray;
             Properties.Settings.Default.HideMinimized = this.m_MinimizeToTray;
             hideMinimizedToolStripMenuItem.Checked = this.m_MinimizeToTray;
-            m_SettingsChanged = true;
+            SettingsChanged = true;
         }
 
         private void showTipsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -903,7 +912,7 @@ namespace WindowsTools
 
             downloader.SettingsChanged += (o, eSettings) =>
             {
-                m_SettingsChanged = true;
+                SettingsChanged = true;
             };
 
             downloader.Show();
@@ -1583,7 +1592,7 @@ namespace WindowsTools
             {
                 m_LocationForm.SettingsChanged += (o, e) =>
                 {
-                    m_SettingsChanged = true;
+                    SettingsChanged = true;
                 };
             }
 
@@ -1628,7 +1637,7 @@ namespace WindowsTools
 
                 m_PasswordForm.SettingsChanged += (o, e) =>
                 {
-                    m_SettingsChanged = true;
+                    SettingsChanged = true;
                 };
             }
 
@@ -1676,7 +1685,7 @@ namespace WindowsTools
 
                 m_TrackingForm.SettingsChanged += (o, e) =>
                 {
-                    m_SettingsChanged = true;
+                    SettingsChanged = true;
                 };
 
                 return;
@@ -1754,7 +1763,7 @@ namespace WindowsTools
 
                 m_SendCommandForm.SettingsChanged += (o, e) =>
                 {
-                    m_SettingsChanged = true;
+                    SettingsChanged = true;
                 };
             }
 
@@ -2292,13 +2301,13 @@ namespace WindowsTools
 
         private void SaveSettings(string message)
         {
-            if (m_SettingsChanged)
+            if (SettingsChanged)
             {
                 Properties.Settings.Default.Save();
 
                 logger.Log(LogLevel.Info, message);
 
-                m_SettingsChanged = false;
+                SettingsChanged = false;
             }
         }
 
