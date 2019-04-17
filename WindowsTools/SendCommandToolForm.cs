@@ -280,11 +280,14 @@ namespace WindowsTools
                     int handle;
                     if (int.TryParse(m_Commands, out handle))
                     {
-                        var icon = User32Windows.GetIcon((IntPtr)handle);
-
-                        if (icon != null)
+                        if (User32Windows.IsWindow((IntPtr)handle))
                         {
-                            this.BackgroundImage = icon.ToBitmap();
+                            var icon = User32Windows.GetIcon((IntPtr)handle);
+
+                            if (icon != null)
+                            {
+                                this.BackgroundImage = icon.ToBitmap();
+                            }
                         }
                     }
                 }
@@ -353,7 +356,7 @@ namespace WindowsTools
 
             if (!User32Windows.SetForegroundWindow(m_HostWindowHwnd))
             {
-                MessageBox.Show("Window not found. Try to refresh list.\nExit tool.",
+                MessageBox.Show("Hosting window not found. Try to refresh list.\nExit tool.",
                     this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
                 return;
