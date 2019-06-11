@@ -233,6 +233,16 @@ namespace WindowsTools.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap line_break {
+            get {
+                object obj = ResourceManager.GetObject("line_break", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap miscellaneous_icon1 {
             get {
                 object obj = ResourceManager.GetObject("miscellaneous-icon1", resourceCulture);
@@ -256,6 +266,16 @@ namespace WindowsTools.Properties {
         internal static System.Drawing.Bitmap screen_4_64x64 {
             get {
                 object obj = ResourceManager.GetObject("screen-4-64x64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap screen_saver_24_24 {
+            get {
+                object obj = ResourceManager.GetObject("screen-saver-24_24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -259,6 +259,7 @@ namespace WindowsTools
             // 
             // btnSet
             // 
+            this.btnSet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSet.Location = new System.Drawing.Point(294, 156);
             this.btnSet.Name = "btnSet";
             this.btnSet.Size = new System.Drawing.Size(75, 23);

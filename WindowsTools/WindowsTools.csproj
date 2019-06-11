@@ -401,6 +401,8 @@
     <None Include="Resources\crop_bottom_small.png" />
     <None Include="Resources\toggle.png" />
     <None Include="Resources\screen-4-64x64.png" />
+    <None Include="Resources\line_break.png" />
+    <None Include="Resources\screen-saver-24_24.png" />
     <Content Include="taskmgr_icon.png.ico" />
   </ItemGroup>
   <ItemGroup>
