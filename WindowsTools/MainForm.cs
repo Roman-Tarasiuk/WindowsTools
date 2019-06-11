@@ -1960,11 +1960,13 @@ namespace WindowsTools
 
         private void PowerOffDisplay()
         {
+            Thread.Sleep(2000);
             User32Windows.PostMessage(User32Windows.HWND_BROADCAST, User32Windows.WM_SYSCOMMAND, User32Windows.SC_MONITORPOWER, User32Windows.LParamDisplayShutOff);
         }
 
         private void PowerOffDisplayAndLock()
         {
+            Thread.Sleep(2000);
             User32Windows.PostMessage(User32Windows.HWND_BROADCAST, User32Windows.WM_SYSCOMMAND, User32Windows.SC_MONITORPOWER, User32Windows.LParamDisplayShutOff);
             User32Windows.LockWorkStation();
         }
