@@ -655,10 +655,10 @@
             this.sortByNameToolStripMenuItem,
             this.sortByProcessIdToolStripMenuItem,
             this.toolStripSeparator16,
-            this.copyAllToolStripMenuItem,
             this.copyWindowHwndToolStripMenuItem,
             this.copyWindowNameToolStripMenuItem,
-            this.copyProcessIdToolStripMenuItem});
+            this.copyProcessIdToolStripMenuItem,
+            this.copyAllToolStripMenuItem});
             this.contextMenuStripWindowsList.Name = "contextMenuStripWindowsList";
             this.contextMenuStripWindowsList.Size = new System.Drawing.Size(183, 242);
             //
@@ -723,21 +723,21 @@
             //
             this.copyAllToolStripMenuItem.Name = "copyAllToolStripMenuItem";
             this.copyAllToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.copyAllToolStripMenuItem.Text = "Copy all";
+            this.copyAllToolStripMenuItem.Text = "Copy all list";
             this.copyAllToolStripMenuItem.Click += new System.EventHandler(this.copyAllToolStripMenuItem_Click);
             //
             // copyWindowHwndToolStripMenuItem
             //
             this.copyWindowHwndToolStripMenuItem.Name = "copyWindowHwndToolStripMenuItem";
             this.copyWindowHwndToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.copyWindowHwndToolStripMenuItem.Text = "Copy window hwnd";
+            this.copyWindowHwndToolStripMenuItem.Text = "Copy hwnd";
             this.copyWindowHwndToolStripMenuItem.Click += new System.EventHandler(this.copyWindowHwndToolStripMenuItem_Click);
             //
             // copyWindowNameToolStripMenuItem
             //
             this.copyWindowNameToolStripMenuItem.Name = "copyWindowNameToolStripMenuItem";
             this.copyWindowNameToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.copyWindowNameToolStripMenuItem.Text = "Copy window name";
+            this.copyWindowNameToolStripMenuItem.Text = "Copy name";
             this.copyWindowNameToolStripMenuItem.Click += new System.EventHandler(this.copyWindowNameToolStripMenuItem_Click);
             //
             // copyProcessIdToolStripMenuItem
