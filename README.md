@@ -16,5 +16,5 @@ Windows desktop (.NET, Windows Forms) application for<br>
 - crop images;
 - keyboard layout panel;
 - other stuff.
-<br>
+
 &#42; Look at the <a href="https://github.com/Roman-Tarasiuk/WindowsTools/wiki">Wiki</a> section of the project for additional info.
