@@ -13,8 +13,10 @@ namespace WindowsTools
 
         #region Fields
 
+        private bool m_CheckWindowIsRunning = false;
+
         private IntPtr m_Hwnd = IntPtr.Zero;
-        private bool m_Running = false;
+        private bool m_TrackingIsRunning = false;
         private bool m_WindowIsHung;
         private DateTime m_StartTime;
 
@@ -34,7 +36,7 @@ namespace WindowsTools
             }
             set
             {
-                if (m_Running)
+                if (m_TrackingIsRunning)
                 {
                     throw new InvalidOperationException("Cannot set the Hwnd property when tracking is running.");
                 }
@@ -76,11 +78,11 @@ namespace WindowsTools
 
         private void btnStartStop_Click(object sender, EventArgs e)
         {
-            if (m_Running)
+            if (m_TrackingIsRunning)
             {
                 StopTracking();
 
-                m_Running = false;
+                m_TrackingIsRunning = false;
                 m_WindowIsHung = false;
                 btnStartStop.Text = "Start";
             }
@@ -88,7 +90,7 @@ namespace WindowsTools
             {
                 StartTracking();
 
-                m_Running = true;
+                m_TrackingIsRunning = true;
                 btnStartStop.Text = "Stop";
             }
 
@@ -97,7 +99,7 @@ namespace WindowsTools
 
         private void txtHwnd_Leave(object sender, EventArgs e)
         {
-            if (m_Running)
+            if (m_TrackingIsRunning)
             {
                 return;
             }
@@ -106,13 +108,20 @@ namespace WindowsTools
             if (User32Windows.IsWindow(hwnd))
             {
                 Hwnd = hwnd;
+                btnStartStop.Enabled = true;
             }
             else
             {
                 Hwnd = IntPtr.Zero;
+                btnStartStop.Enabled = false;
             }
 
             DisplayTitle();
+        }
+
+        private void chkCheckWindowIsRunning_CheckedChanged(object sender, EventArgs e)
+        {
+            this.m_CheckWindowIsRunning = chkCheckWindowIsRunning.Checked;
         }
 
         private void chkTopmost_CheckedChanged(object sender, EventArgs e)
@@ -126,7 +135,7 @@ namespace WindowsTools
             {
                 timer1.Stop();
 
-                m_Running = false;
+                m_TrackingIsRunning = false;
                 btnStartStop.Text = "Start";
             }
 
@@ -134,7 +143,7 @@ namespace WindowsTools
             var now = DateTime.Now;
             var wasRunnind = now - m_StartTime;
 
-            if (!m_Running)
+            if (!m_TrackingIsRunning)
             {
                 message = FormatTime(now) + " the program is closed now and was in the previous state: " + FormatTime(wasRunnind);
                 m_WindowIsHung = false;
