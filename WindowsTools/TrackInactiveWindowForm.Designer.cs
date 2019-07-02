@@ -37,7 +37,7 @@
             this.txtLog = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.chkTopmost = new System.Windows.Forms.CheckBox();
-            this.chkCheckWindowIsRunning = new System.Windows.Forms.CheckBox();
+            this.chkTrackModalWindow = new System.Windows.Forms.CheckBox();
             this.chkWordWrap = new System.Windows.Forms.CheckBox();
             this.chkShowInTaskbar = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
@@ -102,15 +102,15 @@
             //
             // chkCheckWindowIsRunning
             //
-            this.chkCheckWindowIsRunning.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.chkCheckWindowIsRunning.AutoSize = true;
-            this.chkCheckWindowIsRunning.Location = new System.Drawing.Point(5, 110);
-            this.chkCheckWindowIsRunning.Name = "chkCheckWindowIsRunning";
-            this.chkCheckWindowIsRunning.Size = new System.Drawing.Size(67, 17);
-            this.chkCheckWindowIsRunning.TabIndex = 6;
-            this.chkCheckWindowIsRunning.Text = "Window is running";
-            this.chkCheckWindowIsRunning.UseVisualStyleBackColor = true;
-            this.chkCheckWindowIsRunning.CheckedChanged += new System.EventHandler(this.chkCheckWindowIsRunning_CheckedChanged);
+            this.chkTrackModalWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chkTrackModalWindow.AutoSize = true;
+            this.chkTrackModalWindow.Location = new System.Drawing.Point(5, 110);
+            this.chkTrackModalWindow.Name = "chkTrackModalWindow";
+            this.chkTrackModalWindow.Size = new System.Drawing.Size(67, 17);
+            this.chkTrackModalWindow.TabIndex = 6;
+            this.chkTrackModalWindow.Text = "Track modal window";
+            this.chkTrackModalWindow.UseVisualStyleBackColor = true;
+            this.chkTrackModalWindow.CheckedChanged += new System.EventHandler(this.chkTrackModalWindow_CheckedChanged);
             //
             // chkTopmost
             //
@@ -164,7 +164,7 @@
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtHwnd);
-            this.Controls.Add(this.chkCheckWindowIsRunning);
+            this.Controls.Add(this.chkTrackModalWindow);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TrackInactiveWindowForm";
@@ -182,7 +182,7 @@
         private System.Windows.Forms.Button btnStartStop;
         private System.Windows.Forms.TextBox txtLog;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.CheckBox chkCheckWindowIsRunning;
+        private System.Windows.Forms.CheckBox chkTrackModalWindow;
         private System.Windows.Forms.CheckBox chkTopmost;
         private System.Windows.Forms.CheckBox chkWordWrap;
         private System.Windows.Forms.CheckBox chkShowInTaskbar;

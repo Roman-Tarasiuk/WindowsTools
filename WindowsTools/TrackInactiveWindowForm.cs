@@ -13,7 +13,7 @@ namespace WindowsTools
 
         #region Fields
 
-        private bool m_CheckWindowIsRunning = false;
+        private bool m_TrackPopupWindow = false;
 
         private IntPtr m_Hwnd = IntPtr.Zero;
         private bool m_TrackingIsRunning = false;
@@ -119,9 +119,9 @@ namespace WindowsTools
             DisplayTitle();
         }
 
-        private void chkCheckWindowIsRunning_CheckedChanged(object sender, EventArgs e)
+        private void chkTrackModalWindow_CheckedChanged(object sender, EventArgs e)
         {
-            this.m_CheckWindowIsRunning = chkCheckWindowIsRunning.Checked;
+            this.m_TrackPopupWindow = chkTrackModalWindow.Checked;
         }
 
         private void chkTopmost_CheckedChanged(object sender, EventArgs e)
@@ -131,50 +131,7 @@ namespace WindowsTools
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (!User32Windows.IsWindow(Hwnd))
-            {
-                timer1.Stop();
-
-                m_TrackingIsRunning = false;
-                btnStartStop.Text = "Start";
-            }
-
-            string message = String.Empty;
-            var now = DateTime.Now;
-            var wasRunnind = now - m_StartTime;
-
-            if (!m_TrackingIsRunning)
-            {
-                message = FormatTime(now) + " the program is closed now and was in the previous state: " + FormatTime(wasRunnind);
-                m_WindowIsHung = false;
-
-                this.btnStartStop.Enabled = false;
-            }
-            else
-            {
-                if (IsHungAppWindow(Hwnd) && !m_WindowIsHung)
-                {
-                    m_WindowIsHung = true;
-
-                    // The Windows OS detects hung window after 5 seconds.
-                    var fiveSeconds = new TimeSpan(0, 0, 5);
-                    m_StartTime = now - fiveSeconds;
-                    wasRunnind -= fiveSeconds;
-                    message = FormatTime(now) + " the program is hung now and was in the previous state: " + FormatTime(wasRunnind);
-                }
-                else if (!IsHungAppWindow(Hwnd) && m_WindowIsHung)
-                {
-                    m_WindowIsHung = false;
-                    m_StartTime = now;
-                    message = FormatTime(now) + " the program is accessible now and was in the previous state: " + FormatTime(wasRunnind);
-                }
-            }
-
-            if (message != String.Empty)
-            {
-                Log(message);
-                WindowColors();
-            }
+            ProcessTracking();
         }
 
         private void chkWordWrap_CheckedChanged(object sender, EventArgs e)
@@ -191,6 +148,68 @@ namespace WindowsTools
 
 
         #region Helper Methods
+
+        private void ProcessTracking()
+        {
+            if (!User32Windows.IsWindow(Hwnd))
+            {
+                timer1.Stop();
+
+                m_TrackingIsRunning = false;
+                btnStartStop.Text = "Start";
+            }
+
+            string message = String.Empty;
+            var now = DateTime.Now;
+            var wasRunnind = now - m_StartTime;
+
+            if (!m_TrackingIsRunning)
+            {
+                message = FormatTime(now)
+                    + " the program is closed now and was in the previous state: "
+                    + FormatTime(wasRunnind);
+                m_WindowIsHung = false;
+
+                this.btnStartStop.Enabled = false;
+            }
+            else
+            {
+                if (m_TrackPopupWindow)
+                {
+                    m_WindowIsHung = true;
+                    wasRunnind = now - m_StartTime;
+                    message = FormatTime(now)
+                        + " the program is hung now during (at least): "
+                        + FormatTime(wasRunnind);
+                }
+                else if (IsHungAppWindow(Hwnd) && !m_WindowIsHung)
+                {
+                    m_WindowIsHung = true;
+
+                    // The Windows OS detects hung window after 5 seconds.
+                    var fiveSeconds = new TimeSpan(0, 0, 5);
+                    m_StartTime = now - fiveSeconds;
+                    wasRunnind -= fiveSeconds;
+                    message = FormatTime(now)
+                        + " the program is hung now and was in the previous state: "
+                        + FormatTime(wasRunnind);
+                }
+                else if (!IsHungAppWindow(Hwnd) && m_WindowIsHung)
+                {
+                    m_WindowIsHung = false;
+                    m_StartTime = now;
+                    message = FormatTime(now)
+                        + " the program is accessible now and was in the previous state: "
+                        + FormatTime(wasRunnind);
+                }
+            }
+
+            if (message != String.Empty)
+            {
+                Log(message);
+                WindowColors();
+            }
+        }
 
         private void StartTracking()
         {
@@ -211,6 +230,8 @@ namespace WindowsTools
             Log(msg);
             WindowColors();
 
+            chkTrackModalWindow.Enabled = false;
+
             timer1.Start();
         }
 
@@ -229,6 +250,8 @@ namespace WindowsTools
 
             Log(msg);
             WindowColors();
+
+            chkTrackModalWindow.Enabled = true;
         }
 
         private string FormatTime(DateTime t)
@@ -262,13 +285,14 @@ namespace WindowsTools
 
         private void Log(string str)
         {
+            var start = txtLog.Text.Length + 2; // "\r\n" at the end.
+
             txtLog.Text += (txtLog.Text == String.Empty ? "" : "\r\n") + str;
 
             txtLog.Focus();
-            txtLog.SelectionStart = txtLog.Text.Length;
+            txtLog.SelectionStart = start;
             txtLog.SelectionLength = 0;
             txtLog.ScrollToCaret();
-            SendKeys.Send("{HOME}");
         }
 
         private void DisplayTitle()
