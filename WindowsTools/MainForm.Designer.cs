@@ -46,7 +46,7 @@
             this.windowsTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trackWindowIsAccessibleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trackInactiveWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackReminderAndPopupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackWindowKeyboardLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setWindowTransparencyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -233,7 +233,7 @@
             this.windowsTrackingToolStripMenuItem,
             this.customTitleToolStripMenuItem,
             this.trackTitleToolStripMenuItem,
-            this.trackWindowIsAccessibleToolStripMenuItem,
+            this.trackInactiveWindowToolStripMenuItem,
             this.trackReminderAndPopupToolStripMenuItem,
             this.trackWindowKeyboardLayoutToolStripMenuItem,
             this.setWindowTransparencyToolStripMenuItem,
@@ -336,12 +336,12 @@
             this.trackTitleToolStripMenuItem.Text = "Track window\'s title...";
             this.trackTitleToolStripMenuItem.Click += new System.EventHandler(this.trackTitleToolStripMenuItem_Click);
             //
-            // trackWindowIsAccessibleToolStripMenuItem
+            // trackInactiveWindowToolStripMenuItem
             //
-            this.trackWindowIsAccessibleToolStripMenuItem.Name = "trackWindowIsAccessibleToolStripMenuItem";
-            this.trackWindowIsAccessibleToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.trackWindowIsAccessibleToolStripMenuItem.Text = "Track a window is accessible...";
-            this.trackWindowIsAccessibleToolStripMenuItem.Click += new System.EventHandler(this.trackWindowIsAccessibleToolStripMenuItem_Click);
+            this.trackInactiveWindowToolStripMenuItem.Name = "trackInactiveWindowToolStripMenuItem";
+            this.trackInactiveWindowToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+            this.trackInactiveWindowToolStripMenuItem.Text = "Track inactive window...";
+            this.trackInactiveWindowToolStripMenuItem.Click += new System.EventHandler(this.trackInactiveWindowToolStripMenuItem_Click);
             //
             // trackReminderAndPopupToolStripMenuItem
             //
@@ -1547,7 +1547,7 @@
         private System.Windows.Forms.ToolStripMenuItem hideSelectedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showHiddenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trackTitleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem trackWindowIsAccessibleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem trackInactiveWindowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trackReminderAndPopupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trackWindowKeyboardLayoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem encodeSpacesToToolStripMenuItem;

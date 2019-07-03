@@ -657,7 +657,7 @@ namespace WindowsTools
             new TrackWindowTitleForm(m_ListedWindows[selected].Handle).Show();
         }
 
-        private void trackWindowIsAccessibleToolStripMenuItem_Click(object sender, EventArgs e)
+        private void trackInactiveWindowToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckTargetWindow())
             {

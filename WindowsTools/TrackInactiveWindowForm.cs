@@ -13,7 +13,7 @@ namespace WindowsTools
 
         #region Fields
 
-        private bool m_TrackPopupWindow = false;
+        private bool m_TrackModalWindow = false;
 
         private IntPtr m_Hwnd = IntPtr.Zero;
         private bool m_TrackingIsRunning = false;
@@ -121,7 +121,7 @@ namespace WindowsTools
 
         private void chkTrackModalWindow_CheckedChanged(object sender, EventArgs e)
         {
-            this.m_TrackPopupWindow = chkTrackModalWindow.Checked;
+            this.m_TrackModalWindow = chkTrackModalWindow.Checked;
         }
 
         private void chkTopmost_CheckedChanged(object sender, EventArgs e)
@@ -166,21 +166,18 @@ namespace WindowsTools
             if (!m_TrackingIsRunning)
             {
                 message = FormatTime(now)
-                    + " the program is closed now and was in the previous state: "
-                    + FormatTime(wasRunnind);
+                    + " the " + (m_TrackModalWindow ? "modal window" : "program")
+                    + " is closed now and was in the previous state: "
+                    + FormatTime(wasRunnind) + ".";
                 m_WindowIsHung = false;
 
                 this.btnStartStop.Enabled = false;
             }
             else
             {
-                if (m_TrackPopupWindow)
+                if (m_TrackModalWindow)
                 {
-                    m_WindowIsHung = true;
-                    wasRunnind = now - m_StartTime;
-                    message = FormatTime(now)
-                        + " the program is hung now during (at least): "
-                        + FormatTime(wasRunnind);
+                    return;
                 }
                 else if (IsHungAppWindow(Hwnd) && !m_WindowIsHung)
                 {
@@ -192,7 +189,7 @@ namespace WindowsTools
                     wasRunnind -= fiveSeconds;
                     message = FormatTime(now)
                         + " the program is hung now and was in the previous state: "
-                        + FormatTime(wasRunnind);
+                        + FormatTime(wasRunnind) + ".";
                 }
                 else if (!IsHungAppWindow(Hwnd) && m_WindowIsHung)
                 {
@@ -200,7 +197,7 @@ namespace WindowsTools
                     m_StartTime = now;
                     message = FormatTime(now)
                         + " the program is accessible now and was in the previous state: "
-                        + FormatTime(wasRunnind);
+                        + FormatTime(wasRunnind) + ".";
                 }
             }
 
@@ -208,6 +205,11 @@ namespace WindowsTools
             {
                 Log(message);
                 WindowColors();
+
+                if (!m_TrackingIsRunning)
+                {
+                    Log("Please close this window.");
+                }
             }
         }
 
@@ -220,12 +222,12 @@ namespace WindowsTools
             }
 
             m_StartTime = DateTime.Now;
-            m_WindowIsHung = IsHungAppWindow(m_Hwnd);
+            m_WindowIsHung = IsHungAppWindow(m_Hwnd) || m_TrackModalWindow;
 
-            var msg = "Start tracking"
+            var msg = "• Start tracking"
                 + " [" + Hwnd.ToString() + "] \"" + User32Windows.GetWindowText(Hwnd, 255) + "\""
                 + "\r\n" + FormatTime(m_StartTime)
-                + " the program is " + (m_WindowIsHung ? "hung" : "accessible");
+                + " the program is " + (m_WindowIsHung ? "hung" : "accessible") + ".";
 
             Log(msg);
             WindowColors();
@@ -240,13 +242,13 @@ namespace WindowsTools
             timer1.Stop();
 
             var now = DateTime.Now;
-            m_WindowIsHung = IsHungAppWindow(m_Hwnd);
+            m_WindowIsHung = IsHungAppWindow(m_Hwnd) || m_TrackModalWindow;
 
             var wasRunnind = now - m_StartTime;
 
             var msg = FormatTime(now)
-                + " the program is " + (m_WindowIsHung ? "hung" : "accessible")
-                + "\r\nStop tracking (after " + FormatTime(wasRunnind) + " from last state";
+                + " the program is " + (m_WindowIsHung ? "hung" : "accessible") + "."
+                + "\r\n• Stop tracking (after " + FormatTime(wasRunnind) + " from last state).";
 
             Log(msg);
             WindowColors();
