@@ -73,6 +73,30 @@ namespace WindowsTools.Properties {
 
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoTrackReminder {
+            get {
+                return ((bool)(this["AutoTrackReminder"]));
+            }
+            set {
+                this["AutoTrackReminder"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("300")]
+        public int AutoTrackReminderIntervalSeconds {
+            get {
+                return ((int)(this["AutoTrackReminderIntervalSeconds"]));
+            }
+            set {
+                this["AutoTrackReminderIntervalSeconds"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
         public global::System.Drawing.Point WindowsTrackingForm_Location {
             get {

@@ -148,6 +148,11 @@ namespace WindowsTools
             this.m_MinimizeToTray = Properties.Settings.Default.HideMinimized;
             this.hideMinimizedToolStripMenuItem.Checked = m_MinimizeToTray;
 
+            if (Properties.Settings.Default.AutoTrackReminder)
+            {
+                this.AutoTrackReminder();
+            }
+
             logger.Log(LogLevel.Info, "WindowsTools has started.");
         }
 
@@ -2311,6 +2316,43 @@ namespace WindowsTools
 
                 SettingsChanged = false;
             }
+        }
+
+        private void AutoTrackReminder()
+        {
+            var interval = Properties.Settings.Default.AutoTrackReminderIntervalSeconds * 1000;
+
+            var timer = new System.Timers.Timer(interval);
+            timer.AutoReset = true;
+            timer.Enabled = true;
+
+            ElapsedEventHandler tracker = (o, ee) => {
+                var runningWindows = GetWindowList(true, true);
+
+                var trackTitlesStr = ConfigurationManager.AppSettings.Get("TrackReminderWindows");
+                var trackTitlesSeparatorStr = ConfigurationManager.AppSettings.Get("TrackReminderWindowsSeparator");
+                var trackingTitles = trackTitlesStr.Split(new string[] { trackTitlesSeparatorStr },
+                        StringSplitOptions.RemoveEmptyEntries);
+
+                var reminderHwnd = IntPtr.Zero;
+                foreach (var w in runningWindows)
+                {
+                    foreach (var t in trackingTitles)
+                    {
+                        if(w.Title.Contains(t))
+                        {
+                            reminderHwnd = w.Handle;
+                            User32Windows.SetWindowPos(reminderHwnd, User32Windows.HWND_TOPMOST, 0, 0, 0, 0,
+                                User32Windows.SWP_SHOWWINDOW | User32Windows.SWP_NOSIZE | User32Windows.SWP_NOMOVE);
+                        }
+                    }
+                }
+
+            };
+
+            tracker(this, null);
+
+            timer.Elapsed += tracker;
         }
 
         #endregion
