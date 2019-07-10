@@ -39,6 +39,7 @@
             this.chkTopmost = new System.Windows.Forms.CheckBox();
             this.chkTrackModalWindow = new System.Windows.Forms.CheckBox();
             this.chkWordWrap = new System.Windows.Forms.CheckBox();
+            this.chkShowBorder = new System.Windows.Forms.CheckBox();
             this.chkShowInTaskbar = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
@@ -59,7 +60,6 @@
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Hwnd:";
-            //this.label1.tool
             //
             // lblTitle
             //
@@ -120,7 +120,7 @@
             //
             this.chkTopmost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkTopmost.AutoSize = true;
-            this.chkTopmost.Location = new System.Drawing.Point(5, 128);
+            this.chkTopmost.Location = new System.Drawing.Point(170, 128);
             this.chkTopmost.Name = "chkTopmost";
             this.chkTopmost.Size = new System.Drawing.Size(67, 17);
             this.chkTopmost.TabIndex = 6;
@@ -132,7 +132,7 @@
             //
             this.chkWordWrap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkWordWrap.AutoSize = true;
-            this.chkWordWrap.Location = new System.Drawing.Point(150, 128);
+            this.chkWordWrap.Location = new System.Drawing.Point(90, 128);
             this.chkWordWrap.Name = "chkWordWrap";
             this.chkWordWrap.Size = new System.Drawing.Size(78, 17);
             this.chkWordWrap.TabIndex = 7;
@@ -140,13 +140,26 @@
             this.chkWordWrap.UseVisualStyleBackColor = true;
             this.chkWordWrap.CheckedChanged += new System.EventHandler(this.chkWordWrap_CheckedChanged);
             //
+            // chkShowBorder
+            //
+            this.chkShowBorder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chkShowBorder.AutoSize = true;
+            this.chkShowBorder.Location = new System.Drawing.Point(5, 128);
+            this.chkShowBorder.Name = "chkShowBorder";
+            this.chkShowBorder.Size = new System.Drawing.Size(78, 17);
+            this.chkShowBorder.TabIndex = 7;
+            this.chkShowBorder.Text = "Show border";
+            this.chkShowBorder.UseVisualStyleBackColor = true;
+            this.chkShowBorder.Checked = true;
+            this.chkShowBorder.CheckedChanged += new System.EventHandler(this.chkShowBorder_CheckedChanged);
+            //
             // chkShowInTaskbar
             //
             this.chkShowInTaskbar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkShowInTaskbar.AutoSize = true;
+            this.chkShowInTaskbar.Location = new System.Drawing.Point(240, 128);
             this.chkShowInTaskbar.Checked = true;
             this.chkShowInTaskbar.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkShowInTaskbar.Location = new System.Drawing.Point(75, 128);
             this.chkShowInTaskbar.Name = "chkShowInTaskbar";
             this.chkShowInTaskbar.Size = new System.Drawing.Size(73, 17);
             this.chkShowInTaskbar.TabIndex = 8;
@@ -162,6 +175,7 @@
             this.ClientSize = new System.Drawing.Size(403, 146);
             this.Controls.Add(this.chkShowInTaskbar);
             this.Controls.Add(this.chkWordWrap);
+            this.Controls.Add(this.chkShowBorder);
             this.Controls.Add(this.chkTopmost);
             this.Controls.Add(this.txtLog);
             this.Controls.Add(this.btnStartStop);
@@ -189,6 +203,7 @@
         private System.Windows.Forms.CheckBox chkTrackModalWindow;
         private System.Windows.Forms.CheckBox chkTopmost;
         private System.Windows.Forms.CheckBox chkWordWrap;
+        private System.Windows.Forms.CheckBox chkShowBorder;
         private System.Windows.Forms.CheckBox chkShowInTaskbar;
         private System.Windows.Forms.ToolTip toolTip1;
     }

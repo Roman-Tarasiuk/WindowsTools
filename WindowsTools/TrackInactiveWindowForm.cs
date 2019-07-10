@@ -109,6 +109,7 @@ namespace WindowsTools
                 this.chkTopmost.Visible = false;
                 this.chkTrackModalWindow.Visible = false;
                 this.chkWordWrap.Visible = false;
+                this.chkShowBorder.Visible = false;
                 this.txtLog.Size = new Size(this.txtLog.Size.Width, this.txtLog.Size.Height + sizeDelta);
                 m_ShowOptions = false;
             }
@@ -118,6 +119,7 @@ namespace WindowsTools
                 this.chkTopmost.Visible = true;
                 this.chkTrackModalWindow.Visible = true;
                 this.chkWordWrap.Visible = true;
+                this.chkShowBorder.Visible = true;
                 this.txtLog.Size = new Size(this.txtLog.Size.Width, this.txtLog.Size.Height - sizeDelta);
                 m_ShowOptions = true;
             }
@@ -163,6 +165,18 @@ namespace WindowsTools
         private void chkWordWrap_CheckedChanged(object sender, EventArgs e)
         {
             txtLog.WordWrap = chkWordWrap.Checked;
+        }
+
+        private void chkShowBorder_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkShowBorder.Checked)
+            {
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            }
+            else
+            {
+                this.FormBorderStyle = FormBorderStyle.None;
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
