@@ -40,6 +40,7 @@
             this.chkTrackModalWindow = new System.Windows.Forms.CheckBox();
             this.chkWordWrap = new System.Windows.Forms.CheckBox();
             this.chkShowInTaskbar = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             //
             // txtHwnd
@@ -58,6 +59,7 @@
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Hwnd:";
+            //this.label1.tool
             //
             // lblTitle
             //
@@ -94,6 +96,8 @@
             this.txtLog.Size = new System.Drawing.Size(394, 84);
             this.txtLog.TabIndex = 5;
             this.txtLog.WordWrap = false;
+            this.txtLog.DoubleClick += new System.EventHandler(this.txtLog_DoubleClick);
+            toolTip1.SetToolTip(this.txtLog, "Double click to toggle options");
             //
             // timer1
             //
@@ -186,5 +190,6 @@
         private System.Windows.Forms.CheckBox chkTopmost;
         private System.Windows.Forms.CheckBox chkWordWrap;
         private System.Windows.Forms.CheckBox chkShowInTaskbar;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

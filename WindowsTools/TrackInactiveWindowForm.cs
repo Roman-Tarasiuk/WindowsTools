@@ -23,6 +23,8 @@ namespace WindowsTools
         private Color m_ColorAccessible = Color.FromArgb(159, 242, 159);
         private Color m_ColorHung = Color.FromArgb(255, 71, 26);
 
+        private bool m_ShowOptions = true;
+
         #endregion
 
 
@@ -95,6 +97,30 @@ namespace WindowsTools
             }
 
             WindowColors();
+        }
+
+        private void txtLog_DoubleClick(object sender, EventArgs e)
+        {
+            var sizeDelta = 34;
+
+            if (m_ShowOptions)
+            {
+                this.chkShowInTaskbar.Visible = false;
+                this.chkTopmost.Visible = false;
+                this.chkTrackModalWindow.Visible = false;
+                this.chkWordWrap.Visible = false;
+                this.txtLog.Size = new Size(this.txtLog.Size.Width, this.txtLog.Size.Height + sizeDelta);
+                m_ShowOptions = false;
+            }
+            else
+            {
+                this.chkShowInTaskbar.Visible = true;
+                this.chkTopmost.Visible = true;
+                this.chkTrackModalWindow.Visible = true;
+                this.chkWordWrap.Visible = true;
+                this.txtLog.Size = new Size(this.txtLog.Size.Width, this.txtLog.Size.Height - sizeDelta);
+                m_ShowOptions = true;
+            }
         }
 
         private void txtHwnd_Leave(object sender, EventArgs e)
