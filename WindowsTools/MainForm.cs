@@ -2076,6 +2076,10 @@ namespace WindowsTools
 
             IntPtr hwnd  = m_ListedWindows[selected].Handle;
 
+            if (User32Windows.IsIconic(hwnd))
+            {
+                User32Windows.ShowWindow(hwnd, User32Windows.SW_RESTORE);
+            }
             User32Windows.SetForegroundWindow(hwnd);
             User32Windows.SetForegroundWindow(this.Handle);
         }
