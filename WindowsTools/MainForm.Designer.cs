@@ -83,6 +83,8 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideMinimizedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topmostWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showHwndToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showProcIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showTipsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
@@ -604,7 +606,9 @@
             //
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hideMinimizedToolStripMenuItem,
-            this.topmostWindowToolStripMenuItem});
+            this.topmostWindowToolStripMenuItem,
+            this.showHwndToolStripMenuItem,
+            this.showProcIdToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
@@ -622,6 +626,22 @@
             this.topmostWindowToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.topmostWindowToolStripMenuItem.Text = "Topmost window";
             this.topmostWindowToolStripMenuItem.Click += new System.EventHandler(this.topmostWindowToolStripMenuItem_Click);
+            //
+            // showHwndToolStripMenuItem
+            //
+            this.showHwndToolStripMenuItem.Name = "showHwndToolStripMenuItem";
+            this.showHwndToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.showHwndToolStripMenuItem.Text = "Show hwnd";
+            this.showHwndToolStripMenuItem.Checked = true;
+            this.showHwndToolStripMenuItem.Click += new System.EventHandler(this.showHwndToolStripMenuItem_Click);
+            //
+            // showProcIdToolStripMenuItem
+            //
+            this.showProcIdToolStripMenuItem.Name = "showProcIdToolStripMenuItem";
+            this.showProcIdToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.showProcIdToolStripMenuItem.Text = "Show process id";
+            this.showProcIdToolStripMenuItem.Checked = true;
+            this.showProcIdToolStripMenuItem.Click += new System.EventHandler(this.showProcIdToolStripMenuItem_Click);
             //
             // helpToolStripMenuItem
             //
@@ -1020,7 +1040,7 @@
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstWindowsList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1});
+                this.columnHeader1});
             this.lstWindowsList.ContextMenuStrip = this.contextMenuStripWindowsList;
             this.lstWindowsList.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lstWindowsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
@@ -1580,6 +1600,8 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem topmostWindowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hideMinimizedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showHwndToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showProcIdToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showTipsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toUPPERCASEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toLowercaseToolStripMenuItem;

@@ -50,6 +50,8 @@ namespace WindowsTools
         private bool m_ScreensaverWithLock = false;
         private bool m_NotesTopmost = true;
         private bool m_MinimizeToTray = true;
+        private bool m_ShowHwnd = true;
+        private bool m_ShowProcessId = true;
 
         private static readonly TimeSpan defaultWrongPassDelay = new TimeSpan(0, 0, 0, 0, 5000);
         private TimeSpan m_PinTimeSpan = MainForm.defaultWrongPassDelay;
@@ -859,6 +861,22 @@ namespace WindowsTools
             SettingsChanged = true;
         }
 
+        private void showHwndToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.m_ShowHwnd = !this.m_ShowHwnd;
+            this.showHwndToolStripMenuItem.Checked = this.m_ShowHwnd;
+
+            this.ShowWindows();
+        }
+
+        private void showProcIdToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.m_ShowProcessId = !this.m_ShowProcessId;
+            this.showProcIdToolStripMenuItem.Checked = this.m_ShowProcessId;
+
+            this.ShowWindows();
+        }
+
         private void showTipsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/Roman-Tarasiuk/WindowsTools/wiki");
@@ -1223,12 +1241,12 @@ namespace WindowsTools
                 return;
             }
 
+            m_RefreshStarted = true;
+
             if (Properties.Settings.Default.MainForm_LogRefresh)
             {
                 logger.Log(LogLevel.Info, "Refresh windows list started...");
             }
-
-            m_RefreshStarted = true;
 
             var visibleOnly = this.chkVisibleOnly.Checked;
             var showMinimized = chkShowMinimized.Checked;
@@ -1265,8 +1283,6 @@ namespace WindowsTools
                     logger.Log(LogLevel.Info, "Refresh windows list finished.");
                 }
 
-                m_RefreshStarted = false;
-
                 //
 
                 SetEnabledSafe(btnRefreshWindowsList, true);
@@ -1282,6 +1298,8 @@ namespace WindowsTools
                 //
 
                 ToggleMovingOrderingButtons();
+
+                m_RefreshStarted = false;
             });
         }
 
@@ -1411,7 +1429,7 @@ namespace WindowsTools
 
                     m_ListedWindows.Add(window);
 
-                    ShowInList(window, m_ListedWindows.Count - 1);
+                    AddToList(window, m_ListedWindows.Count - 1);
                 }
 
                 for (int i = 0; i < m_ListedWindows.Count; i++)
@@ -1930,7 +1948,7 @@ namespace WindowsTools
 
             selectedWindow.Title = m_PrefixHidden + selectedWindow.Title;
 
-            ShowInList(selectedWindow, m_ListedWindows.Count + m_HiddenByUserWindows.Count - 1);
+            AddToList(selectedWindow, m_ListedWindows.Count + m_HiddenByUserWindows.Count - 1);
 
             User32Windows.ShowWindow(selectedWindow.Handle, User32Windows.SW_HIDE);
         }
@@ -1958,7 +1976,7 @@ namespace WindowsTools
             selectedWindow.Title = selectedWindow.Title.Substring(m_PrefixHidden.Length);
             m_ListedWindows.Add(selectedWindow);
 
-            ShowInList(selectedWindow, m_ListedWindows.Count - 1);
+            AddToList(selectedWindow, m_ListedWindows.Count - 1);
 
             User32Windows.ShowWindow(selectedWindow.Handle, User32Windows.SW_SHOW);
         }
@@ -2048,7 +2066,7 @@ namespace WindowsTools
             Clipboard.SetText(result);
         }
 
-        private void ShowInList(DesktopWindow window, int position)
+        private void AddToList(DesktopWindow window, int position)
         {
             if (lstWindowsList.SmallImageList == null)
             {
@@ -2061,8 +2079,13 @@ namespace WindowsTools
                 lstWindowsList.SmallImageList.Images.Add(key, window.Icon);
             }
 
+            var format = (m_ShowHwnd ? "{1,10} : " : "")
+                       + (m_ShowProcessId ? (m_ShowHwnd ? "{2,6} : " : "{1,6} : ") : "")
+                       + "{0}";
+
             lstWindowsList.Items.Insert(position,
-                String.Format("{0,10} : {1,6} : {2}", window.Handle, window.ProcessId, window.Title), window.Handle.ToString());
+                String.Format(format, window.Title, (m_ShowHwnd ? window.Handle : (IntPtr)window.ProcessId), window.ProcessId),
+                window.Handle.ToString());
         }
 
         private void SortAndShowWindows(Comparison<DesktopWindow> comparison)
@@ -2070,18 +2093,23 @@ namespace WindowsTools
             m_ListedWindows.Sort(comparison);
             m_HiddenByUserWindows.Sort(comparison);
 
+            ShowWindows();
+        }
+
+        private void ShowWindows()
+        {
             lstWindowsList.Items.Clear();
 
             var position = 0;
 
             foreach (var w in m_ListedWindows)
             {
-                ShowInList(w, position++);
+                AddToList(w, position++);
             }
 
             foreach (var w in m_HiddenByUserWindows)
             {
-                ShowInList(w, position++);
+                AddToList(w, position++);
             }
         }
 
