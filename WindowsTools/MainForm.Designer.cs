@@ -103,6 +103,7 @@
             this.copyWindowNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyProcessIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRefreshWindowsList = new System.Windows.Forms.Button();
+            this.btnToggleButtons = new System.Windows.Forms.Button();
             this.chkVisibleOnly = new System.Windows.Forms.CheckBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStripSysTray1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -778,13 +779,24 @@
             this.btnRefreshWindowsList.UseVisualStyleBackColor = true;
             this.btnRefreshWindowsList.Click += new System.EventHandler(this.btnRefreshWindowsList_Click);
             //
+            // btnToggleButtons
+            //
+            this.btnToggleButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnToggleButtons.Location = new System.Drawing.Point(437, 23);
+            this.btnToggleButtons.Name = "btnToggleButtons";
+            this.btnToggleButtons.Size = new System.Drawing.Size(23, 23);
+            this.btnToggleButtons.TabIndex = 13;
+            this.btnToggleButtons.Text = ">";
+            this.btnToggleButtons.UseVisualStyleBackColor = true;
+            this.btnToggleButtons.Click += new System.EventHandler(this.btnToggleButtons_Click);
+            //
             // chkVisibleOnly
             //
             this.chkVisibleOnly.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkVisibleOnly.AutoSize = true;
             this.chkVisibleOnly.Checked = true;
             this.chkVisibleOnly.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkVisibleOnly.Location = new System.Drawing.Point(299, 26);
+            this.chkVisibleOnly.Location = new System.Drawing.Point(276, 26);
             this.chkVisibleOnly.Name = "chkVisibleOnly";
             this.chkVisibleOnly.Size = new System.Drawing.Size(78, 17);
             this.chkVisibleOnly.TabIndex = 5;
@@ -1018,7 +1030,7 @@
             //
             this.chkPin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkPin.AutoSize = true;
-            this.chkPin.Location = new System.Drawing.Point(463, 312);
+            this.chkPin.Location = new System.Drawing.Point(463, 315);
             this.chkPin.Name = "chkPin";
             this.chkPin.Size = new System.Drawing.Size(91, 17);
             this.chkPin.TabIndex = 8;
@@ -1045,9 +1057,9 @@
             this.lstWindowsList.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lstWindowsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.lstWindowsList.HideSelection = false;
-            this.lstWindowsList.Location = new System.Drawing.Point(12, 46);
+            this.lstWindowsList.Location = new System.Drawing.Point(12, 47);
             this.lstWindowsList.Name = "lstWindowsList";
-            this.lstWindowsList.Size = new System.Drawing.Size(443, 283);
+            this.lstWindowsList.Size = new System.Drawing.Size(447, 282);
             this.lstWindowsList.TabIndex = 9;
             this.lstWindowsList.UseCompatibleStateImageBehavior = false;
             this.lstWindowsList.View = System.Windows.Forms.View.Details;
@@ -1077,7 +1089,7 @@
             this.chkShowMinimized.AutoSize = true;
             this.chkShowMinimized.Checked = true;
             this.chkShowMinimized.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkShowMinimized.Location = new System.Drawing.Point(383, 26);
+            this.chkShowMinimized.Location = new System.Drawing.Point(361, 26);
             this.chkShowMinimized.Name = "chkShowMinimized";
             this.chkShowMinimized.Size = new System.Drawing.Size(72, 17);
             this.chkShowMinimized.TabIndex = 11;
@@ -1458,6 +1470,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chkVisibleOnly);
             this.Controls.Add(this.btnRefreshWindowsList);
+            this.Controls.Add(this.btnToggleButtons);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -1485,6 +1498,7 @@
         private System.Windows.Forms.ToolStripMenuItem setILDASMFontsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.Button btnRefreshWindowsList;
+        private System.Windows.Forms.Button btnToggleButtons;
         private System.Windows.Forms.CheckBox chkVisibleOnly;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripSysTray1;

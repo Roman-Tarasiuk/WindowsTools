@@ -25,7 +25,8 @@ namespace WindowsTools
     {
         #region Fields
 
-        private const int ListColumnWidthDelta = 138;
+        private const int m_ListColumnWidthDelta = 158;
+        private int m_ListToggleDelta = 89;
 
         private List<DesktopWindow> m_ListedWindows = new List<DesktopWindow>();
         private List<DesktopWindow> m_HiddenByUserWindows = new List<DesktopWindow>();
@@ -52,6 +53,7 @@ namespace WindowsTools
         private bool m_MinimizeToTray = true;
         private bool m_ShowHwnd = true;
         private bool m_ShowProcessId = true;
+        private bool m_ButtonsShown = true;
 
         private static readonly TimeSpan defaultWrongPassDelay = new TimeSpan(0, 0, 0, 0, 5000);
         private TimeSpan m_PinTimeSpan = MainForm.defaultWrongPassDelay;
@@ -131,7 +133,7 @@ namespace WindowsTools
 
             m_Hook = new MyScreenSaverHooker(this);
 
-            lstWindowsList.Columns[0].Width = this.Width - ListColumnWidthDelta;
+            lstWindowsList.Columns[0].Width = this.Width - m_ListColumnWidthDelta;
 
             User32Windows.RegisterHotKey(this.Handle, 0, User32Windows.MOD_CONTROL, User32Windows.VK_OEM_3);
 
@@ -188,6 +190,11 @@ namespace WindowsTools
             this.RefreshWindowsList();
         }
 
+        private void btnToggleButtons_Click(object sender, EventArgs e)
+        {
+            this.ToggleButtons();
+        }
+
         private void saveSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveSettings("Settings saved.");
@@ -226,7 +233,7 @@ namespace WindowsTools
                 m_NeedRefresh = false;
             }
 
-            lstWindowsList.Columns[0].Width = this.Width - ListColumnWidthDelta;
+            lstWindowsList.Columns[0].Width = this.Width - m_ListColumnWidthDelta - (m_ButtonsShown ? 0 : -m_ListToggleDelta);
         }
 
         private void setILDASMFontsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1207,6 +1214,48 @@ namespace WindowsTools
 
 
         #region Helper methods
+
+        private void ToggleButtons()
+        {
+            if (m_ButtonsShown)
+            {
+                this.btnHideWindow.Visible = false;
+                this.btnShowHidden.Visible = false;
+                this.btnCloseWindow.Visible = false;
+                this.btnKillWindow.Visible = false;
+                this.btnSendCustomCommands.Visible = false;
+                this.btnMoveUp.Visible = false;
+                this.btnMoveDown.Visible = false;
+                this.btnOrder.Visible = false;
+                this.chkPin.Visible = false;
+
+                var size = this.lstWindowsList.Size;
+                this.lstWindowsList.Size = new Size(size.Width + m_ListToggleDelta, size.Height);
+                lstWindowsList.Columns[0].Width += m_ListToggleDelta;
+
+                btnToggleButtons.Text = "<";
+                m_ButtonsShown = false;
+            }
+            else
+            {
+                this.btnHideWindow.Visible = true;
+                this.btnShowHidden.Visible = true;
+                this.btnCloseWindow.Visible = true;
+                this.btnKillWindow.Visible = true;
+                this.btnSendCustomCommands.Visible = true;
+                this.btnMoveUp.Visible = true;
+                this.btnMoveDown.Visible = true;
+                this.btnOrder.Visible = true;
+                this.chkPin.Visible = true;
+
+                var size = this.lstWindowsList.Size;
+                this.lstWindowsList.Size = new Size(size.Width - m_ListToggleDelta, size.Height);
+                lstWindowsList.Columns[0].Width -= m_ListToggleDelta;
+
+                btnToggleButtons.Text = ">";
+                m_ButtonsShown = true;
+            }
+        }
 
         private void SetEnabledSafe(Control control, bool enabled)
         {
