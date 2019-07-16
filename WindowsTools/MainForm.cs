@@ -1228,6 +1228,8 @@ namespace WindowsTools
                 this.btnMoveDown.Visible = false;
                 this.btnOrder.Visible = false;
                 this.chkPin.Visible = false;
+                this.chkShowMinimized.Visible = false;
+                this.chkVisibleOnly.Visible = false;
 
                 var size = this.lstWindowsList.Size;
                 this.lstWindowsList.Size = new Size(size.Width + m_ListToggleDelta, size.Height);
@@ -1247,6 +1249,8 @@ namespace WindowsTools
                 this.btnMoveDown.Visible = true;
                 this.btnOrder.Visible = true;
                 this.chkPin.Visible = true;
+                this.chkShowMinimized.Visible = true;
+                this.chkVisibleOnly.Visible = true;
 
                 var size = this.lstWindowsList.Size;
                 this.lstWindowsList.Size = new Size(size.Width - m_ListToggleDelta, size.Height);

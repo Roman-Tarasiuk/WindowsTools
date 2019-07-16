@@ -796,7 +796,7 @@
             this.chkVisibleOnly.AutoSize = true;
             this.chkVisibleOnly.Checked = true;
             this.chkVisibleOnly.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkVisibleOnly.Location = new System.Drawing.Point(276, 26);
+            this.chkVisibleOnly.Location = new System.Drawing.Point(463, 282);
             this.chkVisibleOnly.Name = "chkVisibleOnly";
             this.chkVisibleOnly.Size = new System.Drawing.Size(78, 17);
             this.chkVisibleOnly.TabIndex = 5;
@@ -1075,7 +1075,7 @@
             // btnSendCustomCommands
             //
             this.btnSendCustomCommands.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSendCustomCommands.Location = new System.Drawing.Point(461, 191);
+            this.btnSendCustomCommands.Location = new System.Drawing.Point(461, 185);
             this.btnSendCustomCommands.Name = "btnSendCustomCommands";
             this.btnSendCustomCommands.Size = new System.Drawing.Size(88, 34);
             this.btnSendCustomCommands.TabIndex = 10;
@@ -1089,7 +1089,7 @@
             this.chkShowMinimized.AutoSize = true;
             this.chkShowMinimized.Checked = true;
             this.chkShowMinimized.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkShowMinimized.Location = new System.Drawing.Point(361, 26);
+            this.chkShowMinimized.Location = new System.Drawing.Point(463, 298);
             this.chkShowMinimized.Name = "chkShowMinimized";
             this.chkShowMinimized.Size = new System.Drawing.Size(72, 17);
             this.chkShowMinimized.TabIndex = 11;
@@ -1116,7 +1116,7 @@
             this.btnMoveUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMoveUp.Enabled = false;
             this.btnMoveUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnMoveUp.Location = new System.Drawing.Point(461, 245);
+            this.btnMoveUp.Location = new System.Drawing.Point(461, 230);
             this.btnMoveUp.Name = "btnMoveUp";
             this.btnMoveUp.Size = new System.Drawing.Size(44, 23);
             this.btnMoveUp.TabIndex = 13;
@@ -1129,7 +1129,7 @@
             this.btnMoveDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMoveDown.Enabled = false;
             this.btnMoveDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnMoveDown.Location = new System.Drawing.Point(505, 245);
+            this.btnMoveDown.Location = new System.Drawing.Point(505, 230);
             this.btnMoveDown.Name = "btnMoveDown";
             this.btnMoveDown.Size = new System.Drawing.Size(44, 23);
             this.btnMoveDown.TabIndex = 14;
@@ -1141,7 +1141,7 @@
             //
             this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOrder.Enabled = false;
-            this.btnOrder.Location = new System.Drawing.Point(461, 268);
+            this.btnOrder.Location = new System.Drawing.Point(461, 253);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(88, 23);
             this.btnOrder.TabIndex = 15;
