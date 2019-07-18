@@ -782,9 +782,9 @@
             // btnToggleButtons
             //
             this.btnToggleButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnToggleButtons.Location = new System.Drawing.Point(437, 23);
+            this.btnToggleButtons.Location = new System.Drawing.Point(440, 23);
             this.btnToggleButtons.Name = "btnToggleButtons";
-            this.btnToggleButtons.Size = new System.Drawing.Size(23, 23);
+            this.btnToggleButtons.Size = new System.Drawing.Size(20, 23);
             this.btnToggleButtons.TabIndex = 13;
             this.btnToggleButtons.Text = ">";
             this.btnToggleButtons.UseVisualStyleBackColor = true;

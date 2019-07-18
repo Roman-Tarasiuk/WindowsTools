@@ -149,8 +149,14 @@ namespace WindowsTools
                 m_ExceptDisplayWindows.Add(s);
             }
 
+            this.m_ShowHwnd = Properties.Settings.Default.ShowHwnd;
+            this.showHwndToolStripMenuItem.Checked = this.m_ShowHwnd;
+
+            this.m_ShowProcessId = Properties.Settings.Default.ShowProcessId;
+            this.showProcIdToolStripMenuItem.Checked = this.m_ShowProcessId;
+
             this.m_MinimizeToTray = Properties.Settings.Default.HideMinimized;
-            this.hideMinimizedToolStripMenuItem.Checked = m_MinimizeToTray;
+            this.hideMinimizedToolStripMenuItem.Checked = this.m_MinimizeToTray;
 
             if (Properties.Settings.Default.AutoTrackReminder)
             {
@@ -193,6 +199,7 @@ namespace WindowsTools
         private void btnToggleButtons_Click(object sender, EventArgs e)
         {
             this.ToggleButtons();
+            this.btnRefreshWindowsList.Focus();
         }
 
         private void saveSettingsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -873,6 +880,9 @@ namespace WindowsTools
             this.m_ShowHwnd = !this.m_ShowHwnd;
             this.showHwndToolStripMenuItem.Checked = this.m_ShowHwnd;
 
+            Properties.Settings.Default.ShowHwnd = this.m_ShowHwnd;
+            this.SettingsChanged = true;
+
             this.ShowWindows();
         }
 
@@ -880,6 +890,9 @@ namespace WindowsTools
         {
             this.m_ShowProcessId = !this.m_ShowProcessId;
             this.showProcIdToolStripMenuItem.Checked = this.m_ShowProcessId;
+
+            Properties.Settings.Default.ShowProcessId = this.m_ShowProcessId;
+            this.SettingsChanged = true;
 
             this.ShowWindows();
         }

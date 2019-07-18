@@ -74,6 +74,30 @@ namespace WindowsTools.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowHwnd {
+            get {
+                return ((bool)(this["ShowHwnd"]));
+            }
+            set {
+                this["ShowHwnd"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowProcessId {
+            get {
+                return ((bool)(this["ShowProcessId"]));
+            }
+            set {
+                this["ShowProcessId"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool AutoTrackReminder {
             get {
                 return ((bool)(this["AutoTrackReminder"]));

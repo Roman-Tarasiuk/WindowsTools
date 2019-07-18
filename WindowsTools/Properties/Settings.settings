@@ -14,6 +14,12 @@
     <setting name="HideMinimized" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </setting>
+    <setting name="ShowHwnd" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </setting>
+    <setting name="ShowProcessId" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </setting>
     <Setting Name="WindowsTrackingForm_Location" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">100, 100</Value>
     </Setting>
