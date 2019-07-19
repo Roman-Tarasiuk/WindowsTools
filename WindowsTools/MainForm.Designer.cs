@@ -85,6 +85,7 @@
             this.topmostWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showHwndToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showProcIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toggleBorderAndMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showTipsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
@@ -104,12 +105,14 @@
             this.copyProcessIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRefreshWindowsList = new System.Windows.Forms.Button();
             this.btnToggleButtons = new System.Windows.Forms.Button();
+            this.btnToggleMenu = new System.Windows.Forms.Button();
             this.chkVisibleOnly = new System.Windows.Forms.CheckBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStripSysTray1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
             this.sendCustomCommandsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.startAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -180,6 +183,7 @@
             this.notesToggleAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.notesMinimizeAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.notesRestoreAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainPanel = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -609,7 +613,9 @@
             this.hideMinimizedToolStripMenuItem,
             this.topmostWindowToolStripMenuItem,
             this.showHwndToolStripMenuItem,
-            this.showProcIdToolStripMenuItem});
+            this.showProcIdToolStripMenuItem,
+            this.toolStripSeparator18,
+            this.toggleBorderAndMenuToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
@@ -618,7 +624,7 @@
             //
             this.hideMinimizedToolStripMenuItem.Name = "hideMinimizedToolStripMenuItem";
             this.hideMinimizedToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.hideMinimizedToolStripMenuItem.Text = "Hide minimized";
+            this.hideMinimizedToolStripMenuItem.Text = "Minimize to tray";
             this.hideMinimizedToolStripMenuItem.Click += new System.EventHandler(this.hideMinimizedToolStripMenuItem_Click);
             //
             // topmostWindowToolStripMenuItem
@@ -643,6 +649,13 @@
             this.showProcIdToolStripMenuItem.Text = "Show process id";
             this.showProcIdToolStripMenuItem.Checked = true;
             this.showProcIdToolStripMenuItem.Click += new System.EventHandler(this.showProcIdToolStripMenuItem_Click);
+            //
+            // toggleBorderAndMenuToolStripMenuItem
+            //
+            this.toggleBorderAndMenuToolStripMenuItem.Name = "toggleBorderAndMenuToolStripMenuItem";
+            this.toggleBorderAndMenuToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.toggleBorderAndMenuToolStripMenuItem.Text = "Toggle border and menu";
+            this.toggleBorderAndMenuToolStripMenuItem.Click += new System.EventHandler(this.toggleBorderAndMenuToolStripMenuItem_Click);
             //
             // helpToolStripMenuItem
             //
@@ -771,7 +784,7 @@
             // btnRefreshWindowsList
             //
             this.btnRefreshWindowsList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefreshWindowsList.Location = new System.Drawing.Point(469, 23);
+            this.btnRefreshWindowsList.Location = new System.Drawing.Point(469, 3);
             this.btnRefreshWindowsList.Name = "btnRefreshWindowsList";
             this.btnRefreshWindowsList.Size = new System.Drawing.Size(88, 23);
             this.btnRefreshWindowsList.TabIndex = 2;
@@ -782,7 +795,7 @@
             // btnToggleButtons
             //
             this.btnToggleButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnToggleButtons.Location = new System.Drawing.Point(448, 23);
+            this.btnToggleButtons.Location = new System.Drawing.Point(448, 3);
             this.btnToggleButtons.Name = "btnToggleButtons";
             this.btnToggleButtons.Size = new System.Drawing.Size(20, 23);
             this.btnToggleButtons.TabIndex = 13;
@@ -790,13 +803,24 @@
             this.btnToggleButtons.UseVisualStyleBackColor = true;
             this.btnToggleButtons.Click += new System.EventHandler(this.btnToggleButtons_Click);
             //
+            // btnToggleMenu
+            //
+            this.btnToggleMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnToggleMenu.Location = new System.Drawing.Point(427, 3);
+            this.btnToggleMenu.Name = "btnToggleMenu";
+            this.btnToggleMenu.Size = new System.Drawing.Size(20, 23);
+            this.btnToggleMenu.TabIndex = 13;
+            this.btnToggleMenu.Text = "∨";
+            this.btnToggleMenu.UseVisualStyleBackColor = true;
+            this.btnToggleMenu.Click += new System.EventHandler(this.btnToggleMenu_Click);
+            //
             // chkVisibleOnly
             //
             this.chkVisibleOnly.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkVisibleOnly.AutoSize = true;
             this.chkVisibleOnly.Checked = true;
             this.chkVisibleOnly.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkVisibleOnly.Location = new System.Drawing.Point(471, 282);
+            this.chkVisibleOnly.Location = new System.Drawing.Point(471, 262);
             this.chkVisibleOnly.Name = "chkVisibleOnly";
             this.chkVisibleOnly.Size = new System.Drawing.Size(78, 17);
             this.chkVisibleOnly.TabIndex = 5;
@@ -976,7 +1000,7 @@
             // label1
             //
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1, 29);
+            this.label1.Location = new System.Drawing.Point(1, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 13);
             this.label1.TabIndex = 0;
@@ -985,7 +1009,7 @@
             // btnHideWindow
             //
             this.btnHideWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHideWindow.Location = new System.Drawing.Point(469, 64);
+            this.btnHideWindow.Location = new System.Drawing.Point(469, 44);
             this.btnHideWindow.Name = "btnHideWindow";
             this.btnHideWindow.Size = new System.Drawing.Size(88, 23);
             this.btnHideWindow.TabIndex = 3;
@@ -996,7 +1020,7 @@
             // btnShowHidden
             //
             this.btnShowHidden.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnShowHidden.Location = new System.Drawing.Point(469, 87);
+            this.btnShowHidden.Location = new System.Drawing.Point(469, 67);
             this.btnShowHidden.Name = "btnShowHidden";
             this.btnShowHidden.Size = new System.Drawing.Size(88, 23);
             this.btnShowHidden.TabIndex = 4;
@@ -1007,7 +1031,7 @@
             // btnKillWindow
             //
             this.btnKillWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKillWindow.Location = new System.Drawing.Point(469, 147);
+            this.btnKillWindow.Location = new System.Drawing.Point(469, 127);
             this.btnKillWindow.Name = "btnKillWindow";
             this.btnKillWindow.Size = new System.Drawing.Size(88, 23);
             this.btnKillWindow.TabIndex = 6;
@@ -1018,7 +1042,7 @@
             // btnCloseWindow
             //
             this.btnCloseWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCloseWindow.Location = new System.Drawing.Point(469, 124);
+            this.btnCloseWindow.Location = new System.Drawing.Point(469, 104);
             this.btnCloseWindow.Name = "btnCloseWindow";
             this.btnCloseWindow.Size = new System.Drawing.Size(88, 23);
             this.btnCloseWindow.TabIndex = 7;
@@ -1030,7 +1054,7 @@
             //
             this.chkPin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkPin.AutoSize = true;
-            this.chkPin.Location = new System.Drawing.Point(471, 324);
+            this.chkPin.Location = new System.Drawing.Point(471, 304);
             this.chkPin.Name = "chkPin";
             this.chkPin.Size = new System.Drawing.Size(91, 17);
             this.chkPin.TabIndex = 8;
@@ -1057,7 +1081,7 @@
             this.lstWindowsList.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lstWindowsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.lstWindowsList.HideSelection = false;
-            this.lstWindowsList.Location = new System.Drawing.Point(4, 47);
+            this.lstWindowsList.Location = new System.Drawing.Point(4, 27);
             this.lstWindowsList.Name = "lstWindowsList";
             this.lstWindowsList.Size = new System.Drawing.Size(463, 291);
             this.lstWindowsList.TabIndex = 9;
@@ -1075,7 +1099,7 @@
             // btnSendCustomCommands
             //
             this.btnSendCustomCommands.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSendCustomCommands.Location = new System.Drawing.Point(469, 185);
+            this.btnSendCustomCommands.Location = new System.Drawing.Point(469, 165);
             this.btnSendCustomCommands.Name = "btnSendCustomCommands";
             this.btnSendCustomCommands.Size = new System.Drawing.Size(88, 34);
             this.btnSendCustomCommands.TabIndex = 10;
@@ -1089,7 +1113,7 @@
             this.chkShowMinimized.AutoSize = true;
             this.chkShowMinimized.Checked = true;
             this.chkShowMinimized.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkShowMinimized.Location = new System.Drawing.Point(471, 298);
+            this.chkShowMinimized.Location = new System.Drawing.Point(471, 278);
             this.chkShowMinimized.Name = "chkShowMinimized";
             this.chkShowMinimized.Size = new System.Drawing.Size(72, 17);
             this.chkShowMinimized.TabIndex = 11;
@@ -1099,7 +1123,7 @@
             // lblWindowsCount
             //
             this.lblWindowsCount.AutoSize = true;
-            this.lblWindowsCount.Location = new System.Drawing.Point(92, 29);
+            this.lblWindowsCount.Location = new System.Drawing.Point(92, 9);
             this.lblWindowsCount.Name = "lblWindowsCount";
             this.lblWindowsCount.Size = new System.Drawing.Size(16, 13);
             this.lblWindowsCount.TabIndex = 12;
@@ -1116,7 +1140,7 @@
             this.btnMoveUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMoveUp.Enabled = false;
             this.btnMoveUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnMoveUp.Location = new System.Drawing.Point(469, 230);
+            this.btnMoveUp.Location = new System.Drawing.Point(469, 210);
             this.btnMoveUp.Name = "btnMoveUp";
             this.btnMoveUp.Size = new System.Drawing.Size(44, 23);
             this.btnMoveUp.TabIndex = 13;
@@ -1129,7 +1153,7 @@
             this.btnMoveDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMoveDown.Enabled = false;
             this.btnMoveDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnMoveDown.Location = new System.Drawing.Point(513, 230);
+            this.btnMoveDown.Location = new System.Drawing.Point(513, 210);
             this.btnMoveDown.Name = "btnMoveDown";
             this.btnMoveDown.Size = new System.Drawing.Size(44, 23);
             this.btnMoveDown.TabIndex = 14;
@@ -1141,7 +1165,7 @@
             //
             this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOrder.Enabled = false;
-            this.btnOrder.Location = new System.Drawing.Point(469, 253);
+            this.btnOrder.Location = new System.Drawing.Point(469, 233);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(88, 23);
             this.btnOrder.TabIndex = 15;
@@ -1450,27 +1474,56 @@
             this.notesRestoreAllToolStripMenuItem1.Text = "Restore all notes";
             this.notesRestoreAllToolStripMenuItem1.Click += new System.EventHandler(this.notesRestoreAllToolStripMenuItem1_Click);
             //
+            // mainPanel
+            //
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Location = new System.Drawing.Point(0, 22);
+            this.mainPanel.Size = new System.Drawing.Size(560, 321);
+            this.mainPanel.Anchor = System.Windows.Forms.AnchorStyles.Left
+                    | System.Windows.Forms.AnchorStyles.Top
+                    | System.Windows.Forms.AnchorStyles.Right
+                    | System.Windows.Forms.AnchorStyles.Bottom;
+            this.mainPanel.Controls.Add(this.btnOrder);
+            this.mainPanel.Controls.Add(this.btnMoveDown);
+            this.mainPanel.Controls.Add(this.btnMoveUp);
+            this.mainPanel.Controls.Add(this.lblWindowsCount);
+            this.mainPanel.Controls.Add(this.chkShowMinimized);
+            this.mainPanel.Controls.Add(this.btnSendCustomCommands);
+            this.mainPanel.Controls.Add(this.lstWindowsList);
+            this.mainPanel.Controls.Add(this.chkPin);
+            this.mainPanel.Controls.Add(this.btnCloseWindow);
+            this.mainPanel.Controls.Add(this.btnKillWindow);
+            this.mainPanel.Controls.Add(this.btnShowHidden);
+            this.mainPanel.Controls.Add(this.btnHideWindow);
+            this.mainPanel.Controls.Add(this.label1);
+            this.mainPanel.Controls.Add(this.chkVisibleOnly);
+            this.mainPanel.Controls.Add(this.btnRefreshWindowsList);
+            this.mainPanel.Controls.Add(this.btnToggleButtons);
+            this.mainPanel.Controls.Add(this.btnToggleMenu);
+            this.mainPanel.SendToBack();
+            //
             // MainForm
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 341);
-            this.Controls.Add(this.btnOrder);
-            this.Controls.Add(this.btnMoveDown);
-            this.Controls.Add(this.btnMoveUp);
-            this.Controls.Add(this.lblWindowsCount);
-            this.Controls.Add(this.chkShowMinimized);
-            this.Controls.Add(this.btnSendCustomCommands);
-            this.Controls.Add(this.lstWindowsList);
-            this.Controls.Add(this.chkPin);
-            this.Controls.Add(this.btnCloseWindow);
-            this.Controls.Add(this.btnKillWindow);
-            this.Controls.Add(this.btnShowHidden);
-            this.Controls.Add(this.btnHideWindow);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.chkVisibleOnly);
-            this.Controls.Add(this.btnRefreshWindowsList);
-            this.Controls.Add(this.btnToggleButtons);
+            this.Controls.Add(this.mainPanel);
+            // this.Controls.Add(this.btnOrder);
+            // this.Controls.Add(this.btnMoveDown);
+            // this.Controls.Add(this.btnMoveUp);
+            // this.Controls.Add(this.lblWindowsCount);
+            // this.Controls.Add(this.chkShowMinimized);
+            // this.Controls.Add(this.btnSendCustomCommands);
+            // this.Controls.Add(this.lstWindowsList);
+            // this.Controls.Add(this.chkPin);
+            // this.Controls.Add(this.btnCloseWindow);
+            // this.Controls.Add(this.btnKillWindow);
+            // this.Controls.Add(this.btnShowHidden);
+            // this.Controls.Add(this.btnHideWindow);
+            // this.Controls.Add(this.label1);
+            // this.Controls.Add(this.chkVisibleOnly);
+            // this.Controls.Add(this.btnRefreshWindowsList);
+            // this.Controls.Add(this.btnToggleButtons);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -1499,6 +1552,7 @@
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.Button btnRefreshWindowsList;
         private System.Windows.Forms.Button btnToggleButtons;
+        private System.Windows.Forms.Button btnToggleMenu;
         private System.Windows.Forms.CheckBox chkVisibleOnly;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripSysTray1;
@@ -1608,6 +1662,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
         private System.Windows.Forms.CheckBox chkShowMinimized;
         private System.Windows.Forms.Label lblWindowsCount;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
@@ -1616,6 +1671,7 @@
         private System.Windows.Forms.ToolStripMenuItem hideMinimizedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showHwndToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showProcIdToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toggleBorderAndMenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showTipsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toUPPERCASEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toLowercaseToolStripMenuItem;
@@ -1640,5 +1696,6 @@
         private ListViewNF lstWindowsList;
         private System.Windows.Forms.ToolStripMenuItem clearClipboarFormatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearClipboarFormatToolStripMenuItem1;
+        private System.Windows.Forms.Panel mainPanel;
     }
 }

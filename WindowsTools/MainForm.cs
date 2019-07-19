@@ -42,6 +42,8 @@ namespace WindowsTools
         private SendCommandsForm m_SendCommandForm;
         private ClipboardManagerForm m_ClipboardManagerForm;
         private CompareStringsMainForm m_CompareStringsForm;
+        private Point m_MouseDownCoordinates;
+        private bool m_MouseIsDown = false;
 
         private bool m_MouseTrackingStarted = false;
         private bool m_RefreshStarted = false;
@@ -54,6 +56,7 @@ namespace WindowsTools
         private bool m_ShowHwnd = true;
         private bool m_ShowProcessId = true;
         private bool m_ButtonsShown = true;
+        private bool m_ShowBordersAndMenu = true;
 
         private static readonly TimeSpan defaultWrongPassDelay = new TimeSpan(0, 0, 0, 0, 5000);
         private TimeSpan m_PinTimeSpan = MainForm.defaultWrongPassDelay;
@@ -163,6 +166,32 @@ namespace WindowsTools
                 this.AutoTrackReminder();
             }
 
+            //
+
+            this.mainPanel.MouseDown += (sender, e) =>
+            {
+                m_MouseIsDown = true;
+                m_MouseDownCoordinates = e.Location;
+            };
+
+            this.mainPanel.MouseUp += (sender, e) =>
+            {
+                m_MouseIsDown = false;
+            };
+
+            this.mainPanel.MouseMove += (sender, e) =>
+            {
+                if (m_MouseIsDown)
+                {
+                    Point LocationNew = new Point(this.Location.X + e.Location.X - m_MouseDownCoordinates.X,
+                        this.Location.Y + e.Location.Y - m_MouseDownCoordinates.Y);
+
+                    this.Location = LocationNew;
+                }
+            };
+
+            //
+
             logger.Log(LogLevel.Info, "WindowsTools has started.");
         }
 
@@ -200,6 +229,12 @@ namespace WindowsTools
         private void btnToggleButtons_Click(object sender, EventArgs e)
         {
             this.ToggleButtons();
+            this.lstWindowsList.Focus();
+        }
+
+        private void btnToggleMenu_Click(object sender, EventArgs e)
+        {
+            this.ToggleBordersAndMenu();
             this.lstWindowsList.Focus();
         }
 
@@ -898,6 +933,11 @@ namespace WindowsTools
             this.ShowWindows();
         }
 
+        private void toggleBorderAndMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleBordersAndMenu();
+        }
+
         private void showTipsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/Roman-Tarasiuk/WindowsTools/wiki");
@@ -1272,6 +1312,38 @@ namespace WindowsTools
 
                 btnToggleButtons.Text = ">";
                 m_ButtonsShown = true;
+            }
+        }
+
+        private void ToggleBordersAndMenu()
+        {
+            if (m_ShowBordersAndMenu)
+            {
+                this.MainMenuStrip.Visible = false;
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.Location = new Point(this.Location.X + 8, this.Location.Y + 53);
+                this.mainPanel.Location = new Point(0, 0);
+
+                this.Size = new Size(this.Size.Width, this.Size.Height - 20);
+                this.mainPanel.Size = new Size(this.mainPanel.Size.Width, this.mainPanel.Size.Height + 20);
+
+                this.btnToggleMenu.Text = "∧";
+
+                m_ShowBordersAndMenu = false;
+            }
+            else
+            {
+                this.MainMenuStrip.Visible = true;
+                this.FormBorderStyle = FormBorderStyle.Sizable;
+                this.Location = new Point(this.Location.X - 8, this.Location.Y - 53);
+                this.mainPanel.Location = new Point(0, 22);
+
+                this.Size = new Size(this.Size.Width, this.Size.Height + 20);
+                this.mainPanel.Size = new Size(this.mainPanel.Size.Width, this.mainPanel.Size.Height - 20);
+
+                this.btnToggleMenu.Text = "∨";
+
+                m_ShowBordersAndMenu = true;
             }
         }
 
