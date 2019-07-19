@@ -194,12 +194,13 @@ namespace WindowsTools
         private void btnRefreshWindowsList_Click(object sender, EventArgs e)
         {
             this.RefreshWindowsList();
+            this.lstWindowsList.Focus();
         }
 
         private void btnToggleButtons_Click(object sender, EventArgs e)
         {
             this.ToggleButtons();
-            this.btnRefreshWindowsList.Focus();
+            this.lstWindowsList.Focus();
         }
 
         private void saveSettingsToolStripMenuItem_Click(object sender, EventArgs e)

@@ -771,7 +771,7 @@
             // btnRefreshWindowsList
             //
             this.btnRefreshWindowsList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefreshWindowsList.Location = new System.Drawing.Point(461, 23);
+            this.btnRefreshWindowsList.Location = new System.Drawing.Point(469, 23);
             this.btnRefreshWindowsList.Name = "btnRefreshWindowsList";
             this.btnRefreshWindowsList.Size = new System.Drawing.Size(88, 23);
             this.btnRefreshWindowsList.TabIndex = 2;
@@ -782,7 +782,7 @@
             // btnToggleButtons
             //
             this.btnToggleButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnToggleButtons.Location = new System.Drawing.Point(440, 23);
+            this.btnToggleButtons.Location = new System.Drawing.Point(448, 23);
             this.btnToggleButtons.Name = "btnToggleButtons";
             this.btnToggleButtons.Size = new System.Drawing.Size(20, 23);
             this.btnToggleButtons.TabIndex = 13;
@@ -796,7 +796,7 @@
             this.chkVisibleOnly.AutoSize = true;
             this.chkVisibleOnly.Checked = true;
             this.chkVisibleOnly.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkVisibleOnly.Location = new System.Drawing.Point(463, 282);
+            this.chkVisibleOnly.Location = new System.Drawing.Point(471, 282);
             this.chkVisibleOnly.Name = "chkVisibleOnly";
             this.chkVisibleOnly.Size = new System.Drawing.Size(78, 17);
             this.chkVisibleOnly.TabIndex = 5;
@@ -976,7 +976,7 @@
             // label1
             //
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 27);
+            this.label1.Location = new System.Drawing.Point(1, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 13);
             this.label1.TabIndex = 0;
@@ -985,7 +985,7 @@
             // btnHideWindow
             //
             this.btnHideWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHideWindow.Location = new System.Drawing.Point(461, 64);
+            this.btnHideWindow.Location = new System.Drawing.Point(469, 64);
             this.btnHideWindow.Name = "btnHideWindow";
             this.btnHideWindow.Size = new System.Drawing.Size(88, 23);
             this.btnHideWindow.TabIndex = 3;
@@ -996,7 +996,7 @@
             // btnShowHidden
             //
             this.btnShowHidden.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnShowHidden.Location = new System.Drawing.Point(461, 87);
+            this.btnShowHidden.Location = new System.Drawing.Point(469, 87);
             this.btnShowHidden.Name = "btnShowHidden";
             this.btnShowHidden.Size = new System.Drawing.Size(88, 23);
             this.btnShowHidden.TabIndex = 4;
@@ -1007,7 +1007,7 @@
             // btnKillWindow
             //
             this.btnKillWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKillWindow.Location = new System.Drawing.Point(461, 147);
+            this.btnKillWindow.Location = new System.Drawing.Point(469, 147);
             this.btnKillWindow.Name = "btnKillWindow";
             this.btnKillWindow.Size = new System.Drawing.Size(88, 23);
             this.btnKillWindow.TabIndex = 6;
@@ -1018,7 +1018,7 @@
             // btnCloseWindow
             //
             this.btnCloseWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCloseWindow.Location = new System.Drawing.Point(461, 124);
+            this.btnCloseWindow.Location = new System.Drawing.Point(469, 124);
             this.btnCloseWindow.Name = "btnCloseWindow";
             this.btnCloseWindow.Size = new System.Drawing.Size(88, 23);
             this.btnCloseWindow.TabIndex = 7;
@@ -1030,7 +1030,7 @@
             //
             this.chkPin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkPin.AutoSize = true;
-            this.chkPin.Location = new System.Drawing.Point(463, 315);
+            this.chkPin.Location = new System.Drawing.Point(471, 324);
             this.chkPin.Name = "chkPin";
             this.chkPin.Size = new System.Drawing.Size(91, 17);
             this.chkPin.TabIndex = 8;
@@ -1057,9 +1057,9 @@
             this.lstWindowsList.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lstWindowsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.lstWindowsList.HideSelection = false;
-            this.lstWindowsList.Location = new System.Drawing.Point(12, 47);
+            this.lstWindowsList.Location = new System.Drawing.Point(4, 47);
             this.lstWindowsList.Name = "lstWindowsList";
-            this.lstWindowsList.Size = new System.Drawing.Size(447, 282);
+            this.lstWindowsList.Size = new System.Drawing.Size(463, 291);
             this.lstWindowsList.TabIndex = 9;
             this.lstWindowsList.UseCompatibleStateImageBehavior = false;
             this.lstWindowsList.View = System.Windows.Forms.View.Details;
@@ -1075,7 +1075,7 @@
             // btnSendCustomCommands
             //
             this.btnSendCustomCommands.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSendCustomCommands.Location = new System.Drawing.Point(461, 185);
+            this.btnSendCustomCommands.Location = new System.Drawing.Point(469, 185);
             this.btnSendCustomCommands.Name = "btnSendCustomCommands";
             this.btnSendCustomCommands.Size = new System.Drawing.Size(88, 34);
             this.btnSendCustomCommands.TabIndex = 10;
@@ -1089,7 +1089,7 @@
             this.chkShowMinimized.AutoSize = true;
             this.chkShowMinimized.Checked = true;
             this.chkShowMinimized.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkShowMinimized.Location = new System.Drawing.Point(463, 298);
+            this.chkShowMinimized.Location = new System.Drawing.Point(471, 298);
             this.chkShowMinimized.Name = "chkShowMinimized";
             this.chkShowMinimized.Size = new System.Drawing.Size(72, 17);
             this.chkShowMinimized.TabIndex = 11;
@@ -1099,7 +1099,7 @@
             // lblWindowsCount
             //
             this.lblWindowsCount.AutoSize = true;
-            this.lblWindowsCount.Location = new System.Drawing.Point(100, 27);
+            this.lblWindowsCount.Location = new System.Drawing.Point(92, 29);
             this.lblWindowsCount.Name = "lblWindowsCount";
             this.lblWindowsCount.Size = new System.Drawing.Size(16, 13);
             this.lblWindowsCount.TabIndex = 12;
@@ -1116,7 +1116,7 @@
             this.btnMoveUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMoveUp.Enabled = false;
             this.btnMoveUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnMoveUp.Location = new System.Drawing.Point(461, 230);
+            this.btnMoveUp.Location = new System.Drawing.Point(469, 230);
             this.btnMoveUp.Name = "btnMoveUp";
             this.btnMoveUp.Size = new System.Drawing.Size(44, 23);
             this.btnMoveUp.TabIndex = 13;
@@ -1129,7 +1129,7 @@
             this.btnMoveDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMoveDown.Enabled = false;
             this.btnMoveDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnMoveDown.Location = new System.Drawing.Point(505, 230);
+            this.btnMoveDown.Location = new System.Drawing.Point(513, 230);
             this.btnMoveDown.Name = "btnMoveDown";
             this.btnMoveDown.Size = new System.Drawing.Size(44, 23);
             this.btnMoveDown.TabIndex = 14;
@@ -1141,7 +1141,7 @@
             //
             this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOrder.Enabled = false;
-            this.btnOrder.Location = new System.Drawing.Point(461, 253);
+            this.btnOrder.Location = new System.Drawing.Point(469, 253);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(88, 23);
             this.btnOrder.TabIndex = 15;
@@ -1454,7 +1454,7 @@
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(561, 341);
+            this.ClientSize = new System.Drawing.Size(560, 341);
             this.Controls.Add(this.btnOrder);
             this.Controls.Add(this.btnMoveDown);
             this.Controls.Add(this.btnMoveUp);
