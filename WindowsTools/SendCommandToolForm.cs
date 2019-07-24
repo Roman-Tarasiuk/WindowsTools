@@ -354,7 +354,7 @@ namespace WindowsTools
                 return;
             }
 
-            if (!User32Windows.SetForegroundWindow(m_HostWindowHwnd))
+            if (!User32Windows.IsWindow(m_HostWindowHwnd))
             {
                 MessageBox.Show("Hosting window not found. Try to refresh list.\nExit tool.",
                     this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -364,7 +364,6 @@ namespace WindowsTools
 
             if (this.m_SendCommandType == SendCommandType.ActivateWindow)
             {
-                // User32Windows.SetForegroundWindow(m_HostWindowHwnd);
                 int handleTmp;
                 if (int.TryParse(m_Commands, out handleTmp))
                 {
@@ -382,6 +381,8 @@ namespace WindowsTools
                 }
                 return;
             }
+
+            User32Windows.SetForegroundWindow(m_HostWindowHwnd);
 
             if (this.m_SendCommandType == SendCommandType.Clipboard)
             {
