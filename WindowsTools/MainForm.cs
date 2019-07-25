@@ -80,6 +80,7 @@ namespace WindowsTools
         private Logger logger = LogManager.GetCurrentClassLogger();
 
         private List<String> m_ExceptDisplayWindows;
+        private bool m_ShowExceptedWindows = false;
 
         #endregion
 
@@ -933,6 +934,14 @@ namespace WindowsTools
             this.ShowWindows();
         }
 
+        private void showExceptedWindowsStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.m_ShowExceptedWindows = !this.m_ShowExceptedWindows;
+            this.showExceptedWindowsStripMenuItem.Checked = this.m_ShowExceptedWindows;
+
+            this.RefreshWindowsList();
+        }
+
         private void toggleBorderAndMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ToggleBordersAndMenu();
@@ -1599,7 +1608,8 @@ namespace WindowsTools
         {
             var result = new List<DesktopWindow>();
 
-            List<DesktopWindow> RunningWindows = User32Windows.GetDesktopWindows(visibleOnly, m_ExceptDisplayWindows);
+            List<DesktopWindow> RunningWindows = User32Windows.GetDesktopWindows(visibleOnly,
+                m_ShowExceptedWindows ? null : m_ExceptDisplayWindows);
 
             foreach (var window in RunningWindows)
             {

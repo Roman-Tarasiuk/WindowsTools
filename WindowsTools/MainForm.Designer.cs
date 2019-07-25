@@ -85,6 +85,7 @@
             this.topmostWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showHwndToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showProcIdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showExceptedWindowsStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toggleBorderAndMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showTipsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -614,6 +615,7 @@
             this.topmostWindowToolStripMenuItem,
             this.showHwndToolStripMenuItem,
             this.showProcIdToolStripMenuItem,
+            this.showExceptedWindowsStripMenuItem,
             this.toolStripSeparator18,
             this.toggleBorderAndMenuToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
@@ -649,6 +651,13 @@
             this.showProcIdToolStripMenuItem.Text = "Show process id";
             this.showProcIdToolStripMenuItem.Checked = true;
             this.showProcIdToolStripMenuItem.Click += new System.EventHandler(this.showProcIdToolStripMenuItem_Click);
+            //
+            // showExceptedWindowsStripMenuItem
+            //
+            this.showExceptedWindowsStripMenuItem.Name = "showExceptedWindowsStripMenuItem";
+            this.showExceptedWindowsStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.showExceptedWindowsStripMenuItem.Text = "Show excepted windows";
+            this.showExceptedWindowsStripMenuItem.Click += new System.EventHandler(this.showExceptedWindowsStripMenuItem_Click);
             //
             // toggleBorderAndMenuToolStripMenuItem
             //
@@ -1671,6 +1680,7 @@
         private System.Windows.Forms.ToolStripMenuItem hideMinimizedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showHwndToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showProcIdToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showExceptedWindowsStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toggleBorderAndMenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showTipsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toUPPERCASEToolStripMenuItem;
