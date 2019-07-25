@@ -2181,7 +2181,6 @@ namespace WindowsTools
                 User32Windows.ShowWindow(hwnd, User32Windows.SW_RESTORE);
             }
             User32Windows.SetForegroundWindow(hwnd);
-            User32Windows.SetForegroundWindow(this.Handle);
         }
 
         private void ClipboardToUpperCase()
