@@ -25,6 +25,9 @@ namespace WindowsTools
 
         private bool m_ShowOptions = true;
 
+        private bool m_MouseIsDown = false;
+        private Point m_MouseDownCoordinates;
+
         #endregion
 
 
@@ -60,6 +63,31 @@ namespace WindowsTools
             InitializeComponent();
 
             DisplayTitle();
+
+            //
+
+            this.MouseDown += (sender, e) =>
+            {
+                m_MouseIsDown = true;
+                m_MouseDownCoordinates = e.Location;
+            };
+
+            this.MouseUp += (sender, e) =>
+            {
+                m_MouseIsDown = false;
+            };
+
+            this.MouseMove += (sender, e) =>
+            {
+                if (m_MouseIsDown)
+                {
+                    Point LocationNew = new Point(this.Location.X + e.Location.X - m_MouseDownCoordinates.X,
+                        this.Location.Y + e.Location.Y - m_MouseDownCoordinates.Y);
+
+                    this.Location = LocationNew;
+                }
+            };
+
         }
 
         protected override CreateParams CreateParams
