@@ -17,6 +17,7 @@ namespace WindowsTools
 
         private IntPtr m_Hwnd = IntPtr.Zero;
         private bool m_TrackingIsRunning = false;
+        private bool m_TrackingIsValid = true;
         private bool m_WindowIsHung;
         private DateTime m_StartTime;
 
@@ -108,6 +109,12 @@ namespace WindowsTools
 
         private void btnStartStop_Click(object sender, EventArgs e)
         {
+            if (!m_TrackingIsValid)
+            {
+                this.Close();
+                return;
+            }
+
             if (m_TrackingIsRunning)
             {
                 StopTracking();
@@ -239,7 +246,8 @@ namespace WindowsTools
                     + FormatTime(wasRunnind) + ".";
                 m_WindowIsHung = false;
 
-                this.btnStartStop.Enabled = false;
+                this.m_TrackingIsValid = false;
+                this.btnStartStop.Text = "Close";
             }
             else
             {
