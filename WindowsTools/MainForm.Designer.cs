@@ -92,7 +92,7 @@
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStripWindowsList = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.hideSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showHiddenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unhideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moveWindowToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
             this.addToTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -132,7 +132,7 @@
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.label1 = new System.Windows.Forms.Label();
             this.btnHideWindow = new System.Windows.Forms.Button();
-            this.btnShowHidden = new System.Windows.Forms.Button();
+            this.btnUnhide = new System.Windows.Forms.Button();
             this.btnKillWindow = new System.Windows.Forms.Button();
             this.btnCloseWindow = new System.Windows.Forms.Button();
             this.chkPin = new System.Windows.Forms.CheckBox();
@@ -690,7 +690,7 @@
             //
             this.contextMenuStripWindowsList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hideSelectedToolStripMenuItem,
-            this.showHiddenToolStripMenuItem,
+            this.unhideToolStripMenuItem,
             this.moveWindowToolStripMenuItem1,
             this.toolStripSeparator17,
             this.addToTrackingToolStripMenuItem,
@@ -709,15 +709,15 @@
             //
             this.hideSelectedToolStripMenuItem.Name = "hideSelectedToolStripMenuItem";
             this.hideSelectedToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.hideSelectedToolStripMenuItem.Text = "Hide selected";
+            this.hideSelectedToolStripMenuItem.Text = "Hide";
             this.hideSelectedToolStripMenuItem.Click += new System.EventHandler(this.hideSelectedToolStripMenuItem_Click);
             //
-            // showHiddenToolStripMenuItem
+            // unhideToolStripMenuItem
             //
-            this.showHiddenToolStripMenuItem.Name = "showHiddenToolStripMenuItem";
-            this.showHiddenToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.showHiddenToolStripMenuItem.Text = "Show hidden";
-            this.showHiddenToolStripMenuItem.Click += new System.EventHandler(this.showHiddenToolStripMenuItem_Click);
+            this.unhideToolStripMenuItem.Name = "unhideToolStripMenuItem";
+            this.unhideToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.unhideToolStripMenuItem.Text = "Unhide";
+            this.unhideToolStripMenuItem.Click += new System.EventHandler(this.unhideToolStripMenuItem_Click);
             //
             // moveWindowToolStripMenuItem1
             //
@@ -1022,20 +1022,20 @@
             this.btnHideWindow.Name = "btnHideWindow";
             this.btnHideWindow.Size = new System.Drawing.Size(88, 23);
             this.btnHideWindow.TabIndex = 3;
-            this.btnHideWindow.Text = "Hide selected";
+            this.btnHideWindow.Text = "Hide";
             this.btnHideWindow.UseVisualStyleBackColor = true;
             this.btnHideWindow.Click += new System.EventHandler(this.btnHideWindow_Click);
             //
-            // btnShowHidden
+            // btnUnhide
             //
-            this.btnShowHidden.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnShowHidden.Location = new System.Drawing.Point(469, 67);
-            this.btnShowHidden.Name = "btnShowHidden";
-            this.btnShowHidden.Size = new System.Drawing.Size(88, 23);
-            this.btnShowHidden.TabIndex = 4;
-            this.btnShowHidden.Text = "Show hidden";
-            this.btnShowHidden.UseVisualStyleBackColor = true;
-            this.btnShowHidden.Click += new System.EventHandler(this.btnShowHidden_Click);
+            this.btnUnhide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUnhide.Location = new System.Drawing.Point(469, 67);
+            this.btnUnhide.Name = "btnUnhide";
+            this.btnUnhide.Size = new System.Drawing.Size(88, 23);
+            this.btnUnhide.TabIndex = 4;
+            this.btnUnhide.Text = "Unhide";
+            this.btnUnhide.UseVisualStyleBackColor = true;
+            this.btnUnhide.Click += new System.EventHandler(this.btnUnhide_Click);
             //
             // btnKillWindow
             //
@@ -1044,8 +1044,9 @@
             this.btnKillWindow.Name = "btnKillWindow";
             this.btnKillWindow.Size = new System.Drawing.Size(88, 23);
             this.btnKillWindow.TabIndex = 6;
-            this.btnKillWindow.Text = "Kill selected";
+            this.btnKillWindow.Text = "Kill";
             this.btnKillWindow.UseVisualStyleBackColor = true;
+            this.btnKillWindow.ForeColor = System.Drawing.Color.FromArgb(255, 0, 0);
             this.btnKillWindow.Click += new System.EventHandler(this.btnKillWindow_Click);
             //
             // btnCloseWindow
@@ -1055,7 +1056,7 @@
             this.btnCloseWindow.Name = "btnCloseWindow";
             this.btnCloseWindow.Size = new System.Drawing.Size(88, 23);
             this.btnCloseWindow.TabIndex = 7;
-            this.btnCloseWindow.Text = "Close selected";
+            this.btnCloseWindow.Text = "Close";
             this.btnCloseWindow.UseVisualStyleBackColor = true;
             this.btnCloseWindow.Click += new System.EventHandler(this.btnCloseWindow_Click);
             //
@@ -1063,7 +1064,7 @@
             //
             this.chkPin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkPin.AutoSize = true;
-            this.chkPin.Location = new System.Drawing.Point(471, 304);
+            this.chkPin.Location = new System.Drawing.Point(471, 302);
             this.chkPin.Name = "chkPin";
             this.chkPin.Size = new System.Drawing.Size(91, 17);
             this.chkPin.TabIndex = 8;
@@ -1092,7 +1093,7 @@
             this.lstWindowsList.HideSelection = false;
             this.lstWindowsList.Location = new System.Drawing.Point(4, 27);
             this.lstWindowsList.Name = "lstWindowsList";
-            this.lstWindowsList.Size = new System.Drawing.Size(463, 291);
+            this.lstWindowsList.Size = new System.Drawing.Size(463, 289);
             this.lstWindowsList.TabIndex = 9;
             this.lstWindowsList.UseCompatibleStateImageBehavior = false;
             this.lstWindowsList.View = System.Windows.Forms.View.Details;
@@ -1502,7 +1503,7 @@
             this.mainPanel.Controls.Add(this.chkPin);
             this.mainPanel.Controls.Add(this.btnCloseWindow);
             this.mainPanel.Controls.Add(this.btnKillWindow);
-            this.mainPanel.Controls.Add(this.btnShowHidden);
+            this.mainPanel.Controls.Add(this.btnUnhide);
             this.mainPanel.Controls.Add(this.btnHideWindow);
             this.mainPanel.Controls.Add(this.label1);
             this.mainPanel.Controls.Add(this.chkVisibleOnly);
@@ -1572,7 +1573,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem textInfoToolStripMenuItem;
         private System.Windows.Forms.Button btnHideWindow;
-        private System.Windows.Forms.Button btnShowHidden;
+        private System.Windows.Forms.Button btnUnhide;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripWindowsList;
         private System.Windows.Forms.ToolStripMenuItem moveWindowToolStripMenuItem1; // there also exists moveWindowToolStripMenuItem
         private System.Windows.Forms.ToolStripMenuItem passwordsToolStripMenuItem;
@@ -1642,7 +1643,7 @@
         private System.Windows.Forms.ToolStripMenuItem currentDateAndTimeToolStripMenuItem;
         private System.Windows.Forms.Button btnSendCustomCommands;
         private System.Windows.Forms.ToolStripMenuItem hideSelectedToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showHiddenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem unhideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trackTitleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trackInactiveWindowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trackReminderAndPopupToolStripMenuItem;

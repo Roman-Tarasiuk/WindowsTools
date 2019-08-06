@@ -305,7 +305,7 @@ namespace WindowsTools
             HideSelectedWindow();
         }
 
-        private void btnShowHidden_Click(object sender, EventArgs e)
+        private void btnUnhide_Click(object sender, EventArgs e)
         {
             ShowHiddenWindow();
         }
@@ -698,7 +698,7 @@ namespace WindowsTools
             HideSelectedWindow();
         }
 
-        private void showHiddenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void unhideToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowHiddenWindow();
         }
@@ -1283,7 +1283,7 @@ namespace WindowsTools
             if (m_ButtonsShown)
             {
                 this.btnHideWindow.Visible = false;
-                this.btnShowHidden.Visible = false;
+                this.btnUnhide.Visible = false;
                 this.btnCloseWindow.Visible = false;
                 this.btnKillWindow.Visible = false;
                 this.btnSendCustomCommands.Visible = false;
@@ -1304,7 +1304,7 @@ namespace WindowsTools
             else
             {
                 this.btnHideWindow.Visible = true;
-                this.btnShowHidden.Visible = true;
+                this.btnUnhide.Visible = true;
                 this.btnCloseWindow.Visible = true;
                 this.btnKillWindow.Visible = true;
                 this.btnSendCustomCommands.Visible = true;
@@ -1411,7 +1411,7 @@ namespace WindowsTools
                 SetEnabledSafe(btnMoveUp,             false);
                 SetEnabledSafe(btnOrder,              false);
                 SetEnabledSafe(btnSendCustomCommands, false);
-                SetEnabledSafe(btnShowHidden,         false);
+                SetEnabledSafe(btnUnhide,         false);
 
                 //
 
@@ -1441,7 +1441,7 @@ namespace WindowsTools
                 SetEnabledSafe(btnMoveUp,    initialState1);
                 SetEnabledSafe(btnOrder,     initialState2);
                 SetEnabledSafe(btnSendCustomCommands, true);
-                SetEnabledSafe(btnShowHidden,         true);
+                SetEnabledSafe(btnUnhide,         true);
 
                 //
 
