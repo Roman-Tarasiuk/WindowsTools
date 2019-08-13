@@ -2236,8 +2236,12 @@ namespace WindowsTools
                        + "{0}";
 
             lstWindowsList.Items.Insert(position,
-                String.Format(format, window.Title, (m_ShowHwnd ? window.Handle : (IntPtr)window.ProcessId), window.ProcessId),
-                window.Handle.ToString());
+                new ListViewItem() {
+                    Text = String.Format(format, window.Title, (m_ShowHwnd ? window.Handle : (IntPtr)window.ProcessId), window.ProcessId),
+                    ImageKey = window.Handle.ToString(),
+                    ToolTipText = window.Title
+                }
+            );
         }
 
         private void SortAndShowWindows(Comparison<DesktopWindow> comparison)

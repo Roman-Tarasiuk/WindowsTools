@@ -1100,6 +1100,7 @@
             this.lstWindowsList.SelectedIndexChanged += new System.EventHandler(this.lstWindowsList_SelectedIndexChanged);
             this.lstWindowsList.DoubleClick += new System.EventHandler(this.lstWindowsList_DoubleClick);
             this.lstWindowsList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstWindowsList_KeyDown);
+            this.lstWindowsList.ShowItemToolTips = true;
             //
             // columnHeader1
             //
