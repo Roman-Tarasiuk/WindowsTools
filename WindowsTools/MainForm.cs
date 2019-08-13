@@ -57,6 +57,7 @@ namespace WindowsTools
         private bool m_ShowProcessId = true;
         private bool m_ButtonsShown = true;
         private bool m_ShowBordersAndMenu = true;
+        private bool m_ShowNameTooltips = true;
 
         private static readonly TimeSpan defaultWrongPassDelay = new TimeSpan(0, 0, 0, 0, 5000);
         private TimeSpan m_PinTimeSpan = MainForm.defaultWrongPassDelay;
@@ -932,6 +933,13 @@ namespace WindowsTools
             this.SettingsChanged = true;
 
             this.ShowWindows();
+        }
+
+        private void showNameTooltipsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.m_ShowNameTooltips = !this.m_ShowNameTooltips;
+            this.lstWindowsList.ShowItemToolTips = this.m_ShowNameTooltips;
+            this.showNameTooltipsToolStripMenuItem.Checked = this.m_ShowNameTooltips;
         }
 
         private void showExceptedWindowsStripMenuItem_Click(object sender, EventArgs e)
