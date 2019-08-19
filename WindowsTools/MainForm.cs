@@ -1121,6 +1121,11 @@ namespace WindowsTools
             EncodeSpacesToPercents();
         }
 
+        private void decodeTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new DecodeTextForm().Show();
+        }
+
         private void cropImagesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CropImages();
@@ -1237,6 +1242,11 @@ namespace WindowsTools
         private void encodeSpacesToToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             EncodeSpacesToPercents();
+        }
+
+        private void decodeTextToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new DecodeTextForm().Show();
         }
 
         private void cropImagesToolStripMenuItem1_Click(object sender, EventArgs e)

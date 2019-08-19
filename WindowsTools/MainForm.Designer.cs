@@ -62,6 +62,8 @@
             this.encodeUriToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.encodeUriToExceptSpaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.encodeSpacesToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.decodeTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.decodeTextToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toUPPERCASEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toLowercaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearClipboarFormatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -438,7 +440,8 @@
             this.encodeToToolStripMenuItem,
             this.encodeUriToToolStripMenuItem,
             this.encodeUriToExceptSpaceToolStripMenuItem,
-            this.encodeSpacesToToolStripMenuItem});
+            this.encodeSpacesToToolStripMenuItem,
+            this.decodeTextToolStripMenuItem});
             this.decodeToolStripMenuItem.Name = "decodeToolStripMenuItem";
             this.decodeToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.decodeToolStripMenuItem.Text = "Decode % clipboard▾";
@@ -471,6 +474,13 @@
             this.encodeSpacesToToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.encodeSpacesToToolStripMenuItem.Text = "Encode spaces to %";
             this.encodeSpacesToToolStripMenuItem.Click += new System.EventHandler(this.encodeSpacesToToolStripMenuItem_Click);
+            //
+            // decodeTextToolStripMenuItem
+            //
+            this.decodeTextToolStripMenuItem.Name = "decodeTextToolStripMenuItem";
+            this.decodeTextToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.decodeTextToolStripMenuItem.Text = "Decode text...";
+            this.decodeTextToolStripMenuItem.Click += new System.EventHandler(this.decodeTextToolStripMenuItem_Click);
             //
             // toUPPERCASEToolStripMenuItem
             //
@@ -1321,7 +1331,8 @@
             this.encodeToToolStripMenuItem1,
             this.encodeUriToToolStripMenuItem1,
             this.encodeUriToExceptSpaceToolStripMenuItem1,
-            this.encodeSpacesToToolStripMenuItem1});
+            this.encodeSpacesToToolStripMenuItem1,
+            this.decodeTextToolStripMenuItem1});
             this.decodeToolStripMenuItem1.Name = "decodeToolStripMenuItem1";
             this.decodeToolStripMenuItem1.Size = new System.Drawing.Size(225, 22);
             this.decodeToolStripMenuItem1.Text = "Decode % clipboard▾";
@@ -1354,6 +1365,13 @@
             this.encodeSpacesToToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
             this.encodeSpacesToToolStripMenuItem1.Text = "Encode spaces to %";
             this.encodeSpacesToToolStripMenuItem1.Click += new System.EventHandler(this.encodeSpacesToToolStripMenuItem1_Click);
+            //
+            // decodeTextToolStripMenuItem1
+            //
+            this.decodeTextToolStripMenuItem1.Name = "decodeTextToolStripMenuItem1";
+            this.decodeTextToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.decodeTextToolStripMenuItem1.Text = "Decode text...";
+            this.decodeTextToolStripMenuItem1.Click += new System.EventHandler(this.decodeTextToolStripMenuItem1_Click);
             //
             // replacernTospaceToolStripMenuItem1
             //
@@ -1661,6 +1679,8 @@
         private System.Windows.Forms.ToolStripMenuItem trackWindowKeyboardLayoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem encodeSpacesToToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem encodeSpacesToToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem decodeTextToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem decodeTextToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem directorySizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cropImagesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cropImagesToolStripMenuItem1;
