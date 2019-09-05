@@ -95,7 +95,7 @@
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtLog.Size = new System.Drawing.Size(394, 84);
             this.txtLog.TabIndex = 5;
-            this.txtLog.WordWrap = false;
+            this.txtLog.WordWrap = true;
             this.txtLog.DoubleClick += new System.EventHandler(this.txtLog_DoubleClick);
             toolTip1.SetToolTip(this.txtLog, "Double click to toggle options");
             //
@@ -126,6 +126,7 @@
             this.chkTopmost.TabIndex = 6;
             this.chkTopmost.Text = "Topmost";
             this.chkTopmost.UseVisualStyleBackColor = true;
+            this.chkTopmost.Checked = true;
             this.chkTopmost.CheckedChanged += new System.EventHandler(this.chkTopmost_CheckedChanged);
             //
             // chkWordWrap
@@ -138,6 +139,7 @@
             this.chkWordWrap.TabIndex = 7;
             this.chkWordWrap.Text = "Word wrap";
             this.chkWordWrap.UseVisualStyleBackColor = true;
+            this.chkWordWrap.Checked = true;
             this.chkWordWrap.CheckedChanged += new System.EventHandler(this.chkWordWrap_CheckedChanged);
             //
             // chkShowBorder
@@ -184,6 +186,7 @@
             this.Controls.Add(this.txtHwnd);
             this.Controls.Add(this.chkTrackModalWindow);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.TopMost = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TrackInactiveWindowForm";
             this.Text = "Track inactive window";
