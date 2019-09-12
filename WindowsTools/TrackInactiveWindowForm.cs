@@ -172,6 +172,9 @@ namespace WindowsTools
             {
                 Hwnd = hwnd;
                 btnStartStop.Enabled = true;
+                btnStartStop.Text = "Start";
+                chkTrackModalWindow.Enabled = true;
+                m_TrackingIsValid = true;
             }
             else
             {
