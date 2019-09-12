@@ -20,6 +20,7 @@ namespace WindowsTools
         private bool m_TrackingIsValid = true;
         private bool m_WindowIsHung;
         private DateTime m_StartTime;
+        private int m_SelectionStart = 0;
 
         private Color m_ColorAccessible = Color.FromArgb(159, 242, 159);
         private Color m_ColorHung = Color.FromArgb(255, 71, 26);
@@ -134,6 +135,11 @@ namespace WindowsTools
             WindowColors();
         }
 
+        private void txtLog_Click(object sender, EventArgs e)
+        {
+            this.m_SelectionStart = txtLog.SelectionStart;
+        }
+
         private void txtLog_DoubleClick(object sender, EventArgs e)
         {
             var sizeDelta = 34;
@@ -158,6 +164,9 @@ namespace WindowsTools
                 this.txtLog.Size = new Size(this.txtLog.Size.Width, this.txtLog.Size.Height - sizeDelta);
                 m_ShowOptions = true;
             }
+
+            txtLog.SelectionStart = m_SelectionStart;
+            txtLog.SelectionLength = 0;
         }
 
         private void txtHwnd_Leave(object sender, EventArgs e)

@@ -97,6 +97,7 @@
             this.txtLog.TabIndex = 5;
             this.txtLog.WordWrap = true;
             this.txtLog.DoubleClick += new System.EventHandler(this.txtLog_DoubleClick);
+            this.txtLog.Click += new System.EventHandler(this.txtLog_Click);
             toolTip1.SetToolTip(this.txtLog, "Double click to toggle options");
             //
             // timer1
