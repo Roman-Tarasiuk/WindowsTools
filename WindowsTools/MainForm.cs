@@ -2559,6 +2559,15 @@ namespace WindowsTools
 
         #endregion
 
+        private void stopwatchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new StopWatchForm().Show();
+        }
+
+        private void stopwatchToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new StopWatchForm().Show();
+        }
     } // class MainForm.
 
     public class ToolEventArgs : EventArgs

@@ -181,6 +181,12 @@
       <DependentUpon>SendCommandToolPropertiesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SendCommandType.cs" />
+    <Compile Include="StopWatchForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StopWatchForm.Designer.cs">
+      <DependentUpon>StopWatchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TitleColoringForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SendCommandToolPropertiesForm.resx">
       <DependentUpon>SendCommandToolPropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StopWatchForm.resx">
+      <DependentUpon>StopWatchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TitleColoringForm.resx">
       <DependentUpon>TitleColoringForm.cs</DependentUpon>

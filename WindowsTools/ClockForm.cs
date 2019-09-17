@@ -26,10 +26,28 @@ namespace WindowsTools
         private int m_BorderRight;
         private int m_BorderBottom;
 
-        #endregion
-
         const int WS_MINIMIZEBOX = 0x20000;
         const int WS_SYSMENU = 0x80000;
+
+        #endregion
+
+
+        #region Constructors
+
+        public ClockForm()
+        {
+            InitializeComponent();
+
+            InitializePanel();
+            InitializeOther();
+
+            ShowDateTime(true);
+        }
+
+        #endregion
+
+
+        #region Override
 
         protected override CreateParams CreateParams
         {
@@ -52,15 +70,78 @@ namespace WindowsTools
             }
         }
 
-        public ClockForm()
+        #endregion
+
+
+        #region Event Handlers
+
+        private void Panel1_MouseClick(object sender, MouseEventArgs e)
         {
-            InitializeComponent();
-
-            InitializePanel();
-            InitializeOther();
-
-            ShowDateTime(true);
+            if (!m_Moving)
+            {
+                ShowCalendar();
+            }
+            else
+            {
+                m_Moving = false;
+            }
         }
+
+        private void Panel1_Moving(object sender, MovingPanelEventArgs e)
+        {
+            Location = PointToScreen(new Point(e.X, e.Y));
+        }
+
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            this.Size = m_WindowSize;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            ShowDateTime(false);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                if (!m_Minimize)
+                {
+                    User32Windows.ShowWindow(this.Handle, User32Windows.SW_RESTORE);
+                }
+                else
+                {
+                    m_Minimize = false;
+                }
+            }
+        }
+
+        private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            m_Minimize = true;
+            User32Windows.ShowWindow(this.Handle, User32Windows.SW_MINIMIZE);
+        }
+
+        private void currentDateAndTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NowToClipblard();
+        }
+
+        private void topmostCalendarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowCalendar(true);
+        }
+
+        #endregion
+
+
+        #region Helper Methods
 
         private void InitializePanel()
         {
@@ -105,38 +186,6 @@ namespace WindowsTools
             };
         }
 
-        private void Panel1_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (!m_Moving)
-            {
-                CalendarForm calendar = new CalendarForm();
-                calendar.SetLocationAndSize(this);
-
-                calendar.Show();
-
-                User32Windows.ShowWindow(this.Handle, User32Windows.SW_RESTORE);
-            }
-            else
-            {
-                m_Moving = false;
-            }
-        }
-
-        private void Panel1_Moving(object sender, MovingPanelEventArgs e)
-        {
-            Location = PointToScreen(new Point(e.X, e.Y));
-        }
-
-        private void MainForm_Shown(object sender, EventArgs e)
-        {
-            this.Size = m_WindowSize;
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            ShowDateTime(false);
-        }
-
         private void ShowDateTime(bool start)
         {
             DateTime now = DateTime.Now;
@@ -150,6 +199,17 @@ namespace WindowsTools
             }
         }
 
+        private void ShowCalendar(bool topmost = false)
+        {
+            CalendarForm calendar = new CalendarForm();
+            calendar.SetLocationAndSize(this);
+            calendar.TopMost = topmost;
+
+            calendar.Show();
+
+            User32Windows.ShowWindow(this.Handle, User32Windows.SW_RESTORE);
+        }
+
         private bool DateChanged(DateTime now)
         {
             if (m_CurrentDate.Day != now.Day || m_CurrentDate.Month != now.Month || m_CurrentDate.Year != now.Year)
@@ -160,37 +220,6 @@ namespace WindowsTools
             {
                 return false;
             }
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void MainForm_Resize(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Minimized)
-            {
-                if (!m_Minimize)
-                {
-                    User32Windows.ShowWindow(this.Handle, User32Windows.SW_RESTORE);
-                }
-                else
-                {
-                    m_Minimize = false;
-                }
-            }
-        }
-
-        private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            m_Minimize = true;
-            User32Windows.ShowWindow(this.Handle, User32Windows.SW_MINIMIZE);
-        }
-
-        private void currentDateAndTimeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            NowToClipblard();
         }
 
         private static void NowToClipblard()
@@ -209,7 +238,7 @@ namespace WindowsTools
                 var result = Color.FromArgb(int.Parse(colorRGB[0]),
                     int.Parse(colorRGB[1]),
                     int.Parse(colorRGB[2]));
-                
+
                 return result;
             }
             catch (Exception e)
@@ -217,5 +246,7 @@ namespace WindowsTools
                 throw new ArgumentException("str", e);
             }
         }
+
+        #endregion
     }
 }

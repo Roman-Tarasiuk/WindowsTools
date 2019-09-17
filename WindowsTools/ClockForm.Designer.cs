@@ -29,7 +29,7 @@ namespace WindowsTools
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClockForm));
             this.lblClock = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -38,6 +38,7 @@ namespace WindowsTools
             this.currentDateAndTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topmostCalendarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +55,6 @@ namespace WindowsTools
             // 
             // lblDate
             // 
-            this.lblDate.AutoSize = false;
             this.lblDate.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblDate.ForeColor = System.Drawing.Color.White;
             this.lblDate.Location = new System.Drawing.Point(2, 19);
@@ -71,7 +71,7 @@ namespace WindowsTools
             // notifyIcon1
             // 
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconClock1.Icon")));
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "Clock";
             this.notifyIcon1.Visible = true;
             // 
@@ -79,10 +79,11 @@ namespace WindowsTools
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.currentDateAndTimeToolStripMenuItem,
+            this.topmostCalendarToolStripMenuItem,
             this.minimizeToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(191, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(191, 114);
             // 
             // currentDateAndTimeToolStripMenuItem
             // 
@@ -105,7 +106,14 @@ namespace WindowsTools
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // MainForm
+            // topmostCalendarToolStripMenuItem
+            // 
+            this.topmostCalendarToolStripMenuItem.Name = "topmostCalendarToolStripMenuItem";
+            this.topmostCalendarToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.topmostCalendarToolStripMenuItem.Text = "Topmost calendar...";
+            this.topmostCalendarToolStripMenuItem.Click += new System.EventHandler(this.topmostCalendarToolStripMenuItem_Click);
+            // 
+            // ClockForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -115,9 +123,9 @@ namespace WindowsTools
             this.Controls.Add(this.lblClock);
             this.Controls.Add(this.lblDate);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.IconClock")));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
-            this.Name = "MainForm";
+            this.Name = "ClockForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clock";
@@ -140,5 +148,6 @@ namespace WindowsTools
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem currentDateAndTimeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topmostCalendarToolStripMenuItem;
     }
 }
