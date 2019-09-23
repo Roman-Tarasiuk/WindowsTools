@@ -29,6 +29,10 @@ namespace WindowsTools
 
         private bool m_MouseIsDown = false;
         private Point m_MouseDownCoordinates;
+		
+		private bool m_BorderIsVisible = false;
+		private int m_BorderOffsetX = 0;
+		private int m_BorderOffsetY = 0;
 
         #endregion
 
@@ -216,13 +220,45 @@ namespace WindowsTools
 
         private void chkShowBorder_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkShowBorder.Checked)
+            // if (chkShowBorder.Checked)
+            // {
+            //     this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            // }
+            // else
+            // {
+            //     this.FormBorderStyle = FormBorderStyle.None;
+            // }
+			ToggleBorder(chkShowBorder.Checked);
+        }
+		
+		private void ToggleBorder(bool visibility)
+        {
+            if (m_BorderIsVisible == visibility)
             {
-                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+                return;
+            }
+
+            m_BorderIsVisible = visibility;
+
+            if (!visibility)
+            {
+                this.FormBorderStyle = FormBorderStyle.None;
+
+                this.Location = new Point(this.Location.X + m_BorderOffsetX, this.Location.Y + m_BorderOffsetY);
             }
             else
             {
-                this.FormBorderStyle = FormBorderStyle.None;
+                var currentLocation = this.txtLog.PointToScreen(this.txtLog.Location);
+                this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+
+                if (m_BorderOffsetX == 0 || m_BorderOffsetY == 0)
+                {
+                    var newLocation = this.txtLog.PointToScreen(this.txtLog.Location);
+                    m_BorderOffsetX = newLocation.X - currentLocation.X;
+                    m_BorderOffsetY = newLocation.Y - currentLocation.Y;
+                }
+
+                this.Location = new Point(this.Location.X - m_BorderOffsetX, this.Location.Y - m_BorderOffsetY);
             }
         }
 

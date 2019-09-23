@@ -153,7 +153,7 @@
             this.chkShowBorder.TabIndex = 7;
             this.chkShowBorder.Text = "Show border";
             this.chkShowBorder.UseVisualStyleBackColor = true;
-            this.chkShowBorder.Checked = true;
+            this.chkShowBorder.Checked = false;
             this.chkShowBorder.CheckedChanged += new System.EventHandler(this.chkShowBorder_CheckedChanged);
             //
             // chkShowInTaskbar
@@ -186,7 +186,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtHwnd);
             this.Controls.Add(this.chkTrackModalWindow);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.TopMost = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TrackInactiveWindowForm";
