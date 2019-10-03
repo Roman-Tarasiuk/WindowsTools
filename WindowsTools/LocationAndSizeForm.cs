@@ -112,16 +112,20 @@ namespace WindowsTools
             Process.Start(@"screen.png");
         }
 
+        public void OnSettingsChanged()
+        {
+            if (SettingsChanged != null)
+            {
+                SettingsChanged.Invoke(this, EventArgs.Empty);
+            }
+        }
+
         private void LocationAndSizeForm_LocationChanged(object sender, EventArgs e)
         {
             if (WindowState != FormWindowState.Minimized)
             {
                 Properties.Settings.Default.LocationAndSizeForm_Location = this.Location;
-
-                if (SettingsChanged != null)
-                {
-                    SettingsChanged.Invoke(this, EventArgs.Empty);
-                }
+                OnSettingsChanged();
             }
         }
 

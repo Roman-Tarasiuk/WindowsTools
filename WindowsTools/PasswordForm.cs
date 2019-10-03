@@ -263,16 +263,20 @@ namespace WindowsTools
             this.BackColor = m_BackColor;
         }
 
+        private void OnSettingsChanged()
+        {
+            if (SettingsChanged != null)
+            {
+                SettingsChanged.Invoke(this, EventArgs.Empty);
+            }
+        }
+
         private void PasswordForm_LocationChanged(object sender, EventArgs e)
         {
             if (this.WindowState != FormWindowState.Minimized)
             {
                 Properties.Settings.Default.PasswordsForm_Location = this.Location;
-
-                if (SettingsChanged != null)
-                {
-                    SettingsChanged.Invoke(this, EventArgs.Empty);
-                }
+                OnSettingsChanged();
             }
         }
 

@@ -4,9 +4,11 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using User32Helper;
 
+using WindowsTools.Infrastructure;
+
 namespace WindowsTools
 {
-    public partial class TrackInactiveWindowForm : Form
+    public partial class TrackInactiveWindowForm : Form, IProgramSettings
     {
         [DllImport("user32.dll")]
         public static extern bool IsHungAppWindow(IntPtr hWnd);
@@ -29,7 +31,7 @@ namespace WindowsTools
 
         private bool m_MouseIsDown = false;
         private Point m_MouseDownCoordinates;
-		
+
 		private bool m_BorderIsVisible = false;
 		private int m_BorderOffsetX = 0;
 		private int m_BorderOffsetY = 0;
@@ -38,6 +40,8 @@ namespace WindowsTools
 
 
         #region Public Properties
+
+        public event EventHandler SettingsChanged;
 
         public IntPtr Hwnd
         {
@@ -69,6 +73,8 @@ namespace WindowsTools
             InitializeComponent();
 
             DisplayTitle();
+
+            this.Size =  Properties.Settings.Default.TrackInactiveFormSize;
 
             //
 
@@ -111,6 +117,23 @@ namespace WindowsTools
 
 
         #region Event Handlers
+
+        private void OnSettingsChanged()
+        {
+            if (SettingsChanged != null)
+            {
+                SettingsChanged.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        private void formSize_Changed(object sender, EventArgs e)
+        {
+            if (WindowState != FormWindowState.Minimized)
+            {
+                Properties.Settings.Default.TrackInactiveFormSize = this.Size;
+                OnSettingsChanged();
+            }
+        }
 
         private void btnStartStop_Click(object sender, EventArgs e)
         {
@@ -230,7 +253,7 @@ namespace WindowsTools
             // }
 			ToggleBorder(chkShowBorder.Checked);
         }
-		
+
 		private void ToggleBorder(bool visibility)
         {
             if (m_BorderIsVisible == visibility)

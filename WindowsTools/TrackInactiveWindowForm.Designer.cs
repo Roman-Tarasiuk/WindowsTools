@@ -191,6 +191,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TrackInactiveWindowForm";
             this.Text = "Track inactive window";
+            this.SizeChanged += formSize_Changed;
             this.ResumeLayout(false);
             this.PerformLayout();
 

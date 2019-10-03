@@ -49,6 +49,18 @@ namespace WindowsTools.Properties {
 
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("403, 146")]
+        public global::System.Drawing.Size TrackInactiveFormSize {
+            get {
+                return ((global::System.Drawing.Size)(this["TrackInactiveFormSize"]));
+            }
+            set {
+                this["TrackInactiveFormSize"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
         public global::System.Drawing.Point SendCommandsForm_Location {
             get {

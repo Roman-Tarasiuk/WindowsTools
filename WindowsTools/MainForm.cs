@@ -727,7 +727,9 @@ namespace WindowsTools
 
             IntPtr hwnd = m_ListedWindows[selected].Handle;
 
-            new TrackInactiveWindowForm() { Hwnd = hwnd }.Show();
+            var form = new TrackInactiveWindowForm() { Hwnd = hwnd };
+            form.SettingsChanged += SettingsChangedEventHandler;
+            form.Show();
         }
 
         private void trackReminderAndPopupToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1011,10 +1013,7 @@ namespace WindowsTools
         {
             var downloader = new DownloaderForm();
 
-            downloader.SettingsChanged += (o, eSettings) =>
-            {
-                SettingsChanged = true;
-            };
+            downloader.SettingsChanged += SettingsChangedEventHandler;
 
             downloader.Show();
         }
@@ -1766,6 +1765,11 @@ namespace WindowsTools
             }
         }
 
+        private void SettingsChangedEventHandler(object sender, EventArgs e)
+        {
+            SettingsChanged = true;
+        }
+
         private void MoveWindow()
         {
             if (!CheckTargetWindow())
@@ -1780,10 +1784,7 @@ namespace WindowsTools
 
             if (tmp != m_LocationForm)
             {
-                m_LocationForm.SettingsChanged += (o, e) =>
-                {
-                    SettingsChanged = true;
-                };
+                m_LocationForm.SettingsChanged += SettingsChangedEventHandler;
             }
 
             m_LocationForm.SelectWindow(m_ListedWindows[selected].Handle);
@@ -1825,10 +1826,7 @@ namespace WindowsTools
                     m_RebuldPasswordMenu = true;
                 };
 
-                m_PasswordForm.SettingsChanged += (o, e) =>
-                {
-                    SettingsChanged = true;
-                };
+                m_PasswordForm.SettingsChanged += SettingsChangedEventHandler;
             }
 
             User32Windows.ShowForm(m_PasswordForm);
@@ -1873,10 +1871,7 @@ namespace WindowsTools
                 windowsTrackingToolStripMenuItem1.Text = "Start mouse hover";
                 m_MouseTrackingStarted = false;
 
-                m_TrackingForm.SettingsChanged += (o, e) =>
-                {
-                    SettingsChanged = true;
-                };
+                m_TrackingForm.SettingsChanged += SettingsChangedEventHandler;
 
                 return;
             }
@@ -1951,10 +1946,7 @@ namespace WindowsTools
                     notifyIcon1.ShowBalloonTip(1000, String.Empty, "'" + e.Title + "' tool has exited.", ToolTipIcon.None);
                 };
 
-                m_SendCommandForm.SettingsChanged += (o, e) =>
-                {
-                    SettingsChanged = true;
-                };
+                m_SendCommandForm.SettingsChanged += SettingsChangedEventHandler;
             }
 
             var selected  = this.lstWindowsList.SelectedIndices[0];

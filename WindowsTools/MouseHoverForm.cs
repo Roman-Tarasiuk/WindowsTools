@@ -64,16 +64,20 @@ namespace WindowsTools
             }
         }
 
+        private void OnSettingsChanged()
+        {
+            if (SettingsChanged != null)
+            {
+                SettingsChanged.Invoke(this, EventArgs.Empty);
+            }
+        }
+
         private void WindowsTrackingForm_LocationChanged(object sender, EventArgs e)
         {
             if (WindowState != FormWindowState.Minimized)
             {
                 Properties.Settings.Default.WindowsTrackingForm_Location = this.Location;
-
-                if (SettingsChanged != null)
-                {
-                    SettingsChanged.Invoke(this, EventArgs.Empty);
-                }
+                OnSettingsChanged();
             }
         }
 
