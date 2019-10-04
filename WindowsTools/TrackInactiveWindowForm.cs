@@ -169,31 +169,7 @@ namespace WindowsTools
 
         private void txtLog_DoubleClick(object sender, EventArgs e)
         {
-            var sizeDelta = 34;
-
-            if (m_ShowOptions)
-            {
-                this.chkShowInTaskbar.Visible = false;
-                this.chkTopmost.Visible = false;
-                this.chkTrackModalWindow.Visible = false;
-                this.chkWordWrap.Visible = false;
-                this.chkShowBorder.Visible = false;
-                this.txtLog.Size = new Size(this.txtLog.Size.Width, this.txtLog.Size.Height + sizeDelta);
-                m_ShowOptions = false;
-            }
-            else
-            {
-                this.chkShowInTaskbar.Visible = true;
-                this.chkTopmost.Visible = true;
-                this.chkTrackModalWindow.Visible = true;
-                this.chkWordWrap.Visible = true;
-                this.chkShowBorder.Visible = true;
-                this.txtLog.Size = new Size(this.txtLog.Size.Width, this.txtLog.Size.Height - sizeDelta);
-                m_ShowOptions = true;
-            }
-
-            txtLog.SelectionStart = m_SelectionStart;
-            txtLog.SelectionLength = 0;
+            ChangeView();
         }
 
         private void txtHwnd_Leave(object sender, EventArgs e)
@@ -467,9 +443,48 @@ namespace WindowsTools
             else
             {
                 this.BackColor = m_ColorAccessible;
-                this.txtLog.BackColor = Color.Black;
-                this.txtLog.ForeColor = Color.Green;
+                this.txtLog.BackColor = Color.Green;
+                this.txtLog.ForeColor = Color.White;
             }
+        }
+
+        private void ChangeView()
+        {
+            var sizeDelta = 54;
+
+            if (m_ShowOptions)
+            {
+                this.chkShowInTaskbar.Visible = false;
+                this.chkTopmost.Visible = false;
+                this.chkTrackModalWindow.Visible = false;
+                this.chkWordWrap.Visible = false;
+                this.chkShowBorder.Visible = false;
+                this.label1.Visible = false;
+                this.txtHwnd.Visible = false;
+                this.btnStartStop.Visible = false;
+                this.lblTitle.Location = new Point(2, 5);
+                this.txtLog.Location = new Point(5, 25);
+                this.txtLog.Size = new Size(this.txtLog.Size.Width, this.txtLog.Size.Height + sizeDelta);
+                m_ShowOptions = false;
+            }
+            else
+            {
+                this.chkShowInTaskbar.Visible = true;
+                this.chkTopmost.Visible = true;
+                this.chkTrackModalWindow.Visible = true;
+                this.chkWordWrap.Visible = true;
+                this.chkShowBorder.Visible = true;
+                this.label1.Visible = true;
+                this.txtHwnd.Visible = true;
+                this.btnStartStop.Visible = true;
+                this.lblTitle.Location = new Point(2, 25);
+                this.txtLog.Location = new Point(5, 44);
+                this.txtLog.Size = new Size(this.txtLog.Size.Width, this.txtLog.Size.Height - sizeDelta);
+                m_ShowOptions = true;
+            }
+
+            txtLog.SelectionStart = m_SelectionStart;
+            txtLog.SelectionLength = 0;
         }
 
         #endregion

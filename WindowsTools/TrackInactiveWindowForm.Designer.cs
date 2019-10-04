@@ -65,7 +65,7 @@
             //
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblTitle.Location = new System.Drawing.Point(128, 5);
+            this.lblTitle.Location = new System.Drawing.Point(2, 25);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(4, 19);
             this.lblTitle.TabIndex = 2;
@@ -86,14 +86,14 @@
             this.txtLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLog.BackColor = System.Drawing.Color.Black;
+            this.txtLog.BackColor = System.Drawing.Color.Green;
             this.txtLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtLog.ForeColor = System.Drawing.Color.Green;
-            this.txtLog.Location = new System.Drawing.Point(5, 24);
+            this.txtLog.ForeColor = System.Drawing.Color.White;
+            this.txtLog.Location = new System.Drawing.Point(5, 44);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLog.Size = new System.Drawing.Size(394, 84);
+            this.txtLog.Size = new System.Drawing.Size(394, 64);
             this.txtLog.TabIndex = 5;
             this.txtLog.WordWrap = true;
             this.txtLog.DoubleClick += new System.EventHandler(this.txtLog_DoubleClick);
