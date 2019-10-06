@@ -11,15 +11,15 @@
     <Setting Name="SendCommandsForm_Location" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">100, 100</Value>
     </Setting>
-    <setting name="HideMinimized" Type="System.Boolean" Scope="User">
+    <Setting Name="HideMinimized" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
-    </setting>
-    <setting name="ShowHwnd" Type="System.Boolean" Scope="User">
+    </Setting>
+    <Setting Name="ShowHwnd" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
-    </setting>
-    <setting name="ShowProcessId" Type="System.Boolean" Scope="User">
+    </Setting>
+    <Setting Name="ShowProcessId" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
-    </setting>
+    </Setting>
     <Setting Name="WindowsTrackingForm_Location" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">100, 100</Value>
     </Setting>
@@ -37,6 +37,15 @@
     </Setting>
     <Setting Name="MainForm_LogRefresh" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AutoTrackReminder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AutoTrackReminderIntervalSeconds" Type="System.String" Scope="User">
+      <Value Profile="(Default)">120</Value>
+    </Setting>
+    <Setting Name="TrackInactiveFormSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">403, 146</Value>
     </Setting>
   </Settings>
 </SettingsFile>

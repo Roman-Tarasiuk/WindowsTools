@@ -9,20 +9,20 @@
 //------------------------------------------------------------------------------
 
 namespace WindowsTools.Properties {
-
-
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
+        
         public static Settings Default {
             get {
                 return defaultInstance;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
@@ -34,7 +34,7 @@ namespace WindowsTools.Properties {
                 this["LocationAndSizeForm_Location"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
@@ -46,19 +46,7 @@ namespace WindowsTools.Properties {
                 this["PasswordsForm_Location"] = value;
             }
         }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("403, 146")]
-        public global::System.Drawing.Size TrackInactiveFormSize {
-            get {
-                return ((global::System.Drawing.Size)(this["TrackInactiveFormSize"]));
-            }
-            set {
-                this["TrackInactiveFormSize"] = value;
-            }
-        }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
@@ -70,7 +58,7 @@ namespace WindowsTools.Properties {
                 this["SendCommandsForm_Location"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
@@ -82,7 +70,7 @@ namespace WindowsTools.Properties {
                 this["HideMinimized"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
@@ -94,7 +82,7 @@ namespace WindowsTools.Properties {
                 this["ShowHwnd"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
@@ -106,31 +94,7 @@ namespace WindowsTools.Properties {
                 this["ShowProcessId"] = value;
             }
         }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AutoTrackReminder {
-            get {
-                return ((bool)(this["AutoTrackReminder"]));
-            }
-            set {
-                this["AutoTrackReminder"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("300")]
-        public int AutoTrackReminderIntervalSeconds {
-            get {
-                return ((int)(this["AutoTrackReminderIntervalSeconds"]));
-            }
-            set {
-                this["AutoTrackReminderIntervalSeconds"] = value;
-            }
-        }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
@@ -142,7 +106,7 @@ namespace WindowsTools.Properties {
                 this["WindowsTrackingForm_Location"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("%SystemRoot%\\System32\\ssText3d.scr")]
@@ -154,7 +118,7 @@ namespace WindowsTools.Properties {
                 this["ScreenSaverPath"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://your.proxy:8080")]
@@ -166,7 +130,7 @@ namespace WindowsTools.Properties {
                 this["DownloaderForm_Proxy"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
@@ -178,7 +142,7 @@ namespace WindowsTools.Properties {
                 this["DownloaderForm_Username"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
@@ -190,7 +154,7 @@ namespace WindowsTools.Properties {
                 this["DownloaderForm_LocalPath"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
@@ -200,6 +164,42 @@ namespace WindowsTools.Properties {
             }
             set {
                 this["MainForm_LogRefresh"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public string AutoTrackReminder {
+            get {
+                return ((string)(this["AutoTrackReminder"]));
+            }
+            set {
+                this["AutoTrackReminder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("120")]
+        public string AutoTrackReminderIntervalSeconds {
+            get {
+                return ((string)(this["AutoTrackReminderIntervalSeconds"]));
+            }
+            set {
+                this["AutoTrackReminderIntervalSeconds"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("403, 146")]
+        public global::System.Drawing.Size TrackInactiveFormSize {
+            get {
+                return ((global::System.Drawing.Size)(this["TrackInactiveFormSize"]));
+            }
+            set {
+                this["TrackInactiveFormSize"] = value;
             }
         }
     }

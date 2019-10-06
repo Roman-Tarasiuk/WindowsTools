@@ -74,7 +74,7 @@ namespace WindowsTools
 
             DisplayTitle();
 
-            this.Size =  Properties.Settings.Default.TrackInactiveFormSize;
+            this.Size = Properties.Settings.Default.TrackInactiveFormSize;
 
             //
 
