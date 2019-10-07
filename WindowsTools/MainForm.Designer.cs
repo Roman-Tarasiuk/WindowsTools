@@ -158,6 +158,7 @@
             this.viewSystemClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.clockToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopwatchToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.currentDateAndTimeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.screenRulerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panelToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -189,7 +190,7 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.lstWindowsList = new WindowsTools.ListViewNF();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.stopwatchToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.trackMouseOutsideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -250,6 +251,7 @@
             this.trackInactiveWindowToolStripMenuItem,
             this.trackReminderAndPopupToolStripMenuItem,
             this.trackWindowKeyboardLayoutToolStripMenuItem,
+            this.trackMouseOutsideToolStripMenuItem,
             this.setWindowTransparencyToolStripMenuItem,
             this.toolStripSeparator6,
             this.directorySizeToolStripMenuItem,
@@ -969,7 +971,7 @@
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray1.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 226);
+            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 204);
             this.contextMenuStripSysTray1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray1_Opening);
             this.contextMenuStripSysTray1.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray1.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
@@ -1266,6 +1268,13 @@
             this.clockToolStripMenuItem1.Text = "Clock...";
             this.clockToolStripMenuItem1.Click += new System.EventHandler(this.clockToolStripMenuItem1_Click);
             // 
+            // stopwatchToolStripMenuItem1
+            // 
+            this.stopwatchToolStripMenuItem1.Name = "stopwatchToolStripMenuItem1";
+            this.stopwatchToolStripMenuItem1.Size = new System.Drawing.Size(190, 22);
+            this.stopwatchToolStripMenuItem1.Text = "Stopwatch...";
+            this.stopwatchToolStripMenuItem1.Click += new System.EventHandler(this.stopwatchToolStripMenuItem1_Click);
+            // 
             // currentDateAndTimeToolStripMenuItem1
             // 
             this.currentDateAndTimeToolStripMenuItem1.Name = "currentDateAndTimeToolStripMenuItem1";
@@ -1560,12 +1569,12 @@
             this.columnHeader1.Text = "";
             this.columnHeader1.Width = 600;
             // 
-            // stopwatchToolStripMenuItem1
+            // trackMouseOutsideToolStripMenuItem
             // 
-            this.stopwatchToolStripMenuItem1.Name = "stopwatchToolStripMenuItem1";
-            this.stopwatchToolStripMenuItem1.Size = new System.Drawing.Size(190, 22);
-            this.stopwatchToolStripMenuItem1.Text = "Stopwatch...";
-            this.stopwatchToolStripMenuItem1.Click += new System.EventHandler(this.stopwatchToolStripMenuItem1_Click);
+            this.trackMouseOutsideToolStripMenuItem.Name = "trackMouseOutsideToolStripMenuItem";
+            this.trackMouseOutsideToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+            this.trackMouseOutsideToolStripMenuItem.Text = "Track mouse outside...";
+            this.trackMouseOutsideToolStripMenuItem.Click += new System.EventHandler(this.trackMouseOutsideToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -1754,5 +1763,6 @@
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.ToolStripMenuItem stopwatchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopwatchToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem trackMouseOutsideToolStripMenuItem;
     }
 }

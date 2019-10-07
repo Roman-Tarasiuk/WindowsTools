@@ -12,23 +12,6 @@ using System.Windows.Forms;
 
 namespace WindowsTools
 {
-    public class TransparentPanel : Panel
-    {
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x00000020; // WS_EX_TRANSPARENT
-                return cp;
-            }
-        }
-        protected override void OnPaintBackground(PaintEventArgs e)
-        {
-            //base.OnPaintBackground(e);
-        }
-    }
-
     public partial class StopWatchForm : Form
     {
         #region Fields
@@ -221,6 +204,23 @@ namespace WindowsTools
         private void labelTimer_MouseClick(object sender, MouseEventArgs e)
         {
             labelTimer.Select();
+        }
+    }
+
+    public class TransparentPanel : Panel
+    {
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x00000020; // WS_EX_TRANSPARENT
+                return cp;
+            }
+        }
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            //base.OnPaintBackground(e);
         }
     }
 }

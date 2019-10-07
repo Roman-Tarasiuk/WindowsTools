@@ -170,9 +170,9 @@ namespace WindowsTools.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public string AutoTrackReminder {
+        public bool AutoTrackReminder {
             get {
-                return ((string)(this["AutoTrackReminder"]));
+                return ((bool)(this["AutoTrackReminder"]));
             }
             set {
                 this["AutoTrackReminder"] = value;
@@ -182,9 +182,9 @@ namespace WindowsTools.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("120")]
-        public string AutoTrackReminderIntervalSeconds {
+        public int AutoTrackReminderIntervalSeconds {
             get {
-                return ((string)(this["AutoTrackReminderIntervalSeconds"]));
+                return ((int)(this["AutoTrackReminderIntervalSeconds"]));
             }
             set {
                 this["AutoTrackReminderIntervalSeconds"] = value;

@@ -2560,6 +2560,11 @@ namespace WindowsTools
         {
             new StopWatchForm().Show();
         }
+
+        private void trackMouseOutsideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new MouseClickOutside().Show();
+        }
     } // class MainForm.
 
     public class ToolEventArgs : EventArgs

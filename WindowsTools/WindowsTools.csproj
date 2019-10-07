@@ -182,7 +182,7 @@
     </Compile>
     <Compile Include="SendCommandType.cs" />
     <Compile Include="StopWatchForm.cs">
-      <SubType>Component</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="StopWatchForm.Designer.cs">
       <DependentUpon>StopWatchForm.cs</DependentUpon>
@@ -210,6 +210,12 @@
     </Compile>
     <Compile Include="MouseHoverForm.Designer.cs">
       <DependentUpon>MouseHoverForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MouseClickOutside.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MouseClickOutside.Designer.cs">
+      <DependentUpon>MouseClickOutside.cs</DependentUpon>
     </Compile>
     <Compile Include="PasswordForm.cs">
       <SubType>Form</SubType>
@@ -338,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MouseHoverForm.resx">
       <DependentUpon>MouseHoverForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MouseClickOutside.resx">
+      <DependentUpon>MouseClickOutside.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PasswordForm.resx">
       <DependentUpon>PasswordForm.cs</DependentUpon>
