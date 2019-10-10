@@ -217,18 +217,14 @@ namespace WindowsTools
             txtLog.WordWrap = chkWordWrap.Checked;
         }
 
-        private void chkShowBorder_CheckedChanged(object sender, EventArgs e)
+        // private bool
+
+        private void btnToggleBorder_Click(object sender, EventArgs e)
         {
-            // if (chkShowBorder.Checked)
-            // {
-            //     this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            // }
-            // else
-            // {
-            //     this.FormBorderStyle = FormBorderStyle.None;
-            // }
-			ToggleBorder(chkShowBorder.Checked);
-            btnClose.Visible = !chkShowBorder.Checked;
+			var on = this.FormBorderStyle == FormBorderStyle.None ? true : false;
+            ToggleBorder(on);
+            btnClose.Enabled = !on;
+            btnToggleBorder.Text = on ? "∨" : "∧";
         }
 
 		private void ToggleBorder(bool visibility)
@@ -474,14 +470,13 @@ namespace WindowsTools
                 this.chkTopmost.Visible = false;
                 this.chkTrackModalWindow.Visible = false;
                 this.chkWordWrap.Visible = false;
-                this.chkShowBorder.Visible = false;
-                //this.lblLabelPlusClock.Visible = false;
                 this.txtHwnd.Visible = false;
                 this.btnStartStop.Visible = false;
                 this.lblTitle.Location = new Point(56, 5);
                 this.txtLog.Location = new Point(5, 25);
                 this.txtLog.Size = new Size(this.txtLog.Size.Width, this.txtLog.Size.Height + sizeDelta);
                 this.btnClose.Visible = false;
+                this.btnToggleBorder.Visible = false;
                 m_ShowOptions = false;
             }
             else
@@ -490,14 +485,13 @@ namespace WindowsTools
                 this.chkTopmost.Visible = true;
                 this.chkTrackModalWindow.Visible = true;
                 this.chkWordWrap.Visible = true;
-                this.chkShowBorder.Visible = true;
-                //this.lblLabelPlusClock.Visible = true;
                 this.txtHwnd.Visible = true;
                 this.btnStartStop.Visible = true;
                 this.lblTitle.Location = new Point(2, 25);
                 this.txtLog.Location = new Point(5, 44);
                 this.txtLog.Size = new Size(this.txtLog.Size.Width, this.txtLog.Size.Height - sizeDelta);
                 this.btnClose.Visible = true;
+                this.btnToggleBorder.Visible = true;
                 m_ShowOptions = true;
             }
 
