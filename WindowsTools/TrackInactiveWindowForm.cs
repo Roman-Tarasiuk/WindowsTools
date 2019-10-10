@@ -36,6 +36,8 @@ namespace WindowsTools
 		private int m_BorderOffsetX = 0;
 		private int m_BorderOffsetY = 0;
 
+        private bool m_SizeInitialized = false;
+
         #endregion
 
 
@@ -75,6 +77,8 @@ namespace WindowsTools
             DisplayTitle();
 
             this.Size = Properties.Settings.Default.TrackInactiveFormSize;
+
+            m_SizeInitialized = true;
 
             //
 
@@ -128,6 +132,11 @@ namespace WindowsTools
 
         private void formSize_Changed(object sender, EventArgs e)
         {
+            if (!m_SizeInitialized)
+            {
+                return;
+            }
+
             if (WindowState != FormWindowState.Minimized)
             {
                 Properties.Settings.Default.TrackInactiveFormSize = this.Size;
