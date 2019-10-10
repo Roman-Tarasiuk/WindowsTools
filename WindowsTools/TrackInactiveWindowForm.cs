@@ -228,6 +228,7 @@ namespace WindowsTools
             //     this.FormBorderStyle = FormBorderStyle.None;
             // }
 			ToggleBorder(chkShowBorder.Checked);
+            btnClose.Visible = !chkShowBorder.Checked;
         }
 
 		private void ToggleBorder(bool visibility)
@@ -266,6 +267,11 @@ namespace WindowsTools
             this.ShowInTaskbar = chkShowInTaskbar.Checked;
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         #endregion
 
 
@@ -285,19 +291,25 @@ namespace WindowsTools
             var now = DateTime.Now;
             var wasRunnind = now - m_StartTime;
 
+            var running = FormatTime(wasRunnind);
+            var runningClock = FormatTime(wasRunnind, false);
+
             if (!m_TrackingIsRunning)
             {
                 message = FormatTime(now)
                     + " the " + (m_TrackModalWindow ? "modal window" : "program")
                     + " is closed now and was in the previous state: "
-                    + FormatTime(wasRunnind) + ".";
+                    + running + ".";
                 m_WindowIsHung = false;
 
                 this.m_TrackingIsValid = false;
                 this.btnStartStop.Text = "Close";
+                lblLabelPlusClock.Text = "Hwnd:";
             }
             else
             {
+                lblLabelPlusClock.Text = runningClock;
+
                 if (m_TrackModalWindow)
                 {
                     return;
@@ -312,7 +324,7 @@ namespace WindowsTools
                     wasRunnind -= fiveSeconds;
                     message = FormatTime(now)
                         + " the program is hung now and was in the previous state: "
-                        + FormatTime(wasRunnind) + ".";
+                        + running + ".";
                 }
                 else if (!IsHungAppWindow(Hwnd) && m_WindowIsHung)
                 {
@@ -377,6 +389,7 @@ namespace WindowsTools
             WindowColors();
 
             chkTrackModalWindow.Enabled = true;
+            lblLabelPlusClock.Text = "Hwnd:";
         }
 
         private string FormatTime(DateTime t)
@@ -384,25 +397,28 @@ namespace WindowsTools
             return t.ToLongTimeString();
         }
 
-        private string FormatTime(TimeSpan t)
+        private string FormatTime(TimeSpan t, bool withLabel = true)
         {
             var result = t.ToString((t.Days > 0 ? "d\\:" : "") + "hh\\:mm\\:ss");
 
-            if (t.Days > 0)
+            if (withLabel)
             {
-                result += " days";
-            }
-            else if (t.Hours > 0)
-            {
-                result += " hours";
-            }
-            else if (t.Minutes > 0)
-            {
-                result += " minutes";
-            }
-            else
-            {
-                result += " seconds";
+                if (t.Days > 0)
+                {
+                    result += " days";
+                }
+                else if (t.Hours > 0)
+                {
+                    result += " hours";
+                }
+                else if (t.Minutes > 0)
+                {
+                    result += " minutes";
+                }
+                else
+                {
+                    result += " seconds";
+                }
             }
 
             return result;
@@ -459,12 +475,13 @@ namespace WindowsTools
                 this.chkTrackModalWindow.Visible = false;
                 this.chkWordWrap.Visible = false;
                 this.chkShowBorder.Visible = false;
-                this.label1.Visible = false;
+                //this.lblLabelPlusClock.Visible = false;
                 this.txtHwnd.Visible = false;
                 this.btnStartStop.Visible = false;
-                this.lblTitle.Location = new Point(2, 5);
+                this.lblTitle.Location = new Point(56, 5);
                 this.txtLog.Location = new Point(5, 25);
                 this.txtLog.Size = new Size(this.txtLog.Size.Width, this.txtLog.Size.Height + sizeDelta);
+                this.btnClose.Visible = false;
                 m_ShowOptions = false;
             }
             else
@@ -474,12 +491,13 @@ namespace WindowsTools
                 this.chkTrackModalWindow.Visible = true;
                 this.chkWordWrap.Visible = true;
                 this.chkShowBorder.Visible = true;
-                this.label1.Visible = true;
+                //this.lblLabelPlusClock.Visible = true;
                 this.txtHwnd.Visible = true;
                 this.btnStartStop.Visible = true;
                 this.lblTitle.Location = new Point(2, 25);
                 this.txtLog.Location = new Point(5, 44);
                 this.txtLog.Size = new Size(this.txtLog.Size.Width, this.txtLog.Size.Height - sizeDelta);
+                this.btnClose.Visible = true;
                 m_ShowOptions = true;
             }
 
