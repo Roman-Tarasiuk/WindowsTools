@@ -144,6 +144,11 @@ namespace WindowsTools
             }
         }
 
+        private void formClosing(object sender, FormClosingEventArgs e)
+        {
+            ToggleBorder(false);
+        }
+
         private void btnStartStop_Click(object sender, EventArgs e)
         {
             if (!m_TrackingIsValid)
