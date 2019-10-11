@@ -98,7 +98,6 @@
             this.txtLog.Size = new System.Drawing.Size(394, 64);
             this.txtLog.TabIndex = 5;
             this.toolTip1.SetToolTip(this.txtLog, "Double click to toggle options");
-            this.txtLog.Click += new System.EventHandler(this.txtLog_Click);
             this.txtLog.DoubleClick += new System.EventHandler(this.txtLog_DoubleClick);
             //
             // timer1
