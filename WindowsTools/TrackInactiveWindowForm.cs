@@ -184,6 +184,8 @@ namespace WindowsTools
         private void txtLog_DoubleClick(object sender, EventArgs e)
         {
             ChangeView();
+
+            ScrollToEnd();
         }
 
         private void txtHwnd_Leave(object sender, EventArgs e)
@@ -436,9 +438,14 @@ namespace WindowsTools
 
         private void Log(string str)
         {
-            var start = txtLog.Text.Length + 2; // "\r\n" at the end.
+            txtLog.Text += str == String.Empty ? "" : str + "\r\n";
 
-            txtLog.Text += (txtLog.Text == String.Empty ? "" : "\r\n") + str;
+            ScrollToEnd();
+        }
+
+        private void ScrollToEnd()
+        {
+            var start = txtLog.Text.Length;
 
             txtLog.Focus();
             txtLog.SelectionStart = start;
