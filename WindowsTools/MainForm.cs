@@ -374,6 +374,11 @@ namespace WindowsTools
             SetTransparency();
         }
 
+        private void restoreMinimizedWindowsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RestoreMinimizedWindows();
+        }
+
         private void passwordsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Passwords();
@@ -1811,6 +1816,17 @@ namespace WindowsTools
             var handle = m_ListedWindows[selected].Handle;
 
             new TransparentWindowToolForm(handle).Show();
+        }
+
+        private void RestoreMinimizedWindows()
+        {
+            foreach(var w in m_ListedWindows)
+            {
+                if (User32Windows.IsIconic(w.Handle))
+                {
+                    User32Windows.ShowWindow(w.Handle, User32Windows.SW_RESTORE);
+                }
+            }
         }
 
         private void Passwords()
