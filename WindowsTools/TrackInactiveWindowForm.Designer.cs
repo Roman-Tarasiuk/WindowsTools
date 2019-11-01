@@ -47,7 +47,7 @@
             //
             // txtHwnd
             //
-            this.txtHwnd.Location = new System.Drawing.Point(56, 3);
+            this.txtHwnd.Location = new System.Drawing.Point(56, 2);
             this.txtHwnd.Name = "txtHwnd";
             this.txtHwnd.Size = new System.Drawing.Size(69, 20);
             this.txtHwnd.TabIndex = 0;
@@ -75,9 +75,9 @@
             // btnStartStop
             //
             this.btnStartStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStartStop.Location = new System.Drawing.Point(325, 1);
+            this.btnStartStop.Location = new System.Drawing.Point(320, 1);
             this.btnStartStop.Name = "btnStartStop";
-            this.btnStartStop.Size = new System.Drawing.Size(75, 23);
+            this.btnStartStop.Size = new System.Drawing.Size(42, 23);
             this.btnStartStop.TabIndex = 3;
             this.btnStartStop.Text = "Start";
             this.btnStartStop.UseVisualStyleBackColor = true;
@@ -162,9 +162,9 @@
             // btnClose
             //
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(380, 23);
+            this.btnClose.Location = new System.Drawing.Point(380, 1);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(20, 20);
+            this.btnClose.Size = new System.Drawing.Size(20, 23);
             this.btnClose.TabIndex = 9;
             this.btnClose.Text = "×";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -173,9 +173,9 @@
             // btnToggleBorder
             //
             this.btnToggleBorder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnToggleBorder.Location = new System.Drawing.Point(361, 23);
+            this.btnToggleBorder.Location = new System.Drawing.Point(361, 1);
             this.btnToggleBorder.Name = "btnToggleBorder";
-            this.btnToggleBorder.Size = new System.Drawing.Size(20, 20);
+            this.btnToggleBorder.Size = new System.Drawing.Size(20, 23);
             this.btnToggleBorder.TabIndex = 9;
             this.btnToggleBorder.Text = "∧";
             this.btnToggleBorder.UseVisualStyleBackColor = true;
