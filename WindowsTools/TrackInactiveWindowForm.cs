@@ -77,8 +77,6 @@ namespace WindowsTools
 
             this.Size = Properties.Settings.Default.TrackInactiveFormSize;
 
-            m_SizeInitialized = true;
-
             //
 
             this.MouseDown += (sender, e) =>
@@ -141,6 +139,11 @@ namespace WindowsTools
                 Properties.Settings.Default.TrackInactiveFormSize = this.Size;
                 OnSettingsChanged();
             }
+        }
+
+        private void formShown(object sender, EventArgs e)
+        {
+            this.m_SizeInitialized = true;
         }
 
         private void formClosing(object sender, FormClosingEventArgs e)

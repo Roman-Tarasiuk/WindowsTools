@@ -199,6 +199,7 @@
             this.Controls.Add(this.txtHwnd);
             this.Controls.Add(this.chkTrackModalWindow);
             this.SizeChanged += new System.EventHandler(this.formSize_Changed);
+            this.Shown += new System.EventHandler(this.formShown);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formClosing);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
