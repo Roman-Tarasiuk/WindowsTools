@@ -90,6 +90,7 @@
             this.notesMinimizeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notesRestoreAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.reloadSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideMinimizedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -264,6 +265,7 @@
             this.passwordsToolStripMenuItem,
             this.miscellaneousToolStripMenuItem1,
             this.toolStripSeparator7,
+            this.reloadSettingsToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.ShowShortcutKeys = false;
@@ -700,6 +702,14 @@
             //
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(256, 6);
+            //
+            // reloadSettingsToolStripMenuItem
+            //
+            this.reloadSettingsToolStripMenuItem.Name = "reloadSettingsToolStripMenuItem";
+            this.reloadSettingsToolStripMenuItem.ShowShortcutKeys = false;
+            this.reloadSettingsToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+            this.reloadSettingsToolStripMenuItem.Text = "Reload settings";
+            this.reloadSettingsToolStripMenuItem.Click += new System.EventHandler(this.reloadSettingsToolStripMenuItem_Click);
             //
             // optionsToolStripMenuItem
             //
@@ -1618,6 +1628,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setILDASMFontsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reloadSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.Button btnRefreshWindowsList;
         private System.Windows.Forms.Button btnToggleButtons;

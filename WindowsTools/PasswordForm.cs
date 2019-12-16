@@ -47,6 +47,16 @@ namespace WindowsTools
         public event EventHandler PasswordsChanged;
         public event EventHandler SettingsChanged;
 
+        public void SetSettingsUpdate()
+        {
+            if (MainForm != null)
+            {
+                MainForm.SettingsReloaded += (o, e) => {
+                    this.LoadSettings();
+                };
+            }
+        }
+
         public List<String> PasswordsRepresentation
         {
             get
@@ -173,15 +183,7 @@ namespace WindowsTools
 
             this.Location = Properties.Settings.Default.PasswordsForm_Location;
 
-            m_ExceptPasswordWindows = new List<String>();
-            var exceptNamesStr = ConfigurationManager.AppSettings.Get("exceptPasswordWindowsNames");
-            var separatorStr = ConfigurationManager.AppSettings.Get("exceptPasswordWindowsNamesSeparator");
-            var separator = new string[] { separatorStr };
-            var splitted = exceptNamesStr.Split(separator, StringSplitOptions.None);
-            foreach (var s in splitted)
-            {
-                m_ExceptPasswordWindows.Add(s);
-            }
+            this.LoadSettings();
         }
 
         #endregion
@@ -352,6 +354,19 @@ namespace WindowsTools
 
 
         #region Helper methods
+
+        private void LoadSettings()
+        {
+            m_ExceptPasswordWindows = new List<String>();
+            var exceptNamesStr = ConfigurationManager.AppSettings.Get("exceptPasswordWindowsNames");
+            var separatorStr = ConfigurationManager.AppSettings.Get("exceptPasswordWindowsNamesSeparator");
+            var separator = new string[] { separatorStr };
+            var splitted = exceptNamesStr.Split(separator, StringSplitOptions.None);
+            foreach (var s in splitted)
+            {
+                m_ExceptPasswordWindows.Add(s);
+            }
+        }
 
         private void FlashWindow()
         {

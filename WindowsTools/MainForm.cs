@@ -95,6 +95,16 @@ namespace WindowsTools
 
         #region Public Methods
 
+        public event EventHandler SettingsReloaded;
+
+        protected void OnSettingsReloaded()
+        {
+            if (SettingsReloaded != null)
+            {
+                SettingsReloaded.Invoke(this, EventArgs.Empty);
+            }
+        }
+
         public void Lock()
         {
             User32Windows.LockWorkStation();
@@ -1110,6 +1120,12 @@ namespace WindowsTools
             RestoreNotes();
         }
 
+        private void reloadSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurationManager.RefreshSection("appSettings");
+            OnSettingsReloaded();
+        }
+
         private void clockToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Clock();
@@ -1843,6 +1859,9 @@ namespace WindowsTools
                 };
 
                 m_PasswordForm.SettingsChanged += SettingsChangedEventHandler;
+
+                m_PasswordForm.MainForm = this;
+                m_PasswordForm.SetSettingsUpdate();
             }
 
             User32Windows.ShowForm(m_PasswordForm);
