@@ -1058,6 +1058,16 @@ namespace WindowsTools
             ToggleMovingOrderingButtons();
         }
 
+        private void setTopmostToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetTopmost(true);
+        }
+
+        private void unsetTopmostToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetTopmost(false);
+        }
+
         // Main menu | Miscellaneous
 
         private void decodeClipboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2584,7 +2594,23 @@ namespace WindowsTools
             timer.Elapsed += tracker;
         }
 
-        #endregion
+        private void SetTopmost(bool topmost)
+        {
+            if (!CheckTargetWindow())
+            {
+                return;
+            }
+
+            var selectedIndex = this.lstWindowsList.SelectedIndices[0];
+            var target = m_ListedWindows[selectedIndex];
+
+            var topmostParam = topmost ? User32Windows.HWND_TOPMOST : User32Windows.HWND_NOTOPMOST;
+
+            User32Windows.SetWindowPos(target.Handle, topmostParam, 0, 0, 0, 0,
+                User32Windows.SWP_SHOWWINDOW | User32Windows.SWP_NOSIZE | User32Windows.SWP_NOMOVE);
+        }
+
+        #endregion // Helper methods
 
         private void stopwatchToolStripMenuItem_Click(object sender, EventArgs e)
         {
