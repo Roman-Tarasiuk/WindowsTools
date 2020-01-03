@@ -75,6 +75,7 @@
             this.decodeTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replacernTospaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replacernToEmptyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.replacernToStringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toUPPERCASEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toLowercaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearClipboarFormatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -156,6 +157,7 @@
             this.decodeTextToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.replacernTospaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.replacernToEmptyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.replacernToStringToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toUPPERCASEToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toLowercaseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clearClipboarFormatToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -515,6 +517,7 @@
             this.decodeToolStripMenuItem,
             this.replacernTospaceToolStripMenuItem,
             this.replacernToEmptyToolStripMenuItem,
+            this.replacernToStringToolStripMenuItem,
             this.toUPPERCASEToolStripMenuItem,
             this.toLowercaseToolStripMenuItem,
             this.clearClipboarFormatToolStripMenuItem,
@@ -592,6 +595,14 @@
             this.replacernToEmptyToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.replacernToEmptyToolStripMenuItem.Text = "\\r\\n to empty";
             this.replacernToEmptyToolStripMenuItem.Click += new System.EventHandler(this.replacernToEmptyToolStripMenuItem_Click);
+            //
+            // replacernToStringToolStripMenuItem
+            //
+            this.replacernToStringToolStripMenuItem.Image = global::WindowsTools.Properties.Resources.line_break;
+            this.replacernToStringToolStripMenuItem.Name = "replacernToStringToolStripMenuItem";
+            this.replacernToStringToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.replacernToStringToolStripMenuItem.Text = "\\r\\n to string...";
+            this.replacernToStringToolStripMenuItem.Click += new System.EventHandler(this.replacernToStringToolStripMenuItem_Click);
             //
             // toUPPERCASEToolStripMenuItem
             //
@@ -1183,6 +1194,7 @@
             this.decodeToolStripMenuItem1,
             this.replacernTospaceToolStripMenuItem1,
             this.replacernToEmptyToolStripMenuItem1,
+            this.replacernToStringToolStripMenuItem1,
             this.toUPPERCASEToolStripMenuItem1,
             this.toLowercaseToolStripMenuItem1,
             this.clearClipboarFormatToolStripMenuItem1,
@@ -1260,6 +1272,14 @@
             this.replacernToEmptyToolStripMenuItem1.Size = new System.Drawing.Size(225, 22);
             this.replacernToEmptyToolStripMenuItem1.Text = "\\r\\n to empty";
             this.replacernToEmptyToolStripMenuItem1.Click += new System.EventHandler(this.replacernToEmptyToolStripMenuItem1_Click);
+            //
+            // replacernToStringToolStripMenuItem1
+            //
+            this.replacernToStringToolStripMenuItem1.Image = global::WindowsTools.Properties.Resources.line_break;
+            this.replacernToStringToolStripMenuItem1.Name = "replacernToStringToolStripMenuItem1";
+            this.replacernToStringToolStripMenuItem1.Size = new System.Drawing.Size(225, 22);
+            this.replacernToStringToolStripMenuItem1.Text = "\\r\\n to string...";
+            this.replacernToStringToolStripMenuItem1.Click += new System.EventHandler(this.replacernToStringToolStripMenuItem1_Click);
             //
             // toUPPERCASEToolStripMenuItem1
             //
@@ -1714,8 +1734,10 @@
         private System.Windows.Forms.ToolStripMenuItem viewSystemClipboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem replacernTospaceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem replacernToEmptyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem replacernToStringToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem replacernTospaceToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem replacernToEmptyToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem replacernToStringToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem copyProcessIdToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compareStringsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compareStringsToolStripMenuItem1;

@@ -1100,6 +1100,12 @@ namespace WindowsTools
         {
             ReplaceRNToEmpty();
         }
+
+        private void replacernToStringToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReplaceRNToString();
+        }
+
         private void viewSystemClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RunClipboardManager();
@@ -1227,6 +1233,11 @@ namespace WindowsTools
         private void replacernToEmptyToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ReplaceRNToEmpty();
+        }
+
+        private void replacernToStringToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ReplaceRNToString();
         }
 
         private void viewSystemClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -2079,6 +2090,31 @@ namespace WindowsTools
             if (clipboardStr != null)
             {
                 Clipboard.SetText(clipboardStr.Replace("\r\n", ""));
+            }
+        }
+
+        private void ReplaceRNToString()
+        {
+            var clipboardStr = Clipboard.GetText();
+
+            var prompt = new PromptForm()
+            {
+                Title = "\\r\\n replacement",
+                Description = "Replacement string",
+                UserInput = ", "
+            };
+
+            var result = prompt.ShowDialog();
+            if (result != DialogResult.OK)
+            {
+                return;
+            }
+
+            var replacement = prompt.UserInput;
+
+            if (clipboardStr != null)
+            {
+                Clipboard.SetText(clipboardStr.Replace("\r\n", replacement));
             }
         }
 
