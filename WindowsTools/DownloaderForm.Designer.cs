@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DownloaderForm));
             this.txtUrl = new System.Windows.Forms.TextBox();
             this.btnLoad = new System.Windows.Forms.Button();
+            this.lblSiteLogin = new System.Windows.Forms.Label();
+            this.txtSiteLogin = new System.Windows.Forms.TextBox();
+            this.lblSitePassword = new System.Windows.Forms.Label();
+            this.txtSitePassword = new System.Windows.Forms.TextBox();
             this.lblLogin = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtLogin = new System.Windows.Forms.TextBox();
@@ -46,11 +50,11 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.lblDownloadPercentage = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
+            //
             // txtUrl
-            // 
-            this.txtUrl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.txtUrl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUrl.Location = new System.Drawing.Point(12, 25);
             this.txtUrl.Multiline = true;
@@ -58,9 +62,9 @@
             this.txtUrl.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtUrl.Size = new System.Drawing.Size(499, 122);
             this.txtUrl.TabIndex = 0;
-            // 
+            //
             // btnLoad
-            // 
+            //
             this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLoad.Location = new System.Drawing.Point(12, 291);
             this.btnLoad.Name = "btnLoad";
@@ -69,20 +73,57 @@
             this.btnLoad.Text = "Download";
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
-            // 
+            //
+            // lblSiteLogin
+            //
+            this.lblSiteLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblSiteLogin.AutoSize = true;
+            this.lblSiteLogin.Location = new System.Drawing.Point(9, 179);
+            this.lblSiteLogin.Name = "lblSiteLogin";
+            this.lblSiteLogin.Size = new System.Drawing.Size(36, 13);
+            this.lblSiteLogin.TabIndex = 2;
+            this.lblSiteLogin.Text = "Site login:";
+            //
+            // txtSiteLogin
+            //
+            this.txtSiteLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtSiteLogin.Location = new System.Drawing.Point(91, 176);
+            this.txtSiteLogin.Name = "txtSiteLogin";
+            this.txtSiteLogin.Size = new System.Drawing.Size(154, 20);
+            this.txtSiteLogin.TabIndex = 4;
+            //
+            // lblSitePassword
+            //
+            this.lblSitePassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblSitePassword.AutoSize = true;
+            this.lblSitePassword.Location = new System.Drawing.Point(260, 179);
+            this.lblSitePassword.Name = "lblSitePassword";
+            this.lblSitePassword.Size = new System.Drawing.Size(36, 13);
+            this.lblSitePassword.TabIndex = 2;
+            this.lblSitePassword.Text = "Site password:";
+            //
+            // txtSitePassword
+            //
+            this.txtSitePassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtSitePassword.Location = new System.Drawing.Point(350, 176);
+            this.txtSitePassword.Name = "txtSitePassword";
+            this.txtSitePassword.Size = new System.Drawing.Size(154, 20);
+            this.txtSitePassword.TabIndex = 4;
+            this.txtSitePassword.PasswordChar = '*';
+            //
             // lblLogin
-            // 
+            //
             this.lblLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblLogin.AutoSize = true;
             this.lblLogin.Enabled = false;
-            this.lblLogin.Location = new System.Drawing.Point(9, 234);
+            this.lblLogin.Location = new System.Drawing.Point(9, 239);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(36, 13);
             this.lblLogin.TabIndex = 2;
             this.lblLogin.Text = "Login:";
-            // 
+            //
             // lblPassword
-            // 
+            //
             this.lblPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblPassword.AutoSize = true;
             this.lblPassword.Enabled = false;
@@ -91,19 +132,19 @@
             this.lblPassword.Size = new System.Drawing.Size(56, 13);
             this.lblPassword.TabIndex = 3;
             this.lblPassword.Text = "Password:";
-            // 
+            //
             // txtLogin
-            // 
+            //
             this.txtLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtLogin.Enabled = false;
-            this.txtLogin.Location = new System.Drawing.Point(91, 231);
+            this.txtLogin.Location = new System.Drawing.Point(91, 236);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(254, 20);
             this.txtLogin.TabIndex = 4;
             this.txtLogin.TextChanged += new System.EventHandler(this.txtLogin_TextChanged);
-            // 
+            //
             // txtPassword
-            // 
+            //
             this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtPassword.Enabled = false;
             this.txtPassword.Location = new System.Drawing.Point(91, 257);
@@ -112,62 +153,62 @@
             this.txtPassword.Size = new System.Drawing.Size(254, 20);
             this.txtPassword.TabIndex = 5;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
-            // 
+            //
             // label3
-            // 
+            //
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(9, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "URL(s):";
-            // 
+            //
             // chkUseProxy
-            // 
+            //
             this.chkUseProxy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkUseProxy.AutoSize = true;
-            this.chkUseProxy.Location = new System.Drawing.Point(12, 186);
+            this.chkUseProxy.Location = new System.Drawing.Point(12, 201);
             this.chkUseProxy.Name = "chkUseProxy";
             this.chkUseProxy.Size = new System.Drawing.Size(73, 17);
             this.chkUseProxy.TabIndex = 7;
             this.chkUseProxy.Text = "Use proxy";
             this.chkUseProxy.UseVisualStyleBackColor = true;
             this.chkUseProxy.CheckedChanged += new System.EventHandler(this.chkUseProxy_CheckedChanged);
-            // 
+            //
             // txtProxy
-            // 
-            this.txtProxy.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.txtProxy.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtProxy.Enabled = false;
-            this.txtProxy.Location = new System.Drawing.Point(91, 205);
+            this.txtProxy.Location = new System.Drawing.Point(91, 215);
             this.txtProxy.Name = "txtProxy";
             this.txtProxy.Size = new System.Drawing.Size(377, 20);
             this.txtProxy.TabIndex = 9;
             this.txtProxy.TextChanged += new System.EventHandler(this.txtProxy_TextChanged);
-            // 
+            //
             // lblProxy
-            // 
+            //
             this.lblProxy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblProxy.AutoSize = true;
             this.lblProxy.Enabled = false;
-            this.lblProxy.Location = new System.Drawing.Point(9, 208);
+            this.lblProxy.Location = new System.Drawing.Point(9, 218);
             this.lblProxy.Name = "lblProxy";
             this.lblProxy.Size = new System.Drawing.Size(36, 13);
             this.lblProxy.TabIndex = 8;
             this.lblProxy.Text = "Proxy:";
-            // 
+            //
             // txtLocalPath
-            // 
-            this.txtLocalPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.txtLocalPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLocalPath.Location = new System.Drawing.Point(91, 153);
             this.txtLocalPath.Name = "txtLocalPath";
             this.txtLocalPath.Size = new System.Drawing.Size(377, 20);
             this.txtLocalPath.TabIndex = 11;
             this.txtLocalPath.TextChanged += new System.EventHandler(this.txtLocalPath_TextChanged);
-            // 
+            //
             // label5
-            // 
+            //
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(9, 156);
@@ -175,9 +216,9 @@
             this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 10;
             this.label5.Text = "Save to:";
-            // 
+            //
             // btnSaveTo
-            // 
+            //
             this.btnSaveTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveTo.Location = new System.Drawing.Point(474, 151);
             this.btnSaveTo.Name = "btnSaveTo";
@@ -186,19 +227,19 @@
             this.btnSaveTo.Text = "...";
             this.btnSaveTo.UseVisualStyleBackColor = true;
             this.btnSaveTo.Click += new System.EventHandler(this.btnSaveTo_Click);
-            // 
+            //
             // progressBar1
-            // 
-            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar1.Location = new System.Drawing.Point(91, 3);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(420, 19);
             this.progressBar1.TabIndex = 13;
             this.progressBar1.Visible = false;
-            // 
+            //
             // lblDownloadPercentage
-            // 
+            //
             this.lblDownloadPercentage.AutoSize = true;
             this.lblDownloadPercentage.Location = new System.Drawing.Point(97, 6);
             this.lblDownloadPercentage.Name = "lblDownloadPercentage";
@@ -206,9 +247,9 @@
             this.lblDownloadPercentage.TabIndex = 14;
             this.lblDownloadPercentage.Text = "%";
             this.lblDownloadPercentage.Visible = false;
-            // 
+            //
             // DownloaderForm
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(523, 326);
@@ -217,6 +258,10 @@
             this.Controls.Add(this.btnSaveTo);
             this.Controls.Add(this.txtLocalPath);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblSiteLogin);
+            this.Controls.Add(this.txtSiteLogin);
+            this.Controls.Add(this.lblSitePassword);
+            this.Controls.Add(this.txtSitePassword);
             this.Controls.Add(this.txtProxy);
             this.Controls.Add(this.lblProxy);
             this.Controls.Add(this.chkUseProxy);
@@ -239,6 +284,10 @@
 
         private System.Windows.Forms.TextBox txtUrl;
         private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.Label lblSiteLogin;
+        private System.Windows.Forms.TextBox txtSiteLogin;
+        private System.Windows.Forms.Label lblSitePassword;
+        private System.Windows.Forms.TextBox txtSitePassword;
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txtLogin;

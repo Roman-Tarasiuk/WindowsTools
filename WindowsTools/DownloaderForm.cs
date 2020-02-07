@@ -58,6 +58,11 @@ namespace WindowsTools
                     wc.UseDefaultCredentials = true;
                 }
 
+                if (txtSiteLogin.Text != String.Empty)
+                {
+                    wc.Credentials = new NetworkCredential(txtSiteLogin.Text, txtSitePassword.Text);
+                }
+
                 var filename = "";
 
                 DownloadProgressChangedEventHandler progressTracker = (senderTracker, progressChangesArgs) =>
