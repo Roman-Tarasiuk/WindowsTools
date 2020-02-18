@@ -253,12 +253,24 @@ namespace WindowsTools
             {
                 this.FormBorderStyle = FormBorderStyle.None;
 
+                this.txtLog.Visible = false;
+                this.chkTrackModalWindow.Visible = false;
+                this.chkWordWrap.Visible = false;
+                this.chkTopmost.Visible = false;
+                this.chkShowInTaskbar.Visible = false;
+
                 this.Location = new Point(this.Location.X + m_BorderOffsetX, this.Location.Y + m_BorderOffsetY);
             }
             else
             {
                 var currentLocation = this.txtLog.PointToScreen(this.txtLog.Location);
                 this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+
+                this.txtLog.Visible = true;
+                this.chkTrackModalWindow.Visible = true;
+                this.chkWordWrap.Visible = true;
+                this.chkTopmost.Visible = true;
+                this.chkShowInTaskbar.Visible = true;
 
                 if (m_BorderOffsetX == 0 || m_BorderOffsetY == 0)
                 {
