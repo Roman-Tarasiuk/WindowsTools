@@ -2619,6 +2619,11 @@ namespace WindowsTools
                             reminderHwnd = w.Handle;
                             User32Windows.SetWindowPos(reminderHwnd, User32Windows.HWND_TOPMOST, 0, 0, 0, 0,
                                 User32Windows.SWP_SHOWWINDOW | User32Windows.SWP_NOSIZE | User32Windows.SWP_NOMOVE);
+
+                            if (User32Windows.IsIconic(reminderHwnd))
+                            {
+                                User32Windows.ShowWindow(reminderHwnd, User32Windows.SW_RESTORE);
+                            }
                         }
                     }
                 }
