@@ -29,10 +29,16 @@ namespace WindowsTools
         private bool m_MousePressed = false;
         private Point m_MousePressedPointOffset;
 
+        private StopWatchState State = StopWatchState.Start;
+        private Recording Recording = Recording.Green;
+
+        private const int BLINKING_INTERVAL = 750;
+        private int m_Blinks = 0;
+
         #endregion
 
         public StopWatchForm()
-        {
+        {   
             InitializeComponent();
 
             InitializePanel();
@@ -40,7 +46,10 @@ namespace WindowsTools
             LoadSettings();
             labelTimer.Text = m_TimeSpanTotal.ToString(m_TimeFormat);
             if (labelTimer.Text != m_TimeZero)
+            {
                 buttonStartPause.Text = "Continue";
+                State = StopWatchState.Continue;
+            }
         }
 
 
@@ -127,16 +136,24 @@ namespace WindowsTools
         {
             TimeSpan ts = DateTime.Now - m_TimeStart + m_TimeSpanTotal;
             labelTimer.Text = ts.ToString(m_TimeFormat);
+
+            m_Blinks += timer1.Interval;
+            if (m_Blinks >= BLINKING_INTERVAL)
+            {
+                m_Blinks = 0;
+                SetNotifyingIcon();
+            }
         }
 
         private void buttonStartPause_Click(object sender, EventArgs e)
         {
-            if (buttonStartPause.Text == "Start" || buttonStartPause.Text == "Continue")
+            if (State == StopWatchState.Start || State == StopWatchState.Continue)
             {
                 m_TimeStart = DateTime.Now;
                 timer1.Start();
 
                 buttonStartPause.Text = "Pause";
+                State = StopWatchState.Pause;
             }
             else
             // "Pause".
@@ -145,7 +162,9 @@ namespace WindowsTools
                 timer1.Stop();
 
                 buttonStartPause.Text = "Continue";
+                State = StopWatchState.Continue;
             }
+            SetNotifyingIcon();
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
@@ -153,11 +172,13 @@ namespace WindowsTools
             m_TimeStart = DateTime.Now;
             m_TimeSpanTotal = TimeSpan.Zero;
 
-            if (buttonStartPause.Text == "Continue")
+            if (State == StopWatchState.Continue)
             {
                 labelTimer.Text = m_TimeZero;
                 buttonStartPause.Text = "Start";
+                State = StopWatchState.Start;
             }
+            SetNotifyingIcon();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -205,6 +226,31 @@ namespace WindowsTools
         {
             labelTimer.Select();
         }
+
+        private void SetNotifyingIcon()
+        {
+            if (State == StopWatchState.Continue)
+            {
+                notifyIcon1.Icon = WindowsTools.Properties.Resources.screen_recording3;
+            }
+            else if (State == StopWatchState.Pause)
+            {
+                if (Recording == Recording.Green)
+                {
+                    notifyIcon1.Icon = WindowsTools.Properties.Resources.screen_recording3;
+                    Recording = Recording.Red;
+                }
+                else
+                {
+                    notifyIcon1.Icon = WindowsTools.Properties.Resources.screen_recording4;
+                    Recording = Recording.Green;
+                }
+            }
+            else // Start.
+            {
+                notifyIcon1.Icon = WindowsTools.Properties.Resources.stopwatch;
+            }
+        }
     }
 
     public class TransparentPanel : Panel
@@ -218,9 +264,23 @@ namespace WindowsTools
                 return cp;
             }
         }
+
         protected override void OnPaintBackground(PaintEventArgs e)
         {
             //base.OnPaintBackground(e);
         }
+    }
+
+    public enum StopWatchState
+    {
+        Start,
+        Pause,
+        Continue
+    }
+
+    public enum Recording
+    {
+        Green,
+        Red
     }
 }

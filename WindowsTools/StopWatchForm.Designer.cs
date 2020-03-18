@@ -42,6 +42,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonStartPause = new System.Windows.Forms.Button();
             this.buttonReset = new System.Windows.Forms.Button();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -162,6 +163,12 @@
             this.buttonReset.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
             // StopWatchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,5 +209,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.Button buttonStartPause;
         private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

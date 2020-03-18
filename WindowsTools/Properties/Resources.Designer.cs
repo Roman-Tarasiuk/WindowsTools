@@ -271,12 +271,62 @@ namespace WindowsTools.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon screen_recording1 {
+            get {
+                object obj = ResourceManager.GetObject("screen_recording1", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon screen_recording2 {
+            get {
+                object obj = ResourceManager.GetObject("screen_recording2", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon screen_recording3 {
+            get {
+                object obj = ResourceManager.GetObject("screen_recording3", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon screen_recording4 {
+            get {
+                object obj = ResourceManager.GetObject("screen_recording4", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap screen_saver_24_24 {
             get {
                 object obj = ResourceManager.GetObject("screen-saver-24_24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon stopwatch {
+            get {
+                object obj = ResourceManager.GetObject("stopwatch", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         

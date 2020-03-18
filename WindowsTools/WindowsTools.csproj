@@ -427,6 +427,11 @@
     <None Include="Resources\screen-4-64x64.png" />
     <None Include="Resources\line_break.png" />
     <None Include="Resources\screen-saver-24_24.png" />
+    <None Include="Resources\stopwatch.ico" />
+    <None Include="Resources\screen-recording1.ico" />
+    <None Include="Resources\screen-recording2.ico" />
+    <None Include="Resources\screen-recording3.ico" />
+    <None Include="Resources\screen-recording4.ico" />
     <Content Include="taskmgr_icon.png.ico" />
   </ItemGroup>
   <ItemGroup>
