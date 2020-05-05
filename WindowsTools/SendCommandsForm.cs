@@ -261,6 +261,11 @@ namespace WindowsTools
             txtTitle.Text = title.ToString();
         }
 
+        private void CheckInactiveTools()
+        {
+            m_Tools.RemoveAll(t => t == null || t.IsDisposed);
+        }
+
         #endregion
 
 
@@ -268,6 +273,8 @@ namespace WindowsTools
 
         public void StartAllTools(ToolStripMenuItem item)
         {
+            CheckInactiveTools();
+
             if (item.Text == "Start all")
             {
                 foreach (var t in m_Tools)
@@ -290,6 +297,8 @@ namespace WindowsTools
 
         public void HideAllTools()
         {
+            CheckInactiveTools();
+
             foreach (var t in m_Tools)
             {
                 t.Hide();
@@ -298,6 +307,8 @@ namespace WindowsTools
 
         public void MinimizeAllTools()
         {
+            CheckInactiveTools();
+
             foreach (var t in m_Tools)
             {
                 t.WindowState = FormWindowState.Minimized;
@@ -306,6 +317,8 @@ namespace WindowsTools
 
         public void RestoreAllTools()
         {
+            CheckInactiveTools();
+
             foreach (var t in m_Tools)
             {
                 t.Show();
@@ -315,6 +328,8 @@ namespace WindowsTools
 
         public void SetAutohideForAllTools()
         {
+            CheckInactiveTools();
+
             foreach (var t in m_Tools)
             {
                 t.AutoHide = true;
@@ -323,6 +338,8 @@ namespace WindowsTools
 
         public void RemoveAutohideFromAllTools()
         {
+            CheckInactiveTools();
+
             foreach (var t in m_Tools)
             {
                 t.AutoHide = false;
