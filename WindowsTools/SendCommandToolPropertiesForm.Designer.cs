@@ -60,6 +60,8 @@
             this.radioActivateWindow = new System.Windows.Forms.RadioButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtHostHwnd = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -338,7 +340,7 @@
             // 
             this.radioCommand.AutoSize = true;
             this.radioCommand.Checked = true;
-            this.radioCommand.Location = new System.Drawing.Point(84, 7);
+            this.radioCommand.Location = new System.Drawing.Point(75, 7);
             this.radioCommand.Name = "radioCommand";
             this.radioCommand.Size = new System.Drawing.Size(60, 17);
             this.radioCommand.TabIndex = 28;
@@ -350,7 +352,7 @@
             // radioClipboard
             // 
             this.radioClipboard.AutoSize = true;
-            this.radioClipboard.Location = new System.Drawing.Point(150, 7);
+            this.radioClipboard.Location = new System.Drawing.Point(141, 7);
             this.radioClipboard.Name = "radioClipboard";
             this.radioClipboard.Size = new System.Drawing.Size(69, 17);
             this.radioClipboard.TabIndex = 29;
@@ -361,7 +363,7 @@
             // radioActivateWindow
             // 
             this.radioActivateWindow.AutoSize = true;
-            this.radioActivateWindow.Location = new System.Drawing.Point(225, 7);
+            this.radioActivateWindow.Location = new System.Drawing.Point(216, 7);
             this.radioActivateWindow.Name = "radioActivateWindow";
             this.radioActivateWindow.Size = new System.Drawing.Size(103, 17);
             this.radioActivateWindow.TabIndex = 30;
@@ -387,11 +389,29 @@
             this.label6.TabIndex = 33;
             this.label6.Text = "Track interval (ms):";
             // 
+            // txtHostHwnd
+            // 
+            this.txtHostHwnd.Location = new System.Drawing.Point(366, 4);
+            this.txtHostHwnd.Name = "txtHostHwnd";
+            this.txtHostHwnd.Size = new System.Drawing.Size(87, 20);
+            this.txtHostHwnd.TabIndex = 37;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(334, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(32, 13);
+            this.label7.TabIndex = 36;
+            this.label7.Text = "Host:";
+            // 
             // SendCommandToolPropertiesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(465, 289);
+            this.Controls.Add(this.txtHostHwnd);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.radioActivateWindow);
@@ -466,5 +486,7 @@
         private System.Windows.Forms.RadioButton radioActivateWindow;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtHostHwnd;
+        private System.Windows.Forms.Label label7;
     }
 }

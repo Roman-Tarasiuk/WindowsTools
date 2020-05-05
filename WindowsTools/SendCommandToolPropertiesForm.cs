@@ -15,6 +15,7 @@ namespace WindowsTools
     {
         #region Properties
 
+        public IntPtr HostHwnd { get; set; }
         public string Commands { get; set; }
         public AnchorHorizontal AnchorH { get; set; }
         public AnchorVertical AnchorV { get; set; }
@@ -111,6 +112,7 @@ namespace WindowsTools
 
         private void InitializeGUI()
         {
+            txtHostHwnd.Text = HostHwnd.ToString();
             txtToolWidth.Text = ToolWidht.ToString();
             txtToolHeight.Text = ToolHeight.ToString();
 
@@ -159,6 +161,12 @@ namespace WindowsTools
 
         private void ApplyProperties()
         {
+            int hostHwnd;
+            if (int.TryParse(txtHostHwnd.Text, out hostHwnd))
+            {
+                HostHwnd = (IntPtr)hostHwnd;
+            }
+
             Commands = txtCommands.Text;
 
             int w;

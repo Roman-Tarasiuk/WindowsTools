@@ -247,6 +247,7 @@ namespace WindowsTools
         {
             var settingsForm = new SendCommandToolPropertiesForm()
             {
+                HostHwnd = this.m_HostWindowHwnd,
                 ToolWidht = this.Size.Width,
                 ToolHeight = this.Size.Height,
                 AnchorH = m_AnchorH,
@@ -267,6 +268,7 @@ namespace WindowsTools
 
             if (result == DialogResult.OK)
             {
+                this.m_HostWindowHwnd = settingsForm.HostHwnd;
                 this.Size = new Size(settingsForm.ToolWidht, settingsForm.ToolHeight);
                 this.m_AnchorH = settingsForm.AnchorH;
                 this.m_AnchorV = settingsForm.AnchorV;
@@ -356,9 +358,8 @@ namespace WindowsTools
 
             if (!User32Windows.IsWindow(m_HostWindowHwnd))
             {
-                MessageBox.Show("Hosting window not found. Try to refresh list.\nExit tool.",
+                MessageBox.Show("Hosting window not found. Close the tool or set its hosting window.",
                     this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
                 return;
             }
 
@@ -488,29 +489,28 @@ namespace WindowsTools
             var title = User32Windows.GetWindowText(foreWindow, 255);
             bool matchesTitlePattern = false;
 
-            if (((foreWindow == m_HostWindowHwnd
-                    || foreWindow == this.Handle)
-                   && !User32Windows.IsIconic(m_HostWindowHwnd))
+            if (((foreWindow == m_HostWindowHwnd || foreWindow == this.Handle)
+                        && !User32Windows.IsIconic(m_HostWindowHwnd))
                  || (title == m_HostWindowTitle && m_RunOnAllWindowsWithSameTitle)
                  || (m_TitlePattern != String.Empty && (matchesTitlePattern = m_TitleRegex.IsMatch(title))))
             {
-                if ((foreWindow != m_HostWindowHwnd) && (foreWindow != this.Handle))
-                {
-                    int pidFore, pidThis;
-                    User32Windows.GetWindowThreadProcessId(foreWindow, out pidFore);
-                    User32Windows.GetWindowThreadProcessId(this.Handle, out pidThis);
-                    if (pidFore == pidThis)
-                    {
-                        return;
-                    }
-
-                    m_HostWindowHwnd = foreWindow;
-                    m_HostWindowTitle = title;
-                    if (!matchesTitlePattern)
-                    {
-                        CalculateCoordinates();
-                    }
-                }
+                // if ((foreWindow != m_HostWindowHwnd) && (foreWindow != this.Handle))
+                // {
+                //     int pidFore, pidThis;
+                //     User32Windows.GetWindowThreadProcessId(foreWindow, out pidFore);
+                //     User32Windows.GetWindowThreadProcessId(this.Handle, out pidThis);
+                //     if (pidFore == pidThis)
+                //     {
+                //         return;
+                //     }
+                // 
+                //     m_HostWindowHwnd = foreWindow;
+                //     m_HostWindowTitle = title;
+                //     if (!matchesTitlePattern)
+                //     {
+                //         CalculateCoordinates();
+                //     }
+                // }
 
                 Rectangle rHost;
                 User32Windows.GetWindowRect(m_HostWindowHwnd, out rHost);
