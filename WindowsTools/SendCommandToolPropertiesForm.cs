@@ -235,5 +235,11 @@ namespace WindowsTools
         }
 
         #endregion
+
+        private void btn_SelectTaskbar_Click(object sender, EventArgs e)
+        {
+            IntPtr taskBarWnd = User32Helper.User32Windows.FindWindow("Shell_TrayWnd", null);
+            txtCommands.Text = taskBarWnd.ToString();
+        }
     }
 }

@@ -62,6 +62,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtHostHwnd = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btn_SelectTaskbar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -107,7 +108,7 @@
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Location = new System.Drawing.Point(379, 260);
+            this.btnOk.Location = new System.Drawing.Point(444, 260);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 22;
@@ -201,7 +202,7 @@
             this.txtCommands.Multiline = true;
             this.txtCommands.Name = "txtCommands";
             this.txtCommands.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtCommands.Size = new System.Drawing.Size(441, 85);
+            this.txtCommands.Size = new System.Drawing.Size(506, 85);
             this.txtCommands.TabIndex = 17;
             this.txtCommands.WordWrap = false;
             // 
@@ -333,7 +334,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTitlePattern.Location = new System.Drawing.Point(208, 137);
             this.txtTitlePattern.Name = "txtTitlePattern";
-            this.txtTitlePattern.Size = new System.Drawing.Size(245, 20);
+            this.txtTitlePattern.Size = new System.Drawing.Size(310, 20);
             this.txtTitlePattern.TabIndex = 27;
             // 
             // radioCommand
@@ -391,25 +392,38 @@
             // 
             // txtHostHwnd
             // 
-            this.txtHostHwnd.Location = new System.Drawing.Point(366, 4);
+            this.txtHostHwnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtHostHwnd.Location = new System.Drawing.Point(431, 4);
             this.txtHostHwnd.Name = "txtHostHwnd";
             this.txtHostHwnd.Size = new System.Drawing.Size(87, 20);
             this.txtHostHwnd.TabIndex = 37;
             // 
             // label7
             // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(334, 9);
+            this.label7.Location = new System.Drawing.Point(399, 9);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(32, 13);
             this.label7.TabIndex = 36;
             this.label7.Text = "Host:";
             // 
+            // btn_SelectTaskbar
+            // 
+            this.btn_SelectTaskbar.Location = new System.Drawing.Point(324, 1);
+            this.btn_SelectTaskbar.Name = "btn_SelectTaskbar";
+            this.btn_SelectTaskbar.Size = new System.Drawing.Size(59, 23);
+            this.btn_SelectTaskbar.TabIndex = 38;
+            this.btn_SelectTaskbar.Text = "Taskbar";
+            this.btn_SelectTaskbar.UseVisualStyleBackColor = true;
+            this.btn_SelectTaskbar.Click += new System.EventHandler(this.btn_SelectTaskbar_Click);
+            // 
             // SendCommandToolPropertiesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(465, 289);
+            this.ClientSize = new System.Drawing.Size(530, 289);
+            this.Controls.Add(this.btn_SelectTaskbar);
             this.Controls.Add(this.txtHostHwnd);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -488,5 +502,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtHostHwnd;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btn_SelectTaskbar;
     }
 }

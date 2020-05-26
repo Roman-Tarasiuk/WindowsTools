@@ -151,6 +151,9 @@ namespace User32Helper
         [DllImport("user32.dll")]
         public static extern IntPtr GetNextWindow(IntPtr hWnd, int wCmd);
 
+        [DllImport("user32.dll")]
+        public static extern IntPtr FindWindow(string ClassName, string WindowName);
+
         public const int HWND_BOTTOM = 1;
         public const int HWND_NOTOPMOST = -2;
         public const int HWND_TOP = 0;

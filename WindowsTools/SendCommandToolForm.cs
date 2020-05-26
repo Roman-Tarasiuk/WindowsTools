@@ -192,7 +192,7 @@ namespace WindowsTools
 
         private void SendCommandToolForm_MouseClick(object sender, MouseEventArgs e)
         {
-            Process();
+            ProcessClick();
         }
 
         private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -349,7 +349,7 @@ namespace WindowsTools
 
         #region Helper methods
 
-        private void Process()
+        private void ProcessClick()
         {
             if (!m_IsRunning)
             {
@@ -485,12 +485,11 @@ namespace WindowsTools
             }
 
             IntPtr foreWindow = User32Windows.GetForegroundWindow();
-
             var title = User32Windows.GetWindowText(foreWindow, 255);
             bool matchesTitlePattern = false;
 
-            if (((foreWindow == m_HostWindowHwnd || foreWindow == this.Handle)
-                        && !User32Windows.IsIconic(m_HostWindowHwnd))
+            if (    ((foreWindow == m_HostWindowHwnd || foreWindow == this.Handle)
+                      && !User32Windows.IsIconic(m_HostWindowHwnd))
                  || (title == m_HostWindowTitle && m_RunOnAllWindowsWithSameTitle)
                  || (m_TitlePattern != String.Empty && (matchesTitlePattern = m_TitleRegex.IsMatch(title))))
             {
