@@ -65,6 +65,7 @@ namespace WindowsTools
 
         private void btnBorderColor_Click(object sender, EventArgs e)
         {
+            colorDialog1.Color = BorderColor;
             var result = colorDialog1.ShowDialog();
 
             if (result == DialogResult.OK)
@@ -81,6 +82,7 @@ namespace WindowsTools
 
         private void btnBorderHoverColor_Click(object sender, EventArgs e)
         {
+            colorDialog1.Color = BorderHoverColor;
             var result = colorDialog1.ShowDialog();
 
             if (result == DialogResult.OK)
