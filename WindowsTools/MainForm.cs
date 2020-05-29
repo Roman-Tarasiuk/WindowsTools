@@ -2667,6 +2667,30 @@ namespace WindowsTools
         {
             new MouseClickOutside().Show();
         }
+
+        private void taskbarHwndToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                IntPtr taskBarWnd = User32Helper.User32Windows.FindWindow("Shell_TrayWnd", null);
+                var clipText = taskBarWnd.ToString();
+
+                if (taskBarWnd != IntPtr.Zero)
+                {
+                    Clipboard.SetText(clipText);
+                    MessageBox.Show("The Taskbar hwnd " + clipText + " copied to the clipboard.");
+                }
+                else
+                {
+                    MessageBox.Show("Something wrong: " + clipText);
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Error while getting the Taskbar hwnd:\n"
+                    + exception.ToString());
+            }
+        }
     } // class MainForm.
 
     public class ToolEventArgs : EventArgs
