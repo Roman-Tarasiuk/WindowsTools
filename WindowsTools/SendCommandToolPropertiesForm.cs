@@ -140,6 +140,7 @@ namespace WindowsTools
             radioCommand.Checked = (this.CommandType == SendCommandType.Command);
             radioClipboard.Checked = (this.CommandType == SendCommandType.Clipboard);
             radioActivateWindow.Checked = (this.CommandType == SendCommandType.ActivateWindow);
+            radioLastN.Checked = (this.CommandType == SendCommandType.ActivateLastN);
 
             txtCommands.ReadOnly = radioClipboard.Checked;
 
@@ -209,9 +210,13 @@ namespace WindowsTools
             {
                 this.CommandType = SendCommandType.Clipboard;
             }
-            else
+            else if (radioActivateWindow.Checked)
             {
                 this.CommandType = SendCommandType.ActivateWindow;
+            }
+            else
+            {
+                this.CommandType = SendCommandType.ActivateLastN;
             }
 
             Sleep = chkSleep.Checked;

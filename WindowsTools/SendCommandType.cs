@@ -10,6 +10,7 @@ namespace WindowsTools
     {
         Command,
         Clipboard,
-        ActivateWindow
+        ActivateWindow,
+        ActivateLastN
     }
 }

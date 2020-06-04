@@ -382,6 +382,36 @@ namespace WindowsTools
                 }
                 return;
             }
+            else if (this.m_SendCommandType == SendCommandType.ActivateLastN)
+            {
+                int lastN;
+                if (int.TryParse(m_Commands, out lastN))
+                {
+                    var handle = IntPtr.Zero;
+
+                    var windows = User32Windows.GetDesktopWindows();
+                    if (lastN < windows.Count)
+                    {
+                        handle = windows[lastN].Handle;
+                    }
+                    else
+                    {
+                        return;
+                    }
+
+                    if (User32Windows.IsIconic(handle))
+                    {
+                        User32Windows.ShowWindow(handle, User32Windows.SW_RESTORE);
+                    }
+                    User32Windows.SetForegroundWindow(handle);
+                }
+                else
+                {
+                    MessageBox.Show(String.Format("Window {0} not found.", m_Commands),
+                        this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                return;
+            }
 
             User32Windows.SetForegroundWindow(m_HostWindowHwnd);
 

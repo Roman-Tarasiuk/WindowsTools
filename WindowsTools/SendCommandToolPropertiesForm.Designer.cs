@@ -411,7 +411,6 @@
             // radioLastN
             // 
             this.radioLastN.AutoSize = true;
-            this.radioLastN.Enabled = false;
             this.radioLastN.Location = new System.Drawing.Point(324, 7);
             this.radioLastN.Name = "radioLastN";
             this.radioLastN.Size = new System.Drawing.Size(59, 17);
