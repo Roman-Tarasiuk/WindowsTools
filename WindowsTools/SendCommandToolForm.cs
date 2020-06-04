@@ -13,6 +13,7 @@ using System.Text.RegularExpressions;
 
 using User32Helper;
 using WindowsTools.Infrastructure;
+using NLog;
 
 namespace WindowsTools
 {
@@ -21,6 +22,8 @@ namespace WindowsTools
         public event EventHandler<ToolEventArgs> Exit;
 
         #region Fields
+
+        private Logger logger = LogManager.GetCurrentClassLogger();
 
         private IntPtr m_HostWindowHwnd;
         private string m_HostWindowTitle = String.Empty;
@@ -392,7 +395,30 @@ namespace WindowsTools
                     var windows = User32Windows.GetDesktopWindows();
                     if (lastN < windows.Count)
                     {
-                        handle = windows[lastN].Handle;
+                        IntPtr currentProcessId;
+                        // User32Windows.GetWindowThreadProcessId(this.Handle, out currentProcessId);
+                        currentProcessId = User32Windows.GetAncestor(this.Handle, User32Windows.GA_ROOT);
+
+                        var i = 1;
+                        IntPtr procId;
+
+                        for ( ; i < lastN; i++)
+                        {
+                            // User32Windows.GetWindowThreadProcessId(windows[i].Handle, out procId);
+                            procId = User32Windows.GetAncestor(windows[i].Handle, User32Windows.GA_ROOT);
+
+                            // logger.Info("Current: " + currentProcessId + ", checking: " + procId + " - " + windows[i].Title);
+
+                            if (procId == currentProcessId)
+                            {
+                                lastN++;
+                                if (lastN == windows.Count)
+                                {
+                                    return;
+                                }
+                            }
+                        }
+                        handle = windows[i].Handle;
                     }
                     else
                     {

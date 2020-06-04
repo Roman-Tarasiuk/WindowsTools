@@ -154,6 +154,12 @@ namespace User32Helper
         [DllImport("user32.dll")]
         public static extern IntPtr FindWindow(string ClassName, string WindowName);
 
+        [DllImport("user32.dll", ExactSpelling = true, CharSet = CharSet.Auto)]
+        public static extern IntPtr GetParent(IntPtr hWnd);
+
+        [DllImport("user32.dll", ExactSpelling = true)]
+        public static extern IntPtr GetAncestor(IntPtr hwnd, int flags);
+
         public const int HWND_BOTTOM = 1;
         public const int HWND_NOTOPMOST = -2;
         public const int HWND_TOP = 0;
@@ -200,6 +206,10 @@ namespace User32Helper
 
         public const int GW_HWNDNEXT = 2;
         public const int GW_HWNDPREV = 3;
+
+        public const int GA_PARENT = 1;
+        public const int GA_ROOT = 2;
+        public const int GA_ROOTOWNER = 3;
 
         public static List<DesktopWindow> GetDesktopWindows(bool visibleOnly = true, List<string> exceptNames = null)
         {
