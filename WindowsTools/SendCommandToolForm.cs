@@ -14,6 +14,7 @@ using System.Text.RegularExpressions;
 using User32Helper;
 using WindowsTools.Infrastructure;
 using NLog;
+// using System.Diagnostics;
 
 namespace WindowsTools
 {
@@ -392,24 +393,22 @@ namespace WindowsTools
                 {
                     var handle = IntPtr.Zero;
 
-                    var windows = User32Windows.GetDesktopWindows();
+                    var windows = User32Windows.GetDesktopWindows(getIcons: false);
+
+                    var programWindows = Application.OpenForms.Cast<Form>().Select(i => i.Handle);
+                    
+                    var running = new StringBuilder();
+                    foreach (var p in programWindows)
+                    {
+                        running.Append(p + ", ");
+                    }
+
                     if (lastN < windows.Count)
                     {
-                        IntPtr currentProcessId;
-                        // User32Windows.GetWindowThreadProcessId(this.Handle, out currentProcessId);
-                        currentProcessId = User32Windows.GetAncestor(this.Handle, User32Windows.GA_ROOT);
-
-                        var i = 1;
-                        IntPtr procId;
-
+                        var i = 0;
                         for ( ; i < lastN; i++)
                         {
-                            // User32Windows.GetWindowThreadProcessId(windows[i].Handle, out procId);
-                            procId = User32Windows.GetAncestor(windows[i].Handle, User32Windows.GA_ROOT);
-
-                            // logger.Info("Current: " + currentProcessId + ", checking: " + procId + " - " + windows[i].Title);
-
-                            if (procId == currentProcessId)
+                            if (programWindows.Contains(windows[i].Handle))
                             {
                                 lastN++;
                                 if (lastN == windows.Count)
@@ -418,7 +417,7 @@ namespace WindowsTools
                                 }
                             }
                         }
-                        handle = windows[i].Handle;
+                        handle = windows[i - 1].Handle;
                     }
                     else
                     {

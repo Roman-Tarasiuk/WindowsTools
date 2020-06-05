@@ -91,7 +91,11 @@ namespace User32Helper
             IntPtr lParam);
 
         [DllImport("user32.dll")]
-        public static extern bool EnumThreadWindows(IntPtr hDesktop, EnumDelegate lpEnumCallbackFunction,
+        public static extern bool EnumThreadWindows(IntPtr threadId, EnumDelegate lpEnumCallbackFunction,
+            IntPtr lParam);
+
+        [DllImport("user32.dll")]
+        public static extern bool EnumChildWindows(IntPtr hwnd, EnumDelegate lpEnumCallbackFunction,
             IntPtr lParam);
 
         [DllImport("User32.dll")]
@@ -211,7 +215,7 @@ namespace User32Helper
         public const int GA_ROOT = 2;
         public const int GA_ROOTOWNER = 3;
 
-        public static List<DesktopWindow> GetDesktopWindows(bool visibleOnly = true, List<string> exceptNames = null)
+        public static List<DesktopWindow> GetDesktopWindows(bool visibleOnly = true, List<string> exceptNames = null, bool getIcons = true)
         {
             var collection = new List<DesktopWindow>();
 
@@ -234,7 +238,7 @@ namespace User32Helper
                     return true;
                 }
 
-                Icon icon = GetIcon(hWnd);
+                Icon icon = getIcons ? GetIcon(hWnd) : null;
 
 
                 int processId;
@@ -255,6 +259,18 @@ namespace User32Helper
             EnumDesktopWindows(IntPtr.Zero, AcquireMatchingWindows, IntPtr.Zero);
 
             return collection;
+        }
+
+        public static List<IntPtr> GetChildWindows(IntPtr hwnd)
+        {
+            var result = new List<IntPtr>();
+
+            EnumChildWindows(hwnd, (h, p) => {
+                result.Add(h);
+                return true;
+            }, IntPtr.Zero);
+
+            return result;
         }
 
         public static Icon GetIcon(IntPtr hWnd)

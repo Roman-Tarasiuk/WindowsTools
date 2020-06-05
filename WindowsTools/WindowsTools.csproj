@@ -131,6 +131,7 @@
     <Compile Include="DownloaderForm.Designer.cs">
       <DependentUpon>DownloaderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyApplicationContext.cs" />
     <Compile Include="MyScreenSaverHooker.cs" />
     <Compile Include="NotesForm.cs">
       <SubType>Form</SubType>
