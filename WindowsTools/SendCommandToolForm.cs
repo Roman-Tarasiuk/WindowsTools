@@ -397,12 +397,6 @@ namespace WindowsTools
 
                     var programWindows = Application.OpenForms.Cast<Form>().Select(i => i.Handle);
                     
-                    var running = new StringBuilder();
-                    foreach (var p in programWindows)
-                    {
-                        running.Append(p + ", ");
-                    }
-
                     if (lastN < windows.Count)
                     {
                         var i = 0;
@@ -597,7 +591,7 @@ namespace WindowsTools
 
                 if (!this.Visible)
                 {
-                    this.Show();
+                    Task.Delay(timer1.Interval).ContinueWith(t => this.Show());
                 }
             }
             else if ((!m_RunOnAllWindowsWithSameTitle) && (!User32Windows.IsWindow(m_HostWindowHwnd)))

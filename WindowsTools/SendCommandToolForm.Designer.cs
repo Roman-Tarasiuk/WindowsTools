@@ -42,9 +42,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
-            //
+            // 
             // contextMenuStrip1
-            //
+            // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toggleSendingToolStripMenuItem,
             this.autoHideToolStripMenuItem,
@@ -55,63 +55,63 @@
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(218, 142);
-            //
+            // 
             // toggleSendingToolStripMenuItem
-            //
+            // 
             this.toggleSendingToolStripMenuItem.Name = "toggleSendingToolStripMenuItem";
             this.toggleSendingToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.toggleSendingToolStripMenuItem.Text = "Run";
             this.toggleSendingToolStripMenuItem.Click += new System.EventHandler(this.toggleSendingToolStripMenuItem_Click);
-            //
+            // 
             // autoHideToolStripMenuItem
-            //
+            // 
             this.autoHideToolStripMenuItem.Checked = true;
             this.autoHideToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.autoHideToolStripMenuItem.Name = "autoHideToolStripMenuItem";
             this.autoHideToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.autoHideToolStripMenuItem.Text = "Auto hide";
             this.autoHideToolStripMenuItem.Click += new System.EventHandler(this.autoHideToolStripMenuItem_Click);
-            //
+            // 
             // selectBackgroundImageToolStripMenuItem
-            //
+            // 
             this.selectBackgroundImageToolStripMenuItem.Name = "selectBackgroundImageToolStripMenuItem";
             this.selectBackgroundImageToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.selectBackgroundImageToolStripMenuItem.Text = "Select background image...";
             this.selectBackgroundImageToolStripMenuItem.Click += new System.EventHandler(this.selectBackgroundImageToolStripMenuItem_Click);
-            //
+            // 
             // propertiesToolStripMenuItem
-            //
+            // 
             this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
             this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.propertiesToolStripMenuItem.Text = "Properties...";
             this.propertiesToolStripMenuItem.Click += new System.EventHandler(this.propertiesToolStripMenuItem_Click);
-            //
+            // 
             // minimizeToolStripMenuItem
-            //
+            // 
             this.minimizeToolStripMenuItem.Name = "minimizeToolStripMenuItem";
             this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.minimizeToolStripMenuItem.Text = "Minimize";
             this.minimizeToolStripMenuItem.Click += new System.EventHandler(this.minimizeToolStripMenuItem_Click);
-            //
+            // 
             // toolStripSeparator1
-            //
+            // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(214, 6);
-            //
+            // 
             // exitToolStripMenuItem
-            //
+            // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            //
+            // 
             // timer1
-            //
-            this.timer1.Interval = 10;
+            // 
+            this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            //
+            // 
             // SendCommandToolForm
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsTools.Properties.Resources.wrench_flat;

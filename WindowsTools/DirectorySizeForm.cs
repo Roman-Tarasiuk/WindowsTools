@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsTools.Infrastructure;
+using NLog;
 
 namespace WindowsTools
 {
@@ -21,9 +22,9 @@ namespace WindowsTools
         private CancellationTokenSource m_CancelationTokenSource;
         private bool m_Canceled = false;
 
-        DateTime m_Start;
+        private DateTime m_Start;
 
-        NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+        private Logger logger = LogManager.GetCurrentClassLogger();
 
 
         public DirectorySizeForm()
