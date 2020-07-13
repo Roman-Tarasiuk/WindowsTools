@@ -433,6 +433,7 @@
     <None Include="Resources\screen-recording2.ico" />
     <None Include="Resources\screen-recording3.ico" />
     <None Include="Resources\screen-recording4.ico" />
+    <None Include="Resources\win8_ico_shell32_dll-002.jpg" />
     <Content Include="taskmgr_icon.png.ico" />
   </ItemGroup>
   <ItemGroup>

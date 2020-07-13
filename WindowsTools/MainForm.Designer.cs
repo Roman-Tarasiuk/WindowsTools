@@ -55,6 +55,7 @@
             this.restoreMinimizedWindowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setTopmostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unsetTopmostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.taskbarHwndToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.taskListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.directorySizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.downloadFilesFromInternetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -197,7 +198,6 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.lstWindowsList = new WindowsTools.ListViewNF();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.taskbarHwndToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -427,6 +427,13 @@
             this.unsetTopmostToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.unsetTopmostToolStripMenuItem.Text = "Unset topmost";
             this.unsetTopmostToolStripMenuItem.Click += new System.EventHandler(this.unsetTopmostToolStripMenuItem_Click);
+            // 
+            // taskbarHwndToolStripMenuItem
+            // 
+            this.taskbarHwndToolStripMenuItem.Name = "taskbarHwndToolStripMenuItem";
+            this.taskbarHwndToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+            this.taskbarHwndToolStripMenuItem.Text = "Taskbar hwnd";
+            this.taskbarHwndToolStripMenuItem.Click += new System.EventHandler(this.taskbarHwndToolStripMenuItem_Click);
             // 
             // taskListToolStripMenuItem
             // 
@@ -932,6 +939,7 @@
             // 
             // copyWindowHwndToolStripMenuItem
             // 
+            this.copyWindowHwndToolStripMenuItem.Image = global::WindowsTools.Properties.Resources.win8_ico_shell32_dll_002;
             this.copyWindowHwndToolStripMenuItem.Name = "copyWindowHwndToolStripMenuItem";
             this.copyWindowHwndToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.copyWindowHwndToolStripMenuItem.Text = "Copy hwnd";
@@ -1636,13 +1644,6 @@
             // 
             this.columnHeader1.Text = "";
             this.columnHeader1.Width = 600;
-            // 
-            // taskbarHwndToolStripMenuItem
-            // 
-            this.taskbarHwndToolStripMenuItem.Name = "taskbarHwndToolStripMenuItem";
-            this.taskbarHwndToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.taskbarHwndToolStripMenuItem.Text = "Taskbar hwnd";
-            this.taskbarHwndToolStripMenuItem.Click += new System.EventHandler(this.taskbarHwndToolStripMenuItem_Click);
             // 
             // MainForm
             // 

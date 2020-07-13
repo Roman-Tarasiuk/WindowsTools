@@ -2678,7 +2678,6 @@ namespace WindowsTools
                 if (taskBarWnd != IntPtr.Zero)
                 {
                     Clipboard.SetText(clipText);
-                    MessageBox.Show("The Taskbar hwnd " + clipText + " copied to the clipboard.");
                 }
                 else
                 {

@@ -333,6 +333,16 @@ namespace WindowsTools.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap win8_ico_shell32_dll_002 {
+            get {
+                object obj = ResourceManager.GetObject("win8_ico_shell32_dll-002", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wrench_flat {
             get {
                 object obj = ResourceManager.GetObject("wrench-flat", resourceCulture);
