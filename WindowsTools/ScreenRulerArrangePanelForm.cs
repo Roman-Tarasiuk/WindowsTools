@@ -321,11 +321,11 @@ namespace WindowsTools
         private void BackgroundColorToolStripMenuItemColor(Color c)
         {
             var image = new Bitmap(20, 20);
-                using (var graphics = Graphics.FromImage(image))
-                {
-                    graphics.DrawRectangle(new Pen(Color.Black), 0, 0, 19, 19);
-                    graphics.FillRectangle(new SolidBrush(c), 1, 1, 18, 18);
-                }
+            using (var graphics = Graphics.FromImage(image))
+            {
+                graphics.DrawRectangle(new Pen(Color.Black), 0, 0, 19, 19);
+                graphics.FillRectangle(new SolidBrush(c), 1, 1, 18, 18);
+            }
             this.backgroundColorToolStripMenuItem.Image = image;
         }
 

@@ -212,7 +212,10 @@ namespace WindowsTools
             DialogResult result = OpenFileDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-                this.BackgroundImage = new Bitmap(OpenFileDialog.FileName);
+                using (var bmpTemp = new Bitmap(OpenFileDialog.FileName))
+                {
+                    this.BackgroundImage = new Bitmap(bmpTemp);
+                }
             }
         }
 
