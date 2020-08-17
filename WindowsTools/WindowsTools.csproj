@@ -434,6 +434,7 @@
     <None Include="Resources\screen-recording3.ico" />
     <None Include="Resources\screen-recording4.ico" />
     <None Include="Resources\win8_ico_shell32_dll-002.jpg" />
+    <None Include="Resources\screensaver-icon-9283 - Copy.png" />
     <Content Include="taskmgr_icon.png.ico" />
   </ItemGroup>
   <ItemGroup>

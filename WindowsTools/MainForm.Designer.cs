@@ -475,14 +475,14 @@
             this.screenSaverAndLockToolStripMenuItem1,
             this.powerOffDisplayToolStripMenuItem,
             this.powerOffDisplayAndLockToolStripMenuItem});
-            this.screensaverGToolStripMenuItem1.Image = global::WindowsTools.Properties.Resources.screen_saver_24_24;
+            this.screensaverGToolStripMenuItem1.Image = global::WindowsTools.Properties.Resources.screensaver_icon_9283___Copy;
             this.screensaverGToolStripMenuItem1.Name = "screensaverGToolStripMenuItem1";
             this.screensaverGToolStripMenuItem1.Size = new System.Drawing.Size(234, 22);
             this.screensaverGToolStripMenuItem1.Text = "Screen saver";
             // 
             // screenSaverToolStripMenuItem1
             // 
-            this.screenSaverToolStripMenuItem1.Image = global::WindowsTools.Properties.Resources.screen_saver_24_24;
+            this.screenSaverToolStripMenuItem1.Image = global::WindowsTools.Properties.Resources.screensaver_icon_9283___Copy;
             this.screenSaverToolStripMenuItem1.Name = "screenSaverToolStripMenuItem1";
             this.screenSaverToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
             this.screenSaverToolStripMenuItem1.Text = "Screen saver";
@@ -490,7 +490,7 @@
             // 
             // screenSaverAndLockToolStripMenuItem1
             // 
-            this.screenSaverAndLockToolStripMenuItem1.Image = global::WindowsTools.Properties.Resources.screen_saver_24_24;
+            this.screenSaverAndLockToolStripMenuItem1.Image = global::WindowsTools.Properties.Resources.screensaver_icon_9283___Copy;
             this.screenSaverAndLockToolStripMenuItem1.Name = "screenSaverAndLockToolStripMenuItem1";
             this.screenSaverAndLockToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
             this.screenSaverAndLockToolStripMenuItem1.Text = "Screen saver + lock";
@@ -1038,7 +1038,7 @@
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray1.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 204);
+            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 226);
             this.contextMenuStripSysTray1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray1_Opening);
             this.contextMenuStripSysTray1.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray1.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
@@ -1152,14 +1152,14 @@
             this.screenSaverAndLockToolStripMenuItem,
             this.powerOffDisplayToolStripMenuItem1,
             this.powerOffDisplayAndLockToolStripMenuItem1});
-            this.screenSaverGToolStripMenuItem.Image = global::WindowsTools.Properties.Resources.screen_saver_24_24;
+            this.screenSaverGToolStripMenuItem.Image = global::WindowsTools.Properties.Resources.screensaver_icon_9283___Copy;
             this.screenSaverGToolStripMenuItem.Name = "screenSaverGToolStripMenuItem";
             this.screenSaverGToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.screenSaverGToolStripMenuItem.Text = "Screen saver";
             // 
             // screenSaverToolStripMenuItem
             // 
-            this.screenSaverToolStripMenuItem.Image = global::WindowsTools.Properties.Resources.screen_saver_24_24;
+            this.screenSaverToolStripMenuItem.Image = global::WindowsTools.Properties.Resources.screensaver_icon_9283___Copy;
             this.screenSaverToolStripMenuItem.Name = "screenSaverToolStripMenuItem";
             this.screenSaverToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.screenSaverToolStripMenuItem.Text = "Screen saver";
@@ -1167,7 +1167,7 @@
             // 
             // screenSaverAndLockToolStripMenuItem
             // 
-            this.screenSaverAndLockToolStripMenuItem.Image = global::WindowsTools.Properties.Resources.screen_saver_24_24;
+            this.screenSaverAndLockToolStripMenuItem.Image = global::WindowsTools.Properties.Resources.screensaver_icon_9283___Copy;
             this.screenSaverAndLockToolStripMenuItem.Name = "screenSaverAndLockToolStripMenuItem";
             this.screenSaverAndLockToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.screenSaverAndLockToolStripMenuItem.Text = "Screen saver + lock";
