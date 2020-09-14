@@ -145,6 +145,12 @@
     <Compile Include="PasswordSettingsForm.Designer.cs">
       <DependentUpon>PasswordSettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PreventSleepForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreventSleepForm.Designer.cs">
+      <DependentUpon>PreventSleepForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PromptForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PasswordSettingsForm.resx">
       <DependentUpon>PasswordSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreventSleepForm.resx">
+      <DependentUpon>PreventSleepForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PromptForm.resx">
       <DependentUpon>PromptForm.cs</DependentUpon>

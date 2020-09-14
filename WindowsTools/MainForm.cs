@@ -42,6 +42,7 @@ namespace WindowsTools
         private SendCommandsForm m_SendCommandForm;
         private ClipboardManagerForm m_ClipboardManagerForm;
         private CompareStringsMainForm m_CompareStringsForm;
+        private PreventSleepForm m_preventSleepForm;
         private Point m_MouseDownCoordinates;
         private bool m_MouseIsDown = false;
 
@@ -2689,6 +2690,12 @@ namespace WindowsTools
                 MessageBox.Show("Error while getting the Taskbar hwnd:\n"
                     + exception.ToString());
             }
+        }
+
+        private void preventSleepToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            m_preventSleepForm = (PreventSleepForm)User32Windows.GetForm(m_preventSleepForm, typeof(PreventSleepForm));
+            m_preventSleepForm.Show();
         }
     } // class MainForm.
 

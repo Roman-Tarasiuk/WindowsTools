@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoClosingMessageBox.cs" />
     <Compile Include="DrawingControl.cs" />
+    <Compile Include="FormsExtension.cs" />
     <Compile Include="IProgramSettings.cs" />
     <Compile Include="Rect.cs" />
     <Compile Include="CompareStringsSettings.cs" />

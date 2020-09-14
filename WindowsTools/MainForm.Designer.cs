@@ -198,6 +198,7 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.lstWindowsList = new WindowsTools.ListViewNF();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.preventSleepToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -295,7 +296,8 @@
             this.restoreMinimizedWindowsToolStripMenuItem,
             this.setTopmostToolStripMenuItem,
             this.unsetTopmostToolStripMenuItem,
-            this.taskbarHwndToolStripMenuItem});
+            this.taskbarHwndToolStripMenuItem,
+            this.preventSleepToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(234, 22);
             this.toolStripMenuItem1.Text = "Windows Tools";
@@ -1038,7 +1040,7 @@
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray1.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 226);
+            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(216, 204);
             this.contextMenuStripSysTray1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray1_Opening);
             this.contextMenuStripSysTray1.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray1.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
@@ -1645,6 +1647,13 @@
             this.columnHeader1.Text = "";
             this.columnHeader1.Width = 600;
             // 
+            // preventSleepToolStripMenuItem
+            // 
+            this.preventSleepToolStripMenuItem.Name = "preventSleepToolStripMenuItem";
+            this.preventSleepToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+            this.preventSleepToolStripMenuItem.Text = "Prevent sleep...";
+            this.preventSleepToolStripMenuItem.Click += new System.EventHandler(this.preventSleepToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1840,5 +1849,6 @@
         private System.Windows.Forms.ToolStripMenuItem setTopmostToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem unsetTopmostToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem taskbarHwndToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem preventSleepToolStripMenuItem;
     }
 }
