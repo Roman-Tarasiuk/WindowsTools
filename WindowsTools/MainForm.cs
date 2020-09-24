@@ -2697,6 +2697,39 @@ namespace WindowsTools
             m_preventSleepForm = (PreventSleepForm)User32Windows.GetForm(m_preventSleepForm, typeof(PreventSleepForm));
             m_preventSleepForm.Show();
         }
+
+        private void hideFromTheTaskbarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!CheckTargetWindow())
+            {
+                return;
+            }
+
+            var selectedIndex = this.lstWindowsList.SelectedIndices[0];
+            var targetWindow = m_ListedWindows[selectedIndex];
+
+            var info = new StringBuilder();
+            long style = (long)User32Windows.GetWindowLongPtr(targetWindow.Handle, User32Windows.GWL_EXSTYLE);
+
+            info.AppendLine(Convert.ToString(style, 2).PadLeft(64, '0'));
+            info.AppendLine(Convert.ToString(User32Windows.WS_EX_TOOLWINDOW, 2).PadLeft(64, '0'));
+
+            style ^= User32Windows.WS_EX_TOOLWINDOW;
+
+            info.AppendLine(Convert.ToString(style, 2).PadLeft(64, '0'));
+            Clipboard.SetText(info.ToString());
+            // MessageBox.Show(info.ToString());
+
+            User32Windows.ShowWindow(targetWindow.Handle, User32Windows.SW_HIDE);
+            User32Windows.SetWindowLongPtr64(targetWindow.Handle, User32Windows.GWL_EXSTYLE, (IntPtr)style);
+            User32Windows.SetWindowPos(targetWindow.Handle, User32Windows.HWND_NOTOPMOST, 0, 0, 0, 0,
+                User32Windows.SWP_NOMOVE |
+                User32Windows.SWP_NOSIZE | 
+                User32Windows.SWP_NOZORDER |
+                User32Windows.SWP_FRAMECHANGED
+            );
+            User32Windows.ShowWindow(targetWindow.Handle, User32Windows.SW_SHOW);
+        }
     } // class MainForm.
 
     public class ToolEventArgs : EventArgs

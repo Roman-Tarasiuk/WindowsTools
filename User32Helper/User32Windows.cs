@@ -164,6 +164,12 @@ namespace User32Helper
         [DllImport("user32.dll", ExactSpelling = true)]
         public static extern IntPtr GetAncestor(IntPtr hwnd, int flags);
 
+        [DllImport("user32.dll", EntryPoint = "GetWindowLong")]
+        public static extern IntPtr GetWindowLongPtr(IntPtr hWnd, int nIndex);
+
+        [DllImport("user32.dll", EntryPoint = "SetWindowLongPtr")]
+        public static extern IntPtr SetWindowLongPtr64(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
+
         public const int HWND_BOTTOM = 1;
         public const int HWND_NOTOPMOST = -2;
         public const int HWND_TOP = 0;
@@ -188,6 +194,7 @@ namespace User32Helper
         public const int SWP_SHOWWINDOW = 0x0040;
 
         public const int SW_HIDE = 0;
+        public const int SW_SHOWNOACTIVATE = 4;
         public const int SW_SHOW = 5;
         public const int SW_MINIMIZE = 6;
         public const int SW_RESTORE = 9;
@@ -214,6 +221,16 @@ namespace User32Helper
         public const int GA_PARENT = 1;
         public const int GA_ROOT = 2;
         public const int GA_ROOTOWNER = 3;
+
+        public const int GWL_EXSTYLE = -20;
+        public const int GWL_HINSTANCE = -6;
+        public const int GWL_ID = -12;
+        public const int GWL_STYLE = -16;
+        public const int GWL_USERDATA = -21;
+        public const int GWL_WNDPROC = -4;
+
+        public const long WS_EX_APPWINDOW = 0x00040000L;
+        public const long WS_EX_TOOLWINDOW = 0x00000080L;
 
         public static List<DesktopWindow> GetDesktopWindows(bool visibleOnly = true, List<string> exceptNames = null, bool getIcons = true)
         {

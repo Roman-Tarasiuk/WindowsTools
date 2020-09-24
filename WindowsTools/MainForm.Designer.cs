@@ -56,6 +56,7 @@
             this.setTopmostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unsetTopmostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.taskbarHwndToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.preventSleepToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.taskListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.directorySizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.downloadFilesFromInternetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -198,7 +199,9 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.lstWindowsList = new WindowsTools.ListViewNF();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.preventSleepToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hideFromTheTaskbarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -294,10 +297,13 @@
             this.trackMouseOutsideToolStripMenuItem,
             this.setWindowTransparencyToolStripMenuItem,
             this.restoreMinimizedWindowsToolStripMenuItem,
+            this.preventSleepToolStripMenuItem,
+            this.toolStripSeparator6,
             this.setTopmostToolStripMenuItem,
             this.unsetTopmostToolStripMenuItem,
-            this.taskbarHwndToolStripMenuItem,
-            this.preventSleepToolStripMenuItem});
+            this.hideFromTheTaskbarToolStripMenuItem,
+            this.toolStripSeparator9,
+            this.taskbarHwndToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(234, 22);
             this.toolStripMenuItem1.Text = "Windows Tools";
@@ -436,6 +442,13 @@
             this.taskbarHwndToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.taskbarHwndToolStripMenuItem.Text = "Taskbar hwnd";
             this.taskbarHwndToolStripMenuItem.Click += new System.EventHandler(this.taskbarHwndToolStripMenuItem_Click);
+            // 
+            // preventSleepToolStripMenuItem
+            // 
+            this.preventSleepToolStripMenuItem.Name = "preventSleepToolStripMenuItem";
+            this.preventSleepToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+            this.preventSleepToolStripMenuItem.Text = "Prevent sleep...";
+            this.preventSleepToolStripMenuItem.Click += new System.EventHandler(this.preventSleepToolStripMenuItem_Click);
             // 
             // taskListToolStripMenuItem
             // 
@@ -1647,12 +1660,22 @@
             this.columnHeader1.Text = "";
             this.columnHeader1.Width = 600;
             // 
-            // preventSleepToolStripMenuItem
+            // hideFromTheTaskbarToolStripMenuItem
             // 
-            this.preventSleepToolStripMenuItem.Name = "preventSleepToolStripMenuItem";
-            this.preventSleepToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.preventSleepToolStripMenuItem.Text = "Prevent sleep...";
-            this.preventSleepToolStripMenuItem.Click += new System.EventHandler(this.preventSleepToolStripMenuItem_Click);
+            this.hideFromTheTaskbarToolStripMenuItem.Name = "hideFromTheTaskbarToolStripMenuItem";
+            this.hideFromTheTaskbarToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+            this.hideFromTheTaskbarToolStripMenuItem.Text = "Hide from the taskbar";
+            this.hideFromTheTaskbarToolStripMenuItem.Click += new System.EventHandler(this.hideFromTheTaskbarToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(256, 6);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(256, 6);
             // 
             // MainForm
             // 
@@ -1850,5 +1873,8 @@
         private System.Windows.Forms.ToolStripMenuItem unsetTopmostToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem taskbarHwndToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem preventSleepToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem hideFromTheTaskbarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
     }
 }
