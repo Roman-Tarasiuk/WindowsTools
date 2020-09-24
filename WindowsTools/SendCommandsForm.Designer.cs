@@ -49,6 +49,9 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.setAutohideToAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeAutohideFromAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAllToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -197,11 +200,14 @@
             this.hideAllToolStripMenuItem,
             this.minimizeAllToolStripMenuItem,
             this.restoreAllToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.saveAllToolsToolStripMenuItem,
+            this.loadToolsToolStripMenuItem,
             this.toolStripSeparator1,
             this.setAutohideToAllToolStripMenuItem,
             this.removeAutohideFromAllToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(212, 142);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(212, 214);
             // 
             // startAllToolStripMenuItem
             // 
@@ -249,6 +255,25 @@
             this.removeAutohideFromAllToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.removeAutohideFromAllToolStripMenuItem.Text = "Remove autohide from all";
             this.removeAutohideFromAllToolStripMenuItem.Click += new System.EventHandler(this.removeAutohideFromAllToolStripMenuItem_Click);
+            // 
+            // saveAllToolsToolStripMenuItem
+            // 
+            this.saveAllToolsToolStripMenuItem.Name = "saveAllToolsToolStripMenuItem";
+            this.saveAllToolsToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.saveAllToolsToolStripMenuItem.Text = "Save all tools...";
+            this.saveAllToolsToolStripMenuItem.Click += new System.EventHandler(this.saveAllToolsToolStripMenuItem_Click);
+            // 
+            // loadToolsToolStripMenuItem
+            // 
+            this.loadToolsToolStripMenuItem.Name = "loadToolsToolStripMenuItem";
+            this.loadToolsToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.loadToolsToolStripMenuItem.Text = "Load tools...";
+            this.loadToolsToolStripMenuItem.Click += new System.EventHandler(this.loadToolsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(208, 6);
             // 
             // SendCommandsForm
             // 
@@ -304,5 +329,8 @@
         private System.Windows.Forms.ToolStripMenuItem hideAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem startAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAllToolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadToolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }

@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using User32Helper;
 using System.Drawing;
 using WindowsTools.Infrastructure;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace WindowsTools
 {
@@ -242,6 +244,16 @@ namespace WindowsTools
             StartAllTools(startAllToolStripMenuItem);
         }
 
+        private void saveAllToolsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveAllTools();
+        }
+
+        private void loadToolsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadTools();
+        }
+
         #endregion
 
 
@@ -264,6 +276,67 @@ namespace WindowsTools
         private void CheckInactiveTools()
         {
             m_Tools.RemoveAll(t => t == null || t.IsDisposed);
+        }
+
+        private void SaveAllTools()
+        {
+            var fileDialog = new SaveFileDialog();
+            var result = fileDialog.ShowDialog();
+            if (result != DialogResult.OK)
+            {
+                return;
+            }
+
+            using (var writer = new StreamWriter(fileDialog.FileName, false))
+            {
+                foreach (var t in m_Tools)
+                {
+                    writer.WriteLine(t.Location.ToString());
+                    writer.WriteLine(t.Size.ToString());
+                }
+            }
+        }
+
+        private void LoadTools()
+        {
+            var fileDialog = new OpenFileDialog();
+            var result = fileDialog.ShowDialog();
+            if (result != DialogResult.OK)
+            {
+                return;
+            }
+
+            if (m_Tools == null)
+            {
+                m_Tools = new List<SendCommandToolForm>();
+            }
+            else
+            {
+                m_Tools.Clear();
+            }
+
+            using (var reader = new StreamReader(fileDialog.FileName))
+            {
+                string str;
+                while ((str = reader.ReadLine()) != null) // Location
+                {
+                    var tool = new SendCommandToolForm(IntPtr.Zero, String.Empty);
+                    
+                    var g = Regex.Replace(str, @"[\{\}a-zA-Z=]", "").Split(',');
+                    tool.Location = new Point(
+                        int.Parse(g[0]),
+                        int.Parse(g[1]));
+
+                    str = reader.ReadLine(); // Size
+                    g = Regex.Replace(str, @"[\{\}a-zA-Z=]", "").Split(',');
+                    tool.Size = new Size(
+                        int.Parse(g[0]),
+                        int.Parse(g[1]));
+
+                    m_Tools.Add(tool);
+                    tool.Show();
+                }
+            }
         }
 
         #endregion

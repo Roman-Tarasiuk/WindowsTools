@@ -128,6 +128,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Send Command Tool";
             this.TopMost = true;
+            this.SizeChanged += new System.EventHandler(this.SendCommandToolForm_SizeChanged);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.SendCommandToolForm_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SendCommandToolForm_KeyDown);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SendCommandToolForm_MouseClick);

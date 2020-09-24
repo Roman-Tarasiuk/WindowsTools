@@ -351,6 +351,11 @@ namespace WindowsTools
             }
         }
 
+        private void SendCommandToolForm_SizeChanged(object sender, EventArgs e)
+        {
+            this.m_DrawRectangle = new Rectangle(0, 0, this.Size.Width - 1, this.Size.Height - 1);
+        }
+
         #endregion
 
 
