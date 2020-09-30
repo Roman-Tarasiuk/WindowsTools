@@ -128,12 +128,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Send Command Tool";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SendCommandToolForm_FormClosing);
             this.SizeChanged += new System.EventHandler(this.SendCommandToolForm_SizeChanged);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.SendCommandToolForm_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SendCommandToolForm_KeyDown);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SendCommandToolForm_MouseClick);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SendCommandToolForm_MouseDown);
             this.MouseLeave += new System.EventHandler(this.SendCommandToolForm_MouseLeave);
+            this.MouseHover += new System.EventHandler(this.SendCommandToolForm_MouseHover);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SendCommandToolForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.SendCommandToolForm_MouseUp);
             this.contextMenuStrip1.ResumeLayout(false);

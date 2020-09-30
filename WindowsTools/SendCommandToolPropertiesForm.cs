@@ -30,6 +30,7 @@ namespace WindowsTools
         public string TitlePattern { get; set; }
         public Color BorderColor { get; set; }
         public Color BorderHoverColor { get; set; }
+        public bool ActivateOnHover { get; set;  }
 
         #endregion
 
@@ -160,6 +161,8 @@ namespace WindowsTools
 
             lblBorder.BackColor = BorderColor;
             lblBorderHover.BackColor = BorderHoverColor;
+
+            chkActivateOnHover.Checked = ActivateOnHover;
         }
 
         private void ApplyProperties()
@@ -239,6 +242,8 @@ namespace WindowsTools
 
             ToolTop = int.Parse(txtTop.Text);
             ToolLeft = int.Parse(txtLeft.Text);
+
+            ActivateOnHover = chkActivateOnHover.Checked;
         }
 
         #endregion

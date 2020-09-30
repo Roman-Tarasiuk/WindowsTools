@@ -56,6 +56,9 @@ namespace WindowsTools
         private int m_DX;
         private int m_DY;
 
+        private bool m_Activated = false;
+        private string m_BackgroundImagePath = string.Empty;
+
         #endregion
 
 
@@ -118,6 +121,31 @@ namespace WindowsTools
                 autoHideToolStripMenuItem.Checked = m_AutoHide;
             }
         }
+
+        public string BackgroundImagePath
+        {
+            get { return m_BackgroundImagePath; }
+            set
+            {
+                m_BackgroundImagePath = value;
+                if (m_BackgroundImagePath != string.Empty)
+                {
+                    try
+                    {
+                        using (var bmpTemp = new Bitmap(value))
+                        {
+                            this.BackgroundImage = new Bitmap(bmpTemp);
+                        }
+                    }
+                    catch
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+
+        public bool ActivateOnHover { get; set; }
 
         #endregion
 
@@ -212,10 +240,7 @@ namespace WindowsTools
             DialogResult result = OpenFileDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-                using (var bmpTemp = new Bitmap(OpenFileDialog.FileName))
-                {
-                    this.BackgroundImage = new Bitmap(bmpTemp);
-                }
+                this.BackgroundImagePath = OpenFileDialog.FileName;
             }
         }
 
@@ -224,6 +249,7 @@ namespace WindowsTools
             if (m_MouseIsHover)
             {
                 e.Graphics.DrawRectangle(m_PenHover, m_DrawRectangle);
+                m_MouseIsHover = false;
             }
             else
             {
@@ -234,6 +260,7 @@ namespace WindowsTools
         private void SendCommandToolForm_MouseLeave(object sender, EventArgs e)
         {
             m_MouseIsHover = false;
+            m_Activated = false;
             Invalidate();
         }
 
@@ -268,7 +295,8 @@ namespace WindowsTools
                 ToolTop = this.Location.Y,
                 BorderColor = this.m_PenNormal.Color,
                 BorderHoverColor = this.m_PenHover.Color,
-                TitlePattern = this.m_TitlePattern
+                TitlePattern = this.m_TitlePattern,
+                ActivateOnHover = this.ActivateOnHover
             };
 
             var result = settingsForm.ShowDialog();
@@ -319,6 +347,8 @@ namespace WindowsTools
                 {
                     m_TitleRegex = null;
                 }
+
+                this.ActivateOnHover = settingsForm.ActivateOnHover;
             }
         }
 
@@ -354,6 +384,14 @@ namespace WindowsTools
         private void SendCommandToolForm_SizeChanged(object sender, EventArgs e)
         {
             this.m_DrawRectangle = new Rectangle(0, 0, this.Size.Width - 1, this.Size.Height - 1);
+        }
+
+        private void SendCommandToolForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.Exit != null)
+            {
+                this.Exit.Invoke(this, new ToolEventArgs() { Title = m_HostWindowTitle });
+            }
         }
 
         #endregion
@@ -636,5 +674,21 @@ namespace WindowsTools
         }
 
         #endregion
+
+        private void SendCommandToolForm_MouseHover(object sender, EventArgs e)
+        {
+            if (this.ActivateOnHover && !m_Activated)
+            {
+                if (this.Owner != null)
+                {
+                    var foreground = User32Windows.GetForegroundWindow();
+                    User32Windows.SetForegroundWindow(this.Owner.Handle);
+                    User32Windows.SetForegroundWindow(foreground);
+                }
+
+                User32Windows.SetForegroundWindow(this.Handle);
+                this.m_Activated = true;
+            }
+        }
     }
 }

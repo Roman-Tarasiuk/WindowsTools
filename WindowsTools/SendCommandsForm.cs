@@ -184,9 +184,9 @@ namespace WindowsTools
             this.Hide();
         }
 
-        private void btnToolItem_Click(object sender, EventArgs e)
+        private void btnNewToolItem_Click(object sender, EventArgs e)
         {
-            var tool = new SendCommandToolForm(m_HostedWindowHwnd, txtCommands.Text);
+            var tool = new SendCommandToolForm(m_HostedWindowHwnd, txtCommands.Text) { Owner = this };
             tool.Location = new Point(this.Location.X + 125, this.Location.Y + 85);
 
             if (m_Tools == null)
@@ -203,6 +203,7 @@ namespace WindowsTools
 
         private void OnToolExit(object sender, ToolEventArgs e)
         {
+            m_Tools.Remove((SendCommandToolForm)sender);
             if (ToolExit != null)
             {
                 ToolExit.Invoke(this, e);
@@ -254,6 +255,43 @@ namespace WindowsTools
             LoadTools();
         }
 
+        private void activateToolsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (timer1.Enabled)
+            {
+                timer1.Stop();
+                activateToolsToolStripMenuItem.Text = "Activate tools...";
+            }
+            else
+            {
+                var prompt = new PromptForm() { Description = "Activate tools every N seconds", UserInput = "10" };
+
+                var result = prompt.ShowDialog();
+                if (result != DialogResult.OK)
+                {
+                    return;
+                }
+
+                int interval;
+                if (int.TryParse(prompt.UserInput, out interval))
+                {
+                    timer1.Interval = interval * 1000;
+                    timer1.Start();
+                    activateToolsToolStripMenuItem.Text = "Stop activating";
+                }
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            ShowToolsOverOtherWindows();
+        }
+
+        private void closeAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllTools();
+        }
+
         #endregion
 
 
@@ -293,6 +331,7 @@ namespace WindowsTools
                 {
                     writer.WriteLine(t.Location.ToString());
                     writer.WriteLine(t.Size.ToString());
+                    writer.WriteLine(t.BackgroundImagePath);
                 }
             }
         }
@@ -310,10 +349,15 @@ namespace WindowsTools
             {
                 m_Tools = new List<SendCommandToolForm>();
             }
-            else
+            else if (m_Tools.Count > 0)
             {
-                m_Tools.Clear();
+                var result2 = MessageBox.Show("There are tools, keep them?", "Load tools...", MessageBoxButtons.YesNo);
+                if (result2 == DialogResult.No)
+                {
+                    CloseAllTools();
+                }
             }
+            
 
             using (var reader = new StreamReader(fileDialog.FileName))
             {
@@ -333,10 +377,33 @@ namespace WindowsTools
                         int.Parse(g[0]),
                         int.Parse(g[1]));
 
+                    str = reader.ReadLine(); // BackgroundImagePath
+                    tool.BackgroundImagePath = str;
+
                     m_Tools.Add(tool);
                     tool.Show();
                 }
             }
+        }
+
+        private void ShowToolsOverOtherWindows()
+        {
+            // We need activate some window of our program,
+            // otherwise tools cannot be activated and showed over other windows.
+
+            var foreground = User32Windows.GetForegroundWindow();
+            User32Windows.SetForegroundWindow(this.Handle);
+
+            //
+
+            foreach (var t in m_Tools)
+            {
+                User32Windows.SetForegroundWindow(t.Handle);
+            }
+
+            //
+
+            User32Windows.SetForegroundWindow(foreground);
         }
 
         #endregion
@@ -417,6 +484,14 @@ namespace WindowsTools
             {
                 t.AutoHide = false;
             }
+        }
+
+        private void CloseAllTools()
+        {
+            foreach (var t in m_Tools)
+                t.Close();
+
+            m_Tools.Clear();
         }
 
         #endregion

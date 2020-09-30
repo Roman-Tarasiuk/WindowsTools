@@ -63,6 +63,7 @@
             this.txtHostHwnd = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.radioLastN = new System.Windows.Forms.RadioButton();
+            this.chkActivateOnHover = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -121,7 +122,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 175);
+            this.groupBox1.Location = new System.Drawing.Point(12, 163);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(182, 70);
             this.groupBox1.TabIndex = 1;
@@ -419,11 +420,22 @@
             this.radioLastN.Text = "Last -N";
             this.radioLastN.UseVisualStyleBackColor = true;
             // 
+            // chkActivateOnHover
+            // 
+            this.chkActivateOnHover.AutoSize = true;
+            this.chkActivateOnHover.Location = new System.Drawing.Point(12, 239);
+            this.chkActivateOnHover.Name = "chkActivateOnHover";
+            this.chkActivateOnHover.Size = new System.Drawing.Size(110, 17);
+            this.chkActivateOnHover.TabIndex = 39;
+            this.chkActivateOnHover.Text = "Activate on hover";
+            this.chkActivateOnHover.UseVisualStyleBackColor = true;
+            // 
             // SendCommandToolPropertiesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(465, 289);
+            this.Controls.Add(this.chkActivateOnHover);
             this.Controls.Add(this.radioLastN);
             this.Controls.Add(this.txtHostHwnd);
             this.Controls.Add(this.label7);
@@ -504,5 +516,6 @@
         private System.Windows.Forms.TextBox txtHostHwnd;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RadioButton radioLastN;
+        private System.Windows.Forms.CheckBox chkActivateOnHover;
     }
 }
