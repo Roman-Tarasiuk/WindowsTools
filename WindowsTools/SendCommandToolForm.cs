@@ -449,14 +449,17 @@ namespace WindowsTools
 
                     var windows = User32Windows.GetDesktopWindows(getIcons: false);
 
-                    var programWindows = Application.OpenForms.Cast<Form>().Select(i => i.Handle);
-                    
+                    int currentProcId;
+                    User32Windows.GetWindowThreadProcessId(this.Handle, out currentProcId);
+
                     if (lastN < windows.Count)
                     {
                         var i = 0;
                         for ( ; i < lastN; i++)
                         {
-                            if (programWindows.Contains(windows[i].Handle))
+                            int procId;
+                            User32Windows.GetWindowThreadProcessId(windows[i].Handle, out procId);
+                            if (procId == currentProcId)
                             {
                                 lastN++;
                                 if (lastN == windows.Count)
