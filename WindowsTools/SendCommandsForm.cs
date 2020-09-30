@@ -364,7 +364,7 @@ namespace WindowsTools
                 string str;
                 while ((str = reader.ReadLine()) != null) // Location
                 {
-                    var tool = new SendCommandToolForm(IntPtr.Zero, String.Empty);
+                    var tool = new SendCommandToolForm(m_HostedWindowHwnd, String.Empty);
                     
                     var g = Regex.Replace(str, @"[\{\}a-zA-Z=]", "").Split(',');
                     tool.Location = new Point(

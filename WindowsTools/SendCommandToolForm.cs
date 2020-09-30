@@ -319,6 +319,14 @@ namespace WindowsTools
                     {
                         if (User32Windows.IsWindow((IntPtr)handle))
                         {
+                            if (this.BackgroundImagePath != string.Empty)
+                            {
+                                var q = MessageBox.Show("The tool already has an background icon,\novervrite?", "Background icon",
+                                            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                if (q == DialogResult.No)
+                                    return;
+                            }
+
                             var icon = User32Windows.GetIcon((IntPtr)handle);
 
                             if (icon != null)
