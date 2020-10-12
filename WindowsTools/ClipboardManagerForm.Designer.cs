@@ -42,22 +42,23 @@
             this.clearClipboarFormatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnGetFormats = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
-            //
+            // 
             // richTextBox1
-            //
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.Location = new System.Drawing.Point(4, 29);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(477, 279);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
-            //
+            // 
             // comboBox1
-            //
+            // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
@@ -70,9 +71,9 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(233, 21);
             this.comboBox1.TabIndex = 1;
-            //
+            // 
             // btnClipboardDetect
-            //
+            // 
             this.btnClipboardDetect.Location = new System.Drawing.Point(243, 3);
             this.btnClipboardDetect.Name = "btnClipboardDetect";
             this.btnClipboardDetect.Size = new System.Drawing.Size(75, 23);
@@ -80,27 +81,27 @@
             this.btnClipboardDetect.Text = "Detect";
             this.btnClipboardDetect.UseVisualStyleBackColor = true;
             this.btnClipboardDetect.Click += new System.EventHandler(this.btnClipboardDetect_Click);
-            //
+            // 
             // btnClipboardClear
-            //
-            this.btnClipboardClear.Location = new System.Drawing.Point(321, 3);
+            // 
+            this.btnClipboardClear.Location = new System.Drawing.Point(406, 4);
             this.btnClipboardClear.Name = "btnClipboardClear";
             this.btnClipboardClear.Size = new System.Drawing.Size(75, 23);
             this.btnClipboardClear.TabIndex = 2;
             this.btnClipboardClear.Text = "Clear";
             this.btnClipboardClear.UseVisualStyleBackColor = true;
             this.btnClipboardClear.Click += new System.EventHandler(this.btnClipboardClear_Click);
-            //
+            // 
             // notifyIcon1
-            //
+            // 
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "System Clipboard Manager";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
-            //
+            // 
             // contextMenuStrip1
-            //
+            // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.systemClipboardManagerToolStripMenuItem,
             this.toolStripSeparator2,
@@ -110,53 +111,64 @@
             this.closeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(223, 104);
-            //
+            // 
             // systemClipboardManagerToolStripMenuItem
-            //
+            // 
             this.systemClipboardManagerToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.systemClipboardManagerToolStripMenuItem.Name = "systemClipboardManagerToolStripMenuItem";
             this.systemClipboardManagerToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.systemClipboardManagerToolStripMenuItem.Text = "System Clipboard Manager";
             this.systemClipboardManagerToolStripMenuItem.Click += new System.EventHandler(this.systemClipboardManagerToolStripMenuItem_Click);
-            //
+            // 
             // toolStripSeparator2
-            //
+            // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(219, 6);
-            //
+            // 
             // clearClipboardToolStripMenuItem
-            //
+            // 
             this.clearClipboardToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.clearClipboardToolStripMenuItem.Image = global::WindowsTools.Properties.Resources.clear_clipboard_20;
             this.clearClipboardToolStripMenuItem.Name = "clearClipboardToolStripMenuItem";
             this.clearClipboardToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.clearClipboardToolStripMenuItem.Text = "Clear clipboard";
             this.clearClipboardToolStripMenuItem.Click += new System.EventHandler(this.clearClipboardToolStripMenuItem_Click);
-            //
+            // 
             // clearClipboarFormatToolStripMenuItem
-            //
+            // 
             this.clearClipboarFormatToolStripMenuItem.Name = "clearClipboarFormatToolStripMenuItem";
             this.clearClipboarFormatToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.clearClipboarFormatToolStripMenuItem.Text = "Clear clipboard text format";
             this.clearClipboarFormatToolStripMenuItem.Click += new System.EventHandler(this.clearClipboarFormatToolStripMenuItem_Click);
-            //
+            // 
             // toolStripSeparator1
-            //
+            // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(219, 6);
-            //
+            // 
             // closeToolStripMenuItem
-            //
+            // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
-            //
+            // 
+            // btnGetFormats
+            // 
+            this.btnGetFormats.Location = new System.Drawing.Point(324, 4);
+            this.btnGetFormats.Name = "btnGetFormats";
+            this.btnGetFormats.Size = new System.Drawing.Size(75, 23);
+            this.btnGetFormats.TabIndex = 3;
+            this.btnGetFormats.Text = "Get formats";
+            this.btnGetFormats.UseVisualStyleBackColor = true;
+            this.btnGetFormats.Click += new System.EventHandler(this.btnGetFormats_Click);
+            // 
             // ClipboardManagerForm
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 311);
+            this.Controls.Add(this.btnGetFormats);
             this.Controls.Add(this.btnClipboardDetect);
             this.Controls.Add(this.btnClipboardClear);
             this.Controls.Add(this.comboBox1);
@@ -184,5 +196,6 @@
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem clearClipboarFormatToolStripMenuItem;
+        private System.Windows.Forms.Button btnGetFormats;
     }
 }

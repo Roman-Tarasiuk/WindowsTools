@@ -127,5 +127,15 @@ namespace WindowsTools
         }
 
         #endregion
+
+        private void btnGetFormats_Click(object sender, EventArgs e)
+        {
+            var result = new StringBuilder();
+            foreach (var format in Clipboard.GetDataObject().GetFormats())
+            {
+                result.AppendLine(format);
+            }
+            richTextBox1.Text = result.ToString();
+        }
     }
 }
