@@ -491,9 +491,13 @@ namespace WindowsTools
 
             User32Windows.SetForegroundWindow(m_HostWindowHwnd);
 
+            string backup = null;
             if (this.m_SendCommandType == SendCommandType.Clipboard)
             {
-                m_Commands = Clipboard.GetText();
+                backup = m_Commands;
+                m_Commands = m_Commands == String.Empty ?
+                                            Clipboard.GetText() :
+                                            m_Commands.Replace("{clipboard}", Clipboard.GetText());
             }
 
             if (m_Commands == String.Empty)
@@ -519,6 +523,11 @@ namespace WindowsTools
                 }
 
                 SendKeys.SendWait(commands[i]);
+            }
+
+            if (this.m_SendCommandType == SendCommandType.Clipboard)
+            {
+                m_Commands = backup;
             }
 
             var lastWindow = User32Windows.GetLastActiveWindow(hwndExcept: this.Handle);

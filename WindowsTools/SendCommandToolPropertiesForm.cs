@@ -93,19 +93,10 @@ namespace WindowsTools
             }
         }
 
-        private void radioCustom_CheckedChanged(object sender, EventArgs e)
-        {
-            txtCommands.ReadOnly = radioClipboard.Checked;
-        }
-
         private void radioClipboard_CheckedChanged(object sender, EventArgs e)
         {
-            txtCommands.ReadOnly = radioClipboard.Checked;
-        }
-
-        private void radioActivateWindow_CheckedChanged(object sender, EventArgs e)
-        {
-            txtCommands.ReadOnly = radioClipboard.Checked;
+            txtCommands.Text = "commands...{clipboard}commands...{ENTER}\r\n"
+                                + "or clear this to use clipboard value only";
         }
 
         #endregion
@@ -137,18 +128,12 @@ namespace WindowsTools
                 radioBottom.Checked = true;
             }
 
-            // chkClipboard.Checked = this.ClipboardCommand;
             radioCommand.Checked = (this.CommandType == SendCommandType.Command);
             radioClipboard.Checked = (this.CommandType == SendCommandType.Clipboard);
             radioActivateWindow.Checked = (this.CommandType == SendCommandType.ActivateWindow);
             radioLastN.Checked = (this.CommandType == SendCommandType.ActivateLastN);
 
-            txtCommands.ReadOnly = radioClipboard.Checked;
-
-            if (this.CommandType != SendCommandType.Clipboard)
-            {
-                txtCommands.Text = Commands;
-            }
+            txtCommands.Text = Commands;
 
             chkSleep.Checked = Sleep;
             txtSleepTimeout.Text = SleepTimeout.ToString();

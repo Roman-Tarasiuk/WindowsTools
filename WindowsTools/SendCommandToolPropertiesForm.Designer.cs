@@ -349,7 +349,6 @@
             this.radioCommand.TabStop = true;
             this.radioCommand.Text = "Custom";
             this.radioCommand.UseVisualStyleBackColor = true;
-            this.radioCommand.CheckedChanged += new System.EventHandler(this.radioCustom_CheckedChanged);
             // 
             // radioClipboard
             // 
@@ -371,7 +370,6 @@
             this.radioActivateWindow.TabIndex = 30;
             this.radioActivateWindow.Text = "Activate window";
             this.radioActivateWindow.UseVisualStyleBackColor = true;
-            this.radioActivateWindow.CheckedChanged += new System.EventHandler(this.radioActivateWindow_CheckedChanged);
             // 
             // textBox1
             // 
