@@ -95,8 +95,11 @@ namespace WindowsTools
 
         private void radioClipboard_CheckedChanged(object sender, EventArgs e)
         {
-            txtCommands.Text = "commands...{clipboard}commands...{ENTER}\r\n"
+            if (radioClipboard.Checked)
+            {
+                txtCommands.Text = "commands...{clipboard}commands...{ENTER}\r\n"
                                 + "or clear this to use clipboard value only";
+            }
         }
 
         #endregion
