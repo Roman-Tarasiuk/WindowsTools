@@ -102,6 +102,11 @@ namespace WindowsTools
             }
         }
 
+        private void btnToggleSettings_Click(object sender, EventArgs e)
+        {
+            ToggleAdvancedSettings(!pnlAdvancedSettings.Visible);
+        }
+
         #endregion
 
 
@@ -151,6 +156,10 @@ namespace WindowsTools
             lblBorderHover.BackColor = BorderHoverColor;
 
             chkActivateOnHover.Checked = ActivateOnHover;
+
+            //
+
+            ToggleAdvancedSettings(false);
         }
 
         private void ApplyProperties()
@@ -232,6 +241,22 @@ namespace WindowsTools
             ToolLeft = int.Parse(txtLeft.Text);
 
             ActivateOnHover = chkActivateOnHover.Checked;
+        }
+
+        private void ToggleAdvancedSettings(bool on)
+        {
+            var anchorBackup = txtCommands.Anchor;
+            var btnLocationBackup = btnToggleSettings.Location;
+
+            pnlAdvancedSettings.Visible = on;
+            btnToggleSettings.Text = on ? "<<" : ">>";
+
+            txtCommands.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            var newHeight = !on ? this.Size.Height - 180 : this.Size.Height + 180;
+            this.Size = new Size(this.Size.Width, newHeight);
+
+            btnToggleSettings.Location = btnLocationBackup;
+            txtCommands.Anchor = anchorBackup;
         }
 
         #endregion
