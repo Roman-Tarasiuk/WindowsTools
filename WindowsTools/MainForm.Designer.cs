@@ -35,7 +35,6 @@
             this.saveSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.moveWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendCustomCommandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,6 +96,7 @@
             this.notesToggleAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notesMinimizeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notesRestoreAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.reloadSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -201,6 +201,8 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.lstWindowsList = new WindowsTools.ListViewNF();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -267,14 +269,6 @@
             this.toolsToolStripMenuItem.ShowShortcutKeys = false;
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
-            // 
-            // clearClipboardToolStripMenuItem
-            // 
-            this.clearClipboardToolStripMenuItem.Image = global::WindowsTools.Properties.Resources.clear_clipboard_20;
-            this.clearClipboardToolStripMenuItem.Name = "clearClipboardToolStripMenuItem";
-            this.clearClipboardToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
-            this.clearClipboardToolStripMenuItem.Text = "Clear clipboard";
-            this.clearClipboardToolStripMenuItem.Click += new System.EventHandler(this.clearClipboardToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -770,6 +764,14 @@
             this.notesRestoreAllToolStripMenuItem.Text = "Restore all notes";
             this.notesRestoreAllToolStripMenuItem.Click += new System.EventHandler(this.notesRestoreAllToolStripMenuItem_Click);
             // 
+            // clearClipboardToolStripMenuItem
+            // 
+            this.clearClipboardToolStripMenuItem.Image = global::WindowsTools.Properties.Resources.clear_clipboard_20;
+            this.clearClipboardToolStripMenuItem.Name = "clearClipboardToolStripMenuItem";
+            this.clearClipboardToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.clearClipboardToolStripMenuItem.Text = "Clear clipboard";
+            this.clearClipboardToolStripMenuItem.Click += new System.EventHandler(this.clearClipboardToolStripMenuItem_Click);
+            // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
@@ -794,6 +796,8 @@
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshToolStripMenuItem,
+            this.toolStripSeparator3,
             this.hideMinimizedToolStripMenuItem,
             this.topmostWindowToolStripMenuItem,
             this.showHwndToolStripMenuItem,
@@ -994,9 +998,12 @@
             // btnRefreshWindowsList
             // 
             this.btnRefreshWindowsList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefreshWindowsList.AutoSize = true;
+            this.btnRefreshWindowsList.Image = ((System.Drawing.Image)(resources.GetObject("btnRefreshWindowsList.Image")));
+            this.btnRefreshWindowsList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRefreshWindowsList.Location = new System.Drawing.Point(469, 3);
             this.btnRefreshWindowsList.Name = "btnRefreshWindowsList";
-            this.btnRefreshWindowsList.Size = new System.Drawing.Size(88, 23);
+            this.btnRefreshWindowsList.Size = new System.Drawing.Size(88, 24);
             this.btnRefreshWindowsList.TabIndex = 2;
             this.btnRefreshWindowsList.Text = "Refresh";
             this.btnRefreshWindowsList.UseVisualStyleBackColor = true;
@@ -1670,6 +1677,18 @@
             this.columnHeader1.Text = "";
             this.columnHeader1.Width = 600;
             // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(201, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1868,5 +1887,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem hideFromTheTaskbarToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
