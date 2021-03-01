@@ -1356,7 +1356,7 @@
             this.viewSystemClipboardToolStripMenuItem1});
             this.clearClipboarFormatToolStripMenuItem1.Name = "clearClipboarFormatToolStripMenuItem1";
             this.clearClipboarFormatToolStripMenuItem1.Size = new System.Drawing.Size(226, 22);
-            this.clearClipboarFormatToolStripMenuItem1.Text = "Clear clipboard text format▾";
+            this.clearClipboarFormatToolStripMenuItem1.Text = "Clear clipboard text format ✓";
             this.clearClipboarFormatToolStripMenuItem1.Click += new System.EventHandler(this.clearClipboardTextFormatToolStripMenuItem1_Click);
             // 
             // clipboardTextToWidthToolStripMenuItem1
