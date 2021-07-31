@@ -83,6 +83,7 @@ namespace WindowsTools
 
         private List<String> m_ExceptDisplayWindows;
         private bool m_ShowExceptedWindows = false;
+        private System.Timers.Timer m_ReminderTimer = null;
 
         #endregion
 
@@ -176,7 +177,15 @@ namespace WindowsTools
 
             if (Properties.Settings.Default.AutoTrackReminder)
             {
-                this.AutoTrackReminder();
+                try
+                {
+                    this.ToggleTrackReminder(true);
+                    trackReminderAndPopupToolStripMenuItem.Checked = true;
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
             }
 
             //
@@ -750,63 +759,16 @@ namespace WindowsTools
 
         private void trackReminderAndPopupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!CheckTargetWindow())
+            if (m_ReminderTimer == null)
             {
-                return;
+                ToggleTrackReminder(true);
+                trackReminderAndPopupToolStripMenuItem.Checked = true;
             }
-
-            var trackingInterval = 5000;
-
-            var trackTitlesStr = ConfigurationManager.AppSettings.Get("TrackReminderWindows");
-            var trackTitlesSeparatorStr = ConfigurationManager.AppSettings.Get("TrackReminderWindowsSeparator");
-            var trackingTitles = trackTitlesStr.Split(new string[] { trackTitlesSeparatorStr },
-                    StringSplitOptions.RemoveEmptyEntries);
-
-            int selected = this.lstWindowsList.SelectedIndices[0];
-            var process = Process.GetProcessById(m_ListedWindows[selected].ProcessId);
-
-            var startLogged = false;
-            var exitLogged = false;
-
-            var timer = new System.Timers.Timer(trackingInterval);
-            timer.AutoReset = true;
-            timer.Enabled = true;
-            timer.Elapsed += (o, ee) => {
-                if (!startLogged)
-                {
-                    logger.Log(LogLevel.Info, "Tracking reminder started.");
-                    startLogged = true;
-                }
-
-                if (process.HasExited && !exitLogged)
-                {
-                    timer.Close();
-                    logger.Log(LogLevel.Info, "Tracking reminder stopped.");
-                    exitLogged = true;
-                    return;
-                }
-
-                foreach (ProcessThread procThread in process.Threads)
-                {
-                    User32Windows.EnumThreadWindows((IntPtr)procThread.Id, (hwnd, param) => {
-                        Tuple<bool, string> isVisibleAndHasTitle = User32Windows.WindowVisibilityAndTitle(hwnd);
-                        var visible = isVisibleAndHasTitle.Item1;
-                        var title = isVisibleAndHasTitle.Item2;
-                        if (visible)
-                        {
-                            foreach (var t in trackingTitles)
-                            {
-                                if (title.Contains(t))
-                                {
-                                    User32Windows.SetWindowPos(hwnd, User32Windows.HWND_TOPMOST, 0, 0, 0, 0,
-                                        User32Windows.SWP_SHOWWINDOW | User32Windows.SWP_NOSIZE | User32Windows.SWP_NOMOVE);
-                                }
-                            }
-                        }
-                        return true;
-                    }, IntPtr.Zero);
-                }
-            };
+            else
+            {
+                ToggleTrackReminder(false);
+                trackReminderAndPopupToolStripMenuItem.Checked = false;
+            }
         }
 
         private void trackWindowKeyboardLayoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2677,13 +2639,25 @@ namespace WindowsTools
             }
         }
 
-        private void AutoTrackReminder()
+        private void ToggleTrackReminder(bool OnOff)
         {
+            if (!OnOff)
+            {
+                if (m_ReminderTimer != null)
+                {
+                    m_ReminderTimer.Stop();
+                    m_ReminderTimer = null;
+                }
+
+                return;
+            }
+
             var interval = Properties.Settings.Default.AutoTrackReminderIntervalSeconds * 1000;
 
-            var timer = new System.Timers.Timer(interval);
-            timer.AutoReset = true;
-            timer.Enabled = true;
+            m_ReminderTimer = new System.Timers.Timer(interval);
+
+            m_ReminderTimer.AutoReset = true;
+            m_ReminderTimer.Enabled = true;
 
             ElapsedEventHandler tracker = (o, ee) => {
                 var runningWindows = GetWindowList(true, true);
@@ -2716,7 +2690,7 @@ namespace WindowsTools
 
             tracker(this, null);
 
-            timer.Elapsed += tracker;
+            m_ReminderTimer.Elapsed += tracker;
         }
 
         private void SetTopmost(bool topmost)

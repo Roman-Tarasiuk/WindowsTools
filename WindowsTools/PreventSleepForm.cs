@@ -52,7 +52,7 @@ namespace WindowsTools
 
         private void btnStartStop_Click(object sender, EventArgs e)
         {
-            if (m_TheTask?.Status == TaskStatus.Running)
+            if (m_TheTask.Status != null && m_TheTask.Status == TaskStatus.Running)
             {
                 ts.Cancel();
                 btnStartStop.Text = "Start";
