@@ -67,7 +67,7 @@ namespace User32Helper
 
     public class User32Windows
     {
-        public delegate bool EnumDelegate(IntPtr hWnd, int lParam);
+        public delegate bool Win32Callback(IntPtr hWnd, IntPtr lParam);
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -87,16 +87,19 @@ namespace User32Helper
 
         [DllImport("user32.dll", EntryPoint = "EnumDesktopWindows",
             ExactSpelling = false, CharSet = CharSet.Auto, SetLastError = true)]
-        public static extern bool EnumDesktopWindows(IntPtr hDesktop, EnumDelegate lpEnumCallbackFunction,
+        public static extern bool EnumDesktopWindows(IntPtr hDesktop, Win32Callback lpEnumCallbackFunction,
             IntPtr lParam);
 
         [DllImport("user32.dll")]
-        public static extern bool EnumThreadWindows(IntPtr threadId, EnumDelegate lpEnumCallbackFunction,
+        public static extern bool EnumThreadWindows(IntPtr threadId, Win32Callback lpEnumCallbackFunction,
             IntPtr lParam);
 
         [DllImport("user32.dll")]
-        public static extern bool EnumChildWindows(IntPtr hwnd, EnumDelegate lpEnumCallbackFunction,
+        public static extern bool EnumChildWindows(IntPtr hwnd, Win32Callback lpEnumCallbackFunction,
             IntPtr lParam);
+        
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        static public extern IntPtr GetClassName(IntPtr hWnd, System.Text.StringBuilder lpClassName, int nMaxCount);
 
         [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int uMsg, int wParam, int lParam);
@@ -236,7 +239,7 @@ namespace User32Helper
         {
             var collection = new List<DesktopWindow>();
 
-            EnumDelegate AcquireMatchingWindows = delegate (IntPtr hWnd, int lParam)
+            Win32Callback AcquireMatchingWindows = delegate (IntPtr hWnd, IntPtr lParam)
             {
                 Tuple<bool, string> isVisibleAndHasTitle = WindowVisibilityAndTitle(hWnd);
 
@@ -278,16 +281,56 @@ namespace User32Helper
             return collection;
         }
 
-        public static List<IntPtr> GetChildWindows(IntPtr hwnd)
+        private static bool EnumWindow(IntPtr handle, IntPtr pointer)
         {
-            var result = new List<IntPtr>();
+            GCHandle gch = GCHandle.FromIntPtr(pointer);
+            List<IntPtr> list = gch.Target as List<IntPtr>;
+            if (list == null)
+                throw new InvalidCastException("GCHandle Target could not be cast as List<IntPtr>");
+            list.Add(handle);
+            return true;
+        }
 
-            EnumChildWindows(hwnd, (h, p) => {
-                result.Add(h);
-                return true;
-            }, IntPtr.Zero);
-
+        public static List<IntPtr> GetChildWindows(IntPtr parent)
+        {
+            List<IntPtr> result = new List<IntPtr>();
+            GCHandle listHandle = GCHandle.Alloc(result);
+            try
+            {
+                Win32Callback childProc = new Win32Callback(EnumWindow);
+                EnumChildWindows(parent, childProc, GCHandle.ToIntPtr(listHandle));
+            }
+            finally
+            {
+                if (listHandle.IsAllocated)
+                    listHandle.Free();
+            }
             return result;
+        }
+
+        public static string GetWinClass(IntPtr hwnd)
+        {
+            if (hwnd == IntPtr.Zero)
+                return null;
+            StringBuilder classname = new StringBuilder(100);
+            IntPtr result = GetClassName(hwnd, classname, classname.Capacity);
+            if (result != IntPtr.Zero)
+                return classname.ToString();
+            return null;
+        }
+
+        public static IEnumerable<IntPtr> EnumAllWindows(IntPtr hwnd, string childClassName)
+        {
+            List<IntPtr> children = GetChildWindows(hwnd);
+            if (children == null)
+                yield break;
+            foreach (IntPtr child in children)
+            {
+                if (GetWinClass(child) == childClassName)
+                    yield return child;
+                foreach (var childchild in EnumAllWindows(child, childClassName))
+                    yield return childchild;
+            }
         }
 
         public static Icon GetIcon(IntPtr hWnd)
@@ -312,7 +355,7 @@ namespace User32Helper
         {
             DesktopWindow result = null;
 
-            EnumDelegate AcquireMatchingWindows = delegate (IntPtr hWnd, int lParam)
+            Win32Callback AcquireMatchingWindows = delegate (IntPtr hWnd, IntPtr lParam)
             {
                 Tuple<bool, string> isVisibleAndHasTitle = WindowVisibilityAndTitle(hWnd);
 

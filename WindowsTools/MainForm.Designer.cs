@@ -100,6 +100,7 @@
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.reloadSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.windowExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -264,7 +265,8 @@
             this.clearClipboardToolStripMenuItem,
             this.toolStripSeparator7,
             this.reloadSettingsToolStripMenuItem,
-            this.optionsToolStripMenuItem});
+            this.optionsToolStripMenuItem,
+            this.windowExplorerToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.ShowShortcutKeys = false;
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
@@ -792,6 +794,14 @@
             this.optionsToolStripMenuItem.ShowShortcutKeys = false;
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.optionsToolStripMenuItem.Text = "&Options...";
+            //
+            // windowExplorerToolStripMenuItem
+            //
+            this.windowExplorerToolStripMenuItem.Name = "windowExplorerToolStripMenuItem";
+            this.windowExplorerToolStripMenuItem.ShowShortcutKeys = false;
+            this.windowExplorerToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.windowExplorerToolStripMenuItem.Text = "Window explorer";
+            this.windowExplorerToolStripMenuItem.Click += new System.EventHandler(this.windowExplorerToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -1724,6 +1734,7 @@
         private System.Windows.Forms.ToolStripMenuItem setILDASMFontsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reloadSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem windowExplorerToolStripMenuItem;
         private System.Windows.Forms.Button btnRefreshWindowsList;
         private System.Windows.Forms.Button btnToggleButtons;
         private System.Windows.Forms.Button btnToggleMenu;

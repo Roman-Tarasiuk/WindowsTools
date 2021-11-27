@@ -1188,6 +1188,32 @@ namespace WindowsTools
             OnSettingsReloaded();
         }
 
+        private void windowExplorerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int hwndTmp;
+            if (!int.TryParse(Clipboard.GetText(), out hwndTmp))
+            {
+                Clipboard.SetText("No hwnd in the clipboard.");
+                return;
+            }
+
+            var hwnd = (IntPtr)hwndTmp;
+            var listOfChild = User32Windows.GetChildWindows(hwnd);
+            if (listOfChild.Count() != 0)
+            {
+                StringBuilder result = new StringBuilder();
+                foreach(var w in listOfChild)
+                {
+                    result.AppendLine(w + " : " + User32Windows.GetWinClass(w) + " : " + User32Windows.GetWindowText(w, 255));
+                }
+                Clipboard.SetText(result.ToString());
+            }
+            else
+            {
+                Clipboard.SetText("Not found.");
+            }
+        }
+
         private void clockToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Clock();
@@ -1516,7 +1542,7 @@ namespace WindowsTools
                 SetEnabledSafe(btnMoveUp,             false);
                 SetEnabledSafe(btnOrder,              false);
                 SetEnabledSafe(btnSendCustomCommands, false);
-                SetEnabledSafe(btnUnhide,         false);
+                SetEnabledSafe(btnUnhide,             false);
 
                 //
 
@@ -1546,7 +1572,7 @@ namespace WindowsTools
                 SetEnabledSafe(btnMoveUp,    initialState1);
                 SetEnabledSafe(btnOrder,     initialState2);
                 SetEnabledSafe(btnSendCustomCommands, true);
-                SetEnabledSafe(btnUnhide,         true);
+                SetEnabledSafe(btnUnhide,             true);
 
                 //
 
