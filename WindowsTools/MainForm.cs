@@ -1274,6 +1274,11 @@ namespace WindowsTools
             }
         }
 
+        private void base64ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Base64Form().Show();
+        }
+
         // System tray context menu | Miscellaneous
 
         private void decodeClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -1400,6 +1405,11 @@ namespace WindowsTools
             {
                 Clipboard.SetText(text);
             }
+        }
+
+        private void base64ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new Base64Form().Show();
         }
 
         // Menu items other than Miscellaneous set above these last 2 groups.

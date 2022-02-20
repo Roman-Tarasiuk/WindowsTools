@@ -52,7 +52,9 @@
     <Compile Include="EnumAnchors.cs" />
     <Compile Include="EnumSwitch.cs" />
     <Compile Include="HookParams.cs" />
-    <Compile Include="myGroupBox.cs" />
+    <Compile Include="myGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PasswordInfo.cs" />
     <Compile Include="MovingPanelEventArgs.cs" />
     <Compile Include="KeyboardLayout.cs" />
