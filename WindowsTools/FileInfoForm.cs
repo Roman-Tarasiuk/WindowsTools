@@ -126,7 +126,7 @@ namespace WindowsTools
                             writer.Write(info);
                         }
                     }
-                    else // Textbox.
+                    else // Textbox...
                     {
                         this.txtInfo.Text = info;
                     }
