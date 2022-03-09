@@ -137,6 +137,12 @@
     <Compile Include="DownloaderForm.Designer.cs">
       <DependentUpon>DownloaderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FileInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileInfoForm.Designer.cs">
+      <DependentUpon>FileInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyApplicationContext.cs" />
     <Compile Include="MyScreenSaverHooker.cs" />
     <Compile Include="NotesForm.cs">
@@ -315,6 +321,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DownloaderForm.resx">
       <DependentUpon>DownloaderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileInfoForm.resx">
+      <DependentUpon>FileInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LocationAndSizeForm.resx">
       <DependentUpon>LocationAndSizeForm.cs</DependentUpon>

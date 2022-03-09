@@ -1279,6 +1279,11 @@ namespace WindowsTools
             new Base64Form().Show();
         }
 
+        private void fileInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FileInfoForm().Show();
+        }
+
         // System tray context menu | Miscellaneous
 
         private void decodeClipboardToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -1410,6 +1415,11 @@ namespace WindowsTools
         private void base64ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             new Base64Form().Show();
+        }
+
+        private void fileInfoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new FileInfoForm().Show();
         }
 
         // Menu items other than Miscellaneous set above these last 2 groups.

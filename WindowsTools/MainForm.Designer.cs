@@ -97,6 +97,7 @@
             this.notesMinimizeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notesRestoreAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.base64ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.reloadSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -183,6 +184,8 @@
             this.notesToggleAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.notesMinimizeAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.notesRestoreAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.base64ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileInfoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
@@ -205,7 +208,6 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.lstWindowsList = new WindowsTools.ListViewNF();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.base64ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -559,7 +561,8 @@
             this.cropImagesToolStripMenuItem,
             this.compareStringsToolStripMenuItem,
             this.notesToolStripMenuItem,
-            this.base64ToolStripMenuItem});
+            this.base64ToolStripMenuItem,
+            this.fileInfoToolStripMenuItem});
             this.miscellaneousToolStripMenuItem1.Image = global::WindowsTools.Properties.Resources.miscellaneous_icon1;
             this.miscellaneousToolStripMenuItem1.Name = "miscellaneousToolStripMenuItem1";
             this.miscellaneousToolStripMenuItem1.Size = new System.Drawing.Size(234, 22);
@@ -775,6 +778,13 @@
             this.base64ToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.base64ToolStripMenuItem.Text = "Base64...";
             this.base64ToolStripMenuItem.Click += new System.EventHandler(this.base64ToolStripMenuItem_Click);
+            // 
+            // fileInfoToolStripMenuItem
+            // 
+            this.fileInfoToolStripMenuItem.Name = "fileInfoToolStripMenuItem";
+            this.fileInfoToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.fileInfoToolStripMenuItem.Text = "File info...";
+            this.fileInfoToolStripMenuItem.Click += new System.EventHandler(this.fileInfoToolStripMenuItem_Click);
             // 
             // clearClipboardToolStripMenuItem
             // 
@@ -1278,7 +1288,8 @@
             this.cropImagesToolStripMenuItem1,
             this.compareStringsToolStripMenuItem1,
             this.notesToolStripMenuItem1,
-            this.base64ToolStripMenuItem1});
+            this.base64ToolStripMenuItem1,
+            this.fileInfoToolStripMenuItem1});
             this.miscellaneousToolStripMenuItem.Image = global::WindowsTools.Properties.Resources.miscellaneous_icon1;
             this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
             this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
@@ -1487,6 +1498,20 @@
             this.notesRestoreAllToolStripMenuItem1.Size = new System.Drawing.Size(212, 22);
             this.notesRestoreAllToolStripMenuItem1.Text = "Restore all notes";
             this.notesRestoreAllToolStripMenuItem1.Click += new System.EventHandler(this.notesRestoreAllToolStripMenuItem1_Click);
+            // 
+            // base64ToolStripMenuItem1
+            // 
+            this.base64ToolStripMenuItem1.Name = "base64ToolStripMenuItem1";
+            this.base64ToolStripMenuItem1.Size = new System.Drawing.Size(228, 22);
+            this.base64ToolStripMenuItem1.Text = "Base64...";
+            this.base64ToolStripMenuItem1.Click += new System.EventHandler(this.base64ToolStripMenuItem1_Click);
+            // 
+            // fileInfoToolStripMenuItem1
+            // 
+            this.fileInfoToolStripMenuItem1.Name = "fileInfoToolStripMenuItem1";
+            this.fileInfoToolStripMenuItem1.Size = new System.Drawing.Size(228, 22);
+            this.fileInfoToolStripMenuItem1.Text = "File info...";
+            this.fileInfoToolStripMenuItem1.Click += new System.EventHandler(this.fileInfoToolStripMenuItem1_Click);
             // 
             // toolStripSeparator4
             // 
@@ -1710,13 +1735,6 @@
             this.columnHeader1.Text = "";
             this.columnHeader1.Width = 600;
             // 
-            // base64ToolStripMenuItem1
-            // 
-            this.base64ToolStripMenuItem1.Name = "base64ToolStripMenuItem1";
-            this.base64ToolStripMenuItem1.Size = new System.Drawing.Size(228, 22);
-            this.base64ToolStripMenuItem1.Text = "Base64...";
-            this.base64ToolStripMenuItem1.Click += new System.EventHandler(this.base64ToolStripMenuItem1_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1920,5 +1938,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem base64ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem base64ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem fileInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fileInfoToolStripMenuItem1;
     }
 }

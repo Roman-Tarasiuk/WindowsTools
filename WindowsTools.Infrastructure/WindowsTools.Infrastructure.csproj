@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="AutoClosingMessageBox.cs" />
     <Compile Include="DrawingControl.cs" />
+    <Compile Include="FileInfo.cs" />
     <Compile Include="FormsExtension.cs" />
     <Compile Include="IProgramSettings.cs" />
     <Compile Include="Rect.cs" />
