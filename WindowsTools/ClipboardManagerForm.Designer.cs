@@ -53,12 +53,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.Location = new System.Drawing.Point(4, 29);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(477, 279);
+            this.richTextBox1.Size = new System.Drawing.Size(399, 113);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
@@ -69,14 +71,15 @@
             "Data"});
             this.comboBox1.Location = new System.Drawing.Point(4, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(233, 21);
+            this.comboBox1.Size = new System.Drawing.Size(171, 21);
             this.comboBox1.TabIndex = 1;
             // 
             // btnClipboardDetect
             // 
-            this.btnClipboardDetect.Location = new System.Drawing.Point(243, 3);
+            this.btnClipboardDetect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClipboardDetect.Location = new System.Drawing.Point(181, 3);
             this.btnClipboardDetect.Name = "btnClipboardDetect";
-            this.btnClipboardDetect.Size = new System.Drawing.Size(75, 23);
+            this.btnClipboardDetect.Size = new System.Drawing.Size(70, 23);
             this.btnClipboardDetect.TabIndex = 2;
             this.btnClipboardDetect.Text = "Detect";
             this.btnClipboardDetect.UseVisualStyleBackColor = true;
@@ -84,9 +87,10 @@
             // 
             // btnClipboardClear
             // 
-            this.btnClipboardClear.Location = new System.Drawing.Point(406, 4);
+            this.btnClipboardClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClipboardClear.Location = new System.Drawing.Point(333, 3);
             this.btnClipboardClear.Name = "btnClipboardClear";
-            this.btnClipboardClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClipboardClear.Size = new System.Drawing.Size(70, 23);
             this.btnClipboardClear.TabIndex = 2;
             this.btnClipboardClear.Text = "Clear";
             this.btnClipboardClear.UseVisualStyleBackColor = true;
@@ -155,9 +159,10 @@
             // 
             // btnGetFormats
             // 
-            this.btnGetFormats.Location = new System.Drawing.Point(324, 4);
+            this.btnGetFormats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGetFormats.Location = new System.Drawing.Point(257, 3);
             this.btnGetFormats.Name = "btnGetFormats";
-            this.btnGetFormats.Size = new System.Drawing.Size(75, 23);
+            this.btnGetFormats.Size = new System.Drawing.Size(70, 23);
             this.btnGetFormats.TabIndex = 3;
             this.btnGetFormats.Text = "Get formats";
             this.btnGetFormats.UseVisualStyleBackColor = true;
@@ -167,7 +172,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 311);
+            this.ClientSize = new System.Drawing.Size(406, 145);
             this.Controls.Add(this.btnGetFormats);
             this.Controls.Add(this.btnClipboardDetect);
             this.Controls.Add(this.btnClipboardClear);
