@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,14 +13,43 @@ namespace WindowsTools
 {
     public partial class ClipboardManagerForm : Form
     {
+        [DllImport("User32.dll")]
+        protected static extern int SetClipboardViewer(int hWndNewViewer);
+
+        IntPtr nextClipboardViewer;
+        const int maxClipboarChangedCount = 10;
+        int clipboarChangedCount;
+
+        Color color1 = Color.FromArgb(153, 255, 153);
+        Color color2 = Color.FromArgb(153, 204, 255);
+
+
         #region Constructors
 
         public ClipboardManagerForm()
         {
             InitializeComponent();
+
+            nextClipboardViewer = (IntPtr)SetClipboardViewer((int)this.Handle);
         }
 
         #endregion
+
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_DRAWCLIPBOARD = 0x308;
+
+            switch (m.Msg)
+            {
+                case WM_DRAWCLIPBOARD:
+                    clipboarChangedCount = maxClipboarChangedCount;
+                    timer1.Start();
+                    break;
+                default:
+                    base.WndProc(ref m);
+                    break;
+            }
+        }
 
 
         #region Event Handlers
@@ -72,6 +102,44 @@ namespace WindowsTools
             }
         }
 
+        private void btnGetFormats_Click(object sender, EventArgs e)
+        {
+            var result = new StringBuilder();
+            foreach (var format in Clipboard.GetDataObject().GetFormats())
+            {
+                result.AppendLine(format);
+            }
+            richTextBox1.Text = result.ToString();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (clipboarChangedCount-- == maxClipboarChangedCount)
+            {
+                if (this.richTextBox1.BackColor == SystemColors.Window)
+                {
+                    this.richTextBox1.BackColor = color1;
+                }
+                else if (this.richTextBox1.BackColor == color1)
+                {
+                    this.richTextBox1.BackColor = color2;
+                }
+                else if (this.richTextBox1.BackColor == color2)
+                {
+                    this.richTextBox1.BackColor = color1;
+                }
+            }
+            else if (clipboarChangedCount > 0)
+            {
+                clipboarChangedCount--;
+            }
+            else
+            {
+                StopClipboardChangeIndication();
+                this.richTextBox1.BackColor = SystemColors.Window;
+            }
+        }
+
         #endregion
 
 
@@ -79,6 +147,8 @@ namespace WindowsTools
 
         private void ShowClipboardInfo()
         {
+            StopClipboardChangeIndication();
+
             if (Clipboard.ContainsAudio())
             {
                 richTextBox1.Text = "Audio";
@@ -126,16 +196,12 @@ namespace WindowsTools
             User32Helper.User32Windows.SetForegroundWindow(this.Handle);
         }
 
-        #endregion
-
-        private void btnGetFormats_Click(object sender, EventArgs e)
+        private void StopClipboardChangeIndication()
         {
-            var result = new StringBuilder();
-            foreach (var format in Clipboard.GetDataObject().GetFormats())
-            {
-                result.AppendLine(format);
-            }
-            richTextBox1.Text = result.ToString();
+            this.timer1.Stop();
+            this.richTextBox1.BackColor = SystemColors.Window;
         }
+
+        #endregion
     }
 }

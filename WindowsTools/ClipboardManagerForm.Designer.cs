@@ -43,6 +43,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGetFormats = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.Location = new System.Drawing.Point(4, 29);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(399, 113);
+            this.richTextBox1.Size = new System.Drawing.Size(337, 109);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
@@ -71,13 +72,13 @@
             "Data"});
             this.comboBox1.Location = new System.Drawing.Point(4, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(171, 21);
+            this.comboBox1.Size = new System.Drawing.Size(109, 21);
             this.comboBox1.TabIndex = 1;
             // 
             // btnClipboardDetect
             // 
             this.btnClipboardDetect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClipboardDetect.Location = new System.Drawing.Point(181, 3);
+            this.btnClipboardDetect.Location = new System.Drawing.Point(119, 3);
             this.btnClipboardDetect.Name = "btnClipboardDetect";
             this.btnClipboardDetect.Size = new System.Drawing.Size(70, 23);
             this.btnClipboardDetect.TabIndex = 2;
@@ -88,7 +89,7 @@
             // btnClipboardClear
             // 
             this.btnClipboardClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClipboardClear.Location = new System.Drawing.Point(333, 3);
+            this.btnClipboardClear.Location = new System.Drawing.Point(271, 3);
             this.btnClipboardClear.Name = "btnClipboardClear";
             this.btnClipboardClear.Size = new System.Drawing.Size(70, 23);
             this.btnClipboardClear.TabIndex = 2;
@@ -160,7 +161,7 @@
             // btnGetFormats
             // 
             this.btnGetFormats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGetFormats.Location = new System.Drawing.Point(257, 3);
+            this.btnGetFormats.Location = new System.Drawing.Point(195, 3);
             this.btnGetFormats.Name = "btnGetFormats";
             this.btnGetFormats.Size = new System.Drawing.Size(70, 23);
             this.btnGetFormats.TabIndex = 3;
@@ -168,11 +169,16 @@
             this.btnGetFormats.UseVisualStyleBackColor = true;
             this.btnGetFormats.Click += new System.EventHandler(this.btnGetFormats_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // ClipboardManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(406, 145);
+            this.ClientSize = new System.Drawing.Size(344, 141);
             this.Controls.Add(this.btnGetFormats);
             this.Controls.Add(this.btnClipboardDetect);
             this.Controls.Add(this.btnClipboardClear);
@@ -202,5 +208,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem clearClipboarFormatToolStripMenuItem;
         private System.Windows.Forms.Button btnGetFormats;
+        private System.Windows.Forms.Timer timer1;
     }
 }
