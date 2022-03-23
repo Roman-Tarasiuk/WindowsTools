@@ -107,6 +107,30 @@ namespace WindowsTools
             ToggleAdvancedSettings(!pnlAdvancedSettings.Visible);
         }
 
+        private void btnBorderColor_Click_1(object sender, EventArgs e)
+        {
+            colorDialog1.Color = BorderColor;
+
+            var result = colorDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                BorderColor = colorDialog1.Color;
+                lblBorder.BackColor = BorderColor;
+            }
+        }
+
+        private void btnBorderHoverColor_Click_1(object sender, EventArgs e)
+        {
+            colorDialog1.Color = BorderHoverColor;
+
+            var result = colorDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                BorderHoverColor = colorDialog1.Color;
+                lblBorderHover.BackColor = BorderHoverColor;
+            }
+        }
+
         #endregion
 
 

@@ -247,6 +247,7 @@
             this.btnBorderHoverColor.TabIndex = 55;
             this.btnBorderHoverColor.Text = "Border hover,,,";
             this.btnBorderHoverColor.UseVisualStyleBackColor = true;
+            this.btnBorderHoverColor.Click += new System.EventHandler(this.btnBorderHoverColor_Click_1);
             // 
             // lblBorderHover
             // 
@@ -269,6 +270,7 @@
             this.btnBorderColor.TabIndex = 53;
             this.btnBorderColor.Text = "Border,,,";
             this.btnBorderColor.UseVisualStyleBackColor = true;
+            this.btnBorderColor.Click += new System.EventHandler(this.btnBorderColor_Click_1);
             // 
             // lblBorder
             // 

@@ -44,6 +44,9 @@
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGetFormats = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnColor1 = new System.Windows.Forms.Button();
+            this.btnColor2 = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,9 +81,9 @@
             // btnClipboardDetect
             // 
             this.btnClipboardDetect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClipboardDetect.Location = new System.Drawing.Point(119, 3);
+            this.btnClipboardDetect.Location = new System.Drawing.Point(133, 3);
             this.btnClipboardDetect.Name = "btnClipboardDetect";
-            this.btnClipboardDetect.Size = new System.Drawing.Size(70, 23);
+            this.btnClipboardDetect.Size = new System.Drawing.Size(60, 23);
             this.btnClipboardDetect.TabIndex = 2;
             this.btnClipboardDetect.Text = "Detect";
             this.btnClipboardDetect.UseVisualStyleBackColor = true;
@@ -161,7 +164,7 @@
             // btnGetFormats
             // 
             this.btnGetFormats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGetFormats.Location = new System.Drawing.Point(195, 3);
+            this.btnGetFormats.Location = new System.Drawing.Point(197, 3);
             this.btnGetFormats.Name = "btnGetFormats";
             this.btnGetFormats.Size = new System.Drawing.Size(70, 23);
             this.btnGetFormats.TabIndex = 3;
@@ -174,11 +177,37 @@
             this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnColor1
+            // 
+            this.btnColor1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnColor1.Location = new System.Drawing.Point(119, 4);
+            this.btnColor1.Margin = new System.Windows.Forms.Padding(0);
+            this.btnColor1.Name = "btnColor1";
+            this.btnColor1.Size = new System.Drawing.Size(10, 10);
+            this.btnColor1.TabIndex = 4;
+            this.btnColor1.UseVisualStyleBackColor = false;
+            this.btnColor1.Click += new System.EventHandler(this.btnColor1_Click);
+            // 
+            // btnColor2
+            // 
+            this.btnColor2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnColor2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnColor2.Location = new System.Drawing.Point(119, 15);
+            this.btnColor2.Margin = new System.Windows.Forms.Padding(0);
+            this.btnColor2.Name = "btnColor2";
+            this.btnColor2.Size = new System.Drawing.Size(10, 10);
+            this.btnColor2.TabIndex = 5;
+            this.btnColor2.UseVisualStyleBackColor = false;
+            this.btnColor2.Click += new System.EventHandler(this.btnColor2_Click);
+            // 
             // ClipboardManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(344, 141);
+            this.Controls.Add(this.btnColor2);
+            this.Controls.Add(this.btnColor1);
             this.Controls.Add(this.btnGetFormats);
             this.Controls.Add(this.btnClipboardDetect);
             this.Controls.Add(this.btnClipboardClear);
@@ -209,5 +238,8 @@
         private System.Windows.Forms.ToolStripMenuItem clearClipboarFormatToolStripMenuItem;
         private System.Windows.Forms.Button btnGetFormats;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnColor1;
+        private System.Windows.Forms.Button btnColor2;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }

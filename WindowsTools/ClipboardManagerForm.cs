@@ -31,6 +31,9 @@ namespace WindowsTools
             InitializeComponent();
 
             nextClipboardViewer = (IntPtr)SetClipboardViewer((int)this.Handle);
+
+            btnColor1.BackColor = color1;
+            btnColor2.BackColor = color2;
         }
 
         #endregion
@@ -203,5 +206,29 @@ namespace WindowsTools
         }
 
         #endregion
+
+        private void btnColor1_Click(object sender, EventArgs e)
+        {
+            colorDialog1.Color = color1;
+
+            var result = colorDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                color1 = colorDialog1.Color;
+                btnColor1.BackColor = color1;
+            }
+        }
+
+        private void btnColor2_Click(object sender, EventArgs e)
+        {
+            colorDialog1.Color = color2;
+
+            var result = colorDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                color2 = colorDialog1.Color;
+                btnColor2.BackColor = color2;
+            }
+        }
     }
 }
