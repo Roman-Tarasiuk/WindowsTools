@@ -17,7 +17,9 @@ namespace FileInfoEx
         SHA512 = 128,
         CreationTime = 256,
         LastAccessTime = 512,
-        LastWriteTime = 1024
+        LastWriteTime = 1024,
+        FullName = 2048,
+        OutputAttributeName = 4096
     }
 
     public class FileInfoEx
@@ -26,10 +28,19 @@ namespace FileInfoEx
         {
             filePath = filePath.Replace("\"", String.Empty);
 
-            StringBuilder result = new StringBuilder(filePath);
+            StringBuilder result = new StringBuilder();
 
             try
             {
+                if ((fi & FileInfoDetails.FullName) != 0)
+                {
+                    result.Append(filePath);
+                }
+                else
+                {
+                    result.Append(new FileInfo(filePath).Name);
+                }
+
                 FileInfo fileInfo =
                     (fi & FileInfoDetails.Size) != 0 ||
                     (fi & FileInfoDetails.CreationTime) != 0 ||
@@ -40,7 +51,7 @@ namespace FileInfoEx
 
                 if ((fi & FileInfoDetails.Size) != 0)
                 {
-                    result.Append("\tSize:" + fileInfo.Length.ToString());
+                    result.Append(((fi & FileInfoDetails.OutputAttributeName) != 0 ? "\tSize:" : "\t") + fileInfo.Length.ToString());
                 }
 
                 using (var stream = File.OpenRead(filePath))
@@ -52,7 +63,7 @@ namespace FileInfoEx
 
                         using (var md5 = MD5.Create())
                         {
-                            result.Append("\tMD5:" + BitConverter.ToString(md5.ComputeHash(stream)).Replace("-", String.Empty));
+                            result.Append(((fi & FileInfoDetails.OutputAttributeName) != 0 ? "\tMD5:" : "\t") + BitConverter.ToString(md5.ComputeHash(stream)).Replace("-", String.Empty));
                         }
                     }
 
@@ -63,24 +74,24 @@ namespace FileInfoEx
 
                         using (var sha256 = SHA256.Create())
                         {
-                            result.Append("\tSHA256:" + BitConverter.ToString(sha256.ComputeHash(stream)).Replace("-", String.Empty));
+                            result.Append(((fi & FileInfoDetails.OutputAttributeName) != 0 ? "\tSHA256:" : "\t") + BitConverter.ToString(sha256.ComputeHash(stream)).Replace("-", String.Empty));
                         }
                     }
                 }
 
                 if ((fi & FileInfoDetails.CreationTime) != 0)
                 {
-                    result.Append("\tCreation:" + fileInfo.CreationTime.ToString());
+                    result.Append(((fi & FileInfoDetails.OutputAttributeName) != 0 ? "\tCreation:" : "\t") + fileInfo.CreationTime.ToString());
                 }
 
                 if ((fi & FileInfoDetails.LastAccessTime) != 0)
                 {
-                    result.Append("\tLastAccess:" + fileInfo.LastAccessTime.ToString());
+                    result.Append(((fi & FileInfoDetails.OutputAttributeName) != 0 ? "\tLastAccess:" : "\t") + fileInfo.LastAccessTime.ToString());
                 }
 
                 if ((fi & FileInfoDetails.LastWriteTime) != 0)
                 {
-                    result.Append("\tLastModification:" + fileInfo.LastWriteTime.ToString());
+                    result.Append(((fi & FileInfoDetails.OutputAttributeName) != 0 ? "\tLastModification:" : "\t") + fileInfo.LastWriteTime.ToString());
                 }
 
             }
