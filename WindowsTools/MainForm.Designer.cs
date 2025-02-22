@@ -206,8 +206,11 @@
             this.btnMoveDown = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.txtFilter = new System.Windows.Forms.TextBox();
+            this.lblFilter = new System.Windows.Forms.Label();
             this.lstWindowsList = new WindowsTools.ListViewNF();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnShowFilter = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStripWindowsList.SuspendLayout();
             this.contextMenuStripSysTray1.SuspendLayout();
@@ -1112,7 +1115,7 @@
             this.toolStripSeparator4,
             this.exitToolStripMenuItem1});
             this.contextMenuStripSysTray1.Name = "contextMenuStrip1";
-            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(231, 226);
+            this.contextMenuStripSysTray1.Size = new System.Drawing.Size(231, 204);
             this.contextMenuStripSysTray1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSysTray1_Opening);
             this.contextMenuStripSysTray1.Opened += new System.EventHandler(this.contextMenuStripSysTray_Opened);
             this.contextMenuStripSysTray1.MouseLeave += new System.EventHandler(this.contextMenuStripSysTray_MouseLeave);
@@ -1686,6 +1689,9 @@
             this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.mainPanel.Controls.Add(this.btnShowFilter);
+            this.mainPanel.Controls.Add(this.txtFilter);
+            this.mainPanel.Controls.Add(this.lblFilter);
             this.mainPanel.Controls.Add(this.btnOrder);
             this.mainPanel.Controls.Add(this.btnMoveDown);
             this.mainPanel.Controls.Add(this.btnMoveUp);
@@ -1707,6 +1713,27 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(560, 321);
             this.mainPanel.TabIndex = 2;
+            // 
+            // txtFilter
+            // 
+            this.txtFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtFilter.Location = new System.Drawing.Point(168, 4);
+            this.txtFilter.Name = "txtFilter";
+            this.txtFilter.Size = new System.Drawing.Size(231, 21);
+            this.txtFilter.TabIndex = 17;
+            this.txtFilter.Visible = false;
+            // 
+            // lblFilter
+            // 
+            this.lblFilter.AutoSize = true;
+            this.lblFilter.Location = new System.Drawing.Point(133, 8);
+            this.lblFilter.Name = "lblFilter";
+            this.lblFilter.Size = new System.Drawing.Size(32, 13);
+            this.lblFilter.TabIndex = 16;
+            this.lblFilter.Text = "Filter:";
+            this.lblFilter.Visible = false;
             // 
             // lstWindowsList
             // 
@@ -1734,6 +1761,17 @@
             // 
             this.columnHeader1.Text = "";
             this.columnHeader1.Width = 600;
+            // 
+            // btnShowFilter
+            // 
+            this.btnShowFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShowFilter.Location = new System.Drawing.Point(405, 3);
+            this.btnShowFilter.Name = "btnShowFilter";
+            this.btnShowFilter.Size = new System.Drawing.Size(20, 23);
+            this.btnShowFilter.TabIndex = 14;
+            this.btnShowFilter.Text = "🝖";
+            this.btnShowFilter.UseVisualStyleBackColor = true;
+            this.btnShowFilter.Click += new System.EventHandler(this.btnShowFilter_Click);
             // 
             // MainForm
             // 
@@ -1940,5 +1978,8 @@
         private System.Windows.Forms.ToolStripMenuItem base64ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem fileInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fileInfoToolStripMenuItem1;
+        private System.Windows.Forms.TextBox txtFilter;
+        private System.Windows.Forms.Label lblFilter;
+        private System.Windows.Forms.Button btnShowFilter;
     }
 }

@@ -242,6 +242,12 @@ namespace WindowsTools
             this.RefreshWindowsList();
         }
 
+        private void btnShowFilter_Click(object sender, EventArgs e)
+        {
+            lblFilter.Visible = !lblFilter.Visible;
+            txtFilter.Visible = !txtFilter.Visible;
+        }
+
         private void btnRefreshWindowsList_Click(object sender, EventArgs e)
         {
             this.RefreshWindowsList();
@@ -1533,6 +1539,50 @@ namespace WindowsTools
             }
         }
 
+        private List<DesktopWindow> Filter(List<DesktopWindow> windows, string filter)
+        {
+            if (filter == String.Empty)
+            {
+                return windows;
+            }
+
+            var result = new List<DesktopWindow>();
+
+            var splitted = filter.Replace(" ", String.Empty).Split(';');
+            
+            var hwnds = new List<IntPtr>();
+            var pids = new List<int>();
+            foreach (var p in splitted)
+            {
+                if (p.StartsWith("hwnd:"))
+                {
+                    var q = p.Substring(5).Split(',');
+                    foreach (var h in q)
+                    {
+                        hwnds.Add((IntPtr)int.Parse(h));
+                    }
+                }
+                else if (p.StartsWith("pid:"))
+                {
+                    var q = p.Substring(4).Split(',');
+                    foreach (var h in q)
+                    {
+                        pids.Add(int.Parse(h));
+                    }
+                }
+            }
+            
+            foreach (var w in windows)
+            {
+                if (hwnds.IndexOf(w.Handle) >= 0 || pids.IndexOf(w.ProcessId) >= 0)
+                {
+                    result.Add(w);
+                }
+            }
+
+            return result;
+        }
+
         private void RefreshWindowsList()
         {
             if (m_RefreshStarted)
@@ -1567,6 +1617,7 @@ namespace WindowsTools
                 //
 
                 var runningWindows = GetWindowList(visibleOnly, visibleOnly ? showMinimized : true);
+                runningWindows = Filter(runningWindows, txtFilter.Text);
 
                 bool match = WindowsMatch(runningWindows);
 
