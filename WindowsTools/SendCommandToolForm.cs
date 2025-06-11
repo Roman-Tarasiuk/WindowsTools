@@ -710,5 +710,17 @@ namespace WindowsTools
                 this.m_Activated = true;
             }
         }
+
+        private void SendCommandToolForm_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.TopMost = false;
+            }
+            else
+            {
+                this.TopMost = true;
+            }
+        }
     }
 }

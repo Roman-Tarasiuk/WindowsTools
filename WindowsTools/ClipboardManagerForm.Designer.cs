@@ -180,6 +180,7 @@
             // btnColor1
             // 
             this.btnColor1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnColor1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnColor1.Location = new System.Drawing.Point(119, 4);
             this.btnColor1.Margin = new System.Windows.Forms.Padding(0);
@@ -192,6 +193,7 @@
             // btnColor2
             // 
             this.btnColor2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnColor2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnColor2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnColor2.Location = new System.Drawing.Point(119, 15);
             this.btnColor2.Margin = new System.Windows.Forms.Padding(0);

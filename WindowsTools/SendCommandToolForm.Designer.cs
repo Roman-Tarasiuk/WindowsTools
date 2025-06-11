@@ -138,6 +138,7 @@
             this.MouseHover += new System.EventHandler(this.SendCommandToolForm_MouseHover);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SendCommandToolForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.SendCommandToolForm_MouseUp);
+            this.Resize += new System.EventHandler(this.SendCommandToolForm_Resize);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
