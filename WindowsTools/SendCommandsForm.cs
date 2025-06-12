@@ -186,7 +186,8 @@ namespace WindowsTools
 
         private void btnNewToolItem_Click(object sender, EventArgs e)
         {
-            var tool = new SendCommandToolForm(m_HostedWindowHwnd, txtCommands.Text) { Owner = this };
+            // var tool = new SendCommandToolForm(m_HostedWindowHwnd, txtCommands.Text) { Owner = this };
+            var tool = new SendCommandToolForm(m_HostedWindowHwnd, txtCommands.Text);
             tool.Location = new Point(this.Location.X + 125, this.Location.Y + 85);
 
             if (m_Tools == null)
